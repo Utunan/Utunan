@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    
+    background: url(../images/bg.jpg);
+    background-size: cover;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    float: left;
+}
+
+.homepage {
+    width: 100%;
+    text-align: left;
+    text-indent: 2em;
+}
+
+.homepage>a:hover,
+.homepage>a:link,
+.homepage>a:visited {
+    font-family: 华文行楷;
+    color: rgb(250, 70, 70);
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.wrapper {}
+
+.loginform {
+
+    width: 350px;
+    margin: 0px auto 0;
+    padding: 40px 0px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(253, 97, 97, 0.1);
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.formlogo {
+
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.formlogo>a:hover,
+.formlogo>a:link,
+.formlogo>a:visited {
+    font-family: 华文行楷;
+    color: #000;
+    text-decoration: none;
+}
+
+.inputcase {
+    width: 70%;
+    height: 40px;
+    margin: 10px auto;
+    max-width: 350px;
+    padding: 0;
+    border-radius: 5px;
+    display: block;
+    border: 1px solid LightSteelBlue;
+}
+
+.inputcase>input {
+    font-weight: 100;
+    font-size: 18px;
+    height: 40px;
+    width: 90%;
+    padding: 0 4%;
+    border: 0;
+    margin: 0 1%;
+    outline: 0;
+}
+
+.loginbtn {
+    width: 70%;
+    height: 40px;
+    margin: 10px auto;
+    max-width: 350px;
+    padding: 0;
+    border-radius: 5px;
+    display: block;
+}
+
+.loginbtn>input {
+    cursor: pointer;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    border: 0;
+    outline: 0;
+}

@@ -1,0 +1,346 @@
+body {
+    margin: 0px;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    overflow-y: scroll;
+    background-origin: content-box;
+}
+
+a {
+    text-decoration: none;
+    font-size: 20px;
+    line-height: auto;
+}
+
+a:link,
+a:hover,
+a:visited {
+    color: #000;
+}
+
+.header {
+    background: #6610f2;
+    position: relative;
+    top: 0;
+    width: 100%;
+    min-width: 300px;
+    height: 50px;
+}
+
+.logo {
+    border-radius: 200px;
+    margin-left: 2px;
+    cursor: pointer;
+    position: relative;
+    min-width: 50px;
+    text-align: center;
+    height: 40px;
+    padding: 0 10px;
+    margin-top: 5px;
+    margin-left: 25px;
+    float: left;
+    line-height: 40px;
+    text-align: center;
+    margin-left: 5px auto;
+    background: #fff;
+}
+
+.logo a {
+    float: left;
+    width: 100%;
+    color: #000;
+    font-size: 18px;
+    height: 100%;
+}
+
+.banner {
+    font-family: 华文行楷;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+}
+
+.navbutton {
+    border-radius: 5px;
+    cursor: pointer;
+    float: left;
+    margin-left: 30px;
+    display: none;
+    margin-top: 5px;
+    height: 40px;
+    width: 40px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #fff;
+}
+
+.navbutton span {
+    float: left;
+    height: 2px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: #fff;
+}
+
+.login {
+    float: right;
+    width: auto;
+    padding-right: 25px;
+    height: 50px;
+    text-align: center;
+}
+
+.login a {
+    border: 1.5px solid #fff;
+    border-radius: 50px;
+    line-height: 15px;
+    margin-top: 10px;
+    padding: 6px 10px;
+    height: 15px;
+    float: left;
+}
+
+.login a {
+    font-weight: bold;
+    font-size: 12px;
+    color: #fff;
+}
+
+.signin {
+    margin-right: 10px;
+    border: 1.5px solid rgb(255, 255, 255);
+}
+
+.register {
+    padding: 6px 10px;
+    border: 1.5px solid rgb(255, 255, 255);
+    margin-top: 10px;
+}
+
+.loginafter {
+    float: right;
+    width: auto;
+    padding-right: 0px;
+    height: 50px;
+    text-align: center;
+}
+
+.userinfo>li{
+    display: block;
+    padding-top:8px;
+    padding-bottom:8px;
+}
+
+.userinfo a:link,
+.userinfo a:hover,
+.userinfo a:visited {
+    font-size: 17px;
+    color:#fff;
+}
+
+.write {
+    border-radius: 50px;
+    line-height: 15px;
+    float: left;
+    font-weight: bold;
+    font-size: 12px;
+    color: #fff;
+}
+
+.write:hover,
+.write:link,
+.write:visited {
+    color: #fff;
+}
+
+.user {
+    position: relative;
+    padding-top: 5px;
+    float: left;
+    margin-top: 0;
+    max-width: 100px;
+}
+
+.user>img {
+    border-radius: 50px;
+    margin: 0 20px;
+    height: 40px;
+    width: 40px;
+}
+
+.userbox {
+    z-index: 100;
+    float: right;
+}
+
+.write {
+    padding: 6px 10px;
+    border: 1.5px solid #fff;
+    margin-top: 10px;
+}
+
+.userinfo{
+    z-index: 100;
+    background: #007bff;
+    margin-top:50px;
+}
+
+.userinfo>li:hover{
+    z-index: 100;
+    background: #6610f2;
+}
+
+.searchform {
+    margin-top: 2px;
+    width: auto;
+    float: right;
+}
+
+.searchform img {
+    height: 20px;
+    width: 20px;
+    opacity: 0.5;
+}
+
+.searchform form {
+    height: 50px;
+    line-height: 50px;
+}
+
+.searchform a {
+    position: relative;
+    bottom: 0px;
+    right: 45px;
+}
+
+.searchform input:hover {
+    background: #fff;
+}
+
+.searchtext {
+    margin-top: 8px;
+    position: relative;
+    right: 0px;
+    bottom: 4px;
+    outline: none;
+    padding: 0 40px 0 30px;
+    color: grey;
+    width: 120px;
+    height: 29px;
+    font-size: 14px;
+    border: 1px solid #eee;
+    border-radius: 40px;
+}
+
+.searchbutton {
+    width: 60px;
+    float: left;
+}
+
+.bnav {
+    z-index: 100;
+    padding-left: 100px;
+    margin-left: auto;
+    height: 50px;
+    min-height: 0px;
+    max-width: 900px;
+    margin-right: auto;
+}
+
+.bnav>li {
+    cursor: pointer;
+    line-height: 50px;
+    text-align: center;
+    height: 50px;
+    width: auto;
+    padding-left: 40px;
+    display: table-cell;
+}
+
+.bnav>li>a {
+    height: 50px;
+    color: #fff;
+    font-size: 18px;
+    width: auto;
+    float: left;
+}
+
+@media (max-width:1199.88px) {
+    .bnav {
+        max-width: 1200px;
+        padding-left: 0px;
+        position: absolute;
+        top: 51px;
+        width: 100%;
+        height: 0px;
+        display: none;
+        overflow: hidden;
+        background-color: #007bff;
+    }
+
+    .bnav li {
+        position: relative;
+        display: none;
+        padding: 0px;
+        border-bottom: 1px solid #c4cbcf;
+    }
+
+    .bnav li a {
+        width: 100%;
+    }
+
+    .bnav li a:hover {
+        background: #6610f2;
+    }
+
+    .navbutton {
+        display: block;
+    }
+}
+
+
+@media (max-width:759px) {
+    .logo {
+        display: none;
+    }
+
+    .searchform {
+        display: none;
+    }
+}
+
+@media(min-width:3039px) {
+    footer {
+        position: absolute;
+        bottom: -1000px;
+    }
+}
+
+footer {
+    border-radius: 5px 5px 0 0px;
+    clear: both;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+}
+
+footer ul {
+    margin: 0px;
+    padding: 0;
+    min-width: 300px;
+}
+
+footer ul li {
+    font-size: 12px;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+    list-style-type: none;
+}
