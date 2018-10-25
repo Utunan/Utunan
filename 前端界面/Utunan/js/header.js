@@ -54,12 +54,3 @@ window.onresize = function () {
         } 
     }
 }
-
-var userbox =document.getElementById("userbox");
-userbox.onmouseover=function(){
-    userinfo.style.display="block";
-}
-
-userbox.onmouseout=function(){
-    userinfo.style.display="none";
-}

@@ -1,7 +1,11 @@
 body {
+    background: url(../images/headerbg.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
     margin: 0px;
     margin: 0 auto;
     background-size: 100%;
+    height:1000px;
     background-repeat: no-repeat;
     overflow-y: scroll;
     background-origin: content-box;
@@ -20,7 +24,6 @@ a:visited {
 }
 
 .header {
-    background: #6610f2;
     position: relative;
     top: 0;
     width: 100%;
@@ -106,17 +109,14 @@ a:visited {
 .login a {
     font-weight: bold;
     font-size: 12px;
-    color: #fff;
 }
 
 .signin {
     margin-right: 10px;
-    border: 1.5px solid rgb(255, 255, 255);
 }
 
 .register {
     padding: 6px 10px;
-    border: 1.5px solid rgb(255, 255, 255);
     margin-top: 10px;
 }
 
@@ -262,7 +262,6 @@ a:visited {
 
 .bnav>li>a {
     height: 50px;
-    color: #fff;
     font-size: 18px;
     width: auto;
     float: left;
@@ -285,7 +284,6 @@ a:visited {
         position: relative;
         display: none;
         padding: 0px;
-        border-bottom: 1px solid #c4cbcf;
     }
 
     .bnav li a {
