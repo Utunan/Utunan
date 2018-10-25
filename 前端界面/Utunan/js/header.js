@@ -12,19 +12,7 @@ var clicktimer = 0;
 searchtext.onmouseover=function(){
     searchtext.style.backgroundColor='#fff'
 }
-searchtext.onfocus = function () {
-    searchtext.style.backgroundColor='#fff'
-    searchtext.style.color='#000'
-    if (searchtext.value == '搜索') {
-        searchtext.value = '';
-    }
-}
 
-searchtext.onblur = function () {
-    if (searchtext.value == "") {
-        searchtext.value = '搜索'
-    }
-}
 navbutton.onclick = function () {
     bnav.style.display = 'block'
     for(var i=0;i<4;i++){
