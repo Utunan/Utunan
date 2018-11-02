@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.utunan.mapper.GirlMapper">
+    <insert id="insert">
+        insert  into  girl (name,flower,birthday) values (#{name},#{flower},#{birthday})
+    </insert>
+    <select id="queryById" resultType="Girl">
+        select * from girl where id=#{id}
+    </select>
+    <select id="queryByName" resultType="Girl">
+        select * from girl where name=#{name}
+    </select>
+</mapper>
