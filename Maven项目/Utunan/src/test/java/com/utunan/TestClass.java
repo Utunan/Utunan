@@ -46,5 +46,6 @@ public class TestClass {
         System.out.println(school);
         sqlSession.commit();
         sqlSession.close();
+
     }
 }
