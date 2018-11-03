@@ -19,7 +19,7 @@ public class TestClass {
         SqlSession sqlSession = MybatisUtil.getSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         User user = new User();
-        user.setUserTelephone("1512222158");
+        user.setUserTelephone("1512228158");
         user.setUserPassword("1998zh2003");
         user.setRegisterTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         mapper.insert(user);
