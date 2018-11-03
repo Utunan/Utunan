@@ -48,12 +48,12 @@ public class School{
         this.schoolName = schoolName;
     }
 
-    public String getSchoolArea() {
+    public String getSchoolLarea() {
         return schoolArea;
     }
 
-    public void setSchoolArea(String schoolArea) {
-        this.schoolArea = schoolArea;
+    public void setSchoolLarea(String schoolLarea) {
+        this.schoolArea = schoolLarea;
     }
 
     @Override
