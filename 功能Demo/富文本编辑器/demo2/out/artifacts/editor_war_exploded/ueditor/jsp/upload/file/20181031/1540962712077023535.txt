@@ -1,0 +1,80 @@
+有大图，做成轮播图
+用户注册，登陆
+产品查询，详情查询
+订单购物车
+
+
+
+用户表中有邮箱，密码，昵称，注册时间
+
+
+蛋糕类型表有序号（类型选serial），名称，父类型序号
+
+
+蛋糕表有序号，名称，简介，单价，折扣，一个大图片（一个蛋糕三个图片），小图1、2、3，评级（整数类型），尺寸，标签，类型
+
+
+评论表有序列号，内容，评论时间，评论用户，评论蛋糕
+
+
+订单表有订单编号，订单时间，用户，地址，联系电话，订单状态（用整数类型）
+
+
+订单明细表有序号，订单编号（外键），蛋糕编号，数量
+
+
+
+
+
+其他技术   javamail    上传下载    分页   副文本编辑器（fck）   缓存（memcache）     负载均衡（Nginx）   连接池（BoneCp，Druid）     
+sql高效查询
+
+
+
+有分页效果
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-md-3 gallery-grid ">
+					<a href="products.html"><img src="images/g3.png" class="img-responsive" alt=""/>
+						<div class="gallery-info">
+							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
+							<a class="shop" href="single.html">SHOP NOW</a>
+							<div class="clearfix"> </div>
+						</div>
+					</a>
+					<div class="galy-info">
+						<p>Lorem Ipsum is simply</p>
+						<div class="galry">
+							<div class="prices">
+								<h5 class="item_price">$95.00</h5>
+							</div>
+							<div class="rating">
+								<span>☆</span>
+								<span>☆</span>
+								<span>☆</span>
+								<span>☆</span>
+								<span>☆</span>
+							</div>						
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
