@@ -5,17 +5,24 @@
 
 <mapper namespace="com.utunan.mapper.UserMapper">
     <insert id="insert">
-        insert  into  user (userTelephone,userPassword,userIdentity,registerTime) values (#{userTelephone},#{userPassword},3,#{registerTime})
+        insert  into  user (userTelephone,userPassword,userIdentity,registerTime)
+        values (#{userTelephone},#{userPassword},3,#{registerTime})
     </insert>
     <select id="queryByTelephone" resultType="User">
-        select * from user where userTelephone=#{userTelephone}
+        select *
+        from user
+        where userTelephone=#{userTelephone}
     </select>
     <select id="queryByEmail" resultType="User">
-        select * from user where userEmail=#{userEmail}
+        select *
+        from user
+        where userEmail=#{userEmail}
     </select>
     <!--    使用这种方式不友好,换一种,加一个注解    -->
     <select id="quetyByTelephoneIdentity" resultType="User">
         <!--select * from user where userTelephone = #{param1} and userIdentity = #{param2}-->
-         select * from user where userTelephone = #{userTelephone} and userIdentity = #{userIdentity}
+         select *
+        from user
+        where userTelephone = #{userTelephone} and userIdentity = #{userIdentity}
     </select>
 </mapper>

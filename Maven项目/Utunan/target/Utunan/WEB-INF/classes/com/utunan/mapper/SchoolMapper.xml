@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.utunan.mapper.GirlMapper">
-    <select id="insert">
-        insert  into  girl (name,flower,birthday) values (#{name},#{flower},#{birthday})
+<mapper namespace="com.utunan.mapper.SchoolMapper">
+    <select id="queryByName" resultType="com.utunan.pojo.School">
+        select * from school where schoolName=#{schoolName}
     </select>
 </mapper>

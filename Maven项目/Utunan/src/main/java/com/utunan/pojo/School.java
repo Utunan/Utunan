@@ -13,7 +13,7 @@ public class School{
     //大学名称
     private String schoolName;
     //大学所在地
-    private String schoolLarea;
+    private String schoolArea;
 
 
     public Long getSchoolId() {
@@ -48,12 +48,12 @@ public class School{
         this.schoolName = schoolName;
     }
 
-    public String getSchoolLarea() {
-        return schoolLarea;
+    public String getSchoolArea() {
+        return schoolArea;
     }
 
-    public void setSchoolLarea(String schoolLarea) {
-        this.schoolLarea = schoolLarea;
+    public void setSchoolArea(String schoolArea) {
+        this.schoolArea = schoolArea;
     }
 
     @Override
@@ -63,7 +63,7 @@ public class School{
                 ", schoolTypeId=" + schoolTypeId +
                 ", schoolCode='" + schoolCode + '\'' +
                 ", schoolName='" + schoolName + '\'' +
-                ", schoolLarea='" + schoolLarea + '\'' +
+                ", schoolLarea='" + schoolArea + '\'' +
                 '}';
     }
 }
