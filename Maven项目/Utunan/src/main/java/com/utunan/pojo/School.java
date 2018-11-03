@@ -5,39 +5,31 @@ package com.utunan.pojo;
  */
 public class School{
     //大学编号
-    private int schoolId;
+    private Long schoolId;
     //大学类型
-    private String schoolTypeId;
-    //大学名称
-    private String schoolName;
+    private Long schoolTypeId;
     //大学代码/编号
     private String schoolCode;
+    //大学名称
+    private String schoolName;
     //大学所在地
     private String schoolLarea;
 
 
-    public int getSchoolId() {
+    public Long getSchoolId() {
         return schoolId;
     }
 
-    public void setSchoolId(int schoolId) {
+    public void setSchoolId(Long schoolId) {
         this.schoolId = schoolId;
     }
 
-    public String getSchoolTypeId() {
+    public Long getSchoolTypeId() {
         return schoolTypeId;
     }
 
-    public void setSchoolTypeId(String schoolTypeId) {
+    public void setSchoolTypeId(Long schoolTypeId) {
         this.schoolTypeId = schoolTypeId;
-    }
-
-    public String getSchoolName() {
-        return schoolName;
-    }
-
-    public void setSchoolName(String schoolName) {
-        this.schoolName = schoolName;
     }
 
     public String getSchoolCode() {
@@ -46,6 +38,14 @@ public class School{
 
     public void setSchoolCode(String schoolCode) {
         this.schoolCode = schoolCode;
+    }
+
+    public String getSchoolName() {
+        return schoolName;
+    }
+
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
     }
 
     public String getSchoolLarea() {
@@ -60,9 +60,9 @@ public class School{
     public String toString() {
         return "School{" +
                 "schoolId=" + schoolId +
-                ", schoolTypeId='" + schoolTypeId + '\'' +
-                ", schoolName='" + schoolName + '\'' +
+                ", schoolTypeId=" + schoolTypeId +
                 ", schoolCode='" + schoolCode + '\'' +
+                ", schoolName='" + schoolName + '\'' +
                 ", schoolLarea='" + schoolLarea + '\'' +
                 '}';
     }

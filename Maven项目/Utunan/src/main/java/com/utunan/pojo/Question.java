@@ -1,9 +1,9 @@
 package com.utunan.pojo;
 
 public class Question {
-    private int questionId;
-    private int chapterId;
-    private int userId;
+    private Long questionId;
+    private Long chapterId;
+    private Long userId;
     private String questionType;
     private String questionContent;
     private String optionA;

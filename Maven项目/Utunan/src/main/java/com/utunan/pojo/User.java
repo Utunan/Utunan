@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class User {
     //用户id
-    private int userId;
+    private Long userId;
     //用户邮箱
     private String userEmail;
     //用户手机
@@ -29,11 +29,11 @@ public class User {
     //用户梦想院校
     private String dreamSchool;
 
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -133,5 +133,4 @@ public class User {
                 ", dreamSchool='" + dreamSchool + '\'' +
                 '}';
     }
-
 }
