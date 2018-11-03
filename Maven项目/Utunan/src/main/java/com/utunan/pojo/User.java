@@ -17,9 +17,9 @@ public class User {
     //用户权限
     private int userIdentity;
     //注册时间
-    private Date registerTime;
+    private String registerTime;
     //最近登陆时间
-    private Date loginTime;
+    private String loginTime;
     //用户头像
     private String userHeadImg;
     //用户昵称
@@ -69,19 +69,19 @@ public class User {
         this.userIdentity = userIdentity;
     }
 
-    public Date getRegisterTime() {
+    public String getRegisterTime() {
         return registerTime;
     }
 
-    public void setRegisterTime(Date registerTime) {
+    public void setRegisterTime(String registerTime) {
         this.registerTime = registerTime;
     }
 
-    public Date getLoginTime() {
+    public String getLoginTime() {
         return loginTime;
     }
 
-    public void setLoginTime(Date loginTime) {
+    public void setLoginTime(String loginTime) {
         this.loginTime = loginTime;
     }
 
@@ -125,12 +125,13 @@ public class User {
                 ", userTelephone='" + userTelephone + '\'' +
                 ", userPassword='" + userPassword + '\'' +
                 ", userIdentity=" + userIdentity +
-                ", registerTime=" + registerTime +
-                ", loginTime=" + loginTime +
+                ", registerTime='" + registerTime + '\'' +
+                ", loginTime='" + loginTime + '\'' +
                 ", userHeadImg='" + userHeadImg + '\'' +
                 ", userNickName='" + userNickName + '\'' +
                 ", userSchool='" + userSchool + '\'' +
                 ", dreamSchool='" + dreamSchool + '\'' +
                 '}';
     }
+
 }
