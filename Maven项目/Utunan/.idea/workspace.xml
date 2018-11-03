@@ -7,9 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cbf03e50-20ec-4e5d-be5b-2c2d8a32833e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/utunan/TestClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/utunan/TestClass.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -117,26 +115,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="15" />
+          <entry key="java" value="16" />
           <entry key="xml" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="15" />
+          <entry key="JAVA" value="16" />
           <entry key="XML" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="44" />
+          <entry key="java" value="45" />
           <entry key="txt" value="24" />
           <entry key="xml" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="44" />
+          <entry key="JAVA" value="45" />
           <entry key="PLAIN_TEXT" value="24" />
           <entry key="XML" value="29" />
         </counts>
@@ -145,20 +143,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/UserMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+            <state relative-caret-position="140">
+              <caret line="8" column="63" lean-forward="true" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SchoolMapper.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/UserMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
+            <state relative-caret-position="140">
+              <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -172,11 +170,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+            <state relative-caret-position="-106">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -263,7 +261,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/QuestionMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/QuestionMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/ArticleMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/UserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/Univ.java" />
         <option value="$PROJECT_DIR$/src/main/resouces/mybatis.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SchoolMapper.xml" />
@@ -292,8 +289,9 @@
         <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/Subject.xml" />
         <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SchoolType.xml" />
         <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SchoolCollector.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java" />
         <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/UserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java" />
       </list>
     </option>
   </component>
@@ -333,7 +331,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="415" />
     <option name="y" value="65" />
     <option name="width" value="1445" />
@@ -453,7 +451,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Utunan/src/main/webapp/index.jsp" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541247349096" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541247959133" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -484,7 +482,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestClass.m1">
+  <component name="RunManager" selected="JUnit.TestClass.m2">
     <configuration name="TestClass.m1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Utunan" />
       <extension name="coverage">
@@ -580,9 +578,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestClass.m2" />
         <item itemvalue="JUnit.TestClass.m1" />
         <item itemvalue="JUnit.TestClass.m3" />
-        <item itemvalue="JUnit.TestClass.m2" />
         <item itemvalue="Tomcat Server.index.jsp" />
       </list>
     </recent_temporary>
@@ -617,7 +615,7 @@
       <workItem from="1541245426321" duration="107000" />
       <workItem from="1541245554704" duration="281000" />
       <workItem from="1541247268582" duration="108000" />
-      <workItem from="1541247396832" duration="29000" />
+      <workItem from="1541247396832" duration="852000" />
     </task>
     <task id="LOCAL-00001" summary="2018/11/3 19:02 update">
       <created>1541242984743</created>
@@ -637,12 +635,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestClass_m2 - 2018.11.03 at 17h 02m 23s.xml">
-      <configuration name="TestClass.m2" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestClass_m3 - 2018.11.03 at 17h 02m 30s.xml">
-      <configuration name="TestClass.m3" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TestClass_m3 - 2018.11.03 at 17h 07m 04s.xml">
       <configuration name="TestClass.m3" configurationId="JUnit" />
     </history-entry>
@@ -667,15 +659,20 @@
     <history-entry file="TestClass_m1 - 2018.11.03 at 20h 15m 26s.xml">
       <configuration name="TestClass.m1" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TestClass_m1 - 2018.11.03 at 20h 25m 00s.xml">
+      <configuration name="TestClass.m1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestClass_m2 - 2018.11.03 at 20h 25m 47s.xml">
+      <configuration name="TestClass.m2" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54194000" />
+    <option name="totallyTimeSpent" value="55017000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2855228" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2855228" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -685,13 +682,13 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5938338" weight="0.36260623" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.59316355" visible="true" weight="0.36260623" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.40616623" side_tool="true" visible="true" weight="0.36260623" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.40683645" side_tool="true" visible="true" weight="0.36260623" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.31400284" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
@@ -752,18 +749,6 @@
     <MESSAGE value="2018/11/3 19:15 update" />
     <option name="LAST_COMMIT_MESSAGE" value="2018/11/3 19:15 update" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java</url>
-          <line>16</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="jar://D:/repertory/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar!/org/apache/ibatis/builder/xml/XMLConfigBuilder.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -780,6 +765,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
           <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -848,13 +836,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
           <caret line="79" selection-start-line="79" selection-end-line="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="14" column="91" selection-start-line="14" selection-start-column="91" selection-end-line="14" selection-end-column="91" />
         </state>
       </provider>
     </entry>
@@ -1006,13 +987,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/UserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SchoolMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -1024,16 +998,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="5" column="58" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1069,6 +1033,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="8" column="63" lean-forward="true" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-106">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
