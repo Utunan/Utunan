@@ -1,7 +1,7 @@
 package com.utunan.pojo;
 
 /**
- * 初试考试科目-MajorText
+ * 初试考试科目-MajorTextMapper
  */
 public class MajorText {
 	//初试考试科目ID
@@ -37,7 +37,7 @@ public class MajorText {
 
 	@Override
 	public String toString() {
-		return "MajorText{" +
+		return "MajorTextMapper{" +
 				"majorTextId=" + majorTextId +
 				", majorTextName='" + majorTextName + '\'' +
 				", majorTextCode=" + majorTextCode +
