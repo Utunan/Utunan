@@ -42,6 +42,7 @@ public class TestClass {
         SqlSession sqlSession = MybatisUtil.getSession();
         SchoolMapper schoolMapper = sqlSession.getMapper(SchoolMapper.class);
         School school = schoolMapper.queryByName("清华大学");
+
         System.out.println(school);
         sqlSession.commit();
         sqlSession.close();

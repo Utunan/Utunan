@@ -80,7 +80,6 @@ public class Article {
 
     @Override
     public String toString() {
-
         return "Article{" +
                 "articleId=" + articleId +
                 ", userId=" + userId +
