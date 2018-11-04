@@ -1,161 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Utunan:war" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="23002e49-b8e4-4064-b16c-ce0845e888a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/utunan/TestSpring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/utunan/TestSpring.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/utunan/TestClass.class" beforeDir="false" />
-=======
-<<<<<<< HEAD
-    <list default="true" id="f450e845-9fd1-4768-8999-89799641bf97" name="Default Changelist" comment="">
-=======
-    <list default="true" id="fcb8254e-e065-4c4e-9dc8-c654770b1e0d" name="Default Changelist" comment="">
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cbd4157e-a19c-494f-9734-ed489ee99844.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/ArticleMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/QuestionMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/SchoolMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/UserMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdbc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis.cfg.xml" beforeDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/utunan/TestClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/utunan/TestClass.class" afterDir="false" />
->>>>>>> a4965e80a8075616fab95a758e5667c12dc443fe
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
-    </list>
+    <list default="true" id="cbf03e50-20ec-4e5d-be5b-2c2d8a32833e" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CheckStyle-IDEA-workspace">
-    <option name="configuration">
-      <map>
-        <entry key="last-active-plugin-version" value="5.23.0" />
-      </map>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
     </option>
-<<<<<<< HEAD
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="utunan@47.93.221.205" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="utunan@47.93.221.205" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="utunan@47.93.221.205" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="utunan: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FUSProjectUsageTrigger">
+    <session id="-777589075">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="10" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.open.time.8" value="7" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="13" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="1" />
+          <entry key="java" value="83" />
+          <entry key="jsp" value="3" />
+          <entry key="pom" value="1" />
+          <entry key="properties" value="3" />
+          <entry key="sql" value="1" />
+          <entry key="xml" value="42" />
+          <entry key="xsd" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="1" />
+          <entry key="JAVA" value="83" />
+          <entry key="JSP" value="3" />
+          <entry key="Properties" value="3" />
+          <entry key="Scratch" value="1" />
+          <entry key="XML" value="48" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="16" />
+          <entry key="java" value="3832" />
+          <entry key="jsp" value="38" />
+          <entry key="properties" value="62" />
+          <entry key="txt" value="6" />
+          <entry key="xml" value="1444" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="3832" />
+          <entry key="JSP" value="38" />
+          <entry key="PLAIN_TEXT" value="22" />
+          <entry key="Properties" value="62" />
+          <entry key="SQL" value="34" />
+          <entry key="XML" value="1410" />
+        </counts>
+      </usages-collector>
+    </session>
     <session id="327999189">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.13" value="1" />
-          <entry key="project.open.time.3" value="2" />
-          <entry key="project.opened" value="4" />
-=======
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1930015698">
-<<<<<<< HEAD
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="class" value="4" />
-          <entry key="xml" value="1" />
-=======
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-<<<<<<< HEAD
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="1" />
-=======
           <entry key="project.closed" value="7" />
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="3" />
           <entry key="project.open.time.9" value="1" />
           <entry key="project.opened" value="8" />
->>>>>>> a4965e80a8075616fab95a758e5667c12dc443fe
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-<<<<<<< HEAD
-          <entry key="java" value="4" />
-          <entry key="properties" value="1" />
-          <entry key="xml" value="17" />
-=======
-<<<<<<< HEAD
-          <entry key="java" value="1" />
-=======
-          <entry key="java" value="15" />
+          <entry key="java" value="16" />
           <entry key="xml" value="13" />
->>>>>>> a4965e80a8075616fab95a758e5667c12dc443fe
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-<<<<<<< HEAD
-          <entry key="JAVA" value="4" />
-          <entry key="Properties" value="1" />
-          <entry key="XML" value="17" />
-=======
-<<<<<<< HEAD
-          <entry key="CLASS" value="4" />
-          <entry key="XML" value="1" />
-=======
-<<<<<<< HEAD
-          <entry key="JAVA" value="1" />
-=======
-          <entry key="JAVA" value="15" />
+          <entry key="JAVA" value="16" />
           <entry key="XML" value="13" />
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="7" />
-          <entry key="java" value="135" />
-          <entry key="txt" value="23" />
-          <entry key="xml" value="36" />
+          <entry key="java" value="44" />
+          <entry key="txt" value="24" />
+          <entry key="xml" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-<<<<<<< HEAD
-          <entry key="JAVA" value="135" />
-          <entry key="PLAIN_TEXT" value="30" />
-          <entry key="XML" value="36" />
-=======
           <entry key="JAVA" value="44" />
           <entry key="PLAIN_TEXT" value="24" />
           <entry key="XML" value="29" />
->>>>>>> a4965e80a8075616fab95a758e5667c12dc443fe
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-<<<<<<< HEAD
-    <leaf>
-=======
-<<<<<<< HEAD
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="45" column="35" lean-forward="true" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
-=======
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/utunan/TestMybatis.java">
@@ -166,166 +150,147 @@
           </provider>
         </entry>
       </file>
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
       <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/main/resouces/applicationContext.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
-=======
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
+            <state relative-caret-position="140">
+              <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/utunan/TestSpring.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-=======
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/target/classes/com/utunan/pojo/Major.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
+            <state relative-caret-position="387">
+              <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
               <folding>
-                <element signature="e#0#2131#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1596">
-              <caret line="57" column="38" selection-start-line="57" selection-start-column="38" selection-end-line="57" selection-end-column="38" />
-=======
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resouces/mybatis.cfg.xml">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="880">
-              <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
-=======
-            <state relative-caret-position="840">
-              <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
+            <state relative-caret-position="308">
+              <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1596">
+              <caret line="57" column="38" selection-start-line="57" selection-start-column="38" selection-end-line="57" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SubjectMapper.xml">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/UserMapper.xml">
-=======
-        <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/ResearchMapper.xml">
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/UserQuestionBank.xml">
           <provider selected="true" editor-type-id="text-editor" />
-=======
-        <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/QuestionCollector.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
->>>>>>> a4965e80a8075616fab95a758e5667c12dc443fe
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
-            </state>
-          </provider>
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
         </entry>
       </file>
     </leaf>
   </component>
-<<<<<<< HEAD
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="XSLT Stylesheet" />
       </list>
     </option>
   </component>
-=======
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/servlet/HelloServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/entity/Girl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/GirlMapper.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/utunan/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/resouces/com.utunan.mapper/GirlMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/Girl.java" />
+        <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/GirlMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resouces/jdbc.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/GirlMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/UnivMapper.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/utunan/TestGirl.java" />
+        <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/UnivMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/util/MybatisUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/QuestionMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/QuestionMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/ArticleMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/Univ.java" />
         <option value="$PROJECT_DIR$/src/main/resouces/mybatis.cfg.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/UserMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/ResearchMapper.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java" />
+        <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SchoolMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/SchoolMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/Question.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/ArticleMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resouces/applicationContext.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/utunan/TestSpring.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/Article.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/School.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/UserTempPractice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/UserQuestionBank.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/Subject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/SchoolType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/SchoolCollector.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/Research.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/MajoeTextMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/UserTempPracticeMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/UserQuestionBankMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/SubjectMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/SchoolTypeMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/SchoolCollectorMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/UserTempPracticeMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/UserQuestionBank.xml" />
+        <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/Subject.xml" />
+        <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SchoolType.xml" />
+        <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SchoolCollector.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java" />
+        <option value="$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/UserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/UserMapper.java" />
       </list>
     </option>
   </component>
->>>>>>> a4965e80a8075616fab95a758e5667c12dc443fe
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="294" />
-    <option name="width" value="689" />
-    <option name="height" value="731" />
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="false" id="Update" />
-=======
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
   <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="createModuleGroups" value="true" />
-        <option name="downloadDocsAutomatically" value="true" />
-        <option name="downloadSourcesAutomatically" value="true" />
-        <option name="importAutomatically" value="true" />
-        <option name="lookForNested" value="true" />
-      </MavenImportingSettings>
-    </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="createModuleGroups" value="true" />
-        <option name="downloadDocsAutomatically" value="true" />
-        <option name="downloadSourcesAutomatically" value="true" />
-        <option name="importAutomatically" value="true" />
-        <option name="lookForNested" value="true" />
-      </MavenImportingSettings>
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="userSettingsFile" value="D:\apache-maven-3.5.4\conf\settings.xml" />
+      </MavenGeneralSettings>
     </option>
   </component>
-<<<<<<< HEAD
   <component name="MavenProjectNavigator">
     <treeState>
       <expand>
@@ -350,131 +315,15 @@
     <option name="y" value="105" />
     <option name="width" value="1445" />
     <option name="height" value="970" />
-=======
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="294" />
-    <option name="width" value="689" />
-    <option name="height" value="731" />
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-      <pane id="PackagesPane">
-=======
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
-      <pane id="ProjectPane">
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
-        <subPane>
-          <expand>
-            <path>
-              <item name="Utunan" type="58d84e3e:PackageViewProjectNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="58d84e3e:PackageViewProjectNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-              <item name="utunan" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-<<<<<<< HEAD
-              <item name="Utunan" type="58d84e3e:PackageViewProjectNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-              <item name="utunan" type="1f31426a:PackageElementNode" />
-              <item name="util" type="1f31426a:PackageElementNode" />
-=======
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resouces" type="462c0819:PsiDirectoryNode" />
-=======
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
-=======
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="utunan" type="462c0819:PsiDirectoryNode" />
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="utunan" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
-=======
-              <item name="pojo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resouces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resouces" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resouces" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="utunan" type="462c0819:PsiDirectoryNode" />
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -485,58 +334,73 @@
             <path>
               <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
               <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resouces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utunan" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-<<<<<<< HEAD
-=======
       <pane id="Scope" />
       <pane id="PackagesPane" />
-<<<<<<< HEAD
-=======
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Utunan/src/main/webapp/index.jsp" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-<<<<<<< HEAD
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541329548695" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541332530443" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\resouces" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Utunan\src\main\resouces\com.utunan.mapper" />
+      <recent name="D:\Utunan\src\main\resouces" />
     </key>
-=======
-<<<<<<< HEAD
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Problems" />
-=======
-<<<<<<< HEAD
-=======
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541247349096" />
->>>>>>> a4965e80a8075616fab95a758e5667c12dc443fe
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.utunan.mapper" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\resouces\com\utunan\mapper" />
+      <recent name="D:\Utunan\src\main\resouces\com\utunan\mapper" />
+      <recent name="D:\Utunan\src\test" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -550,19 +414,8 @@
       </list>
     </option>
   </component>
-<<<<<<< HEAD
   <component name="RunManager" selected="JUnit.TestSpring.s1">
-    <configuration name="TestMybatis.m2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-=======
-<<<<<<< HEAD
-  <component name="RunManager">
-=======
-<<<<<<< HEAD
-  <component name="RunManager">
-=======
-  <component name="RunManager" selected="JUnit.TestClass.m1">
     <configuration name="TestClass.m1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
       <module name="Utunan" />
       <extension name="coverage">
         <pattern>
@@ -571,14 +424,30 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.utunan" />
-      <option name="MAIN_CLASS_NAME" value="com.utunan.TestMybatis" />
+      <option name="MAIN_CLASS_NAME" value="com.utunan.TestClass" />
+      <option name="METHOD_NAME" value="m1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestClass.m2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Utunan" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.utunan.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.utunan" />
+      <option name="MAIN_CLASS_NAME" value="com.utunan.TestClass" />
       <option name="METHOD_NAME" value="m2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestMybatis.m3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestClass.m3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Utunan" />
       <extension name="coverage">
         <pattern>
@@ -587,36 +456,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.utunan" />
-      <option name="MAIN_CLASS_NAME" value="com.utunan.TestMybatis" />
+      <option name="MAIN_CLASS_NAME" value="com.utunan.TestClass" />
       <option name="METHOD_NAME" value="m3" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-<<<<<<< HEAD
-    <configuration name="TestMybatis.m4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-=======
->>>>>>> a4965e80a8075616fab95a758e5667c12dc443fe
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
-    <configuration name="TestClass.m3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
-      <module name="Utunan" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.utunan.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.utunan" />
-      <option name="MAIN_CLASS_NAME" value="com.utunan.TestMybatis" />
-      <option name="METHOD_NAME" value="m4" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-<<<<<<< HEAD
     <configuration name="TestSpring.s1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Utunan" />
       <extension name="coverage">
@@ -629,73 +475,10 @@
       <option name="MAIN_CLASS_NAME" value="com.utunan.TestSpring" />
       <option name="METHOD_NAME" value="s1" />
       <option name="TEST_OBJECT" value="method" />
-=======
-<<<<<<< HEAD
-    <configuration default="true" type="tests" factoryName="Nosetests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="tests" factoryName="Twisted Trial">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="py.test">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-=======
-<<<<<<< HEAD
-=======
     <configuration name="index.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 9.0.12" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/index.jsp" />
       <deployment>
@@ -728,29 +511,27 @@
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
       </ConfigurationWrapper>
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
       <method v="2">
         <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Utunan:war" />
+        </option>
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.TestMybatis.m3" />
-      <item itemvalue="JUnit.TestMybatis.m2" />
-      <item itemvalue="JUnit.TestMybatis.m4" />
+      <item itemvalue="Tomcat Server.index.jsp" />
+      <item itemvalue="JUnit.TestClass.m2" />
+      <item itemvalue="JUnit.TestClass.m3" />
+      <item itemvalue="JUnit.TestClass.m1" />
       <item itemvalue="JUnit.TestSpring.s1" />
     </list>
->>>>>>> a4965e80a8075616fab95a758e5667c12dc443fe
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
     <recent_temporary>
       <list>
-<<<<<<< HEAD
         <item itemvalue="JUnit.TestSpring.s1" />
-        <item itemvalue="JUnit.TestMybatis.m2" />
-        <item itemvalue="JUnit.TestMybatis.m4" />
-        <item itemvalue="JUnit.TestMybatis.m3" />
-=======
+        <item itemvalue="JUnit.TestClass.m1" />
         <item itemvalue="JUnit.TestClass.m3" />
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
+        <item itemvalue="JUnit.TestClass.m2" />
+        <item itemvalue="Tomcat Server.index.jsp" />
       </list>
     </recent_temporary>
   </component>
@@ -759,25 +540,10 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-<<<<<<< HEAD
-      <changelist id="23002e49-b8e4-4064-b16c-ce0845e888a2" name="Default Changelist" comment="" />
-      <created>1541321868227</created>
+      <changelist id="cbf03e50-20ec-4e5d-be5b-2c2d8a32833e" name="Default Changelist" comment="" />
+      <created>1541077206047</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1541321868227</updated>
-      <workItem from="1541321871027" duration="398000" />
-      <workItem from="1541322286435" duration="2396000" />
-      <workItem from="1541328603188" duration="109000" />
-      <workItem from="1541329036534" duration="379000" />
-=======
-      <changelist id="fcb8254e-e065-4c4e-9dc8-c654770b1e0d" name="Default Changelist" comment="" />
-      <created>1541246843869</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-<<<<<<< HEAD
-      <updated>1541246843869</updated>
-      <workItem from="1541246848027" duration="752000" />
-=======
       <updated>1541077206047</updated>
       <workItem from="1541077207414" duration="3396000" />
       <workItem from="1541083936104" duration="1154000" />
@@ -799,28 +565,15 @@
       <workItem from="1541245426321" duration="107000" />
       <workItem from="1541245554704" duration="281000" />
       <workItem from="1541247268582" duration="108000" />
-      <workItem from="1541247396832" duration="29000" />
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
+      <workItem from="1541247396832" duration="432000" />
     </task>
-    <task id="LOCAL-00001" summary="2018/11/04 18:49 update">
-      <created>1541328568864</created>
+    <task id="LOCAL-00001" summary="2018/11/3 19:02 update">
+      <created>1541242984743</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-<<<<<<< HEAD
-      <updated>1541328568864</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
-    <servers />
-  </component>
-  <component name="TestHistory">
-    <history-entry file="TestClass_m3 - 2018.11.04 at 16h 59m 30s.xml">
-      <configuration name="TestClass.m3" configurationId="JUnit" />
-=======
       <updated>1541242984743</updated>
->>>>>>> a4965e80a8075616fab95a758e5667c12dc443fe
     </task>
-<<<<<<< HEAD
     <task id="LOCAL-00002" summary="2018/11/3 19:15 update">
       <created>1541243758027</created>
       <option name="number" value="00002" />
@@ -828,184 +581,138 @@
       <option name="project" value="LOCAL" />
       <updated>1541243758027</updated>
     </task>
-=======
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
-<<<<<<< HEAD
-    <history-entry file="TestClass_m3 - 2018.11.03 at 20h 19m 54s.xml">
-=======
     <history-entry file="TestClass_m2 - 2018.11.03 at 17h 02m 23s.xml">
       <configuration name="TestClass.m2" configurationId="JUnit" />
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
     </history-entry>
-    <history-entry file="TestClass_m3 - 2018.11.04 at 16h 59m 54s.xml">
+    <history-entry file="TestClass_m3 - 2018.11.03 at 17h 02m 30s.xml">
       <configuration name="TestClass.m3" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestClass_m3 - 2018.11.04 at 17h 04m 54s.xml">
+    <history-entry file="TestClass_m3 - 2018.11.03 at 17h 07m 04s.xml">
       <configuration name="TestClass.m3" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestClass_m3 - 2018.11.04 at 17h 05m 27s.xml">
-      <configuration name="TestClass.m3" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestClass_m2 - 2018.11.04 at 17h 05m 34s.xml">
+    <history-entry file="TestClass_m2 - 2018.11.03 at 18h 49m 48s.xml">
       <configuration name="TestClass.m2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestClass_m3 - 2018.11.04 at 17h 09m 10s.xml">
+    <history-entry file="TestClass_m2 - 2018.11.03 at 18h 51m 43s.xml">
+      <configuration name="TestClass.m2" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestClass_m3 - 2018.11.03 at 19h 34m 56s.xml">
       <configuration name="TestClass.m3" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestClass_m4 - 2018.11.04 at 17h 09m 19s.xml">
-      <configuration name="TestClass.m4" configurationId="JUnit" />
+    <history-entry file="TestClass_m3 - 2018.11.03 at 19h 44m 02s.xml">
+      <configuration name="TestClass.m3" configurationId="JUnit" />
     </history-entry>
-<<<<<<< HEAD
-    <history-entry file="TestClass_m2 - 2018.11.04 at 17h 09m 25s.xml">
-      <configuration name="TestClass.m2" configurationId="JUnit" />
-=======
     <history-entry file="TestClass_m3 - 2018.11.03 at 19h 46m 48s.xml">
->>>>>>> a4965e80a8075616fab95a758e5667c12dc443fe
       <configuration name="TestClass.m3" configurationId="JUnit" />
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
     </history-entry>
-    <history-entry file="TestClass_m2 - 2018.11.04 at 17h 09m 33s.xml">
-      <configuration name="TestClass.m2" configurationId="JUnit" />
+    <history-entry file="TestClass_m3 - 2018.11.03 at 20h 15m 08s.xml">
+      <configuration name="TestClass.m3" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestSpring_s1 - 2018.11.04 at 19h 03m 02s.xml">
-      <configuration name="TestSpring.s1" configurationId="JUnit" />
+    <history-entry file="TestClass_m1 - 2018.11.03 at 20h 15m 26s.xml">
+      <configuration name="TestClass.m1" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="3282000" />
-=======
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="1466000" />
+    <option name="totallyTimeSpent" value="54598000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1374" height="736" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19312978" />
-=======
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="752000" />
-=======
-    <option name="totallyTimeSpent" value="54194000" />
->>>>>>> a4965e80a8075616fab95a758e5667c12dc443fe
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1374" height="736" extended-state="6" />
-    <layout>
-<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2627346" />
-=======
-<<<<<<< HEAD
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Web" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24961832" />
-=======
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2855228" />
->>>>>>> a4965e80a8075616fab95a758e5667c12dc443fe
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" />
-      <window_info anchor="bottom" id="Messages" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="CheckStyle" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Statistic" />
-      <window_info anchor="bottom" id="Java Enterprise" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Tail" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-<<<<<<< HEAD
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3101983" />
-=======
-<<<<<<< HEAD
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.7091562" />
-=======
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5938338" weight="0.36260623" />
->>>>>>> a4965e80a8075616fab95a758e5667c12dc443fe
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-<<<<<<< HEAD
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="right" id="SciView" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Palette&#9;" />
-=======
       <window_info anchor="bottom" id="Terminal" order="7" />
-<<<<<<< HEAD
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.40616623" side_tool="true" visible="true" weight="0.36260623" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.31400284" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Spring" order="13" />
-      <window_info anchor="bottom" id="Style Checker" order="14" />
+      <window_info anchor="bottom" id="Application Servers" order="13" visible="true" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.0" />
-      <window_info anchor="right" id="Database" order="6" weight="0.3297587" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.15348525" />
+      <window_info anchor="right" id="Database" order="6" weight="0.20509383" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-=======
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.40616623" side_tool="true" weight="0.36260623" />
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28284183" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3125884" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32956153" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.31400284" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Application Servers" order="13" weight="0.32956153" />
->>>>>>> a4965e80a8075616fab95a758e5667c12dc443fe
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.15394913" />
+      <window_info anchor="right" id="Database" order="6" weight="0.3297587" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-<<<<<<< HEAD
   <component name="VcsManagerConfiguration">
-<<<<<<< HEAD
-    <MESSAGE value="2018/11/04 18:49 update" />
-    <option name="LAST_COMMIT_MESSAGE" value="2018/11/04 18:49 update" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/mybatis.cfg.xml">
-=======
     <MESSAGE value="2018/11/3 19:02 update" />
     <MESSAGE value="2018/11/3 19:15 update" />
     <option name="LAST_COMMIT_MESSAGE" value="2018/11/3 19:15 update" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java</url>
+          <line>16</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-=======
-  <component name="editorHistoryManager">
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="45" column="35" lean-forward="true" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
-=======
     <entry file="jar://D:/repertory/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar!/org/apache/ibatis/builder/xml/XMLConfigBuilder.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
@@ -1034,96 +741,29 @@
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/Date.java">
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="46" column="46" lean-forward="true" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
+        <state relative-caret-position="152">
+          <caret line="163" column="11" selection-start-line="163" selection-start-column="11" selection-end-line="163" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resouces/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/UserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+        <state relative-caret-position="28">
+          <caret line="1" column="42" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/ResearchMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/QuestionMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
-          <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SchoolCollectorMapper.xml">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/cbd4157e-a19c-494f-9734-ed489ee99844/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SchoolTypeMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SchoolMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/ArticleMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/ArticleCollectorMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/CommentMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/MajorMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/MajorTextMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/ChapterMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/UserTempPracticeMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1596">
-          <caret line="57" column="38" selection-start-line="57" selection-start-column="38" selection-end-line="57" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SubjectMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/UserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/UserQuestionBank.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resouces/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/utunan/TestMybatis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-391">
-          <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/utunan/TestSpring.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-=======
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
@@ -1145,156 +785,193 @@
         </state>
       </provider>
     </entry>
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-        </state>
-      </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="1596">
+          <caret line="57" column="38" selection-start-line="57" selection-start-column="38" selection-end-line="57" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/com/utunan/pojo/Major.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/Article.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#2131#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="145">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/com/utunan/pojo/Article.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
-          <folding>
-            <element signature="e#0#1927#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2128">
+          <caret line="120" column="18" selection-start-line="120" selection-start-column="18" selection-end-line="120" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>Utunan:war</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Web</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>Spring|Utunan</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: javax.servlet:javax.servlet-api:3.1.0</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
-=======
-    <entry file="file://$PROJECT_DIR$/target/classes/com/utunan/pojo/Chapter.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/Question.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-198">
-          <folding>
-            <element signature="e#0#952#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="336">
+          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/com/utunan/pojo/Comment.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/UserQuestionBank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#1726#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="308">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/Research.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/School.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1232">
+          <caret line="64" column="54" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/Subject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/SchoolType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/SchoolCollector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/UserTempPractice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/MajoeTextMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/QuestionMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" selection-start-line="2" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/UserTempPracticeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/UserQuestionBankMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/SubjectMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/SchoolTypeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/SchoolCollectorMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/ArticleMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="9" column="47" lean-forward="true" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/ArticleMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="3" selection-start-line="3" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/UserTempPracticeMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" column="59" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/UserQuestionBank.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SubjectMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SchoolTypeMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SchoolMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/SchoolCollectorMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" column="58" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/Chapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/SchoolMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/ArticleCollectorMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resouces/mybatis.cfg.xml">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="880">
-          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
-=======
         <state relative-caret-position="840">
           <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
         </state>
@@ -1308,105 +985,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
->>>>>>> a4965e80a8075616fab95a758e5667c12dc443fe
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
         </state>
       </provider>
     </entry>
->>>>>>> 600713bbeaf449f6f423abd96c8e2cb194b173d1
-  </component>
-  <component name="masterDetails">
-    <states>
-<<<<<<< HEAD
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-=======
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>antlr-2.7.7</last-edited>
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-<<<<<<< HEAD
-=======
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
->>>>>>> d3ae57150eeaafada4587dd9330d8fadac86fe57
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+    <entry file="file://$PROJECT_DIR$/src/main/resouces/com/utunan/mapper/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/utunan/TestClass.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
