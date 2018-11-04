@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 
-public class TestClass {
+public class TestMybatis {
 
     @Test
     public void m1() {
