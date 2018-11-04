@@ -12,6 +12,7 @@ public class TestSpring {
     public void s1(){
         ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
         User girl=(User) context.getBean("user");
-        System.out.println(girl);
+        User user=context.getBean("user",User.class);
+        System.out.println(user);
     }
 }
