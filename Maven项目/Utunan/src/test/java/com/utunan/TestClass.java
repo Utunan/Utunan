@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 
 public class TestClass {
@@ -42,10 +43,19 @@ public class TestClass {
         SqlSession sqlSession = MybatisUtil.getSession();
         SchoolMapper schoolMapper = sqlSession.getMapper(SchoolMapper.class);
         School school = schoolMapper.queryByName("清华大学");
-
         System.out.println(school);
         sqlSession.commit();
         sqlSession.close();
+    }
 
+
+    @Test
+    public void m4() {
+        SqlSession sqlSession = MybatisUtil.getSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+//        System.out.println(list);
+        sqlSession.commit();
+        sqlSession.close();
     }
 }

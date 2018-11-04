@@ -8,6 +8,10 @@
         insert  into  user (userTelephone,userPassword,userIdentity,registerTime)
         values (#{userTelephone},#{userPassword},3,#{registerTime})
     </insert>
+    <select id="queryAll" resultType="User">
+        selec *
+        from user
+    </select>
     <select id="queryByTelephone" resultType="User">
         select *
         from user
@@ -17,12 +21,5 @@
         select *
         from user
         where userEmail=#{userEmail}
-    </select>
-    <!--    使用这种方式不友好,换一种,加一个注解    -->
-    <select id="quetyByTelephoneIdentity" resultType="User">
-        <!--select * from user where userTelephone = #{param1} and userIdentity = #{param2}-->
-         select *
-        from user
-        where userTelephone = #{userTelephone} and userIdentity = #{userIdentity}
     </select>
 </mapper>
