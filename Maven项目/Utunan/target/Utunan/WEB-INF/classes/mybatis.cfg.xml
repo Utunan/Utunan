@@ -30,7 +30,6 @@
         <!--<typeAlias type="com.utunan.pojo.User" alias="User"/>-->
         <package name="com.utunan.pojo"/>
     </typeAliases>
-
     <environments default="dev">
         <environment id="dev">
             <transactionManager type="JDBC"/>
@@ -44,10 +43,9 @@
     </environments>
 
     <mappers>
-        <!--<mapper resource="com/utunan/mapper/GirlMapper.xml"></mapper>-->
+        <!--<mapper resource="com/utunan/mapper/UserMapper.xml"></mapper>-->
         <!--<mapper url="file:///X:xxxxx"/>-->
         <!--<mapper class="com.utunan.mapper.UserMapper"/>-->
         <package name="com.utunan.mapper"/>
     </mappers>
-
 </configuration>

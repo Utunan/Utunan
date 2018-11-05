@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         id="WebApp_ID" version="4.0">
-    <display-name>Utunan</display-name>
-    <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1"
+         metadata-complete="true">
+
+    <!--注册一个前端控制器
+        DispatcherServlet
+
+        -->
+    <servlet>
+        <!--    这里写的这个名字是由讲究的
+        如果我们不去修改spring配置文件默认的位置,那么SpringMVC
+        它会去web-inf下面找一个叫做springmvc-servlet.xml的文件
+        -->
+        <servlet-name>springmvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>springmvc</servlet-name>
+        <!--    这里统一写斜杠   -->
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
 </web-app>
