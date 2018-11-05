@@ -12,5 +12,6 @@
         <!--    后缀  -->
         <property name="suffix" value=".jsp"/>
     </bean>
-    <bean class="com.utunan.controller.HelloController" name="/helloController"/>
+    <!--<bean class="com.utunan.controller.HelloController" name="/helloController"/>-->
+    <bean class="com.utunan.controller.HelloController" name="/hello/Controller.do"/>
 </beans>
