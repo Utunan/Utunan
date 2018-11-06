@@ -40,7 +40,6 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
-            <!--  将来我们的web容器将会提供这个jar包  -->
             <scope>provided</scope>
         </dependency>
 
