@@ -20,7 +20,9 @@ public class UsersController {
         User user = new User();
         user.setUserNickName("sssss");
         users.add(user);
-
+        User user1 = new User();
+        user1.setUserNickName("44444");
+        users.add(user1);
         model.addAttribute("users", users);
         return "user";
     }
