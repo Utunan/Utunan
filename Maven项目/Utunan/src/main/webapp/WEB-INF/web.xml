@@ -6,16 +6,24 @@
          version="3.1"
          metadata-complete="true">
 
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
     <!--注册一个前端控制器
         DispatcherServlet
-
         -->
     <servlet>
         <!--    这里写的这个名字是由讲究的
         如果我们不去修改spring配置文件默认的位置,那么SpringMVC
         它会去web-inf下面找一个叫做springmvc-servlet.xml的文件
         -->
-        <servlet-name>springMVC</servlet-name>
+        <servlet-name>springmvc</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <!--<init-param>-->
             <!--&lt;!&ndash;    可以重新声明配置文件的名字   &ndash;&gt;-->
@@ -25,13 +33,14 @@
         <init-param>
             <!--    上下文配置的位置的指定    -->
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:springMVC.xml</param-value>
+            <param-value>classpath:springmvc.xml</param-value>
         </init-param>
     </servlet>
-
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
     <servlet-mapping>
-        <servlet-name>springMVC</servlet-name>
+        <servlet-name>springmvc</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
 </web-app>

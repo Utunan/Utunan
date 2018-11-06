@@ -6,9 +6,17 @@
          version="3.1"
          metadata-complete="true">
 
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
     <!--注册一个前端控制器
         DispatcherServlet
-
         -->
     <servlet>
         <!--    这里写的这个名字是由讲究的
@@ -28,11 +36,11 @@
             <param-value>classpath:springMVC.xml</param-value>
         </init-param>
     </servlet>
-
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
     <servlet-mapping>
         <servlet-name>springMVC</servlet-name>
-        <!--    这里统一写斜杠   -->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
 </web-app>
