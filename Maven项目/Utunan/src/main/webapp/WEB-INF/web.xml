@@ -31,7 +31,6 @@
 
     <servlet-mapping>
         <servlet-name>springMVC</servlet-name>
-        <!--    这里统一写斜杠   -->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
