@@ -6,12 +6,22 @@ package com.utunan.pojo;
 public class ArticleCollector {
 	//帖子收藏列表ID
 	private Long postCollectorId;
+	//收藏该帖子人的Id
+	private Long userId;
 	//帖子ID
 	private Long postId;
 	//板块ID
 	private Long plateId;
 	//作者ID
 	private Long authorId;
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 
 	public Long getPostCollectorId() {
 		return postCollectorId;

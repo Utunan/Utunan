@@ -9,7 +9,7 @@ public class Article {
     //文章Id
     private Long articleId;
     //作者/用户Id
-    private Long userId;
+    private Long authorId;
     //板块Id;
     private Long plateId;
     //文章主题
@@ -29,13 +29,9 @@ public class Article {
         this.articleId = articleId;
     }
 
-    public Long getUserId() {
-        return userId;
-    }
+    public Long getAuthorId() { return authorId; }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+    public void setAuthorId(Long authorId) { this.authorId = authorId; }
 
     public Long getPlateId() {
         return plateId;
@@ -82,7 +78,7 @@ public class Article {
     public String toString() {
         return "Article{" +
                 "articleId=" + articleId +
-                ", userId=" + userId +
+                ", userId=" + authorId +
                 ", plateId=" + plateId +
                 ", articleTitle='" + articleTitle + '\'' +
                 ", articleContent='" + articleContent + '\'' +
