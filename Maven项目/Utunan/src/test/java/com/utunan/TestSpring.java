@@ -1,6 +1,6 @@
 package com.utunan;
 
-import com.utunan.pojo.User;
+import com.utunan.pojo.uerinfo.User;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

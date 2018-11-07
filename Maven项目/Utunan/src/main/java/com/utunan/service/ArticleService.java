@@ -1,6 +1,6 @@
 package com.utunan.service;
 
-import com.utunan.pojo.Article;
+import com.utunan.pojo.forum.Article;
 import org.springframework.stereotype.Service;
 import java.util.List;
 

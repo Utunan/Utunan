@@ -1,4 +1,4 @@
-package com.utunan.pojo;
+package com.utunan.pojo.questionblank;
 
 public class UserTempPractice {
     //用户本次练习情况列表

@@ -1,4 +1,4 @@
-package com.utunan.pojo;
+package com.utunan.pojo.questionblank;
 
 public class UserQuestionBank {
     //用户所有答题情况列表

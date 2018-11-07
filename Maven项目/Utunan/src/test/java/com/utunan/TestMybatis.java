@@ -2,15 +2,14 @@ package com.utunan;
 
 import com.utunan.mapper.SchoolMapper;
 import com.utunan.mapper.UserMapper;
-import com.utunan.pojo.School;
-import com.utunan.pojo.User;
+import com.utunan.pojo.school.School;
+import com.utunan.pojo.uerinfo.User;
 import com.utunan.util.MybatisUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 
 public class TestMybatis {

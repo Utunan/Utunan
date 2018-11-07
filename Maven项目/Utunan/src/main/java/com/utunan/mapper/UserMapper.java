@@ -1,9 +1,6 @@
 package com.utunan.mapper;
 
-import com.utunan.pojo.User;
-import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
+import com.utunan.pojo.uerinfo.User;
 
 public interface UserMapper {
     int insert(User user);

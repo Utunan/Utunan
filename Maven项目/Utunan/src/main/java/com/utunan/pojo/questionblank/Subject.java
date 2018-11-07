@@ -1,4 +1,4 @@
-package com.utunan.pojo;
+package com.utunan.pojo.questionblank;
 
 public class Subject {
 

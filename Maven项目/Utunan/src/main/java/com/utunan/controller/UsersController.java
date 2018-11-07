@@ -1,7 +1,6 @@
 package com.utunan.controller;
 
-import com.utunan.pojo.School;
-import com.utunan.pojo.User;
+import com.utunan.pojo.uerinfo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

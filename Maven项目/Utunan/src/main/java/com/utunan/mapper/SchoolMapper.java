@@ -1,7 +1,7 @@
 package com.utunan.mapper;
 
 
-import com.utunan.pojo.School;
+import com.utunan.pojo.school.School;
 
 import java.util.List;
 

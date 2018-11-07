@@ -1,4 +1,4 @@
-package com.utunan.pojo;
+package com.utunan.pojo.school;
 
 public class SchoolType {
 

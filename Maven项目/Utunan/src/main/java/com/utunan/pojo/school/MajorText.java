@@ -1,4 +1,4 @@
-package com.utunan.pojo;
+package com.utunan.pojo.school;
 
 /**
  * 初试考试科目-MajorTextService

@@ -1,7 +1,7 @@
 package com.utunan.service.school;
 
 
-import com.utunan.pojo.School;
+import com.utunan.pojo.school.School;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

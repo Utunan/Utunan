@@ -1,4 +1,4 @@
-package com.utunan.pojo;
+package com.utunan.pojo.uerinfo;
 
 /**
  * 帖子收藏列表-PostCollector

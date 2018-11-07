@@ -1,6 +1,6 @@
 package com.utunan.mapper;
 
-import com.utunan.pojo.Article;
+import com.utunan.pojo.forum.Article;
 
 import java.util.List;
 
