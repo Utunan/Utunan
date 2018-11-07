@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>欢迎回来~</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/login.css">
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <header>
@@ -19,7 +19,7 @@
     <div class="wrapper center">
         <div class="textcase">
             <div class="logintext">
-                <a href=""><img src="images/logo.png" alt="" srcset=""></a>
+                <a href=""><img src="../../images/logo.png" alt="" srcset=""></a>
             </div>
         </div>
         <div  class="reply" id="reply"></div>
@@ -61,7 +61,7 @@
 
 </body>
 
-<script src="js/login.js"></script>
+<script src="../../js/login.js"></script>
 <script>
 
 </script>

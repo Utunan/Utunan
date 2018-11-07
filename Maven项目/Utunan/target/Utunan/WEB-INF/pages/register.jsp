@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>快来加入我们吧~</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/register.css">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/register.css">
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
     <script src="js/utunan.js"></script>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <div class="wrapper center">
         <div class="textcase">
             <div class="registertext">
-                <a href=""><img src="images/logo.png" alt="" srcset=""></a>
+                <a href=""><img src="../../images/logo.png" alt="" srcset=""></a>
             </div>
         </div>
         <div class="reply" id="reply"></div>
@@ -78,6 +78,6 @@
 
 </body>
 
-<script src="js/register.js"></script>
+<script src="../../js/register.js"></script>
 
 </html>
