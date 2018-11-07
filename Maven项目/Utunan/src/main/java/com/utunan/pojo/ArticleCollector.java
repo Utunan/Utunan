@@ -1,9 +1,9 @@
 package com.utunan.pojo;
 
 /**
- * 帖子收藏列表-PostCollector
+ * 帖子收藏列表-ArticleCollector
  */
-public class PostCollector {
+public class ArticleCollector {
 	//帖子收藏列表ID
 	private Long postCollectorId;
 	//帖子ID
@@ -47,7 +47,7 @@ public class PostCollector {
 
 	@Override
 	public String toString() {
-		return "PostCollector{" +
+		return "ArticleCollector{" +
 				"postCollectorId=" + postCollectorId +
 				", postId=" + postId +
 				", plateId=" + plateId +
