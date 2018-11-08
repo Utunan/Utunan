@@ -1,8 +1,8 @@
 community	社区
 
-​		Article		:	那块
+​		Article		:	文章
 
-​		Comment	:	评论
+​		Comment	    :	评论
 
 ​		Plate		:	板块
 
@@ -28,7 +28,7 @@ school	院校
 
 user	用户
 
-​		ArticleCollector		:	文章收藏
+​		ArticleCollector	:	文章收藏
 
 ​		QuestionCollector	: 	习题收藏
 
