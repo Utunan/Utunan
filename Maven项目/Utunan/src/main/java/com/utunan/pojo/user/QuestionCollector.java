@@ -1,4 +1,4 @@
-package com.utunan.pojo.uerinfo;
+package com.utunan.pojo.user;
 
 /**
  * 题目收藏列表-QuestionCollector

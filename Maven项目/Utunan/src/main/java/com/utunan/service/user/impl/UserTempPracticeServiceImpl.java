@@ -1,5 +1,9 @@
 package com.utunan.service.user.impl;
 
-public class UserTempPracticeServiceImpl {
+import com.utunan.service.user.UserTempPracticeService;
+import org.springframework.stereotype.Service;
+
+@Service("userTempPracticeService")
+public class UserTempPracticeServiceImpl implements UserTempPracticeService {
 
 }

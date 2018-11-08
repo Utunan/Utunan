@@ -63,4 +63,5 @@ http://www.springframework.org/schema/task/spring-task.xsd">
 
     <!--    静态资源处理    -->
     <mvc:default-servlet-handler/>
+
 </beans>

@@ -1,9 +1,10 @@
-package com.utunan.mapper;
+package com.utunan.mapper.community;
 
-import com.utunan.pojo.forum.Article;
+import com.utunan.pojo.community.Article;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface ArticleMapper {
 
     int insert(Article article);

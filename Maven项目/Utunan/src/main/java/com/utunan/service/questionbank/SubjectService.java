@@ -1,8 +1,5 @@
-package com.utunan.service;
+package com.utunan.service.questionbank;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public interface SubjectService {
 
 }

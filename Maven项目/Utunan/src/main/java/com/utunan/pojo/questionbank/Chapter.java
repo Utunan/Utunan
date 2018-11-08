@@ -1,4 +1,4 @@
-package com.utunan.pojo.questionblank;
+package com.utunan.pojo.questionbank;
 
 /**
  * 章节表-chapter

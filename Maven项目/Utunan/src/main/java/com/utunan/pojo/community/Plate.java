@@ -1,4 +1,4 @@
-package com.utunan.pojo;
+package com.utunan.pojo.community;
 
 /**
  * 板块-Plate

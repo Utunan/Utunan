@@ -1,10 +1,8 @@
-package com.utunan.service;
+package com.utunan.service.community;
 
-import com.utunan.pojo.forum.Article;
-import org.springframework.stereotype.Service;
+import com.utunan.pojo.community.Article;
 import java.util.List;
 
-@Service
 public interface ArticleService {
 
     int insert(Article article);

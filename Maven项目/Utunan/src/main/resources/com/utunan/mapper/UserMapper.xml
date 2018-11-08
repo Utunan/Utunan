@@ -4,13 +4,9 @@
 <mapper namespace="com.utunan.mapper.user.UserMapper">
     <select id="select" resultType="com.utunan.pojo.User">
         select *
-        from t_user
+        from user
         where username=#{username}
         and
         password=#{password}
     </select>
-    <delete id="delete">
-        delete  from  t_user
-        where username=#{username}
-    </delete>
 </mapper>

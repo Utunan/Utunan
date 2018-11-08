@@ -1,4 +1,4 @@
-package com.utunan.pojo.school;
+package com.utunan.pojo.user;
 
 public class SchoolCollector {
 

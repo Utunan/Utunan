@@ -1,4 +1,4 @@
-package com.utunan.pojo.questionblank;
+package com.utunan.pojo.questionbank;
 
 public class Question {
     //题库列表ID

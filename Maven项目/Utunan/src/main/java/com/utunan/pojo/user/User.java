@@ -1,4 +1,4 @@
-package com.utunan.pojo.uerinfo;
+package com.utunan.pojo.user;
 
 import java.util.Date;
 

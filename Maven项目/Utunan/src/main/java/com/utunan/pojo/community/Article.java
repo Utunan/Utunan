@@ -1,4 +1,4 @@
-package com.utunan.pojo.forum;
+package com.utunan.pojo.community;
 
 import java.util.Date;
 
