@@ -18,10 +18,10 @@
     <div class="wrapper center">
         <div class="textcase">
             <div class="logintext">
-                <a href=""><img src="images/logo.png" alt="" srcset=""></a>
+                <a href="/homepage                                                                              "><img src="images/logo.png" alt="" srcset=""></a>
             </div>
         </div>
-        <div  class="reply" id="reply"></div>
+        <div  class="reply" id="reply">${reply}</div>
         <form class="loginform" id="loginform" action="/login" method="post" onsubmit="return checkForm()">
             <div class="permit inputcase">
                 <input type="text" name="permit" id="permit" placeholder="手机 / 邮箱">

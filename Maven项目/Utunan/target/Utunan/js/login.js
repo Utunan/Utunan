@@ -17,7 +17,7 @@ permit.onblur = function () {
         } else {
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xmlhttp.open("POST", "/user/checkpermit?permit=" + permitvalue, true);
+        xmlhttp.open("POST", "/MyWebSite/checkpermit?permit=" + permitvalue, true);
         //一顿贼骚气的操作之后,判断用户名是否重复了.
 
         //Ajax返回的信息
@@ -30,9 +30,9 @@ password.onblur = function () {
     if (password.value == '') {
         password.parentNode.style.border = '1px solid red';
         password.focus();
-        reply.innerHTML = '密码不能为空'
+        reply.innerHTML = '密码不能为空';
     } else {
-        reply.innerHTML = ''
+        reply.innerHTML = '';
         password.parentNode.style.border = '1px solid LightSteelBlue';
     }
 }
@@ -71,7 +71,7 @@ function checkForm() {
         password.focus();
         reply.innerHTML = '密码格式错误';
         password.parentNode.style.border = '1px solid red';
-        password.onfocus();
+        password.focus();
         return false;
     }
     return true;

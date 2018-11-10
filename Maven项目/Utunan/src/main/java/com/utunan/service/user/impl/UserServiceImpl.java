@@ -14,7 +14,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUser(User user) {
         User u=userMapper.queryByPermit(user);
-
         return u;
     }
 }
