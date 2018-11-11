@@ -16,4 +16,8 @@ public class UserServiceImpl implements UserService {
         User u=userMapper.queryByPermit(user);
         return u;
     }
+
+    public void saveUser(User user){
+
+    }
 }

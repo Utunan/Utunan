@@ -2,13 +2,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>快来加入我们吧~</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/register.css">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <script src="/js/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(function () {
+                $("#getcode").removeAttr("disabled");//记得括号里，对应的是id
+                //发送验证码
+                $("#getcode").click(function () {
+                    $.ajax({
+                        url: "code",//ajax提交表单
+                        data: {
+                            "userTelephone": $("#userTelephone").val()
+                        },
+                        type: "post",
+                        async: true,
+                        dataType: "text",
+                        success: function (data) {
+                            if (data == 'true') {
+                                alert("验证码已发送");
+                                time(this);
+                            } else
+                                alert("发送失败");
+                        },
+                        error: function () {
+                            alert("error");
+                        }
+                    });
+                });
+
+                //验证
+                $("#login").click(function () {
+                    var code = $("#code");
+                    if (code.val() == '') {
+                        alert("验证码不能为空");
+                        return false;
+                    }
+                    $.ajax({
+                        url: "login",
+                        data: {
+                            "code": $("#code").val()
+                        },
+                        type: "post",
+                        async: true,
+                        dataType: "text",
+                        success: function (data) {
+                            if (data == 'true') {
+                                alert("成功!");
+                            }
+                            else {
+                                alert("验证码错误");
+                            }
+                        },
+                        error: function () {
+                            alert("发送失败请重新发送");
+                        }
+
+                    });
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 <header>
@@ -21,7 +80,7 @@
                 <a href=""><img src="images/logo.png" alt="" srcset=""></a>
             </div>
         </div>
-        <div  class="reply" id="reply"></div>
+        <div class="reply" id="reply"></div>
         <form id="registerform" class="registerform" action="666" method="post" omsubmit='return checkForm()'>
 
             <!--    手机号  -->
@@ -47,7 +106,7 @@
 
             <!--    提交密码    -->
             <div class="registerbtn">
-                <button type="submit" >提交</button>
+                <button type="submit">提交</button>
             </div>
             <span><a href="">忘记密码</a> </span>
             <span><a href="">立即注册</a> </span>
@@ -76,65 +135,7 @@
 </div>
 
 </body>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $(function(){
-            $("#getcode").removeAttr("disabled");//记得括号里，对应的是id
-            //发送验证码
-            $("#getcode").click(function(){
-                $.ajax({
-                    url:"code",//ajax提交表单
-                    data:{
-                        "userTelephone":$("#userTelephone").val()
-                    },
-                    type:"post",
-                    async:true,
-                    dataType:"text",
-                    success:function(data){
-                        if(data=='true'){
-                            alert("验证码已发送");
-                            time(this);
-                        }else
-                            alert("发送失败");
-                    },
-                    error:function(){
-                        alert("error");
-                    }
-                });
-            });
 
-            //验证
-            $("#login").click(function(){
-                var code=$("#code");
-                if(code.val()==''){
-                    alert("验证码不能为空");
-                    return;
-                }
-                $.ajax({
-                    url:"login",
-                    data:{
-                        "code":$("#code").val()
-                    },
-                    type:"post",
-                    async:true,
-                    dataType:"text",
-                    success:function(data){
-                        if(data=='true'){
-                            alert("成功!");
-                        }
-                        else{
-                            alert("验证码错误");
-                        }
-                    },
-                    error:function(){
-                        alert("发送失败请重新发送");
-                    }
-
-                });
-            });
-        });
-    });
-</script>
 <script src="/js/register.js"></script>
 
 </html>
