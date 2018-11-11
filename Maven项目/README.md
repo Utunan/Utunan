@@ -1,6 +1,6 @@
 community	社区
 
-​		Article		:	那块
+​		Article		:	文章
 
 ​		Comment	:	评论
 
