@@ -4,6 +4,6 @@
     <title>Title</title>
 </head>
 <body>
-${ctx}666
+
 </body>
 </html>

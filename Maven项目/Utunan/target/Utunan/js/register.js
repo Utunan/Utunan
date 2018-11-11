@@ -1,5 +1,5 @@
-﻿permit = document.getElementById("permit");
-vcode = document.getElementById("vcode");
+﻿userTelephone = document.getElementById("userTelephone");
+vcode = document.getElementById("code");
 getcode = document.getElementById("getcode");
 password = document.getElementById("password");
 rpassword = document.getElementById("rpassword");
@@ -22,18 +22,18 @@ function CheckForm(){
 }
 
 
-permit.onblur = function () {
-    if (!checkpermit(permit.value)&&(issend==false)) {
-        permit.parentNode.style.border = '1px solid red';
+userTelephone.onblur = function () {
+    if (!checkpermit(userTelephone.value)&&(issend==false)) {
+        userTelephone.parentNode.style.border = '1px solid red';
         reply.innerHTML = '手机号填写错误'
     } else {
-        permit.parentNode.style.border = '1px solid LightSteelBlue';
+        userTelephone.parentNode.style.border = '1px solid LightSteelBlue';
         reply.innerHTML = ''
     }
 }
 
 getcode.onclick = function () {
-    if (checkpermit(permit.value)) {
+    if (checkpermit(userTelephone.value)) {
         reply.innerHTML = ''
         var xmlhttp;
         if (window.XMLHttpRequest) {
