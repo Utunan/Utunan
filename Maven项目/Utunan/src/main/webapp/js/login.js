@@ -1,4 +1,4 @@
-permit = document.getElementById('permit');
+﻿permit = document.getElementById('permit');
 password = document.getElementById('password');
 reply = document.getElementById('reply');
 
@@ -6,7 +6,7 @@ permit.onblur = function () {
     if (permit.value == '') {
         permit.parentNode.style.border = '1px solid red';
         permit.focus();
-        reply.innerHTML = '通行证不能为空'
+        reply.innerHTML = '通行证或密码不能为空'
     } else {
         permit.parentNode.style.border = '1px solid LightSteelBlue';
         reply.innerHTML = ''
@@ -17,7 +17,7 @@ permit.onblur = function () {
         } else {
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xmlhttp.open("POST", "/MyWebSite/checkpermit?permit=" + permitvalue, true);
+        xmlhttp.open("POST", "/checkpermit?permit=" + permitvalue, true);
         //一顿贼骚气的操作之后,判断用户名是否重复了.
 
         //Ajax返回的信息
@@ -30,7 +30,7 @@ password.onblur = function () {
     if (password.value == '') {
         password.parentNode.style.border = '1px solid red';
         password.focus();
-        reply.innerHTML = '密码不能为空';
+        reply.innerHTML = '通行证或密码不能为空';
     } else {
         reply.innerHTML = '';
         password.parentNode.style.border = '1px solid LightSteelBlue';
@@ -48,7 +48,7 @@ function checkpermit() {
 
 function checkForm() {
     if (password.value == '' || permit.value == '') {
-        reply.innerHTML = '通行证/密码不能为空'
+        reply.innerHTML = '通行证或密码不能为空'
         if (password.value == '') {
             password.focus();
             password.parentNode.style.border = '1px solid red';
@@ -62,7 +62,7 @@ function checkForm() {
 
     if (checkpermit()) {
         permit.focus();
-        reply.innerHTML = '请使用手机号 / 邮箱登录'
+        reply.innerHTML = '请使用手机号或邮箱登录'
         return false;
     }
 
@@ -71,6 +71,7 @@ function checkForm() {
         password.focus();
         reply.innerHTML = '密码格式错误';
         password.parentNode.style.border = '1px solid red';
+        password.value = ''
         password.focus();
         return false;
     }

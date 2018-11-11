@@ -1,4 +1,4 @@
-permit = document.getElementById("permit");
+﻿permit = document.getElementById("permit");
 vcode = document.getElementById("vcode");
 getcode = document.getElementById("getcode");
 password = document.getElementById("password");
