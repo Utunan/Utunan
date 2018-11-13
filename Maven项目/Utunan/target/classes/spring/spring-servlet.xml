@@ -39,42 +39,20 @@ http://www.springframework.org/schema/task/spring-task.xsd">
         <!--</mvc:message-converters>-->
     </mvc:annotation-driven>
 
-    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
-    <!--<property name="messageConverters">-->
-    <!--<list>-->
-    <!--<bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
-    <!--<property name="supportedMediaTypes">-->
-    <!--<list>-->
-    <!--<value>text/html:charset=UTF-8</value>-->
-    <!--<value>application/json:charset=UTF-8</value>-->
-    <!--</list>-->
-    <!--</property>-->
-    <!--</bean>-->
-    <!--<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
-    <!--<property name="supportedMediaTypes">-->
-    <!--<list>-->
-    <!--<value>text/html:charset=UTF-8</value>-->
-    <!--<value>application/json:charset=UTF-8</value>-->
-    <!--</list>-->
-    <!--</property>-->
-    <!--</bean>-->
-    <!--</list>-->
-    <!--</property>-->
-    <!--</bean>-->
 
     <!--    静态资源处理    -->
     <mvc:annotation-driven/>
     <!-- 表示上述配置的 css 文件不属 viewResolver 解析 -->
     <mvc:default-servlet-handler/>
 
-    <!--&lt;!&ndash; 解析器注册 &ndash;&gt;-->
-    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
-        <!--<property name="messageConverters">-->
-            <!--<list>-->
-                <!--<ref bean="stringHttpMessageConverter"/>-->
-            <!--</list>-->
-        <!--</property>-->
-    <!--</bean>-->
-    <!--&lt;!&ndash; String类型解析器，允许直接返回String类型的消息 &ndash;&gt;-->
-    <!--<bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter"/>-->
+    <!-- 解析器注册 -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="stringHttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+    <!-- String类型解析器，允许直接返回String类型的消息 -->
+    <bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter"/>
 </beans>

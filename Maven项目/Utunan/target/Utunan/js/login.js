@@ -3,6 +3,7 @@ password = document.getElementById('password');
 reply = document.getElementById('reply');
 state = false;
 replyinfo="";
+
 function checkpermit() {
     var regt = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
     var rege = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
@@ -10,7 +11,6 @@ function checkpermit() {
 }
 
 permit.onblur = function () {
-
     if (permit.value == '') {
         permit.parentNode.style.border = '1px solid red';
         reply.innerHTML = '通行证或密码不能为空'
@@ -23,11 +23,9 @@ permit.onblur = function () {
         } else {
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
-
         //向后台发送验证信息
         xmlhttp.open("POST", "/checkpermit?permit=" + permit.value, true);
         xmlhttp.send();
-
         //对返回信息进行验证
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -59,6 +57,7 @@ password.onblur = function () {
 
 
 function checkForm() {
+
     if (password.value == '' || permit.value == '') {
         reply.innerHTML = '通行证或密码不能为空';
         if (password.value == '') {

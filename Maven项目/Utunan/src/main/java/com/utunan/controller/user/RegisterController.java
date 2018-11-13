@@ -30,6 +30,6 @@ public class RegisterController {
     @RequestMapping(value="/register",method =RequestMethod.POST)
     public String register(User user){
         userService.saveUser(user);
-        return "";
+        return "/user/";
     }
 }

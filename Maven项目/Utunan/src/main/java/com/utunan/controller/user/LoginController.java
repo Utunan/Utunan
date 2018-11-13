@@ -22,39 +22,44 @@ public class LoginController {
 
     @RequestMapping("/checkpermit")
     @ResponseBody
-    public String checkpermit(User user,HttpServletRequest request){
-        String permit=request.getParameter("permit");
+    public String checkpermit(User user, HttpServletRequest request) {
+        String permit = request.getParameter("permit");
         user.setUserEmail(permit);
         user.setUserTelephone(permit);
-        boolean bool=userService.isExist(user);
-        if(bool) {
+        boolean bool = userService.isExist(user);
+        if (bool) {
             return "successful";
         }
         return "unsuccessful";
     }
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(HttpSession session) {
-        Object obj=session.getAttribute("user");
-        if(obj==null){
+
+        Object obj = session.getAttribute("user");
+
+        //用户未登录，转到用户登录界面
+        if (obj == null)
             return "login";
-        }else{
-            return "redirect:/user";
-        }
+
+        //用户已登录，转到用户个人中心
+        return "redirect:/user";
+
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(HttpServletRequest request, User user, HttpSession session) {
-        String permit=request.getParameter("permit");
-        user.setUserEmail(permit);
-        user.setUserTelephone(permit);
-        User user1 = userService.getUser(user);
-        if (user1 != null) {
+    public String login(HttpServletRequest request, User account, HttpSession session) {
+        String permit = request.getParameter("permit");
+        account.setUserEmail(permit);
+        account.setUserTelephone(permit);
+        User user = userService.getUser(account);
+        if (user != null) {
             request.removeAttribute("reply");
-            session.setAttribute("user", user1);
+            session.setAttribute("User", user);
             return "redirect:/user/";
         } else {
             request.setAttribute("reply", "通行证或密码错误");
-            request.setAttribute("temppermit",permit);
+            request.setAttribute("temppermit", permit);
             return "login";
         }
     }

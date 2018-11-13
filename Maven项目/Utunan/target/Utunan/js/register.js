@@ -6,21 +6,14 @@ rpassword = document.getElementById("rpassword");
 
 var gctimer = null;
 var issend = false;
-var gitimer;
 var ispermit = false;
 var state=true;
-
-
+var datasss=0;
 
 function checkpermit(telephone) {
     var re = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
     return re.test(telephone);
 }
-
-function CheckForm(){
-
-}
-
 
 userTelephone.onblur = function () {
     if (!checkpermit(userTelephone.value)&&(issend==false)) {
@@ -42,7 +35,24 @@ getcode.onclick = function () {
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
         //Ajax的操作
-
+        xmlhttp.open("POST", "/code?userTelephone=" + userTelephone.value, true);
+        xmlhttp.send();
+        //对返回信息进行验证
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var res = xmlhttp.responseText;
+                reply.innerHTML =res;
+                datasss=res;
+                // if (res == "unsuccessful") {
+                //     reply.innerHTML = '通行证不存在,请先<a href="register">注册</a>';
+                //     permit.parentNode.style.border = '1px solid red';
+                // } else {
+                //     reply.innerHTML = "";
+                //     state = true;
+                //     permit.parentNode.style.border = '1px solid LightSteelBlue';
+                // }
+            }
+        }
         if (issend == false) {
             issend = true;
             gitimer = 60;

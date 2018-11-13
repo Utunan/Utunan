@@ -21,4 +21,8 @@
         or
         userEmail=#{userEmail}
     </select>
+    <select id="insert">
+        insert into user(userTelephone,userPassword,userIdentity)
+        values()
+    </select>
 </mapper>
