@@ -1,7 +1,8 @@
 ﻿permit = document.getElementById('permit');
 password = document.getElementById('password');
 reply = document.getElementById('reply');
-permit_state=true;
+state = false;
+replyinfo="";
 function checkpermit() {
     var regt = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
     var rege = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
@@ -12,13 +13,9 @@ permit.onblur = function () {
 
     if (permit.value == '') {
         permit.parentNode.style.border = '1px solid red';
-        permit.focus();
         reply.innerHTML = '通行证或密码不能为空'
-    }else if(checkpermit(permit.value)){
-        reply.innerHTML='通行证格式错误'
     } else {
-
-        permit_state=false;
+        permit_state = false;
         reply.innerHTML = ''
         var xmlhttp;
         if (window.XMLHttpRequest) {
@@ -36,11 +33,11 @@ permit.onblur = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 var res = xmlhttp.responseText;
                 if (res == "unsuccessful") {
-                    reply.innerHTML = '通行证不存在';
+                    reply.innerHTML = '通行证不存在,请先<a href="register">注册</a>';
                     permit.parentNode.style.border = '1px solid red';
-                }else{
-                    reply.innerHTML="";
-                    permit_state=true;
+                } else {
+                    reply.innerHTML = "";
+                    state = true;
                     permit.parentNode.style.border = '1px solid LightSteelBlue';
                 }
             }
@@ -52,51 +49,30 @@ password.onblur = function () {
 
     if (password.value == '') {
         password.parentNode.style.border = '1px solid red';
-        reply.innerHTML = '通行证或密码不能为空';
-    } else {
-        if (password.value.length < 8 || password.value.length > 16) {
-            password.focus();
-            reply.innerHTML = '通行证或密码格式错误';
-            password.parentNode.style.border = '1px solid red';
-        } else {
-            reply.innerHTML = '';
-            password.parentNode.style.border = '1px solid LightSteelBlue';
+        if (state)
+            reply.innerHTML = '通行证或密码不能为空';
+        if (permit.value == '') {
+            permit.parentNode.style.border = '1px solid red';
         }
     }
 }
 
 
-
 function checkForm() {
-    if(!permit_state) {
-        reply.innerHTML = '通行证或密码格式错误';
-        return false;
-    }
     if (password.value == '' || permit.value == '') {
         reply.innerHTML = '通行证或密码不能为空';
         if (password.value == '') {
-            password.focus();
             password.parentNode.style.border = '1px solid red';
         }
         if (permit.value == '') {
-            permit.focus();
             permit.parentNode.style.border = '1px solid red';
         }
-        return false;
+        state = false;
     }
 
     if (checkpermit()) {
-        permit.focus();
         reply.innerHTML = '请使用手机号或邮箱登录'
-        return false;
+        state = false;
     }
-
-    if (password.value.length < 8 || password.value.length > 16) {
-        password.focus();
-        reply.innerHTML = '通行证或密码格式错误';
-        password.parentNode.style.border = '1px solid red';
-        password.focus();
-        return false;
-    }
-    return true;
+    return state;
 }

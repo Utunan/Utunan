@@ -24,10 +24,10 @@
         <div  class="reply" id="reply">${reply}</div>
         <form class="loginform" id="loginform" action="/login" method="post" onsubmit="return checkForm()">
             <div class="permit inputcase">
-                <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="手机 / 邮箱">
+                <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="您的手机/邮箱">
             </div>
             <div class="loginpassword inputcase">
-                <input type="password" name="userPassword" id="password" placeholder="密码 8位-16位之间">
+                <input type="password" name="userPassword" id="password" placeholder="请输入密码">
             </div>
             <div class="loginbtn">
                 <button type="submit" >提交</button>
