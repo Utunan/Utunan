@@ -1,4 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<c:if test="${User!=null}">
+    <c:redirect url="/user/"/>
+</c:if>
+
 <!DOCTYPE html>
 <html>
 <head>

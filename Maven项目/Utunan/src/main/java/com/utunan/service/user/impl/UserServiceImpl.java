@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -23,9 +24,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveUser(User user) {
+        Date date = new Date();
+        user.setRegisterTime(date);
+        user.setLoginTime(date);
         userMapper.insert(user);
     }
-
     @Override
     public boolean isExist(User user) {
         User u=userMapper.findByPermit(user);

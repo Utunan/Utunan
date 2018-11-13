@@ -42,17 +42,9 @@ getcode.onclick = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 var res = xmlhttp.responseText;
                 reply.innerHTML =res;
-                datasss=res;
-                // if (res == "unsuccessful") {
-                //     reply.innerHTML = '通行证不存在,请先<a href="register">注册</a>';
-                //     permit.parentNode.style.border = '1px solid red';
-                // } else {
-                //     reply.innerHTML = "";
-                //     state = true;
-                //     permit.parentNode.style.border = '1px solid LightSteelBlue';
-                // }
             }
         }
+
         if (issend == false) {
             issend = true;
             gitimer = 60;
