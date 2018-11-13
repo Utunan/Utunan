@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="reply" id="reply"></div>
-        <form id="registerform" class="registerform" action="/register" method="post" omsubmit='return checkForm()'>
+        <form id="registerform" class="registerform" action="/register" method="post" onsubmit="return checkForm()">
 
             <!--    手机号  -->
             <div class="permit inputcase">
