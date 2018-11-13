@@ -17,11 +17,6 @@ function checkpermit(telephone) {
     return re.test(telephone);
 }
 
-function CheckForm(){
-
-}
-
-
 userTelephone.onblur = function () {
     if (!checkpermit(userTelephone.value)&&(issend==false)) {
         userTelephone.parentNode.style.border = '1px solid red';

@@ -11,7 +11,6 @@ function checkpermit() {
 }
 
 permit.onblur = function () {
-
     if (permit.value == '') {
         permit.parentNode.style.border = '1px solid red';
         reply.innerHTML = '通行证或密码不能为空'
