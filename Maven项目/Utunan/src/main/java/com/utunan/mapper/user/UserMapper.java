@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository;
 public interface UserMapper {
     int insert(User user);
     User queryByPermit(User user);
+    User findByPermit(User user);
 }
 

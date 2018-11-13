@@ -13,4 +13,12 @@
         and
         userPassword=#{userPassword}
     </select>
+    <select id="findByPermit" resultType="com.utunan.pojo.user.User">
+        select *
+        from user
+        where
+        userTelephone=#{userTelephone}
+        or
+        userEmail=#{userEmail}
+    </select>
 </mapper>

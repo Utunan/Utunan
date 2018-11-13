@@ -26,6 +26,7 @@ userTelephone.onblur = function () {
     if (!checkpermit(userTelephone.value)&&(issend==false)) {
         userTelephone.parentNode.style.border = '1px solid red';
         reply.innerHTML = '手机号填写错误'
+        userTelephone.focus();
     } else {
         userTelephone.parentNode.style.border = '1px solid LightSteelBlue';
         reply.innerHTML = ''
@@ -34,7 +35,6 @@ userTelephone.onblur = function () {
 
 getcode.onclick = function () {
     if (checkpermit(userTelephone.value)) {
-        reply.innerHTML = ''
         var xmlhttp;
         if (window.XMLHttpRequest) {
             xmlhttp = new XMLHttpRequest();

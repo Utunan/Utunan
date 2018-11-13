@@ -14,10 +14,6 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class UserVerification {
-    @RequestMapping("/checkPermit")
-    public String checkPermit(HttpServletRequest request){
-        return "";
-    }
 
     @RequestMapping("/code")
     @ResponseBody
@@ -38,7 +34,7 @@ public class UserVerification {
         } catch (ClientException e) {
             e.printStackTrace();
         }
-        return "true";
+        return code;
     }
 
     @RequestMapping("/checkCode")

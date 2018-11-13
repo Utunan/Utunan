@@ -8,66 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/register.css">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-    <script src="/js/jquery-3.3.1.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(function () {
-                $("#getcode").removeAttr("disabled");//记得括号里，对应的是id
-                //发送验证码
-                $("#getcode").click(function () {
-                    $.ajax({
-                        url: "code",//ajax提交表单
-                        data: {
-                            "userTelephone": $("#userTelephone").val()
-                        },
-                        type: "post",
-                        async: true,
-                        dataType: "text",
-                        success: function (data) {
-                            if (data == 'true') {
-                                alert("验证码已发送");
-                                time(this);
-                            } else
-                                alert("发送失败");
-                        },
-                        error: function () {
-                            alert("error");
-                        }
-                    });
-                });
-
-                //验证
-                $("#login").click(function () {
-                    var code = $("#code");
-                    if (code.val() == '') {
-                        alert("验证码不能为空");
-                        return false;
-                    }
-                    $.ajax({
-                        url: "login",
-                        data: {
-                            "code": $("#code").val()
-                        },
-                        type: "post",
-                        async: true,
-                        dataType: "text",
-                        success: function (data) {
-                            if (data == 'true') {
-                                alert("成功!");
-                            }
-                            else {
-                                alert("验证码错误");
-                            }
-                        },
-                        error: function () {
-                            alert("发送失败请重新发送");
-                        }
-
-                    });
-                });
-            });
-        });
-    </script>
 </head>
 <body>
 <header>
@@ -81,7 +21,7 @@
             </div>
         </div>
         <div class="reply" id="reply"></div>
-        <form id="registerform" class="registerform" action="666" method="post" omsubmit='return checkForm()'>
+        <form id="registerform" class="registerform" action="/register" method="post" omsubmit='return checkForm()'>
 
             <!--    手机号  -->
             <div class="permit inputcase">
@@ -96,7 +36,7 @@
 
             <!--    密码    -->
             <div class="registerpassword inputcase">
-                <input type="password" name="password" id="password" placeholder="密码">
+                <input type="password" name="userPassword" id="password" placeholder="密码">
             </div>
 
             <!--    确认密码    -->

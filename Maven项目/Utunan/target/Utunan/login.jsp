@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-    Action speak louder than words.${ctx}
+    Action speak louder than words.
 </header>
 <div class="container background">
     <div class="wrapper center">
@@ -21,13 +21,13 @@
                 <a href=""><img src="/images/logo.png" alt="" srcset=""></a>
             </div>
         </div>
-        <div  class="reply" id="reply">${ctx}</div>
+        <div  class="reply" id="reply">${reply}</div>
         <form class="loginform" id="loginform" action="/login" method="post" onsubmit="return checkForm()">
             <div class="permit inputcase">
-                <input type="text" name="permit" id="permit" placeholder="手机 / 邮箱">
+                <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="手机 / 邮箱">
             </div>
             <div class="loginpassword inputcase">
-                <input type="password" name="password" id="password" placeholder="密码 8位-16位之间">
+                <input type="password" name="userPassword" id="password" placeholder="密码 8位-16位之间">
             </div>
             <div class="loginbtn">
                 <button type="submit" >提交</button>
