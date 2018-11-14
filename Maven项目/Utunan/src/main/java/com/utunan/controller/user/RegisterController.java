@@ -24,13 +24,20 @@ public class RegisterController {
     }
 
     @RequestMapping(value="/register",method =RequestMethod.POST)
-    public String register(User user, HttpServletRequest request){
+    public String register(User user, HttpServletRequest request,HttpSession session,String code){
         boolean bool=userService.isExist(user);
         if(bool){
-            request.setAttribute("reply","该用户已被注册");
+            request.setAttribute("reply","该手机号已被注册");
+            return "register";
+        }
+        String checkcode= (String) session.getAttribute("code");
+        if(!checkcode.equals(code)){
+            request.setAttribute("reply","验证码错误");
             return "register";
         }
         userService.saveUser(user);
+        User account=userService.getUser(user);
+        session.setAttribute("user",account);
         return "redirect:/user/";
     }
 }

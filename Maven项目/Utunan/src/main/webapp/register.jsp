@@ -25,7 +25,7 @@
                 <a href=""><img src="images/logo.png" alt="" srcset=""></a>
             </div>
         </div>
-        <div class="reply" id="reply"></div>
+        <div class="reply" id="reply">${reply}</div>
         <form id="registerform" class="registerform" action="/register" method="post" onsubmit="return checkForm()">
 
             <!--    手机号  -->
@@ -41,7 +41,7 @@
 
             <!--    密码    -->
             <div class="registerpassword inputcase">
-                <input type="password" name="userPassword" id="password" placeholder="密码">
+                <input type="password" name="userPassword" id="password" placeholder="密码(8-16位,由数字和字母组成)">
             </div>
 
             <!--    确认密码    -->
