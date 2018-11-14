@@ -55,4 +55,13 @@ http://www.springframework.org/schema/task/spring-task.xsd">
     </bean>
     <!-- String类型解析器，允许直接返回String类型的消息 -->
     <bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter"/>
+	
+	
+	 <!--SpringMVC上传文件时，需要配置MultipartResolver处理器-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <!-- 指定所上传文件的总大小不能超过200KB。注意maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和 -->
+        <property name="maxUploadSize" value="200000"/>
+    </bean>
+	
 </beans>
