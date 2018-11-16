@@ -87,6 +87,7 @@
             <artifactId>druid</artifactId>
             <version>${druid.version}</version>
         </dependency>
+
         <!-- log4j -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
