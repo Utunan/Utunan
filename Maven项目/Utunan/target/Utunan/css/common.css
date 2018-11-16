@@ -1,0 +1,97 @@
+﻿body {
+    margin: 0;
+}
+
+header {
+    min-width: 1000px;
+    padding: 0 50px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.header {
+    position: absolute;
+    top:0;
+    width: 100%;
+    float: left;
+    height: 56px;
+}
+
+.header .logo {
+    float: left;
+}
+
+.header .logo>img {
+    margin: 5px 0px;
+    height: 40px;
+}
+
+.header .search {
+    height: 100%;
+    float: right;
+}
+.header .search .text{
+    padding:0 20px;
+    background: #fff;
+    border-radius: 50px;
+    height: 30px;
+    margin-top:13px;
+    margin-bottom: 13px;
+}
+.header .search .text input{
+    outline: none;
+    height: 28px;
+    margin:0px;
+    border: 0px;
+}
+
+.header .login {
+    padding: 0 40px;
+    height: 100%;
+    line-height: 54px;
+    float: right;
+}
+
+.header .login a:link,
+.header .login a:hover,
+.header .login a:visited{
+    color:#fff;
+    text-decoration: none;
+}
+
+.header .login span{
+    font-size: 18px;
+    padding:5px;
+}
+
+.header .banner {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.header .banner>li {
+    display: inline;
+    padding: 0 40px;
+    float: left;
+    text-align: center;
+    height: 56px;
+    line-height: 56px;
+}
+
+.header .banner a:link,
+.header .banner a:hover,
+.header .banner a:visited {
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+}
+
+@media(max-width:1000px){
+
+
+body{
+
+}
+
+}

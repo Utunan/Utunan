@@ -2,11 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.utunan.mapper.user.UserMapper">
-    <select id="select" resultType="com.utunan.pojo.user.User">
+    <select id="queryByPermit" resultType="com.utunan.pojo.user.User">
         select *
         from user
-        where username=#{username}
+        where (
+        userTelephone=#{userTelephone}
+        or
+        userEmail=#{userEmail}
+        )
         and
-        password=#{password}
+        userPassword=#{userPassword}
     </select>
+    <select id="findByPermit" resultType="com.utunan.pojo.user.User">
+        select *
+        from user
+        where
+        userTelephone=#{userTelephone}
+        or
+        userEmail=#{userEmail}
+    </select>
+    <insert id="insert">
+        insert into user(userTelephone,userPassword,registerTime,loginTime)
+        values(#{userTelephone},#{userPassword},#{registerTime},#{registerTime})
+    </insert>
 </mapper>

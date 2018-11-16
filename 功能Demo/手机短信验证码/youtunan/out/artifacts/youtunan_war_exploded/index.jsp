@@ -94,7 +94,7 @@
 <form >
     手机号: <input name="phoneNumber" id="phoneNumber"><br>
     验证码: <input type="text" name="code" id="code">
-    <button type="button" id="sendCode" name="sendCode">发送验证码</button><br>
+    <input type="button" id="sendCode" name="sendCode" value="发送验证码"><br>
     <button type="button" id="login">登录</button>
 </form>
 </body>

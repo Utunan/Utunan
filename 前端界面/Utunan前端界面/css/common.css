@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    max-width: 100%;
+}
+
+header {
+    min-width: 1080px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.container {
+    width: 100%;
+    min-width: 1080px;
+    float: left;
+}
+
+.wrapper {
+    min-width: 1080px;
+    margin: 0 auto;
+}
+
+.header {
+    width: 100%;
+    float: left;
+    height: 56px;
+}
+
+.header .logo {
+    padding-left: 40px;
+    float: left;
+    width: 50px;
+    height: 56px;
+}
+
+.header .logo img {
+    float: left;
+    margin: 8px 10px 8px 0;
+    height: 40px;
+}
+
+.loginname {
+    float: left;
+    font-size: 20px;
+    margin: 8px 0px;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.header .search {
+    height: 100%;
+    float: right;
+    position: relative;
+}
+
+.header .search .text {
+    padding: 0 20px;
+    background: #fff;
+    border-radius: 50px;
+    height: 30px;
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+.header .search .text input {
+    padding:0;
+    outline: none;
+    float: left;
+    height: 30px;
+    width: 120px;
+    margin: 0px;
+    border: 0px;
+}
+.header .search .text button {
+    cursor: pointer;
+    height: 30px;
+    outline: none;
+    width: 30px;
+    padding: 0;
+    border:0;
+    margin:0;
+    background-color: rgba(0, 0, 0, 0);
+    float: left;
+}
+.header .search .text img {
+    padding:5px 0;
+    height: 20px;
+}
+
+.header .login {
+    padding: 0 40px 0 40px;
+    height: 100%;
+    line-height: 54px;
+    float: right;
+}
+
+.header .login a:link,
+.header .login a:hover,
+.header .login a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header .login span {
+    font-size: 18px;
+    padding: 5px;
+}
+
+.header .banner {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.header .banner>li {
+    display: inline;
+    padding: 0 40px;
+    float: left;
+    text-align: center;
+    height: 56px;
+    line-height: 56px;
+}
+
+.header .banner a:link,
+.header .banner a:hover,
+.header .banner a:visited {
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+}
