@@ -55,7 +55,6 @@ password.onblur = function () {
         reply.innerHTML = '通行证或密码不能为空';
     } else {
         if (password.value.length < 8 || password.value.length > 16) {
-            password.focus();
             reply.innerHTML = '通行证或密码格式错误';
             password.parentNode.style.border = '1px solid red';
         } else {
@@ -75,28 +74,23 @@ function checkForm() {
     if (password.value == '' || permit.value == '') {
         reply.innerHTML = '通行证或密码不能为空';
         if (password.value == '') {
-            password.focus();
             password.parentNode.style.border = '1px solid red';
         }
         if (permit.value == '') {
-            permit.focus();
             permit.parentNode.style.border = '1px solid red';
         }
         return false;
     }
 
     if (checkpermit()) {
-        permit.focus();
         reply.innerHTML = '请使用手机号或邮箱登录'
         return false;
     }
 
     if (password.value.length < 8 || password.value.length > 16) {
-        password.focus();
-        reply.innerHTML = '通行证或密码格式错误';
+         reply.innerHTML = '通行证或密码格式错误';
         password.parentNode.style.border = '1px solid red';
-        password.focus();
-        return false;
+         return false;
     }
     return true;
 }
