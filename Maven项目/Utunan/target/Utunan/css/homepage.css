@@ -1,0 +1,22 @@
+.header{
+    top:0;
+    position: absolute;
+}
+.homepageimg{
+    min-width:1000px;
+}
+.homepageimg>img{
+    width: 100%;
+}
+.propaganda{
+    position: absolute;
+    top:0;
+    padding-top:200px;
+    left: 100px;
+    height: 200px;
+    min-width: 800px;
+    font-size: 30px;
+    font-weight: bold;
+    color:#fff;
+}
+

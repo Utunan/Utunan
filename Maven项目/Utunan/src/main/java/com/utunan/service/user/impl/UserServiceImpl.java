@@ -26,7 +26,6 @@ public class UserServiceImpl implements UserService {
     public void saveUser(User user) {
         Date date = new Date();
         user.setRegisterTime(date);
-        user.setLoginTime(date);
         userMapper.insert(user);
     }
     @Override

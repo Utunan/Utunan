@@ -6,6 +6,7 @@ import java.util.Date;
  * User:用户
  */
 public class User {
+
     //用户id
     private Long userId;
     //用户邮箱
@@ -16,10 +17,10 @@ public class User {
     private String userPassword;
     //用户权限
     private int userIdentity;
+    //考研年份
+    private Date examTime;
     //注册时间
     private Date registerTime;
-    //最近登陆时间
-    private Date loginTime;
     //用户头像
     private String userHeadImg;
     //用户昵称
@@ -28,6 +29,8 @@ public class User {
     private String userSchool;
     //用户梦想院校
     private String dreamSchool;
+    //用户积分
+    private Integer userIntegral;
 
     public Long getUserId() {
         return userId;
@@ -69,20 +72,20 @@ public class User {
         this.userIdentity = userIdentity;
     }
 
+    public Date getExamTime() {
+        return examTime;
+    }
+
+    public void setExamTime(Date examTime) {
+        this.examTime = examTime;
+    }
+
     public Date getRegisterTime() {
         return registerTime;
     }
 
     public void setRegisterTime(Date registerTime) {
         this.registerTime = registerTime;
-    }
-
-    public Date getLoginTime() {
-        return loginTime;
-    }
-
-    public void setLoginTime(Date loginTime) {
-        this.loginTime = loginTime;
     }
 
     public String getUserHeadImg() {
@@ -117,6 +120,14 @@ public class User {
         this.dreamSchool = dreamSchool;
     }
 
+    public Integer getUserIntegral() {
+        return userIntegral;
+    }
+
+    public void setUserIntegral(Integer userIntegral) {
+        this.userIntegral = userIntegral;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -125,12 +136,13 @@ public class User {
                 ", userTelephone='" + userTelephone + '\'' +
                 ", userPassword='" + userPassword + '\'' +
                 ", userIdentity=" + userIdentity +
+                ", examTime=" + examTime +
                 ", registerTime=" + registerTime +
-                ", loginTime=" + loginTime +
                 ", userHeadImg='" + userHeadImg + '\'' +
                 ", userNickName='" + userNickName + '\'' +
                 ", userSchool='" + userSchool + '\'' +
                 ", dreamSchool='" + dreamSchool + '\'' +
+                ", userIntegral=" + userIntegral +
                 '}';
     }
 }

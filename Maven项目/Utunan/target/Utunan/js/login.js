@@ -88,9 +88,9 @@ function checkForm() {
     }
 
     if (password.value.length < 8 || password.value.length > 16) {
-         reply.innerHTML = '通行证或密码格式错误';
+        reply.innerHTML = '通行证或密码格式错误';
         password.parentNode.style.border = '1px solid red';
-         return false;
+        return false;
     }
     return true;
 }

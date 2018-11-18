@@ -1,5 +1,5 @@
-﻿userTelephone = document.getElementById("userTelephone");
-vcode = document.getElementById("code");
+﻿permit = document.getElementById("permit");
+vcode = document.getElementById("vcode");
 getcode = document.getElementById("getcode");
 password = document.getElementById("password");
 rpassword = document.getElementById("rpassword");
@@ -18,23 +18,23 @@ function checkpermit(telephone) {
 }
 
 function CheckForm(){
-
+    return false;
 }
 
 
-userTelephone.onblur = function () {
-    if (!checkpermit(userTelephone.value)&&(issend==false)) {
-        userTelephone.parentNode.style.border = '1px solid red';
+permit.onblur = function () {
+    if (!checkpermit(permit.value)&&(issend==false)) {
+        permit.parentNode.style.border = '1px solid red';
         reply.innerHTML = '手机号填写错误'
-        userTelephone.focus();
     } else {
-        userTelephone.parentNode.style.border = '1px solid LightSteelBlue';
+        permit.parentNode.style.border = '1px solid LightSteelBlue';
         reply.innerHTML = ''
     }
 }
 
 getcode.onclick = function () {
-    if (checkpermit(userTelephone.value)) {
+    if (checkpermit(permit.value)) {
+        reply.innerHTML = ''
         var xmlhttp;
         if (window.XMLHttpRequest) {
             xmlhttp = new XMLHttpRequest();
@@ -42,10 +42,21 @@ getcode.onclick = function () {
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
         //Ajax的操作
-
+        xmlhttp.open("POST","/userTelephone?userTelephone=" + permit,true);
+        xmlhttp.send();
+		xmlhttp.onreadystatechange=function(){
+		    if (xmlhttp.readyState==4 && xmlhttp.status==200){
+		        var res=xmlhttp.responseText;
+		        if(res=="ok"){
+		        	reply.innerHTML = "";
+		        }else{
+		        	reply.innerHTML="";
+		        }
+		    }
+		}
         if (issend == false) {
             issend = true;
-            gitimer = 60;
+            gitimer = 59;
             getcode.innerHTML = '60s后重新发送';
             gctimer = setInterval(function () {
                 getcode.innerHTML = gitimer + 's后重新发送';
