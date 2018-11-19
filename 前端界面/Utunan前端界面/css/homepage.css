@@ -3,7 +3,7 @@
     position: absolute;
 }
 .homepageimg{
-    min-width:1080px;
+    width: 100%;
 }
 .homepageimg>img{
     width: 100%;
@@ -19,3 +19,4 @@
     font-weight: bold;
     color:#fff;
 }
+

@@ -1,43 +1,8 @@
-permit = document.getElementById('permit');
+﻿permit = document.getElementById('permit');
 password = document.getElementById('password');
 reply = document.getElementById('reply');
 
-permit.onblur = function () {
-    if (permit.value == '') {
-        permit.parentNode.style.border = '1px solid red';
-        permit.focus();
-        reply.innerHTML = '通行证/密码不能为空'
-    } else {
-        permit.parentNode.style.border = '1px solid LightSteelBlue';
-        reply.innerHTML = ''
-        var permitvalue = this.value;
-        var xmlhttp;
-        if (window.XMLHttpRequest) {
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.open("POST", "/MyWebSite/checkpermit?permit=" + permitvalue, true);
-        //一顿贼骚气的操作之后,判断用户名是否重复了.
-
-        //Ajax返回的信息
-
-
-    }
-}
-
-password.onblur = function () {
-    if (password.value == '') {
-        password.parentNode.style.border = '1px solid red';
-        password.focus();
-        reply.innerHTML = '通行证/密码不能为空'
-    } else {
-        reply.innerHTML = ''
-        password.parentNode.style.border = '1px solid LightSteelBlue';
-    }
-}
-
-
+state = false;
 
 function checkpermit() {
     var regt = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
@@ -45,35 +10,68 @@ function checkpermit() {
     return (!regt.test(permit.value)) && (!rege.test(permit.value));
 }
 
+permit.onblur = function () {
+    if (permit.value == '') {
+        permit.parentNode.style.border = '1px solid red';
+        reply.innerHTML = '通行证或密码不能为空'
+    } else {
+        permit_state = false;
+        reply.innerHTML = ''
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        //向后台发送验证信息
+        xmlhttp.open("POST", "/checkpermit?permit=" + permit.value, true);
+        xmlhttp.send();
+        //对返回信息进行验证
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var res = xmlhttp.responseText;
+                if (res == "unsuccessful") {
+                    reply.innerHTML = '通行证不存在,请先<a href="register">注册</a>';
+                    permit.parentNode.style.border = '1px solid red';
+                } else {
+                    reply.innerHTML = "";
+                    state = true;
+                    permit.parentNode.style.border = '1px solid LightSteelBlue';
+                }
+            }
+        }
+    }
+}
+
+password.onblur = function () {
+
+    if (password.value == '') {
+        password.parentNode.style.border = '1px solid red';
+        if (state)
+            reply.innerHTML = '通行证或密码不能为空';
+        if (permit.value == '') {
+            permit.parentNode.style.border = '1px solid red';
+        }
+    }
+}
+
 
 function checkForm() {
+
     if (password.value == '' || permit.value == '') {
-        reply.innerHTML = '通行证/密码不能为空'
+        reply.innerHTML = '通行证或密码不能为空';
         if (password.value == '') {
-            password.focus();
             password.parentNode.style.border = '1px solid red';
         }
         if (permit.value == '') {
-            permit.focus();
             permit.parentNode.style.border = '1px solid red';
         }
-        return false;
+        state = false;
     }
 
     if (checkpermit()) {
-        permit.focus();
-        reply.innerHTML = '请使用手机号 / 邮箱登录'
-        return false;
+        reply.innerHTML = '请使用手机号或邮箱登录'
+        state = false;
     }
-
-
-    if (password.value.length < 8 || password.value.length > 16) {
-        password.focus();
-        reply.innerHTML = '密码格式错误';
-        password.value = ''
-        password.parentNode.style.border = '1px solid red';
-        password.focus();
-        return false;
-    }
-    return true;
+    return state;
 }
