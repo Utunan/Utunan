@@ -31,8 +31,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean isExist(User user) {
         User u=userMapper.findByPermit(user);
-        if(u!=null)
-            return true;
+        if(u!=null) {
+	        return true;
+        }
         return false;
     }
 }

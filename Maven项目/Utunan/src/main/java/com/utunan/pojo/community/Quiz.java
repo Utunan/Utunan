@@ -9,11 +9,11 @@ public class Quiz {
     //文章Id
     private Long quizId;
     //作者/用户Id
-    private Long authorId;
+    private Long userId;
     //文章主题
-    private String articleTitle;
+    private String quizTitle;
     //文章内容
-    private String articleContent;
+    private String quizContent;
     //发表时间
     private Date releaseTime;
     //点赞计数
@@ -23,29 +23,29 @@ public class Quiz {
         return quizId;
     }
 
-    public void setQuizId(Long QuizId) {
+    public void setQuizId(Long quizId) {
         this.quizId = quizId;
     }
 
-    public Long getAuthorId() { return authorId; }
+    public Long getUserId() { return userId; }
 
-    public void setAuthorId(Long authorId) { this.authorId = authorId; }
+    public void setUserId(Long userId) { this.userId = userId; }
 
-    public String getArticleTitle() {
-        return articleTitle;
+    public String getQuizTitle() {
+        return quizTitle;
     }
 
-    public void setArticleTitle(String articleTitle) {
-        this.articleTitle = articleTitle;
+    public void setQuizTitle(String quizTitle) {
+        this.quizTitle = quizTitle;
     }
 
 
-    public String getArticleContent() {
-        return articleContent;
+    public String getQuizContent() {
+        return quizContent;
     }
 
-    public void setArticleContent(String articleContent) {
-        this.articleContent = articleContent;
+    public void setQuizContent(String quizContent) {
+        this.quizContent = quizContent;
     }
 
     public Date getReleaseTime() {
@@ -67,10 +67,10 @@ public class Quiz {
     @Override
     public String toString() {
         return "Quiz{" +
-                "articleId=" + quizId +
-                ", userId=" + authorId +
-                ", articleTitle='" + articleTitle + '\'' +
-                ", articleContent='" + articleContent + '\'' +
+                "quizId=" + quizId +
+                ", userId=" + userId +
+                ", quizTitle='" + quizTitle + '\'' +
+                ", quizContent='" + quizContent + '\'' +
                 ", releaseTime=" + releaseTime +
                 ", praiseCount=" + praiseCount +
                 '}';
