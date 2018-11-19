@@ -16,6 +16,8 @@ public class Comment {
 	private String commentContent;
 	//评论时间
 	private Date commentTime;
+	//点赞个数
+	private  Long commentPraiseCount;
 	//父级评论Id
 	private Long replyCommentId;
 
@@ -59,6 +61,10 @@ public class Comment {
 		this.commentTime = commentTime;
 	}
 
+	public Long getCommentPraiseCount() { return commentPraiseCount; 	}
+
+	public void setCommentPraiseCount(Long commentPraiseCount) { this.commentPraiseCount = commentPraiseCount; }
+
 	public Long getReplyCommentId() {
 		return replyCommentId;
 	}
@@ -75,6 +81,7 @@ public class Comment {
 				", authorId=" + authorId +
 				", commentContent='" + commentContent + '\'' +
 				", commentTime=" + commentTime +
+				", commentPraiseCount=" + commentPraiseCount +
 				", replyCommentId=" + replyCommentId +
 				'}';
 	}

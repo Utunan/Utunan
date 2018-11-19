@@ -8,8 +8,6 @@ public class School{
     private Long schoolId;
     //大学类型
     private String schoolType;
-    //大学代码/编号
-    private String schoolCode;
     //大学名称
     private String schoolName;
     //大学所在地
@@ -30,14 +28,6 @@ public class School{
 
     public void setSchoolType(String schoolType) {
         this.schoolType = schoolType;
-    }
-
-    public String getSchoolCode() {
-        return schoolCode;
-    }
-
-    public void setSchoolCode(String schoolCode) {
-        this.schoolCode = schoolCode;
     }
 
     public String getSchoolName() {
@@ -61,7 +51,6 @@ public class School{
         return "School{" +
                 "schoolId=" + schoolId +
                 ", schoolTypeId=" + schoolType +
-                ", schoolCode='" + schoolCode + '\'' +
                 ", schoolName='" + schoolName + '\'' +
                 ", schoolLarea='" + schoolArea + '\'' +
                 '}';

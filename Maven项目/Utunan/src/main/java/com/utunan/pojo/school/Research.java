@@ -8,8 +8,6 @@ public class Research {
     private Long majorId;
     //研究方向名称
     private String researchName;
-    //研究方向代码
-    private  String researchCode;
 
     public Long getResearchId() {
         return researchId;
@@ -35,21 +33,12 @@ public class Research {
         this.researchName = researchName;
     }
 
-    public String getResearchCode() {
-        return researchCode;
-    }
-
-    public void setResearchCode(String researchCode) {
-        this.researchCode = researchCode;
-    }
-
     @Override
     public String toString() {
         return "Research{" +
                 "researchId=" + researchId +
                 ", majorId=" + majorId +
                 ", researchName='" + researchName + '\'' +
-                ", researchCode='" + researchCode + '\'' +
                 '}';
     }
 }

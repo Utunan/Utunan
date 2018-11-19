@@ -15,9 +15,9 @@ public class Major {
 	//学位类型
 	private String degreeType;
 	//初试考试科目
-	private String majorTextId;
+	private String majorText;
 	//数学类型（数一、数二、数三）
-	private String mathTypeId;
+	private String mathType;
 	//英语类型（英一、英二）
 	private String englishType;
 
@@ -61,20 +61,20 @@ public class Major {
 		this.degreeType = degreeType;
 	}
 
-	public String getMajorTextId() {
-		return majorTextId;
+	public String getMajorText() {
+		return majorText;
 	}
 
-	public void setMajorTextId(String majorTextId) {
-		this.majorTextId = majorTextId;
+	public void setMajorText(String majorText) {
+		this.majorText = majorText;
 	}
 
-	public String getMathTypeId() {
-		return mathTypeId;
+	public String getMathType() {
+		return mathType;
 	}
 
-	public void setMathTypeId(String mathTypeId) {
-		this.mathTypeId = mathTypeId;
+	public void setMathType(String mathType) {
+		this.mathType = mathType;
 	}
 
 	public String getEnglishType() {
@@ -93,8 +93,6 @@ public class Major {
 				", schoolName='" + schoolName + '\'' +
 				", college='" + college + '\'' +
 				", degreeType='" + degreeType + '\'' +
-				", majorTextId='" + majorTextId + '\'' +
-				", mathTypeId='" + mathTypeId + '\'' +
 				", englishType='" + englishType + '\'' +
 				'}';
 	}
