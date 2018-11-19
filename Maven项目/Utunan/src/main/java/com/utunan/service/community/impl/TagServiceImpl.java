@@ -3,7 +3,7 @@ package com.utunan.service.community.impl;
 import com.utunan.service.community.TagService;
 import org.springframework.stereotype.Service;
 
-@Service("plateService")
+@Service("tagService")
 public class TagServiceImpl implements TagService {
 
 }

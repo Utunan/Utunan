@@ -6,14 +6,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("articleService")
+@Service("quizService")
 public class QuizServiceImpl implements QuizService {
 
-    public int insert(Quiz quiz){
-        return  0;
-    }
-     public List<Quiz> queryByPlate(String plateId){
-        return  null;
-     }
 
 }

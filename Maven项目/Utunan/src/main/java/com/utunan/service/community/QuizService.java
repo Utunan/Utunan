@@ -6,7 +6,4 @@ import java.util.List;
 
 public interface QuizService {
 
-    int insert(Quiz quiz);
-    List<Quiz> queryByPlate(String plateId);
-
 }
