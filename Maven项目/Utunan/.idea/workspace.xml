@@ -8,61 +8,77 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a87732de-cfd1-46b1-a526-b3a9228b9f5e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/usercommon.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/userhome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/homepage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/homepage/banner.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/homepage/cirtle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/homepage/code.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/homepage/school.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/homepage/tablk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/homepage/小.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/homepage/搜索.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/homepage/条状图.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/homepage/论坛资讯.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/plate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/userheadimg/default.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/usercommon.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/community/ArticleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/community/ArticleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/community/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/community/CommentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/community/PlateMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/community/PlateMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/questionbank/ChapterMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/questionbank/ChapterMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/questionbank/QuestionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/questionbank/QuestionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/questionbank/SubjectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/questionbank/SubjectMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/MajorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/MajorMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/MajorTextMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/MajorTextMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/ResearchMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/ResearchMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/SchoolMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/SchoolMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/ArticleCollectorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/ArticleCollectorMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/QuestionCollectorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/QuestionCollectorMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/SchoolCollectorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/SchoolCollectorMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserQuestionBankMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserQuestionBankMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserTempPracticeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserTempPracticeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/pojo/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/pojo/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/service/user/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/user/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/homepage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/userhead.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/user/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Utunan.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/pojo/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/pojo/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/service/user/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/service/user/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Utunan/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/css/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Utunan/css/homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/css/homepage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Utunan/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Utunan/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/css/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Utunan/images/userhead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/community/ArticleMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/community/CommentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/community/CommentMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/community/PlateMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/questionbank/ChapterMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/questionbank/ChapterMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/questionbank/QuestionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/questionbank/QuestionMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/questionbank/SubjectMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/questionbank/SubjectMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/school/MajorMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/school/MajorMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/school/MajorTextMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/school/ResearchMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/school/ResearchMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/school/SchoolMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/school/SchoolMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/user/ArticleCollectorMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/user/QuestionCollectorMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/user/QuestionCollectorMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/user/SchoolCollectorMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/user/SchoolCollectorMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/user/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/user/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/user/UserQuestionBankMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/user/UserQuestionBankMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/user/UserTempPracticeMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/user/UserTempPracticeMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/pojo/community/Article.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/pojo/community/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/pojo/community/Comment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/pojo/community/Plate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/pojo/school/Major.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/pojo/school/Major.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/pojo/school/MajorText.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/pojo/school/Research.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/pojo/school/Research.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/pojo/school/School.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/pojo/school/School.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/pojo/user/ArticleCollector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/service/community/ArticleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/service/community/PlateService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/service/community/impl/ArticleServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/service/community/impl/PlateServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/service/school/MajorTextService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/service/school/impl/MajorTextServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/service/user/ArticleCollectorService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/service/user/impl/ArticleCollectorServiceImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Utunan/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Utunan/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/js/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Utunan/user/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/user/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/pojo/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/pojo/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/service/user/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/service/user/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/community/ArticleMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/community/CommentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/mapper/community/CommentMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/community/PlateMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/questionbank/ChapterMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/mapper/questionbank/ChapterMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/questionbank/QuestionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/mapper/questionbank/QuestionMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/questionbank/SubjectMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/mapper/questionbank/SubjectMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/school/MajorMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/mapper/school/MajorMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/school/MajorTextMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/school/ResearchMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/mapper/school/ResearchMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/school/SchoolMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/mapper/school/SchoolMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/user/ArticleCollectorMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/user/QuestionCollectorMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/mapper/user/QuestionCollectorMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/user/SchoolCollectorMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/mapper/user/SchoolCollectorMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/user/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/mapper/user/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/user/UserQuestionBankMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/mapper/user/UserQuestionBankMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/user/UserTempPracticeMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/mapper/user/UserTempPracticeMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/pojo/community/Article.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/pojo/community/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/pojo/community/Comment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/pojo/community/Plate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/pojo/school/Major.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/pojo/school/Major.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/pojo/school/MajorText.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/pojo/school/Research.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/pojo/school/Research.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/pojo/school/School.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/pojo/school/School.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/pojo/user/ArticleCollector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/service/community/ArticleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/service/community/PlateService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/service/community/impl/ArticleServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/service/community/impl/PlateServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/service/school/MajorTextService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/service/school/impl/MajorTextServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/service/user/ArticleCollectorService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/service/user/impl/ArticleCollectorServiceImpl.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -89,7 +105,7 @@
     <session id="327999189">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="21" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="3" />
@@ -100,20 +116,21 @@
           <entry key="project.open.time.2" value="4" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="23" />
+          <entry key="project.open.time.8" value="3" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="2" />
           <entry key="css" value="6" />
-          <entry key="ico" value="4" />
+          <entry key="ico" value="5" />
           <entry key="ini" value="1" />
-          <entry key="java" value="121" />
+          <entry key="java" value="144" />
           <entry key="jpg" value="2" />
-          <entry key="js" value="23" />
-          <entry key="jsp" value="41" />
+          <entry key="js" value="27" />
+          <entry key="jsp" value="48" />
           <entry key="md" value="1" />
           <entry key="png" value="6" />
           <entry key="properties" value="11" />
@@ -125,10 +142,10 @@
         <counts>
           <entry key="CLASS" value="2" />
           <entry key="CSS" value="6" />
-          <entry key="Image" value="12" />
-          <entry key="JAVA" value="121" />
-          <entry key="JSP" value="41" />
-          <entry key="JavaScript" value="23" />
+          <entry key="Image" value="13" />
+          <entry key="JAVA" value="144" />
+          <entry key="JSP" value="48" />
+          <entry key="JavaScript" value="27" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="Properties" value="11" />
@@ -140,8 +157,8 @@
           <entry key="class" value="1" />
           <entry key="css" value="1" />
           <entry key="dummy" value="8" />
-          <entry key="java" value="2743" />
-          <entry key="js" value="1297" />
+          <entry key="java" value="2766" />
+          <entry key="js" value="1361" />
           <entry key="jsp" value="603" />
           <entry key="properties" value="6" />
           <entry key="xml" value="470" />
@@ -151,9 +168,9 @@
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="CSS" value="1" />
-          <entry key="JAVA" value="2743" />
+          <entry key="JAVA" value="2766" />
           <entry key="JSP" value="603" />
-          <entry key="JavaScript" value="1297" />
+          <entry key="JavaScript" value="1361" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="Properties" value="6" />
           <entry key="SQL" value="8" />
@@ -164,110 +181,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/user/UserVerification.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-364">
+              <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/user/RegisterController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+              <folding>
+                <element signature="e#736#737#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/user/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="134" column="24" lean-forward="true" selection-start-line="134" selection-start-column="24" selection-end-line="134" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="90" column="21" lean-forward="true" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
+            <state relative-caret-position="-130">
+              <caret line="59" selection-start-line="59" selection-end-line="59" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/register.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/SchoolMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/ArticleCollectorMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/QuestionCollectorMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/SchoolCollectorMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserQuestionBankMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserTempPracticeMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/ResearchMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="248">
+              <caret line="62" column="17" lean-forward="true" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -277,8 +243,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -298,10 +264,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/controller/user/checkPermitController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/SmsDemo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/CodeServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/LoginServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/sss.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/RandUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/controller/user/loginController.java" />
@@ -318,14 +280,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/service/user/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/db.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/register.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/register.js" />
         <option value="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/user/UserMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/controller/user/RegisterController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/register.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/servlet/WebPathInitServlet.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/spring-mybatis.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/user/User.java" />
@@ -349,6 +307,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserQuestionBankMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserTempPracticeMapper.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/login.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/register.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/controller/user/RegisterController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/community/Article.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/Filter/school/ResearchMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/Filter/user/LoginFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/servlet/WebPathInitServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
       </list>
     </option>
   </component>
@@ -378,17 +344,7 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="Utunan Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="Utunan Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-        </path>
-      </expand>
+      <expand />
       <select />
     </treeState>
   </component>
@@ -396,8 +352,8 @@
     <option name="skipTests" value="true" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="621" />
-    <option name="y" value="51" />
+    <option name="x" value="285" />
+    <option name="y" value="11" />
     <option name="width" value="1555" />
     <option name="height" value="835" />
   </component>
@@ -440,6 +396,14 @@
               <item name="Utunan" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utunan" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -454,14 +418,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542548225838" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542606213298" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -472,16 +436,17 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\images\userheadimg" />
       <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp" />
+      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\WEB-INF\jsp" />
+      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\images\userheadimg" />
       <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\resources" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\images" />
-      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\js" />
-      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\css" />
       <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp" />
-      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan" />
+      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\Filter" />
+      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\js" />
+      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\images" />
+      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -496,7 +461,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.register.jsp">
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.12" ALTERNATIVE_JRE_ENABLED="false">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
@@ -648,8 +613,89 @@
         </option>
       </method>
     </configuration>
+    <configuration name="register.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 9.0.12" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/register.jsp" />
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <deployment>
+        <artifact name="Utunan:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="_Utunan_3" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="58320" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Utunan:war exploded" />
+          <artifact name="Utunan:war" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Tomcat Server.index.jsp" />
+      <item itemvalue="Tomcat Server.register.jsp" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Tomcat Server.register.jsp" />
         <item itemvalue="Tomcat Server.index.jsp" />
       </list>
     </recent_temporary>
@@ -690,11 +736,13 @@
       <workItem from="1542369067796" duration="788000" />
       <workItem from="1542531505484" duration="7207000" />
       <workItem from="1542551827299" duration="884000" />
+      <workItem from="1542555581200" duration="2808000" />
+      <workItem from="1542585516596" duration="5662000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81288000" />
+    <option name="totallyTimeSpent" value="89758000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -709,7 +757,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.56467664" visible="true" weight="0.16554959" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.56467664" visible="true" weight="0.26742628" />
       <window_info id="Structure" order="1" sideWeight="0.4353234" side_tool="true" weight="0.37022132" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -719,7 +767,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996651" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996651" visible="true" weight="0.17705382" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -737,7 +785,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.0033512064" />
+      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.0020107238" />
       <window_info anchor="right" id="Database" order="6" weight="0.09986595" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -754,131 +802,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/util/RandUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1456">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/utunan/mapper/user/UserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="24" column="51" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-mybatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-97">
-          <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
-          <folding>
-            <element signature="e#1588#1604#0" expanded="true" />
-            <element signature="e#1652#1665#0" expanded="true" />
-            <element signature="e#1718#1736#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/usercommon.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/user/ArticleCollectorService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/servlet/WebPathInitServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/db.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/homepage/小.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/homepage/搜索.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/homepage/论坛资讯.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/homepage.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/headerbg.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/plate.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/homepage/desktop.ini" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp.txt" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/favicon.ico">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="15" column="69" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/register.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-532">
-          <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="6" column="40" selection-start-line="9" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/register.jsp" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/register.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -893,22 +817,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/user/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="56" column="45" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/images/userheadimg/default.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/user/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3696">
-          <caret line="132" column="29" selection-start-line="132" selection-start-column="29" selection-end-line="132" selection-end-column="29" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/user/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -938,9 +848,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -948,9 +855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -958,9 +862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -968,9 +869,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -978,9 +876,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -988,9 +883,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -998,9 +890,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1008,25 +897,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/ResearchMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/SchoolMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
+        <state relative-caret-position="196">
           <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
         </state>
       </provider>
@@ -1034,71 +910,154 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/ArticleCollectorMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/QuestionCollectorMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="196">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/SchoolCollectorMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        <state relative-caret-position="140">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserQuestionBankMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserTempPracticeMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/ResearchMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/community/Article.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/community/Plate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/school/MajorMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/community/PlateMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/questionbank/SubjectMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/community/CommentMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/school/MajorTextMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/community/ArticleMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/questionbank/ChapterMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/school/ResearchMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/user/UserMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/school/SchoolMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/user/SchoolCollectorMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/user/ArticleCollectorMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/user/LoginFilter.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/servlet/WebPathInitServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="9" selection-end-line="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/register.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/register.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        <state relative-caret-position="140">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/favicon.ico">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/user/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-81">
+          <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-840" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/user/UserVerification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-364">
+          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/user/RegisterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding>
+            <element signature="e#736#737#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/user/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="134" column="24" lean-forward="true" selection-start-line="134" selection-start-column="24" selection-end-line="134" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="90" column="21" lean-forward="true" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
+        <state relative-caret-position="-130">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="62" column="17" lean-forward="true" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
         </state>
       </provider>
     </entry>
