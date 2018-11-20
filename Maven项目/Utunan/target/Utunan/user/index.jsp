@@ -72,11 +72,11 @@
 <div class="container" style="margin-top: 30px;">
     <div class="wrapper background">
         <nav class="userfunction">
-            <li>
+            <li id="active">
                 <img src="/images/favicon.ico" alt="" srcset="">
                 <span>个人资料</span>
             </li>
-            <li id="active">
+            <li>
                 <img src="/images/favicon.ico">
                 <span>题库统计</span>
             </li>
@@ -85,7 +85,7 @@
                 <span>社区记录</span>
                 <img src="/images/favicon.ico">
             </li>
-            <nav class="postinfo" id="postinfo" style="height:0px;">
+            <nav class="postinfo" id="postinfo" style="height:100px;">
                 <li>发表的帖子</li>
                 <li>发表的回复</li>
             </nav>
@@ -94,7 +94,7 @@
                 <span>我的收藏</span>
                 <img src="/images/favicon.ico">
             </li>
-            <nav class="collection" id="collection" style="height:0px;">
+            <nav class="collection" id="collection" style="height:150px;">
                 <li>题目收藏夹</li>
                 <li>院校收藏夹</li>
                 <li>帖子收藏夹</li>

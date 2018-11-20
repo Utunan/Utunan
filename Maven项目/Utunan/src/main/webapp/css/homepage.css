@@ -3,7 +3,7 @@
     position: absolute;
 }
 .homepageimg{
-    min-width:1000px;
+    width: 100%;
 }
 .homepageimg>img{
     width: 100%;

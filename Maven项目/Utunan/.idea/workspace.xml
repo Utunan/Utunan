@@ -9,8 +9,18 @@
   <component name="ChangeListManager">
     <list default="true" id="a87732de-cfd1-46b1-a526-b3a9228b9f5e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/util/RandUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/util/RandUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/homepage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/usercommon.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/usercommon.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/userhome.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/userhome.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/user/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Utunan.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Utunan/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/css/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/css/homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/css/homepage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/css/usercommon.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/css/usercommon.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/css/userhome.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/css/userhome.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/user/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/user/index.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,25 +57,25 @@
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.2" value="4" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.7" value="2" />
+          <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="4" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="26" />
+          <entry key="project.opened" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="2" />
-          <entry key="css" value="6" />
+          <entry key="css" value="7" />
           <entry key="ico" value="5" />
           <entry key="ini" value="1" />
-          <entry key="java" value="144" />
+          <entry key="java" value="151" />
           <entry key="jpg" value="2" />
           <entry key="js" value="27" />
-          <entry key="jsp" value="48" />
+          <entry key="jsp" value="51" />
           <entry key="md" value="1" />
           <entry key="png" value="6" />
-          <entry key="properties" value="11" />
+          <entry key="properties" value="12" />
           <entry key="txt" value="1" />
           <entry key="xml" value="51" />
         </counts>
@@ -73,14 +83,14 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="2" />
-          <entry key="CSS" value="6" />
+          <entry key="CSS" value="7" />
           <entry key="Image" value="13" />
-          <entry key="JAVA" value="144" />
-          <entry key="JSP" value="48" />
+          <entry key="JAVA" value="151" />
+          <entry key="JSP" value="51" />
           <entry key="JavaScript" value="27" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Properties" value="11" />
+          <entry key="Properties" value="12" />
           <entry key="XML" value="51" />
         </counts>
       </usages-collector>
@@ -89,9 +99,9 @@
           <entry key="class" value="1" />
           <entry key="css" value="1" />
           <entry key="dummy" value="8" />
-          <entry key="java" value="2766" />
+          <entry key="java" value="2786" />
           <entry key="js" value="1361" />
-          <entry key="jsp" value="603" />
+          <entry key="jsp" value="610" />
           <entry key="properties" value="6" />
           <entry key="xml" value="470" />
         </counts>
@@ -100,8 +110,8 @@
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="CSS" value="1" />
-          <entry key="JAVA" value="2766" />
-          <entry key="JSP" value="603" />
+          <entry key="JAVA" value="2786" />
+          <entry key="JSP" value="610" />
           <entry key="JavaScript" value="1361" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="Properties" value="6" />
@@ -144,87 +154,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/target/Utunan/WEB-INF/classes/spring/spring-context.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/util/RandUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/TagServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/community/QuizTagService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/QuizServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/community/QuizService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/community/CommentService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/QuizTagServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/user/impl/QuizCollectorServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/CommentServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/community/TagService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            <state relative-caret-position="336">
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -260,7 +207,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/controller/CodeServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/spring-servlet.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/util/RandUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/controller/user/UserVerification.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/controller/user/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/service/user/UserService.java" />
@@ -273,9 +219,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/spring-mybatis.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/user/User.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/common.css" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/service/user/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/user/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/community/ArticleMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/community/CommentMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/community/PlateMapper.java" />
@@ -300,12 +244,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/Filter/user/LoginFilter.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/servlet/WebPathInitServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/TagServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/QuizTagServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/service/user/impl/QuizCollectorServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/QuizServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/service/community/QuizService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/user/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/css/common.css" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/util/RandUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
       </list>
     </option>
   </component>
@@ -347,9 +294,9 @@
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="285" />
-    <option name="y" value="10" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="166" />
+    <option name="y" value="102" />
     <option name="width" value="1555" />
     <option name="height" value="835" />
   </component>
@@ -387,22 +334,7 @@
               <item name="Utunan" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -413,7 +345,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542608886261" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542630212640" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -423,18 +355,18 @@
     <property name="settings.editor.selected.configurable" value="spring" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\css" />
+      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp" />
+      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\Filter" />
+      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\js" />
+      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp" />
       <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\WEB-INF\jsp" />
       <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\images\userheadimg" />
       <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\resources" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp" />
-      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\Filter" />
-      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\js" />
-      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\images" />
-      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -449,7 +381,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.register.jsp">
+  <component name="RunManager" selected="Tomcat Server.user_index.jsp">
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.12" ALTERNATIVE_JRE_ENABLED="false">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
@@ -521,7 +453,6 @@
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
           <artifact name="Utunan:war exploded" />
-          <artifact name="Utunan:war" />
         </option>
       </method>
     </configuration>
@@ -677,12 +608,88 @@
         </option>
       </method>
     </configuration>
+    <configuration name="user_index.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 9.0.12" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/user/index.jsp" />
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATING_POLICY" value="update-resources" />
+      <deployment>
+        <artifact name="Utunan:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="_Utunan_3" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="58320" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Utunan:war exploded" />
+        </option>
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Tomcat Server.index.jsp" />
       <item itemvalue="Tomcat Server.register.jsp" />
+      <item itemvalue="Tomcat Server.user_index.jsp" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Tomcat Server.user_index.jsp" />
         <item itemvalue="Tomcat Server.register.jsp" />
         <item itemvalue="Tomcat Server.index.jsp" />
       </list>
@@ -727,12 +734,13 @@
       <workItem from="1542555581200" duration="2808000" />
       <workItem from="1542585516596" duration="5662000" />
       <workItem from="1542607725108" duration="1106000" />
-      <workItem from="1542609040993" duration="626000" />
+      <workItem from="1542609040993" duration="4828000" />
+      <workItem from="1542630956523" duration="2076000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91490000" />
+    <option name="totallyTimeSpent" value="97768000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -744,9 +752,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="133" y="82" width="1244" height="668" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.56467664" visible="true" weight="0.21983914" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.56467664" visible="true" weight="0.23440135" />
       <window_info id="Structure" order="1" sideWeight="0.4353234" side_tool="true" weight="0.37022132" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -756,7 +765,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996651" visible="true" weight="0.40509915" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996651" visible="true" weight="0.58022386" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -827,27 +836,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/questionbank/QuestionMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/questionbank/SubjectMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/MajorMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/MajorTextMapper.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/SchoolMapper.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -960,13 +948,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
@@ -978,20 +959,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-127">
           <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/user/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2750">
-          <caret line="134" column="24" selection-start-line="134" selection-start-column="24" selection-end-line="134" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/util/SmsDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1026,17 +993,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/QuizServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/user/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="-1660">
+          <caret line="93" column="33" lean-forward="true" selection-start-line="93" selection-start-column="33" selection-end-line="93" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#nav#0;n#nav#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#nav#1;n#nav#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/community/QuizService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        <state relative-caret-position="-4502">
+          <caret line="5" column="8" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/QuizTagServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -1044,6 +1022,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/community/QuizService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1068,10 +1053,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/QuizTagServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/QuizServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/util/SmsDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/util/RandUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
         </state>
       </provider>
     </entry>

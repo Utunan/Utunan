@@ -1,9 +1,11 @@
 body {
     background-color:#F5F5F5;
 }
-
+#active {
+    color: #1690f3;
+    background-color: rgb(180, 234, 255);
+}
 header {
-    background-color: #51c4d3;
 }
 .background{
     background-color: #fff;
@@ -90,10 +92,7 @@ header {
 }
 
 
-#active {
-    color: #ed5a65;
-    background-color: #fff;
-}
+
 .userfunction {
     background-color: #fff;
     float: left;
@@ -136,7 +135,12 @@ header {
     width: 680px;
     background: #fff;
 }
-
+.userfunction>li:hover{
+    width: 198px;
+    color: #1690f3;
+    background-color: rgb(180, 234, 255);
+    border-right:2px solid #1690f3;
+}
 .userfunction>nav{
     clear: both;
     list-style-type: none;
@@ -149,6 +153,12 @@ header {
     line-height: 50px;
     padding-left: 80px;
     width: 160px;
+}
+.userfunction>nav>li:hover{
+    width: 158px;
+    color: #1690f3;
+    background-color: rgb(180, 234, 255);
+    border-right: 2px solid #1690f3;
 }
 
 .title{

@@ -63,3 +63,17 @@
     outline: none;
     border:1px solid #e0e0e0;
 }
+
+.userop{
+    padding-top:20px;
+    height: 40px;
+    width: 400px;
+}
+.userop>button{
+    border-radius: 5px;
+    outline: none;
+    border:1px solid #e0e0e0;
+    height: 40px;
+    margin:20px 10px;
+    width: 80px;
+}
