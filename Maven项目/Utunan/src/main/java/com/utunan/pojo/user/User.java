@@ -1,6 +1,9 @@
 package com.utunan.pojo.user;
 
+import com.utunan.pojo.community.Quiz;
+
 import java.util.Date;
+import java.util.List;
 
 /**
  * User:用户
@@ -31,6 +34,17 @@ public class User {
     private String dreamSchool;
     //用户积分
     private Integer userIntegral;
+
+    //关联查询属性Quiz
+    private List<Quiz> quiz;
+
+    public List<Quiz> getQuiz() {
+        return quiz;
+    }
+
+    public void setQuiz(List<Quiz> quiz) {
+        this.quiz = quiz;
+    }
 
     public Long getUserId() {
         return userId;

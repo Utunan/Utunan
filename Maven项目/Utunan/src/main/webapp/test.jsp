@@ -13,7 +13,7 @@
 </head>
 <body>
     <div style="color: black">
-        <a href="quiz"><h1>问答列表</h1></a>
+        <a href="quiz1"><h1>问答列表</h1></a>
     </div>
 
 </body>

@@ -13,6 +13,9 @@
     <title>问答列表</title>
 </head>
 <body>
+    <div>
+        <h1><a href="quiz1">时间</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="quiz2">热度</a></h1>
+    </div>
     <table>
         <tr>
             <td>序号</td>
@@ -25,14 +28,14 @@
         <c:forEach items="${page.list}" var="quizs">
             <tr>
                 <td>${quizs.quizId}</td>
-                <td>${quizs.userId}</td>
+                <td>${quizs.user.userNickName}</td>
                 <td>${quizs.quizTitle}</td>
                 <td>${quizs.quizContent}</td>
                 <td>${quizs.releaseTime}</td>
                 <td>${quizs.praiseCount}</td>
             </tr>
         </c:forEach>
-    </table>
+    <table/>
     <div style="width: 300px; height: 20px;">
         <h4>共有${page.totalCount }条数据，一共${page.totalPageNum }页</h4>
         <h4>这是第${page.currentPageNum }页</h4>
