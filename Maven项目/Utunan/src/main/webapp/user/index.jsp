@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${User==null}">
+    <c:redirect url="/login"/>
+</c:if>
 
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -62,8 +65,8 @@
             <div class="userinfo">
                 <div class="nickname">徐思涵天下第一美</div>
                 <div class="schoolinfo">
-                    <span>本科院校:国防科技大学</span>
-                    <span>目标院校:国防科技大学</span>
+                    <span>本科院校:${User.userSchool}</span>
+                    <span>目标院校:${User.dreamSchool}</span>
                 </div>
             </div>
         </div>
