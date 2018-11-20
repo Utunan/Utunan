@@ -2,15 +2,12 @@ package com.utunan.controller.user;
 
 import com.utunan.pojo.user.User;
 import com.utunan.service.user.UserService;
-import com.utunan.service.user.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -35,13 +32,10 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(HttpSession session) {
-
-        Object obj = session.getAttribute("user");
-
+        Object obj = session.getAttribute("User");
         //用户未登录，转到用户登录界面
         if (obj == null)
             return "login";
-
         //用户已登录，转到用户个人中心
         return "redirect:/user";
 
@@ -56,7 +50,7 @@ public class LoginController {
         if (user != null) {
             request.removeAttribute("reply");
             session.setAttribute("User", user);
-            return "redirect:/user/";
+            return "redirect:/user";
         } else {
             request.setAttribute("reply", "通行证或密码错误");
             request.setAttribute("temppermit", permit);

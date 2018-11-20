@@ -8,16 +8,44 @@
   <component name="ChangeListManager">
     <list default="true" id="a87732de-cfd1-46b1-a526-b3a9228b9f5e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/usercommon.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/usercommon.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/userhome.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/userhome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/user/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/util/RandUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/util/RandUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Utunan/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/css/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Utunan/css/userhome.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/css/userhome.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/controller/community/QuizController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/controller/community/QuizController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/controller/user/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/controller/user/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/controller/user/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/controller/user/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/servlet/WebPathInitServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/servlet/WebPathInitServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/user/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/user/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/spring-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/quiz.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/test.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/user/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/controller/community/QuizController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/controller/community/QuizController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/controller/user/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/controller/user/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/controller/user/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/controller/user/RegisterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/user/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/com/utunan/mapper/user/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/classes/spring/spring-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/favicon.ico" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Utunan/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/util/RandUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/util/RandUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/Utunan/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/jsp/login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/jsp/main.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/quiz.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/register.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/test.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Utunan/user/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/controller/community/QuizController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/controller/community/QuizController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/controller/user/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/controller/user/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/controller/user/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/controller/user/RegisterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utunan/mapper/user/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utunan/mapper/user/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring/spring-servlet.xml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,11 +72,11 @@
     <session id="327999189">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="21" />
+          <entry key="project.closed" value="22" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="3" />
-          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.10" value="5" />
+          <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.13" value="4" />
           <entry key="project.open.time.14" value="1" />
@@ -57,38 +85,40 @@
           <entry key="project.open.time.7" value="4" />
           <entry key="project.open.time.8" value="4" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="28" />
+          <entry key="project.opened" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="2" />
           <entry key="css" value="10" />
-          <entry key="ico" value="6" />
+          <entry key="html" value="3" />
+          <entry key="ico" value="7" />
           <entry key="ini" value="1" />
-          <entry key="java" value="151" />
+          <entry key="java" value="174" />
           <entry key="jpg" value="3" />
-          <entry key="js" value="27" />
-          <entry key="jsp" value="56" />
+          <entry key="js" value="31" />
+          <entry key="jsp" value="81" />
           <entry key="md" value="1" />
-          <entry key="png" value="7" />
+          <entry key="png" value="8" />
           <entry key="properties" value="12" />
           <entry key="txt" value="1" />
-          <entry key="xml" value="51" />
+          <entry key="xml" value="56" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="2" />
           <entry key="CSS" value="10" />
-          <entry key="Image" value="16" />
-          <entry key="JAVA" value="151" />
-          <entry key="JSP" value="56" />
-          <entry key="JavaScript" value="27" />
+          <entry key="HTML" value="3" />
+          <entry key="Image" value="18" />
+          <entry key="JAVA" value="174" />
+          <entry key="JSP" value="81" />
+          <entry key="JavaScript" value="31" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="Properties" value="12" />
-          <entry key="XML" value="51" />
+          <entry key="XML" value="56" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -96,24 +126,26 @@
           <entry key="class" value="1" />
           <entry key="css" value="1" />
           <entry key="dummy" value="8" />
-          <entry key="java" value="2786" />
-          <entry key="js" value="1361" />
-          <entry key="jsp" value="624" />
+          <entry key="html" value="46" />
+          <entry key="java" value="3111" />
+          <entry key="js" value="1418" />
+          <entry key="jsp" value="747" />
           <entry key="properties" value="6" />
-          <entry key="xml" value="470" />
+          <entry key="xml" value="484" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="CSS" value="1" />
-          <entry key="JAVA" value="2786" />
-          <entry key="JSP" value="624" />
-          <entry key="JavaScript" value="1361" />
+          <entry key="HTML" value="46" />
+          <entry key="JAVA" value="3111" />
+          <entry key="JSP" value="747" />
+          <entry key="JavaScript" value="1418" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="Properties" value="6" />
           <entry key="SQL" value="8" />
-          <entry key="XML" value="462" />
+          <entry key="XML" value="476" />
         </counts>
       </usages-collector>
     </session>
@@ -151,68 +183,88 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz.jsp">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/user/RegisterController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="3" selection-start-line="3" selection-end-line="5" selection-end-column="7" />
+            <state relative-caret-position="658">
+              <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/user/index.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="67" column="42" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
+            <state relative-caret-position="230">
+              <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/images/favicon.ico">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/register.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1778">
+              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/test.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/user/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="196">
-              <caret line="7" column="65" lean-forward="true" selection-start-line="7" selection-start-column="65" selection-end-line="8" selection-end-column="64" />
+              <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/register.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/register.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="65" selection-start-column="65" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/test.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/homepage.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="28">
-              <caret line="1" column="64" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/css/usercommon.css">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/community/QuizController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            <state relative-caret-position="504">
+              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/quiz.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-420" />
           </provider>
         </entry>
       </file>
@@ -221,8 +273,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
+        <option value="HTML File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -242,21 +295,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/util/SmsDemo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/controller/CodeServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring/spring-servlet.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/controller/user/UserVerification.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/controller/user/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/service/user/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/db.properties" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/register.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/user/UserMapper.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring/spring-mybatis.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/user/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/service/user/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/community/ArticleMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/community/CommentMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/community/PlateMapper.java" />
@@ -273,14 +311,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserQuestionBankMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserTempPracticeMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/login.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/register.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/controller/user/RegisterController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/pojo/community/Article.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/Filter/school/ResearchMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/Filter/user/LoginFilter.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/utunan/servlet/WebPathInitServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/TagServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/QuizTagServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/service/user/impl/QuizCollectorServiceImpl.java" />
@@ -288,11 +323,29 @@
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/service/community/QuizService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/common.css" />
         <option value="$PROJECT_DIR$/src/main/java/com/utunan/util/RandUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/userhome.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/register.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/servlet/WebPathInitServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/user/UserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/test.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/school/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/community/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/user/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/controller/common/homeController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/community/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/school/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/controller/user/RegisterController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/controller/community/QuizController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/controller/user/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/register.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/utunan/controller/user/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/homepage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/login.js" />
       </list>
     </option>
   </component>
@@ -334,9 +387,9 @@
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="520" />
-    <option name="y" value="46" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="335" />
+    <option name="y" value="230" />
     <option name="width" value="1555" />
     <option name="height" value="835" />
   </component>
@@ -349,8 +402,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -374,6 +425,28 @@
               <item name="Utunan" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utunan" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -382,34 +455,21 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542697131625" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542725470649" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -420,6 +480,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\WEB-INF\view" />
       <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp" />
       <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\WEB-INF\jsp" />
       <recent name="C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\webapp\images\userheadimg" />
@@ -445,7 +506,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.user_index.jsp">
+  <component name="RunManager">
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.12" ALTERNATIVE_JRE_ENABLED="false">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
@@ -592,169 +653,11 @@
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
           <artifact name="Utunan:war exploded" />
-          <artifact name="Utunan:war" />
         </option>
       </method>
     </configuration>
-    <configuration name="register.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 9.0.12" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/register.jsp" />
-      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
-      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
-      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
-      <deployment>
-        <artifact name="Utunan:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="_Utunan_3" />
-      </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="58320" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="Utunan:war exploded" />
-          <artifact name="Utunan:war" />
-        </option>
-      </method>
-    </configuration>
-    <configuration name="user_index.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 9.0.12" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/user/index.jsp" />
-      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
-      <option name="UPDATING_POLICY" value="update-resources" />
-      <deployment>
-        <artifact name="Utunan:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="_Utunan_3" />
-      </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="58320" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="Utunan:war exploded" />
-        </option>
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Tomcat Server.index.jsp" />
-      <item itemvalue="Tomcat Server.register.jsp" />
-      <item itemvalue="Tomcat Server.user_index.jsp" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Tomcat Server.user_index.jsp" />
-        <item itemvalue="Tomcat Server.register.jsp" />
         <item itemvalue="Tomcat Server.index.jsp" />
       </list>
     </recent_temporary>
@@ -800,12 +703,15 @@
       <workItem from="1542607725108" duration="1106000" />
       <workItem from="1542609040993" duration="4828000" />
       <workItem from="1542630956523" duration="2076000" />
-      <workItem from="1542695334155" duration="1464000" />
+      <workItem from="1542695334155" duration="4180000" />
+      <workItem from="1542714517811" duration="3165000" />
+      <workItem from="1542717735634" duration="3492000" />
+      <workItem from="1542724941559" duration="397000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99232000" />
+    <option name="totallyTimeSpent" value="109002000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -820,7 +726,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.56467664" visible="true" weight="0.18967828" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.56467664" visible="true" weight="0.19772118" />
       <window_info id="Structure" order="1" sideWeight="0.4353234" side_tool="true" weight="0.37022132" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -830,7 +736,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4996651" visible="true" weight="0.22379604" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4996651" visible="true" weight="0.20254958" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -901,83 +807,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserTempPracticeMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/ResearchMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/community/Article.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/community/Plate.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/school/MajorMapper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/community/PlateMapper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/questionbank/SubjectMapper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/community/CommentMapper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/school/MajorTextMapper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/community/ArticleMapper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/questionbank/ChapterMapper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/school/ResearchMapper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/user/UserMapper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/school/SchoolMapper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/user/SchoolCollectorMapper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/user/ArticleCollectorMapper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/Filter/user/LoginFilter.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/servlet/WebPathInitServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="9" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/favicon.ico">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/user/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-81">
-          <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/user/UserVerification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/user/RegisterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-          <folding>
-            <element signature="e#736#737#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/register.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-127">
-          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.0.8.RELEASE/spring-beans-5.0.8.RELEASE-sources.jar!/org/springframework/beans/factory/xml/DefaultBeanDefinitionDocumentReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="53">
@@ -1079,25 +908,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/userhome.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1708">
           <caret line="79" column="1" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/quiz.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-420" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1110,38 +925,188 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/images/favicon.ico">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/mapper/user/UserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" selection-start-line="3" selection-end-line="5" selection-end-column="7" />
+        <state relative-caret-position="168">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/test.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/utunan/mapper/user/UserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="7" column="65" lean-forward="true" selection-start-line="7" selection-start-column="65" selection-end-line="8" selection-end-column="64" />
+        <state relative-caret-position="345">
+          <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/register.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/user/UserQuestionBank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/user/UserTempPractice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
-          <caret line="1" column="64" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/usercommon.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/user/index.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/servlet/WebPathInitServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/pojo/user/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="106" column="18" selection-start-line="106" selection-start-column="18" selection-end-line="106" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/utunan/mapper/community/QuizMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/userheadimg/default.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/favicon.ico">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-mybatis.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-336" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/community/index.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/school/index.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/common/homeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/myspace.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/user/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="8" column="25" lean-forward="true" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/user/UserVerification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-448">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
-          <caret line="67" column="42" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/user/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="65" selection-start-column="65" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/test.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/community/QuizController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/homepage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/user/RegisterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1778">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
         </state>
       </provider>
     </entry>

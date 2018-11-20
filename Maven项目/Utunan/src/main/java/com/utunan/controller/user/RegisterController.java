@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -19,8 +18,12 @@ public class RegisterController {
     private UserService userService;
 
     @RequestMapping(value="/register",method = RequestMethod.GET)
-    public String register(){
-        return "redirect:/user/";
+    public String register(HttpSession session){
+        Object obj=session.getAttribute("User");
+        if(obj==null)
+            return "register";
+        else
+            return "redirect:/user";
     }
 
     @RequestMapping(value="/register",method =RequestMethod.POST)
@@ -37,7 +40,7 @@ public class RegisterController {
         }
         userService.saveUser(user);
         User account=userService.getUser(user);
-        session.setAttribute("user",account);
-        return "redirect:/user/";
+        session.setAttribute("User",account);
+        return "redirect:/user";
     }
 }

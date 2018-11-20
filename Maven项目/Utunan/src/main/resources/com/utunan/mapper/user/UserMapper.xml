@@ -22,7 +22,7 @@
         userEmail=#{userEmail}
     </select>
     <insert id="insert">
-        insert into user(userTelephone,userPassword,registerTime,loginTime)
-        values(#{userTelephone},#{userPassword},#{registerTime},#{registerTime})
+        insert into user(userTelephone,userPassword,registerTime)
+        values(#{userTelephone},#{userPassword},#{registerTime})
     </insert>
 </mapper>

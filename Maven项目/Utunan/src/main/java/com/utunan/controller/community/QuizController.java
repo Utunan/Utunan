@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -27,7 +26,11 @@ public class QuizController {
 	 * @author  孙程程
 	 * @description 根据时间顺序展示问答列表
 	 * @date  20:15 2018/11/19
+<<<<<<< HEAD
+	 * @param
+=======
 	 * @param  "[request]
+>>>>>>> 14916c981f54891d90e83fbe769c073f55a1221e
 	 * @return  java.lang.String
 	 */
 	@RequestMapping(value="/quiz1")
@@ -84,7 +87,7 @@ public class QuizController {
 		System.out.println(list);
 		System.out.println(count);
 		request.setAttribute("page",p);
-		return "quiz";
+		return "WEB-INF/view/quiz";
 	}
 
 }
