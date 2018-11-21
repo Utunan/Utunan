@@ -6,20 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a87732de-cfd1-46b1-a526-b3a9228b9f5e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/Utunan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/Utunan.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/controller/community/QuizController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/controller/community/QuizController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/community/QuizMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/community/QuizMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/service/community/QuizService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/community/QuizService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/QuizServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/QuizServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/community/QuizMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/community/QuizMapper.xml" afterDir="false" />
-    </list>
+    <list default="true" id="a87732de-cfd1-46b1-a526-b3a9228b9f5e" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,15 +55,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/QuizServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-75">
-              <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+            <state relative-caret-position="299">
+              <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
               <folding>
                 <element signature="e#1381#1382#0" expanded="true" />
                 <element signature="e#1404#1405#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/util/SmsDemo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-220">
+              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -278,36 +274,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="community" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="community" type="462c0819:PsiDirectoryNode" />
-              <item name="QuizController" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="utunan" type="462c0819:PsiDirectoryNode" />
               <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -489,6 +455,24 @@
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -536,7 +520,15 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.All in Utunan">
+    <configuration name="All in Utunan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Utunan" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.12" ALTERNATIVE_JRE_ENABLED="false">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
@@ -688,6 +680,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in Utunan" />
         <item itemvalue="Tomcat Server.index.jsp" />
       </list>
     </recent_temporary>
@@ -737,12 +730,12 @@
       <workItem from="1542714517811" duration="3165000" />
       <workItem from="1542717735634" duration="3492000" />
       <workItem from="1542724941559" duration="397000" />
-      <workItem from="1542777962398" duration="3877000" />
+      <workItem from="1542777962398" duration="5649000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112879000" />
+    <option name="totallyTimeSpent" value="114651000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -757,7 +750,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.56467664" visible="true" weight="0.20152672" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.56467664" visible="true" weight="0.44656488" />
       <window_info id="Structure" order="1" sideWeight="0.4353234" side_tool="true" weight="0.37022132" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -771,7 +764,7 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996651" weight="0.20254958" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996651" weight="0.6189624" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1099,16 +1092,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/util/SmsDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-462">
-          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/controller/community/QuizController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
@@ -1146,12 +1129,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/QuizServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+        <state relative-caret-position="299">
+          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
           <folding>
             <element signature="e#1381#1382#0" expanded="true" />
             <element signature="e#1404#1405#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utunan/util/SmsDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-220">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
         </state>
       </provider>
     </entry>
