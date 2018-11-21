@@ -46,4 +46,13 @@
         select count(*)
         from quiz
     </select>
+    <resultMap id="commentNumber" type="com.utunan.pojo.community.Comment">
+        <id property="commentId" column="commentId"/>
+        <result property="quizId" column="quizId"/>
+        <result property="userId" column="userId"/>
+        <result property="commentContent" column="commentContent"/>
+        <result property="commentTime" column="commentTime"/>
+        <result property="commentPraiseCount" column="commentPraiseCount"/>
+        <result property="replyCommentId" column="replyCommentId"/>
+    </resultMap>
 </mapper>

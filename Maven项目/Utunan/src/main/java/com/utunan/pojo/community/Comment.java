@@ -8,10 +8,10 @@ import java.util.Date;
 public class Comment {
 	//评论ID
 	private Long commentId;
-	//帖子ID
-	private Long articleId;
+	//提问ID
+	private Long quizId;
 	//作者Id
-	private Long authorId;
+	private Long userId;
 	//评论内容
 	private String commentContent;
 	//评论时间
@@ -20,6 +20,16 @@ public class Comment {
 	private  Long commentPraiseCount;
 	//父级评论Id
 	private Long replyCommentId;
+	//提问
+	private Quiz quiz;
+
+	public Quiz getQuiz() {
+		return quiz;
+	}
+
+	public void setQuiz(Quiz quiz) {
+		this.quiz = quiz;
+	}
 
 	public Long getCommentId() {
 		return commentId;
@@ -29,20 +39,20 @@ public class Comment {
 		this.commentId = commentId;
 	}
 
-	public Long getArticleId() {
-		return articleId;
+	public Long getQuizId() {
+		return quizId;
 	}
 
-	public void setArticleId(Long articleId) {
-		this.articleId = articleId;
+	public void setQuizId(Long quizId) {
+		this.quizId = quizId;
 	}
 
-	public Long getAuthorId() {
-		return authorId;
+	public Long getUserId() {
+		return userId;
 	}
 
-	public void setAuthorId(Long authorId) {
-		this.authorId = authorId;
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 
 	public String getCommentContent() {
@@ -77,8 +87,8 @@ public class Comment {
 	public String toString() {
 		return "Comment{" +
 				"commentId=" + commentId +
-				", articleId=" + articleId +
-				", authorId=" + authorId +
+				", quizId=" + quizId +
+				", userId=" + userId +
 				", commentContent='" + commentContent + '\'' +
 				", commentTime=" + commentTime +
 				", commentPraiseCount=" + commentPraiseCount +
