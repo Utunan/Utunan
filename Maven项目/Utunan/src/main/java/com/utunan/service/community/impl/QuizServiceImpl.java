@@ -6,6 +6,7 @@ import com.utunan.service.community.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 /**
  * @author  孙程程
@@ -18,6 +19,8 @@ import java.util.List;
 public class QuizServiceImpl implements QuizService {
 	@Autowired
 	private QuizMapper quizMapper;
+	@Autowired
+	private Quiz quiz;
 
 	@Override
 	public List<Quiz> getQuizByTime(int pageNum, int pageSize){
@@ -35,6 +38,27 @@ public class QuizServiceImpl implements QuizService {
 	public Long countAllQuiz(){
 		Long count = quizMapper.countAllQuiz();
 		return count;
+	}
+
+	/*
+	 * @author  张正扬
+	 * @description  向Quiz表插入问答
+	 * @date  13:37 2018/11/21
+	 * @param   title,content
+	 * @return  null
+	 */
+
+	@Override
+	public void saveQuiz(String title,String content){
+		quiz.setQuizTitle(title);
+		quiz.setReleaseTime(new Date());
+		quiz.setQuizContent(content);
+		quizMapper.toInsert(quiz);
+	}
+
+	@Override
+	public Quiz getQuiz(String title,String content){
+		return quizMapper.getQuiz(title,content);
 	}
 
 }

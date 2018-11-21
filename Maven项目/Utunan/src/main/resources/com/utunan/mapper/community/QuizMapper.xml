@@ -48,4 +48,12 @@
         select count(*)
         from quiz
     </select>
+    <!-- 插入数据，这里quizid是自动递增的，所以不需要插入 -->
+    <insert id="toInsert" parameterType="com.utunan.pojo.community.Quiz">
+        insert into quiz(userId,quizTitle,quizContent,releaseTime,praiseCount) values(#{userId,jdbcType=INT},#{quizTitle,jdbcType=VARCHAR},#{quizContent,jdbcType=LONGTEXT},#{releaseTime,jdbcType=DATETIME},#{praiseCount,jdbcType=INT})
+    </insert>
+    <!--根据根据问答题目和内容查询问答展示在页面,每次只查询一个-->
+    <select id="getQuiz" parameterType="com.utunan.pojo.community.Quiz">
+        select * from quiz where  quizTitle=#{quizTitle} and quizContent=#{quizContent}
+    </select>
 </mapper>

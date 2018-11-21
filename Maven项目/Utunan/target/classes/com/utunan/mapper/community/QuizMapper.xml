@@ -48,4 +48,8 @@
         select count(*)
         from quiz
     </select>
+    <!-- 插入数据，这里ID是自动递增的，所有不需要插入 -->
+    <insert id="getInsert" parameterType="com.utunan.pojo.community.Quiz">
+        insert into quiz(userId,quizTitle,quizContent,releaseTime,praiseCount) values(#{userId,jdbcType=INT},#{quizTitle,jdbcType=VARCHAR},#{quizContent,jdbcType=LONGTEXT},#{releaseTime,jdbcType=DATETIME},#{praiseCount,jdbcType=INT})
+    </insert>
 </mapper>
