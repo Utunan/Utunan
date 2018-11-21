@@ -26,8 +26,7 @@
     <!--根据发表时间查询-->
     <select id="listByTime" resultMap="quizResultMap">
         select
-        q.quizId, q.userId, q.quizTitle, q.quizContent, q.releaseTime, q.praiseCount,
-        u.userId, u.userNickName
+        q.quizId, q.userId, q.quizTitle, q.quizContent, q.releaseTime, q.praiseCount, u.userId, u.userNickName
         from quiz q
         join user u on q.userId=u.userId
         order by q.releaseTime desc
@@ -36,8 +35,7 @@
     <!--根据点赞数量分页查询-->
     <select id="listByPraise" resultMap="quizResultMap">
         select
-        q.quizId, q.userId, q.quizTitle, q.quizContent, q.releaseTime, q.praiseCount,
-        u.userId, u.userNickName
+        q.quizId, q.userId, q.quizTitle, q.quizContent, q.releaseTime, q.praiseCount, u.userId, u.userNickName
         from quiz q
         join user u on q.userId=u.userId
         order by q.praiseCount desc
@@ -47,13 +45,5 @@
     <select id="countAllQuiz" resultType="java.lang.Long">
         select count(*)
         from quiz
-    </select>
-    <!-- 插入数据，这里quizid是自动递增的，所以不需要插入 -->
-    <insert id="toInsert" parameterType="com.utunan.pojo.community.Quiz">
-        insert into quiz(userId,quizTitle,quizContent,releaseTime,praiseCount) values(#{userId,jdbcType=INT},#{quizTitle,jdbcType=VARCHAR},#{quizContent,jdbcType=LONGTEXT},#{releaseTime,jdbcType=DATETIME},#{praiseCount,jdbcType=INT})
-    </insert>
-    <!--根据根据问答题目和内容查询问答展示在页面,每次只查询一个-->
-    <select id="getQuiz" parameterType="com.utunan.pojo.community.Quiz">
-        select * from quiz where  quizTitle=#{quizTitle} and quizContent=#{quizContent}
     </select>
 </mapper>

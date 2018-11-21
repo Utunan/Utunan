@@ -1,35 +1,47 @@
 package com.utunan.pojo.community;
 
+import java.util.List;
+
 /**
  * 板块-Tag
  */
 public class Tag {
 	//标签ID
-	private Long plateId;
+	private Long tagId;
 	//标签名称
-	private String plateName;
+	private String tagName;
+	//quizTag
+	private List<QuizTag> quizTag;
 
-	public Long getPlateId() {
-		return plateId;
+	public List<QuizTag> getQuizTag() {
+		return quizTag;
 	}
 
-	public void setPlateId(Long plateId) {
-		this.plateId = plateId;
+	public void setQuizTag(List<QuizTag> quizTag) {
+		this.quizTag = quizTag;
 	}
 
-	public String getPlateName() {
-		return plateName;
+	public Long getTagId() {
+		return tagId;
 	}
 
-	public void setPlateName(String plateName) {
-		this.plateName = plateName;
+	public void setTagId(Long tagId) {
+		this.tagId = tagId;
+	}
+
+	public String getTagName() {
+		return tagName;
+	}
+
+	public void setTagName(String tagName) {
+		this.tagName = tagName;
 	}
 
 	@Override
 	public String toString() {
 		return "Tag{" +
-				"plateId=" + plateId +
-				", plateName='" + plateName + '\'' +
+				"tagId=" + tagId +
+				", tagName='" + tagName + '\'' +
 				'}';
 	}
 }

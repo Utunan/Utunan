@@ -1,5 +1,18 @@
 package com.utunan.service.community;
 
+import com.utunan.pojo.community.Tag;
+
+import java.util.List;
+
 public interface TagService {
+	/**
+	 * @author  孙程程
+	 * @description 获取问题引用数量最高的10个标签
+	 * @date  9:53 2018/11/21
+	 * @return  java.util.List<com.utunan.pojo.community.Tag>
+	 */
+	List<Tag> getTop10Tag();
+
+	List getTop10TagNumber();
 
 }

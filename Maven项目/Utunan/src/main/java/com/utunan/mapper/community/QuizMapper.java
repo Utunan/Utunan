@@ -17,22 +17,4 @@ public interface QuizMapper {
     List<Quiz> listByTime(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
     List<Quiz> listByPraise(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
     Long countAllQuiz();
-    /*
-     * @author  张正扬
-     * @description 向quiz表插入Quiz对象
-     * @date  14:16 2018/11/21
-     * @param  quiz
-     * @return null
-     */
-
-    void toInsert(Quiz quiz);
-    /*
-     * @author  张正扬
-     * @description 根据userId和title查询相应quiz对象
-     * @date  14:18 2018/11/21
-     * @param  userId,title
-     * @return  Quiz
-     */
-
-    Quiz getQuiz(String title,String content);
 }

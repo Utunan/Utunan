@@ -35,22 +35,4 @@ public interface QuizService {
 	 * @return  java.lang.Long
 	 */
 	Long countAllQuiz();
-	/*
-	 * @author  张正扬 
-	 * @description 向Quiz表中存入问答信息
-	 * @date  13:24 2018/11/21 
-	 * @param  title,content
-	 * @return  void
-	 */
-	void saveQuiz(String title,String content);
-	/*
-	 * @author  张正扬
-	 * @description 根据 title,content返回一个Quiz对象
-	 * @date  14:27 2018/11/21
-	 * @param  title,content
-	 * @return  Quiz
-	 */
-
-	Quiz getQuiz(String title,String content);
-	
 }

@@ -10,6 +10,16 @@ public class QuizTag {
 	private Long quizId;
 	//标签ID
 	private Long tagId;
+	//标签
+	private Tag tag;
+
+	public Tag getTag() {
+		return tag;
+	}
+
+	public void setTag(Tag tag) {
+		this.tag = tag;
+	}
 
 	public Long getQuizTagId() { return quizTagId; }
 

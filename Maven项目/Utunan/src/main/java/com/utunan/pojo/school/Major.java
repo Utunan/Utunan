@@ -9,7 +9,7 @@ public class Major {
 	//学校ID
 	private Long schoolId;
 	//专业名称
-	private String schoolName;
+	private String majorName;
 	//所属学院
 	private String college;
 	//学位类型
@@ -37,12 +37,10 @@ public class Major {
 		this.schoolId = schoolId;
 	}
 
-	public String getSchoolName() {
-		return schoolName;
-	}
+	public String getMajorName() {	return majorName; }
 
-	public void setSchoolName(String schoolName) {
-		this.schoolName = schoolName;
+	public void setMajorName(String majorName) {
+		this.majorName = majorName;
 	}
 
 	public String getCollege() {
@@ -90,7 +88,7 @@ public class Major {
 		return "Major{" +
 				"majorId=" + majorId +
 				", schoolId=" + schoolId +
-				", schoolName='" + schoolName + '\'' +
+				", majorName='" + majorName + '\'' +
 				", college='" + college + '\'' +
 				", degreeType='" + degreeType + '\'' +
 				", englishType='" + englishType + '\'' +

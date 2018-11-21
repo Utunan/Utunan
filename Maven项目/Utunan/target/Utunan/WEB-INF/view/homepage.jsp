@@ -13,5 +13,6 @@
 <body>
 <a href="/login">456</a>
 <a href="/register">789</a>
+<a href="/quiz1">123</a>
 </body>
 </html>
