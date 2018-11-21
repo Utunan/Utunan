@@ -10,8 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author 孙程程
@@ -45,13 +47,25 @@ public class QuizController {
 		List<Tag> name=this.tagService.getTop10Tag();
 		//热门标签的回答数量
 		List<Long> number=this.tagService.getTop10TagNumber();
+		//评论数量
+		List<Long> commentNumber=this.quizService.countComment(num,6);
+		System.out.println(commentNumber);
 
+		List<HashMap<Quiz,Long>> list1=new ArrayList<>();
+		for (int j=0;j<list.size(); j++){
+			HashMap<Quiz,Long> hm=new HashMap<>();
+			hm.put(list.get(j),commentNumber.get(j));
+			list1.add(hm);
+		}
+		for (int j=0;j<list.size(); j++){
+			System.out.println(list1.get(j).keySet());
+		}
 		Object[][] tag=new Object[10][2];
 		for(int i=0; i<name.size(); i++){
 			tag[i][0]=name.get(i);
 			tag[i][1]=number.get(i);
 		}
-
+		System.out.println(list1);
 		Page<Quiz> p = new Page<Quiz>(num, 6);
 		p.setList(list);
 		p.setTotalCount(count);
@@ -59,6 +73,7 @@ public class QuizController {
 		request.setAttribute("page",p);
 		request.setAttribute("url",url);
 		request.setAttribute("tag",tag);
+		request.setAttribute("list1",list1);
 		return "community/quiz";
 	}
 

@@ -17,4 +17,5 @@ public interface QuizMapper {
     List<Quiz> listByTime(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
     List<Quiz> listByPraise(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
     Long countAllQuiz();
+    List<Long> countComment(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
 }

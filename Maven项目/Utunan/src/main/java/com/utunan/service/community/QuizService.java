@@ -37,4 +37,6 @@ public interface QuizService {
 	 * @return  java.lang.Long
 	 */
 	Long countAllQuiz();
+
+	List<Long> countComment(int pageNum, int pageSize);
 }

@@ -36,4 +36,9 @@ public class QuizServiceImpl implements QuizService {
 		return this.quizMapper.countAllQuiz();
 	}
 
+	@Override
+	public List<Long> countComment(int pageNum, int pageSize){
+		return this.quizMapper.countComment((pageNum-1)*pageSize,pageSize);
+	}
+
 }

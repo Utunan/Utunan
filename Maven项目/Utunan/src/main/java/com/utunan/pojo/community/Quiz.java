@@ -3,6 +3,7 @@ package com.utunan.pojo.community;
 import com.utunan.pojo.user.User;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Quiz:文章/帖子
@@ -22,6 +23,16 @@ public class Quiz {
     private Long praiseCount;
     //与用户多对一
     private User user;
+    //与评论一对多
+    private List<Comment> comment;
+
+    public List<Comment> getComment() {
+        return comment;
+    }
+
+    public void setComment(List<Comment> comment) {
+        this.comment = comment;
+    }
 
     public User getUser() {
         return user;

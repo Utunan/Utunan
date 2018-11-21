@@ -46,13 +46,13 @@
         select count(*)
         from quiz
     </select>
-    <resultMap id="commentNumber" type="com.utunan.pojo.community.Comment">
-        <id property="commentId" column="commentId"/>
-        <result property="quizId" column="quizId"/>
-        <result property="userId" column="userId"/>
-        <result property="commentContent" column="commentContent"/>
-        <result property="commentTime" column="commentTime"/>
-        <result property="commentPraiseCount" column="commentPraiseCount"/>
-        <result property="replyCommentId" column="replyCommentId"/>
-    </resultMap>
+
+    <select id="countComment" resultType="java.lang.Long">
+        select count(c.commentId)
+        from quiz q
+        join comment c on q.quizId=c.quizId
+        group by q.quizId
+        order by q.releaseTime
+        limit #{pageNum},#{pageSize}
+    </select>
 </mapper>
