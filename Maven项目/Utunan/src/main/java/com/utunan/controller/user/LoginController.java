@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/login")
 public class LoginController {
 
     @Autowired
@@ -31,7 +30,7 @@ public class LoginController {
         return "unsuccessful";
     }
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(HttpSession session) {
         Object obj = session.getAttribute("User");
         //用户未登录，转到用户登录界面
@@ -42,7 +41,7 @@ public class LoginController {
 
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(HttpServletRequest request, User account, HttpSession session) {
         String permit = request.getParameter("permit");
         account.setUserEmail(permit);
