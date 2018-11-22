@@ -13,7 +13,6 @@ import java.util.List;
  */
 public class BigQuiz {
 	private Quiz quiz;
-	private User user;
 	private Long commentNumber;
 	private List<Tag> tagList;
 
@@ -24,15 +23,6 @@ public class BigQuiz {
 	public void setQuiz(Quiz quiz) {
 		this.quiz = quiz;
 	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
 	public Long getCommentNumber() {
 		return commentNumber;
 	}

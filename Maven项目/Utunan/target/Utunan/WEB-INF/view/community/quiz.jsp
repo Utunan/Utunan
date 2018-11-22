@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List,com.utunan.pojo.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html>
 <head>
     <title>问答列表</title>
@@ -31,7 +32,7 @@
             <c:forEach items="${page.list}" var="obj">
             <tr>
                 <td>${obj.quiz.quizId}</td>
-                <td>${obj.user.userNickName}</td>
+                <td>${obj.quiz.user.userNickName}</td>
                 <td>${obj.quiz.quizTitle}</td>
                 <td>${obj.quiz.quizContent}</td>
                 <td>${obj.quiz.releaseTime}</td>

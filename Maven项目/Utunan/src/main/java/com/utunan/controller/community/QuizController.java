@@ -48,36 +48,12 @@ public class QuizController {
 		}else{
 			num=Integer.parseInt(pageNum);
 		}
+
 		//提问列表
-		List<Quiz> quizList=this.quizService.getQuizByTime(num,6);
+		List<BigQuiz> objects=this.quizService.quizListByTime(num,6);
 		//提问数量
 		Long quizNumber = this.quizService.countAllQuiz();
-		//提取提问列表的quizId
-		List<Long> quizIdList=new ArrayList<>();
-		for (int i=0;i<quizList.size(); i++){
-			quizIdList.add(quizList.get(i).getQuizId());
-		}
-		//根据quizID获得用户表
-		List<User> userList=new ArrayList<>();
-		//根据quizID获得commentNumber列表
-		List<Long> commentNumber=new ArrayList<>();
-		//根据quizID获得tagList列表
-		List<List<Tag>> quizTagList=new ArrayList<>();
-		for (int i=0;i<quizList.size(); i++){
-			userList.add(this.quizService.findUserByQuizId(quizIdList.get(i)));
-			commentNumber.add(this.quizService.countCommentByQuizId(quizIdList.get(i)));
-			quizTagList.add(this.quizService.selectTagByQuizId(quizIdList.get(i)));
-		}
-		//将Quiz,User,commentNumber,tagList封装
-		List<BigQuiz> objects=new ArrayList<>();
-		for (int i=0;i<quizList.size(); i++){
-			BigQuiz bigQuiz=new BigQuiz();
-			bigQuiz.setQuiz(quizList.get(i));
-			bigQuiz.setUser(userList.get(i));
-			bigQuiz.setCommentNumber(commentNumber.get(i));
-			bigQuiz.setTagList(quizTagList.get(i));
-			objects.add(bigQuiz);
-		}
+
 		//热门标签
 		List<Tag> hotTagList=this.tagService.getTop10Tag();
 		//热门标签的回答数量
@@ -118,36 +94,11 @@ public class QuizController {
 		}else{
 			num=Integer.parseInt(pageNum);
 		}
-		//问答列表
-		List<Quiz> quizList=this.quizService.getQuizByPraise(num,6);
+		//提问列表
+		List<BigQuiz> objects=this.quizService.quizListByPraise(num,6);
 		//问题数量
 		Long quizNumber = this.quizService.countAllQuiz();
-		//提取提问列表的quizId
-		List<Long> quizIdList=new ArrayList<>();
-		for (int i=0;i<quizList.size(); i++){
-			quizIdList.add(quizList.get(i).getQuizId());
-		}
-		//根据quizID获得用户表
-		List<User> userList=new ArrayList<>();
-		//根据quizID获得commentNumber列表
-		List<Long> commentNumber=new ArrayList<>();
-		//根据quizID获得tagList列表
-		List<List<Tag>> quizTagList=new ArrayList<>();
-		for (int i=0;i<quizList.size(); i++){
-			userList.add(this.quizService.findUserByQuizId(quizIdList.get(i)));
-			commentNumber.add(this.quizService.countCommentByQuizId(quizIdList.get(i)));
-			quizTagList.add(this.quizService.selectTagByQuizId(quizIdList.get(i)));
-		}
-		//将Quiz,User,commentNumber,tagList封装
-		List<BigQuiz> objects=new ArrayList<>();
-		for (int i=0;i<quizList.size(); i++){
-			BigQuiz bigQuiz=new BigQuiz();
-			bigQuiz.setQuiz(quizList.get(i));
-			bigQuiz.setUser(userList.get(i));
-			bigQuiz.setCommentNumber(commentNumber.get(i));
-			bigQuiz.setTagList(quizTagList.get(i));
-			objects.add(bigQuiz);
-		}
+
 		//热门标签
 		List<Tag> hotTagList=this.tagService.getTop10Tag();
 		//热门标签的回答数量
