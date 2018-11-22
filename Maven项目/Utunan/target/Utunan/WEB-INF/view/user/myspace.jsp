@@ -24,17 +24,16 @@
         <div class="logo">
             <img src="/images/favicon.ico" alt="" srcset="">
         </div>
-        <a class="loginname" href="">优图南</a>
+        <a class="loginname" href="/homepage">优图南</a>
         <div class="login">
-            <span><a href="">登陆</a></span><span><a href="">注册</a></span>
+            <span><a href="/login">登陆</a></span><span><a href="/register">注册</a></span>
         </div>
         <div class="search">
-            <form action="aaa" method="get" onsubmit="return true">
+            <form action="/search" method="get" onsubmit="return true">
                 <div class="text">
                     <input type="text" name="keyword" placeholder="请输入内容" />
                     <button style="" type="submit"><img src="/images/search.png" /></button>
                 </div>
-
             </form>
         </div>
 
