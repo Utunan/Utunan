@@ -21,6 +21,7 @@
         order by count(qt.quizId) desc
         limit 10
     </select>
+    <!--统计引用数量最高的10个标签的数量-->
     <select id="top10TagNumber" resultType="java.lang.Long">
         select
         count(quizId) tagNumber

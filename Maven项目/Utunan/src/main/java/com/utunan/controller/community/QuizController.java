@@ -2,6 +2,7 @@ package com.utunan.controller.community;
 
 import com.utunan.pojo.community.Quiz;
 import com.utunan.pojo.community.Tag;
+import com.utunan.pojo.user.User;
 import com.utunan.pojo.util.Page;
 import com.utunan.service.community.QuizService;
 import com.utunan.service.community.TagService;
@@ -39,41 +40,80 @@ public class QuizController {
 		}else{
 			num=Integer.parseInt(pageNum);
 		}
-		//问答列表
+		//提问列表
 		List<Quiz> list=this.quizService.getQuizByTime(num,6);
-		//问答数量
+		//提问数量
 		Long count = this.quizService.countAllQuiz();
 		//热门标签
 		List<Tag> name=this.tagService.getTop10Tag();
 		//热门标签的回答数量
 		List<Long> number=this.tagService.getTop10TagNumber();
 		//评论数量
-		List<Long> commentNumber=this.quizService.countComment(num,6);
-		System.out.println(commentNumber);
-
+		List<Long> commentNumber=this.quizService.countCommentByTime(num,6);
+		//封装提问列表与评论数量
 		List<HashMap<Quiz,Long>> list1=new ArrayList<>();
 		for (int j=0;j<list.size(); j++){
 			HashMap<Quiz,Long> hm=new HashMap<>();
 			hm.put(list.get(j),commentNumber.get(j));
 			list1.add(hm);
 		}
-		for (int j=0;j<list.size(); j++){
-			System.out.println(list1.get(j).keySet());
-		}
+		//封装热门标签和标签数量
 		Object[][] tag=new Object[10][2];
 		for(int i=0; i<name.size(); i++){
 			tag[i][0]=name.get(i);
 			tag[i][1]=number.get(i);
 		}
-		System.out.println(list1);
-		Page<Quiz> p = new Page<Quiz>(num, 6);
-		p.setList(list);
+		//封装分页
+		Page<HashMap<Quiz,Long>> p = new Page<HashMap<Quiz,Long>>(num, 6);
+		p.setList(list1);
 		p.setTotalCount(count);
+
+
+		//****************************************************************
+//		List<Long> quizId=new ArrayList<>();
+//		for (int j=0;j<list.size(); j++){
+//			quizId.add(list.get(j).getQuizId());
+//		}
+//		List<User> userList=new ArrayList<>();
+//		for (int j=0;j<quizId.size(); j++){
+//			userList.add(this.quizService.findUserByQuizId(quizId.get(j)));
+//		}
+//		List<HashMap<Quiz,User>> list9=new ArrayList<>();
+//		for (int j=0;j<list.size(); j++){
+//			HashMap<Quiz,User> hm=new HashMap<>();
+//			hm.put(list.get(j),userList.get(j));
+//			list9.add(hm);
+//		}
+//		List<HashMap<Tag,Long>> list8=new ArrayList<>();
+//		for (int j=0;j<list.size(); j++){
+//			HashMap<Tag,Long> hm=new HashMap<>();
+//			hm.put(name.get(j),commentNumber.get(j));
+//			list8.add(hm);
+//		}
+//		List<HashMap<HashMap<Quiz,User>,HashMap<Tag,Long>>> list7=new ArrayList<>();
+//		for (int j=0;j<list.size(); j++){
+//			HashMap<HashMap<Quiz,User>,HashMap<Tag,Long>> hm=new HashMap<>();
+//			hm.put(list9.get(j),list8.get(j));
+//			list7.add(hm);
+//		}
+
+
+//		List<Object> objects=new ArrayList<>();
+//		for (int j=0;j<quizId.size(); j++){
+//			List<Object> obj=new ArrayList<>();
+//			obj.add(list.get(j));
+//			obj.add(userList.get(j));
+//			objects.add(obj);
+//		}
+//		for (int j=0;j<quizId.size(); j++){
+//			System.out.println(objects.get(j));
+//		}
+		//****************************************************************
 
 		request.setAttribute("page",p);
 		request.setAttribute("url",url);
 		request.setAttribute("tag",tag);
-		request.setAttribute("list1",list1);
+//		request.setAttribute("objects",list7);
 		return "community/quiz";
 	}
 
@@ -103,15 +143,24 @@ public class QuizController {
 		List<Tag> name=this.tagService.getTop10Tag();
 		//热门标签的回答数量
 		List<Long> number=this.tagService.getTop10TagNumber();
-
+		//评论数量
+		List<Long> commentNumber=this.quizService.countCommentByPraise(num,6);
+		//封装提问列表与评论数量
+		List<HashMap<Quiz,Long>> list1=new ArrayList<>();
+		for (int j=0;j<list.size(); j++){
+			HashMap<Quiz,Long> hm=new HashMap<>();
+			hm.put(list.get(j),commentNumber.get(j));
+			list1.add(hm);
+		}
+		//封装热门标签的提问数量
 		Object[][] tag=new Object[10][2];
 		for(int i=0; i<name.size(); i++){
 			tag[i][0]=name.get(i);
 			tag[i][1]=number.get(i);
 		}
-
-		Page<Quiz> p = new Page<Quiz>(num, 6);
-		p.setList(list);
+		//封装分页
+		Page<HashMap<Quiz,Long>> p = new Page<HashMap<Quiz,Long>>(num, 6);
+		p.setList(list1);
 		p.setTotalCount(count);
 
 		request.setAttribute("page",p);

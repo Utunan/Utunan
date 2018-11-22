@@ -13,7 +13,7 @@
     <title>问答列表</title>
 </head>
 <body>
-    <div style="float: left; text-align: center; width: 800px">
+    <div style="text-align: center; width: 800px">
         <div>
             <h1><a href="quiz1">时间</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="quiz2">热度</a></h1>
         </div>
@@ -28,16 +28,19 @@
                 <td>回答</td>
                 <td>标签</td>
             </tr>
-            <c:forEach items="${page.list}" var="quizs">
+            <c:forEach items="${page.list}" var="quizlist">
             <tr>
-                <td>${quizs.quizId}</td>
-                <td>${quizs.user.userNickName}</td>
-                <td>${quizs.quizTitle}</td>
-                <td>${quizs.quizContent}</td>
-                <td>${quizs.releaseTime}</td>
-                <td>${quizs.praiseCount}</td>
-                <td></td>
-                <td></td>
+                <c:forEach items="${quizlist}" var="quizs">
+                    <td>${quizs.key.quizId}</td>
+                    <td>${quizs.key.user.userNickName}</td>
+                    <td>${quizs.key.quizTitle}</td>
+                    <td>${quizs.key.quizContent}</td>
+                    <td>${quizs.key.releaseTime}</td>
+                    <td>${quizs.key.praiseCount}</td>
+                    <td>${quizs.value}</td>
+                    <td></td>
+                </c:forEach>
+
             </tr>
             </c:forEach>
         <table/>
@@ -50,22 +53,37 @@
         </div>
     </div>
     <div>
-        <table style="float: right; margin-top: -250px; margin-left:20px; font-size: 2.5ex">
+        <table style="font-size: 2.5ex">
             <tr><td style="font-size: 3ex">热门标签</td><td></td></tr>
             <c:forEach items="${tag}" var="tags">
                 <tr><td>${tags[0].tagName}</td><td>${tags[1]}</td></tr>
             </c:forEach>
         </table>
+    </div>
 
-    </div>
-    <div>
-        ${list1}
-        <table style="font-size: 2.5ex">
-            <tr><td style="font-size: 3ex">热门标签</td><td></td></tr>
-            <c:forEach items="${list1}" var="list">
-                <tr><td>${list.key.quizId}</td><td>${list.value}</td></tr>
+    <!--
+    <div style="text-align: center; width: 800px">
+        <div>
+            <h1><a href="quiz1">时间</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="quiz2">热度</a></h1>
+        </div>
+        <table>
+            <tr>
+                <td>序号</td>
+                <td>用户</td>
+                <td>标题</td>
+                <td>内容</td>
+                <td>时间</td>
+                <td>点赞</td>
+                <td>回答</td>
+                <td>标签</td>
+            </tr>
+            <c:forEach items="${objects}" var="obj">
+            <tr>
+                <td>${obj.key.key.quizTitle}</td>
+            </tr>
             </c:forEach>
-        </table>
+            <table/>
     </div>
+    -->
 </body>
 </html>
