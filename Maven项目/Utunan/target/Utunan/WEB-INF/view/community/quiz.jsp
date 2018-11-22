@@ -60,15 +60,12 @@
     </div>
     <div>
         ${list1}
-        <br>
-        
         <table style="font-size: 2.5ex">
             <tr><td style="font-size: 3ex">热门标签</td><td></td></tr>
             <c:forEach items="${list1}" var="list">
                 <tr><td>${list.key.quizId}</td><td>${list.value}</td></tr>
             </c:forEach>
         </table>
-
     </div>
 </body>
 </html>

@@ -21,7 +21,7 @@ public class User {
     //用户权限
     private int userIdentity;
     //考研年份
-    private Date examTime;
+    private String examTime;
     //注册时间
     private Date registerTime;
     //用户头像
@@ -86,11 +86,11 @@ public class User {
         this.userIdentity = userIdentity;
     }
 
-    public Date getExamTime() {
+    public String getExamTime() {
         return examTime;
     }
 
-    public void setExamTime(Date examTime) {
+    public void setExamTime(String examTime) {
         this.examTime = examTime;
     }
 

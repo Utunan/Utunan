@@ -108,31 +108,32 @@
                 <span>个人资料</span>
             </div>
             <div class="userinfoform">
-                <form id="userinfoform" action="" method="post">
+                <form id="userinfoform" action="/user/changeInfo" method="post">
                     <nav>
                         <li>
                             <label for="userNickName">昵&emsp;&emsp;称</label>
-                            <input type="text" id="userNickName" name="userNickName" placeholder="${User.userNickName}" />
+                            <input type="text" id="userNickName" name="userNickName" value="${User.userNickName}" placeholder="${User.userNickName}" />
                         </li>
                         <li>
                             <label for="dreamSchool">目标院校</label>
-                            <input type="text" id="dreamSchool" name="dreamSchool" placeholder="${User.dreamSchool}" />
+                            <input type="text" id="dreamSchool" name="dreamSchool" value="${User.dreamSchool}"  placeholder="${User.dreamSchool}" />
                         </li>
                         <li>
                             <label for="userSchool">本科院校</label>
-                            <input type="text" id="userSchool" name="userSchool" placeholder="${User.userSchool}" />
+                            <input type="text" id="userSchool" name="userSchool" value="${User.userSchool}" placeholder="${User.userSchool}" />
                         </li>
                         <li>
-                            <label for="userTelephone">绑定手机</label>
-                            <input type="text" id="userTelephone" name="userTelephone" placeholder="${User.userTelephone}" />
+                            <label>绑定手机</label>
+                            <input type="hidden" name="userTelephone" value="${User.userTelephone}"/>
+                            <span style="line-height: 32px;">${User.userTelephone}<span/>
                         </li>
                         <li>
                             <label for="userEmail">绑定邮箱</label>
-                            <input type="text" id="userEmail" name="userEmail" placeholder="${User.userEmail}" />
+                            <input type="text" id="userEmail" name="userEmail" value="${User.userEmail}" placeholder="${User.userEmail}" />
                         </li>
                         <li>
                             <label for="examTime">考研年份</label>
-                            <input type="text" id="examTime" name="examTime" placeholder="${User.examTime}" />
+                            <input type="text" id="examTime" name="examTime" value="${User.examTime}" placeholder="${User.examTime}" />
                         </li>
                         <li>
                             <label>注册时间</label>
