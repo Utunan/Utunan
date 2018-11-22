@@ -4,7 +4,7 @@
         <div class="logo">
             <img src="images/favicon.ico" alt="" srcset="">
         </div>
-        <a class="loginname" href="">优图南</a>
+        <a class="loginname" href="/homepage">优图南</a>
         <div class="login">
             <span><a href="/login" target="_blank">登陆</a></span><span><a href="/register" target="_blank">注册</a></span>
         </div>
@@ -20,7 +20,7 @@
 
         <nav class="banner">
             <li>
-                <a href="">题库</a>
+                <a href="/questionbank">题库</a>
             </li>
             <li>
                 <a href="/school">院校库</a>
