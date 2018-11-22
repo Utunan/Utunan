@@ -2,6 +2,7 @@ package com.utunan.service.community.impl;
 
 import com.utunan.mapper.community.QuizMapper;
 import com.utunan.pojo.community.Quiz;
+import com.utunan.pojo.community.Tag;
 import com.utunan.pojo.user.User;
 import com.utunan.service.community.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,6 @@ import java.util.List;
  * @author  孙程程
  * @description 问答
  * @date  16:02 2018/11/19
- * @param
- * @return
  */
 @Service("quizService")
 public class QuizServiceImpl implements QuizService {
@@ -36,15 +35,15 @@ public class QuizServiceImpl implements QuizService {
 		return this.quizMapper.countAllQuiz();
 	}
 	@Override
-	public List<Long> countCommentByTime(int pageNum, int pageSize){
-		return this.quizMapper.countCommentByTime((pageNum-1)*pageSize,pageSize);
+	public User findUserByQuizId(Long quizId){
+		return this.quizMapper.findUserByQuizId(quizId);
 	}
 	@Override
-	public List<Long> countCommentByPraise(int pageNum, int pageSize){
-		return this.quizMapper.countCommentByPraise((pageNum-1)*pageSize,pageSize);
+	public Long countCommentByQuizId(Long quizId){
+		return this.quizMapper.countCommentByQuizId(quizId);
 	}
-//	@Override
-//	public User findUserByQuizId(Long quizId){
-//		return this.quizMapper.findUserByQuizId(quizId);
-//	}
+	@Override
+	public List<Tag> selectTagByQuizId(Long quizId){
+		return this.quizMapper.selectTagByQuizId(quizId);
+	}
 }
