@@ -9,8 +9,10 @@ import com.utunan.service.community.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -168,5 +170,28 @@ public class QuizController {
 		request.setAttribute("tag",tag);
 		return "community/quiz";
 	}
+
+	/*
+	 * @author  张正扬
+	 * @description 向quiz表插入并取出插入内容
+	 * @date  19:58 2018/11/21
+	 * @param
+	 * @return
+	 */
+
+	@RequestMapping(value = "/quiz3",method = RequestMethod.POST)
+	public String insertQuiz(HttpServletRequest request) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("UTF-8");
+		//int num=Integer.parseInt(request.getParameter("j1"));
+		String title=request.getParameter("title");
+		System.out.print(title);
+		String content= request.getParameter("textarea");
+		System.out.print(content);
+		this.quizService.saveQuiz(title,content);
+		Quiz quiz=this.quizService.getQuiz();
+		request.setAttribute("content",quiz);
+		return "show";
+	}
+
 
 }

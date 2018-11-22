@@ -72,4 +72,20 @@
         join user u on q.userId=u.userId
         where q.quizId=#{quizId}
     </select>
+
+
+    <!-- 插入数据，这里quizId是自动递增的，所以不需要插入 -->
+    <insert id="toInsert" parameterType="com.utunan.pojo.community.Quiz">
+        insert into quiz(userId,quizTitle,quizContent,releaseTime,praiseCount) values(#{userId},#{quizTitle},#{quizContent},#{releaseTime},#{praiseCount})
+    </insert>
+
+    <!--根据回答quizId最大查询，每次只查一条-->
+    <select id="getQuiz1" resultType="com.utunan.pojo.community.Quiz">
+        select * from quiz where quizId=(select max(quizId) from quiz)
+    </select>
+
+    <!--更新quiz表点赞数-->
+    <update id="updatePraiseCount" parameterType="java.lang.Long">
+        update quiz set praiseCount=#{praiseCount}+1 where quizId=#{quizId}
+    </update>
 </mapper>

@@ -22,4 +22,7 @@ public interface QuizMapper {
     List<Long> countCommentByPraise(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
     //******************************************************
 	User findUserByQuizId(@Param("quizId") Long quizId);
+
+    void toInsert(Quiz quiz);
+    Quiz getQuiz1();
 }
