@@ -1,6 +1,7 @@
 package com.utunan.service.community;
 
 import com.utunan.pojo.community.Quiz;
+import com.utunan.pojo.user.User;
 
 import java.util.List;
 
@@ -38,5 +39,8 @@ public interface QuizService {
 	 */
 	Long countAllQuiz();
 
-	List<Long> countComment(int pageNum, int pageSize);
+	List<Long> countCommentByTime(int pageNum, int pageSize);
+	List<Long> countCommentByPraise(int pageNum, int pageSize);
+
+//	User findUserByQuizId(Long quizId);
 }
