@@ -60,6 +60,7 @@
             </c:forEach>
         </table>
     </div>
+
     <!--
     <div style="text-align: center; width: 800px">
         <div>
