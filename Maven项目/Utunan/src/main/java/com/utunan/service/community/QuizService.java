@@ -1,6 +1,9 @@
 package com.utunan.service.community;
 
 import com.utunan.pojo.community.Quiz;
+import com.utunan.pojo.community.Tag;
+import com.utunan.pojo.user.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -38,5 +41,30 @@ public interface QuizService {
 	 */
 	Long countAllQuiz();
 
-	List<Long> countComment(int pageNum, int pageSize);
+	/**
+	 * @author  孙程程
+	 * @description 根据quizId查用户
+	 * @date  15:34 2018/11/22
+	 * @param  quizId
+	 * @return  com.utunan.pojo.user.User
+	 */
+	User findUserByQuizId(Long quizId);
+
+	/**
+	 * @author  孙程程
+	 * @description 根据quizId查评论数量
+	 * @date  15:33 2018/11/22
+	 * @param  quizId
+	 * @return  com.utunan.pojo.user.User
+	 */
+	Long countCommentByQuizId(Long quizId);
+
+	/**
+	 * @author  孙程程
+	 * @description 根据quizId查标签
+	 * @date  15:34 2018/11/22
+	 * @param  quizId
+	 * @return  java.util.List<com.utunan.pojo.community.Tag>
+	 */
+	List<Tag> selectTagByQuizId(Long quizId);
 }

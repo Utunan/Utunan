@@ -2,29 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.utunan.mapper.community.QuizMapper">
-    <resultMap id="quizResultMap" type="com.utunan.pojo.community.Quiz">
-        <id property="quizId" column="quizId"/>
-        <result property="userId" column="userId"/>
-        <result property="quizTitle" column="quizTitle"/>
-        <result property="quizContent" column="quizContent"/>
-        <result property="releaseTime" column="releaseTime"/>
-        <result property="praiseCount" column="praiseCount"/>
-        <association property="user" javaType="com.utunan.pojo.user.User">
-            <id property="userId" column="userId"/>
-            <result property="userEmail" column="userEmail"/>
-            <result property="userTelephone" column="userTelephone"/>
-            <result property="userPassword" column="userPassword"/>
-            <result property="userIdentity" column="userIdentity"/>
-            <result property="examTime" column="examTime"/>
-            <result property="registerTime" column="registerTime"/>
-            <result property="userHeadImg" column="userHeadImg"/>
-            <result property="userNickName" column="userNickName"/>
-            <result property="userSchool" column="userSchool"/>
-            <result property="userIntegral" column="userIntegral"/>
-        </association>
-    </resultMap>
+
     <!--根据发表时间查询-->
-    <select id="listByTime" resultMap="quizResultMap">
+    <select id="listByTime" resultType="com.utunan.pojo.community.Quiz">
         select
         q.quizId, q.userId, q.quizTitle, q.quizContent, q.releaseTime, q.praiseCount, u.userId, u.userNickName
         from quiz q
@@ -33,7 +13,7 @@
         limit #{pageNum},#{pageSize}
     </select>
     <!--根据点赞数量分页查询-->
-    <select id="listByPraise" resultMap="quizResultMap">
+    <select id="listByPraise" resultType="com.utunan.pojo.community.Quiz">
         select
         q.quizId, q.userId, q.quizTitle, q.quizContent, q.releaseTime, q.praiseCount, u.userId, u.userNickName
         from quiz q
@@ -46,13 +26,25 @@
         select count(*)
         from quiz
     </select>
-
-    <select id="countComment" resultType="java.lang.Long">
-        select count(c.commentId)
+    <!--根据quizId查用户-->
+    <select id="findUserByQuizId" resultType="com.utunan.pojo.user.User">
+        select u.*
         from quiz q
-        join comment c on q.quizId=c.quizId
-        group by q.quizId
-        order by q.releaseTime
-        limit #{pageNum},#{pageSize}
+        join user u on q.userId=u.userId
+        where q.quizId=#{quizId}
     </select>
+    <!--根据quizId查评论数量-->
+    <select id="countCommentByQuizId" resultType="java.lang.Long">
+        select count(commentId)
+        from comment
+        where quizId=#{quizId}
+    </select>
+    <!--根据quizId查标签列表-->
+    <select id="selectTagByQuizId" resultType="com.utunan.pojo.community.Tag">
+        select t.tagName
+        from tag t
+        join quiz_tag qt on t.tagId=qt.tagId
+        where qt.quizId=#{quizId}
+    </select>
+
 </mapper>
