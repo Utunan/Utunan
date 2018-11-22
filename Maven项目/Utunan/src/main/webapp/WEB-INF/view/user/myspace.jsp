@@ -12,45 +12,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>欢迎来到Utunan</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/userhome.css">
     <link rel="stylesheet" href="/css/usercommon.css">
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-<div class="header">
-    <header>
-        <div class="logo">
-            <img src="/images/favicon.ico" alt="" srcset="">
-        </div>
-        <a class="loginname" href="/homepage">优图南</a>
-        <div class="login">
-            <span><a href="/login">登陆</a></span><span><a href="/register">注册</a></span>
-        </div>
-        <div class="search">
-            <form action="/search" method="get" onsubmit="return true">
-                <div class="text">
-                    <input type="text" name="keyword" placeholder="请输入内容" />
-                    <button style="" type="submit"><img src="/images/search.png" /></button>
-                </div>
-            </form>
-        </div>
-
-        <nav class="banner">
-            <li>
-                <a href="">题库</a>
-            </li>
-            <li>
-                <a href="">院校库</a>
-            </li>
-            <li>
-                <a href="">社区</a>
-            </li>
-        </nav>
-
-    </header>
-</div>
+<%@include file="../common/header.jsp"%>
 <div class="container">
     <div class="wrapper">
         <div class="usercard">
@@ -154,17 +123,7 @@
         </div>
     </div>
 </div>
-<div class="footer">
-    <footer>
-        <nav>
-            <li><a href="">友情链接</a></li>
-            <li><a href="">广告合作</a></li>
-            <li><a href="">联系我们</a></li>
-            <li><a href="">关于我们</a></li>
-        </nav>
-        <p>冀ICP备17013704号 design by 写BUG辛苦了</p>
-    </footer>
-</div>
+<%@include file="../common/footer.jsp"%>
 </body>
 <script src="/js/usercommon.js"></script>
 
