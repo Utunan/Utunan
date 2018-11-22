@@ -16,9 +16,11 @@ import java.util.List;
 @Mapper
 @Repository
 public interface QuizMapper {
-    List<Quiz> listByTime(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
-    List<Quiz> listByPraise(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
+    List<Quiz> listQuizByTime(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
+    List<Quiz> listQuizByPraise(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
     Long countAllQuiz();
+    List<Long> countCommentNumberByTime(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
+	List<Long> countCommentNumberByPraise(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
 	User findUserByQuizId(@Param("quizId") Long quizId);
 	Long countCommentByQuizId(@Param("quizId") Long quizId);
 	List<Tag> selectTagByQuizId(@Param("quizId") Long quizId);
