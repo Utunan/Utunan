@@ -78,4 +78,22 @@ public interface QuizService {
 	 */
 	List<Tag> selectTagByQuizId(Long quizId);
 
+	/*
+	 * @author  张正扬
+	 * @description 向quiz表存入问题
+	 * @date  19:58 2018/11/21
+	 * @param  title,content
+	 * @return  null
+	 */
+
+	void saveQuiz(String title,String content);
+	/*
+	 * @author  张正扬
+	 * @description
+	 * @date  20:21 2018/11/21
+	 * @param
+	 * @return
+	 */
+	Quiz getQuiz();
+
 }

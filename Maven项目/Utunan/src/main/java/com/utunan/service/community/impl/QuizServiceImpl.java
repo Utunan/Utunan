@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 /**
  * @author  孙程程
@@ -113,5 +114,42 @@ public class QuizServiceImpl implements QuizService {
 	public List<Tag> selectTagByQuizId(Long quizId){
 		return this.quizMapper.selectTagByQuizId(quizId);
 	}
+
+    /*
+     * @author  张正扬
+     * @description 向quiz表插入问题
+     * @date  15:47 2018/11/22
+     * @param  title,content
+     * @return  null
+     */
+
+    @Override
+    public void saveQuiz(String title,String content){
+        Quiz quiz=new Quiz();
+        int k=253;
+        long f=(long)k;
+        quiz.setUserId(f);
+        quiz.setQuizTitle(title);
+        quiz.setQuizContent(content);
+        quiz.setReleaseTime(new Date());
+        int i=0;
+        long j=(long) i;
+        quiz.setPraiseCount(j);
+        quizMapper.toInsert(quiz);
+    }
+
+    /*
+     * @author  张正扬
+     * @description 从quiz表取出刚刚插入的问题
+     * @date  15:47 2018/11/22
+     * @param  null
+     * @return  Quiz对象
+     */
+
+    @Override
+    public Quiz getQuiz(){
+        Quiz q= quizMapper.getQuiz1();
+        return q;
+    }
 
 }
