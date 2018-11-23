@@ -44,26 +44,26 @@
     <div class="wrapper background">
         <nav class="userfunction">
             <li id="active">
-                <img src="/images/user/userinfo.svg" alt="" srcset="">
+                <img src="/images/favicon.ico" alt="" srcset="">
                 <span>个人资料</span>
             </li>
             <li>
-                <img src="/images/user/statistics.svg">
+                <img src="/images/favicon.ico">
                 <span>题库统计</span>
             </li>
             <li id="community">
-                <img src="/images/user/collection.svg">
+                <img src="/images/favicon.ico">
                 <span>社区记录</span>
-                <img src="/images/user/arrow.svg">
+                <img src="/images/favicon.ico">
             </li>
             <nav class="postinfo" id="postinfo" style="height:100px;">
                 <li>发表的帖子</li>
                 <li>发表的回复</li>
             </nav>
             <li id="mycollection">
-                <img src="/images/user/collection.svg">
+                <img src="/images/favicon.ico">
                 <span>我的收藏</span>
-                <img src="/images/user/arrow.svg">
+                <img src="/images/favicon.ico">
             </li>
             <nav class="collection" id="collection" style="height:150px;">
                 <li>题目收藏夹</li>
