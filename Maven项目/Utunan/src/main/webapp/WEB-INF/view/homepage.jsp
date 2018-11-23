@@ -22,7 +22,7 @@
         欧耶!
     </div>
     <div class="homepageimg">
-        <img src="images/homepage/homebanner.jpg" alt="" srcset="">
+        <img src="/images/homepage/homebanner.jpg" alt="" srcset="">
     </div>
 </div>
 

@@ -3,6 +3,7 @@ package com.utunan.service.community;
 import com.utunan.pojo.community.Quiz;
 import com.utunan.pojo.community.Tag;
 import com.utunan.pojo.user.User;
+import com.utunan.pojo.util.BigQuiz;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -13,6 +14,12 @@ import java.util.List;
  * @date  16:21 2018/11/19
  */
 public interface QuizService {
+
+
+	List<BigQuiz> quizListByTime(int pageNum, int pageSize);
+
+	List<BigQuiz> quizListByPraise(int pageNum, int pageSize);
+
 	/**
 	 * @author  孙程程
 	 * @description 根据发表时间分页查询问答列表
@@ -41,6 +48,9 @@ public interface QuizService {
 	 */
 	Long countAllQuiz();
 
+	List<Long> countCommentNumberByTime(int pageNum, int pageSize);
+	List<Long> countCommentNumberByPraise(int pageNum, int pageSize);
+
 	/**
 	 * @author  孙程程
 	 * @description 根据quizId查用户
@@ -67,4 +77,5 @@ public interface QuizService {
 	 * @return  java.util.List<com.utunan.pojo.community.Tag>
 	 */
 	List<Tag> selectTagByQuizId(Long quizId);
+
 }

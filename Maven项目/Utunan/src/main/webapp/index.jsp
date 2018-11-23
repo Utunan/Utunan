@@ -27,6 +27,7 @@
             timer=0
     },1000)
     setTimeout(function(){
-                window.location.href = "/homepage"},3000);
+        window.location.href = "/homepage"
+    },3000);
 </script>
 </html>

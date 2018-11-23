@@ -3,7 +3,6 @@
 <c:if test="${User==null}">
     <c:redirect url="/login"/>
 </c:if>
-
 <!DOCTYPE html>
 <html lang="zh-cn">
 
@@ -14,12 +13,12 @@
     <title>欢迎来到Utunan</title>
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/userhome.css">
-    <link rel="stylesheet" href="/css/usercommon.css">
+    <link rel="stylesheet" href="/css/user/userhome.css">
+    <link rel="stylesheet" href="/css/user/usercommon.css">
 </head>
 
 <body>
-<%@include file="../common/header.jsp"%>
+<%@include file="../common/header.jsp" %>
 <div class="container">
     <div class="wrapper">
         <div class="usercard">
@@ -43,32 +42,46 @@
 <div class="container" style="margin-top: 30px;">
     <div class="wrapper background">
         <nav class="userfunction">
-            <li id="active">
-                <img src="/images/user/userinfo.svg" alt="" srcset="">
-                <span>个人资料</span>
-            </li>
-            <li>
-                <img src="/images/user/statistics.svg">
-                <span>题库统计</span>
-            </li>
+            <a href="/user/myspace">
+                <li id="active">
+                    <img src="../images/user/userinfo.svg" alt="" srcset="">
+                    <span>个人资料</span>
+                </li>
+            </a>
+            <a href="/user/statistics">
+                <li>
+                    <img src="../images/user/statistics.svg">
+                    <span>题库统计</span>
+                </li>
+            </a>
             <li id="community">
-                <img src="/images/user/collection.svg">
+                <img src="../images/user/record.svg">
                 <span>社区记录</span>
-                <img src="/images/user/arrow.svg">
+                <img src="../images/user/arrow.svg">
             </li>
             <nav class="postinfo" id="postinfo" style="height:100px;">
-                <li>发表的帖子</li>
-                <li>发表的回复</li>
+                <a href="/user/publishpost">
+                    <li>发表的帖子</li>
+                </a>
+                <a href="/user/publishreply">
+                    <li>发表的回复</li>
+                </a>
             </nav>
             <li id="mycollection">
-                <img src="/images/user/collection.svg">
+                <img src="../images/user/collection.svg">
                 <span>我的收藏</span>
-                <img src="/images/user/arrow.svg">
+                <img src="../images/user/arrow.svg">
             </li>
             <nav class="collection" id="collection" style="height:150px;">
-                <li>题目收藏夹</li>
-                <li>院校收藏夹</li>
-                <li>帖子收藏夹</li>
+                <a href="/user/collectmatter">
+                    <li>题目收藏夹</li>
+                </a>
+                <a href="/user/collectschool">
+                    <li>院校收藏夹</li>
+                </a>
+                <a href="/user/collectpost">
+                    <li>帖子收藏夹</li>
+                </a>
             </nav>
         </nav>
         <div class="content">
@@ -80,15 +93,18 @@
                     <nav>
                         <li>
                             <label for="userNickName">昵&emsp;&emsp;称</label>
-                            <input type="text" id="userNickName" name="userNickName" value="${User.userNickName}" placeholder="${User.userNickName}" />
+                            <input type="text" id="userNickName" name="userNickName" value="${User.userNickName}"
+                                   placeholder="${User.userNickName}"/>
                         </li>
                         <li>
                             <label for="dreamSchool">目标院校</label>
-                            <input type="text" id="dreamSchool" name="dreamSchool" value="${User.dreamSchool}"  placeholder="${User.dreamSchool}" />
+                            <input type="text" id="dreamSchool" name="dreamSchool" value="${User.dreamSchool}"
+                                   placeholder="${User.dreamSchool}"/>
                         </li>
                         <li>
                             <label for="userSchool">本科院校</label>
-                            <input type="text" id="userSchool" name="userSchool" value="${User.userSchool}" placeholder="${User.userSchool}" />
+                            <input type="text" id="userSchool" name="userSchool" value="${User.userSchool}"
+                                   placeholder="${User.userSchool}"/>
                         </li>
                         <li>
                             <label>绑定手机</label>
@@ -97,11 +113,13 @@
                         </li>
                         <li>
                             <label for="userEmail">绑定邮箱</label>
-                            <input type="text" id="userEmail" name="userEmail" value="${User.userEmail}" placeholder="${User.userEmail}" />
+                            <input type="text" id="userEmail" name="userEmail" value="${User.userEmail}"
+                                   placeholder="${User.userEmail}"/>
                         </li>
                         <li>
                             <label for="examTime">考研年份</label>
-                            <input type="text" id="examTime" name="examTime" value="${User.examTime}" placeholder="${User.examTime}" />
+                            <input type="text" id="examTime" name="examTime" value="${User.examTime}"
+                                   placeholder="${User.examTime}"/>
                         </li>
                         <li>
                             <label>注册时间</label>
@@ -123,7 +141,7 @@
         </div>
     </div>
 </div>
-<%@include file="../common/footer.jsp"%>
+<%@include file="../common/footer.jsp" %>
 </body>
 <script src="/js/usercommon.js"></script>
 
