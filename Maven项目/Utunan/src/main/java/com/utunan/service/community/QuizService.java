@@ -17,9 +17,9 @@ public interface QuizService {
 
 
 	List<BigQuiz> quizListByTime(int pageNum, int pageSize);
-	
+
 	List<BigQuiz> quizListByPraise(int pageNum, int pageSize);
-	
+
 	/**
 	 * @author  孙程程
 	 * @description 根据发表时间分页查询问答列表
@@ -29,7 +29,7 @@ public interface QuizService {
 	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
 	 */
 	List<Quiz> getQuizByTime(int pageNum, int pageSize);
-	
+
 	/**
 	 * @author  孙程程
 	 * @description 根据点赞数量分页查询问答列表
@@ -39,7 +39,7 @@ public interface QuizService {
 	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
 	 */
 	List<Quiz> getQuizByPraise(int pageNum, int pageSize);
-	
+
 	/**
 	 * @author  孙程程
 	 * @description 所有问答数量
@@ -47,10 +47,10 @@ public interface QuizService {
 	 * @return  java.lang.Long
 	 */
 	Long countAllQuiz();
-	
+
 	List<Long> countCommentNumberByTime(int pageNum, int pageSize);
 	List<Long> countCommentNumberByPraise(int pageNum, int pageSize);
-	
+
 	/**
 	 * @author  孙程程
 	 * @description 根据quizId查用户
@@ -59,7 +59,7 @@ public interface QuizService {
 	 * @return  com.utunan.pojo.user.User
 	 */
 	User findUserByQuizId(Long quizId);
-	
+
 	/**
 	 * @author  孙程程
 	 * @description 根据quizId查评论数量
@@ -68,7 +68,7 @@ public interface QuizService {
 	 * @return  com.utunan.pojo.user.User
 	 */
 	Long countCommentByQuizId(Long quizId);
-	
+
 	/**
 	 * @author  孙程程
 	 * @description 根据quizId查标签
@@ -77,28 +77,5 @@ public interface QuizService {
 	 * @return  java.util.List<com.utunan.pojo.community.Tag>
 	 */
 	List<Tag> selectTagByQuizId(Long quizId);
-
-
-//	User findUserByQuizId(Long quizId);
-
-
-
-	/*
-	 * @author  张正扬
-	 * @description 向quiz表存入问题
-	 * @date  19:58 2018/11/21
-	 * @param  title,content
-	 * @return  null
-	 */
-	
-	void saveQuiz(String title,String content);
-	/*
-	 * @author  张正扬
-	 * @description
-	 * @date  20:21 2018/11/21
-	 * @param
-	 * @return
-	 */
-	Quiz getQuiz();
 
 }

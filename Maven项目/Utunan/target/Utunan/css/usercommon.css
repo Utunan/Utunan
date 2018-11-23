@@ -122,32 +122,23 @@ header {
     float: left;
 }
 
-.userfunction img:first-child {
+.userfunction img {
     float: left;
     width: 30px;
     height: 30px;
     margin: 10px;
 }
-.userfunction img:last-child {
-    position: relative;
-    height: 15px;
-    width: 15px;
-    margin:18px 0;
-    left: 80px;
-    /*margin:18px 0 18px 60px;*/
-    float: left;
-}
 
 .content{
+    
     border: 1px solid #C0C0C0;
     float: right;
     width: 680px;
     background: #fff;
 }
 .userfunction>li:hover{
-    color: #1690f3;
     width: 198px;
-    padding-left: 20px;
+    color: #1690f3;
     background-color: rgb(180, 234, 255);
     border-right:2px solid #1690f3;
 }
@@ -165,7 +156,6 @@ header {
     width: 160px;
 }
 .userfunction>nav>li:hover{
-    transform: rotateX(180deg);transition: all 1.2s ease;
     width: 158px;
     color: #1690f3;
     background-color: rgb(180, 234, 255);
