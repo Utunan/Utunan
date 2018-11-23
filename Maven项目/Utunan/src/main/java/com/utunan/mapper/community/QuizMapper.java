@@ -24,4 +24,6 @@ public interface QuizMapper {
 	User findUserByQuizId(@Param("quizId") Long quizId);
 	Long countCommentByQuizId(@Param("quizId") Long quizId);
 	List<Tag> selectTagByQuizId(@Param("quizId") Long quizId);
+    void toInsert(Quiz quiz);
+    Quiz getQuiz1();
 }
