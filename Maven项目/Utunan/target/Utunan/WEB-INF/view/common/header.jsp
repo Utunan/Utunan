@@ -2,7 +2,7 @@
 <div class="header">
     <header>
         <div class="logo">
-            <img src="images/favicon.ico" alt="" srcset="">
+            <img src="/images/favicon.ico" alt="" srcset="">
         </div>
         <a class="loginname" href="/homepage">优图南</a>
         <div class="login">
@@ -12,7 +12,7 @@
             <form action="/search" method="get" onsubmit="return true">
                 <div class="text">
                     <input type="text" name="keyword" placeholder="请输入内容"/>
-                    <button style="" type="submit"><img src="images/search.png"/></button>
+                    <button style="" type="submit"><img src="/images/search.png"/></button>
                 </div>
 
             </form>

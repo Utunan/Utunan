@@ -118,7 +118,10 @@ header {
 .header .banner {
     max-width: 600px;
     margin: 0 auto;
+    height: 56px;
+    text-align: center;
 }
+
 
 .header .banner>li {
     display: inline;

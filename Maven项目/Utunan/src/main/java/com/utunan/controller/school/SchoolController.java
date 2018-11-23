@@ -9,7 +9,6 @@ public class SchoolController {
 
     @RequestMapping("")
     public String school(){
-        System.out.println("666");
         return "/school/school";
     }
 
