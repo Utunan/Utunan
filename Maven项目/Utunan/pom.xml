@@ -31,6 +31,8 @@
     </properties>
 
     <dependencies>
+
+        <!--    提供测试    -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -38,10 +40,18 @@
             <scope>test</scope>
         </dependency>
 
+
+        <!--    标签    -->
         <dependency>
             <groupId>taglibs</groupId>
             <artifactId>standard</artifactId>
             <version>${taglibs.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
         </dependency>
 
         <dependency>
@@ -70,11 +80,6 @@
             <version>${mybatis.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>${jstl.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -186,6 +191,7 @@
             <artifactId>commons-io</artifactId>
             <version>2.4</version>
         </dependency>
+
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
@@ -198,6 +204,7 @@
             <artifactId>aliyun-java-sdk-core</artifactId>
             <version>4.1.1</version>
         </dependency>
+
         <dependency>
             <groupId>com.aliyun</groupId>
             <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
