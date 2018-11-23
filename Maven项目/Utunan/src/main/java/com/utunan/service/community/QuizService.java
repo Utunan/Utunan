@@ -1,7 +1,10 @@
 package com.utunan.service.community;
 
 import com.utunan.pojo.community.Quiz;
+import com.utunan.pojo.community.Tag;
 import com.utunan.pojo.user.User;
+import com.utunan.pojo.util.BigQuiz;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -11,6 +14,12 @@ import java.util.List;
  * @date  16:21 2018/11/19
  */
 public interface QuizService {
+
+
+	List<BigQuiz> quizListByTime(int pageNum, int pageSize);
+	
+	List<BigQuiz> quizListByPraise(int pageNum, int pageSize);
+	
 	/**
 	 * @author  孙程程
 	 * @description 根据发表时间分页查询问答列表
@@ -20,7 +29,7 @@ public interface QuizService {
 	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
 	 */
 	List<Quiz> getQuizByTime(int pageNum, int pageSize);
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 根据点赞数量分页查询问答列表
@@ -30,7 +39,7 @@ public interface QuizService {
 	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
 	 */
 	List<Quiz> getQuizByPraise(int pageNum, int pageSize);
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 所有问答数量
@@ -38,9 +47,37 @@ public interface QuizService {
 	 * @return  java.lang.Long
 	 */
 	Long countAllQuiz();
+	
+	List<Long> countCommentNumberByTime(int pageNum, int pageSize);
+	List<Long> countCommentNumberByPraise(int pageNum, int pageSize);
+	
+	/**
+	 * @author  孙程程
+	 * @description 根据quizId查用户
+	 * @date  15:34 2018/11/22
+	 * @param  quizId
+	 * @return  com.utunan.pojo.user.User
+	 */
+	User findUserByQuizId(Long quizId);
+	
+	/**
+	 * @author  孙程程
+	 * @description 根据quizId查评论数量
+	 * @date  15:33 2018/11/22
+	 * @param  quizId
+	 * @return  com.utunan.pojo.user.User
+	 */
+	Long countCommentByQuizId(Long quizId);
+	
+	/**
+	 * @author  孙程程
+	 * @description 根据quizId查标签
+	 * @date  15:34 2018/11/22
+	 * @param  quizId
+	 * @return  java.util.List<com.utunan.pojo.community.Tag>
+	 */
+	List<Tag> selectTagByQuizId(Long quizId);
 
-	List<Long> countCommentByTime(int pageNum, int pageSize);
-	List<Long> countCommentByPraise(int pageNum, int pageSize);
 
 //	User findUserByQuizId(Long quizId);
 
@@ -53,7 +90,7 @@ public interface QuizService {
 	 * @param  title,content
 	 * @return  null
 	 */
-
+	
 	void saveQuiz(String title,String content);
 	/*
 	 * @author  张正扬
@@ -63,4 +100,5 @@ public interface QuizService {
 	 * @return
 	 */
 	Quiz getQuiz();
+
 }
