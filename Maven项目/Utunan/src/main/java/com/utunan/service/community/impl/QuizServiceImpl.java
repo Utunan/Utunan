@@ -108,7 +108,6 @@ import java.util.List;
     public User findUserByQuizId(Long quizId){
     ​	return this.quizMapper.findUserByQuizId(quizId);
     }
-    <<<<<<< HEAD
     //	@Override
     //	public User findUserByQuizId(Long quizId){
     //		return this.quizMapper.findUserByQuizId(quizId);
@@ -150,7 +149,6 @@ import java.util.List;
     ​	Quiz q= quizMapper.getQuiz1();
     ​	return q;
     }
-    =======
     @Override
     public Long countCommentByQuizId(Long quizId){
     ​	return this.quizMapper.countCommentByQuizId(quizId);

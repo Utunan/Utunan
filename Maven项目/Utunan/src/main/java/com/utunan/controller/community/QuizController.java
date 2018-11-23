@@ -144,6 +144,4 @@ import java.util.Objects;
     ​	request.setAttribute("content",quiz);
     ​	return "show";
     }
-
-master
 }
