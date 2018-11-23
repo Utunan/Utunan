@@ -1,0 +1,42 @@
+.publishpost {
+    list-style-type: none;
+    clear: both;
+    width: 630;
+    padding: 0 25px;
+}
+
+.publishpost>li {
+    width: 100%;
+    float: left;
+}
+
+.publishpost>li>div {
+    width: 100%;
+    float: left;
+    padding: 20px 0;
+}
+.publishpost>li>p {
+    width: 100%;
+    text-indent: 2em;
+    padding: 20px 0;
+}
+.publishtime {
+    width: 100px;
+    float: left;
+}
+
+.posttitle {
+    text-align: center;
+    margin: 0 auto;
+    width: 430px;
+    float: left;
+}
+
+.publishtype {
+    width: 100px;
+    text-align: right;
+    float: right;
+}
+.title img{
+    height: 30px;
+}

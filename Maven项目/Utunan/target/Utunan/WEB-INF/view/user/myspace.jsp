@@ -14,8 +14,8 @@
     <title>欢迎来到Utunan</title>
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/userhome.css">
-    <link rel="stylesheet" href="/css/usercommon.css">
+    <link rel="stylesheet" href="/css/user/userhome.css">
+    <link rel="stylesheet" href="/css/user/usercommon.css">
 </head>
 
 <body>
@@ -43,32 +43,46 @@
 <div class="container" style="margin-top: 30px;">
     <div class="wrapper background">
         <nav class="userfunction">
-            <li id="active">
-                <img src="/images/favicon.ico" alt="" srcset="">
-                <span>个人资料</span>
-            </li>
-            <li>
-                <img src="/images/favicon.ico">
-                <span>题库统计</span>
-            </li>
+            <a href="">
+                <li id="active">
+                    <img src="../images/user/userinfo.svg" alt="" srcset="">
+                    <span>个人资料</span>
+                </li>
+            </a>
+            <a href="">
+                <li>
+                    <img src="../images/user/statistics.svg">
+                    <span>题库统计</span>
+                </li>
+            </a>
             <li id="community">
-                <img src="/images/favicon.ico">
+                <img src="../images/user/collection.svg">
                 <span>社区记录</span>
-                <img src="/images/favicon.ico">
+                <img src="../images/user/arrow.svg">
             </li>
             <nav class="postinfo" id="postinfo" style="height:100px;">
-                <li>发表的帖子</li>
-                <li>发表的回复</li>
+                <a href="">
+                    <li>发表的帖子</li>
+                </a>
+                <a href="">
+                    <li>发表的回复</li>
+                </a>
             </nav>
             <li id="mycollection">
-                <img src="/images/favicon.ico">
+                <img src="../images/user/collection.svg">
                 <span>我的收藏</span>
-                <img src="/images/favicon.ico">
+                <img src="../images/user/arrow.svg">
             </li>
             <nav class="collection" id="collection" style="height:150px;">
-                <li>题目收藏夹</li>
-                <li>院校收藏夹</li>
-                <li>帖子收藏夹</li>
+                <a href="">
+                    <li>题目收藏夹</li>
+                </a>
+                <a href="">
+                    <li>院校收藏夹</li>
+                </a>
+                <a href="">
+                    <li>帖子收藏夹</li>
+                </a>
             </nav>
         </nav>
         <div class="content">
