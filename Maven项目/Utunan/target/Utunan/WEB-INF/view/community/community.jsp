@@ -11,6 +11,7 @@
 <body>
 <%@include file="../common/header.jsp"%>
     <h2><a href="/quiz1">提问</a></h2>
+    <h2><a href="/displayQuizByQuizId?quizId=1">问题页面</a></h2>
 <%@include file="../common/footer.jsp"%>
 </body>
 </html>

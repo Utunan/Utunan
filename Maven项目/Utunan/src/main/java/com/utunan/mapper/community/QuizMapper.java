@@ -26,4 +26,7 @@ public interface QuizMapper {
 	List<Tag> selectTagByQuizId(@Param("quizId") Long quizId);
     void toInsert(Quiz quiz);
     Quiz getQuiz1();
+
+    /*王碧云 通过quizId查找问题*/
+    Quiz findQuizById(@Param("quizId") int quizId);
 }

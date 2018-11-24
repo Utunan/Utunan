@@ -111,4 +111,13 @@
         update quiz set praiseCount=#{praiseCount}+1 where quizId=#{quizId}
     </update>
 
+    <!--@author 王碧云 根据QuizId查找Quiz-->
+    <select id="findQuizById" resultMap="quizResultMap">
+        select *
+        from quiz
+        join user on quiz.userId=user.userId
+        where
+        quizId=#{quizId}
+    </select>
+
 </mapper>
