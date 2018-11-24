@@ -1,9 +1,11 @@
 body {
     background-color:#F5F5F5;
 }
-
+#active {
+    color: #1690f3;
+    background-color: rgb(180, 234, 255);
+}
 header {
-    background-color: #51c4d3;
 }
 .background{
     background-color: #fff;
@@ -42,7 +44,7 @@ header {
 }
 
 .countdown h4 {
-    padding:30px 0;
+    padding:25px 0;
     margin:0;
     background: #51c4d3;
     font-size: 20px;
@@ -73,16 +75,17 @@ header {
 }
 
 .nickname {
-    padding-left: 80px;
+    padding-left: 40px;
     margin-top: 8%;
     font-size: 20px;
     color: #51c4d3;
 }
 
 .schoolinfo {
-    padding-left: 80px;
-    margin-top: 40px;
-    font-size: 12px;
+    padding-left: 40px;
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 13px;
 }
 
 .schoolinfo span:first-child {
@@ -90,10 +93,7 @@ header {
 }
 
 
-#active {
-    color: #ed5a65;
-    background-color: #fff;
-}
+
 .userfunction {
     background-color: #fff;
     float: left;
@@ -136,7 +136,12 @@ header {
     width: 680px;
     background: #fff;
 }
-
+.userfunction>li:hover{
+    width: 198px;
+    color: #1690f3;
+    background-color: rgb(180, 234, 255);
+    border-right:2px solid #1690f3;
+}
 .userfunction>nav{
     clear: both;
     list-style-type: none;
@@ -149,6 +154,12 @@ header {
     line-height: 50px;
     padding-left: 80px;
     width: 160px;
+}
+.userfunction>nav>li:hover{
+    width: 158px;
+    color: #1690f3;
+    background-color: rgb(180, 234, 255);
+    border-right: 2px solid #1690f3;
 }
 
 .title{

@@ -10,13 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
 
-    @RequestMapping("")
-    public String user() {
-        return "/user/myspace";
-    }
-
     @Autowired
     private UserService userService;
+
 
     @RequestMapping("/changeInfo")
     public String changeInfo(User user) {

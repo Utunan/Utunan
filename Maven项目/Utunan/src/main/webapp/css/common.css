@@ -10,8 +10,6 @@ header {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-
-
 .container {
     width: 100%;
     min-width: 1180px;
@@ -27,26 +25,26 @@ header {
 .header {
     width: 100%;
     float: left;
-    height: 56px;
+    height: 50px;
 }
 
 .header .logo {
     padding-left: 40px;
     float: left;
     width: 50px;
-    height: 56px;
+    height: 50px;
 }
 
 .header .logo img {
     float: left;
-    margin: 8px 10px 8px 0;
-    height: 40px;
+    margin: 10px 10px 10px 0;
+    height: 30px;
 }
 
 .loginname {
     float: left;
     font-size: 20px;
-    margin: 8px 0px;
+    margin: 5px 0px;
     height: 40px;
     line-height: 40px;
     text-decoration: none;
@@ -65,8 +63,8 @@ header {
     background: #fff;
     border-radius: 50px;
     height: 30px;
-    margin-top: 13px;
-    margin-bottom: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .header .search .text input {
@@ -118,15 +116,17 @@ header {
 .header .banner {
     max-width: 600px;
     margin: 0 auto;
+    height: 50px;
+    text-align: center;
 }
 
 .header .banner>li {
     display: inline;
     padding: 0 40px;
-    height: 56px;
+    height: 50px;
     float: left;
     text-align: center;
-    line-height: 56px;
+    line-height: 50px;
 }
 
 .header .banner a:link,
@@ -134,7 +134,7 @@ header {
 .header .banner a:visited {
     text-decoration: none;
     color: #fff;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .footer{
@@ -156,18 +156,21 @@ footer>nav{
     width: 600px;
     margin:0 auto;
 }
+
 footer>nav>li{
     display: inline;
     width: 150px;
     float: left;
     text-align: center;
 }
+
 footer>p{
     width: 600px;
     text-align: center;
     margin:0 auto;
 
 }
+
 footer>nav>li>a{
     text-decoration: none;
     color:grey;

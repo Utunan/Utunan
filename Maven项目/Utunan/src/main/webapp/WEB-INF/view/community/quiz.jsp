@@ -8,12 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List,com.utunan.pojo.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html>
 <head>
     <title>问答列表</title>
 </head>
 <body>
-    <div style="float: left; text-align: center; width: 800px">
+    <div >
         <div>
             <h1><a href="quiz1">时间</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="quiz2">热度</a></h1>
         </div>
@@ -28,16 +29,20 @@
                 <td>回答</td>
                 <td>标签</td>
             </tr>
-            <c:forEach items="${page.list}" var="quizs">
+            <c:forEach items="${page.list}" var="obj">
             <tr>
-                <td>${quizs.quizId}</td>
-                <td>${quizs.user.userNickName}</td>
-                <td>${quizs.quizTitle}</td>
-                <td>${quizs.quizContent}</td>
-                <td>${quizs.releaseTime}</td>
-                <td>${quizs.praiseCount}</td>
-                <td></td>
-                <td></td>
+                <td>${obj.quiz.quizId}</td>
+                <td>${obj.quiz.user.userNickName}</td>
+                <td>${obj.quiz.quizTitle}</td>
+                <td>${obj.quiz.quizContent}</td>
+                <td>${obj.quiz.releaseTime}</td>
+                <td>${obj.quiz.praiseCount}</td>
+                <td>${obj.commentNumber}</td>
+                <td>
+                    <c:forEach items="${obj.tagList}" var="taglist">
+                        ${taglist.tagName}&nbsp;&nbsp;&nbsp;
+                    </c:forEach>
+                </td>
             </tr>
             </c:forEach>
         <table/>
@@ -49,21 +54,12 @@
             <a href="/${url }?pageNum=${page.totalPageNum }">末页</a>&nbsp;&nbsp;
         </div>
     </div>
+    <br><br><br>
     <div>
-        <table style="float: right; margin-top: -250px; margin-left:20px; font-size: 2.5ex">
+        <table style="font-size: 2.5ex">
             <tr><td style="font-size: 3ex">热门标签</td><td></td></tr>
             <c:forEach items="${tag}" var="tags">
                 <tr><td>${tags[0].tagName}</td><td>${tags[1]}</td></tr>
-            </c:forEach>
-        </table>
-
-    </div>
-    <div>
-        ${list1}
-        <table style="font-size: 2.5ex">
-            <tr><td style="font-size: 3ex">热门标签</td><td></td></tr>
-            <c:forEach items="${list1}" var="list">
-                <tr><td>${list.key.quizId}</td><td>${list.value}</td></tr>
             </c:forEach>
         </table>
     </div>
