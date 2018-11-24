@@ -19,11 +19,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * @author 孙程程
- * @description: 问答首页
- * @date 2018/11/19 16:24
- */
 @Controller
 public class QuizController {
 
@@ -123,7 +118,7 @@ public class QuizController {
 		return "community/quiz";
 	}
 
-	/*
+	/**
 	 * @author  张正扬
 	 * @description 向quiz表插入并取出插入内容
 	 * @date  19:58 2018/11/21

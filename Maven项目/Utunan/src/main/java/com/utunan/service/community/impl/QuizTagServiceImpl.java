@@ -16,11 +16,11 @@ public class QuizTagServiceImpl implements QuizTagService {
     @Autowired
     private QuizTagMapper quizTagMapper;
 
-    /*
+    /**
      * @author  王碧云
      * @description 根据quizId返回标签
      * @date  19:05 2018/11/24
-     * @param  [quizId]
+     * @param  quizId
      * @return  java.util.List<com.utunan.pojo.community.QuizTag>
      */
     @Override
