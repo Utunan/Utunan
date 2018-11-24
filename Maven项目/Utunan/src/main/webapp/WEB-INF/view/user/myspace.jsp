@@ -143,6 +143,6 @@
 </div>
 <%@include file="../common/footer.jsp" %>
 </body>
-<script src="/js/usercommon.js"></script>
+<script src="/js/user/usercommon.js"></script>
 
 </html>

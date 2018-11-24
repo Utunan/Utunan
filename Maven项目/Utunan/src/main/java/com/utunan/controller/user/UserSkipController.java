@@ -11,28 +11,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/user")
 public class UserSkipController {
-
     @RequestMapping("")
     public String user() {
-        System.out.println("你路过了我呦~");
         return "/user/myspace";
     }
-
     @RequestMapping("myspace")
     public String myspace(){
         return "/user/myspace";
     }
-
     @RequestMapping("statistics")
     public String statistics(){
         return  "/user/statistics";
     }
-
     @RequestMapping("publishpost")
     public String publishpost(){
         return "/user/publishpost";
     }
-
     @RequestMapping("publishreply")
     public String publishreply(){
         return "/user/publishreply";
@@ -49,5 +43,4 @@ public class UserSkipController {
     public String collectpost(){
         return "/user/collectpost";
     }
-
 }

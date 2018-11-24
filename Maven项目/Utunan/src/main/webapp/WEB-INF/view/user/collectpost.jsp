@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>欢迎来到Utunan</title>
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/user/publishpost.css">
+    <link rel="stylesheet" href="/css/user/collectpost.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
@@ -85,12 +85,135 @@
             </nav>
         </nav>
         <div class="content">
-
+            <div class="title">
+                <span>收藏的题目(666)</span>
+            </div>
+            <nav class="postlist">
+                <li>
+                    <div class="posttop">
+                        <a href=""><img src="../images/userheadimg/default.png" alt="" srcset=""></a>
+                        <span><a href="">徐思涵天下第一美</a></span>
+                        <span><a href="">急！！！谁知道英语四级考题？重金悬赏！！！</a></span>
+                    </div>
+                    <div class="postmiddle">
+                        <p>
+                            Shadowsocks与Shadowsocksr区别：
+                            SS是原版，SSR是原版基础上衍生出来的第三方版本，兼容原版协议，比原版多​​了一些伪装功能（协议和混淆）.SSR
+                            主要特点是增加了一些人性化功能，比如服务器连接统计，连接管理，协议转换，多重代理等。
+                        </p>
+                    </div>
+                    <div class="postbottom">
+                        <div class="delete"><img src=""><a href="">取消收藏</a></div>
+                        <div class="details"><a href="">>>详情</a></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="posttop">
+                        <a href=""><img src="../images/userheadimg/default.png" alt="" srcset=""></a>
+                        <span><a href="">徐思涵天下第一美</a></span>
+                        <span><a href="">急！！！谁知道英语四级考题？重金悬赏！！！</a></span>
+                    </div>
+                    <div class="postmiddle">
+                        <p>
+                            Shadowsocks与Shadowsocksr区别：
+                            SS是原版，SSR是原版基础上衍生出来的第三方版本，兼容原版协议，比原版多​​了一些伪装功能（协议和混淆）.SSR
+                            主要特点是增加了一些人性化功能，比如服务器连接统计，连接管理，协议转换，多重代理等。
+                        </p>
+                    </div>
+                    <div class="postbottom">
+                        <div class="delete"><img src=""><a href="">取消收藏</a></div>
+                        <div class="details"><a href="">>>详情</a></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="posttop">
+                        <a href=""><img src="../images/userheadimg/default.png" alt="" srcset=""></a>
+                        <span><a href="">徐思涵天下第一美</a></span>
+                        <span><a href="">急！！！谁知道英语四级考题？重金悬赏！！！</a></span>
+                    </div>
+                    <div class="postmiddle">
+                        <p>
+                            Shadowsocks与Shadowsocksr区别：
+                            SS是原版，SSR是原版基础上衍生出来的第三方版本，兼容原版协议，比原版多​​了一些伪装功能（协议和混淆）.SSR
+                            主要特点是增加了一些人性化功能，比如服务器连接统计，连接管理，协议转换，多重代理等。
+                        </p>
+                    </div>
+                    <div class="postbottom">
+                        <div class="delete"><img src=""><a href="">取消收藏</a></div>
+                        <div class="details"><a href="">>>详情</a></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="posttop">
+                        <a href=""><img src="../images/userheadimg/default.png" alt="" srcset=""></a>
+                        <span><a href="">徐思涵天下第一美</a></span>
+                        <span><a href="">急！！！谁知道英语四级考题？重金悬赏！！！</a></span>
+                    </div>
+                    <div class="postmiddle">
+                        <p>
+                            Shadowsocks与Shadowsocksr区别：
+                            SS是原版，SSR是原版基础上衍生出来的第三方版本，兼容原版协议，比原版多​​了一些伪装功能（协议和混淆）.SSR
+                            主要特点是增加了一些人性化功能，比如服务器连接统计，连接管理，协议转换，多重代理等。
+                        </p>
+                    </div>
+                    <div class="postbottom">
+                        <div class="delete"><img src=""><a href="">取消收藏</a></div>
+                        <div class="details"><a href="">>>详情</a></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="posttop">
+                        <a href=""><img src="../images/userheadimg/default.png" alt="" srcset=""></a>
+                        <span><a href="">徐思涵天下第一美</a></span>
+                        <span><a href="">急！！！谁知道英语四级考题？重金悬赏！！！</a></span>
+                    </div>
+                    <div class="postmiddle">
+                        <p>
+                            Shadowsocks与Shadowsocksr区别：
+                            SS是原版，SSR是原版基础上衍生出来的第三方版本，兼容原版协议，比原版多​​了一些伪装功能（协议和混淆）.SSR
+                            主要特点是增加了一些人性化功能，比如服务器连接统计，连接管理，协议转换，多重代理等。
+                        </p>
+                    </div>
+                    <div class="postbottom">
+                        <div class="delete"><img src=""><a href="">取消收藏</a></div>
+                        <div class="details"><a href="">>>详情</a></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="posttop">
+                        <a href=""><img src="../images/userheadimg/default.png" alt="" srcset=""></a>
+                        <span><a href="">徐思涵天下第一美</a></span>
+                        <span><a href="">急！！！谁知道英语四级考题？重金悬赏！！！</a></span>
+                    </div>
+                    <div class="postmiddle">
+                        <p>
+                            Shadowsocks与Shadowsocksr区别：
+                            SS是原版，SSR是原版基础上衍生出来的第三方版本，兼容原版协议，比原版多​​了一些伪装功能（协议和混淆）.SSR
+                            主要特点是增加了一些人性化功能，比如服务器连接统计，连接管理，协议转换，多重代理等。
+                        </p>
+                    </div>
+                    <div class="postbottom">
+                        <div class="delete"><img src=""><a href="">取消收藏</a></div>
+                        <div class="details"><a href="">>>详情</a></div>
+                    </div>
+                </li>
+            </nav>
+            <nav class="page">
+                <li class="home"><a href="">首页</a></li>
+                <li class="prev"><a href="">上一页</a></li>
+                <li><a href="?page=1">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">5</a></li>
+                <li class="next"><a href="">下一页</a></li>
+                <li class="tail"><a href="">尾页</a></li>
+            </nav>
         </div>
     </div>
 </div>
 <%@include file="../common/footer.jsp"%>
 </body>
-<script src="/js/usercommon.js"></script>
+<script src="/js/user/usercommon.js"></script>
 
 </html>
