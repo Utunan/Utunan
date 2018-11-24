@@ -49,7 +49,7 @@
                 </li>
             </a>
             <a href="/user/statistics">
-                <li id="active">
+                <li>
                     <img src="../images/user/statistics.svg">
                     <span>题库统计</span>
                 </li>
@@ -74,7 +74,7 @@
             </li>
             <nav class="collection" id="collection" style="height:150px;">
                 <a href="/user/collectmatter">
-                    <li>题目收藏夹</li>
+                    <li id="active">题目收藏夹</li>
                 </a>
                 <a href="/user/collectschool">
                     <li>院校收藏夹</li>

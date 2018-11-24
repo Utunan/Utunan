@@ -2,8 +2,8 @@ body {
     background-color:#F5F5F5;
 }
 #active {
-    color: #1690f3;
-    background-color: rgb(180, 234, 255);
+    color: rgba(12, 200, 217, 1);
+    background-color: rgba(12, 200, 217, 0.2);
 }
 header {
 }
@@ -159,18 +159,19 @@ header {
     background: #fff;
 }
 .userfunction>li:hover{
-    color: #1690f3;
+    color: rgba(12, 200, 217, 1);
     width: 198px;
     padding-left: 20px;
-    background-color: rgb(180, 234, 255);
-    border-right:2px solid #1690f3;
+    background-color: rgba(12, 200, 217, 0.2);
+    border-right:2px solid rgba(12, 200, 217, 1);
 }
 .userfunction>a>li:hover{
-    color: #1690f3;
+
     width: 198px;
     padding-left: 20px;
-    background-color: rgb(180, 234, 255);
-    border-right:2px solid #1690f3;
+    color: rgba(12, 200, 217, 1);
+    background-color: rgba(12, 200, 217, 0.2);
+    border-right:2px solid rgba(12, 200, 217, 1);
 }
 .userfunction>nav{
     clear: both;
@@ -192,9 +193,9 @@ header {
 }
 .userfunction nav>a>li:hover{
     width: 158px;
-    color: #1690f3;
-    background-color: rgb(180, 234, 255);
-    border-right: 2px solid #1690f3;
+    color: rgba(12, 200, 217, 1);
+    background-color: rgba(12, 200, 217, 0.2);
+    border-right:2px solid rgba(12, 200, 217, 1);
 }
 
 .mintitle{
@@ -216,7 +217,7 @@ header {
     color: #51c4d3;
     font-size: 20px;
     font-weight: bold;
-    border-bottom:2px solid grey;
+    border-bottom:2px solid rgba(229, 229, 229, 1);
 }
 .title>span{
     padding:20px 30px;
