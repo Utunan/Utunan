@@ -54,34 +54,6 @@
         select count(*)
         from quiz
     </select>
-    <!--根据发表时间分页查询评论数量-->
-    <select id="countCommentNumberByTime" resultType="java.lang.Long">
-        select count(c.commentId)
-        from quiz q
-        join comment c on q.quizId=c.quizId
-        group by c.quizId
-        order by q.releaseTime desc
-        limit #{pageNum},#{pageSize}
-    </select>
-    <!--根据点赞数量分页查询评论数量-->
-    <select id="countCommentNumberByPraise" resultType="java.lang.Long">
-        select count(c.commentId)
-        from quiz q
-        join comment c on q.quizId=c.quizId
-        group by c.quizId
-        order by q.praiseCount desc
-        limit #{pageNum},#{pageSize}
-    </select>
-    <!--根据发表时间分页查询标签列表-->
-    <!--根据点赞数量分页查询标签列表-->
-
-    <!--根据quizId查用户-->
-    <select id="findUserByQuizId" resultType="com.utunan.pojo.user.User">
-        select u.*
-        from quiz q
-        join user u on q.userId=u.userId
-        where q.quizId=#{quizId}
-    </select>
     <!--根据quizId查评论数量-->
     <select id="countCommentByQuizId" resultType="java.lang.Long">
         select count(commentId)
