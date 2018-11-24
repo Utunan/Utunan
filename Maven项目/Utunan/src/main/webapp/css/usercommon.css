@@ -2,8 +2,8 @@ body {
     background-color:#F5F5F5;
 }
 #active {
-    color: rgba(12, 200, 217, 1);
-    background-color: rgba(12, 200, 217, 0.2);
+    color: #1690f3;
+    background-color: rgb(180, 234, 255);
 }
 header {
 }
@@ -104,21 +104,7 @@ header {
     border: 1px solid #C0C0C0;
 }
 
-
 .userfunction>li {
-    color: gray;
-    cursor: pointer;
-    display:block;
-    float: left;
-    height: 50px;
-    font-size: 15px;
-    line-height: 50px;
-    width: 200px;
-    padding-left: 20px;
-    padding-right:20px;
-}
-
-.userfunction>a>li {
     color: gray;
     cursor: pointer;
     display:block;
@@ -136,54 +122,32 @@ header {
     float: left;
 }
 
-.userfunction img:first-child {
+.userfunction img {
     float: left;
     width: 30px;
     height: 30px;
     margin: 10px;
 }
-.userfunction img:last-child {
-    position: relative;
-    height: 15px;
-    width: 15px;
-    margin:18px 0;
-    left: 80px;
-    /*margin:18px 0 18px 60px;*/
-    float: left;
-}
 
 .content{
+    
     border: 1px solid #C0C0C0;
     float: right;
     width: 680px;
     background: #fff;
 }
 .userfunction>li:hover{
-    color: rgba(12, 200, 217, 1);
     width: 198px;
-    padding-left: 20px;
-    background-color: rgba(12, 200, 217, 0.2);
-    border-right:2px solid rgba(12, 200, 217, 1);
-}
-.userfunction>a>li:hover{
-
-    width: 198px;
-    padding-left: 20px;
-    color: rgba(12, 200, 217, 1);
-    background-color: rgba(12, 200, 217, 0.2);
-    border-right:2px solid rgba(12, 200, 217, 1);
+    color: #1690f3;
+    background-color: rgb(180, 234, 255);
+    border-right:2px solid #1690f3;
 }
 .userfunction>nav{
     clear: both;
     list-style-type: none;
 }
 
-.userfunction>nav>a{
-    text-decoration: none;
-    color:#1690f3;
-}
-
-.userfunction>nav>a>li{
+.userfunction>nav>li{
     cursor: pointer;
     color: gray;
     height: 50px;
@@ -191,14 +155,14 @@ header {
     padding-left: 80px;
     width: 160px;
 }
-.userfunction nav>a>li:hover{
+.userfunction>nav>li:hover{
     width: 158px;
-    color: rgba(12, 200, 217, 1);
-    background-color: rgba(12, 200, 217, 0.2);
-    border-right:2px solid rgba(12, 200, 217, 1);
+    color: #1690f3;
+    background-color: rgb(180, 234, 255);
+    border-right: 2px solid #1690f3;
 }
 
-.mintitle{
+.title{
     text-align: center;
     width: 100%;
     float: left;
@@ -207,17 +171,6 @@ header {
     color: #51c4d3;
     font-size: 20px;
     font-weight: bold;
-}
-.title{
-    text-align: center;
-    width: 100%;
-    float: left;
-    padding:15px 0px;
-    margin:15px 0px 0px 0;
-    color: #51c4d3;
-    font-size: 20px;
-    font-weight: bold;
-    border-bottom:2px solid rgba(229, 229, 229, 1);
 }
 .title>span{
     padding:20px 30px;

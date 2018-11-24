@@ -49,12 +49,12 @@
             <div class="registerbtn">
                 <button type="submit">提交</button>
             </div>
-            <span><a href="/user/changepassword">忘记密码</a> </span>
-            <span><a href="/login">返回登陆</a> </span>
+            <span><a href="">忘记密码</a> </span>
+            <span><a href="">立即注册</a> </span>
         </form>
         <div class="textcase">
             <div class="registertext welcome">
-                <a href="">天青色等烟雨,而我在等你~</a>
+                <a href="">欢迎回来</a>
             </div>
         </div>
     </div>
