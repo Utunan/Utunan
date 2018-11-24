@@ -3,14 +3,15 @@
 	font-family:"SimHei",黑体；
 }
 body{
-background-color: #fafafa;
+	background-color: #fafafa;
+	margin-top: 0px;
 }
 .content{
 	margin: 0 auto;
 	width: 1100px;
-	margin-top: 15px;
 }
 .left-content{
+	margin-top: 0px;
 	width: 850px;
 	float: left;
 }
@@ -26,9 +27,18 @@ background-color: #fafafa;
 	
 }
 .left-content-header p{
-	text-align:center;
+	line-height:40px;
 	font-size: 21px;
 	color: #505050;
+}
+.subscribe{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #ffffff;
+	background-color: #0cc8d9;
+	margin-left: 15px;
+	border-radius: 12px;
+	font-size: 16px;
 }
 .content-main-menu{
 	background-color: #0cc8d9;
@@ -72,7 +82,7 @@ background-color: #fafafa;
 	float: left;
 }
 .searchImg img{
-	margin-top: 5px;
+	margin-top: 10px;
 }
 a:link{
 	text-decoration:none;
@@ -216,10 +226,6 @@ a:link{
 .tags ul li:nth-child(2n+1){
 	background-color: #64505050;
 }
-body{
-	width:100%;
-	height:10000000px;
-}
 .mask{
 	display:none;
 	background:rgba(0,0,0,0.3);
@@ -317,12 +323,13 @@ body{
 	border-width:0px 0px 1px 0px; 
 	border-color:#e5e5e5;	
 }
-.tool-outline{
+.toolbar img{
 	float: left;
 	margin-right: 5px;
-	width: 25px;
-	height: 25px;
-	background-color: #a6a6a6;
+}
+.more{
+    float: right;
+    margin-right: 10px;
 }
 .radio{
 	height: 20px;
