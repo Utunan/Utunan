@@ -40,5 +40,16 @@ public class QuizServiceImpl implements QuizService {
 	public List<Long> countComment(int pageNum, int pageSize){
 		return this.quizMapper.countComment((pageNum-1)*pageSize,pageSize);
 	}
+	/*
+	 * @author  王碧云
+	 * @description 根据quizId查找Quiz
+	 * @date  12:36 2018/11/24
+	 * @param  [quizId]
+	 * @return  com.utunan.pojo.community.Quiz
+	 */
+	@Override
+	public Quiz findQuizById(int quizId) {
+		return this.quizMapper.findQuizById(quizId);
+	}
 
 }

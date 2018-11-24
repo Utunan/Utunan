@@ -23,6 +23,7 @@
             <result property="userIntegral" column="userIntegral"/>
         </association>
     </resultMap>
+
     <!--根据发表时间查询-->
     <select id="listByTime" resultMap="quizResultMap">
         select
@@ -41,6 +42,7 @@
         order by q.praiseCount desc
         limit #{pageNum},#{pageSize}
     </select>
+
     <!--统计所有quiz个数-->
     <select id="countAllQuiz" resultType="java.lang.Long">
         select count(*)
@@ -54,5 +56,15 @@
         group by q.quizId
         order by q.releaseTime
         limit #{pageNum},#{pageSize}
+    </select>
+
+    <!--@author  王碧云
+    @description 根据QuizId查找Quiz-->
+    <select id="findQuizById" resultMap="quizResultMap">
+        select *
+        from quiz
+        join user on quiz.userId=user.userId
+        where
+        quizId=#{quizId}
     </select>
 </mapper>

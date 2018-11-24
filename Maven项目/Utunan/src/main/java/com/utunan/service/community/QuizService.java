@@ -39,4 +39,13 @@ public interface QuizService {
 	Long countAllQuiz();
 
 	List<Long> countComment(int pageNum, int pageSize);
+
+	/*
+	 * @author  王碧云
+	 * @description 根据quizId查找Quiz
+	 * @date  12:28 2018/11/24
+	 * @param  [quizId]
+	 * @return  com.utunan.pojo.community.Quiz
+	 */
+	Quiz findQuizById(int quizId);
 }

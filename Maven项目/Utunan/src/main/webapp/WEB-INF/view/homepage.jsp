@@ -15,5 +15,6 @@
 <a href="/register">789</a>
 <a href="/quiz1">123</a>
 <a href="/tojsp">图片验证码</a>
+<a href="/displayQuizByQuizId?quizId=1">问题一</a>
 </body>
 </html>

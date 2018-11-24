@@ -18,4 +18,8 @@ public interface QuizMapper {
     List<Quiz> listByPraise(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
     Long countAllQuiz();
     List<Long> countComment(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
+    /*
+     * @author  王碧云
+     */
+    Quiz findQuizById(@Param("quizId") int quizId);
 }
