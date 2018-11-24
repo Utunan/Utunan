@@ -49,7 +49,7 @@
                 </li>
             </a>
             <a href="/user/statistics">
-                <li id="active">
+                <li>
                     <img src="../images/user/statistics.svg">
                     <span>题库统计</span>
                 </li>
@@ -80,7 +80,7 @@
                     <li>院校收藏夹</li>
                 </a>
                 <a href="/user/collectpost">
-                    <li>帖子收藏夹</li>
+                    <li id="active">帖子收藏夹</li>
                 </a>
             </nav>
         </nav>

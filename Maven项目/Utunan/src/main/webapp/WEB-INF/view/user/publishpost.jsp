@@ -165,9 +165,17 @@
                     <span><a href="">>>详细</a></span>
                 </li>
             </nav>
-            <div class="page">
-
-            </div>
+            <nav class="page">
+                <li class="home" ><a href="">首页</a></li>
+                <li class="prev"><a href="">上一页</a></li>
+                <li><a href="?page=1">1</a></li>
+                <li><a href="?page=2">2</a></li>
+                <li><a href="?page=3">3</a></li>
+                <li><a href="?page=4">4</a></li>
+                <li><a href="?page=5">5</a></li>
+                <li class="next"><a href="">下一页</a></li>
+                <li class="tail"><a href="">尾页</a></li>
+            </nav>
         </div>
     </div>
 </div>
