@@ -96,4 +96,14 @@ public interface QuizService {
 	 */
 	Quiz getQuiz();
 
+	/*
+	 * @author  王碧云
+	 * @description 根据quizId查找Quiz
+	 * @date  12:28 2018/11/24
+	 * @param  [quizId]
+	 * @return  com.utunan.pojo.community.Quiz
+	 */
+	Quiz findQuizById(int quizId);
+
+
 }
