@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List,com.utunan.pojo.*"%>
 <html>
 <head>
     <title>问题页面</title>
@@ -15,7 +16,11 @@
     问题：${quiz.quizTitle}<br/>
     用户：${quiz.user.userNickName}<br/>
     发表时间：${quiz.releaseTime}<br/>
-    标签：<br/>
+    标签：
+    <c:forEach items="${quizTagList}" var="quiztag">
+        ${quiztag.tag.tagName} &nbsp;
+    </c:forEach>
+    <br/>
     内容：${quiz.quizContent}<br/>
     点赞数：${quiz.praiseCount}<br/>
     评论数：<br/>
