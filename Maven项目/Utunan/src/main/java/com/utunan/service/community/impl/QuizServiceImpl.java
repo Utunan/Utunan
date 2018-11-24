@@ -160,7 +160,7 @@ public class QuizServiceImpl implements QuizService {
 	 * @return  com.utunan.pojo.community.Quiz
 	 */
 	@Override
-	public Quiz findQuizById(int quizId) {
+	public Quiz findQuizById(Long quizId) {
 		return this.quizMapper.findQuizById(quizId);
 	}
 

@@ -28,5 +28,5 @@ public interface QuizMapper {
     Quiz getQuiz1();
 
     /*王碧云 通过quizId查找问题*/
-    Quiz findQuizById(@Param("quizId") int quizId);
+    Quiz findQuizById(@Param("quizId") Long quizId);
 }

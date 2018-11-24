@@ -103,7 +103,7 @@ public interface QuizService {
 	 * @param  [quizId]
 	 * @return  com.utunan.pojo.community.Quiz
 	 */
-	Quiz findQuizById(int quizId);
+	Quiz findQuizById(Long quizId);
 
 
 }
