@@ -152,7 +152,7 @@ header {
 }
 footer{
     min-width: 1180px;
-    margin: 0 auto;
+    margin: 0 auto; 
 }
 footer>nav{
     height:40px;
