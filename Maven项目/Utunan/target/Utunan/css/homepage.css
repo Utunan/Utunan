@@ -2,6 +2,9 @@
     top:0;
     position: absolute;
 }
+header{
+    background: rgba(0,0,0,0.7);
+}
 .homepageimg{
     width: 100%;
 }
@@ -111,6 +114,20 @@
     margin:0 10px;
     height: 240px;
 }
+.gotoqbimg{
+    position: relative;
+    margin-left: 100px;
+    width: 150px;
+    top:-15px;
+}
+.gotoqba{
+    color:#fff;
+    text-decoration: none;
+    font-size: 20px;
+    top:-57px;
+    right:120px;
+    position: relative;
+}
 .questionbank>.wrapper>div:last-child{
     position: relative;
     float: right;
@@ -154,7 +171,7 @@
 }
 .schoolsearch{
     margin-top:80px;
-    background: url(../images/homepage/schoolbg.jpg);
+    background: url(/images/homepage/schoolbg.jpg);
     background-size: 2000px 468px;
     background-repeat: no-repeat;
     background-position: center;
@@ -239,6 +256,7 @@
 }
 .commoncon{
     margin-top:40px;
+    height: 220px;
     width: 100%;
 }
 .commoncon>.comment{
@@ -250,7 +268,7 @@
 }
 .branch{
     float: left;
-    width: 600px;
+    width: 550px;
     height: 180px;
     background: url(../images/homepage/branch.png);
     background-repeat: no-repeat;
@@ -296,5 +314,19 @@
     width: 150px;
     float: left;
 }
-.branch>.four{
+
+.commimg{
+    bottom:135px;
+    width: 150px;
+    left:800px;
+    position: relative;
+}
+
+.comma{
+    text-decoration: none;
+    color:#fff;
+    bottom:180px;
+    width: 150px;
+    left:670px;
+    position: relative;
 }
