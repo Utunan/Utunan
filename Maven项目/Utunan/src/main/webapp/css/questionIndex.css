@@ -71,12 +71,15 @@ body{
 }
 .search{
 	width: 220px;
+	height: 40px;
 	line-height: 40px;
 	float: right;
 }
 .searchText{
 	float: left;
-	width: 180px;
+	width: 160px;
+	height: 20px;
+	border: none;
 }
 .searchImg{
 	float: left;
@@ -106,7 +109,7 @@ a:link{
 }
 .post-information{
 	height: 40px;
-	width: 350px;
+	width: 400px;
 	line-height: 40px;
 	float: left;
 	color: #808080;
@@ -136,7 +139,7 @@ a:link{
 }
 .praise{
 	margin-left: 40px;
-	width: 30px;
+	width: 40px;
 	float: left;
 	line-height: 40px;
 	color: #a6a6a6;
@@ -153,9 +156,14 @@ a:link{
 	line-height: 30px;
 }
 .question{
-	color:#000000; 
+	height: 28px;
+	line-height: 28px;
+	color:#000000;
 }
 .post-description{
+	height: 60px;
+	width: 730px;
+	margin-top: 10px;
 	line-height: 25px;
 	text-indent:30px;
 	font-size: 14px;
@@ -181,7 +189,29 @@ a:link{
 	color: #ffffff;
 	background-color: #f2858e;
 	line-height: 20px;
-	padding-top: 5px;
+	margin-top: 10px;
+}
+.bottom{
+	width: 848px;
+	height: 70px;
+	background-color: #ffffff;
+	border-style:solid;
+	border-width:0px 1px 1px 1px;
+	border-color:#e5e5e5;
+}
+.page{
+	width: 700px;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+}
+.page a{
+	padding: 5px;
+	border: rgba(9, 198, 217, 1) solid 1px;
+	text-align: center;
+	font-size: 14px;
+	text-decoration: none;
+	color: #0ec8d9;
 }
 .ask{
 	width: 140px;
