@@ -48,7 +48,7 @@ body{
 	margin-left: 10px;
 	float: left;
 	width: 80px;
-	color: #ffffff;
+	color: #776a6a;
 	font-size: 16px;
 	text-align: center;
 	line-height: 40px;
@@ -158,7 +158,7 @@ a:link{
 .question{
 	height: 28px;
 	line-height: 28px;
-	color:#000000;
+	color:#000000; 
 }
 .post-description{
 	height: 60px;
@@ -179,6 +179,7 @@ a:link{
 	border-color:#a6a6a6;
 	text-align: center;
 	display:table;
+	padding: 3px 5px 3px 5px;
 }
 .answer_num{
 	text-align: center;
@@ -190,17 +191,18 @@ a:link{
 	background-color: #f2858e;
 	line-height: 20px;
 	margin-top: 10px;
+
 }
 .bottom{
 	width: 848px;
 	height: 70px;
 	background-color: #ffffff;
-	border-style:solid;
-	border-width:0px 1px 1px 1px;
+	border-style:solid; 
+	border-width:0px 1px 1px 1px; 
 	border-color:#e5e5e5;
 }
 .page{
-	width: 700px;
+    width: 700px;
 	height: 70px;
 	line-height: 70px;
 	text-align: center;
@@ -208,10 +210,10 @@ a:link{
 .page a{
 	padding: 5px;
 	border: rgba(9, 198, 217, 1) solid 1px;
-	text-align: center;
-	font-size: 14px;
-	text-decoration: none;
-	color: #0ec8d9;
+    text-align: center;
+    font-size: 14px;
+    text-decoration: none;
+    color: #0ec8d9;
 }
 .ask{
 	width: 140px;
@@ -255,10 +257,6 @@ a:link{
 }
 .tags ul li:nth-child(2n+1){
 	background-color: #64505050;
-}
-body{
-	width:100%;
-	height:10000000px;
 }
 .mask{
 	display:none;
@@ -357,12 +355,13 @@ body{
 	border-width:0px 0px 1px 0px; 
 	border-color:#e5e5e5;	
 }
-.tool-outline{
+.toolbar img{
 	float: left;
 	margin-right: 5px;
-	width: 25px;
-	height: 25px;
-	background-color: #a6a6a6;
+}
+.more{
+    float: right;
+    margin-right: 10px;
 }
 .radio{
 	height: 20px;

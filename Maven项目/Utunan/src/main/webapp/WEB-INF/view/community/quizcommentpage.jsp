@@ -10,6 +10,8 @@
 <%@ page import="java.util.List,com.utunan.pojo.*"%>
 <html>
 <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/question.css"/>
     <title>问题页面</title>
 </head>
 <body>
