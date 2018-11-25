@@ -52,6 +52,14 @@
         order by commentTime asc
     </select>
 
+    <!--王碧云 根据commentId查询子评论-->
+    <select id="findChildCommentListByCommentId" resultMap="commentResultMap">
+        select *
+        from comment
+        where
+        replyCommentId=#{commentId}
+    </select>
+
     <!--更新quiz表点赞数-->
     <update id="updatePraiseCount" parameterType="java.lang.Long">
         update comment set praiseCount=#{commentPraiseCount}+1 where commentId=#{commentId}

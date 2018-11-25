@@ -29,7 +29,7 @@ public class QuizCommentController {
     private CommentService commentService;
     /*
      * @author  王碧云
-     * @description 返回对应QuizId的值
+     * @description 返回对应QuizId对应的问题页面的值
      * @date  12:50 2018/11/25/025
      * @param  [request]
      * @return  java.lang.String
@@ -54,5 +54,9 @@ public class QuizCommentController {
         System.out.println("[commentList]"+commentListByQuizId);
         System.out.println("user"+commentListByQuizId.get(1).getUser());
         return "community/quizcommentpage";
+    }
+
+    public String displayChildComment(){
+        return
     }
 }
