@@ -14,6 +14,7 @@ public class UserSkipController {
 
     @RequestMapping("")
     public String user() {
+        System.out.println("你路过了我呦~");
         return "/user/myspace";
     }
 
@@ -36,17 +37,14 @@ public class UserSkipController {
     public String publishreply(){
         return "/user/publishreply";
     }
-
     @RequestMapping("collectschool")
     public String collectschool(){
         return "/user/collectschool";
     }
-
     @RequestMapping("collectmatter")
     public String collectmatter(){
         return "/user/collectmatter";
     }
-
     @RequestMapping("collectpost")
     public String collectpost(){
         return "/user/collectpost";
