@@ -104,7 +104,7 @@
             </div>
         </div>
         <div class="answers">
-            <div class="answers-num">一共有15条评论</div>
+            <div class="answers-num">一共有${commentCountByQuizId}条评论</div>
             <select class="sequencing-principle"name="">
                 <option value="0">按时间顺序</option>
                 <option value="1">按热度排序</option>
@@ -112,25 +112,26 @@
             </select>
         </div>
         <div class="answers-content">
+            <c:forEach items="${commentListByQuizId}" var="comment" varStatus="cou">
             <div class="reply">
                 <div class="reply-top">
                     <img src="images/userheadimg/hand.jpg"width="55px"height="55px">
                     <div class="reply-top-center">
-                        <a href="#">这是一个昵称</a>
+                        <a href="#">${comment.user.userNickName}</a>
                         <div class="description">
-                            <div class="year">考研年份：2019</div>
-                            <div class="school">所在院校：河北师范大学</div>
-                            <div class="dream-school">目标院校：北京大学</div>
+                            <div class="year">考研年份：${comment.user.examTime}</div>
+                            <div class="school">所在院校：${comment.user.userSchool}</div>
+                            <div class="dream-school">目标院校：${comment.user.dreamSchool}</div>
                         </div>
                     </div>
-                    <div class="reply-right">发表于&nbsp;2018.11.19 16:48&nbsp;</div>
+                    <div class="reply-right">发表于&nbsp;${comment.commentTime}&nbsp;</div>
                 </div>
                 <div class="reply-content">
-                    <p>绑定ip确实是解决了，重复多次都没再有那种情况发生，不过多提一句，Ubuntu18.04这个版本设置dns和之前不一样了，查的资是16.多的，还走了一些歪路。</p>
+                    <p>${comment.commentContent}</p>
                 </div>
                 <div class="reply-evaluation">
                     <div class="a">
-                        <div class="reply-praise">赞（528）</div>
+                        <div class="reply-praise">赞（${comment.commentPraiseCount}）</div>
                         <img src="images/community/jia1.svg" width="34px"height="34px">
                         <div class="reply-give-praise">点赞</div>
                         <img src="images/community/zan.svg" width="34px"height="34px">
@@ -138,32 +139,7 @@
                     </div>
                 </div>
             </div>
-            <div class="reply">
-                <div class="reply-top">
-                    <img src="images/userheadimg/hand.jpg"width="55px"height="55px">
-                    <div class="reply-top-center">
-                        <a href="#">这是一个昵称</a>
-                        <div class="description">
-                            <div class="year">考研年份：2019</div>
-                            <div class="school">所在院校：河北师范大学</div>
-                            <div class="dream-school">目标院校：北京大学</div>
-                        </div>
-                    </div>
-                    <div class="reply-right">发表于&nbsp;2018.11.19 16:48&nbsp;</div>
-                </div>
-                <div class="reply-content">
-                    <p>绑定ip确实是解决了，重复多次都没再有那种情况发生，不过多提一句，Ubuntu18.04这个版本设置dns和之前不一样了，查的资是16.多的，还走了一些歪路。</p>
-                </div>
-                <div class="reply-evaluation">
-                    <div class="a">
-                        <div class="reply-praise">赞（528）</div>
-                        <img src="images/community/jia1.svg" width="34px"height="34px">
-                        <div class="reply-give-praise">点赞</div>
-                        <img src="images/community/zan.svg" width="34px"height="34px">
-                        <div class="view-comments">查看评论</div>
-                    </div>
-                </div>
-            </div>
+            </c:forEach>
             <div class="page">
                 <a href="products?pageNum=1">第一页</a>
                 <a href="products?pageNum=">上一页</a>
