@@ -24,6 +24,7 @@
                 </span>
                     <span>
                     <a id="userheadimg" href="/register">
+
                         <img src="/images/userheadimg//default.png" alt="" srcset="">
                     </a>
                     <div id="userheadop" class="userheadop">

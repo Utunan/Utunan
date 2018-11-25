@@ -20,5 +20,8 @@ public interface CommentMapper {
 
     /*根据quizId返回评论列表（王碧云）*/
     List<Comment> findCommentListByQuizId(@Param("quizId") Long quizId);
+
+    /*根据commentId返回子评论列表（王碧云）*/
+    List<Comment> findChildCommentListByCommentId(@Param("commentId") Long commentId);
 }
 

@@ -272,9 +272,11 @@ header {
 #oplist{
     float: left;
     height: 32px;
+    text-align: center;
 }
 
 #oplist>a{
+    text-align: center;
     line-height: 32px;
     width: 70px;
     height: 32px;

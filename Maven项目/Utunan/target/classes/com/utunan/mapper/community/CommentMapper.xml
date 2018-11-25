@@ -42,7 +42,7 @@
         select * from commemt where commentId=(select max(commentId) from comment)
     </select>
 
-    <!--王碧云 根据quizId查询评论列表（子评论除外）-->
+    <!--王碧云 根据quizId查询评论列表（子评论除外）(根据时间排序)-->
     <select id="findCommentListByQuizId" resultMap="commentResultMap">
         select *
         from comment
@@ -56,6 +56,7 @@
     <select id="findChildCommentListByCommentId" resultMap="commentResultMap">
         select *
         from comment
+        join user on comment.userId=user.userId
         where
         replyCommentId=#{commentId}
     </select>

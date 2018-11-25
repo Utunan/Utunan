@@ -1,6 +1,7 @@
 package com.utunan.service.community;
 
 import com.utunan.pojo.community.Comment;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -34,4 +35,14 @@ public interface CommentService {
      * @return  java.util.List<com.utunan.pojo.community.Comment>
      */
     List<Comment> findCommentListByQuizId(Long quizId);
+
+    /*
+     * @author  王碧云
+     * @description 根据commentId返回子评论列表
+     * @date  21:11 2018/11/25/025
+     * @param  [commentId]
+     * @return  java.util.List<com.utunan.pojo.community.Comment>
+     */
+    List<Comment> findChildCommentListByCommentId(Long commentId);
+
 }

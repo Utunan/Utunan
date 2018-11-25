@@ -56,7 +56,22 @@ public class QuizCommentController {
         return "community/quizcommentpage";
     }
 
-    public String displayChildComment(){
-        return "";
+    /*
+     * @author  王碧云
+     * @description 跳转返回子评论
+     * @date  21:23 2018/11/25/025
+     * @param  [request]
+     * @return  java.lang.String
+     */
+    @RequestMapping("/displayChildComment")
+    public String displayChildComment(HttpServletRequest request){
+        String commentId = request.getParameter("commentId");
+        //根据commentId返回子评论
+        List<Comment> childCommentList = this.commentService.findChildCommentListByCommentId(Long.parseLong(commentId));
+
+        request.setAttribute("childCommentList", childCommentList);
+        System.out.println("[childComment]"+childCommentList);
+
+        return "community/childcomment";
     }
 }
