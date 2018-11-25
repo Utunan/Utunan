@@ -135,7 +135,7 @@
                         <img src="images/community/jia1.svg" width="34px"height="34px">
                         <div class="reply-give-praise">点赞</div>
                         <img src="images/community/zan.svg" width="34px"height="34px">
-                        <div class="view-comments">查看评论</div>
+                        <div class="view-comments"><a href="/displayChildComment?commentId=${comment.commentId}">查看评论</a></div>
                     </div>
                 </div>
             </div>
