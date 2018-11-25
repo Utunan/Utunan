@@ -254,7 +254,7 @@ header {
     height: 60px;
 }
 
-.header .opimg>img{
+.header .opimg>a>img{
     height: 40px;
     width: 40px;
     margin: 15px 15px 10px 15px;

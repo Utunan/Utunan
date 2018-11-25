@@ -18,45 +18,44 @@
                 <div class="login after">
                 <span>
                     <a href="/login">
-                        <img src="images/information.svg">
+                        <img src="/images/information.svg">
                     </a>
-                    <a href="" style="margin-left: 5px;">消息</a>
+                    <a href="/information" style="margin-left: 5px;">消息</a>
                 </span>
                     <span>
                     <a id="userheadimg" href="/register">
-                        <img src="images/userheadimg//default.png" alt="" srcset="">
+                        <img src="/images/userheadimg//default.png" alt="" srcset="">
                     </a>
                     <div id="userheadop" class="userheadop">
                         <div id="optop" class="optop">
                             <span>徐思涵天下第一美</span>
-                            <span><a href="">个人主页</a></span>
+                            <span><a href="/user">个人主页</a></span>
                         </div>
                         <div class="opmiddle">
                             <div class="opimg">
-                                <img src="images/statistics.svg" alt="" srcset="">
+                                <a href="/user/statistics"><img src="/images/statistics.svg" alt="" srcset=""></a>
                             </div>
                             <div class="opimg" style="margin: 0 5px;">
-                                <img src="images/record.svg" alt="" srcset="">
+                                <a href="/user/publishpost"><img src="/images/record.svg" alt="" srcset=""></a>
                             </div>
                             <div class="opimg">
-                                <img src="images/collection.svg" alt="" srcset="">
+                                <a href="/user/collectmatter"><img src="/images/collection.svg" alt="" srcset=""></a>
                             </div>
                             <div id="oplist" class="oplist">
-                                <a href="">题库统计</a>
-                                <a style="margin:0 5px;" href="">社区记录</a>
-                                <a href="">我的收藏</a>
+                                <a href="/user/statistics">题库统计</a>
+                                <a href="/user/publishpost" style="margin:0 5px;">社区记录</a>
+                                <a href="/user/collectmatter">我的收藏</a>
                             </div>
                         </div>
                         <div class="opbottom" id="opbottom">
-                            <span><img src="images/setting.svg"/><a href="">用户设置</a></span>
-                            <span><img src="images/out.svg"/><a href="">退出登陆</a></span>
+                            <span><img src="/images/setting.svg"/><a href="/settings">用户设置</a></span>
+                            <span><img src="/images/out.svg"/><a href="/loginout">退出登陆</a></span>
                         </div>
                     </div>
                 </span>
                 </div>
             </c:otherwise>
         </c:choose>
-
 
         <div class="search">
             <form action="/search" method="get" onsubmit="return true">
@@ -79,5 +78,6 @@
                 <a href="/community">社区</a>
             </li>
         </nav>
+
     </header>
 </div>
