@@ -10,6 +10,8 @@ header {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
+
+
 .container {
     width: 100%;
     min-width: 1180px;
@@ -59,7 +61,7 @@ header {
 }
 
 .header .search .text {
-    padding: 0 20px;
+    padding: 0 10px 0 20px;
     background: #fff;
     border-radius: 50px;
     height: 30px;
@@ -72,7 +74,7 @@ header {
     outline: none;
     float: left;
     height: 30px;
-    width: 120px;
+    width: 130px;
     margin: 0px;
     border: 0px;
 }
@@ -97,7 +99,8 @@ header {
 .header .login {
     padding: 0 40px 0 40px;
     height: 100%;
-    line-height: 54px;
+    line-height: 50px;
+    width: 150px;
     float: right;
 }
 
@@ -110,8 +113,70 @@ header {
 
 .header .login span {
     font-size: 18px;
-    padding: 5px;
+    float: left;
+    width:75px;
+    height: 50px;
+    
 }
+.header .before span:first-of-type a {
+    line-height: 20px;
+    font-size: 18px;
+    padding:3px;
+    margin-left: 20px;
+    height: 30px;
+    
+}
+.header .before span:last-of-type a {
+    font-size: 18px;
+    padding:3px;
+    height: 30px;
+}
+
+.header .after>span:first-of-type>a{
+    margin-left: 12px;
+    font-size: 12px;
+    float: left;
+    height: 50px;
+    line-height: 50px;
+}
+.header .after>span:last-of-type{
+    position: relative;
+    position: relative;
+    position: relative;
+}
+
+.header .after>span:last-of-type>a{
+    padding-left: 10px;
+    font-size: 14px;
+    float: left;
+    height: 50px;
+    line-height: 50px;
+}
+
+.header .after>span:first-of-type a>img{
+    height: 30px;
+    margin: 10px 0;
+}
+
+.header .after>span:last-of-type>a> img{
+    height: 36px;
+    margin:5px 0;
+    border-radius: 20px;
+    border:2px solid #fff;
+}
+
+.userheadop{
+    display: block;
+    position: absolute;
+    top:50px;
+    border:1px solid #CCCCCC;
+    right: 20px;
+    padding:0 10px 10px 10px;   
+    background: #fff;
+    height: 150px;
+    width:220px;
+}
+
 
 .header .banner {
     max-width: 600px;
@@ -119,6 +184,7 @@ header {
     height: 50px;
     text-align: center;
 }
+
 
 .header .banner>li {
     display: inline;
@@ -137,6 +203,79 @@ header {
     font-size: 20px;
 }
 
+.header .optop{
+    float: left;
+    border-bottom:1px solid #C0C0C0;
+}
+
+.header .optop span{
+    height: 30px;
+    line-height: 30px;
+}
+
+.header .optop span:first-of-type{
+    color:green;
+    float: left;
+    width: 140px;
+    padding-left: 10px;
+    font-size: 15px;
+}
+.header .optop span:last-of-type{
+    float: left;
+    width: 70px;
+    font-size: 14px;
+}
+
+.header .optop span:last-of-type>a{
+    float: left;
+    width: 70px;
+    height: 30px;
+    color: rgb(100, 227, 250);
+}
+
+.header .opmiddle{
+    float: left;
+    padding-bottom: 5px;
+    border-bottom:2px solid #C0C0C0;
+}
+
+.header .opimg{
+    float: left;
+    width: 70px;
+    height: 60px;
+}
+
+.header .opimg>img:first-of-type{
+    height: 50px;
+    width: 50px;
+    margin: 10px 10px 0px 10px;
+}
+
+
+
+.opimg>a{
+    height: 20px;
+    float: left;
+    font-size: 12px;
+    color:#000;
+}
+.opimg>a:hover,.opimg>a:link,.opimg>a:visited{
+    color:#000;
+}
+#oplist{
+    float: left;
+    height: 32px;
+}
+
+#oplist>a{
+    line-height: 32px;
+    width: 70px;
+    height: 32px;
+    float: left;
+    font-size: 15px;
+    color:#000;
+}
+
 .footer{
     margin-top:100px;
     padding-top:40px;
@@ -149,28 +288,25 @@ header {
 }
 footer{
     min-width: 1180px;
-    margin: 0 auto;
+    margin: 0 auto; 
 }
 footer>nav{
     height:40px;
     width: 600px;
     margin:0 auto;
 }
-
 footer>nav>li{
     display: inline;
     width: 150px;
     float: left;
     text-align: center;
 }
-
 footer>p{
     width: 600px;
     text-align: center;
     margin:0 auto;
 
 }
-
 footer>nav>li>a{
     text-decoration: none;
     color:grey;

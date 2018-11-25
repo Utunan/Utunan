@@ -2,6 +2,8 @@ package com.utunan.service.community;
 
 import com.utunan.pojo.community.Comment;
 
+import java.util.List;
+
 
 public interface CommentService {
 
@@ -23,4 +25,13 @@ public interface CommentService {
      */
 
     Comment getComment();
+
+    /*
+     * @author  王碧云
+     * @description 根据quizId返回评论列表
+     * @date  15:31 2018/11/25/025
+     * @param  []
+     * @return  java.util.List<com.utunan.pojo.community.Comment>
+     */
+    List<Comment> findCommentListByQuizId(Long quizId);
 }

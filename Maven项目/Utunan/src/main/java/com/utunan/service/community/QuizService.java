@@ -1,10 +1,7 @@
 package com.utunan.service.community;
 
 import com.utunan.pojo.community.Quiz;
-import com.utunan.pojo.community.Tag;
-import com.utunan.pojo.user.User;
 import com.utunan.pojo.util.BigQuiz;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -64,5 +61,13 @@ public interface QuizService {
 	 */
 	Quiz findQuizById(Long quizId);
 
+	/*
+	 * @author  王碧云
+	 * @description 根据quizId查评论数量
+	 * @date  14:58 2018/11/25/025
+	 * @param  [quizId]
+	 * @return  java.lang.Long
+	 */
+	Long countCommentByQuizId(Long quizId);
 
 }

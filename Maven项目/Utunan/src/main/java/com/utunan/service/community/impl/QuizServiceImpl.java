@@ -3,7 +3,6 @@ package com.utunan.service.community.impl;
 import com.utunan.mapper.community.QuizMapper;
 import com.utunan.pojo.community.Quiz;
 import com.utunan.pojo.community.Tag;
-import com.utunan.pojo.user.User;
 import com.utunan.pojo.util.BigQuiz;
 import com.utunan.service.community.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -129,5 +128,17 @@ public class QuizServiceImpl implements QuizService {
 	public Quiz findQuizById(Long quizId) {
 		return this.quizMapper.findQuizById(quizId);
 	}
+	/*
+	 * @author  王碧云
+	 * @description 根据quizId查评论数量
+	 * @date  15:06 2018/11/25/025
+	 * @param  [quizId]
+	 * @return  java.lang.Long
+	 */
+	@Override
+	public Long countCommentByQuizId(Long quizId) {
+		return this.quizMapper.countCommentByQuizId(quizId);
+	}
+
 
 }
