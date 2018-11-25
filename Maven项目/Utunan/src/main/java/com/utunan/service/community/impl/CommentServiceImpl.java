@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author 张正扬
@@ -50,5 +51,17 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Comment getComment(){
         return commentMapper.getComment();
+    }
+
+    /*
+     * @author  王碧云
+     * @description 根据quiaId返回评论列表
+     * @date  15:35 2018/11/25/025
+     * @param  []
+     * @return  java.util.List<com.utunan.pojo.community.Comment>
+     */
+    @Override
+    public List<Comment> findCommentListByQuizId(Long quizId) {
+        return this.commentMapper.findCommentListByQuizId(quizId);
     }
 }

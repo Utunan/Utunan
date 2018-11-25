@@ -6,6 +6,24 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
+
+    <list default="true" id="6f3e1407-6518-41c8-be8a-4efb7e9ba37e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/controller/community/QuizCommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/controller/community/QuizCommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/mapper/community/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/mapper/community/CommentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/pojo/community/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/pojo/community/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/QuizService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/QuizService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/impl/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/impl/CommentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/impl/QuizServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/impl/QuizServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maven项目/Utunan/src/main/resources/com/utunan/mapper/community/CommentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Maven项目/Utunan/src/main/resources/com/utunan/mapper/community/CommentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maven项目/Utunan/src/main/webapp/WEB-INF/view/community/quizcommentpage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Maven项目/Utunan/src/main/webapp/WEB-INF/view/community/quizcommentpage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maven项目/Utunan/target/Utunan/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/Maven项目/Utunan/target/Utunan/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maven项目/Utunan/target/Utunan/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/Maven项目/Utunan/target/Utunan/css/common.css" afterDir="false" />
+
     <list default="true" id="9d00140b-bedc-4306-bc88-be0820fdb4b6" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -16,6 +34,7 @@
       <change beforePath="$PROJECT_DIR$/Maven项目/Utunan/target/Utunan/WEB-INF/view/community/quiz.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Maven项目/Utunan/target/Utunan/WEB-INF/view/community/quiz.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Maven项目/Utunan/target/Utunan/WEB-INF/view/community/quizcommentpage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Maven项目/Utunan/target/Utunan/WEB-INF/view/community/quizcommentpage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Maven项目/Utunan/target/Utunan/css/questionIndex.css" beforeDir="false" afterPath="$PROJECT_DIR$/Maven项目/Utunan/target/Utunan/css/questionIndex.css" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/Maven项目/Utunan/target/classes/META-INF/Utunan.kotlin_module" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/Maven项目/Utunan/target/" />
@@ -25,46 +44,47 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="955532903">
+    <session id="-1966251124">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.20" value="1" />
-          <entry key="project.open.time.40" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="fxml" value="1" />
-          <entry key="java" value="33" />
-          <entry key="jsp" value="13" />
-          <entry key="tld" value="2" />
+          <entry key="java" value="12" />
+          <entry key="jsp" value="2" />
           <entry key="xml" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="33" />
-          <entry key="JSP" value="13" />
-          <entry key="XML" value="11" />
+          <entry key="JAVA" value="12" />
+          <entry key="JSP" value="2" />
+          <entry key="XML" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="339" />
-          <entry key="jsp" value="93" />
-          <entry key="tld" value="121" />
-          <entry key="xml" value="48" />
+          <entry key="ft" value="3" />
+          <entry key="java" value="470" />
+          <entry key="jsp" value="180" />
+          <entry key="xml" value="179" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="339" />
-          <entry key="JSP" value="93" />
-          <entry key="SQL" value="13" />
-          <entry key="XML" value="156" />
+          <entry key="JAVA" value="470" />
+          <entry key="JSP" value="180" />
+          <entry key="SQL" value="5" />
+          <entry key="VTL" value="3" />
+          <entry key="XML" value="174" />
         </counts>
       </usages-collector>
     </session>
@@ -101,21 +121,37 @@
     </session>
   </component>
   <component name="FileEditorManager">
+
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/controller/community/QuizCommentController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="54" column="70" selection-start-line="54" selection-start-column="70" selection-end-line="54" selection-end-column="70" />
+
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/webapp/WEB-INF/view/community/community.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="243">
               <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+
+        <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/resources/com/utunan/mapper/community/CommentMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="50" column="53" lean-forward="true" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
+
         <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/webapp/WEB-INF/view/community/quizcommentpage.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1943">
               <caret line="45" column="53" lean-forward="true" selection-start-line="45" selection-start-column="53" selection-end-line="45" selection-end-column="53" />
+
             </state>
           </provider>
         </entry>
@@ -123,6 +159,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/webapp/css/questionIndex.css">
           <provider selected="true" editor-type-id="text-editor">
+
+            <state relative-caret-position="337">
+              <caret line="47" column="36" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+
             <state relative-caret-position="189">
               <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
             </state>
@@ -146,13 +186,18 @@
               <folding>
                 <element signature="e#928#929#0" expanded="true" />
               </folding>
+
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/resources/com/utunan/mapper/community/QuizTagMapper.xml">
+        <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/pojo/user/User.java">
           <provider selected="true" editor-type-id="text-editor">
+
+            <state relative-caret-position="399">
+              <caret line="33" column="31" lean-forward="true" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+
             <state relative-caret-position="486">
               <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
             </state>
@@ -164,49 +209,53 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2268">
               <caret line="84" selection-start-line="84" selection-end-line="84" />
+
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/resources/com/utunan/mapper/community/TagMapper.xml">
+
+          <provider selected="true" editor-type-id="text-editor" />
+
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="297">
               <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
             </state>
           </provider>
+
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/mapper/community/QuizTagMapper.java">
+        <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/webapp/WEB-INF/view/community/quiz.jsp">
           <provider selected="true" editor-type-id="text-editor">
+
+            <state relative-caret-position="57">
+              <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="30" selection-end-column="17" />
+
             <state relative-caret-position="270">
               <caret line="15" selection-start-line="15" selection-end-line="15" />
+
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/resources/spring/spring-mybatis.xml">
+        <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/impl/CommentServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
+
+            <state relative-caret-position="451">
+              <caret line="64" column="64" selection-start-line="64" selection-start-column="64" selection-end-line="64" selection-end-column="64" />
+
             <state relative-caret-position="513">
               <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Jsp File" />
-        <option value="Class" />
-        <option value="Tag Library Descriptor" />
-        <option value="FxmlFile" />
-        <option value="spring-beans.schema" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -215,11 +264,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/resources/com/utunan/mapper/community/QuizMapper.xml" />
-        <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/webapp/WEB-INF/view/community/community.jsp" />
-        <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/resources/com/utunan/mapper/community/QuizTagMapper.tld" />
-        <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/mapper/community/QuizMapper.java" />
         <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/QuizService.java" />
         <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/impl/QuizServiceImpl.java" />
+
+        <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/mapper/community/CommentMapper.java" />
+        <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/impl/CommentServiceImpl.java" />
+        <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/CommentService.java" />
+        <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/pojo/community/Comment.java" />
+        <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/webapp/WEB-INF/view/community/quizcommentpage.jsp" />
+        <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/controller/community/QuizCommentController.java" />
+        <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/resources/com/utunan/mapper/community/CommentMapper.xml" />
+
         <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/mapper/community/QuizTagMapper.java" />
         <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/QuizTagService.java" />
         <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/impl/QuizTagServiceImpl.java" />
@@ -227,6 +282,7 @@
         <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/resources/com/utunan/mapper/community/QuizTagMapper.xml" />
         <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/controller/community/QuizCommentController.java" />
         <option value="$PROJECT_DIR$/Maven项目/Utunan/src/main/webapp/WEB-INF/view/community/quizcommentpage.jsp" />
+
       </list>
     </option>
   </component>
@@ -252,11 +308,24 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
+
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+
     <option name="x" value="594" />
     <option name="y" value="6" />
     <option name="width" value="936" />
     <option name="height" value="768" />
+
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -288,7 +357,140 @@
               <item name="Utunan" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utunan" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="community" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="community" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="pojo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="pojo" type="462c0819:PsiDirectoryNode" />
+              <item name="community" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="pojo" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="community" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="community" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="community" type="462c0819:PsiDirectoryNode" />
+
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+
             </path>
             <path>
               <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
@@ -335,14 +537,14 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+
+
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543129025561" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -372,7 +574,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_Utunan_2" />
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_Utunan" />
       </server-settings>
       <predefined_log_file id="Tomcat" enabled="true" />
       <predefined_log_file id="Tomcat Catalina" enabled="true" />
@@ -380,7 +582,7 @@
       <predefined_log_file id="Tomcat Host Manager" enabled="false" />
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="7725" />
+        <option name="DEBUG_PORT" value="52800" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -433,107 +635,78 @@
         </option>
       </method>
     </configuration>
-    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
-      <deployment />
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="_Utunan" />
-      </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="7725" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9d00140b-bedc-4306-bc88-be0820fdb4b6" name="Default Changelist" comment="" />
-      <created>1543046608414</created>
+      <changelist id="6f3e1407-6518-41c8-be8a-4efb7e9ba37e" name="Default Changelist" comment="" />
+      <created>1543119771513</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+
+      <updated>1543119771513</updated>
+      <workItem from="1543119775332" duration="14054000" />
+
       <updated>1543046608414</updated>
       <workItem from="1543046619915" duration="3702000" />
       <workItem from="1543050653472" duration="5991000" />
       <workItem from="1543128451649" duration="1082000" />
+
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+
+    <option name="totallyTimeSpent" value="14054000" />
+
     <option name="totallyTimeSpent" value="10775000" />
+
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
+
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Capture Tool" />
+      <window_info id="Web" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24583964" />
+
       <window_info id="Learn" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20048505" />
+
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Application Servers" weight="0.3295082" />
+      <window_info anchor="bottom" id="Spring" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.3295082" />
+      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
+
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29836065" />
+
       <window_info anchor="bottom" id="Run" order="2" weight="0.3291815" />
+
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Maven Projects" weight="0.3298887" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.3295082" />
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
@@ -542,15 +715,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="14" show_stripe_button="false" />
+
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,6 +728,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+
+
     <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/util/RandUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -615,17 +785,11 @@
     <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/resources/com/utunan/mapper/community/CommentMapper.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+
     <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/controller/community/QuizController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/webapp/WEB-INF/view/community/quiz.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+        <state relative-caret-position="95">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -636,48 +800,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/pojo/community/Quiz.java">
+    <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/controller/community/CommentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/mapper/community/TagMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        <state relative-caret-position="190">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/mapper/community/QuizMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="30" column="43" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+        <state relative-caret-position="228">
+          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/QuizService.java">
+    <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/mapper/community/CommentMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="105" column="26" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="26" />
+        <state relative-caret-position="304">
+          <caret line="21" column="72" lean-forward="true" selection-start-line="21" selection-start-column="72" selection-end-line="21" selection-end-column="72" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/impl/QuizServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1121">
-          <caret line="160" column="7" lean-forward="true" selection-start-line="160" selection-start-column="7" selection-end-line="160" selection-end-column="7" />
+        <state relative-caret-position="195">
+          <caret line="133" column="34" lean-forward="true" selection-start-line="133" selection-start-column="34" selection-end-line="133" selection-end-column="34" />
+          <folding>
+            <element signature="e#3922#3923#0" expanded="true" />
+            <element signature="e#3972#3973#0" expanded="true" />
+            <element signature="e#4159#4160#0" expanded="true" />
+            <element signature="e#4217#4218#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/QuizTagService.java">
+    <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/QuizService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+
+    <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/CommentService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+          <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/service/community/impl/CommentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="64" column="64" selection-start-line="64" selection-start-column="64" selection-end-line="64" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/webapp/WEB-INF/view/community/quiz.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="30" selection-end-column="17" />
+
     <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/resources/com/utunan/mapper/community/QuizTagMapper.tld" />
     <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/resources/com/utunan/mapper/community/QuizTagMapper.fxml" />
     <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/controller/community/QuizCommentController.java">
@@ -711,10 +897,39 @@
           <folding>
             <element signature="e#928#929#0" expanded="true" />
           </folding>
+
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/resources/com/utunan/mapper/community/QuizTagMapper.xml">
+
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/pojo/community/Comment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="22" column="12" lean-forward="true" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/pojo/user/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="33" column="31" lean-forward="true" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/resources/com/utunan/mapper/community/TagMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/java/com/utunan/controller/community/QuizCommentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="54" column="70" selection-start-line="54" selection-start-column="70" selection-end-line="54" selection-end-column="70" />
+
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
           <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
@@ -746,18 +961,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
           <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/webapp/WEB-INF/view/community/community.jsp">
       <provider selected="true" editor-type-id="text-editor">
+
+        <state relative-caret-position="337">
+          <caret line="47" column="36" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+
         <state relative-caret-position="243">
           <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/webapp/css/questionIndex.css">
       <provider selected="true" editor-type-id="text-editor">
+
+        <state relative-caret-position="-304">
+          <caret line="27" column="55" lean-forward="true" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Maven项目/Utunan/src/main/resources/com/utunan/mapper/community/CommentMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="50" column="53" lean-forward="true" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
+
         <state relative-caret-position="189">
           <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
         </state>
@@ -767,86 +999,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1943">
           <caret line="45" column="53" lean-forward="true" selection-start-line="45" selection-start-column="53" selection-end-line="45" selection-end-column="53" />
+
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>unnamed</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>

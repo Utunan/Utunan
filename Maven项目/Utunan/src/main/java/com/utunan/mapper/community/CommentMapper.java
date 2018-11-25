@@ -2,7 +2,10 @@ package com.utunan.mapper.community;
 
 import com.utunan.pojo.community.Comment;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author 张正扬
@@ -14,5 +17,8 @@ import org.springframework.stereotype.Repository;
 public interface CommentMapper {
     void toInsert(Comment comment);
     Comment getComment();
+
+    /*根据quizId返回评论列表（王碧云）*/
+    List<Comment> findCommentListByQuizId(@Param("quizId") Long quizId);
 }
 
