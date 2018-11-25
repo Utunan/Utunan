@@ -57,6 +57,6 @@ public class QuizCommentController {
     }
 
     public String displayChildComment(){
-        return
+        return "";
     }
 }
