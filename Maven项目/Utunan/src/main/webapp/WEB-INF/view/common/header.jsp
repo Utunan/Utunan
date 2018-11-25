@@ -76,7 +76,7 @@
                 <a href="/school">院校库</a>
             </li>
             <li>
-                <a href="/community">社区</a>
+                <a href="/community">优问答</a>
             </li>
         </nav>
 

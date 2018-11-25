@@ -2,15 +2,12 @@ body {
     margin: 0;
     max-width: 100%;
 }
-
 header {
     min-width: 1180px;
     height: 100%;
     margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.7);
+    background: rgba(51, 153, 153, 1);
 }
-
-
 
 .container {
     width: 100%;
@@ -116,15 +113,14 @@ header {
     float: left;
     width:75px;
     height: 50px;
-    
+
 }
 .header .before span:first-of-type a {
-    line-height: 20px;
     font-size: 18px;
     padding:3px;
     margin-left: 20px;
     height: 30px;
-    
+
 }
 .header .before span:last-of-type a {
     font-size: 18px;
@@ -171,7 +167,7 @@ header {
     top:50px;
     border:1px solid #CCCCCC;
     right: 20px;
-    padding:0 10px 10px 10px;   
+    padding:0 10px 10px 10px;
     background: rgba(255,255,255,0.8);
     height: 170px;
     width:220px;
@@ -321,7 +317,7 @@ header {
 
 
 .footer{
-    margin-top:100px;
+    margin-top:50px;
     padding-top:40px;
     padding-bottom:20px;
     border-top:1px solid #C0C0C0;
@@ -332,7 +328,7 @@ header {
 }
 footer{
     min-width: 1180px;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 footer>nav{
     height:40px;
