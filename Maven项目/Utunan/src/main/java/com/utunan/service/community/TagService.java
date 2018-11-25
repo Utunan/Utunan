@@ -13,6 +13,12 @@ public interface TagService {
 	 */
 	List<Tag> getTop10Tag();
 
+	/**
+	 * @author  孙程程
+	 * @description 获取10个标签引用数量
+	 * @date  9:53 2018/11/21
+	 * @return  java.util.List<com.utunan.pojo.community.Tag>
+	 */
 	List getTop10TagNumber();
 
 }

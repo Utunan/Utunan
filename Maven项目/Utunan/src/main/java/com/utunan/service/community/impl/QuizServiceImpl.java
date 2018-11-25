@@ -12,11 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-/**
- * @author  孙程程
- * @description 问答
- * @date  16:02 2018/11/19
- */
+
 @Service("quizService")
 public class QuizServiceImpl implements QuizService {
 	@Autowired
@@ -81,38 +77,8 @@ public class QuizServiceImpl implements QuizService {
 		return objects;
 	}
 	@Override
-	public List<Quiz> getQuizByTime(int pageNum, int pageSize){
-		List<Quiz> quizByTime = quizMapper.listQuizByTime((pageNum-1)*pageSize,pageSize);
-		return quizByTime;
-	}
-	@Override
-	public List<Quiz> getQuizByPraise(int pageNum, int pageSize){
-		List<Quiz> quizByPraise = quizMapper.listQuizByPraise((pageNum-1)*pageSize,pageSize);
-		return quizByPraise;
-	}
-	@Override
 	public Long countAllQuiz(){
 		return this.quizMapper.countAllQuiz();
-	}
-	@Override
-	public List<Long> countCommentNumberByTime(int pageNum, int pageSize){
-		return this.quizMapper.countCommentNumberByTime((pageNum-1)*pageSize,pageSize);
-	}
-	@Override
-	public List<Long> countCommentNumberByPraise(int pageNum, int pageSize){
-		return this.quizMapper.countCommentNumberByPraise((pageNum-1)*pageSize,pageSize);
-	}
-	@Override
-	public User findUserByQuizId(Long quizId){
-		return this.quizMapper.findUserByQuizId(quizId);
-	}
-	@Override
-	public Long countCommentByQuizId(Long quizId){
-		return this.quizMapper.countCommentByQuizId(quizId);
-	}
-	@Override
-	public List<Tag> selectTagByQuizId(Long quizId){
-		return this.quizMapper.selectTagByQuizId(quizId);
 	}
 
     /*
