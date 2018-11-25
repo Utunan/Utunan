@@ -23,13 +23,14 @@
                     <a href="/user/information" style="margin-left: 5px;">消息</a>
                 </span>
                     <span>
-                    <a id="userheadimg" href="/user">
+                    <a id="userheadimg" href="/register">
+
                         <img src="/images/userheadimg//default.png" alt="" srcset="">
                     </a>
                     <div id="userheadop" class="userheadop">
                         <div id="optop" class="optop">
                             <span>徐思涵天下第一美</span>
-                            <span><a href="">个人主页</a></span>
+                            <span><a href="/homepage">个人主页</a></span>
                         </div>
                         <div class="opmiddle">
                             <div class="opimg">
@@ -43,12 +44,16 @@
                             </div>
                             <div id="oplist" class="oplist">
                                 <a href="/user/statistics">题库统计</a>
-                                <a style="margin:0 5px;" href="/user/publishpost">社区记录</a>
+
+                                <a href="/user/publishpost" style="margin:0 5px;">社区记录</a>
+
                                 <a href="/user/collectmatter">我的收藏</a>
                             </div>
                         </div>
                         <div class="opbottom" id="opbottom">
-                            <span><img src="/images/setting.svg"/><a href="/user/settings">用户设置</a></span>
+
+                            <span><img src="/images/setting.svg"/><a href="/settings">用户设置</a></span>
+
                             <span><img src="/images/out.svg"/><a href="/loginout">退出登陆</a></span>
                         </div>
                     </div>
