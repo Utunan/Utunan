@@ -210,4 +210,5 @@
 </div>
 <%@include file="common/footer.jsp"%>
 </body>
+<script src="/js/common.js"></script>
 </html>

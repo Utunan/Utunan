@@ -211,4 +211,6 @@
     </div>
 </body>
 <script src="js/questionMain.js"></script>
+
+<script src="/js/common.js"></script>
 </html>
