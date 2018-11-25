@@ -144,5 +144,5 @@
 <%@include file="../common/footer.jsp" %>
 </body>
 <script src="/js/usercommon.js"></script>
-
+<script src="/js/common.js"></script>
 </html>

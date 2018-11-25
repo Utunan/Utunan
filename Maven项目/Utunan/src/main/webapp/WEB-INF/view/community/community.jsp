@@ -14,4 +14,6 @@
     <h2><a href="/displayQuizByQuizId?quizId=1">问题页面</a></h2>
 <%@include file="../common/footer.jsp"%>
 </body>
+
+<script src="/js/common.js"></script>
 </html>
