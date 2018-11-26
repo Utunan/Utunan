@@ -52,6 +52,14 @@
         order by commentTime asc
     </select>
 
+    <!--王碧云 根据quizId返回（父级为null的）评论数量-->
+    <select id="countCommentByQuizId" resultType="java.lang.Long">
+        select count(*)
+        from comment
+        where
+        quizId = #{quizId} and replyCommentId is null
+    </select>
+
     <!--王碧云 根据热度返回评论列表-->
     <select id="findCommentListByPraiseCount" resultMap="commentResultMap">
         select *

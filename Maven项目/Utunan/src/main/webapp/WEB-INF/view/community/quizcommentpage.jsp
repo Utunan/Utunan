@@ -141,10 +141,10 @@
             </div>
             </c:forEach>
             <div class="page">
-                <a href="products?pageNum=1">第一页</a>
-                <a href="products?pageNum=">上一页</a>
-                <a href="products?pageNum=">下一页</a>
-                <a href="products?pageNum="> 末页</a>
+                <a href="/${url }?quizId=${quiz.quizId}&pageNum=1">第一页</a>
+                <a href="/${url }?quizId=${quiz.quizId}&pageNum=${page.prePageNum }">上一页</a>
+                <a href="/${url }?quizId=${quiz.quizId}&pageNum=${page.nextPageNum }">下一页</a>
+                <a href="/${url }?quizId=${quiz.quizId}&pageNum=${page.totalPageNum }">末页</a>
             </div>
         </div>
         <div class="write-answer">

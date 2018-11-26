@@ -54,4 +54,13 @@ public interface CommentService {
      */
     List<Comment> findCommentListByPraiseCount(Long quizId);
 
+    /*
+     * @author  王碧云
+     * @description 根据quizId获取父级为null的评论数
+     * @date  21:36 2018/11/26/026
+     * @param  [quizId]
+     * @return  java.lang.Long
+     */
+    Long countCommentByQuizId(Long quizId);
+
 }

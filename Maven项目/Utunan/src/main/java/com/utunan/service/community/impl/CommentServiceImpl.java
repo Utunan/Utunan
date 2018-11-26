@@ -88,4 +88,16 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> findCommentListByPraiseCount(Long quizId) {
         return this.commentMapper.findCommentListByPraiseCount(quizId);
     }
+
+    /*
+     * @author  王碧云
+     * @description 根据quizId获取父级为null的评论数
+     * @date  21:38 2018/11/26/026
+     * @param  [quizId]
+     * @return  java.lang.Long
+     */
+    @Override
+    public Long countCommentByQuizId(Long quizId) {
+        return this.commentMapper.countCommentByQuizId(quizId);
+    }
 }
