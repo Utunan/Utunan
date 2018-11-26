@@ -26,7 +26,7 @@ public class QuizController {
 	private QuizService quizService;
 	@Autowired
 	private TagService tagService;
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 根据发表时间展示问答列表
@@ -55,18 +55,21 @@ public class QuizController {
 		Page<BigQuiz> p = new Page<>(num, 6);
 		p.setList(objects);
 		p.setTotalCount(quizNumber);
-		//提问区获取问题数量查询前3个热门标签
-		List<Tag> tagList3=this.tagService.getTop3Tag();
-
+			//提问区获取问题数量查询前3个热门标签
+			List<Tag> tagList3=this.tagService.getTop3Tag();
 		//提问区获取余下标签
 		List<Tag> getAllTag=this.tagService.getRemianTags(tagList3);
-		//返回数据
-		request.setAttribute("page",p);
-		request.setAttribute("url",url);
-		request.setAttribute("tag",hotTagList);
-		request.setAttribute("tags",tagList3);
-		request.setAttribute("alltag",getAllTag);
-		return "community/quiz";
+			//返回排序的选中状态
+			List<String> stateList=new ArrayList<String>();
+			stateList.add("active");
+			stateList.add("option");//返回数据
+	request.setAttribute("page",p);
+	request.setAttribute("url",url);
+	request.setAttribute("tag",hotTagList);
+	request.setAttribute("tags",tagList3);
+	request.setAttribute("alltag",getAllTag);
+	request.setAttribute("statelist",stateList);
+	return "community/quiz";
 	}
 
 	/**
@@ -97,13 +100,18 @@ public class QuizController {
 		Page<BigQuiz> p = new Page<>(num, 6);
 		p.setList(objects);
 		p.setTotalCount(quizNumber);
+		//返回排序的选中状态
+		List<String> stateList=new ArrayList<String>();
+		stateList.add("option");
+		stateList.add("active");
 		//返回数据
 		request.setAttribute("page",p);
 		request.setAttribute("url",url);
 		request.setAttribute("tag",hotTagList);
+		request.setAttribute("statelist",stateList);
 		return "community/quiz";
 	}
-
+	
 	/**
 	 * @author  张正扬
 	 * @description 向quiz表插入并取出插入内容
@@ -124,7 +132,7 @@ public class QuizController {
 		request.setAttribute("content",quiz);
 		return "show";
 	}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 在某标签下根据发表时间分页查询问答列表
@@ -161,7 +169,7 @@ public class QuizController {
 		request.setAttribute("tagName",tagName);
 		return "community/quiz";
 	}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 在某标签下根据点赞数量分页查询问答列表
@@ -198,5 +206,4 @@ public class QuizController {
 		request.setAttribute("tagName",tagName);
 		return "community/quiz";
 	}
-
-}
+	}

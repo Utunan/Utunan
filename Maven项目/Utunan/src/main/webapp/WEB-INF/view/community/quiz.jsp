@@ -20,37 +20,6 @@
 <body>
     <!--
     <div >
-        <div>
-            <h1><a href="quiz1">时间</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="quiz2">热度</a></h1>
-        </div>
-        <table>
-            <tr>
-                <td>序号</td>
-                <td>用户</td>
-                <td>标题</td>
-                <td>内容</td>
-                <td>时间</td>
-                <td>点赞</td>
-                <td>回答</td>
-                <td>标签</td>
-            </tr>
-            <c:forEach items="${page.list}" var="obj">
-            <tr>
-                <td>${obj.quiz.quizId}</td>
-                <td>${obj.quiz.user.userNickName}</td>
-                <td>${obj.quiz.quizTitle}</td>
-                <td>${obj.quiz.quizContent}</td>
-                <td>${obj.quiz.releaseTime}</td>
-                <td>${obj.quiz.praiseCount}</td>
-                <td>${obj.commentNumber}</td>
-                <td>
-                    <c:forEach items="${obj.tagList}" var="taglist">
-                        ${taglist.tagName}&nbsp;&nbsp;&nbsp;
-                    </c:forEach>
-                </td>
-            </tr>
-            </c:forEach>
-        <table/>
         <div style="height: 20px;">
             <h4>共有${page.totalCount }条数据，一共${page.totalPageNum }页，这是第${page.currentPageNum }页</h4>
             <a href="/${url }?pageNum=1">首页</a>&nbsp;&nbsp;
@@ -58,15 +27,6 @@
             <a href="/${url }?pageNum=${page.nextPageNum }">下一页</a>&nbsp;&nbsp;
             <a href="/${url }?pageNum=${page.totalPageNum }">末页</a>&nbsp;&nbsp;
         </div>
-    </div>
-    <br><br><br>
-    <div>
-        <table style="font-size: 2.5ex">
-            <tr><td style="font-size: 3ex">热门标签</td><td></td></tr>
-            <c:forEach items="${tag}" var="tags">
-                <tr><td>${tags[0].tagName}</td><td>${tags[1]}</td></tr>
-            </c:forEach>
-        </table>
     </div>
     -->
     <div class="mask"></div>
@@ -79,7 +39,7 @@
         <div class="left-content">
             <!--内容声明-->
             <div class="left-content-header">
-                <p>U问答是一个针对计算机专业学生的问答社区，欢迎你在这里提问与答疑<a class="subscribe"href="#">&nbsp;+订阅&nbsp;</a></p>
+                <p>针对计算机类专业的考研问答社区，欢迎你在这里提问与答疑<a class="subscribe"href="#">&nbsp;+订阅&nbsp;</a></p>
             </div>
             <!--主要内容-->
             <div class="left-content-main">
@@ -88,9 +48,9 @@
                     <div class="menu-description">排序：</div>
                     <div class="menu-optionSet">
                         <ul>
-                            <li class="active" ><a href="quiz1">按时间排序</a></li>
-                            <li class="option" ><a href="quiz2">按热度排序</a></li>
-                            <li class="option" ><a href="#" >智能化推荐</a></li>
+                            <li class="${statelist[0]}" ><a href="quiz1">按时间排序</a></li>
+                            <li class="${statelist[1]}" ><a href="quiz2">按热度排序</a></li>
+                            <!--<li class="option" ><a href="#" >智能化推荐</a></li>-->
                         </ul>
                     </div>
                     <div class="search">
@@ -112,14 +72,12 @@
                             <div class="post-information">
                                     ${obj.quiz.releaseTime} &nbsp;来自:<a href="#">${obj.user.userNickName}</a>
                             </div>
-                            <div class="reward">悬赏:</div>
-                            <div class="reward-value">10</div>
                             <div></div>
                             <div class="praise">赞:</div>
                             <div class="praise-value">${obj.quiz.praiseCount}</div>
                         </div>
                         <div class="question">
-                            <p>${obj.quiz.quizTitle}</p>
+                            <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}"><p>${obj.quiz.quizTitle}</p></a>
                         </div>
                         <div class="post-description">
                             <p>${obj.quiz.quizContent}</p>
@@ -187,14 +145,12 @@
                                     <div class="post-information">
                                             ${obj.quiz.releaseTime} &nbsp;来自:<a href="#">${obj.user.userNickName}</a>
                                     </div>
-                                    <div class="reward">悬赏:</div>
-                                    <div class="reward-value">10</div>
                                     <div></div>
                                     <div class="praise">赞:</div>
                                     <div class="praise-value">${obj.quiz.praiseCount}</div>
                                 </div>
                                 <div class="question">
-                                    <p>${obj.quiz.quizTitle}</p>
+                                    <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}"><p>${obj.quiz.quizTitle}</p></a>
                                 </div>
                                 <div class="post-description">
                                     <p>${obj.quiz.quizContent}</p>
