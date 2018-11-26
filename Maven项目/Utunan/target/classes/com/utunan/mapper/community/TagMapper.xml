@@ -30,4 +30,24 @@
         order by count(quizId) desc
         limit 10
     </select>
+    <!--提问区根据问题数量查询前3个标签-->
+    <select id="top3Tag" resultMap="tagResultMap">
+        select
+        t.tagId, t.tagName
+        from tag t
+        join quiz_tag qt on t.tagId=qt.tagId
+        group by qt.tagId
+        order by count(qt.quizId) desc
+        limit 3
+    </select>
+    <!--提问区查询余下标签-->
+    <select id="getRemainTag" parameterType="java.util.List" resultMap="tagResultMap">
+        select
+        t.tagId, t.tagName
+        from tag t
+        where t.tagId not in
+        <foreach item="tag" collection="tagList3" separator="," open="(" close=")">
+            #{tag.tagId}
+        </foreach>
+    </select>
 </mapper>

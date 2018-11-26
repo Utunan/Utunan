@@ -20,5 +20,23 @@ public interface TagService {
 	 * @return  java.util.List<com.utunan.pojo.community.Tag>
 	 */
 	List getTop10TagNumber();
+	/*
+	 * @author  张正扬
+	 * @description 提问区获取问题引用数量最高的3个标签
+	 * @date  9:25 2018/11/26
+	 * @param  null
+	 * @return  List<Tag>
+	 */
+	List<Tag> getTop3Tag();
+
+
+	 /*
+	 * @author  张正扬
+	 * @description  提问区查询余下标签
+	 * @date  10:16 2018/11/26
+	 * @param  [tagList3]
+	 * @return  java.util.List<com.utunan.pojo.community.Tag>
+	 */
+	 List<Tag> getRemianTags(List<Tag> tagList3);
 
 }

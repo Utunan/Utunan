@@ -21,6 +21,8 @@ public class Quiz {
     private Date releaseTime;
     //点赞计数
     private Long praiseCount;
+    //悬赏金额
+    private Long rewardAmount;
     //与用户多对一
     private User user;
     //与评论一对多
@@ -87,6 +89,14 @@ public class Quiz {
         this.praiseCount = praiseCount;
     }
 
+    public Long getRewardAmount() {
+        return rewardAmount;
+    }
+
+    public void setRewardAmount(Long rewardAmount) {
+        this.rewardAmount = rewardAmount;
+    }
+
     @Override
     public String toString() {
         return "Quiz{" +
@@ -96,6 +106,7 @@ public class Quiz {
                 ", quizContent='" + quizContent + '\'' +
                 ", releaseTime=" + releaseTime +
                 ", praiseCount=" + praiseCount +
+                ", rewardAmount"+rewardAmount+
                 '}';
     }
 }

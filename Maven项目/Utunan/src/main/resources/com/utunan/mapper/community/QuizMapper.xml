@@ -9,6 +9,7 @@
         <result property="quizContent" column="quizContent"/>
         <result property="releaseTime" column="releaseTime"/>
         <result property="praiseCount" column="praiseCount"/>
+        <result property="rewardAmount" column="rewardAmount"/>
         <association property="user" javaType="com.utunan.pojo.user.User">
             <id property="userId" column="userId"/>
             <result property="userEmail" column="userEmail"/>
@@ -70,7 +71,7 @@
 
     <!-- 插入数据，这里quizId是自动递增的，所以不需要插入 -->
     <insert id="toInsert" parameterType="com.utunan.pojo.community.Quiz">
-        insert into quiz(userId,quizTitle,quizContent,releaseTime,praiseCount) values(#{userId},#{quizTitle},#{quizContent},#{releaseTime},#{praiseCount})
+        insert into quiz(userId,quizTitle,quizContent,releaseTime,praiseCount,rewardAmount) values(#{userId},#{quizTitle},#{quizContent},#{releaseTime},#{praiseCount},#{rewardAmount})
     </insert>
 
     <!--根据回答quizId最大查询，每次只查一条-->
