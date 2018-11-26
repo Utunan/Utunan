@@ -71,7 +71,7 @@
 
                 <!--包括发帖用户的头像，昵称，发表时间-->
                 <div class="post-information">
-                    <img src="images/userheadimg/hand.jpg" width="35px"height="35px">
+                    <img src="${quiz.user.userHeadImg}" width="35px"height="35px">
                     <a href="#">${quiz.user.userNickName}</a><div class="informationwords">发表于&nbsp;2${quiz.releaseTime}</div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
             <c:forEach items="${commentListByQuizId}" var="comment" varStatus="cou">
             <div class="reply">
                 <div class="reply-top">
-                    <img src="/images/userheadimg/hand.jpg"width="55px"height="55px">
+                    <img src="${comment.user.userHeadImg}"width="55px"height="55px">
                     <div class="reply-top-center">
                         <a href="#">${comment.user.userNickName}</a>
                         <div class="description">
