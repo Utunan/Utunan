@@ -71,6 +71,7 @@ public interface QuizService {
 	Long countCommentByQuizId(Long quizId);
 
 	/**
+  
 	 * @author  孙程程
 	 * @description 在某标签下根据发表时间分页查询问答列表
 	 * @date  8:46 2018/11/26
@@ -97,6 +98,11 @@ public interface QuizService {
 	 */
 	Long countQuizWithTagName(String tagName);
 
-
-
+	 * @author  唐溪
+	 * @description
+	 * @date   18:56 2018/11/25
+	 * @param  [quizList]
+	 * @return  void
+	 */
+	void condenseQuiz(List<Quiz> quizList);
 }

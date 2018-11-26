@@ -29,7 +29,7 @@ public class QuizCommentController {
     private CommentService commentService;
     /*
      * @author  王碧云
-     * @description 返回对应QuizId对应的问题页面的值
+     * @description 返回对应QuizId对应的问题页面的值(默认按照时间排序)
      * @date  12:50 2018/11/25/025
      * @param  [request]
      * @return  java.lang.String
@@ -43,7 +43,7 @@ public class QuizCommentController {
         List<QuizTag> quizTagList =this.quizTagService.findQuizTagByQuizId(Long.parseLong(quizId));
         //根据quizId返回评论数量
         Long commentCountByQuizId = this.quizService.countCommentByQuizId(Long.parseLong(quizId));
-        //根据quizId返回评论列表
+        //根据quizId返回评论列表(根据时间排序)
         List<Comment> commentListByQuizId = this.commentService.findCommentListByQuizId(Long.parseLong(quizId));
 
         request.setAttribute("quizTagList", quizTagList);
@@ -73,5 +73,32 @@ public class QuizCommentController {
         System.out.println("[childComment]"+childCommentList);
 
         return "community/childcomment";
+    }
+    
+    /*
+     * @author  王碧云 
+     * @description 评论根据热度排序
+     * @date  10:59 2018/11/26/026 
+     * @param  [request]
+     * @return  java.lang.String
+     */
+    @RequestMapping("/displayCommentByPraiseCount")
+    public String displayCommentByPraiseCount(HttpServletRequest request){
+        String quizId = request.getParameter("quizId");
+        //根据quizId返回quiz
+        Quiz quiz = this.quizService.findQuizById(Long.parseLong(quizId));
+        //根据quizId返回标签
+        List<QuizTag> quizTagList =this.quizTagService.findQuizTagByQuizId(Long.parseLong(quizId));
+        //根据quizId返回评论数量
+        Long commentCountByQuizId = this.quizService.countCommentByQuizId(Long.parseLong(quizId));
+        //根据quizId返回评论列表(根据热度排序)
+        List<Comment> commentListByQuizId = this.commentService.findCommentListByPraiseCount(Long.parseLong(quizId));
+
+        request.setAttribute("quizTagList", quizTagList);
+        request.setAttribute("quiz", quiz);
+        request.setAttribute("commentCountByQuizId", commentCountByQuizId);
+        request.setAttribute("commentListByQuizId", commentListByQuizId);
+
+        return "community/quizcommentpage";
     }
 }

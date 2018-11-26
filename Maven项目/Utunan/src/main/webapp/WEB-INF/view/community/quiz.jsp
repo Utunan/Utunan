@@ -13,7 +13,7 @@
 <head>
     <title>问答列表</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/questionIndex.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/community/questionIndex.css"/>
 </head>
 <body>
     <!--
@@ -98,7 +98,7 @@
                         </div>
                         <!--搜索图标-->
                         <div class="searchImg">
-                            <img src="images/search.png" width="20px" height="20px">
+                            <img src="/images/search.png" width="20px" height="20px">
                         </div>
                     </div>
                 </div>
@@ -228,7 +228,7 @@
                 <form>
                     <div class="ask-question">
                         <!--从数据库查出头像-->
-                        <div class="headAppear"><img src="images/userheadimg/hand.jpg"/></div>
+                        <div class="headAppear"><img src="/images/userheadimg/hand.jpg"/></div>
                         <textarea class="question-content" required="" rows="1"  autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-activedescendant="AutoComplete59--1"  aria-haspopup="true" aria-owns="Popover58-content"  placeholder="写下你的问题，准确地描述问题更容易得到解答"></textarea>
                     </div>
                     <div class="question-inspection">
@@ -242,16 +242,16 @@
                     <!--富文本编辑器-->
                     <div class="text">
                         <div class="toolbar" unselectable="on">
-                            <img src="images/community/text1.svg" width="20px"height="20px">
-                            <img src="images/community/text2.svg" width="20px"height="20px">
-                            <img src="images/community/text3.svg" width="20px"height="20px">
-                            <img src="images/community/text4.svg" width="20px"height="20px">
-                            <img src="images/community/text5.svg" width="20px"height="20px">
-                            <img src="images/community/text6.svg" width="20px"height="20px">
-                            <img src="images/community/text7.svg" width="20px"height="20px">
-                            <img src="images/community/text8.svg" width="20px"height="20px">
-                            <img src="images/community/text9.svg" width="20px"height="20px">
-                            <div class="more"><img src="images/community/text10.svg" width="20px"height="20px"></div>
+                            <img src="/images/community/text1.svg" width="20px"height="20px">
+                            <img src="/images/community/text2.svg" width="20px"height="20px">
+                            <img src="/images/community/text3.svg" width="20px"height="20px">
+                            <img src="/images/community/text4.svg" width="20px"height="20px">
+                            <img src="/images/community/text5.svg" width="20px"height="20px">
+                            <img src="/images/community/text6.svg" width="20px"height="20px">
+                            <img src="/images/community/text7.svg" width="20px"height="20px">
+                            <img src="/images/community/text8.svg" width="20px"height="20px">
+                            <img src="/images/community/text9.svg" width="20px"height="20px">
+                            <div class="more"><img src="/images/community/text10.svg" width="20px"height="20px"></div>
                         </div>
                         <textarea class="question-content" required="" rows="1"  autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-activedescendant="AutoComplete59--1"  aria-haspopup="true" aria-owns="Popover58-content"  placeholder="输入问题背景、条件等详细信息（选填）"></textarea>
                     </div>
@@ -285,7 +285,6 @@
         </div>
     </div>
 </body>
-<script src="js/questionMain.js"></script>
-
+<script src="/js/questionMain.js"></script>
 <script src="/js/common.js"></script>
 </html>
