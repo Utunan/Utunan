@@ -14,6 +14,8 @@
     <title>问答列表</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="/css/community/questionIndex.css"/>
+    <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>ss
 </head>
 <body>
     <!--
@@ -37,7 +39,7 @@
         <div class="left-content">
             <!--内容声明-->
             <div class="left-content-header">
-                <p>U问答是一个针对计算机专业学生的问答社区，欢迎你在这里提问与答疑<a class="subscribe"href="#">&nbsp;+订阅&nbsp;</a></p>
+                <p>针对计算机类专业的考研问答社区，欢迎你在这里提问与答疑<a class="subscribe"href="#">&nbsp;+订阅&nbsp;</a></p>
             </div>
             <!--主要内容-->
             <div class="left-content-main">
@@ -46,9 +48,9 @@
                     <div class="menu-description">排序：</div>
                     <div class="menu-optionSet">
                         <ul>
-                            <li class="active" ><a href="quiz1">按时间排序</a></li>
-                            <li class="option" ><a href="quiz2">按热度排序</a></li>
-                            <li class="option" ><a href="#" >智能化推荐</a></li>
+                            <li class="${statelist[0]}" ><a href="quiz1">按时间排序</a></li>
+                            <li class="${statelist[1]}" ><a href="quiz2">按热度排序</a></li>
+                            <!--<li class="option" ><a href="#" >智能化推荐</a></li>-->
                         </ul>
                     </div>
                     <div class="search">
@@ -70,8 +72,6 @@
                             <div class="post-information">
                                     ${obj.quiz.releaseTime} &nbsp;来自:<a href="#">${obj.user.userNickName}</a>
                             </div>
-                            <div class="reward">悬赏:</div>
-                            <div class="reward-value">10</div>
                             <div></div>
                             <div class="praise">赞:</div>
                             <div class="praise-value">${obj.quiz.praiseCount}</div>
@@ -145,8 +145,6 @@
                                     <div class="post-information">
                                             ${obj.quiz.releaseTime} &nbsp;来自:<a href="#">${obj.user.userNickName}</a>
                                     </div>
-                                    <div class="reward">悬赏:</div>
-                                    <div class="reward-value">10</div>
                                     <div></div>
                                     <div class="praise">赞:</div>
                                     <div class="praise-value">${obj.quiz.praiseCount}</div>
@@ -185,7 +183,7 @@
         <div class="right-content">
             <div class="modalDialogcontent">
                 <span class="close_modalDialogcontent">×</span>
-                <form action="quiz3" method="post">
+                <form action="uiz3" method="post">
                     <div class="ask-question">
                         <!--从数据库查出头像-->
                         <%--@declare id="autocomplete59--1"--%><div class="headAppear"><img src="images/userheadimg/hand.jpg"/></div>
@@ -201,8 +199,8 @@
                     </div>
                     <!--富文本编辑器-->
                     <div class="text">
-                        <div id="div1" class="toolbar" style="width: 100px;float: right" ></div>
-                        <div id="div2" class="question-content">
+                        <div id="div1" class="toolbar" ></div>
+                        <div id="div2" style="height: 100px">
                             <p>输入问题背景、条件等详细信息</p>
                         </div>
                         <textarea id="text1" style="display: none" name="textarea"></textarea>
@@ -223,11 +221,18 @@
                             var E = window.wangEditor;
                             var editor1 = new E('#div1', '#div2');  // 两个参数也可以传入 elem 对象，class 选择器
                             editor1.customConfig.menus = [
+                                'list',  // 列表
                                 'link',     //插入链接
                                 'image',    //插入图片
                                 'code'    //插入代码
                             ];
-                            editor1.customConfig.uploadImgShowBase64 = true           //使用base64存储图片
+                            editor1.customConfig.customUploadImg = function (files, insert) {
+                                // files 是 input 中选中的文件列表
+                                // insert 是获取图片 url 后，插入到编辑器的方法
+
+                                // 上传代码返回结果之后，将图片插入到编辑器中
+                                insert(imgUrl);
+                            }
                             editor1.customConfig.uploadImgMaxSize = 3 * 1024 * 1024   //每张图片最大上传大小
                             editor1.customConfig.uploadImgMaxLength = 5              //每次最多上传5张
                             var $text1 = $('#text1')
@@ -242,22 +247,24 @@
 
 
                     <div class="addtags">
-                        <c:forEach items="${tags}" var="tag1">
-                            <div class="newtag">
-                                &nbsp;
-                                <div class="newtag-description">${tag1.tagName}</div>
-                                <div class="cancel"><a >X</a></div>
-                            </div>
-                        </c:forEach>
+                        <input>
+                            <c:forEach items="${tags}" var="tag1">
+                                <div class="newtag">
+                                    &nbsp;
+                                    <div class="newtag-description">${tag1.tagName}</div>
+                                    <div class="cancel"><a >X</a></div>
+                                </div>
+                            </c:forEach>
                         <div class="add">+</div>
                         <div class="addword">添加话题</div>
-                        <div></div>
-                        <c:forEach items="${alltag}" var="a">
-                            <div class="newtag-description">${a.tagName}</div>
-                            <div class="add"><a>+</a></div>
-                        </c:forEach>
+                        <div style="display: none">
+                            <c:forEach items="${alltag}" var="a">
+                                <div class="newtag-description">${a.tagName}</div>
+                                <div class="add"><a>+</a></div>
+                            </c:forEach>
+                        </div>
                     </div>
-                    <input type="radio" name="radio" class="radio">匿名提问
+                    <input type="radio" name="radio" class="radio" style="float: left">匿名提问
                     <input type="submit" value="发布问题" class="submit"/>
                 </form>
             </div>
