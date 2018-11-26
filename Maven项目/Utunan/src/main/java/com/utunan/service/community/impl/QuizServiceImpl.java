@@ -21,6 +21,8 @@ public class QuizServiceImpl implements QuizService {
 	public List<BigQuiz> quizListByTime(int pageNum, int pageSize){
 		//按发表时间的提问列表
 		List<Quiz> quizListByTime = quizMapper.listQuizByTime((pageNum-1)*pageSize,pageSize);
+		//限制问题标题、内容展示字数
+		condenseQuiz(quizListByTime);
 		//提取quizId列表
 		List<Long> quizIdList=new ArrayList<>();
 		for(int i=0; i<quizListByTime.size(); i++){
@@ -50,6 +52,8 @@ public class QuizServiceImpl implements QuizService {
 	public List<BigQuiz> quizListByPraise(int pageNum, int pageSize){
 		//按点赞顺序的提问列表
 		List<Quiz> quizListByPraise = quizMapper.listQuizByPraise((pageNum-1)*pageSize,pageSize);
+		//限制问题标题、内容展示字数
+		condenseQuiz(quizListByPraise);
 		//提取quizId列表
 		List<Long> quizIdList=new ArrayList<>();
 		for(int i=0; i<quizListByPraise.size(); i++){
@@ -140,5 +144,22 @@ public class QuizServiceImpl implements QuizService {
 		return this.quizMapper.countCommentByQuizId(quizId);
 	}
 
+	/**
+	 * @author  唐溪
+	 * @description 限制问题标题、内容展示字数
+	 * @date   18:55 2018/11/25
+	 * @param
+	 * @return  void
+	 */
+	@Override
+	public void condenseQuiz(List<Quiz> quizList) {
+		for(int i=0;i<quizList.size();i++){
+			Quiz q=quizList.get(i);
+			if(q.getQuizContent().length()>95)
+				q.setQuizContent(q.getQuizContent().substring(0,95)+" ...");
+			if(q.getQuizTitle().length()>30)
+				q.setQuizTitle(q.getQuizTitle().substring(0,30)+" ...");
+		}
 
+	}
 }

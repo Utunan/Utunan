@@ -70,4 +70,12 @@ public interface QuizService {
 	 */
 	Long countCommentByQuizId(Long quizId);
 
+	/**
+	 * @author  唐溪
+	 * @description
+	 * @date   18:56 2018/11/25
+	 * @param  [quizList]
+	 * @return  void
+	 */
+	void condenseQuiz(List<Quiz> quizList);
 }
