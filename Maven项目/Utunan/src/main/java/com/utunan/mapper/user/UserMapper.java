@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper {
     int insert(User user);
-    User queryByPermit(User user);
-    User findByPermit(User user);
+    User selectByPermit(User user);
+    User selectByUorE(User user);
     void updateUser(User user);
 }
 
