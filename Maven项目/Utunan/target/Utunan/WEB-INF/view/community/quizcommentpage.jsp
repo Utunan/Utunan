@@ -71,7 +71,7 @@
 
                 <!--包括发帖用户的头像，昵称，发表时间-->
                 <div class="post-information">
-                    <img src="images/userheadimg/hand.jpg" width="35px"height="35px">
+                    <img src="${quiz.user.userHeadImg}" width="35px"height="35px">
                     <a href="#">${quiz.user.userNickName}</a><div class="informationwords">发表于&nbsp;2${quiz.releaseTime}</div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
         </div>
         <div class="answers">
             <div class="answers-num">一共有${commentCountByQuizId}条评论</div>
-            <select class="sequencing-principle"name="" onchange="self.location.href=options[selectedIndex].value"> <%--javascript:window.open(this.options[this.selectedIndex].value)--%>
+            <select class="sequencing-principle"name="" onchange="self.location.href=options[selectedIndex].value">
                 <option value="/displayQuizByQuizId?quizId=${quiz.quizId}">按时间顺序</option>
                 <option value="/displayCommentByPraiseCount?quizId=${quiz.quizId}">按热度排序</option>
                 <option value="1">智能推荐</option>
@@ -115,7 +115,7 @@
             <c:forEach items="${commentListByQuizId}" var="comment" varStatus="cou">
             <div class="reply">
                 <div class="reply-top">
-                    <img src="/images/userheadimg/hand.jpg"width="55px"height="55px">
+                    <img src="${comment.user.userHeadImg}"width="55px"height="55px">
                     <div class="reply-top-center">
                         <a href="#">${comment.user.userNickName}</a>
                         <div class="description">
