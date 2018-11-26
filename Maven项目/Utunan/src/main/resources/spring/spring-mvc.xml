@@ -29,7 +29,7 @@ http://www.springframework.org/schema/task/spring-task.xsd">
 
     <mvc:annotation-driven>
         <!--<mvc:message-converters>-->
-        <!--<bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
+            <!--<bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
         <!--<property name="supportedMediaTypes">-->
         <!--<list>-->
         <!--<value>application/json:charset=UTF-8</value>-->
@@ -40,10 +40,19 @@ http://www.springframework.org/schema/task/spring-task.xsd">
     </mvc:annotation-driven>
 
 
-    <!--    静态资源处理    -->
+    <!-- .   静态资源处理    -->
     <mvc:annotation-driven/>
     <!-- 表示上述配置的 css 文件不属 viewResolver 解析 -->
     <mvc:default-servlet-handler/>
+
+    <!--    拦截器    -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/user/**"/>
+            <bean class="com.utunan.interceptor.user.UserSessionInterceptor">
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
     <!-- 解析器注册 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
