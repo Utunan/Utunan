@@ -42,7 +42,7 @@ public interface QuizService {
 	 * @return  null
 	 */
 
-	void saveQuiz(String title,String content);
+	void saveQuiz(Long uid,String title,String content);
 	/**
 	 * @author  张正扬
 	 * @description

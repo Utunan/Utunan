@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -98,11 +99,9 @@ public class QuizServiceImpl implements QuizService {
      */
 
     @Override
-    public void saveQuiz(String title,String content){
+    public void saveQuiz(Long uid,String title,String content){
         Quiz quiz=new Quiz();
-        int k=253;
-        long f=(long)k;
-        quiz.setUserId(f);
+        quiz.setUserId(uid);
         quiz.setQuizTitle(title);
         quiz.setQuizContent(content);
         quiz.setReleaseTime(new Date());
