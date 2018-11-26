@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="css/questionIndex.css"/> 
+<title>问答首页</title>  
+</head>
+<body>
+	<div class="mask"></div>
+	<!--内容-->
+	<div class="content">
+		<!--左半部分-->
+		<div class="left-content">
+			<!--内容声明-->
+			<div class="left-content-header">
+			<p>U问答是一个针对计算机专业学生的问答社区，欢迎你在这里提问与答疑<a class="subscribe"href="#">&nbsp;+订阅&nbsp;</a></p>
+			
+			</div>
+
+			<!--主要内容-->
+			<div class="left-content-main">
+
+				<div class="content-main-menu">
+					<!--帖子显示原则选项-->
+					<div class="menu-description">排序：</div>
+					<div class="menu-optionSet">
+						<ul>
+						<li class="active" ><a href="#">按时间排序</a></li>
+						<li class="option" ><a href="#">按热度排序</a></li>
+						<li class="option" ><a href="#" >智能化推荐</a></li>
+						</ul>
+					</div>
+					<div class="search">
+						<!--搜索帖子-->
+						<div class="searchText">
+							<input type="text" style="width:160px;" />
+						</div>
+						<!--搜索图标-->
+						<div class="searchImg">
+							<img src="images/search.png" width="20px" height="20px">
+						</div>
+					</div>
+				</div>
+				<!--帖子-->
+				<div class="post">
+					<div class="post-content">
+						<div class="top">
+							<div class="post-information">
+								2018.11.19 16:48 &nbsp;来自:<a href="#">这是一个昵称啦啦</a>
+							</div>
+							<div class="reward">悬赏:</div>
+							<div class="reward-value">10</div>
+							<div></div>
+							<div class="praise">赞:</div>
+							<div class="praise-value">88</div>
+						</div>
+						<div class="question">
+							<p>这里的矩阵是怎么推出了的嘞？</p>
+						</div>
+						<div class="post-description">
+							<p>我是个初学者，想让大佬详细的给讲解一下，这个是怎么推导出来的，越详细越好。感谢感谢,万分感谢QQ:2571849324</p>
+						</div>
+						<!--帖子问题类型-->
+						<div class="post-tags">
+							<a href="#">&nbsp;C语言&nbsp;</a>
+							<a href="#">&nbsp;计算机专业课&nbsp;</a>
+						</div>
+					</div>
+					<a class="answer_num " title="暂无满意答案" target="_blank" href="#">
+						<span>0</span>
+						<p>回答</p>
+					</a>
+				</div>
+
+				<div class="post">
+					<div class="post-content">
+						<div class="top">
+							<div class="post-information">
+								2018.11.19 16:48 &nbsp;来自: &nbsp;<a href="#">这是一个昵称</a>
+							</div>
+							<div class="reward">悬赏:</div>
+							<div class="reward-value">10</div>
+							<div></div>
+							<div class="praise">赞:</div>
+							<div class="praise-value">88</div>
+						</div>
+						<div class="question">
+							<p>这里的矩阵是怎么推出了的嘞？</p>
+						</div>
+						<div class="post-description">
+							<p>我是个初学者，想让大佬详细的给讲解一下，这个是怎么推导出来的，越详细越好。感谢感谢,万分感谢QQ:2571849324</p>
+						</div>
+						<!--帖子问题类型-->
+						<div class="post-tags">
+							<a href="#">&nbsp;C语言&nbsp;</a>
+							<a href="#">&nbsp;计算机专业课&nbsp;</a>
+						</div>
+					</div>
+					<a class="answer_num " title="暂无满意答案" target="_blank" href="#">
+						<span>0</span>
+   						<p>回答</p>
+  					</a>
+				</div>
+			</div>
+		</div>
+
+		<!--右半部分-->
+		<div class="right-content">
+			<div class="modalDialogcontent">
+				<span class="close_modalDialogcontent">×</span>
+				<form>
+					<div class="ask-question">
+						<!--从数据库查出头像-->
+						<div class="headAppear"><img src="images/hand.jpg"/></div>
+						<textarea class="question-content" required="" rows="1"  autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-activedescendant="AutoComplete59--1"  aria-haspopup="true" aria-owns="Popover58-content"  placeholder="写下你的问题，准确地描述问题更容易得到解答"></textarea>
+					</div>
+					<div class="question-inspection">
+						<!--验证问题是否有问号，没有问号，显示-->
+						<p>你还没有给问题添加问号哦</p>
+					</div>
+					<div class="setReward">
+						设置悬赏金额
+						<input class="setReward-value" type="text"placeholder="0"/>
+					</div>
+					<!--富文本编辑器-->	
+					<div class="text">			
+						<div class="toolbar" unselectable="on">
+							<span class="tool-outline" data-name="bold" title="粗体(Ctrl+B)" unselectable="on">
+								<span class="" unselectable="on"></span>
+							</span>
+							<span class="tool" data-name="italic" title="斜体(Ctrl+I)" unselectable="on">
+								<span class="" unselectable="on"></span>
+							</span>
+							<span class="tool-outline" data-name="underline" title="下划线(Ctrl+U)" unselectable="on">
+								<span class="" unselectable="on"></span>
+							</span>
+							<span class="tool-outline" data-name="insertorderedlist" title="编号" unselectable="on">
+								<span class="" unselectable="on"></span>
+							</span>
+							<span class="tool" data-name="insertunorderedlist" title="项目符号" unselectable="on">
+								<span class="" unselectable="on"></span>
+							</span>
+							<span class=""></span>
+							<span class="tool-outline" data-name="code" title="插入程序代码" unselectable="on">
+								<span class="" unselectable="on"></span>
+							</span>
+							<span class="tool-outline" data-name="emoticons" title="插入表情" unselectable="on">
+								<span class="" unselectable="on"></span>
+							</span>
+							<span class="tool-outline" data-name="image" title="图片" unselectable="on">
+								<span class="" unselectable="on"></span>
+							</span>
+							<span class="tool-outline" data-name="link" title="超级链接" unselectable="on">
+								<span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-link" unselectable="on"></span>
+							</span>
+							<span class=""></span>
+							<span class="tool-outline" data-name="removeformat" title="删除格式" unselectable="on">
+								<span class="" unselectable="on"></span>
+							</span>
+							<span class="tool-outline" data-name="fullscreen" title="全屏显示" unselectable="on">
+								<span class="" unselectable="on"></span>
+							</span>
+						</div>
+						<textarea class="question-content" required="" rows="1"  autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-activedescendant="AutoComplete59--1"  aria-haspopup="true" aria-owns="Popover58-content"  placeholder="输入问题背景、条件等详细信息（选填）"></textarea>
+					</div>
+					<!--这是知乎的代码
+					<div class="askDetail-inputwrapper">
+						<div class="askDetail-input">
+							<div class="input-editable">
+								<div class="editable-toolbar">
+									<button aria-label="粗体" data-tooltip="粗体 (Ctrl+B)" data-tooltip-position="bottom" data-tooltip-will-hide-on-click="true" type="button" class="button">
+										<svg class="formatBold" fill="currentColor" >
+											<path d="M9 17.025V13h4.418c1.19 0 2.415.562 2.415 2.012s-1.608 2.013-2.9 2.013H9zM9 7h4.336c1 0 1.814.888 1.814 2 0 .89-.814 2-1.814 2H9V7zm8.192 1.899a3.893 3.893 0 0 0-3.888-3.889S9.334 5 8.167 5C7 5 7 6.167 7 6.167v11.666C7 19 8.167 19 8.167 19l5.572.01c2.333 0 4.231-1.86 4.231-4.148a4.122 4.122 0 0 0-1.77-3.372 3.873 3.873 0 0 0 .992-2.591z" ></path>
+										</svg>
+									</button>
+									<button aria-label="斜体" data-tooltip="斜体 (Ctrl+I)" data-tooltip-position="bottom" data-tooltip-will-hide-on-click="true" type="button" class="button">
+										<svg class="formatBold" fill="currentColor" >
+											<path d="M15.751 5h-5.502a.751.751 0 0 0-.749.75c0 .417.336.75.749.75H12l-2 11H8.249a.751.751 0 0 0-.749.75c0 .417.336.75.749.75h5.502a.751.751 0 0 0 .749-.75.748.748 0 0 0-.749-.75H12l2-11h1.751a.751.751 0 0 0 .749-.75.748.748 0 0 0-.749-.75" fill-rule="evenodd"></path>
+										</svg>
+									</button>
+									<span class="Editable-toolbar-separator"></span>
+									<button aria-label="标题" data-tooltip="标题 (Ctrl+Alt+1)" data-tooltip-position="bottom" data-tooltip-will-hide-on-click="true" type="button" class="button">
+										<svg class="formatBold" fill="currentColor">
+											<path d="M7 6.007C7 5.45 7.444 5 8 5c.552 0 1 .45 1 1.007v11.986C9 18.55 8.556 19 8 19c-.552 0-1-.45-1-1.007V6.007zm8 0C15 5.45 15.444 5 16 5c.552 0 1 .45 1 1.007v11.986C17 18.55 16.556 19 16 19c-.552 0-1-.45-1-1.007V6.007zM9 11h6v2H9v-2z" fill-rule="evenodd"></path>
+										</svg>
+									</button>
+									<button aria-label="引用块" data-tooltip="引用块 (Ctrl+Shift+U)" data-tooltip-position="bottom" data-tooltip-will-hide-on-click="true" type="button" class="button">
+										<svg class="formatBold" fill="currentColor" >
+											<path d="M17.975 12.209c.504.454.822 1.05.952 1.792.061.35.055.715-.022 1.096-.075.379-.209.718-.4 1.018-.465.73-1.155 1.175-2.07 1.337-.874.153-1.684-.06-2.432-.638a3.6 3.6 0 0 1-.916-1.043 3.92 3.92 0 0 1-.506-1.336c-.172-.98-.03-2.026.425-3.142.455-1.116 1.155-2.118 2.1-3.007.8-.757 1.456-1.182 1.97-1.273a.72.72 0 0 1 .544.104.656.656 0 0 1 .286.452c.054.31-.095.601-.45.877-.856.67-1.455 1.27-1.796 1.798-.323.513-.467.873-.43 1.079.034.196.21.287.524.274l.191-.001.249-.029a2.436 2.436 0 0 1 1.781.642zm-7.51 0c.504.454.821 1.05.951 1.792.062.35.056.715-.02 1.096-.077.379-.21.718-.401 1.018-.465.73-1.155 1.175-2.07 1.337-.874.153-1.684-.06-2.432-.638a3.6 3.6 0 0 1-.916-1.043 3.92 3.92 0 0 1-.506-1.336c-.172-.98-.03-2.026.424-3.142.455-1.116 1.156-2.118 2.101-3.007.8-.757 1.456-1.182 1.97-1.273a.72.72 0 0 1 .544.104.656.656 0 0 1 .285.452c.055.31-.094.601-.45.877-.855.67-1.454 1.27-1.796 1.798-.322.513-.466.873-.43 1.079.034.196.21.287.525.274l.191-.001.248-.029a2.436 2.436 0 0 1 1.782.642z" fill-rule="evenodd"></path>
+										</svg>
+									</button>
+									<button aria-label="代码块" data-tooltip="代码块 (Ctrl+Alt+C)" data-tooltip-position="bottom" data-tooltip-will-hide-on-click="true" type="button" class="button">
+										<svg class="formatBold" fill="currentColor">
+											<path d="M19.718 11.559a.961.961 0 0 1 .007 1.352l-2.201 2.033-1.319 1.219a.937.937 0 0 1-1.33-.005.961.961 0 0 1-.001-1.345l2.813-2.576-2.804-2.568a.96.96 0 0 1-.008-1.352.963.963 0 0 1 1.337 0l2.475 2.289 1.031.953zm-7.462-5.567a1.001 1.001 0 0 1 1.16-.818c.544.096.907.616.81 1.165l-2.082 11.804a1.001 1.001 0 0 1-1.16.818 1.003 1.003 0 0 1-.81-1.165l2.082-11.804zM9.123 8.316a.96.96 0 0 1 0 1.345l-2.812 2.575 2.806 2.569a.962.962 0 0 1 .006 1.35.935.935 0 0 1-1.337 0l-2.093-1.934-1.412-1.305a.961.961 0 0 1-.007-1.352l2.833-2.62.685-.634c.345-.35.976-.354 1.331.006z" fill-rule="evenodd"></path>
+										</svg>
+									</button>
+									<button aria-label="有序列表" data-tooltip="有序列表 (Ctrl+Shift+7)" data-tooltip-position="bottom" data-tooltip-will-hide-on-click="true" type="button" class="button">
+										<svg class="formatBold" fill="currentColor">
+											<path d="M9 6.5c0-.552.456-1 .995-1h8.01c.55 0 .995.444.995 1 0 .552-.456 1-.995 1h-8.01A.995.995 0 0 1 9 6.5zM5.884 7.893v-2.09h-.643L5.402 5h1.285v2.893h-.803zm.898 3.83l-.393.395h.862v.733H5v-.482l1.057-.892c.371-.312.461-.434.463-.566.003-.202-.135-.368-.396-.368-.289 0-.418.206-.418.43H5c0-.642.482-1.073 1.125-1.073s1.125.457 1.125.945c0 .307-.106.516-.468.877zM9 11.5c0-.552.456-1 .995-1h8.01c.55 0 .995.444.995 1 0 .552-.456 1-.995 1h-8.01a.995.995 0 0 1-.995-1zm0 5c0-.552.456-1 .995-1h8.01c.55 0 .995.444.995 1 0 .552-.456 1-.995 1h-8.01a.995.995 0 0 1-.995-1zm-1.759.624c0 .14-.025.27-.076.388a.902.902 0 0 1-.217.309 1.017 1.017 0 0 1-.336.205c-.13.05-.275.074-.437.074-.166 0-.32-.027-.462-.08a1.166 1.166 0 0 1-.367-.217 1.062 1.062 0 0 1-.246-.318.914.914 0 0 1-.1-.38v-.055h.765v.054a.343.343 0 0 0 .367.352c.117 0 .207-.03.27-.09.062-.06.093-.152.093-.277 0-.117-.039-.206-.117-.268a.506.506 0 0 0-.32-.091h-.14v-.516h.144c.117 0 .205-.03.264-.09a.31.31 0 0 0 .087-.226.27.27 0 0 0-.087-.209.332.332 0 0 0-.233-.08c-.107 0-.185.027-.236.08a.275.275 0 0 0-.076.197v.055h-.695v-.055a.915.915 0 0 1 .295-.644c.178-.161.436-.242.775-.242.14 0 .27.021.39.064s.224.102.312.176a.802.802 0 0 1 .207.262c.05.1.075.206.075.318 0 .258-.116.46-.348.605v.008a.625.625 0 0 1 .193.119.777.777 0 0 1 .256.572z" fill-rule="evenodd"></path>
+										</svg>
+									</button>
+									<button aria-label="无序列表" data-tooltip="无序列表 (Ctrl+Shift+8)" data-tooltip-position="bottom" data-tooltip-will-hide-on-click="true" type="button" class="button">
+										<svg class="formatBold" fill="currentColor">
+											<path d="M9 7c0-.552.456-1 .995-1h8.01c.55 0 .995.444.995 1 0 .552-.456 1-.995 1h-8.01A.995.995 0 0 1 9 7zM6 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm3-6c0-.552.456-1 .995-1h8.01c.55 0 .995.444.995 1 0 .552-.456 1-.995 1h-8.01A.995.995 0 0 1 9 12zm0 5c0-.552.456-1 .995-1h8.01c.55 0 .995.444.995 1 0 .552-.456 1-.995 1h-8.01A.995.995 0 0 1 9 17z" fill-rule="evenodd"></path>
+										</svg>
+									</button>
+									<span class="Editable-toolbar-separator"></span>
+									<button aria-label="插入链接" data-tooltip="插入链接 (Ctrl+K)" data-tooltip-position="bottom" data-tooltip-will-hide-on-click="true" type="button" class="button">
+										<svg class="formatBold" fill="currentColor" >
+											<path d="M6.77 17.23c-.905-.904-.94-2.333-.08-3.193l3.059-3.06-1.192-1.19-3.059 3.058c-1.489 1.489-1.427 3.954.138 5.519s4.03 1.627 5.519.138l3.059-3.059-1.192-1.192-3.059 3.06c-.86.86-2.289.824-3.193-.08zm3.016-8.673l1.192 1.192 3.059-3.06c.86-.86 2.289-.824 3.193.08.905.905.94 2.334.08 3.194l-3.059 3.06 1.192 1.19 3.059-3.058c1.489-1.489 1.427-3.954-.138-5.519s-4.03-1.627-5.519-.138L9.786 8.557zm-1.023 6.68c.33.33.863.343 1.177.029l5.34-5.34c.314-.314.3-.846-.03-1.176-.33-.33-.862-.344-1.176-.03l-5.34 5.34c-.314.314-.3.846.03 1.177z" fill-rule="evenodd"></path>
+										</svg>
+									</button>
+									<button aria-label="上传图片" data-tooltip="上传图片" data-tooltip-position="bottom" data-tooltip-will-hide-on-click="true" type="button" class="button">
+										<svg class="formatBold" fill="currentColor" >
+											<path d="M21 17.444C21 18.3 20.1 19 19 19H5c-1.1 0-2-.7-2-1.556V6.556C3 5.7 3.9 5 5 5h14c1.1 0 2 .7 2 1.556v10.888zm-9.437-3.919a.5.5 0 0 1-.862.013l-1.26-2.065a.5.5 0 0 0-.861.012l-2.153 3.767a.5.5 0 0 0 .435.748h10.292a.5.5 0 0 0 .438-.741L14.573 9.78a.5.5 0 0 0-.872-.006l-2.138 3.75z" fill-rule="evenodd"></path></svg></button><button aria-label="上传视频" data-tooltip="上传视频" data-tooltip-position="bottom" data-tooltip-will-hide-on-click="true" type="button" class="Button Editable-control Button--plain"><svg class="Zi Zi--InsertVideo" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M10.546 15c-.466.273-.86.053-.86-.5V9.505c0-.565.385-.778.86-.501l4.278 2.497c.466.272.475.726 0 1.003L10.546 15zM5 5S3 5 3 7v10s0 2 2.002 2H19c2 0 2-2 2-2V7c0-2-2-2-2-2H5z" fill-rule="evenodd"></path>
+										</svg>
+									</button>
+									<button aria-label="插入公式" data-tooltip="插入公式 (Ctrl+Shift+E)" data-tooltip-position="bottom" data-tooltip-will-hide-on-click="true" type="button" class="button">
+										<svg class="formatBold" fill="currentColor">
+											<path d="M9.033 16.182l3.083-4.133a.885.885 0 0 0 .003-1.12L9.033 6.817h7.985c.606-.03.982-.362.982-.92C18 5.34 17.611 5 17.018 5H6.922a.93.93 0 0 0-.83.509.882.882 0 0 0 .109.946L10 11.5l-3.782 5.037c-.29.289-.246.743-.122.974.172.316.455.489.799.489v-.211l.029.21h10.094c.501 0 .982-.32.982-.909 0-.59-.483-.857-.982-.908H9.033z" fill-rule="evenodd"></path>
+										</svg>
+									</button>
+									<button aria-label="插入分割线" data-tooltip="插入分割线 (Ctrl+Shift+S)" data-tooltip-position="bottom" data-tooltip-will-hide-on-click="true" type="button" class="button">
+										<svg class="formatBold" fill="currentColor" ></svg>
+											<path d="M4 7c0-.552.445-1 1-1h14c.552 0 1 .444 1 1 0 .552-.445 1-1 1H5c-.552 0-1-.444-1-1zm0 5a1 1 0 0 1 1.01-1h1.98a1 1 0 1 1 0 2H5.01C4.451 13 4 12.556 4 12zm6 0a1 1 0 0 1 1.01-1h1.98a1 1 0 1 1 0 2h-1.98c-.558 0-1.01-.444-1.01-1zm6 0a1 1 0 0 1 1.01-1h1.98a1 1 0 1 1 0 2h-1.98c-.558 0-1.01-.444-1.01-1zM4 17c0-.552.445-1 1-1h14c.552 0 1 .444 1 1 0 .552-.445 1-1 1H5c-.552 0-1-.444-1-1z" fill-rule="evenodd"></path>
+										</svg>
+									</button>
+									<span class="Editable-toolbar-separator"></span>
+									<button aria-label="清除格式" data-tooltip="清除格式 (Ctrl+\)" data-tooltip-position="bottom" data-tooltip-will-hide-on-click="true" type="button" class="button">
+										<svg class="formatBold" fill="currentColor" >
+											<path d="M9.864 12.83l1.641 1.642-1.171 2.874a1.693 1.693 0 0 1-1.585 1.055.782.782 0 0 1-.716-1.077l1.83-4.494zM11.5 8.811L12.24 7H9.69l-2-2h10.672a1 1 0 1 1 0 2h-3.813l-1.406 3.452L11.5 8.811zM5.293 6.845a1 1 0 0 1 1.414 0l10.046 10.046a1 1 0 0 1-1.414 1.414L5.293 8.26a1 1 0 0 1 0-1.415z" fill-rule="evenodd"></path>
+										</svg>
+									</button>
+									<div class="other">
+										<button aria-label="更多" data-tooltip="更多" data-tooltip-position="bottom" data-tooltip-will-hide-on-click="true" id="Popover68-toggle" aria-haspopup="true" aria-expanded="false" aria-owns="Popover68-content" type="button" class="button">
+											<svg class="formatBold" fill="currentColor">
+												<path d="M5 14a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill-rule="evenodd"></path>
+											</svg>
+										</button>
+									</div>
+								</div>
+								<div  class="Dropzone RichText ztext">
+									<div class="DraftEditor-root">
+										<div class="public-DraftEditorPlaceholder-root">
+											<div class="public-DraftEditorPlaceholder-inner" id="placeholder-8dq2" style="white-space: pre-wrap;">
+												输入问题背景、条件等详细信息（选填）
+											</div>
+										</div>
+										<div class="DraftEditor-editorContainer">
+											<div aria-describedby="placeholder-8dq2" class="notranslate public-DraftEditor-content" role="textbox" spellcheck="true" style="outline: currentcolor none medium; -moz-user-select: text; white-space: pre-wrap; overflow-wrap: break-word;" tabindex="0" contenteditable="true">
+												<div data-contents="true">
+													<div class="Editable-unstyled" data-block="true" data-editor="8dq2" data-offset-key="ched-0-0">
+														<div data-offset-key="ched-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr">
+															<span data-offset-key="ched-0-0">
+																<br data-text="true">
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<input multiple="" type="file" style="display: none;" accept="image/jpg,image/jpeg,image/png,image/gif">
+								<div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					-->
+
+					<div class="addtags">
+						<div class="newtag">
+							&nbsp;
+							<div class="newtag-description">知乎</div>
+							<div class="cancel">X</div>
+						</div>
+						<div class="add">+</div>
+						<div class="addword">添加话题</div>
+					</div>
+					<input type="radio" name="radio" class="radio">匿名提问
+					<input type="submit" value="发布问题" class="submit"/>
+				</form>
+			</div>
+			<div class="ask">
+				<a href="#">我要提问</a>
+			</div>
+			<div class="tags">
+				<!--数据库获取-->
+				<div class="tags-title">热门标签</div>
+				<ul>
+					<li><a href="questionTags.html">院校咨询</a></li>
+					<li><a href="questionTags.html">计算机专业课</a></li>
+					<li><a href="questionTags.html"> 数据库</a></li>
+					<li><a href="questionTags.html">高等数学</a></li>
+					<li><a href="questionTags.html">北京大学</a></li>
+					<li><a href="questionTags.html">计算机专业课</a></li>
+					<li><a href="questionTags.html">数据库</a></li>
+					<li><a href="questionTags.html">离散数学</a></li>
+					<li><a href="questionTags.html">>>查看全部标签</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/questionMain.js"></script>
+</html>
