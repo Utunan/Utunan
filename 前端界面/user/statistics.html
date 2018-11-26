@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>欢迎来到Utunan</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/user/userhome.css">
+    <link rel="stylesheet" href="../css/user/usercommon.css">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="header">
+        <header>
+            <div class="logo">
+                <img src="../images/favicon.ico" alt="" srcset="">
+            </div>
+            <a class="loginname" href="/homepage">优图南</a>
+            <div class="login">
+                <span><a href="/login" target="_blank">登陆</a></span><span><a href="/register" target="_blank">注册</a></span>
+            </div>
+            <div class="search">
+                <form action="/search" method="get" onsubmit="return true">
+                    <div class="text">
+                        <input type="text" name="keyword" placeholder="请输入内容" />
+                        <button style="" type="submit"><img src="../images/search.png" /></button>
+                    </div>
+
+                </form>
+            </div>
+
+            <nav class="banner">
+                <li>
+                    <a href="/questionbank">题库</a>
+                </li>
+                <li>
+                    <a href="/school">院校库</a>
+                </li>
+                <li>
+                    <a href="/community">社区</a>
+                </li>
+            </nav>
+        </header>
+    </div>
+    <div class="container">
+        <div class="wrapper">
+            <div class="usercard">
+                <div class="userheadimg">
+                    <img src="../images/userhead.png" alt="" srcset="">
+                </div>
+                <div class="countdown">
+                    <h4>2018年11月13日</h4>
+                    <h5>距离考试还有<span>555</span>天</h5>
+                </div>
+                <div class="userinfo">
+                    <div class="nickname">徐思涵天下第一美</div>
+                    <div class="schoolinfo">
+                        <span>本科院校:国防科技大学</span>
+                        <span>目标院校:国防科技大学</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 30px;">
+        <div class="wrapper background">
+            <nav class="userfunction">
+                <a href="">
+                    <li>
+                        <img src="../images/user/userinfo.svg" alt="" srcset="">
+                        <span>个人资料</span>
+                    </li>
+                </a>
+                <a href="">
+                    <li id="active">
+                        <img src="../images/user/statistics.svg">
+                        <span>题库统计</span>
+                    </li>
+                </a>
+                <li id="community">
+                    <img src="../images/user/collection.svg">
+                    <span>社区记录</span>
+                    <img src="../images/user/arrow.svg">
+                </li>
+                <nav class="postinfo" id="postinfo" style="height:100px;">
+                    <a href="">
+                        <li>发表的帖子</li>
+                    </a>
+                    <a href="">
+                        <li>发表的回复</li>
+                    </a>
+                </nav>
+                <li id="mycollection">
+                    <img src="../images/user/collection.svg">
+                    <span>我的收藏</span>
+                    <img src="../images/user/arrow.svg">
+                </li>
+                <nav class="collection" id="collection" style="height:150px;">
+                    <a href="">
+                        <li>题目收藏夹</li>
+                    </a>
+                    <a href="">
+                        <li>院校收藏夹</li>
+                    </a>
+                    <a href="">
+                        <li>帖子收藏夹</li>
+                    </a>
+                </nav>
+            </nav>
+            <div class="content">
+                <div class="title">
+                    <span>个人资料</span>
+                </div>
+                <div class="userinfoform">
+                    <form id="userinfoform" action="" method="post">
+                        <nav>
+                            <li>
+                                <label for="">昵&emsp;&emsp;称</label>
+                                <input type="text" id="userNickName" name="userNickName" placeholder="徐思涵天下第一美" />
+                            </li>
+                            <li>
+                                <label for="">目标院校</label>
+                                <input type="text" id="" name="" placeholder="清华大学" />
+                            </li>
+                            <li>
+                                <label for="">本科院校</label>
+                                <input type="text" id="" name="" placeholder="河北师范大学" />
+                            </li>
+                            <li>
+                                <label for="">绑定手机</label>
+                                <input type="text" id="" name="" placeholder="15222774841" />
+                            </li>
+                            <li>
+                                <label for="">绑定邮箱</label>
+                                <input type="text" id="" name="" placeholder="360321381@qq.com" />
+                            </li>
+                            <li>
+                                <label for="">注册时间</label>
+                                <span>2018/11/14</span>
+                            </li>
+                            <li class="userop">
+                                <button type="submit">更改信息</button>
+                                <button type="reset">撤销操作</button>
+                            </li>
+
+                        </nav>
+                    </form>
+                </div>
+
+                <div class="changeheadimg">
+                    <img src="../images/userhead.png" alt="" srcset="">
+                    <h4><a href="">更改头像</a></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <footer>
+            <nav>
+                <li><a href="">友情链接</a></li>
+                <li><a href="">广告合作</a></li>
+                <li><a href="">联系我们</a></li>
+                <li><a href="">关于我们</a></li>
+            </nav>
+            <p>冀ICP备17013704号 design by 写BUG辛苦了</p>
+        </footer>
+    </div>
+</body>
+<script src="../js/usercommon.js"></script>
+
+</html>
