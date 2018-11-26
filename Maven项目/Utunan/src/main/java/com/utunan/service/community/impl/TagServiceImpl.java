@@ -32,4 +32,12 @@ public class TagServiceImpl implements TagService {
 	public List<Long> getTop10TagNumber(){
 		return this.tagMapper.top10TagNumber();
 	}
+	@Override
+	public List<Tag> getTop3Tag(){
+		return this.tagMapper.top3Tag();
+	}
+	@Override
+	public List<Tag> getRemianTags(List<Tag> tagList3){
+		return this.tagMapper.getRemainTag(tagList3);
+	}
 }

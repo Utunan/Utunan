@@ -14,6 +14,8 @@
     <title>问答列表</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="/css/community/questionIndex.css"/>
+    <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>ss
 </head>
 <body>
     <!--
@@ -225,11 +227,11 @@
         <div class="right-content">
             <div class="modalDialogcontent">
                 <span class="close_modalDialogcontent">×</span>
-                <form>
+                <form action="quiz3" method="post">
                     <div class="ask-question">
                         <!--从数据库查出头像-->
-                        <div class="headAppear"><img src="/images/userheadimg/hand.jpg"/></div>
-                        <textarea class="question-content" required="" rows="1"  autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-activedescendant="AutoComplete59--1"  aria-haspopup="true" aria-owns="Popover58-content"  placeholder="写下你的问题，准确地描述问题更容易得到解答"></textarea>
+                        <%--@declare id="autocomplete59--1"--%><div class="headAppear"><img src="images/userheadimg/hand.jpg"/></div>
+                        <textarea class="question-content" required="" rows="1"  autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-activedescendant="AutoComplete59--1"  aria-haspopup="true" aria-owns="Popover58-content"  placeholder="写下你的问题，准确地描述问题更容易得到解答" name="title"></textarea>
                     </div>
                     <div class="question-inspection">
                         <!--验证问题是否有问号，没有问号，显示-->
@@ -237,34 +239,65 @@
                     </div>
                     <div class="setReward">
                         设置悬赏金额
-                        <input class="setReward-value" type="text"placeholder="0"/>
+                        <input class="setReward-value" type="text" placeholder="0" name="j1"/>
                     </div>
                     <!--富文本编辑器-->
                     <div class="text">
-                        <div class="toolbar" unselectable="on">
-                            <img src="/images/community/text1.svg" width="20px"height="20px">
-                            <img src="/images/community/text2.svg" width="20px"height="20px">
-                            <img src="/images/community/text3.svg" width="20px"height="20px">
-                            <img src="/images/community/text4.svg" width="20px"height="20px">
-                            <img src="/images/community/text5.svg" width="20px"height="20px">
-                            <img src="/images/community/text6.svg" width="20px"height="20px">
-                            <img src="/images/community/text7.svg" width="20px"height="20px">
-                            <img src="/images/community/text8.svg" width="20px"height="20px">
-                            <img src="/images/community/text9.svg" width="20px"height="20px">
-                            <div class="more"><img src="/images/community/text10.svg" width="20px"height="20px"></div>
+                        <div id="div1" class="toolbar" style="width: 100px;float: right" ></div>
+                        <div id="div2" class="question-content">
+                            <p>输入问题背景、条件等详细信息</p>
                         </div>
-                        <textarea class="question-content" required="" rows="1"  autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-activedescendant="AutoComplete59--1"  aria-haspopup="true" aria-owns="Popover58-content"  placeholder="输入问题背景、条件等详细信息（选填）"></textarea>
+                        <textarea id="text1" style="display: none" name="textarea"></textarea>
+                        <!--<div class="toolbar" unselectable="on">
+                            <img src="images/community/text1.svg" width="20px"height="20px">
+                            <img src="images/community/text2.svg" width="20px"height="20px">
+                            <img src="images/community/text3.svg" width="20px"height="20px">
+                            <img src="images/community/text4.svg" width="20px"height="20px">
+                            <img src="images/community/text5.svg" width="20px"height="20px">
+                            <img src="images/community/text6.svg" width="20px"height="20px">
+                            <img src="images/community/text7.svg" width="20px"height="20px">
+                            <img src="images/community/text8.svg" width="20px"height="20px">
+                            <img src="images/community/text9.svg" width="20px"height="20px">
+                            <div class="more"><img src="images/community/text10.svg" width="20px"height="20px"></div>
+                        </div>
+                        <textarea class="question-content" required="" rows="1"  autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-activedescendant="AutoComplete59--1"  aria-haspopup="true" aria-owns="Popover58-content"  placeholder="输入问题背景、条件等详细信息（选填）"></textarea>-->
+                        <script type="text/javascript">
+                            var E = window.wangEditor;
+                            var editor1 = new E('#div1', '#div2');  // 两个参数也可以传入 elem 对象，class 选择器
+                            editor1.customConfig.menus = [
+                                'link',     //插入链接
+                                'image',    //插入图片
+                                'code'    //插入代码
+                            ];
+                            editor1.customConfig.uploadImgShowBase64 = true           //使用base64存储图片
+                            editor1.customConfig.uploadImgMaxSize = 3 * 1024 * 1024   //每张图片最大上传大小
+                            editor1.customConfig.uploadImgMaxLength = 5              //每次最多上传5张
+                            var $text1 = $('#text1')
+                            editor1.customConfig.onchange = function (html) {
+                                // 监控变化，同步更新到 textarea
+                                $text1.val(html)
+                            }
+
+                            editor1.create();
+                        </script>
                     </div>
 
 
                     <div class="addtags">
-                        <div class="newtag">
-                            &nbsp;
-                            <div class="newtag-description">知乎</div>
-                            <div class="cancel">X</div>
-                        </div>
+                        <c:forEach items="${tags}" var="tag1">
+                            <div class="newtag">
+                                &nbsp;
+                                <div class="newtag-description">${tag1.tagName}</div>
+                                <div class="cancel"><a >X</a></div>
+                            </div>
+                        </c:forEach>
                         <div class="add">+</div>
                         <div class="addword">添加话题</div>
+                        <div></div>
+                        <c:forEach items="${alltag}" var="a">
+                            <div class="newtag-description">${a.tagName}</div>
+                            <div class="add"><a>+</a></div>
+                        </c:forEach>
                     </div>
                     <input type="radio" name="radio" class="radio">匿名提问
                     <input type="submit" value="发布问题" class="submit"/>
@@ -278,7 +311,7 @@
                 <div class="tags-title">热门标签</div>
                 <ul>
                     <c:forEach items="${tag}" var="tags">
-                    <li><a href="quiz3?tagName=${tags[0].tagName}">${tags[0].tagName}&nbsp;&nbsp;${tags[1]}</a></li>
+                        <li><a href="">${tags[0].tagName}</a></li>
                     </c:forEach>
                 </ul>
             </div>

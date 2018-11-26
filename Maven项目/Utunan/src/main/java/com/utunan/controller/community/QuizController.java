@@ -55,10 +55,17 @@ public class QuizController {
 		Page<BigQuiz> p = new Page<>(num, 6);
 		p.setList(objects);
 		p.setTotalCount(quizNumber);
+		//提问区获取问题数量查询前3个热门标签
+		List<Tag> tagList3=this.tagService.getTop3Tag();
+
+		//提问区获取余下标签
+		List<Tag> getAllTag=this.tagService.getRemianTags(tagList3);
 		//返回数据
 		request.setAttribute("page",p);
 		request.setAttribute("url",url);
 		request.setAttribute("tag",hotTagList);
+		request.setAttribute("tags",tagList3);
+		request.setAttribute("alltag",getAllTag);
 		return "community/quiz";
 	}
 
