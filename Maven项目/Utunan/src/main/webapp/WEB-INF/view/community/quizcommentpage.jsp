@@ -115,7 +115,7 @@
             <c:forEach items="${commentListByQuizId}" var="comment" varStatus="cou">
             <div class="reply">
                 <div class="reply-top">
-                    <img src="/images/userheadimg/hand.jpg"width="55px"height="55px">
+                    <img src="${comment.user.userHeadImg}"width="55px"height="55px">
                     <div class="reply-top-center">
                         <a href="#">${comment.user.userNickName}</a>
                         <div class="description">
