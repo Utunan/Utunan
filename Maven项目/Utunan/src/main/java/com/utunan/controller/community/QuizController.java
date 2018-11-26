@@ -65,16 +65,11 @@ public class QuizController {
 		Page<BigQuiz> p = new Page<>(num, 6);
 		p.setList(objects);
 		p.setTotalCount(quizNumber);
-		//返回排序的选中状态
-		List<String> stateList=new ArrayList<String>();
-		stateList.add("active");
-		stateList.add("option");
 		//返回数据
 		request.setAttribute("page",p);
 		request.setAttribute("url",url);
 		request.setAttribute("tag",tag);
 		request.setAttribute("objects",objects);
-		request.setAttribute("statelist",stateList);
 		return "community/quiz";
 	}
 
@@ -115,16 +110,11 @@ public class QuizController {
 		Page<BigQuiz> p = new Page<>(num, 6);
 		p.setList(objects);
 		p.setTotalCount(quizNumber);
-		//返回排序的选中状态
-		List<String> stateList=new ArrayList<String>();
-		stateList.add("option");
-		stateList.add("active");
 		//返回数据
 		request.setAttribute("page",p);
 		request.setAttribute("url",url);
 		request.setAttribute("tag",tag);
 		request.setAttribute("objects",objects);
-		request.setAttribute("statelist",stateList);
 		return "community/quiz";
 	}
 
