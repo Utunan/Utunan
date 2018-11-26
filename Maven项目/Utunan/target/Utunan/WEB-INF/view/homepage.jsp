@@ -174,8 +174,8 @@
                 <span>研究方向: <input name="schoolName" type="text"> </span>
                 <input type="submit" class="searchschoolinfo" value="查询">
                 <p style="color:#fff;font-weight:900;font-size: 18px;">112所高校研招信息全部收入囊中，提供多种检索方式。时光宝贵，我们帮助您更快、更精确的找到您理想高校。</p>
-                <input type="submit" class="allschoolinfo" value="查看更多">
             </form>
+            <a href="/school"class="allschoolinfo" >查看更多</a>
         </div>
     </div>
     <div class="community">

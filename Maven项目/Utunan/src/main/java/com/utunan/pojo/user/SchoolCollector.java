@@ -1,17 +1,17 @@
 package com.utunan.pojo.user;
 
+import com.utunan.pojo.school.Direction;
+import com.utunan.pojo.school.Major;
+import com.utunan.pojo.school.School;
+
 public class SchoolCollector {
 
     //院校信息收藏列表Id
     private Long schoolCollectorId;
     //用户Id
-    private Long userId;
-    //学校Id
-    private Long schoolId;
-    //专业Id
-    private Long majorId;
+    private User user;
     //研究方向Id
-    private Long researchId;
+    private Direction direction;
 
     public Long getSchoolCollectorId() {
         return schoolCollectorId;
@@ -21,46 +21,28 @@ public class SchoolCollector {
         this.schoolCollectorId = schoolCollectorId;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Long getSchoolId() {
-        return schoolId;
+    public Direction getDirection() {
+        return direction;
     }
 
-    public void setSchoolId(Long schoolId) {
-        this.schoolId = schoolId;
-    }
-
-    public Long getMajorId() {
-        return majorId;
-    }
-
-    public void setMajorId(Long majorId) {
-        this.majorId = majorId;
-    }
-
-    public Long getResearchId() {
-        return researchId;
-    }
-
-    public void setResearchId(Long researchId) {
-        this.researchId = researchId;
+    public void setDirection(Direction direction) {
+        this.direction = direction;
     }
 
     @Override
     public String toString() {
         return "SchoolCollector{" +
                 "schoolCollectorId=" + schoolCollectorId +
-                ", userId=" + userId +
-                ", schoolId=" + schoolId +
-                ", majorId=" + majorId +
-                ", researchId=" + researchId +
+                ", user=" + user +
+                ", direction=" + direction +
                 '}';
     }
 }

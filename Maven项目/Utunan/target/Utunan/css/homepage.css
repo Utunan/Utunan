@@ -221,17 +221,17 @@ header{
 }
 
 .allschoolinfo{
-    margin:0 auto;
-    width: 200px;
-    height:50px;
+    text-decoration: none;
     outline: none;
     border:0;
+    float: left;
     border-radius: 50px;
     margin:50px 380px;
     color:#718cee;
     cursor: pointer;
     background: #fff;
     font-size: 18px;
+    padding:20px;
 }
 .community{
     margin-top:30px;

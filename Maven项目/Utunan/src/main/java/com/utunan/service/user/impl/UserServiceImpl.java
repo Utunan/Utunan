@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser(User user) {
-        User u=userMapper.queryByPermit(user);
+        User u=userMapper.selectByPermit(user);
         return u;
     }
 
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public boolean isExist(User user) {
-        User u=userMapper.findByPermit(user);
+        User u=userMapper.selectByUorE(user);
         if(u!=null) {
 	        return true;
         }
