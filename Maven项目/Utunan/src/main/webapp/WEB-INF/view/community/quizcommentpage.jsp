@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/question.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/community/question.css"/>
     <title>问题页面</title>
 </head>
 <body>
@@ -95,11 +95,11 @@
             <div class="post-bottom">
                 <!--数据库获取-->
                 <div class="praise">赞（${quiz.praiseCount}）</div>
-                <img src="images/community/jia1.svg" width="34px"height="34px">
+                <img src="/images/community/jia1.svg" width="34px"height="34px">
                 <div class="give-praise">点赞</div>
-                <img src="images/community/shoucang.svg" width="34px"height="34px">
+                <img src="/images/community/shoucang.svg" width="34px"height="34px">
                 <div class="collection">收藏此问题</div>
-                <img src="images/community/zan.svg" width="34px"height="34px">
+                <img src="/images/community/zan.svg" width="34px"height="34px">
                 <div class="write-reply">写回答</div>
             </div>
         </div>
@@ -115,7 +115,7 @@
             <c:forEach items="${commentListByQuizId}" var="comment" varStatus="cou">
             <div class="reply">
                 <div class="reply-top">
-                    <img src="images/userheadimg/hand.jpg"width="55px"height="55px">
+                    <img src="/images/userheadimg/hand.jpg"width="55px"height="55px">
                     <div class="reply-top-center">
                         <a href="#">${comment.user.userNickName}</a>
                         <div class="description">
@@ -132,9 +132,9 @@
                 <div class="reply-evaluation">
                     <div class="a">
                         <div class="reply-praise">赞（${comment.commentPraiseCount}）</div>
-                        <img src="images/community/jia1.svg" width="34px"height="34px">
+                        <img src="/images/community/jia1.svg" width="34px"height="34px">
                         <div class="reply-give-praise">点赞</div>
-                        <img src="images/community/zan.svg" width="34px"height="34px">
+                        <img src="/images/community/zan.svg" width="34px"height="34px">
                         <div class="view-comments"><a href="/displayChildComment?commentId=${comment.commentId}">查看评论</a></div>
                     </div>
                 </div>
@@ -149,22 +149,22 @@
         </div>
         <div class="write-answer">
             <div class="write-answer-top">
-                <img src="images/community/write.svg" width="25px"height="25px">
+                <img src="/images/community/write.svg" width="25px"height="25px">
                 <div class="write-answer-top">写回答</div>
             </div>
             <!--富文本编辑器-->
             <div class="text">
                 <div class="toolbar">
-                    <img src="images/community/text1.svg" width="20px"height="20px">
-                    <img src="images/community/text2.svg" width="20px"height="20px">
-                    <img src="images/community/text3.svg" width="20px"height="20px">
-                    <img src="images/community/text4.svg" width="20px"height="20px">
-                    <img src="images/community/text5.svg" width="20px"height="20px">
-                    <img src="images/community/text6.svg" width="20px"height="20px">
-                    <img src="images/community/text7.svg" width="20px"height="20px">
-                    <img src="images/community/text8.svg" width="20px"height="20px">
-                    <img src="images/community/text9.svg" width="20px"height="20px">
-                    <div class="more"><img src="images/community/text10.svg" width="20px"height="20px"></div>
+                    <img src="/images/community/text1.svg" width="20px"height="20px">
+                    <img src="/images/community/text2.svg" width="20px"height="20px">
+                    <img src="/images/community/text3.svg" width="20px"height="20px">
+                    <img src="/images/community/text4.svg" width="20px"height="20px">
+                    <img src="/images/community/text5.svg" width="20px"height="20px">
+                    <img src="/images/community/text6.svg" width="20px"height="20px">
+                    <img src="/images/community/text7.svg" width="20px"height="20px">
+                    <img src="/images/community/text8.svg" width="20px"height="20px">
+                    <img src="/images/community/text9.svg" width="20px"height="20px">
+                    <div class="more"><img src="/images/community/text10.svg" width="20px"height="20px"></div>
                 </div>
                 <textarea class="comment-content" required="" rows="1"  autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list"  aria-haspopup="true" aria-owns="Popover58-content"  placeholder="请输入你的内容……"></textarea>
             </div>
