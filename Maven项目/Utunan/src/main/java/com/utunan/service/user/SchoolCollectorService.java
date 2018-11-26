@@ -1,5 +1,10 @@
 package com.utunan.service.user;
 
-public interface SchoolCollectorService {
+import com.utunan.pojo.school.Direction;
+import com.utunan.pojo.user.User;
 
+import java.util.List;
+
+public interface SchoolCollectorService {
+    List<Direction> getUserSchoolCollector(User user);
 }

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.Dictionary;
+import java.util.List;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -39,8 +41,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean changeInfo(User user) {
-        userMapper.updateUser(user);
+        List<Dictionary> list=userMapper.updateUser(user);
         return false;
     }
-
 }
