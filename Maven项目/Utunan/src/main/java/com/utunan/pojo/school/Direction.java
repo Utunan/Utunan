@@ -1,5 +1,10 @@
 package com.utunan.pojo.school;
 
+import com.utunan.pojo.user.User;
+
+import java.util.List;
+import java.util.Set;
+
 /**
  * 研究方向实体类
  */
@@ -7,7 +12,7 @@ public class Direction {
     //研究方向编号
     private  Integer directionId;
     //学校名称
-    private  String SchoolName;
+    private  String schoolName;
     //院系名称
     private  String collegeName;
     //专业名称
@@ -25,6 +30,16 @@ public class Direction {
     //专业基础课
     private String majorBasics;
 
+    private List<User> users;
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
     public Integer getDirectionId() {
         return directionId;
     }
@@ -34,11 +49,11 @@ public class Direction {
     }
 
     public String getSchoolName() {
-        return SchoolName;
+        return schoolName;
     }
 
     public void setSchoolName(String schoolName) {
-        SchoolName = schoolName;
+        schoolName = schoolName;
     }
 
     public String getCollegeName() {
@@ -103,5 +118,22 @@ public class Direction {
 
     public void setMajorBasics(String majorBasics) {
         this.majorBasics = majorBasics;
+    }
+
+    @Override
+    public String toString() {
+        return "Direction{" +
+                "directionId=" + directionId +
+                ", SchoolName='" + schoolName + '\'' +
+                ", collegeName='" + collegeName + '\'' +
+                ", majorName='" + majorName + '\'' +
+                ", directionName='" + directionName + '\'' +
+                ", degreeType='" + degreeType + '\'' +
+                ", politics='" + politics + '\'' +
+                ", english='" + english + '\'' +
+                ", math='" + math + '\'' +
+                ", majorBasics='" + majorBasics + '\'' +
+                ", users=" + users +
+                '}';
     }
 }

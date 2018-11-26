@@ -82,7 +82,17 @@
             </nav>
         </nav>
         <div class="content">
-
+            <c:forEach items="${Directions}" var="D">
+                ${D.schoolName}
+                ${D.collegeName}
+                ${D.majorName}
+                ${D.directionName}
+                ${D.degreeType}
+                ${D.politics}
+                ${D.english}
+                ${D.math}
+                ${D.math}
+            </c:forEach>
         </div>
     </div>
 </div>
