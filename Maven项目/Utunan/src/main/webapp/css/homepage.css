@@ -51,14 +51,14 @@ header{
     height: 120px;
 }
 #summary{
-    width: 360px;
+    width: 320px;
 }
 .summary{
     float: left;
-    width: 360px;
+    width: 320px;
     height: 200px;
     background: url(../images/homepage/cirtle.png);
-    background-size: 70%;
+    background-size: 80%;
     background-position: center center;
     background-repeat: no-repeat;
 }
@@ -66,7 +66,7 @@ header{
 .plateinfo{
     height: 80px;
     width: 230px;
-    margin:60px 0 60px 40px;
+    margin:60px 0 60px 15px;
     background: rgba(67, 126, 170, 1);
     line-height: 80px;
     font-size: 30px;
