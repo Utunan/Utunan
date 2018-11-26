@@ -98,7 +98,7 @@ public interface QuizService {
 	 */
 	Long countQuizWithTagName(String tagName);
 
-	 * @author  唐溪
+	 /* @author  唐溪
 	 * @description
 	 * @date   18:56 2018/11/25
 	 * @param  [quizList]

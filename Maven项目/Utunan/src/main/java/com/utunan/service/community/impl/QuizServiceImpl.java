@@ -220,9 +220,9 @@ public class QuizServiceImpl implements QuizService {
 	}
 
 	@Override
-	public Long countQuizWithTagName(String tagName){
+	public Long countQuizWithTagName(String tagName) {
 		return this.quizMapper.countQuizWithTagName(tagName);
-    
+	}
 	/**
 	 * @author  唐溪
 	 * @description 限制问题标题、内容展示字数
