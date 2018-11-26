@@ -42,7 +42,7 @@
         select * from commemt where commentId=(select max(commentId) from comment)
     </select>
 
-    <!--王碧云 根据quizId查询评论列表（子评论除外）(根据时间排序)-->
+    <!--王碧云 根据quizId查询评论列表（子评论除外）(默认：根据时间排序)-->
     <select id="findCommentListByQuizId" resultMap="commentResultMap">
         select *
         from comment
@@ -50,6 +50,16 @@
         where
         quizId = #{quizId} and replyCommentId is null
         order by commentTime asc
+    </select>
+
+    <!--王碧云 根据热度返回评论列表-->
+    <select id="findCommentListByPraiseCount" resultMap="commentResultMap">
+        select *
+        from comment
+        join user on comment.userId=user.userId
+        where
+        quizId = #{quizId} and replyCommentId is null
+        order by commentPraiseCount desc
     </select>
 
     <!--王碧云 根据commentId查询子评论-->

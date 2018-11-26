@@ -14,7 +14,6 @@ public class UserSkipController {
 
     @RequestMapping("")
     public String user() {
-        System.out.println("你路过了我呦~");
         return "/user/myspace";
     }
 

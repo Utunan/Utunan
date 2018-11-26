@@ -76,4 +76,16 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> findChildCommentListByCommentId(Long commentId) {
         return this.commentMapper.findChildCommentListByCommentId(commentId);
     }
+
+    /*
+     * @author  王碧云
+     * @description 根据热度返回评论列表
+     * @date  11:15 2018/11/26/026
+     * @param  [quizId]
+     * @return  java.util.List<com.utunan.pojo.community.Comment>
+     */
+    @Override
+    public List<Comment> findCommentListByPraiseCount(Long quizId) {
+        return this.commentMapper.findCommentListByPraiseCount(quizId);
+    }
 }

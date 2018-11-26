@@ -105,9 +105,9 @@
         </div>
         <div class="answers">
             <div class="answers-num">一共有${commentCountByQuizId}条评论</div>
-            <select class="sequencing-principle"name="">
-                <option value="0">按时间顺序</option>
-                <option value="1">按热度排序</option>
+            <select class="sequencing-principle"name="" onchange="self.location.href=options[selectedIndex].value">
+                <option value="/displayQuizByQuizId?quizId=${quiz.quizId}">按时间顺序</option>
+                <option value="/displayCommentByPraiseCount?quizId=${quiz.quizId}">按热度排序</option>
                 <option value="1">智能推荐</option>
             </select>
         </div>
@@ -115,7 +115,7 @@
             <c:forEach items="${commentListByQuizId}" var="comment" varStatus="cou">
             <div class="reply">
                 <div class="reply-top">
-                    <img src="/images/userheadimg/hand.jpg"width="55px"height="55px">
+                    <img src="${comment.user.userHeadImg}"width="55px"height="55px">
                     <div class="reply-top-center">
                         <a href="#">${comment.user.userNickName}</a>
                         <div class="description">
