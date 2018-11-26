@@ -70,17 +70,17 @@
     <div class="mask"></div>
     <!--内容-->
     <div class="content">
+
         <!--左半部分-->
+        <!--初始界面-->
+        <c:if test="${empty tagName}">
         <div class="left-content">
             <!--内容声明-->
             <div class="left-content-header">
                 <p>U问答是一个针对计算机专业学生的问答社区，欢迎你在这里提问与答疑<a class="subscribe"href="#">&nbsp;+订阅&nbsp;</a></p>
-
             </div>
-
             <!--主要内容-->
             <div class="left-content-main">
-
                 <div class="content-main-menu">
                     <!--帖子显示原则选项-->
                     <div class="menu-description">排序：</div>
@@ -108,7 +108,7 @@
                     <div class="post-content">
                         <div class="top">
                             <div class="post-information">
-                                    ${obj.quiz.releaseTime} &nbsp;来自:<a href="#">${obj.quiz.user.userNickName}</a>
+                                    ${obj.quiz.releaseTime} &nbsp;来自:<a href="#">${obj.user.userNickName}</a>
                             </div>
                             <div class="reward">悬赏:</div>
                             <div class="reward-value">10</div>
@@ -125,7 +125,7 @@
                         <!--帖子问题类型-->
                         <div class="post-tags">
                             <c:forEach items="${obj.tagList}" var="taglist">
-                                <a href="#">&nbsp;${taglist.tagName}&nbsp;</a>
+                                <a href="quiz3?tagName=${taglist.tagName}">&nbsp;${taglist.tagName}&nbsp;</a>
                             </c:forEach>
                         </div>
                     </div>
@@ -145,7 +145,82 @@
                 </div>
             </div>
         </div>
+        </c:if>
+        <!--选择标签后-->
+        <c:if test="${not empty tagName}">
+            <div class="left-content">
+                <!--内容声明-->
+                <div class="left-content-header">
+                    <p>标签 “${tagName}”<a class="subscribe"href="#">&nbsp;+订阅&nbsp;</a></p>
+                </div>
+                <!--主要内容-->
+                <div class="left-content-main">
 
+                    <div class="content-main-menu">
+                        <!--帖子显示原则选项-->
+                        <div class="menu-description">排序：</div>
+                        <div class="menu-optionSet">
+                            <ul>
+                                <li class="active" ><a href="quiz3?tagName=${tagName}">按时间排序</a></li>
+                                <li class="option" ><a href="quiz4?tagName=${tagName}">按热度排序</a></li>
+                                <li class="option" ><a href="#" >智能化推荐</a></li>
+                            </ul>
+                        </div>
+                        <div class="search">
+                            <!--搜索帖子-->
+                            <div class="searchText">
+                                <input type="text" style="width:140px; height:20px;border-radius:8px;border: none;margin-top: 10px;"/>
+                            </div>
+                            <!--搜索图标-->
+                            <div class="searchImg">
+                                <img src="images/search.png" width="20px" height="20px">
+                            </div>
+                        </div>
+                    </div>
+                    <!--帖子-->
+                    <c:forEach items="${page.list}" var="obj">
+                        <div class="post">
+                            <div class="post-content">
+                                <div class="top">
+                                    <div class="post-information">
+                                            ${obj.quiz.releaseTime} &nbsp;来自:<a href="#">${obj.user.userNickName}</a>
+                                    </div>
+                                    <div class="reward">悬赏:</div>
+                                    <div class="reward-value">10</div>
+                                    <div></div>
+                                    <div class="praise">赞:</div>
+                                    <div class="praise-value">${obj.quiz.praiseCount}</div>
+                                </div>
+                                <div class="question">
+                                    <p>${obj.quiz.quizTitle}</p>
+                                </div>
+                                <div class="post-description">
+                                    <p>${obj.quiz.quizContent}</p>
+                                </div>
+                                <!--帖子问题类型-->
+                                <div class="post-tags">
+                                    <c:forEach items="${obj.tagList}" var="taglist">
+                                        <a href="quiz3?tagName=${taglist.tagName}">&nbsp;${taglist.tagName}&nbsp;</a>
+                                    </c:forEach>
+                                </div>
+                            </div>
+                            <a class="answer_num " title="暂无满意答案" target="_blank" href="#">
+                                <span>${obj.commentNumber}</span>
+                                <p>回答</p>
+                            </a>
+                        </div>
+                    </c:forEach>
+                    <div class="bottom">
+                        <div class="page">
+                            <a href="/${url }?tagName=${tagName}&pageNum=1">首页</a>
+                            <a href="/${url }?tagName=${tagName}&pageNum=${page.prePageNum }">上一页</a>
+                            <a href="/${url }?tagName=${tagName}&pageNum=${page.nextPageNum }">下一页</a>
+                            <a href="/${url }?tagName=${tagName}&pageNum=${page.totalPageNum }">末页</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </c:if>
         <!--右半部分-->
         <div class="right-content">
             <div class="modalDialogcontent">
@@ -203,7 +278,7 @@
                 <div class="tags-title">热门标签</div>
                 <ul>
                     <c:forEach items="${tag}" var="tags">
-                    <li><a href="">${tags[0].tagName}</a></li>
+                    <li><a href="quiz3?tagName=${tags[0].tagName}">${tags[0].tagName}&nbsp;&nbsp;${tags[1]}</a></li>
                     </c:forEach>
                 </ul>
             </div>

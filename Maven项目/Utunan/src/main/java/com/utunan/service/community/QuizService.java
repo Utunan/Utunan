@@ -61,13 +61,48 @@ public interface QuizService {
 	 */
 	Quiz findQuizById(Long quizId);
 
-	/*
+	/**
 	 * @author  王碧云
 	 * @description 根据quizId查评论数量
 	 * @date  14:58 2018/11/25/025
-	 * @param  [quizId]
+	 * @param  quizId
 	 * @return  java.lang.Long
 	 */
 	Long countCommentByQuizId(Long quizId);
 
+	/**
+  
+	 * @author  孙程程
+	 * @description 在某标签下根据发表时间分页查询问答列表
+	 * @date  8:46 2018/11/26
+	 * @param  tagName, pageNum, pageSize
+	 * @return  java.util.List<com.utunan.pojo.util.BigQuiz>
+	 */
+	List<BigQuiz> quizListByTimeWithTagName(String tagName, int pageNum, int pageSize);
+
+	/**
+	 * @author  孙程程
+	 * @description 在某标签下根据点赞数量分页查询问答列表
+	 * @date  15:36 2018/11/26
+	 * @param  tagName, pageNum, pageSize
+	 * @return  java.util.List<com.utunan.pojo.util.BigQuiz>
+	 */
+	List<BigQuiz> quizListByPraiseWithTagName(String tagName, int pageNum, int pageSize);
+
+	/**
+	 * @author  孙程程
+	 * @description 某标签下所有问答数量
+	 * @date  8:56 2018/11/26
+	 * @param  tagName
+	 * @return  java.lang.Long
+	 */
+	Long countQuizWithTagName(String tagName);
+
+	 * @author  唐溪
+	 * @description
+	 * @date   18:56 2018/11/25
+	 * @param  [quizList]
+	 * @return  void
+	 */
+	void condenseQuiz(List<Quiz> quizList);
 }

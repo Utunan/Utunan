@@ -69,7 +69,6 @@ public class QuizController {
 		request.setAttribute("page",p);
 		request.setAttribute("url",url);
 		request.setAttribute("tag",tag);
-		request.setAttribute("objects",objects);
 		return "community/quiz";
 	}
 
@@ -114,7 +113,6 @@ public class QuizController {
 		request.setAttribute("page",p);
 		request.setAttribute("url",url);
 		request.setAttribute("tag",tag);
-		request.setAttribute("objects",objects);
 		return "community/quiz";
 	}
 
@@ -125,7 +123,6 @@ public class QuizController {
 	 * @param
 	 * @return
 	 */
-
 	@RequestMapping(value = "/quiz3",method = RequestMethod.POST)
 	public String insertQuiz(HttpServletRequest request) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("UTF-8");
@@ -139,4 +136,97 @@ public class QuizController {
 		request.setAttribute("content",quiz);
 		return "show";
 	}
+
+	/**
+	 * @author  孙程程
+	 * @description 在某标签下根据发表时间分页查询问答列表
+	 * @date  15:39 2018/11/26
+	 * @param  request
+	 * @return  java.lang.String
+	 */
+	@RequestMapping(value="/quiz3")
+	public String displayQuizByTimeWithTagName(HttpServletRequest request){
+		String url="quiz3";
+		String tagName=request.getParameter("tagName");
+		String pageNum=request.getParameter("pageNum");
+		//判断当前页
+		int num=0;
+		if(pageNum==null || pageNum.equals("")){
+			num=1;
+		}else{
+			num=Integer.parseInt(pageNum);
+		}
+
+		//提问列表
+		List<BigQuiz> objects=this.quizService.quizListByTimeWithTagName(tagName, num,6);
+		//提问数量
+		Long quizNumber = this.quizService.countQuizWithTagName(tagName);
+		//热门标签
+		List<Tag> hotTagList=this.tagService.getTop10Tag();
+		//热门标签的回答数量
+		List<Long> hotTagNumber=this.tagService.getTop10TagNumber();
+		//封装热门标签和标签数量
+		Object[][] hotTag=new Object[10][2];
+		for(int i=0; i<hotTagList.size(); i++){
+			hotTag[i][0]=hotTagList.get(i);
+			hotTag[i][1]=hotTagNumber.get(i);
+		}
+		//封装分页
+		Page<BigQuiz> p = new Page<>(num, 6);
+		p.setList(objects);
+		p.setTotalCount(quizNumber);
+		//返回数据
+		request.setAttribute("page",p);
+		request.setAttribute("url",url);
+		request.setAttribute("tag",hotTag);
+		request.setAttribute("tagName",tagName);
+		return "community/quiz";
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 在某标签下根据点赞数量分页查询问答列表
+	 * @date  15:39 2018/11/26
+	 * @param  request
+	 * @return  java.lang.String
+	 */
+	@RequestMapping(value="/quiz4")
+	public String displayQuizByPraiseWithTagName(HttpServletRequest request){
+		String url="quiz4";
+		String tagName=request.getParameter("tagName");
+		String pageNum=request.getParameter("pageNum");
+		//判断当前页
+		int num=0;
+		if(pageNum==null || pageNum.equals("")){
+			num=1;
+		}else{
+			num=Integer.parseInt(pageNum);
+		}
+
+		//提问列表
+		List<BigQuiz> objects=this.quizService.quizListByPraiseWithTagName(tagName, num,6);
+		//提问数量
+		Long quizNumber = this.quizService.countQuizWithTagName(tagName);
+		//热门标签
+		List<Tag> hotTagList=this.tagService.getTop10Tag();
+		//热门标签的回答数量
+		List<Long> hotTagNumber=this.tagService.getTop10TagNumber();
+		//封装热门标签和标签数量
+		Object[][] hotTag=new Object[10][2];
+		for(int i=0; i<hotTagList.size(); i++){
+			hotTag[i][0]=hotTagList.get(i);
+			hotTag[i][1]=hotTagNumber.get(i);
+		}
+		//封装分页
+		Page<BigQuiz> p = new Page<>(num, 6);
+		p.setList(objects);
+		p.setTotalCount(quizNumber);
+		//返回数据
+		request.setAttribute("page",p);
+		request.setAttribute("url",url);
+		request.setAttribute("tag",hotTag);
+		request.setAttribute("tagName",tagName);
+		return "community/quiz";
+	}
+
 }

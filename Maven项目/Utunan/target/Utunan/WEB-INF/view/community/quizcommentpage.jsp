@@ -105,9 +105,9 @@
         </div>
         <div class="answers">
             <div class="answers-num">一共有${commentCountByQuizId}条评论</div>
-            <select class="sequencing-principle"name="">
-                <option value="0">按时间顺序</option>
-                <option value="1">按热度排序</option>
+            <select class="sequencing-principle"name="" onchange="self.location.href=options[selectedIndex].value"> <%--javascript:window.open(this.options[this.selectedIndex].value)--%>
+                <option value="/displayQuizByQuizId?quizId=${quiz.quizId}">按时间顺序</option>
+                <option value="/displayCommentByPraiseCount?quizId=${quiz.quizId}">按热度排序</option>
                 <option value="1">智能推荐</option>
             </select>
         </div>

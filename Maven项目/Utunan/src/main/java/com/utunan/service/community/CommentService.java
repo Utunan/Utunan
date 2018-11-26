@@ -45,4 +45,13 @@ public interface CommentService {
      */
     List<Comment> findChildCommentListByCommentId(Long commentId);
 
+    /*
+     * @author  王碧云
+     * @description 根据热度返回评论列表
+     * @date  11:14 2018/11/26/026
+     * @param  [quizId]
+     * @return  java.util.List<com.utunan.pojo.community.Comment>
+     */
+    List<Comment> findCommentListByPraiseCount(Long quizId);
+
 }
