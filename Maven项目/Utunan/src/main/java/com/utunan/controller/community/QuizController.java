@@ -45,22 +45,12 @@ public class QuizController {
 		}else{
 			num=Integer.parseInt(pageNum);
 		}
-
 		//提问列表
 		List<BigQuiz> objects=this.quizService.quizListByTime(num,6);
 		//提问数量
 		Long quizNumber = this.quizService.countAllQuiz();
-
 		//热门标签
-		List<Tag> hotTagList=this.tagService.getTop10Tag();
-		//热门标签的回答数量
-		List<Long> hotTagNumber=this.tagService.getTop10TagNumber();
-		//封装热门标签和标签数量
-		Object[][] tag=new Object[10][2];
-		for(int i=0; i<hotTagList.size(); i++){
-			tag[i][0]=hotTagList.get(i);
-			tag[i][1]=hotTagNumber.get(i);
-		}
+		Object hotTagList=this.tagService.getTop10Tag();
 		//封装分页
 		Page<BigQuiz> p = new Page<>(num, 6);
 		p.setList(objects);
@@ -68,7 +58,7 @@ public class QuizController {
 		//返回数据
 		request.setAttribute("page",p);
 		request.setAttribute("url",url);
-		request.setAttribute("tag",tag);
+		request.setAttribute("tag",hotTagList);
 		return "community/quiz";
 	}
 
@@ -94,17 +84,8 @@ public class QuizController {
 		List<BigQuiz> objects=this.quizService.quizListByPraise(num,6);
 		//问题数量
 		Long quizNumber = this.quizService.countAllQuiz();
-
 		//热门标签
-		List<Tag> hotTagList=this.tagService.getTop10Tag();
-		//热门标签的回答数量
-		List<Long> hotTagNumber=this.tagService.getTop10TagNumber();
-		//封装热门标签和标签数量
-		Object[][] tag=new Object[10][2];
-		for(int i=0; i<hotTagList.size(); i++){
-			tag[i][0]=hotTagList.get(i);
-			tag[i][1]=hotTagNumber.get(i);
-		}
+		Object hotTagList=this.tagService.getTop10Tag();
 		//封装分页
 		Page<BigQuiz> p = new Page<>(num, 6);
 		p.setList(objects);
@@ -112,7 +93,7 @@ public class QuizController {
 		//返回数据
 		request.setAttribute("page",p);
 		request.setAttribute("url",url);
-		request.setAttribute("tag",tag);
+		request.setAttribute("tag",hotTagList);
 		return "community/quiz";
 	}
 
@@ -156,21 +137,12 @@ public class QuizController {
 		}else{
 			num=Integer.parseInt(pageNum);
 		}
-
 		//提问列表
 		List<BigQuiz> objects=this.quizService.quizListByTimeWithTagName(tagName, num,6);
 		//提问数量
 		Long quizNumber = this.quizService.countQuizWithTagName(tagName);
 		//热门标签
-		List<Tag> hotTagList=this.tagService.getTop10Tag();
-		//热门标签的回答数量
-		List<Long> hotTagNumber=this.tagService.getTop10TagNumber();
-		//封装热门标签和标签数量
-		Object[][] hotTag=new Object[10][2];
-		for(int i=0; i<hotTagList.size(); i++){
-			hotTag[i][0]=hotTagList.get(i);
-			hotTag[i][1]=hotTagNumber.get(i);
-		}
+		Object hotTagList=this.tagService.getTop10Tag();
 		//封装分页
 		Page<BigQuiz> p = new Page<>(num, 6);
 		p.setList(objects);
@@ -178,7 +150,7 @@ public class QuizController {
 		//返回数据
 		request.setAttribute("page",p);
 		request.setAttribute("url",url);
-		request.setAttribute("tag",hotTag);
+		request.setAttribute("tag",hotTagList);
 		request.setAttribute("tagName",tagName);
 		return "community/quiz";
 	}
@@ -202,21 +174,12 @@ public class QuizController {
 		}else{
 			num=Integer.parseInt(pageNum);
 		}
-
 		//提问列表
 		List<BigQuiz> objects=this.quizService.quizListByPraiseWithTagName(tagName, num,6);
 		//提问数量
 		Long quizNumber = this.quizService.countQuizWithTagName(tagName);
 		//热门标签
-		List<Tag> hotTagList=this.tagService.getTop10Tag();
-		//热门标签的回答数量
-		List<Long> hotTagNumber=this.tagService.getTop10TagNumber();
-		//封装热门标签和标签数量
-		Object[][] hotTag=new Object[10][2];
-		for(int i=0; i<hotTagList.size(); i++){
-			hotTag[i][0]=hotTagList.get(i);
-			hotTag[i][1]=hotTagNumber.get(i);
-		}
+		Object hotTagList=this.tagService.getTop10Tag();
 		//封装分页
 		Page<BigQuiz> p = new Page<>(num, 6);
 		p.setList(objects);
@@ -224,7 +187,7 @@ public class QuizController {
 		//返回数据
 		request.setAttribute("page",p);
 		request.setAttribute("url",url);
-		request.setAttribute("tag",hotTag);
+		request.setAttribute("tag",hotTagList);
 		request.setAttribute("tagName",tagName);
 		return "community/quiz";
 	}

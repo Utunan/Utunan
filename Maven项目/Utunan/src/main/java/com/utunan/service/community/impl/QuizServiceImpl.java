@@ -155,6 +155,8 @@ public class QuizServiceImpl implements QuizService {
 		List<Long> quizId=quizMapper.selectQuizIdByTagName(tagName);
 		//按点赞顺序的提问列表
 		List<Quiz> quizListByTime = quizMapper.listQuizByTimeWithTagName(quizId, (pageNum-1)*pageSize,pageSize);
+		//限制问题标题、内容展示字数
+		condenseQuiz(quizListByTime);
 		//提取quizId列表
 		List<Long> quizIdList=new ArrayList<>();
 		for(int i=0; i<quizListByTime.size(); i++){
@@ -190,6 +192,8 @@ public class QuizServiceImpl implements QuizService {
 		List<Long> quizId=quizMapper.selectQuizIdByTagName(tagName);
 		//按点赞顺序的提问列表
 		List<Quiz> quizListByPraise = quizMapper.listQuizByPraiseWithTagName(quizId, (pageNum-1)*pageSize,pageSize);
+		//限制问题标题、内容展示字数
+		condenseQuiz(quizListByPraise);
 		//提取quizId列表
 		List<Long> quizIdList=new ArrayList<>();
 		for(int i=0; i<quizListByPraise.size(); i++){
@@ -220,9 +224,9 @@ public class QuizServiceImpl implements QuizService {
 	}
 
 	@Override
-	public Long countQuizWithTagName(String tagName){
+	public Long countQuizWithTagName(String tagName) {
 		return this.quizMapper.countQuizWithTagName(tagName);
-    
+	}
 	/**
 	 * @author  唐溪
 	 * @description 限制问题标题、内容展示字数
@@ -230,15 +234,18 @@ public class QuizServiceImpl implements QuizService {
 	 * @param
 	 * @return  void
 	 */
-	@Override
-	public void condenseQuiz(List<Quiz> quizList) {
-		for(int i=0;i<quizList.size();i++){
-			Quiz q=quizList.get(i);
-			if(q.getQuizContent().length()>95)
-				q.setQuizContent(q.getQuizContent().substring(0,95)+" ...");
-			if(q.getQuizTitle().length()>30)
-				q.setQuizTitle(q.getQuizTitle().substring(0,30)+" ...");
+		@Override
+		public void condenseQuiz(List<Quiz> quizList) {
+			for(int i=0;i<quizList.size();i++){
+				Quiz q=quizList.get(i);
+				if(q.getQuizContent().length()>95)
+					q.setQuizContent(q.getQuizContent().substring(0,95)+" ...");
+				if(q.getQuizTitle().length()>30)
+					q.setQuizTitle(q.getQuizTitle().substring(0,30)+" ...");
+			}
 		}
 
-	}
+
 }
+
+

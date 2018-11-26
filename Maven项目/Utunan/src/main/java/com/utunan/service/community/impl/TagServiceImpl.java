@@ -14,8 +14,18 @@ public class TagServiceImpl implements TagService {
 	private TagMapper tagMapper;
 
 	@Override
-	public List<Tag> getTop10Tag(){
-		return this.tagMapper.top10Tag();
+	public Object getTop10Tag(){
+		//热门标签
+		List<Tag> hotTagList=this.tagMapper.top10Tag();
+		//热门标签的回答数量
+		List<Long> hotTagNumber=this.tagMapper.top10TagNumber();
+		//封装热门标签和标签数量
+		Object[][] hotTag=new Object[10][2];
+		for(int i=0; i<hotTagList.size(); i++){
+			hotTag[i][0]=hotTagList.get(i);
+			hotTag[i][1]=hotTagNumber.get(i);
+		}
+		return hotTag;
 	}
 
 	@Override
