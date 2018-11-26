@@ -1,7 +1,5 @@
 package com.utunan.service.community;
 
-import com.utunan.pojo.community.Tag;
-
 import java.util.List;
 
 public interface TagService {
@@ -11,7 +9,7 @@ public interface TagService {
 	 * @date  9:53 2018/11/21
 	 * @return  java.util.List<com.utunan.pojo.community.Tag>
 	 */
-	List<Tag> getTop10Tag();
+	Object getTop10Tag();
 
 	/**
 	 * @author  孙程程
