@@ -36,17 +36,17 @@ public class UserSkipController {
     public String publishreply(){
         return "/user/publishreply";
     }
-    @RequestMapping("collectschool")
+    @RequestMapping("schoolcollector")
     public String collectschool(){
-        return "/user/collectschool";
+        return "user/schoolcollector";
     }
-    @RequestMapping("collectmatter")
+    @RequestMapping("mattercollector")
     public String collectmatter(){
-        return "/user/collectmatter";
+        return "user/mattercollector";
     }
-    @RequestMapping("collectpost")
+    @RequestMapping("postcollector")
     public String collectpost(){
-        return "/user/collectpost";
+        return "user/postcollector";
     }
 
 }

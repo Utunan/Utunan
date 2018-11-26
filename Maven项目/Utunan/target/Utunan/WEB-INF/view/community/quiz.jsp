@@ -37,7 +37,7 @@
         <div class="left-content">
             <!--内容声明-->
             <div class="left-content-header">
-                <p>U问答是一个针对计算机专业学生的问答社区，欢迎你在这里提问与答疑<a class="subscribe"href="#">&nbsp;+订阅&nbsp;</a></p>
+                <p>针对计算机类专业的考研问答社区，欢迎你在这里提问与答疑<a class="subscribe"href="#">&nbsp;+订阅&nbsp;</a></p>
             </div>
             <!--主要内容-->
             <div class="left-content-main">
@@ -46,9 +46,9 @@
                     <div class="menu-description">排序：</div>
                     <div class="menu-optionSet">
                         <ul>
-                            <li class="active" ><a href="quiz1">按时间排序</a></li>
-                            <li class="option" ><a href="quiz2">按热度排序</a></li>
-                            <li class="option" ><a href="#" >智能化推荐</a></li>
+                            <li class="${statelist[0]}" ><a href="quiz1">按时间排序</a></li>
+                            <li class="${statelist[1]}" ><a href="quiz2">按热度排序</a></li>
+                            <!--<li class="option" ><a href="#" >智能化推荐</a></li>-->
                         </ul>
                     </div>
                     <div class="search">
@@ -70,8 +70,6 @@
                             <div class="post-information">
                                     ${obj.quiz.releaseTime} &nbsp;来自:<a href="#">${obj.user.userNickName}</a>
                             </div>
-                            <div class="reward">悬赏:</div>
-                            <div class="reward-value">10</div>
                             <div></div>
                             <div class="praise">赞:</div>
                             <div class="praise-value">${obj.quiz.praiseCount}</div>
@@ -145,8 +143,6 @@
                                     <div class="post-information">
                                             ${obj.quiz.releaseTime} &nbsp;来自:<a href="#">${obj.user.userNickName}</a>
                                     </div>
-                                    <div class="reward">悬赏:</div>
-                                    <div class="reward-value">10</div>
                                     <div></div>
                                     <div class="praise">赞:</div>
                                     <div class="praise-value">${obj.quiz.praiseCount}</div>

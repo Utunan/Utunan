@@ -70,13 +70,13 @@
                 <img src="../images/user/arrow.svg">
             </li>
             <nav class="collection" id="collection" style="height:150px;">
-                <a href="/user/collectmatter">
+                <a href="/user/mattercollector">
                     <li id="active">题目收藏夹</li>
                 </a>
-                <a href="/user/collectschool">
+                <a href="/user/schoolcollector">
                     <li>院校收藏夹</li>
                 </a>
-                <a href="/user/collectpost">
+                <a href="/user/postcollector">
                     <li>帖子收藏夹</li>
                 </a>
             </nav>
