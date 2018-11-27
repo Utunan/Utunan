@@ -4,7 +4,7 @@
 <mapper namespace="com.utunan.mapper.user.SchoolCollectorMapper">
 
     <select id="selectSchoolCollector" resultMap="selectDirectionResultMap">
-        select d.*
+        select *
         from direction d,school_collector sc
         where d.directionId=sc.directionId
         and sc.userId=#{userId}

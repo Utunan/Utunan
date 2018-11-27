@@ -36,6 +36,7 @@ public class Direction {
         return users;
     }
 
+
     public void setUsers(List<User> users) {
         this.users = users;
     }
@@ -53,7 +54,7 @@ public class Direction {
     }
 
     public void setSchoolName(String schoolName) {
-        schoolName = schoolName;
+        this.schoolName = schoolName;
     }
 
     public String getCollegeName() {
@@ -124,7 +125,7 @@ public class Direction {
     public String toString() {
         return "Direction{" +
                 "directionId=" + directionId +
-                ", SchoolName='" + schoolName + '\'' +
+                ", schoolName='" + schoolName + '\'' +
                 ", collegeName='" + collegeName + '\'' +
                 ", majorName='" + majorName + '\'' +
                 ", directionName='" + directionName + '\'' +

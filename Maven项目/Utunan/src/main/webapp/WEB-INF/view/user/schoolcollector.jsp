@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>欢迎来到Utunan</title>
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/user/publishpost.css">
+    <link rel="stylesheet" href="/css/user/schoolcollector.css">">
     <link rel="stylesheet" href="/css/user/usercommon.css">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
@@ -65,9 +65,9 @@
                 </a>
             </nav>
             <li id="mycollection">
-                <img src="../images/user/collection.svg">
+                <img src="/images/user/collection.svg">
                 <span>我的收藏</span>
-                <img src="../images/user/arrow.svg">
+                <img src="/images/user/arrow.svg">
             </li>
             <nav class="collection" id="collection" style="height:150px;">
                 <a href="/user/mattercollector">
@@ -82,17 +82,41 @@
             </nav>
         </nav>
         <div class="content">
-            <c:forEach items="${Directions}" var="D">
-                ${D.schoolName}
-                ${D.collegeName}
-                ${D.majorName}
-                ${D.directionName}
-                ${D.degreeType}
-                ${D.politics}
-                ${D.english}
-                ${D.math}
-                ${D.math}
-            </c:forEach>
+            <div class="title">
+                <span>院校收藏</span>
+            </div>
+            <table border="0" cellpadding="6" cellspacing="0">
+                <tr style="background-color: rgba(209, 231, 250,0.5 );">
+                    <th style="width:150px;height: 50px;">招生单位</th>
+                    <th style="width:120px;">院系名称</th>
+                    <th style="width:80px;">学位类型</th>
+                    <th style="width:160px;">专业</th>
+                    <th style="width:80px">其他</th>
+                    <th style="width:40px;"></th>
+                </tr>
+                <c:forEach items="${Directions}" var="D">
+                    <tr>
+                        <td style="height: 50px;">${D.schoolName}</td>
+                        <td>${D.collegeName}</td>
+                        <td>${D.degreeType}</td>
+                        <td>${D.directionName}</td>
+                        <td><a href="">详情</a></td>
+                        <td><img src="/images/user/delete.svg"></td>
+                    </tr>
+                </c:forEach>
+
+            </table>
+            <nav class="page">
+                <li class="home"><a href="">首页</a></li>
+                <li class="prev"><a href="">上一页</a></li>
+                <li><a href="?page=1">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">55</a></li>
+                <li class="next"><a href="">下一页</a></li>
+                <li class="tail"><a href="">尾页</a></li>
+            </nav>
         </div>
     </div>
 </div>
