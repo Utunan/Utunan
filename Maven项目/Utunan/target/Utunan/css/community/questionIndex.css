@@ -78,15 +78,15 @@ body{
 }
 .searchText{
     float: left;
-    width: 120px;
+    width: 140px;
     height: 20px;
     border: none;
 }
 .searchImg{
-    float: left;
-}
-.imgSubmit{
+	float: left;
 	margin-top: 10px;
+	background-color: #0cc8d9;
+	border: none;
 }
 a:link{
 	text-decoration:none;

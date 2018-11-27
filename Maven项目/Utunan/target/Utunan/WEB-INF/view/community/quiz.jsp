@@ -132,10 +132,12 @@
                                 <div class="searchText">
                                     <input type="text" style="width:140px; height:20px;border-radius:8px;border: none;margin-top: 10px;"/>
                                 </div>
+
                                 <!--搜索图标-->
-                                <div class="searchImg">
-                                    <input type="image" class="imgSubmit" src="images/search.png" width="20px" height="20px" onclick="javascript:document.forms[searchForm].submit();" >
-                                </div>
+                                <button class="searchImg" type="submit">
+                                    <img src="images/search.png" width="20px" height="20px" >
+                                </button>
+
                             </form>
                         </div>
                     </div>
