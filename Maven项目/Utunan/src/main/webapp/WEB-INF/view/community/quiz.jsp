@@ -54,14 +54,16 @@
                         </ul>
                     </div>
                     <div class="search">
-                        <!--搜索帖子-->
-                        <div class="searchText">
-                            <input type="text" style="width:140px; height:20px;border-radius:8px;border: none;margin-top: 10px;"/>
-                        </div>
-                        <!--搜索图标-->
-                        <div class="searchImg">
-                            <img src="/images/search.png" width="20px" height="20px">
-                        </div>
+                        <form name="searchForm" action="/searchQuiz" method="post">
+                            <!--搜索帖子-->
+                            <div class="searchText">
+                                <input type="text" style="width:140px; height:20px;border-radius:8px;border: none;margin-top: 10px;" name="searchValue"/>
+                            </div>
+                            <!--搜索图标-->
+                            <button class="searchImg" type="submit">
+                                <img src="images/search.png" width="20px" height="20px" >
+                            </button>
+                        </form>
                     </div>
                 </div>
                 <!--帖子-->
@@ -89,10 +91,10 @@
                             </c:forEach>
                         </div>
                     </div>
-                    <a class="answer_num " title="暂无满意答案" target="_blank" href="#">
+                    <div class="answer_num "  target="_blank" href="#">
                         <span>${obj.commentNumber}</span>
                         <p>回答</p>
-                    </a>
+                    </div>
                 </div>
                 </c:forEach>
                 <div class="bottom">
@@ -121,20 +123,24 @@
                         <div class="menu-description">排序：</div>
                         <div class="menu-optionSet">
                             <ul>
-                                <li class="active" ><a href="quiz3?tagName=${tagName}">按时间排序</a></li>
-                                <li class="option" ><a href="quiz4?tagName=${tagName}">按热度排序</a></li>
-                                <li class="option" ><a href="#" >智能化推荐</a></li>
+                                <li class="${statelist[0]}" ><a href="quiz3?tagName=${tagName}">按时间排序</a></li>
+                                <li class="${statelist[1]}" ><a href="quiz4?tagName=${tagName}">按热度排序</a></li>
+                                <!--<li class="option" ><a href="#" >智能化推荐</a></li>-->
                             </ul>
                         </div>
                         <div class="search">
-                            <!--搜索帖子-->
-                            <div class="searchText">
-                                <input type="text" style="width:140px; height:20px;border-radius:8px;border: none;margin-top: 10px;"/>
-                            </div>
-                            <!--搜索图标-->
-                            <div class="searchImg">
-                                <img src="images/search.png" width="20px" height="20px">
-                            </div>
+                            <form name="searchForm" action="/searchQuiz" method="post">
+                                <!--搜索帖子-->
+                                <div class="searchText">
+                                    <input type="text" style="width:140px; height:20px;border-radius:8px;border: none;margin-top: 10px;" name="searchValue"/>
+                                </div>
+
+                                <!--搜索图标-->
+                                <button class="searchImg" type="submit">
+                                    <img src="images/search.png" width="20px" height="20px" >
+                                </button>
+
+                            </form>
                         </div>
                     </div>
                     <!--帖子-->
@@ -162,10 +168,10 @@
                                     </c:forEach>
                                 </div>
                             </div>
-                            <a class="answer_num " title="暂无满意答案" target="_blank" href="#">
+                            <div class="answer_num "  target="_blank" href="#">
                                 <span>${obj.commentNumber}</span>
                                 <p>回答</p>
-                            </a>
+                            </div>
                         </div>
                     </c:forEach>
                     <div class="bottom">

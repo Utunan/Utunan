@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.utunan.mapper.user.SchoolCollectorMapper">
+<mapper namespace="com.utunan.mapper.user.DirectionCollectorMapper">
 
-    <select id="selectSchoolCollector" resultMap="selectDirectionResultMap">
-        select d.*
-        from direction d,school_collector sc
-        where d.directionId=sc.directionId
-        and sc.userId=#{userId}
+    <select id="selectAllByUser" resultMap="selectDirectionResultMap">
+        select *
+        from direction d,direction_collector dc
+        where d.directionId=dc.directionId
+        and dc.userId=#{userId}
     </select>
 
     <resultMap id="selectDirectionResultMap" type="com.utunan.pojo.school.Direction">
