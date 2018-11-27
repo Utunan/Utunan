@@ -1,5 +1,7 @@
 package com.utunan.controller.user;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.school.Direction;
 import com.utunan.pojo.user.User;
 import com.utunan.service.user.DirectionCollectorService;
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -48,11 +51,17 @@ public class UserSkipController {
     }
 
     @RequestMapping("schoolcollector")
-    public String collectschool(HttpSession session) {
+    public String collectschool(HttpSession session, HttpServletRequest request) {
         User user = (User) session.getAttribute("User");
-        List<Direction> directions = directionCollectorService.getUserSchoolCollector(user,1,10);
-        session.setAttribute("Directions", directions);
-        System.out.println(directions);
+        String pageNum = request.getParameter("pageNum");
+        Page<Direction> directions = null;
+        if (pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0)
+            directions = (Page<Direction>) directionCollectorService.getUserSchoolCollector(user, 1, 10);
+        else
+            directions = (Page<Direction>) directionCollectorService.getUserSchoolCollector(user, Integer.parseInt(pageNum), 10);
+
+        request.setAttribute("PageInfo",new PageInfo(directions));
+        request.setAttribute("Directions", directions);
         return "user/schoolcollector";
     }
 
