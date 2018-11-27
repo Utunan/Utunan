@@ -244,6 +244,43 @@ public class QuizServiceImpl implements QuizService {
 			}
 		}
 
+	@Override
+	public List<BigQuiz> findQuizBySearch(String searchValue, int pageNum, int pageSize){
+		//按提问列表
+		List<Quiz> quizListByPraise = quizMapper.findQuizBySearch("%"+searchValue+"%", (pageNum-1)*pageSize,pageSize);
+		//限制问题标题、内容展示字数
+		condenseQuiz(quizListByPraise);
+		//提取quizId列表
+		List<Long> quizIdList=new ArrayList<>();
+		for(int i=0; i<quizListByPraise.size(); i++){
+			quizIdList.add(quizListByPraise.get(i).getQuizId());
+		}
+		//获取提问的评论数量列表
+		List<Long> commentNumber=new ArrayList<>();
+		//获取提问的标签列表
+		List<List<Tag>> quizTagList=new ArrayList<>();
+		for(int i=0; i<quizListByPraise.size(); i++){
+			commentNumber.add(quizMapper.countCommentByQuizId(quizIdList.get(i)));
+			quizTagList.add(quizMapper.selectTagByQuizId(quizIdList.get(i)));
+		}
+		//将提问、评论数量、标签封装
+		List<BigQuiz> objects=new ArrayList<>();
+		for (int i=0;i<quizListByPraise.size(); i++){
+			BigQuiz bigQuiz=new BigQuiz();
+			bigQuiz.setQuiz(quizListByPraise.get(i));
+			bigQuiz.setUser(quizListByPraise.get(i).getUser());
+			bigQuiz.setCommentNumber(commentNumber.get(i));
+			bigQuiz.setTagList(quizTagList.get(i));
+			objects.add(bigQuiz);
+		}
+		return objects;
+	}
+
+	@Override
+	public Long countQuizBySearch(String searchValue){
+		return this.quizMapper.countQuizBySearch("%"+searchValue+"%");
+	}
+
 
 }
 
