@@ -2,6 +2,7 @@ package com.utunan.service.community;
 
 import com.utunan.pojo.community.Quiz;
 import com.utunan.pojo.util.BigQuiz;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -105,4 +106,23 @@ public interface QuizService {
 	 * @return  void
 	 */
 	void condenseQuiz(List<Quiz> quizList);
+
+	/*
+	 * @author  孙程程
+	 * @description 根据搜索条件查找提问列表
+	 * @date  20:12 2018/11/26
+	 * @param  searchValue
+	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
+	 */
+	List<BigQuiz> findQuizBySearch(String searchValue, int pageNum, int pageSize);
+
+	/**
+	 * @author  孙程程
+	 * @description 符合搜索条件的提问数量
+	 * @date  21:19 2018/11/26
+	 * @param  searchValue
+	 * @return  java.lang.Long
+	 */
+	Long countQuizBySearch(String searchValue);
+
 }

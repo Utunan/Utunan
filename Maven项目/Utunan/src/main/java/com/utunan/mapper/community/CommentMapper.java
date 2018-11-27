@@ -26,5 +26,11 @@ public interface CommentMapper {
 
     /*王碧云 根据热度返回评论列表*/
     List<Comment> findCommentListByPraiseCount(@Param("quizId") Long quizId);
+
+    //根据搜索条件返回评论列表
+    List<Comment> findCommentListBySearch(@Param("searchValue") String searchValue, @Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
+
+    //根据搜索条件返回评论数量
+	Long countCommentBySearch(@Param("searchValue") String searchValue);
 }
 

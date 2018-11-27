@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 孙程程
-  Date: 2018/11/19
-  Time: 16:53
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List,com.utunan.pojo.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -119,9 +112,9 @@
                         <div class="menu-description">排序：</div>
                         <div class="menu-optionSet">
                             <ul>
-                                <li class="active" ><a href="quiz3?tagName=${tagName}">按时间排序</a></li>
-                                <li class="option" ><a href="quiz4?tagName=${tagName}">按热度排序</a></li>
-                                <li class="option" ><a href="#" >智能化推荐</a></li>
+                                <li class="${statelist[0]}" ><a href="quiz3?tagName=${tagName}">按时间排序</a></li>
+                                <li class="${statelist[1]}" ><a href="quiz4?tagName=${tagName}">按热度排序</a></li>
+                                <!--<li class="option" ><a href="#" >智能化推荐</a></li>-->
                             </ul>
                         </div>
                         <div class="search">
@@ -160,10 +153,10 @@
                                     </c:forEach>
                                 </div>
                             </div>
-                            <a class="answer_num " title="暂无满意答案" target="_blank" href="#">
+                            <div class="answer_num ">
                                 <span>${obj.commentNumber}</span>
                                 <p>回答</p>
-                            </a>
+                            </div>
                         </div>
                     </c:forEach>
                     <div class="bottom">

@@ -12,6 +12,10 @@
 <%@include file="../common/header.jsp"%>
     <h2><a href="/quiz1">提问</a></h2>
     <h2><a href="/displayQuizByQuizId?quizId=1">问题页面</a></h2>
+    <form action="/searchQuiz" method="post">
+        <input type="text" name="searchValue">
+        <input type="submit" value="搜索">
+    </form>
 <%@include file="../common/footer.jsp"%>
 </body>
 

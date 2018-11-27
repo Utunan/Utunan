@@ -54,4 +54,23 @@ public interface CommentService {
      */
     List<Comment> findCommentListByPraiseCount(Long quizId);
 
+    /**
+     * @author  孙程程
+     * @description 根据搜索条件返回评论列表
+     * @date  16:12 2018/11/27
+     * @param  searchValue, pageNum, pageSize
+     * @return  java.util.List<com.utunan.pojo.community.Comment>
+     */
+    List<Comment> findCommentListBySearch(String searchValue, int pageNum, int pageSize);
+
+    /**
+     * @author  孙程程
+     * @description 根据搜索条件返回评论数量
+     * @date  16:13 2018/11/27
+     * @param  searchValue
+     * @return  java.lang.Long
+     */
+	Long countCommentBySearch(String searchValue);
+
+
 }

@@ -2,6 +2,7 @@ package com.utunan.service.community.impl;
 
 import com.utunan.mapper.community.CommentMapper;
 import com.utunan.pojo.community.Comment;
+import com.utunan.pojo.community.Quiz;
 import com.utunan.service.community.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -88,4 +89,30 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> findCommentListByPraiseCount(Long quizId) {
         return this.commentMapper.findCommentListByPraiseCount(quizId);
     }
+
+	/**
+	 * @author  孙程程
+	 * @description 根据搜索条件返回评论列表
+	 * @date  16:12 2018/11/27
+	 * @param  searchValue, pageNum, pageSize
+	 * @return  java.util.List<com.utunan.pojo.community.Comment>
+	 */
+    @Override
+	public List<Comment> findCommentListBySearch(String searchValue, int pageNum, int pageSize){
+		List<Comment> commentList=this.commentMapper.findCommentListBySearch("%"+searchValue+"%", (pageNum-1)*pageSize,pageSize);
+		return commentList;
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 根据搜索条件返回评论数量
+	 * @date  16:13 2018/11/27
+	 * @param  searchValue
+	 * @return  java.lang.Long
+	 */
+	@Override
+	public Long countCommentBySearch(String searchValue){
+		return this.commentMapper.countCommentBySearch("%"+searchValue+"%");
+	}
+
 }
