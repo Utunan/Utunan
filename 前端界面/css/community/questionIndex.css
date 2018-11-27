@@ -148,7 +148,7 @@ a:link{
 .praise-value{
 	margin-top: 5px;
 	text-align:center;
-	width: 30px;
+	width: 50px;
 	height: 30px;
 	background-color: #f2858e;
 	color: #ffffff;
@@ -159,6 +159,9 @@ a:link{
 	height: 28px;
 	line-height: 28px;
 	color:#000000; 
+}
+.question a {
+	color:#000000;
 }
 .post-description{
 	height: 60px;
