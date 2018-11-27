@@ -127,14 +127,18 @@
                             </ul>
                         </div>
                         <div class="search">
-                            <!--搜索帖子-->
-                            <div class="searchText">
-                                <input type="text" style="width:140px; height:20px;border-radius:8px;border: none;margin-top: 10px;"/>
-                            </div>
-                            <!--搜索图标-->
-                            <div class="searchImg">
-                                <img src="images/search.png" width="20px" height="20px">
-                            </div>
+                            <form name="searchForm">
+                                <!--搜索帖子-->
+                                <div class="searchText">
+                                    <input type="text" style="width:140px; height:20px;border-radius:8px;border: none;margin-top: 10px;"/>
+                                </div>
+
+                                <!--搜索图标-->
+                                <button class="searchImg" type="submit">
+                                    <img src="images/search.png" width="20px" height="20px" >
+                                </button>
+
+                            </form>
                         </div>
                     </div>
                     <!--帖子-->
