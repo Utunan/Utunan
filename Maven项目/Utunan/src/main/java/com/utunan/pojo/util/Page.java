@@ -17,9 +17,7 @@ public class Page<T> {
 	//总个数
 	private Long totalCount;
 
-	public Page(){
-
-	}
+	public Page(){}
 
 	//获取当前页和页面大小
 	public Page(int pageNum,int pageSize){

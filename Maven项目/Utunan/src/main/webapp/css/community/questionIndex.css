@@ -43,6 +43,7 @@ body{
 .content-main-menu{
 	background-color: #0cc8d9;
 	height: 40px;
+
 }
 .menu-description{
 	margin-left: 10px;
@@ -76,16 +77,16 @@ body{
 	float: right;
 }
 .searchText{
-	float: left;
-	width: 160px;
-	height: 20px;
-	border: none;
+    float: left;
+    width: 120px;
+    height: 20px;
+    border: none;
 }
 .searchImg{
 	float: left;
-}
-.searchImg img{
 	margin-top: 10px;
+	background-color: #0cc8d9;
+	border: none;
 }
 a:link{
 	text-decoration:none;
@@ -236,6 +237,7 @@ a:link{
 	border-style:solid; 
 	border-width:1px; 
 	border-color: #e5e5e5;
+	border-radius: 5px;
 }
 .tags-title{
 	width: 200px;
