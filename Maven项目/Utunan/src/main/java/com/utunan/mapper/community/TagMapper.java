@@ -31,4 +31,8 @@ public interface TagMapper {
 	 */
 	List<Tag> getRemainTag(@Param("tagList3") List<Tag> tagList3);
 
+	//根据搜索条件查询标签列表
+	List<Tag> findTagListBySearch(@Param("searchValue") String searchValue);
+	//根据搜索条件统计标签数量
+	Long countTagBySearch(@Param("searchValue") String searchValue);
 }

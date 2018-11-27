@@ -28,4 +28,8 @@ public interface QuizMapper {
 	List<Quiz> listQuizByPraiseWithTagName(@Param("quizId") List<Long> quizId,@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
 	Long countQuizWithTagName(@Param("tagName") String tagName);
 	List<Long> selectQuizIdByTagName(@Param("tagName") String tagName);
+
+	List<Quiz> findQuizBySearch(@Param("searchValue") String searchValue, @Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
+	Long countQuizBySearch(@Param("searchValue") String searchValue);
+
 }
