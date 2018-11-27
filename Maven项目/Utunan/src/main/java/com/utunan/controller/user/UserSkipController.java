@@ -66,9 +66,4 @@ public class UserSkipController {
         return "user/postcollector";
     }
 
-    @RequestMapping("settings")
-    public String settings(){
-        return "user/settings";
-    }
-
 }
