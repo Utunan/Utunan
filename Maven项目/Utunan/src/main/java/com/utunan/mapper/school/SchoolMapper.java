@@ -11,6 +11,6 @@ import java.util.List;
 @Mapper
 @Repository
 public interface SchoolMapper {
-    School queryByName(String schoolName);
-    List<School> queryBy();
+    /*王碧云 查询所有的学校*/
+    List<School> findAllSchool();
 }
