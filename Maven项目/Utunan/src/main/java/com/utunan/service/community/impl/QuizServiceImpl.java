@@ -282,6 +282,18 @@ public class QuizServiceImpl implements QuizService {
 	}
 
 
+	/*
+	 * @author  张正扬
+	 * @description  更新点赞计数
+	 * @date  21:32 2018/11/27
+	 * @param  [quizId]
+	 * @return  void
+	 */
+	@Override
+	public void praiseQuiz(Long quizId) {
+		System.out.print(quizId);
+		this.quizMapper.updatePraiseCount(quizId);
+	}
 }
 
 

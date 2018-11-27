@@ -97,7 +97,7 @@
             <div class="post-bottom">
                 <!--数据库获取-->
                 <div class="praise">赞（${quiz.praiseCount}）</div>
-                <img src="/images/community/jia1.svg" width="34px"height="34px">
+                <a href="praise?quizId=${quiz.quizId}"><img src="/images/community/jia1.svg" width="34px"height="34px"></a>
                 <div class="give-praise">点赞</div>
                 <img src="/images/community/shoucang.svg" width="34px"height="34px">
                 <div class="collection">收藏此问题</div>
