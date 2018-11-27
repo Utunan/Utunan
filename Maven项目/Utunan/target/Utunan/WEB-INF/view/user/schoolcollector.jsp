@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>欢迎来到Utunan</title>
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/user/schoolcollector.css">">
+    <link rel="stylesheet" href="/css/user/schoolcollector.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
