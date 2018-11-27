@@ -83,18 +83,4 @@
     <update id="updatePraiseCount" parameterType="java.lang.Long">
         update comment set praiseCount=#{commentPraiseCount}+1 where commentId=#{commentId}
     </update>
-
-    <!--根据搜索条件查询回答列表-->
-    <select id="findCommentListBySearch" resultMap="commentResultMap">
-        select *
-        from comment c
-        join quiz q on c.quizId=q.quizId
-        where c.commentContent like #{searchValue}
-    </select>
-    <!--根据搜索条件查询回答数量-->
-    <select id="countCommentBySearch" resultType="java.lang.Long">
-        select count(*)
-        from comment
-        where commentContent like #{searchValue}
-    </select>
 </mapper>
