@@ -124,15 +124,4 @@ public interface QuizService {
 	 */
 	Long countQuizBySearch(String searchValue);
 
-
-
-	/*
-	 * @author  张正扬
-	 * @description 更新点赞计数
-	 * @date  21:39 2018/11/27
-	 * @param  [quizId]
-	 * @return  void
-	 */
-	void praiseQuiz(Long quizId);
-
 }

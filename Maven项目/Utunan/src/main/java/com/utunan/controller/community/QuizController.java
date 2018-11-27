@@ -220,19 +220,4 @@ public class QuizController {
 		request.setAttribute("statelist",stateList);
 		return "community/quiz";
 	}
-
-	/*
-	 * @author  张正扬
-	 * @description 给问题点赞
-	 * @date  21:26 2018/11/27
-	 * @param  request
-	 * @return  String
-	 */
-	@RequestMapping(value = "/praise")
-	public String praiseQuiz(HttpServletRequest request){
-	    String quizId=request.getParameter("quizId");
-	    Long num=Long.parseLong(quizId);
-	    this.quizService.praiseQuiz(num);
-	    return "redirect:/displayQuizByQuizId?quizId="+quizId;
-    }
-}
+	}

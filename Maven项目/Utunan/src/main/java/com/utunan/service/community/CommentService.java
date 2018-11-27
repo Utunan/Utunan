@@ -16,7 +16,7 @@ public interface CommentService {
      * @return   null
      */
 
-    void saveComment(Long quizId,String content,Long uid);
+    void saveComment(String content);
     /*
      * @author  张正扬
      * @description 从comment表中取出刚刚插入的回答，每次只取一条

@@ -32,13 +32,4 @@ public interface QuizMapper {
 	List<Quiz> findQuizBySearch(@Param("searchValue") String searchValue, @Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
 	Long countQuizBySearch(@Param("searchValue") String searchValue);
 
-	/*
-	 * @author  张正扬
-	 * @description 点赞更新
-	 * @date  21:36 2018/11/27
-	 * @param  quizId
-	 * @return  void
-	 */
-	void updatePraiseCount(@Param("quizId") Long quizId);
-
 }
