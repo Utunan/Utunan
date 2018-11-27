@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Manifest-Version: 1.0
 
 Built-By: zh
@@ -7,3 +8,5 @@ Built-By: Lenovo
 Created-By: IntelliJ IDEA
 Build-Jdk: 1.8.0_191
 
+=======
+>>>>>>> parent of b0d3dae... Merge pull request #78 from Utunan/yunddi1997

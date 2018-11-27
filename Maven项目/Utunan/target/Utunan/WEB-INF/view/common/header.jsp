@@ -45,7 +45,7 @@
                             <div id="oplist" class="oplist">
                                 <a href="/user/statistics">题库统计</a>
                                 <a href="/user/publishpost" style="margin:0 5px;">社区记录</a>
-                                <a href="/user/collectmatter">我的收藏</a>
+                                <a href="/user/mattercollector">我的收藏</a>
                             </div>
                         </div>
                         <div class="opbottom" id="opbottom">
@@ -62,7 +62,7 @@
             <form action="/search" method="get" onsubmit="return true">
                 <div class="text">
                     <input type="text" name="keyword" placeholder="请输入内容"/>
-                    <button style="" type="submit" ><img src="/images/search.png"/></button>
+                    <button style="" type="submit"><img src="/images/search.png"/></button>
                 </div>
 
             </form>

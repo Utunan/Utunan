@@ -10,19 +10,14 @@
 <%@ page import="java.util.List,com.utunan.pojo.*"%>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/css/common.css">
+    <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="/css/community/question.css"/>
     <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
     <title>问题页面</title>
 </head>
 <body>
-<%@include file="../common/header.jsp"%>
-    <!--
+<!--
     问题：${quiz.quizTitle}<br/>
     用户：${quiz.user.userNickName}<br/>
     发表时间：${quiz.releaseTime}<br/>
@@ -67,15 +62,30 @@
         </tr>
     </c:forEach>
     </table>
+
     -->
+    <div class="content">
+        <div class="question">
+            <div class="post-top">
+                <div class="question-title">
+                    ${quiz.quizTitle}
+                </div>
 
-<div class="content">
-    <div class="question">
-        <div class="post-top">
-            <div class="question-title">
-                ${quiz.quizTitle}
+                <!--包括发帖用户的头像，昵称，发表时间-->
+                <div class="post-information">
+                    <img src="${quiz.user.userHeadImg}" width="35px"height="35px">
+                    <a href="#">${quiz.user.userNickName}</a><div class="informationwords">发表于&nbsp;2${quiz.releaseTime}</div>
+                </div>
             </div>
+<<<<<<< HEAD
 
+=======
+            <div class="post-tags">
+                <c:forEach items="${quizTagList}" var="quiztag">
+                    <a href="#">&nbsp;${quiztag.tag.tagName} &nbsp</a>
+                </c:forEach>
+            </div>
+>>>>>>> parent of b0d3dae... Merge pull request #78 from Utunan/yunddi1997
             <div class="question-content">
                 ${quiz.quizContent}
                 <!--
@@ -91,12 +101,17 @@
             <div class="post-bottom">
                 <!--数据库获取-->
                 <div class="praise">赞（${quiz.praiseCount}）</div>
+<<<<<<< HEAD
                 <a href="praise?quizId=${quiz.quizId}"><img src="/images/community/jia1.svg" width="34px"height="34px"></a>
+=======
+                <img src="/images/community/jia1.svg" width="34px"height="34px">
+>>>>>>> parent of b0d3dae... Merge pull request #78 from Utunan/yunddi1997
                 <div class="give-praise">点赞</div>
                 <img src="/images/community/shoucang.svg" width="34px"height="34px">
                 <div class="collection">收藏此问题</div>
                 <img src="/images/community/zan.svg" width="34px"height="34px">
                 <div class="write-reply">写回答</div>
+<<<<<<< HEAD
 
 
             <!--包括发帖用户的头像，昵称，发表时间-->
@@ -104,84 +119,60 @@
                 <img src="${quiz.user.userHeadImg}" width="35px"height="35px">
                 <a href="#">${quiz.user.userNickName}</a><div class="informationwords">发表于&nbsp;2${quiz.releaseTime}</div>
 
+=======
+>>>>>>> parent of b0d3dae... Merge pull request #78 from Utunan/yunddi1997
             </div>
         </div>
-        <div class="post-tags">
-            <c:forEach items="${quizTagList}" var="quiztag">
-                <a href="#">&nbsp;${quiztag.tag.tagName} &nbsp</a>
-            </c:forEach>
+        <div class="answers">
+            <div class="answers-num">一共有${commentCountByQuizId}条评论</div>
+            <select class="sequencing-principle"name="" onchange="self.location.href=options[selectedIndex].value">
+                <option value="/displayQuizByQuizId?quizId=${quiz.quizId}">按时间顺序</option>
+                <option value="/displayCommentByPraiseCount?quizId=${quiz.quizId}">按热度排序</option>
+                <option value="1">智能推荐</option>
+            </select>
         </div>
-        <div class="question-content">
-            ${quiz.quizContent}
-            <!--
-            typedef struct book<br>
-            {<br>
-            int number;<br>
-            char name[20];<br>
-            int jaige;<br>
-            }stumes;<br>
-            这里插入的是头结点吗？
-            -->
-        </div>
-        <div class="post-bottom">
-            <!--数据库获取-->
-            <div class="praise">赞（${quiz.praiseCount}）</div>
-            <img src="/images/community/jia1.svg" width="34px"height="34px">
-            <div class="give-praise">点赞</div>
-            <img src="/images/community/shoucang.svg" width="34px"height="34px">
-            <div class="collection">收藏此问题</div>
-            <img src="/images/community/zan.svg" width="34px"height="34px">
-            <div class="write-reply">写回答</div>
-        </div>
-    </div>
-    <div class="answers">
-        <div class="answers-num">一共有${commentCountByQuizId}条评论</div>
-        <select class="sequencing-principle"name="" onchange="self.location.href=options[selectedIndex].value">
-            <option value="/displayQuizByQuizId?quizId=${quiz.quizId}">按时间顺序</option>
-            <option value="/displayCommentByPraiseCount?quizId=${quiz.quizId}">按热度排序</option>
-            <option value="1">智能推荐</option>
-        </select>
-    </div>
-    <div class="answers-content">
-        <c:forEach items="${commentListByQuizId}" var="comment" varStatus="cou">
-        <div class="reply">
-            <div class="reply-top">
-                <img src="${comment.user.userHeadImg}"width="55px"height="55px">
-                <div class="reply-top-center">
-                    <a href="#">${comment.user.userNickName}</a>
-                    <div class="description">
-                        <div class="year">考研年份：${comment.user.examTime}</div>
-                        <div class="school">所在院校：${comment.user.userSchool}</div>
-                        <div class="dream-school">目标院校：${comment.user.dreamSchool}</div>
+        <div class="answers-content">
+            <c:forEach items="${commentListByQuizId}" var="comment" varStatus="cou">
+            <div class="reply">
+                <div class="reply-top">
+                    <img src="${comment.user.userHeadImg}"width="55px"height="55px">
+                    <div class="reply-top-center">
+                        <a href="#">${comment.user.userNickName}</a>
+                        <div class="description">
+                            <div class="year">考研年份：${comment.user.examTime}</div>
+                            <div class="school">所在院校：${comment.user.userSchool}</div>
+                            <div class="dream-school">目标院校：${comment.user.dreamSchool}</div>
+                        </div>
+                    </div>
+                    <div class="reply-right">发表于&nbsp;${comment.commentTime}&nbsp;</div>
+                </div>
+                <div class="reply-content">
+                    <p>${comment.commentContent}</p>
+                </div>
+                <div class="reply-evaluation">
+                    <div class="a">
+                        <div class="reply-praise">赞（${comment.commentPraiseCount}）</div>
+                        <img src="/images/community/jia1.svg" width="34px"height="34px">
+                        <div class="reply-give-praise">点赞</div>
+                        <img src="/images/community/zan.svg" width="34px"height="34px">
+                        <div class="view-comments"><a href="/displayChildComment?commentId=${comment.commentId}">查看评论</a></div>
                     </div>
                 </div>
-                <div class="reply-right">发表于&nbsp;${comment.commentTime}&nbsp;</div>
             </div>
-            <div class="reply-content">
-                <p>${comment.commentContent}</p>
-            </div>
-            <div class="reply-evaluation">
-                <div class="a">
-                    <div class="reply-praise">赞（${comment.commentPraiseCount}）</div>
-                    <img src="/images/community/jia1.svg" width="34px"height="34px">
-                    <div class="reply-give-praise">点赞</div>
-                    <img src="/images/community/zan.svg" width="34px"height="34px">
-                    <div class="view-comments"><a href="/displayChildComment?commentId=${comment.commentId}">查看评论</a></div>
-                </div>
+            </c:forEach>
+            <div class="page">
+                <a href="/${url }?quizId=${quiz.quizId}&pageNum=1">第一页</a>
+                <a href="/${url }?quizId=${quiz.quizId}&pageNum=${page.prePageNum }">上一页</a>
+                <a href="/${url }?quizId=${quiz.quizId}&pageNum=${page.nextPageNum }">下一页</a>
+                <a href="/${url }?quizId=${quiz.quizId}&pageNum=${page.totalPageNum }">末页</a>
             </div>
         </div>
-        <div class="comments">
-            <div class="comments-number">
-                <div class="answers-num">一共有15条评论</div>
-                <div class="right">
-                    <select class="comments-sequencing-principle"name="">
-                        <option value="0">按时间顺序</option>
-                        <option value="1">按热度排序</option>
-                        <option value="1">智能推荐</option>
-                    </select>
-                    <div class="close">收起评论</div>
-                </div>
+        <div class="write-answer">
+            <div class="write-answer-top">
+                <img src="/images/community/write.svg" width="25px"height="25px">
+                <div class="write-answer-top">写回答</div>
             </div>
+<<<<<<< HEAD
 
             <!--富文本编辑器-->
             <form action="comment?quizId=${quizId}" method="post">
@@ -191,6 +182,11 @@
 
                     <textarea id="text1" style="display: none" name="textarea"></textarea>
                 <!--<div class="toolbar">
+=======
+            <!--富文本编辑器-->
+            <div class="text">
+                <div class="toolbar">
+>>>>>>> parent of b0d3dae... Merge pull request #78 from Utunan/yunddi1997
                     <img src="/images/community/text1.svg" width="20px"height="20px">
                     <img src="/images/community/text2.svg" width="20px"height="20px">
                     <img src="/images/community/text3.svg" width="20px"height="20px">
@@ -201,6 +197,7 @@
                     <img src="/images/community/text8.svg" width="20px"height="20px">
                     <img src="/images/community/text9.svg" width="20px"height="20px">
                     <div class="more"><img src="/images/community/text10.svg" width="20px"height="20px"></div>
+<<<<<<< HEAD
                 </div>
                 <textarea class="comment-content" required="" rows="1"  autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list"  aria-haspopup="true" aria-owns="Popover58-content"  placeholder="请输入你的内容……"></textarea>-->
 
@@ -214,17 +211,17 @@
                     <div class="comments-content-give-praise">点赞</div>
                 </div>
 
+=======
+                </div>
+                <textarea class="comment-content" required="" rows="1"  autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list"  aria-haspopup="true" aria-owns="Popover58-content"  placeholder="请输入你的内容……"></textarea>
+>>>>>>> parent of b0d3dae... Merge pull request #78 from Utunan/yunddi1997
             </div>
-            <div class="comments-content">
-                <div class="time">2018.11.25</div>
-                <div class="nickname">这是一个昵称</div>
-                <div class="comments-content-content">吧啦吧啦吧啦吧啦吧啦吧</div>
-                <div class="b">
-                    <div class="comments-content-praise">赞（528）</div>
-                    <img src="images/community/jia1.svg" width="22px"height="22px">
-                    <div class="comments-content-give-praise">点赞</div>
+            <div class="write-answer-bottom">
+                <div class="write-answer-bottom-content">                    <div class="identifying-code">验证码：<input type="text"></div>
+                    <button type="submit">提交回答</button>
                 </div>
             </div>
+<<<<<<< HEAD
 
             </form>
         </div>
@@ -305,30 +302,10 @@
 </div>
 <%@include file="../common/footer.jsp"%>
 
+=======
+        </div>
+    </div>
+>>>>>>> parent of b0d3dae... Merge pull request #78 from Utunan/yunddi1997
 </body>
-<script src="/js/common.js"></script>
-<script>
-var viewComments=window.document.getElementsByClassName("view-comments");
-var index;
-for(var i=0;i<viewComments.length;i++){
-    viewComments[i].index=i;
-    viewComments[i].onclick = function(){
-        var j=this.index;
-        var comments=this.parentElement.parentElement.parentElement.parentElement.getElementsByClassName("comments");
-        comments[j].style.display="block"
-    }
-}
-
-var close=window.document.getElementsByClassName("close");
-for(var i=0;i<close.length;i++){
-    close[i].index=i;
-    close[i].onclick = function(){
-        var j=this.index;
-        var comments=this.parentElement.parentElement.parentElement.parentElement.getElementsByClassName("comments");
-        comments[j].style.display="none"
-    }
-}
-<!--footer-->
-</script>
 <script src="/js/common.js"></script>
 </html>
