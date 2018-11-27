@@ -90,7 +90,6 @@
         from comment c
         join quiz q on c.quizId=q.quizId
         where c.commentContent like #{searchValue}
-        limit #{pageNum},#{pageSize}
     </select>
     <!--根据搜索条件查询回答数量-->
     <select id="countCommentBySearch" resultType="java.lang.Long">
