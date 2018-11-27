@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <div class="opbottom" id="opbottom">
-                            <span><img src="/images/setting.svg"/><a href="/settings">用户设置</a></span>
+                            <span><img src="/images/setting.svg"/><a href="/user/settings">用户设置</a></span>
                             <span><img src="/images/out.svg"/><a href="/loginout">退出登陆</a></span>
                         </div>
                     </div>

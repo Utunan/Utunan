@@ -7,6 +7,8 @@ C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\mapper\user\QuestionCollectorMapper.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\controller\user\UserVerification.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\user\impl\QuizCollectorServiceImpl.java
+C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\pojo\school\Direction.java
+C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\util\RandPic.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\servlet\WebPathInitServlet.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\pojo\user\QuestionCollector.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\mapper\user\SchoolCollectorMapper.java
@@ -27,6 +29,7 @@ C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\community\impl\CommentServiceImpl.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\mapper\questionbank\ChapterMapper.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\user\impl\QuestionCollectorServiceImpl.java
+C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\controller\community\IdentityPicController.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\school\impl\MajorServiceImpl.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\community\QuizService.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\controller\questionbank\questionBankController.java
@@ -36,6 +39,7 @@ C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\user\impl\UserQuestionBankServiceImpl.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\mapper\community\QuizTagMapper.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\pojo\school\Research.java
+C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\community\impl\IdentityPicServiceImpl.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\community\CommentService.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\pojo\school\Major.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\controller\common\homeController.java
@@ -63,7 +67,9 @@ C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\pojo\school\School.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\util\SmsDemo.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\controller\community\CommunityController.java
+C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\interceptor\user\UserSessionInterceptor.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\community\TagService.java
+C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\community\IdentityPicService.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\school\impl\ResearchServiceImpl.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\pojo\user\UserTempPractice.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\mapper\school\MajorMapper.java

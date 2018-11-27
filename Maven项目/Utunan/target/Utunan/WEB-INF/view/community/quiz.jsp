@@ -247,7 +247,6 @@
 
 
                     <div class="addtags">
-                        <input>
                             <c:forEach items="${tags}" var="tag1">
                                 <div class="newtag">
                                     &nbsp;
