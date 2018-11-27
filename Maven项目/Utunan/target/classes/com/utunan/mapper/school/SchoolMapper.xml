@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.utunan.mapper.school.SchoolMapper">
+    <resultMap id="schoolResultMap" type="com.utunan.pojo.school.School">
+        <id column="schoolId" property="schoolId"/>
+        <result property="schoolName" column="schoolName"/>
+        <result property="schoolProvince" column="schoolProvince"/>
+        <result property="schoolType" column="schoolType"/>
+        <result property="schoolSubjection" column="schoolSubjection"/>
+
+    </resultMap>
+
+    <!--王碧云 返回所有的学校-->
+    <select id="findAllSchool" resultMap="schoolResultMap">
+        select *
+        from school
+    </select>
+
+</mapper>
