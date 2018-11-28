@@ -35,22 +35,22 @@
                 </div>
             </div>
             <div>
-                <a href="">
+                <a href="/school">
                     <img src="images/homepage/school.png" alt="" srcset="">
                 </a>
-                <a hREF="">院校库</a>
+                <a hREF="/school">院校库</a>
             </div>
             <div>
-                <a href="">
+                <a href="/questionbank">
                     <img src="images/homepage/code.png" alt="" srcset="">
                 </a>
-                <a hREF="">题库</a>
+                <a hREF="/questionbank">题库</a>
             </div>
             <div>
-                <a href="">
+                <a href="/community">
                     <img src="images/homepage/tablk.png" alt="" srcset="">
                 </a>
-                <a hREF="">社区</a>
+                <a hREF="/community">优问答</a>
             </div>
         </div>
     </div>
@@ -72,6 +72,8 @@
                     从专项练习到智能组卷，
                     满足您的题目练习需要。
                 </p>
+                <img class="gotoqbimg" src="images/homepage/circledouble.png" alt="">
+                <a class="gotoqba" href="/questionbank">开始练习</a>
             </div>
             <div class="qbright">
                 <nav>
@@ -87,7 +89,7 @@
         <div class="wrapper">
             <h2>[院校库]</h2>
             <form method="GET" action="">
-                    <span>院校所在地区:
+                    <span>院校地区:
                         <select name="schoolProvince">
                             <option value="None">请选择省份</option>
                             <option value="北京">
@@ -172,14 +174,14 @@
                 <span>研究方向: <input name="schoolName" type="text"> </span>
                 <input type="submit" class="searchschoolinfo" value="查询">
                 <p style="color:#fff;font-weight:900;font-size: 18px;">112所高校研招信息全部收入囊中，提供多种检索方式。时光宝贵，我们帮助您更快、更精确的找到您理想高校。</p>
-                <input type="submit" class="allschoolinfo" value="查看更多">
             </form>
+            <a href="/school"class="allschoolinfo" >查看更多</a>
         </div>
     </div>
     <div class="community">
         <div class="wrapper">
             <div class="commtop">
-                <img src="images/homepage/community.png">
+                <img src="/images/homepage/community.png">
                 <h4>[社区]</h4>
             </div>
             <p>漫漫考研路，这里有和你一样的志同道合者！考研经验交流、题目解惑、院校答疑，尽在此处。来这里与大家畅快交流！</p>
@@ -202,12 +204,15 @@
                         <p style="margin-top:35px;margin-bottom: 0px;">标签化每一个提问，让浏览更高效专一</p>
                         <h5 style="margin-top:15px;">标签化提问</h5>
                     </div>
-                    <div class="four"></div>
                 </div>
+
+                <img class="commimg" src="images/homepage/circledouble.png" alt="" srcset="">
+                <a class="comma" href="">参与问答Go!</a>
             </div>
         </div>
     </div>
 </div>
 <%@include file="common/footer.jsp"%>
 </body>
+<script src="/js/common.js"></script>
 </html>

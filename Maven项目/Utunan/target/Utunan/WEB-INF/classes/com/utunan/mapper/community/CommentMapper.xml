@@ -17,6 +17,20 @@
             <result property="releaseTime" column="releaseTime"/>
             <result property="praiseCount" column="praiseCount"/>
         </association>
+        <association property="user" javaType="com.utunan.pojo.user.User">
+            <id property="userId" column="userId"/>
+            <result property="userEmail" column="userEmail"/>
+            <result property="userTelephone" column="userTelephone"/>
+            <result property="userPassword" column="userPassword"/>
+            <result property="userIdentity" column="userIdentity"/>
+            <result property="examTime" column="examTime"/>
+            <result property="registerTime" column="registerTime"/>
+            <result property="userHeadImg" column="userHeadImg"/>
+            <result property="userNickName" column="userNickName"/>
+            <result property="userSchool" column="userSchool"/>
+            <result property="dreamSchool" column="dreamSchool"/>
+            <result property="userIntegral" column="userIntegral"/>
+        </association>
     </resultMap>
     <!-- 插入数据，这里commentId是自动递增的，所以不需要插入 -->
     <insert id="toInsert" parameterType="com.utunan.pojo.community.Comment">
@@ -26,6 +40,43 @@
     <!--根据回答quizId最大查询，每次只查一条-->
     <select id="getComment" resultType="com.utunan.pojo.community.Comment">
         select * from commemt where commentId=(select max(commentId) from comment)
+    </select>
+
+    <!--王碧云 根据quizId查询评论列表（子评论除外）(默认：根据时间排序)-->
+    <select id="findCommentListByQuizId" resultMap="commentResultMap">
+        select *
+        from comment
+        join user on comment.userId=user.userId
+        where
+        quizId = #{quizId} and replyCommentId is null
+        order by commentTime asc
+    </select>
+
+    <!--王碧云 根据quizId返回（父级为null的）评论数量-->
+    <select id="countCommentByQuizId" resultType="java.lang.Long">
+        select count(*)
+        from comment
+        where
+        quizId = #{quizId} and replyCommentId is null
+    </select>
+
+    <!--王碧云 根据热度返回评论列表-->
+    <select id="findCommentListByPraiseCount" resultMap="commentResultMap">
+        select *
+        from comment
+        join user on comment.userId=user.userId
+        where
+        quizId = #{quizId} and replyCommentId is null
+        order by commentPraiseCount desc
+    </select>
+
+    <!--王碧云 根据commentId查询子评论-->
+    <select id="findChildCommentListByCommentId" resultMap="commentResultMap">
+        select *
+        from comment
+        join user on comment.userId=user.userId
+        where
+        replyCommentId=#{commentId}
     </select>
 
     <!--更新quiz表点赞数-->

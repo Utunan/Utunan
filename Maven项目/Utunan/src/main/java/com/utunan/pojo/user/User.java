@@ -3,7 +3,9 @@ package com.utunan.pojo.user;
 import com.utunan.pojo.community.Quiz;
 
 import java.util.Date;
+import java.util.Dictionary;
 import java.util.List;
+import java.util.Set;
 
 /**
  * User:用户
@@ -37,6 +39,16 @@ public class User {
 
     //关联查询属性Quiz
     private List<Quiz> quiz;
+
+    private List<Dictionary> dictionaries;
+
+    public List<Dictionary> getDictionaries() {
+        return dictionaries;
+    }
+
+    public void setDictionaries(List<Dictionary> dictionaries) {
+        this.dictionaries = dictionaries;
+    }
 
     public List<Quiz> getQuiz() {
         return quiz;
@@ -150,13 +162,15 @@ public class User {
                 ", userTelephone='" + userTelephone + '\'' +
                 ", userPassword='" + userPassword + '\'' +
                 ", userIdentity=" + userIdentity +
-                ", examTime=" + examTime +
+                ", examTime='" + examTime + '\'' +
                 ", registerTime=" + registerTime +
                 ", userHeadImg='" + userHeadImg + '\'' +
                 ", userNickName='" + userNickName + '\'' +
                 ", userSchool='" + userSchool + '\'' +
                 ", dreamSchool='" + dreamSchool + '\'' +
                 ", userIntegral=" + userIntegral +
+                ", quiz=" + quiz +
+                ", dictionaries=" + dictionaries +
                 '}';
     }
 }

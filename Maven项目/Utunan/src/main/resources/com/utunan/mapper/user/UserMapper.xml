@@ -3,7 +3,7 @@
 
 <mapper namespace="com.utunan.mapper.user.UserMapper">
 
-    <select id="queryByPermit" resultType="com.utunan.pojo.user.User">
+    <select id="selectByPermit" resultType="com.utunan.pojo.user.User">
         select *
         from user
         where (
@@ -15,7 +15,7 @@
         userPassword=#{userPassword}
     </select>
 
-    <select id="findByPermit" resultType="com.utunan.pojo.user.User">
+    <select id="selectByUorE" resultType="com.utunan.pojo.user.User">
         select *
         from user
         where

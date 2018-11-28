@@ -1,8 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:if test="${User==null}">
-    <c:redirect url="/login"/>
-</c:if>
 <!DOCTYPE html>
 <html lang="zh-cn">
 
@@ -73,13 +70,13 @@
                 <img src="../images/user/arrow.svg">
             </li>
             <nav class="collection" id="collection" style="height:150px;">
-                <a href="/user/collectmatter">
+                <a href="/user/mattercollector">
                     <li>题目收藏夹</li>
                 </a>
-                <a href="/user/collectschool">
+                <a href="/user/schoolcollector">
                     <li>院校收藏夹</li>
                 </a>
-                <a href="/user/collectpost">
+                <a href="/user/postcollector">
                     <li>帖子收藏夹</li>
                 </a>
             </nav>
@@ -92,5 +89,5 @@
 <%@include file="../common/footer.jsp"%>
 </body>
 <script src="/js/usercommon.js"></script>
-
+<script src="/js/common.js"></script>
 </html>

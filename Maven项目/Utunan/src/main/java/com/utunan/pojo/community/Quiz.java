@@ -25,6 +25,16 @@ public class Quiz {
     private User user;
     //与评论一对多
     private List<Comment> comment;
+    //与quiz_tag一对多
+    private List<QuizTag> quizTag;
+
+    public List<QuizTag> getQuizTag() {
+        return quizTag;
+    }
+
+    public void setQuizTag(List<QuizTag> quizTag) {
+        this.quizTag = quizTag;
+    }
 
     public List<Comment> getComment() {
         return comment;

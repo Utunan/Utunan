@@ -3,13 +3,16 @@ C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\questionbank\SubjectService.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\mapper\user\UserMapper.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\user\impl\UserTempPracticeServiceImpl.java
+C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\user\DirectionCollectorService.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\controller\school\SchoolController.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\mapper\user\QuestionCollectorMapper.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\controller\user\UserVerification.java
+C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\user\impl\DirectionCollectorServiceImpl.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\user\impl\QuizCollectorServiceImpl.java
+C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\pojo\school\Direction.java
+C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\util\RandPic.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\servlet\WebPathInitServlet.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\pojo\user\QuestionCollector.java
-C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\mapper\user\SchoolCollectorMapper.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\mapper\school\SchoolMapper.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\school\impl\SchoolServiceImpl.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\controller\user\LoginController.java
@@ -27,6 +30,7 @@ C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\community\impl\CommentServiceImpl.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\mapper\questionbank\ChapterMapper.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\user\impl\QuestionCollectorServiceImpl.java
+C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\controller\community\IdentityPicController.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\school\impl\MajorServiceImpl.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\community\QuizService.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\controller\questionbank\questionBankController.java
@@ -36,6 +40,7 @@ C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\user\impl\UserQuestionBankServiceImpl.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\mapper\community\QuizTagMapper.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\pojo\school\Research.java
+C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\community\impl\IdentityPicServiceImpl.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\community\CommentService.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\pojo\school\Major.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\controller\common\homeController.java
@@ -45,12 +50,10 @@ C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\user\QuizCollectorService.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\pojo\user\SchoolCollector.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\questionbank\impl\SubjectServiceImpl.java
-C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\user\SchoolCollectorService.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\school\MajorService.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\user\impl\UserServiceImpl.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\questionbank\impl\ChapterServiceImpl.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\mapper\user\QuizCollectorMapper.java
-C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\user\impl\SchoolCollectorServiceImpl.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\questionbank\impl\QuestionServiceImpl.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\questionbank\QuestionService.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\school\SchoolService.java
@@ -63,7 +66,10 @@ C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\pojo\school\School.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\util\SmsDemo.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\controller\community\CommunityController.java
+C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\mapper\user\DirectionCollectorMapper.java
+C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\interceptor\user\UserSessionInterceptor.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\community\TagService.java
+C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\community\IdentityPicService.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\service\school\impl\ResearchServiceImpl.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\pojo\user\UserTempPractice.java
 C:\Users\ViFullCoder\Desktop\GitHub\Utunan\Maven项目\Utunan\src\main\java\com\utunan\mapper\school\MajorMapper.java
