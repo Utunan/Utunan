@@ -98,7 +98,7 @@
                         <span class="publishtype">经验分享</span>
                     </div>
                     <p class="postcontent">
-                        ${Q.quizContent}
+                        ${Q.quizContent }
                     </p>
                     <span><a href="">收到的回复(15)</a></span>
                     <span><a href="">>>详细</a></span>

@@ -40,6 +40,5 @@ public interface QuizMapper {
 	 * @return  void
 	 */
 	void updatePraiseCount(@Param("quizId") Long quizId);
-
-	List<Quiz> selectQuizByUserId(User user);
+    List<Quiz> selectQuizByUserId(User user);
 }
