@@ -33,13 +33,13 @@
         </association>
     </resultMap>
     <!-- 插入数据，这里commentId是自动递增的，所以不需要插入 -->
-    <insert id="toInsert" parameterType="com.utunan.pojo.community.Comment">
+    <insert id="toInsert" parameterType="com.utunan.pojo.community.Comment" useGeneratedKeys="true" keyProperty="commentId">
         insert into comment(quizId,userId,commentContent,commentTime,commentPraiseCount,replyCommentId) values(#{quizId},#{userId},#{commentContent},#{commentTime},#{commentPraiseCount},#{replyCommentId})
     </insert>
 
 
     <!-- 插入评论，这里commentId是自动递增的，所以不需要插入 -->
-    <insert id="toInsert1" parameterType="com.utunan.pojo.community.Comment">
+    <insert id="toInsert1" parameterType="com.utunan.pojo.community.Comment" useGeneratedKeys="true" keyProperty="commentId">
         insert into comment(quizId,userId,commentContent,commentTime,commentPraiseCount,replyCommentId) values(#{quizId},#{userId},#{commentContent},#{commentTime},#{commentPraiseCount},#{replyCommentId})
     </insert>
 

@@ -83,7 +83,7 @@
     </select>
 
     <!-- 插入数据，这里quizId是自动递增的，所以不需要插入 -->
-    <insert id="toInsert" parameterType="com.utunan.pojo.community.Quiz">
+    <insert id="toInsert" parameterType="com.utunan.pojo.community.Quiz" useGeneratedKeys="true" keyProperty="quizId">
         insert into quiz(userId,quizTitle,quizContent,releaseTime,praiseCount) values(#{userId},#{quizTitle},#{quizContent},#{releaseTime},#{praiseCount})
     </insert>
 
