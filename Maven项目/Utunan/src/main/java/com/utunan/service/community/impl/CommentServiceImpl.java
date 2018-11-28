@@ -26,12 +26,19 @@ public class CommentServiceImpl implements CommentService {
      * @return  null
      */
 
-    @Override
-    public void saveComment(String content){
-        Comment comment=new Comment();
-        int k=253;
-        long f=(long)k;
+    /*
+     * @author  张正扬
+     * @description 向comment表插入回答
+     * @date  15:47 2018/11/22
+     * @param  content
+     * @return  null
+     */
 
+    @Override
+    public void saveComment(Long quizId,String content,Long uid){
+        Comment comment=new Comment();
+        comment.setQuizId(quizId);
+        comment.setUserId(uid);
         comment.setCommentContent(content);
         comment.setCommentTime(new Date());
         int i=0;
