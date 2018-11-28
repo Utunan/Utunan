@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -35,11 +36,11 @@ public class SchoolSearchController {
      */
     @RequestMapping("/displaySchool")
     public String displaySchool(HttpServletRequest request){
-        List<Direction> directionList = this.directionService.findAllDirection();
+        List<School> schoolList = this.schoolService.findAllSchool();
 
-        request.setAttribute("directionList", directionList);
+        request.setAttribute("schoolList", schoolList);
 
-        System.out.println(directionList);
+        System.out.println(schoolList);
 
         return "/school/schoolsearch";
     }
@@ -52,8 +53,15 @@ public class SchoolSearchController {
      * @return  java.lang.String
      */
     @RequestMapping("/displaySchoolBySearch")
-    public String displaySchoolBySearch(@RequestParam("schoolProvince") String schoolProvince){
-        System.out.println(schoolProvince);
+    public String displaySchoolBySearch(@RequestParam("schoolProvince") String[] schoolProvinceList,
+                                        HttpServletRequest request){
+        String aaa = Arrays.toString(schoolProvinceList);
+
+        List<School> schoolList = this.schoolService.findSchoolBySchoolProvince(schoolProvinceList);
+        request.setAttribute("schoolList", schoolList);
+
+        System.out.println(aaa);
+        System.out.println(schoolList);
         return "/school/schoolsearch";
     }
 
