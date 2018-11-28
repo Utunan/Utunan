@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -49,6 +49,8 @@ http://www.springframework.org/schema/task/spring-task.xsd">
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/user/**"/>
+            <mvc:mapping path="/comment"/>
+            <mvc:mapping path="/comment1"/>
             <bean class="com.utunan.interceptor.user.UserSessionInterceptor">
             </bean>
         </mvc:interceptor>
