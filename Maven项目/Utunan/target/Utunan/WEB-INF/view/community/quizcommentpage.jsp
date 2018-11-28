@@ -16,8 +16,6 @@
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" type="text/css" href="/css/community/question.css"/>
-    <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
     <title>问题页面</title>
 </head>
 <body>
@@ -76,34 +74,10 @@
                 ${quiz.quizTitle}
             </div>
 
-            <div class="question-content">
-                ${quiz.quizContent}
-                <!--
-                typedef struct book<br>
-                {<br>
-                int number;<br>
-                char name[20];<br>
-                int jaige;<br>
-                }stumes;<br>
-                这里插入的是头结点吗？
-                -->
-            </div>
-            <div class="post-bottom">
-                <!--数据库获取-->
-                <div class="praise">赞（${quiz.praiseCount}）</div>
-                <a href="praise?quizId=${quiz.quizId}"><img src="/images/community/jia1.svg" width="34px"height="34px"></a>
-                <div class="give-praise">点赞</div>
-                <img src="/images/community/shoucang.svg" width="34px"height="34px">
-                <div class="collection">收藏此问题</div>
-                <img src="/images/community/zan.svg" width="34px"height="34px">
-                <div class="write-reply">写回答</div>
-
-
             <!--包括发帖用户的头像，昵称，发表时间-->
             <div class="post-information">
                 <img src="${quiz.user.userHeadImg}" width="35px"height="35px">
                 <a href="#">${quiz.user.userNickName}</a><div class="informationwords">发表于&nbsp;2${quiz.releaseTime}</div>
-
             </div>
         </div>
         <div class="post-tags">
@@ -182,28 +156,6 @@
                     <div class="close">收起评论</div>
                 </div>
             </div>
-
-            <!--富文本编辑器-->
-            <form action="comment?quizId=${quizId}" method="post">
-                <div class="text">
-                    <div id="div1" class="toolbar" style="height: 35px"></div>
-                    <div id="div2" class="text" style="height: 130px"></div>
-
-                    <textarea id="text1" style="display: none" name="textarea"></textarea>
-                <!--<div class="toolbar">
-                    <img src="/images/community/text1.svg" width="20px"height="20px">
-                    <img src="/images/community/text2.svg" width="20px"height="20px">
-                    <img src="/images/community/text3.svg" width="20px"height="20px">
-                    <img src="/images/community/text4.svg" width="20px"height="20px">
-                    <img src="/images/community/text5.svg" width="20px"height="20px">
-                    <img src="/images/community/text6.svg" width="20px"height="20px">
-                    <img src="/images/community/text7.svg" width="20px"height="20px">
-                    <img src="/images/community/text8.svg" width="20px"height="20px">
-                    <img src="/images/community/text9.svg" width="20px"height="20px">
-                    <div class="more"><img src="/images/community/text10.svg" width="20px"height="20px"></div>
-                </div>
-                <textarea class="comment-content" required="" rows="1"  autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list"  aria-haspopup="true" aria-owns="Popover58-content"  placeholder="请输入你的内容……"></textarea>-->
-
             <div class="comments-content">
                 <div class="time">2018.11.25</div>
                 <div class="nickname">这是一个昵称</div>
@@ -213,7 +165,6 @@
                     <img src="images/community/jia1.svg" width="22px"height="22px">
                     <div class="comments-content-give-praise">点赞</div>
                 </div>
-
             </div>
             <div class="comments-content">
                 <div class="time">2018.11.25</div>
@@ -225,43 +176,6 @@
                     <div class="comments-content-give-praise">点赞</div>
                 </div>
             </div>
-
-            </form>
-        </div>
-    </div>
-    <script type="text/javascript">
-        var E = window.wangEditor
-        var editor = new E('#div1','#div2')
-        editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
-        editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024   //每张图片最大上传大小
-        editor.customConfig.uploadImgMaxLength = 5              //每次最多上传5张
-        var $text1 = $('#text1')
-        editor.customConfig.onchange = function (html) {
-            // 监控变化，同步更新到 textarea
-            $text1.val(html)
-        }
-        //自定义菜单
-        editor.customConfig.menus=[
-            'head',  // 标题
-            'bold',  // 粗体
-            'fontSize',  // 字号
-            'fontName',  // 字体
-            'italic',  // 斜体
-            'underline',  // 下划线
-            'strikeThrough',  // 删除线
-            'foreColor',  // 文字颜色
-            'backColor',  // 背景颜色
-            'link',  // 插入链接
-            'list',  // 列表
-            'quote',  // 引用
-            'emoticon',  // 表情
-            'image',  // 插入图片
-            'table',  // 表格
-            'code'  // 插入代码
-        ]
-        editor.create()
-    </script>
-
             <div class="comments-reply">
                 <input class="comments-reply-input"type="text" width="660px" height="30px">
                 <div class="comments-reply-report">发表评论</div>
@@ -304,7 +218,6 @@
     </div>
 </div>
 <%@include file="../common/footer.jsp"%>
-
 </body>
 <script src="/js/common.js"></script>
 <script>

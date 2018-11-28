@@ -27,16 +27,16 @@ public class CommentServiceImpl implements CommentService {
      */
 
     @Override
-    public void saveComment(Long quizId,String content,Long uid){
+    public void saveComment(String content){
         Comment comment=new Comment();
-        comment.setQuizId(quizId);
-        comment.setUserId(uid);
+        int k=253;
+        long f=(long)k;
+
         comment.setCommentContent(content);
         comment.setCommentTime(new Date());
         int i=0;
         long j=(long) i;
         comment.setCommentPraiseCount(j);
-        comment.setReplyCommentId(j);
         commentMapper.toInsert(comment);
     }
 

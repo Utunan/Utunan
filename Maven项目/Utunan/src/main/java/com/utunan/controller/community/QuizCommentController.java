@@ -40,7 +40,6 @@ public class QuizCommentController {
     public String displayQuizByQuizId(HttpServletRequest request){
         String url = "displayQuizByQuizId";
         String quizId = request.getParameter("quizId");
-        System.out.print(quizId);
         //根据quizId返回quiz
         Quiz quiz = this.quizService.findQuizById(Long.parseLong(quizId));
         //根据quizId返回标签
@@ -70,10 +69,9 @@ public class QuizCommentController {
         request.setAttribute("commentCountByQuizId", commentCountByQuizId);
         request.setAttribute("commentListByQuizId", commentListByQuizId);
         request.setAttribute("url", url);
-        request.setAttribute("quizId",quizId);
 
         System.out.println("[commentList]"+commentListByQuizId);
-//        System.out.println("user"+commentListByQuizId.get(1).getUser());
+        System.out.println("user"+commentListByQuizId.get(1).getUser());
         return "community/quizcommentpage";
     }
 
