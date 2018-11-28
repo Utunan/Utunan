@@ -142,7 +142,7 @@
                     <a href="praise?quizId=${quiz.quizId}"><img src="/images/community/jia1.svg" width="34px"height="34px"></a>
                     <div class="reply-give-praise">点赞</div>
                     <img src="/images/community/zan.svg" width="34px"height="34px">
-                    <div class="view-comments"><a href="/displayChildComment?commentId=${comment.commentId}">查看评论</a></div>
+                    <div class="view-comments">查看评论</div>
                 </div>
             </div>
         </div>
@@ -168,10 +168,12 @@
                     <div class="comments-content-give-praise">点赞</div>
                 </div>
             </div>
-            <div class="comments-reply">
-                <input class="comments-reply-input"type="text" width="660px" height="30px">
-                <div class="comments-reply-report">发表评论</div>
-            </div>
+            <form action="comment1?commentId=${comment.commentId}" method="post">
+                <div class="comments-reply">
+                    <input class="comments-reply-input"type="text" width="660px" height="30px" name="text">
+                    <div class="comments-reply-report"><input type="submit" value="发表评论"/></div>
+                </div>
+            </form>
         </div>
         </c:forEach>
         <div class="page">
@@ -188,9 +190,10 @@
         </div>
         <!--富文本编辑器-->
         <form action="comment?quizId=${quiz.quizId}" method="post">
-        <div class="text">
+        <div class="text" >
+
                <div id="div1" class="toolbar" style="height: 35px"></div>
-               <div id="div2" class="text" style="height: 130px"></div>
+               <div id="div2"  style="height: 130px"></div>
                <textarea id="text1" style="display: none" name="textarea"></textarea>
 
         </div>
@@ -260,5 +263,4 @@ for(var i=0;i<close.length;i++){
     ]
     editor.create()
 </script>
-<script src="/js/common.js"></script>
 </html>
