@@ -37,21 +37,17 @@ public class SchoolServiceImpl  implements SchoolService {
     @Override
     public List<School> findSchoolBySchoolProvince(String[] schoolProvinceList) {
 
-        List<School> directionlist = new ArrayList<School>();
+       List<School> directionlist = new ArrayList<School>();
 
         for(String schoolProvince:schoolProvinceList){
-            System.out.println("[000]"+schoolProvince);
-
-            if(schoolProvince==null || "".equals(schoolProvince)){
-                List<School> directionBySchoolProvince = this.schoolMapper.findAllSchool();
-                directionlist.addAll(directionBySchoolProvince);
+            if(schoolProvince==null || "".equals(schoolProvince) || schoolProvince.equals("null")){
+                directionlist = this.schoolMapper.findAllSchool();
                 break;
-            }else{
-                List<School> directionBySchoolProvince = this.schoolMapper.findSchoolBySchoolProvince(schoolProvince);
-                directionlist.addAll(directionBySchoolProvince);
+            }else {
+                directionlist = this.schoolMapper.findSchoolBySchoolProvince(schoolProvinceList);
             }
         }
-        return directionlist;
 
+        return directionlist;
     }
 }
