@@ -1,5 +1,7 @@
 package com.utunan.pojo.school;
 
+import java.util.List;
+
 /**
  * Univ:学校
  */
@@ -14,6 +16,16 @@ public class School{
     private String schoolType;
     //学校隶属的组织
     private String schoolSubjection;
+    //与研究方向一对多
+    private List<Direction> direction;
+
+    public List<Direction> getDirection() {
+        return direction;
+    }
+
+    public void setDirection(List<Direction> direction) {
+        this.direction = direction;
+    }
 
     public Long getSchoolId() {
         return schoolId;

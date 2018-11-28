@@ -8,7 +8,18 @@
         <result property="schoolProvince" column="schoolProvince"/>
         <result property="schoolType" column="schoolType"/>
         <result property="schoolSubjection" column="schoolSubjection"/>
-
+        <collection property="direction" javaType="java.util.List" ofType="com.utunan.pojo.school.Direction">
+            <id column="directionId" property="directionId"/>
+            <result property="schoolName" column="schoolName"/>
+            <result property="collegeName" column="collegeName"/>
+            <result property="majorName" column="majorName"/>
+            <result property="directionName" column="directionName"/>
+            <result property="degreeType" column="degreeType"/>
+            <result property="politics" column="politics"/>
+            <result property="english" column="english"/>
+            <result property="math" column="math"/>
+            <result property="majorBasics" column="majorBasics"/>
+        </collection>
     </resultMap>
 
     <!--王碧云 返回所有的学校-->
