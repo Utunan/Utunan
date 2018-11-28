@@ -107,6 +107,7 @@
             </table>
             <nav id="page" class="page">
                 <li class="home"><a href="/user/schoolcollector">首页</a></li>
+
                 <li class="next"><a href="?pageNum=${PageInfo.prePage}">上一页</a></li>
                 <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
                     <li class="pagination"><a name="${i}" href="?pageNum=${i}">${i}</a></li>
@@ -119,8 +120,9 @@
                         <li class="next"><a href="?pageNum=${PageInfo.nextPage}">下一页</a></li>
                     </c:otherwise>
                 </c:choose>
-                <li class="tail"><a href="?pageNum=${PageInfo.pages}">尾页</a></li>
-            </nav>
+
+        ​        <li class="tail"><a href="?pageNum=${PageInfo.pages}">尾页</a></li>
+        ​    </nav>
         </div>
     </div>
 </div>
@@ -133,6 +135,7 @@
             paginations[i].style.backgroundColor = "rgba(49, 126, 212, 0.2)";
             paginations[i].firstChild.style.color = "#fff"
         }
+
     }
 </script>
 <script src="/js/usercommon.js"></script>

@@ -94,7 +94,7 @@
 
     <!--更新quiz表点赞数-->
     <update id="updatePraiseCount" parameterType="java.lang.Long">
-        update quiz set praiseCount=#{praiseCount}+1 where quizId=#{quizId}
+        update quiz set praiseCount=praiseCount+1 where quizId=#{quizId}
     </update>
 
     <!--@author 王碧云 根据QuizId查找Quiz-->

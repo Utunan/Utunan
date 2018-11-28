@@ -56,9 +56,9 @@ public class QuizCommentController {
         //判断当前页
         int num=0;
         if(pageNum==null || pageNum.equals("")){
-            num=1;
+        ​    num=1;
         }else{
-            num=Integer.parseInt(pageNum);
+        ​    num=Integer.parseInt(pageNum);
         }
         //封装分页
         Page<BigQuiz> p = new Page<>(num, 6);
@@ -68,6 +68,7 @@ public class QuizCommentController {
         request.setAttribute("commentCountByQuizId", commentCountByQuizId);
         request.setAttribute("commentListByQuizId", commentListByQuizId);
         request.setAttribute("url", url);
+
         return "community/quizcommentpage";
     }
 
@@ -83,10 +84,10 @@ public class QuizCommentController {
         String commentId = request.getParameter("commentId");
         //根据commentId返回子评论
         List<Comment> childCommentList = this.commentService.findChildCommentListByCommentId(Long.parseLong(commentId));
-
+    
         request.setAttribute("childCommentList", childCommentList);
         System.out.println("[childComment]"+childCommentList);
-
+    
         return "community/childcomment";
     }
     
@@ -108,12 +109,12 @@ public class QuizCommentController {
         Long commentCountByQuizId = this.quizService.countCommentByQuizId(Long.parseLong(quizId));
         //根据quizId返回评论列表(根据热度排序)
         List<Comment> commentListByQuizId = this.commentService.findCommentListByPraiseCount(Long.parseLong(quizId));
-
+    
         request.setAttribute("quizTagList", quizTagList);
         request.setAttribute("quiz", quiz);
         request.setAttribute("commentCountByQuizId", commentCountByQuizId);
         request.setAttribute("commentListByQuizId", commentListByQuizId);
-
+    
         return "community/quizcommentpage";
     }
 }
