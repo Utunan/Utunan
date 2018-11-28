@@ -127,8 +127,8 @@
                     <div class="menu-description">排序：</div>
                     <div class="menu-optionSet">
                         <ul>
-                            <li class="active" ><a href="quiz3?tagName=${tagName}">按时间排序</a></li>
-                            <li class="option" ><a href="quiz4?tagName=${tagName}">按热度排序</a></li>
+                            <li class="${statelist[0]}" ><a href="quiz3?tagName=${tagName}">按时间排序</a></li>
+                            <li class="${statelist[1]}" ><a href="quiz4?tagName=${tagName}">按热度排序</a></li>
                             <!--<li class="option" ><a href="#" >智能化推荐</a></li>-->
                         </ul>
                     </div>
