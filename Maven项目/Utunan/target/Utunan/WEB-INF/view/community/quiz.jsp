@@ -210,19 +210,6 @@
                         <p>输入问题背景、条件等详细信息</p>
                     </div>
                     <textarea id="text1" style="display: none" name="textarea"></textarea>
-                    <!--<div class="toolbar" unselectable="on">
-                        <img src="images/community/text1.svg" width="20px"height="20px">
-                        <img src="images/community/text2.svg" width="20px"height="20px">
-                        <img src="images/community/text3.svg" width="20px"height="20px">
-                        <img src="images/community/text4.svg" width="20px"height="20px">
-                        <img src="images/community/text5.svg" width="20px"height="20px">
-                        <img src="images/community/text6.svg" width="20px"height="20px">
-                        <img src="images/community/text7.svg" width="20px"height="20px">
-                        <img src="images/community/text8.svg" width="20px"height="20px">
-                        <img src="images/community/text9.svg" width="20px"height="20px">
-                        <div class="more"><img src="images/community/text10.svg" width="20px"height="20px"></div>
-                    </div>
-                    <textarea class="question-content" required="" rows="1"  autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-activedescendant="AutoComplete59--1"  aria-haspopup="true" aria-owns="Popover58-content"  placeholder="输入问题背景、条件等详细信息（选填）"></textarea>-->
                     <script type="text/javascript">
                         var E = window.wangEditor;
                         var editor1 = new E('#div1', '#div2');  // 两个参数也可以传入 elem 对象，class 选择器
