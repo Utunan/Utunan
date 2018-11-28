@@ -158,7 +158,6 @@ body{
 }
 .reply{
     width: 1000px;
-    height: 215px;
     border-style:solid; 
     border-width:0px 0px 1px 0px;
     border-color:#e5e5e5;
@@ -214,7 +213,6 @@ body{
 }
 .reply-content{
     width: 950px;
-    height: 60px;
     margin: 0 auto;
     margin-top: 24px;
 }
