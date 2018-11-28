@@ -24,6 +24,7 @@ public class UserSessionInterceptor implements HandlerInterceptor {
             response.sendRedirect("/login");
             return false;
         }else{
+
             User checkUser =userService.getUser(user);
             if (user.getUserPassword().equals(checkUser.getUserPassword())){
                 return true;

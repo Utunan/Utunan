@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean changeInfo(User user) {
-        List<Dictionary> list=userMapper.updateUser(user);
-        return false;
+        userMapper.updateUser(user);
+        return true;
     }
 }

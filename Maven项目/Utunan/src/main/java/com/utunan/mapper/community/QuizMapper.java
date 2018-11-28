@@ -41,10 +41,5 @@ public interface QuizMapper {
 	 */
 	void updatePraiseCount(@Param("quizId") Long quizId);
 
-	/**
-	 * @author  yanzhengwei
-	 * 功能:	通过用户Id 查询帖子
-	 */
 	List<Quiz> selectQuizByUserId(User user);
-
 }
