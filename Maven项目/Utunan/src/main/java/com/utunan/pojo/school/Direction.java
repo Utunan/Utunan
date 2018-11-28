@@ -16,7 +16,7 @@ public class Direction {
     //所属学院
     private  String collegeName;
     //专业名称
-    private String majorName;
+    private String majorlName;
     //研究方向名称
     private String directionName;
     //学位类型
@@ -65,12 +65,12 @@ public class Direction {
         this.collegeName = collegeName;
     }
 
-    public String getMajorName() {
-        return majorName;
+    public String getMajorlName() {
+        return majorlName;
     }
 
-    public void setMajorName(String majorName) {
-        this.majorName = majorName;
+    public void setMajorlName(String majorlName) {
+        this.majorlName = majorlName;
     }
 
     public String getDirectionName() {
@@ -127,7 +127,7 @@ public class Direction {
                 "directionId=" + directionId +
                 ", schoolName='" + schoolName + '\'' +
                 ", collegeName='" + collegeName + '\'' +
-                ", majorName='" + majorName + '\'' +
+                ", majorlName='" + majorlName + '\'' +
                 ", directionName='" + directionName + '\'' +
                 ", degreeType='" + degreeType + '\'' +
                 ", politics='" + politics + '\'' +
