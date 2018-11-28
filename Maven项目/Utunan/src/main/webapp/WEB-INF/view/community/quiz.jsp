@@ -223,13 +223,7 @@
                             'image',    //插入图片
                             'code'    //插入代码
                         ];
-                        editor1.customConfig.customUploadImg = function (files, insert) {
-                            // files 是 input 中选中的文件列表
-                            // insert 是获取图片 url 后，插入到编辑器的方法
-
-                            // 上传代码返回结果之后，将图片插入到编辑器中
-                            insert(imgUrl);
-                        }
+                        editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
                         editor1.customConfig.uploadImgMaxSize = 3 * 1024 * 1024   //每张图片最大上传大小
                         editor1.customConfig.uploadImgMaxLength = 5              //每次最多上传5张
                         var $text1 = $('#text1')
