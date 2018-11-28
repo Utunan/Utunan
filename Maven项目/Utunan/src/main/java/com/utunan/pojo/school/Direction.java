@@ -10,10 +10,10 @@ import java.util.Set;
  */
 public class Direction {
     //研究方向编号
-    private  Integer directionId;
+    private  Long directionId;
     //学校名称
     private  String schoolName;
-    //院系名称
+    //所属学院
     private  String collegeName;
     //专业名称
     private String majorName;
@@ -41,11 +41,11 @@ public class Direction {
         this.users = users;
     }
 
-    public Integer getDirectionId() {
+    public Long getDirectionId() {
         return directionId;
     }
 
-    public void setDirectionId(Integer directionId) {
+    public void setDirectionId(Long directionId) {
         this.directionId = directionId;
     }
 
