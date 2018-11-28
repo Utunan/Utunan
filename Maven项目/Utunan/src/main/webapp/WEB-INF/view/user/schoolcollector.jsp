@@ -107,31 +107,17 @@
             </table>
             <nav id="page" class="page">
                 <li class="home"><a href="/user/schoolcollector">首页</a></li>
+                <li class="next"><a href="?pageNum=${PageInfo.prePage}">上一页</a></li>
+                <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                    <li class="pagination"><a name="${i}" href="?pageNum=${i}">${i}</a></li>
+                </c:forEach>
                 <c:choose>
-                    <c:when test="${PageInfo.prePage==0}">
-                        <li class="next"><a href="?pageNum=1">上一页</a></li>
+                    <c:when test="${PageInfo.nextPage==0}">
+                        <li class="next"><a href="?pageNum=${PageInfo.pages}">下一页</a></li>
                     </c:when>
                     <c:otherwise>
-                        <li class="next"><a href="?pageNum=${PageInfo.prePage}">上一页</a></li>
+                        <li class="next"><a href="?pageNum=${PageInfo.nextPage}">下一页</a></li>
                     </c:otherwise>
-                </c:choose>
-                <c:choose>
-                <c:when test="${PageInfo.pages<=5}">
-                    <c:forEach items="${PageInfo.navigatepageNums}" var="pageNum">
-                        <li class="pagination"><a name="${pageNum}" href="?pageNum=${pageNum}">${pageNum}</a></li>
-                    </c:forEach>
-                </c:when>
-                <c:otherwise>
-
-                </c:otherwise>
-                </c:choose>
-                <c:choose>
-                <c:when test="${PageInfo.nextPage==0}">
-                <li class="next"><a href="?pageNum=${PageInfo.pages}">下一页</a></li>
-                </c:when>
-                <c:otherwise>
-                    <li class="next"><a href="?pageNum=${PageInfo.nextPage}">下一页</a></li>
-                </c:otherwise>
                 </c:choose>
                 <li class="tail"><a href="?pageNum=${PageInfo.pages}">尾页</a></li>
             </nav>
@@ -141,12 +127,12 @@
 <%@include file="../common/footer.jsp" %>
 </body>
 <script>
-    paginations=document.getElementsByClassName("pagination");
-    console.log(paginations);
-    for (var i=0;i<paginations.length;i++){
-       if(paginations[i].firstChild.name=="${PageInfo.pageNum}")
-           paginations[i].style.backgroundColor="green";
-
+    paginations = document.getElementsByClassName("pagination");
+    for (var i = 0; i < paginations.length; i++) {
+        if (paginations[i].firstChild.name == "${PageInfo.pageNum}") {
+            paginations[i].style.backgroundColor = "rgba(49, 126, 212, 0.2)";
+            paginations[i].firstChild.style.color = "#fff"
+        }
     }
 </script>
 <script src="/js/usercommon.js"></script>

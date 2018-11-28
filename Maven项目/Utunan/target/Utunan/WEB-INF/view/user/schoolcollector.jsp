@@ -9,13 +9,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>欢迎来到Utunan</title>
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/user/schoolcollector.css">">
+    <link rel="stylesheet" href="/css/user/schoolcollector.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-<%@include file="../common/header.jsp"%>
+<%@include file="../common/header.jsp" %>
 <div class="container">
     <div class="wrapper">
         <div class="usercard">
@@ -104,24 +104,37 @@
                         <td><img src="/images/user/delete.svg"></td>
                     </tr>
                 </c:forEach>
-
             </table>
-            <nav class="page">
-                <li class="home"><a href="">首页</a></li>
-                <li class="prev"><a href="">上一页</a></li>
-                <li><a href="?page=1">1</a></li>
-                <li><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-                <li><a href="">55</a></li>
-                <li class="next"><a href="">下一页</a></li>
-                <li class="tail"><a href="">尾页</a></li>
+            <nav id="page" class="page">
+                <li class="home"><a href="/user/schoolcollector">首页</a></li>
+                <li class="next"><a href="?pageNum=${PageInfo.prePage}">上一页</a></li>
+                <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                    <li class="pagination"><a name="${i}" href="?pageNum=${i}">${i}</a></li>
+                </c:forEach>
+                <c:choose>
+                    <c:when test="${PageInfo.nextPage==0}">
+                        <li class="next"><a href="?pageNum=${PageInfo.pages}">下一页</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="next"><a href="?pageNum=${PageInfo.nextPage}">下一页</a></li>
+                    </c:otherwise>
+                </c:choose>
+                <li class="tail"><a href="?pageNum=${PageInfo.pages}">尾页</a></li>
             </nav>
         </div>
     </div>
 </div>
-<%@include file="../common/footer.jsp"%>
+<%@include file="../common/footer.jsp" %>
 </body>
+<script>
+    paginations = document.getElementsByClassName("pagination");
+    for (var i = 0; i < paginations.length; i++) {
+        if (paginations[i].firstChild.name == "${PageInfo.pageNum}") {
+            paginations[i].style.backgroundColor = "rgba(49, 126, 212, 0.2)";
+            paginations[i].firstChild.style.color = "#fff"
+        }
+    }
+</script>
 <script src="/js/usercommon.js"></script>
 <script src="/js/common.js"></script>
 </html>

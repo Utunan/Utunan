@@ -63,15 +63,11 @@ public class QuizCommentController {
         //封装分页
         Page<BigQuiz> p = new Page<>(num, 6);
         p.setTotalCount(quizNumber);
-
         request.setAttribute("quizTagList", quizTagList);
         request.setAttribute("quiz", quiz);
         request.setAttribute("commentCountByQuizId", commentCountByQuizId);
         request.setAttribute("commentListByQuizId", commentListByQuizId);
         request.setAttribute("url", url);
-
-        System.out.println("[commentList]"+commentListByQuizId);
-        System.out.println("user"+commentListByQuizId.get(1).getUser());
         return "community/quizcommentpage";
     }
 
