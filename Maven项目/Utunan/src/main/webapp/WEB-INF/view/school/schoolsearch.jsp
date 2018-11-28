@@ -13,14 +13,15 @@
     <title>院校库首页</title>
 </head>
 <body>
-<form>
+<form action="/displaySchoolBySearch">
     院校所在地：
-    <label><input name="schoolProvince" type="checkbox" value="0" />全部 </label>
-    <label><input name="schoolProvince" type="checkbox" value="1" />北京 </label>
-    <label><input name="schoolProvince" type="checkbox" value="2" />上海 </label>
-    <label><input name="schoolProvince" type="checkbox" value="3" />广东 </label>
-    <label><input name="schoolProvince" type="checkbox" value="4" />江苏 </label>
+    <label><input name="schoolProvince" type="checkbox" value="null" />全部 </label>
+    <label><input name="schoolProvince" type="checkbox" value="北京" />北京 </label>
+    <label><input name="schoolProvince" type="checkbox" value="上海" />上海 </label>
+    <label><input name="schoolProvince" type="checkbox" value="广东" />广东 </label>
+    <label><input name="schoolProvince" type="checkbox" value="江苏" />江苏 </label>
     <br>
+    <input type="submit" value="搜索"/>
 </form>
 <table>
     <tr>
@@ -31,12 +32,15 @@
         <td>考试范围</td>
         <td>收藏</td>
     </tr>
-    <c:forEach items="${schoollist}" var="schoollist" >
+    <c:forEach items="${directionList}" var="directionList" >
         <tr>
-            <td>${schoollist.schoolName}</td>
-                <%--<td>${childcomment.user.userNickName}</td>
-                <td>${childcomment.commentContent}</td>
-                <td>${childcomment.commentPraiseCount}</td>--%>
+            <td>${directionList.schoolName}</td>
+            <td>${directionList.collegeName}</td>
+            <td>${directionList.degreeType}</td>
+            <td>${directionList.majorName}</td>
+            <td>${directionList.directionName}</td>
+            <td><a href="#">详情</a> </td>
+            <td>收藏</td>
         </tr>
     </c:forEach>
 </table>
