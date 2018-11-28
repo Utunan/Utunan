@@ -229,39 +229,3 @@ header {
 .collection{
     overflow: hidden;
 }
-.page {
-    clear: both;
-    padding: 15px 0 10px 0;
-    height: 30px;
-    width: auto;
-    text-align: center;
-}
-
-.page>li {
-    text-align: center;
-    display:inline-flex;
-    margin: 0 auto;
-    width: 30px;
-    padding:3px 5px;
-    border:1px solid rgba(49, 126, 212, 1);
-}
-
-.page>li>a {
-    width: 100%;
-    float: left;
-    color: rgba(49, 126, 212, 1);
-    text-decoration: none;
-}
-
-.page>.home {
-    width: 60px;
-}
-.page>.prev {
-    width: 60px;
-}
-.page>.next {
-    width: 60px;
-}
-.page>.tail {
-    width: 60px;
-}
