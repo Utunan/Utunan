@@ -20,5 +20,7 @@
         select *
         from direction
     </select>
+    
+
 
 </mapper>
