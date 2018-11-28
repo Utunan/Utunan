@@ -56,9 +56,9 @@ public class QuizCommentController {
         //判断当前页
         int num=0;
         if(pageNum==null || pageNum.equals("")){
-        ​    num=1;
+            num=1;
         }else{
-        ​    num=Integer.parseInt(pageNum);
+            num=Integer.parseInt(pageNum);
         }
         //封装分页
         Page<BigQuiz> p = new Page<>(num, 6);
