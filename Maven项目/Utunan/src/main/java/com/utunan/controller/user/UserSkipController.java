@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 /**
  * 负责用户个人中心的跳转
@@ -40,9 +39,9 @@ public class UserSkipController {
         return "/user/statistics";
     }
 
-    @RequestMapping("publishpost")
+    @RequestMapping("publishquiz")
     public String publishpost() {
-        return "/user/publishpost";
+        return "/user/publishquiz";
     }
 
     @RequestMapping("publishreply")
@@ -50,7 +49,7 @@ public class UserSkipController {
         return "/user/publishreply";
     }
 
-    @RequestMapping("schoolcollector")
+    @RequestMapping("directioncollector")
     public String collectschool(HttpSession session, HttpServletRequest request) {
         User user = (User) session.getAttribute("User");
         String pageNum = request.getParameter("pageNum");
@@ -62,17 +61,17 @@ public class UserSkipController {
 
         request.setAttribute("PageInfo",new PageInfo(directions,5));
         request.setAttribute("Directions", directions);
-        return "user/schoolcollector";
+        return "/user/directioncollector";
     }
 
-    @RequestMapping("mattercollector")
+    @RequestMapping("questioncollector")
     public String collectmatter() {
-        return "user/mattercollector";
+        return "/user/questioncollector";
     }
 
-    @RequestMapping("postcollector")
+    @RequestMapping("quizcollector")
     public String collectpost() {
-        return "user/postcollector";
+        return "/user/quizcollector";
     }
 
 }

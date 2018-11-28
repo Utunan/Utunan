@@ -6,7 +6,7 @@ header {
     min-width: 1180px;
     height: 100%;
     margin: 0 auto;
-    background: rgb(23, 85, 210);
+    background: rgba(36, 94, 210,1);
 }
 
 .container {

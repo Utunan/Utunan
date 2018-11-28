@@ -57,7 +57,7 @@
                 <img src="../images/user/arrow.svg">
             </li>
             <nav class="postinfo" id="postinfo" style="height:100px;">
-                <a href="/user/publishpost">
+                <a href="/user/publishquiz">
                     <li>发表的帖子</li>
                 </a>
                 <a href="/user/publishreply">
@@ -70,14 +70,14 @@
                 <img src="../images/user/arrow.svg">
             </li>
             <nav class="collection" id="collection" style="height:150px;">
-                <a href="/user/mattercollector">
-                    <li>题目收藏夹</li>
-                </a>
-                <a href="/user/schoolcollector">
+                <a href="/user/directioncollector">
                     <li>院校收藏夹</li>
                 </a>
-                <a href="/user/postcollector">
+                <a href="/user/quizcollector">
                     <li>帖子收藏夹</li>
+                </a>
+                <a href="/user/questioncollector">
+                    <li>题目收藏夹</li>
                 </a>
             </nav>
         </nav>

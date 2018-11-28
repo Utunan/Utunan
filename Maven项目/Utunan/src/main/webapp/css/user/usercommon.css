@@ -2,8 +2,8 @@ body {
     background-color:#F5F5F5;
 }
 #active {
-    color: rgba(12, 200, 217, 1);
-    background-color: rgba(12, 200, 217, 0.2);
+    color: rgba(49, 126, 212, 1);
+    background-color: rgba(49, 126, 212, 0.1);
 }
 header {
 }
@@ -46,7 +46,7 @@ header {
 .countdown h4 {
     padding:25px 0;
     margin:0;
-    background: #51c4d3;
+    background-color: rgba(36, 94, 210,1);
     font-size: 20px;
     letter-spacing: 0px;
     text-align: center;
@@ -78,7 +78,7 @@ header {
     padding-left: 40px;
     margin-top: 8%;
     font-size: 20px;
-    color: #51c4d3;
+    color: rgba(49, 126, 212, 1);
 }
 
 .schoolinfo {
@@ -159,19 +159,19 @@ header {
     background: #fff;
 }
 .userfunction>li:hover{
-    color: rgba(12, 200, 217, 1);
     width: 198px;
     padding-left: 20px;
-    background-color: rgba(12, 200, 217, 0.2);
-    border-right:2px solid rgba(12, 200, 217, 1);
+    color: rgba(49, 126, 212, 1);
+    background-color: rgba(49, 126, 212, 0.1);
+    border-right:2px solid rgba(49, 126, 212, 1);
 }
 .userfunction>a>li:hover{
 
     width: 198px;
     padding-left: 20px;
-    color: rgba(12, 200, 217, 1);
-    background-color: rgba(12, 200, 217, 0.2);
-    border-right:2px solid rgba(12, 200, 217, 1);
+    color: rgba(49, 126, 212, 1);
+    background-color: rgba(49, 126, 212, 0.1);
+    border-right:2px solid rgba(49, 126, 212, 1);
 }
 .userfunction>nav{
     clear: both;
@@ -180,7 +180,7 @@ header {
 
 .userfunction>nav>a{
     text-decoration: none;
-    color:#1690f3;
+    color:rgba(36, 94, 210,1);
 }
 
 .userfunction>nav>a>li{
@@ -193,9 +193,9 @@ header {
 }
 .userfunction nav>a>li:hover{
     width: 158px;
-    color: rgba(12, 200, 217, 1);
-    background-color: rgba(12, 200, 217, 0.2);
-    border-right:2px solid rgba(12, 200, 217, 1);
+    color: rgba(49, 126, 212, 1);
+    background-color: rgba(49, 126, 212, 0.1);
+    border-right:2px solid rgba(49, 126, 212, 1);
 }
 
 .mintitle{
@@ -204,7 +204,7 @@ header {
     float: left;
     padding:10px 0px;
     margin:50px 0px 20px 0;
-    color: #51c4d3;
+    color: rgba(49, 126, 212, 1);
     font-size: 20px;
     font-weight: bold;
 }
@@ -214,7 +214,7 @@ header {
     float: left;
     padding:15px 0px;
     margin:15px 0px 0px 0;
-    color: #51c4d3;
+    color: rgba(49, 126, 212, 1);
     font-size: 20px;
     font-weight: bold;
     border-bottom:2px solid rgba(229, 229, 229, 1);
@@ -243,14 +243,13 @@ header {
     margin: 0 auto;
     width: 30px;
     padding:3px 5px;
-    text-align: center;
-    border:1px solid rgba(12, 200, 217, 1);
+    border:1px solid rgba(49, 126, 212, 1);
 }
 
 .page>li>a {
     width: 100%;
     float: left;
-    color: rgba(9, 198, 217, 1);
+    color: rgba(49, 126, 212, 1);
     text-decoration: none;
 }
 
