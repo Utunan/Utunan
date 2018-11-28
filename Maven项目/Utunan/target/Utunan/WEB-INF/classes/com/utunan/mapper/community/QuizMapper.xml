@@ -39,7 +39,6 @@
         from quiz q
         join user u on q.userId=u.userId
         order by q.releaseTime desc
-        limit #{pageNum},#{pageSize}
     </select>
     <!--根据点赞数量分页查询-->
     <select id="listQuizByPraise" resultMap="quizResultMap">
@@ -47,7 +46,6 @@
         from quiz q
         join user u on q.userId=u.userId
         order by q.praiseCount desc
-        limit #{pageNum},#{pageSize}
     </select>
     <!--统计所有quiz个数-->
     <select id="countAllQuiz" resultType="java.lang.Long">
@@ -87,7 +85,7 @@
 
     <!--更新quiz表点赞数-->
     <update id="updatePraiseCount" parameterType="java.lang.Long">
-        update quiz set praiseCount=#{praiseCount}+1 where quizId=#{quizId}
+        update quiz set praiseCount=praiseCount+1 where quizId=#{quizId}
     </update>
 
     <!--@author 王碧云 根据QuizId查找Quiz-->
@@ -108,7 +106,6 @@
             #{item}
         </foreach>
         order by releaseTime desc
-        limit #{pageNum},#{pageSize}
     </select>
     <!--在某标签下根据点赞数量分页查询-->
     <select id="listQuizByPraiseWithTagName" resultType="com.utunan.pojo.community.Quiz">
@@ -119,7 +116,6 @@
             #{item}
         </foreach>
         order by praiseCount desc
-        limit #{pageNum},#{pageSize}
     </select>
     <!--统计某标签下的所有quiz个数-->
     <select id="countQuizWithTagName" resultType="java.lang.Long">
@@ -136,5 +132,21 @@
         join tag t on qt.tagId=t.tagId
         where t.tagName=#{tagName}
         group by qt.quizId
+    </select>
+
+    <!--根据搜索条件查询提问-->
+    <select id="findQuizBySearch" resultMap="quizResultMap">
+        select *
+        from quiz q
+        join user u on q.userId=u.userId
+        where q.quizTitle like #{searchValue}
+          or q.quizContent like #{searchValue}
+    </select>
+    <!--根据搜索条件统计提问数量-->
+    <select id="countQuizBySearch" resultType="java.lang.Long">
+        select count(*)
+        from quiz
+        where quizTitle like #{searchValue}
+          or quizContent like #{searchValue}
     </select>
 </mapper>

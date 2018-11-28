@@ -71,7 +71,7 @@ public class QuizCommentController {
         request.setAttribute("url", url);
 
         System.out.println("[commentList]"+commentListByQuizId);
-        System.out.println("user"+commentListByQuizId.get(1).getUser());
+        //System.out.println("user"+commentListByQuizId.get(1).getUser());
         return "community/quizcommentpage";
     }
 
