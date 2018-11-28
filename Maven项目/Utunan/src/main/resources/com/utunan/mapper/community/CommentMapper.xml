@@ -37,6 +37,12 @@
         insert into comment(quizId,userId,commentContent,commentTime,commentPraiseCount,replyCommentId) values(#{quizId},#{userId},#{commentContent},#{commentTime},#{commentPraiseCount},#{replyCommentId})
     </insert>
 
+
+    <!-- 插入评论，这里commentId是自动递增的，所以不需要插入 -->
+    <insert id="toInsert1" parameterType="com.utunan.pojo.community.Comment">
+        insert into comment(quizId,userId,commentContent,commentTime,commentPraiseCount,replyCommentId) values(#{quizId},#{userId},#{commentContent},#{commentTime},#{commentPraiseCount},#{replyCommentId})
+    </insert>
+
     <!--根据回答quizId最大查询，每次只查一条-->
     <select id="getComment" resultType="com.utunan.pojo.community.Comment">
         select * from commemt where commentId=(select max(commentId) from comment)

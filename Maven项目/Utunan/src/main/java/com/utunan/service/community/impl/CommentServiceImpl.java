@@ -46,20 +46,6 @@ public class CommentServiceImpl implements CommentService {
         comment.setCommentPraiseCount(j);
         commentMapper.toInsert(comment);
     }
-
-    /*
-     * @author  张正扬
-     * @description 从comment表取出刚刚插入的回答
-     * @date  15:47 2018/11/22
-     * @param  null
-     * @return  Comment对象
-     */
-
-    @Override
-    public Comment getComment(){
-        return commentMapper.getComment();
-    }
-
     /*
      * @author  王碧云
      * @description 根据quiaId返回评论列表
@@ -131,5 +117,25 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Long countCommentBySearch(String searchValue){
         return this.commentMapper.countCommentBySearch("%"+searchValue+"%");
+    }
+    /*
+     * @author  张正扬
+     * @description 向comment表插入回答
+     * @date  15:47 2018/11/22
+     * @param  content
+     * @return  null
+     */
+
+    @Override
+    public void saveComment1(Long commentId,String content,Long uid){
+        Comment comment=new Comment();
+        comment.setReplyCommentId(commentId);
+        comment.setUserId(uid);
+        comment.setCommentContent(content);
+        comment.setCommentTime(new Date());
+        int i=0;
+        long j=(long) i;
+        comment.setCommentPraiseCount(j);
+        commentMapper.toInsert1(comment);
     }
 }

@@ -19,13 +19,13 @@ public interface CommentService {
     void saveComment(Long quizId,String content,Long uid);
     /*
      * @author  张正扬
-     * @description 从comment表中取出刚刚插入的回答，每次只取一条
-     * @date  8:08 2018/11/22
-     * @param  null
-     * @return  Comment对象
+     * @description  向comment表中插入评论
+     * @date  7:56 2018/11/22
+     * @param content，commentId，uid
+     * @return   null
      */
 
-    Comment getComment();
+    void saveComment1(Long commentId,String content,Long uid);
 
     /*
      * @author  王碧云
