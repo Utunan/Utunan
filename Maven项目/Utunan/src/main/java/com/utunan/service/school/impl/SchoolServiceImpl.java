@@ -6,6 +6,7 @@ import com.utunan.service.school.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("schoolService")
@@ -24,5 +25,33 @@ public class SchoolServiceImpl  implements SchoolService {
     @Override
     public List<School> findAllSchool() {
         return this.schoolMapper.findAllSchool();
+    }
+
+    /*
+     * @author  王碧云
+     * @description 根据省份检索学校(通过学校找到该校的研究方向)
+     * @date  10:07 2018/11/28/028
+     * @param  [schoolProvince]
+     * @return  java.util.List<com.utunan.pojo.school.School>
+     */
+    @Override
+    public List<School> findSchoolBySchoolProvince(String[] schoolProvinceList) {
+
+        List<School> directionlist = new ArrayList<School>();
+
+        for(String schoolProvince:schoolProvinceList){
+            System.out.println("[000]"+schoolProvince);
+
+            if(schoolProvince==null || "".equals(schoolProvince)){
+                List<School> directionBySchoolProvince = this.schoolMapper.findAllSchool();
+                directionlist.addAll(directionBySchoolProvince);
+                break;
+            }else{
+                List<School> directionBySchoolProvince = this.schoolMapper.findSchoolBySchoolProvince(schoolProvince);
+                directionlist.addAll(directionBySchoolProvince);
+            }
+        }
+        return directionlist;
+
     }
 }

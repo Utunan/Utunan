@@ -35,5 +35,9 @@ public interface CommentMapper {
 
     //根据搜索条件返回评论数量
     Long countCommentBySearch(@Param("searchValue") String searchValue);
+
+
+    //向comment表中插入评论
+    void toInsert1(Comment comment);
 }
 

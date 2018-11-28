@@ -56,83 +56,10 @@
                         </ul>
                     </div>
                     <div class="search">
-                        <!--搜索帖子-->
-                        <div class="searchText">
-                            <input type="text" style="width:140px; height:20px;border-radius:8px;border: none;margin-top: 10px;"/>
-                        </div>
-                        <!--搜索图标-->
-                        <div class="searchImg">
-                            <img src="/images/search.png" width="20px" height="20px">
-                        </div>
-                    </div>
-                </div>
-                <!--帖子-->
-                <c:forEach items="${page.list}" var="obj">
-                    <div class="post">
-                        <div class="post-content">
-                            <div class="top">
-                                <div class="post-information">
-                                        ${obj.quiz.releaseTime} &nbsp;来自:<a href="#">${obj.user.userNickName}</a>
-                                </div>
-                                <div></div>
-                                <div class="praise">赞:</div>
-                                <div class="praise-value">${obj.quiz.praiseCount}</div>
-                            </div>
-                            <div class="question">
-                                <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}"><p>${obj.quiz.quizTitle}</p></a>
-                            </div>
-                            <div class="post-description">
-                                <p>${obj.quiz.quizContent}</p>
-                            </div>
-                            <!--帖子问题类型-->
-                            <div class="post-tags">
-                                <c:forEach items="${obj.tagList}" var="taglist">
-                                    <a href="quiz3?tagName=${taglist.tagName}">&nbsp;${taglist.tagName}&nbsp;</a>
-                                </c:forEach>
-                            </div>
-                        </div>
-                        <a class="answer_num " title="暂无满意答案" target="_blank" href="#">
-                            <span>${obj.commentNumber}</span>
-                            <p>回答</p>
-                        </a>
-                    </div>
-                </c:forEach>
-                <div class="bottom">
-                    <div class="page">
-                        <a href="/${url }?pageNum=1">首页</a>
-                        <a href="/${url }?pageNum=${page.prePageNum }">上一页</a>
-                        <a href="/${url }?pageNum=${page.nextPageNum }">下一页</a>
-                        <a href="/${url }?pageNum=${page.totalPageNum }">末页</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </c:if>
-    <!--选择标签后-->
-    <c:if test="${not empty tagName}">
-        <div class="left-content">
-            <!--内容声明-->
-            <div class="left-content-header">
-                <p>标签 “${tagName}”<a class="subscribe"href="#">&nbsp;+订阅&nbsp;</a></p>
-            </div>
-            <!--主要内容-->
-            <div class="left-content-main">
-
-                <div class="content-main-menu">
-                    <!--帖子显示原则选项-->
-                    <div class="menu-description">排序：</div>
-                    <div class="menu-optionSet">
-                        <ul>
-                            <li class="active" ><a href="quiz3?tagName=${tagName}">按时间排序</a></li>
-                            <li class="option" ><a href="quiz4?tagName=${tagName}">按热度排序</a></li>
-                            <li class="option" ><a href="#" >智能化推荐</a></li>
-                        </ul>
-                    </div>
-                    <div class="search">
-                        <form name="searchForm">
+                        <form name="searchForm" action="/searchQuiz" method="post">
                             <!--搜索帖子-->
                             <div class="searchText">
-                                <input type="text" style="width:140px; height:20px;border-radius:8px;border: none;margin-top: 10px;"/>
+                                <input type="text" style="width:140px; height:20px;border-radius:8px;border: none;margin-top: 10px;" name="searchValue"/>
                             </div>
 
                             <!--搜索图标-->
@@ -168,10 +95,87 @@
                                 </c:forEach>
                             </div>
                         </div>
-                        <a class="answer_num " title="暂无满意答案" target="_blank" href="#">
+                        <div class="answer_num " title="暂无满意答案" target="_blank" href="#">
                             <span>${obj.commentNumber}</span>
                             <p>回答</p>
-                        </a>
+                        </div>
+                    </div>
+                </c:forEach>
+                <div class="bottom">
+                    <div class="page">
+                        <a href="/${url }?pageNum=1">首页</a>
+                        <a href="/${url }?pageNum=${page.prePageNum }">上一页</a>
+                        <a href="/${url }?pageNum=${page.nextPageNum }">下一页</a>
+                        <a href="/${url }?pageNum=${page.totalPageNum }">末页</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </c:if>
+    <!--选择标签后-->
+    <c:if test="${not empty tagName}">
+        <div class="left-content">
+            <!--内容声明-->
+            <div class="left-content-header">
+                <p>标签 “${tagName}”<a class="subscribe"href="#">&nbsp;+订阅&nbsp;</a></p>
+            </div>
+            <!--主要内容-->
+            <div class="left-content-main">
+
+                <div class="content-main-menu">
+                    <!--帖子显示原则选项-->
+                    <div class="menu-description">排序：</div>
+                    <div class="menu-optionSet">
+                        <ul>
+                            <li class="${statelist[0]}" ><a href="quiz3?tagName=${tagName}">按时间排序</a></li>
+                            <li class="${statelist[1]}" ><a href="quiz4?tagName=${tagName}">按热度排序</a></li>
+                            <!--<li class="option" ><a href="#" >智能化推荐</a></li>-->
+                        </ul>
+                    </div>
+                    <div class="search">
+                        <form name="searchForm" action="/searchQuiz" method="post">
+                            <!--搜索帖子-->
+                            <div class="searchText">
+                                <input type="text" style="width:140px; height:20px;border-radius:8px;border: none;margin-top: 10px;" name="searchValue"/>
+                            </div>
+
+                            <!--搜索图标-->
+                            <button class="searchImg" type="submit">
+                                <img src="images/search.png" width="20px" height="20px" >
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+                <!--帖子-->
+                <c:forEach items="${page.list}" var="obj">
+                    <div class="post">
+                        <div class="post-content">
+                            <div class="top">
+                                <div class="post-information">
+                                        ${obj.quiz.releaseTime} &nbsp;来自:<a href="#">${obj.user.userNickName}</a>
+                                </div>
+                                <div></div>
+                                <div class="praise">赞:</div>
+                                <div class="praise-value">${obj.quiz.praiseCount}</div>
+                            </div>
+                            <div class="question">
+                                <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}"><p>${obj.quiz.quizTitle}</p></a>
+                            </div>
+                            <div class="post-description">
+                                <p>${obj.quiz.quizContent}</p>
+                            </div>
+                            <!--帖子问题类型-->
+                            <div class="post-tags">
+                                <c:forEach items="${obj.tagList}" var="taglist">
+                                    <a href="quiz3?tagName=${taglist.tagName}">&nbsp;${taglist.tagName}&nbsp;</a>
+                                </c:forEach>
+                            </div>
+                        </div>
+                        <div class="answer_num " title="暂无满意答案" target="_blank" href="#">
+                            <span>${obj.commentNumber}</span>
+                            <p>回答</p>
+                        </div>
                     </div>
                 </c:forEach>
                 <div class="bottom">
@@ -219,13 +223,7 @@
                             'image',    //插入图片
                             'code'    //插入代码
                         ];
-                        editor1.customConfig.customUploadImg = function (files, insert) {
-                            // files 是 input 中选中的文件列表
-                            // insert 是获取图片 url 后，插入到编辑器的方法
-
-                            // 上传代码返回结果之后，将图片插入到编辑器中
-                            insert(imgUrl);
-                        }
+                        editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
                         editor1.customConfig.uploadImgMaxSize = 3 * 1024 * 1024   //每张图片最大上传大小
                         editor1.customConfig.uploadImgMaxLength = 5              //每次最多上传5张
                         var $text1 = $('#text1')

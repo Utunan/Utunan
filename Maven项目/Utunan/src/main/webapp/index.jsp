@@ -8,8 +8,8 @@
             height: 700px;
             line-height: 700px;
             text-align: center;
-            font-size:35px;
-            color:#6610f2;
+            font-size: 35px;
+            color: #6610f2;
         }
     </style>
 </head>
@@ -17,16 +17,16 @@
     <div id="info">请等待3秒钟,谢谢~</div>
 </body>
 <script>
-    info=document.getElementById("info")
-    timer=2;
-    setInterval(function(){
-        info.innerHTML="请等待"+timer+"秒钟,谢谢~";
+    info = document.getElementById("info")
+    timer = 2;
+    setInterval(function () {
+        info.innerHTML = "请等待" + timer + "秒钟,谢谢~";
         timer--;
-        if(timer<0)
-            timer=0
-    },1000)
-    setTimeout(function(){
+        if (timer < 0)
+            timer = 0
+    }, 1000)
+    setTimeout(function () {
         window.location.href = "/homepage"
-    },3000);
+    }, 3000);
 </script>
 </html>

@@ -26,6 +26,15 @@
     <select id="findAllSchool" resultMap="schoolResultMap">
         select *
         from school
+        join direction on school.schoolName = direction.schoolName
+    </select>
+
+    <!--王碧云 根据省份检索学校(通过学校找到该校的研究方向)-->
+    <select id="findSchoolBySchoolProvince" resultMap="schoolResultMap">
+        select *
+        from school
+        join direction on school.schoolName = direction.schoolName
+        where schoolProvince=#{schoolProvince}
     </select>
 
 </mapper>

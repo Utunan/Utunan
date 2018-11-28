@@ -6,7 +6,7 @@ header {
     min-width: 1180px;
     height: 100%;
     margin: 0 auto;
-    background: rgba(51, 153, 153, 1);
+    background: rgb(23, 85, 210);
 }
 
 .container {
@@ -213,6 +213,7 @@ header {
 }
 
 .header .optop span:first-of-type{
+    cursor:default;
     color: #fc8c23;
     float: left;
     width: 135px;
@@ -220,6 +221,7 @@ header {
     font-size: 13px;
 }
 .header .optop span:last-of-type{
+
     float: left;
     width: 70px;
     font-size: 14px;
@@ -229,14 +231,14 @@ header {
     float: left;
     width: 60px;
     height: 20px;
-    border:2px solid #83cbac;
+    border:2px solid rgba(23, 85, 210,0.5);
     line-height: 20px;
     margin:3px;
     font-size: 12px;
     padding:1px 3px;
     text-align: center;
     border-radius: 4px;
-    color: #12a182;
+    color: rgba(23, 85, 210,0.5);
 }
 
 .header .opmiddle{
@@ -302,7 +304,7 @@ header {
 #opbottom>span:first-of-type>a{
     width:60px;
     font-size: 15px;
-    color:#fed71a;
+    color:#fc8c23;
     line-height: 30px;
     float: left;
     height: 30px;

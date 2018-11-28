@@ -6,7 +6,7 @@ state = false;
 
 function checkpermit() {
     var regt = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
-    var rege = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+    var rege = new RegExp("^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$");
     return (!regt.test(permit.value)) && (!rege.test(permit.value));
 }
 
