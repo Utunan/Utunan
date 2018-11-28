@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public boolean isExist(User user) {
-        User u=userMapper.selectByUorE(user);
+        User u=userMapper.selectByPorE(user);
         if(u!=null) {
 	        return true;
         }

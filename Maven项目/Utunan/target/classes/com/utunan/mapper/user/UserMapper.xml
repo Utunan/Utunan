@@ -15,7 +15,7 @@
         userPassword=#{userPassword}
     </select>
 
-    <select id="selectByUorE" resultType="com.utunan.pojo.user.User">
+    <select id="selectByPorE" resultType="com.utunan.pojo.user.User">
         select *
         from user
         where

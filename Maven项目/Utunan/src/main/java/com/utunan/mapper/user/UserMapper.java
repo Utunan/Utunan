@@ -10,9 +10,11 @@ import java.util.List;
 @Mapper
 @Repository
 public interface UserMapper {
+    //插入用户
     int insert(User user);
+    //通过
     User selectByPermit(User user);
-    User selectByUorE(User user);
+    User selectByPorE(User user);
     List<Dictionary> updateUser(User user);
 }
 
