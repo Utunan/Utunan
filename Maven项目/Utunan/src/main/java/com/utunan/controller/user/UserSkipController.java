@@ -60,7 +60,7 @@ public class UserSkipController {
         else
             directions = (Page<Direction>) directionCollectorService.getUserSchoolCollector(user, Integer.parseInt(pageNum), 10);
 
-        request.setAttribute("PageInfo",new PageInfo(directions));
+        request.setAttribute("PageInfo",new PageInfo(directions,5));
         request.setAttribute("Directions", directions);
         return "user/schoolcollector";
     }

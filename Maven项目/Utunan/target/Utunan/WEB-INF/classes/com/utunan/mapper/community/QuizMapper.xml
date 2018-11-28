@@ -59,6 +59,15 @@
         join quiz q on q.userId=u.userId
         where quizId=#{quizId}
     </select>
+
+    <!--根据quizId查用户-->
+    <select id="selectQuizByUserId" resultType="com.utunan.pojo.user.User">
+        select q.*
+        from user u
+        join quiz q on q.userId=u.userId
+        where quizId=#{quizId}
+    </select>
+
     <!--根据quizId查评论数量-->
     <select id="countCommentByQuizId" resultType="java.lang.Long">
         select count(commentId)
