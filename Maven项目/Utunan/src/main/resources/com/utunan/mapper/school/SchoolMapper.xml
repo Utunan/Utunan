@@ -36,10 +36,42 @@
         from school
         join direction on school.schoolName = direction.schoolName
         <where>
-        <foreach collection="schoolProvince" item="schoolProvince" open="and schoolProvince in (" close=") " separator=",">
-            #{schoolProvince}
-        </foreach>
+            <foreach collection="schoolProvince" item="schoolProvince" open="and schoolProvince in (" close=") " separator=",">
+                #{schoolProvince}
+            </foreach>
         </where>
     </select>
 
+    <!--王碧云 根据院校特性检索学校-->
+    <select id="findSchoolBySchoolType" resultMap="schoolResultMap">
+        select *
+        from school
+        join direction on school.schoolName = direction.schoolName
+        <where>
+            <foreach collection="schoolType" item="schoolType" open="(" close=") " separator="or">
+                schoolType like CONCAT('%','${schoolType}','%' )
+            </foreach>
+        </where>
+    </select>
+
+    <!--王碧云 根据所有参数检索学校-->
+    <select id="findSchoolByAllParam" resultMap="schoolResultMap">
+        select *
+        from school
+        join direction on school.schoolName = direction.schoolName
+        <where>
+            <if test="schoolProvince!=null">
+                <foreach collection="schoolProvince" item="schoolProvince" open="and schoolProvince in (" close=") " separator=",">
+                    #{schoolProvince}
+                </foreach>
+            </if>
+            <if test="schoolType!=null">
+                and
+                <foreach collection="schoolType" item="schoolType" open="(" close=") " separator="or">
+                    schoolType like CONCAT('%','${schoolType}','%' )
+                </foreach>
+            </if>
+
+        </where>
+    </select>
 </mapper>

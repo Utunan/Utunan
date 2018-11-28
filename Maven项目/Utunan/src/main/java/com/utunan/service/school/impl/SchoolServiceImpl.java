@@ -50,4 +50,32 @@ public class SchoolServiceImpl  implements SchoolService {
 
         return directionlist;
     }
+    /*
+     * @author  王碧云
+     * @description 根据学校类型检索学校(通过学校找到该校的研究方向)
+     * @date  16:17 2018/11/28/028
+     * @param  [schoolType]
+     * @return  java.util.List<com.utunan.pojo.school.School>
+     */
+    @Override
+    public List<School> findSchoolBySchoolType(String[] schoolTypeList) {
+        System.out.println("[000]"+schoolTypeList);
+        List<School> directionlist = new ArrayList<>();
+        directionlist = this.schoolMapper.findSchoolBySchoolType(schoolTypeList);
+        return directionlist;
+    }
+    /*
+     * @author  王碧云
+     * @description 根据所有参数检索所有学校
+     * @date  22:51 2018/11/28/028
+     * @param  [schoolProvinceList, schoolType]
+     * @return  java.util.List<com.utunan.pojo.school.School>
+     */
+    @Override
+    public List<School> findSchoolByAllParam(String[] schoolProvinceList, String[] schoolType) {
+        List<School> directionlist = this.schoolMapper.findSchoolByAllParam(schoolProvinceList, schoolType);
+        return directionlist;
+    }
+
+
 }

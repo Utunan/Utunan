@@ -57,16 +57,19 @@ public class SchoolSearchController {
                                         HttpServletRequest request,
                                         @RequestParam(value = "schoolType",required = false) String[] schoolTypeList){
         String aaa = Arrays.toString(schoolTypeList);
+        String bbb = Arrays.toString(schoolProvinceList);
 
         List<School> schoolList = new ArrayList<>();
 
-        if(schoolProvinceList==null || "".equals(schoolProvinceList)){
+       if(schoolProvinceList==null || "".equals(schoolProvinceList)){
             schoolList = this.schoolService.findAllSchool();
         }else {
-            schoolList = this.schoolService.findSchoolBySchoolProvince(schoolProvinceList);
+           schoolList = this.schoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList);
         }
+
         request.setAttribute("schoolList", schoolList);
 
+        System.out.println(bbb);
         System.out.println(aaa);
         System.out.println(schoolList);
         return "/school/schoolsearch";
