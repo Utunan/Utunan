@@ -1,22 +1,28 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <nav class="userfunction">
-    <input type="hidden" value="directioncollector">
+    <input type="hidden" id="currentplate" value="directioncollector">
     <a href="/user/myspace">
         <li>
-            <img src="../images/user/userinfo.svg" alt="" srcset="">
+            <img src="/images/user/home.svg" alt="" srcset="">
             <span>个人资料</span>
+        </li>
+    </a>
+    <a href="/user/information">
+        <li>
+            <img src="/images/user/information.svg" alt="" srcset="">
+            <span>消息通知</span>
         </li>
     </a>
     <a href="/user/statistics">
         <li>
-            <img src="../images/user/statistics.svg">
+            <img src="/images/user/statistics.svg">
             <span>题库统计</span>
         </li>
     </a>
     <li id="community">
-        <img src="../images/user/record.svg">
+        <img src="/images/user/record.svg">
         <span>社区记录</span>
-        <img src="../images/user/arrow.svg">
+        <img src="/images/user/arrow.svg">
     </li>
     <nav class="postinfo" id="postinfo" style="height:100px;">
         <a href="/user/publishquiz">
@@ -42,4 +48,10 @@
             <li>题目收藏夹</li>
         </a>
     </nav>
+    <a href="/user/settings">
+        <li>
+            <img src="/images/user/settings.svg" alt="" srcset="">
+            <span>用户设置</span>
+        </li>
+    </a>
 </nav>

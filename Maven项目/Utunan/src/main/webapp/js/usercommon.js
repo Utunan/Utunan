@@ -2,7 +2,11 @@
 postinfo = document.getElementById('postinfo');
 mycollection = document.getElementById('mycollection');
 collection = document.getElementById('collection');
-
+plate=document.getElementById("currentplate").value;
+dict={
+    0:"myspace",1:"statistics",2:"publishquiz",
+    3:"publishreply",4:"directioncollector",5:"quizcollector",
+    6:"questioncollector"}
 
 com_pull_state = false
 col_pull_state = false

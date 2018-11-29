@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/user/publishpost.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-    <script> var pagenum = "${PageInfo.pageNum}"</script>
+    <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -37,9 +36,7 @@
                             <span class="posttitle">${Q.quizTitle }</span>
                             <span class="publishtype">${Q.tags[0]==null?"Utunan":Q.tags[0].tagName}</span>
                         </div>
-                        <p class="postcontent">
-                                ${Q.quizContent }
-                        </p>
+                        <p class="postcontent">${Q.quizContent }</p>
                         <span>评论数(${Q.commentCount })</span>
                         <span><a href="">>>详细</a></span>
                     </li>

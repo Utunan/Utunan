@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/user/schoolcollector.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
     <script> var pagenum="${PageInfo.pageNum}"</script>
 </head>
 
