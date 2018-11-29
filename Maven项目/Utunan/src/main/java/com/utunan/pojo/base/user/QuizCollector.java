@@ -1,6 +1,6 @@
-package com.utunan.pojo.user;
+package com.utunan.pojo.base.user;
 
-import com.utunan.pojo.community.Quiz;
+import com.utunan.pojo.base.community.Quiz;
 
 /**
  * 帖子收藏列表-QuizCollector

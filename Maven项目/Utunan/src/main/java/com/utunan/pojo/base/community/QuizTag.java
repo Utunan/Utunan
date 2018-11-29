@@ -1,4 +1,4 @@
-package com.utunan.pojo.community;
+package com.utunan.pojo.base.community;
 
 /**
  * 提问标签-QuizTag

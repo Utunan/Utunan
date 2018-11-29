@@ -1,8 +1,8 @@
 package com.utunan.controller.community;
 
-import com.utunan.pojo.community.Comment;
-import com.utunan.pojo.community.Quiz;
-import com.utunan.pojo.community.QuizTag;
+import com.utunan.pojo.base.community.Comment;
+import com.utunan.pojo.base.community.Quiz;
+import com.utunan.pojo.base.community.QuizTag;
 import com.utunan.pojo.util.BigQuiz;
 import com.utunan.pojo.util.Page;
 import com.utunan.service.community.CommentService;

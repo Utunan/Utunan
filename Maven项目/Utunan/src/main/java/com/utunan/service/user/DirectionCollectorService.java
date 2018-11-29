@@ -1,7 +1,7 @@
 package com.utunan.service.user;
 
-import com.utunan.pojo.school.Direction;
-import com.utunan.pojo.user.User;
+import com.utunan.pojo.base.school.Direction;
+import com.utunan.pojo.base.user.User;
 
 import java.util.List;
 

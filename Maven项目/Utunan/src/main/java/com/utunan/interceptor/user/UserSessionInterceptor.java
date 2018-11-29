@@ -1,6 +1,6 @@
 package com.utunan.interceptor.user;
 
-import com.utunan.pojo.user.User;
+import com.utunan.pojo.base.user.User;
 import com.utunan.service.user.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package com.utunan.service.school.impl;
 
 import com.utunan.mapper.school.SchoolMapper;
-import com.utunan.pojo.school.School;
+import com.utunan.pojo.base.school.School;
 import com.utunan.service.school.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class SchoolServiceImpl  implements SchoolService {
      * @description 查询所有的学校
      * @date  20:12 2018/11/27/027
      * @param  []
-     * @return  java.util.List<com.utunan.pojo.school.School>
+     * @return  java.util.List<com.utunan.pojo.base.school.School>
      */
     @Override
     public List<School> findAllSchool() {
@@ -32,7 +32,7 @@ public class SchoolServiceImpl  implements SchoolService {
      * @description 根据省份检索学校(通过学校找到该校的研究方向)
      * @date  10:07 2018/11/28/028
      * @param  [schoolProvince]
-     * @return  java.util.List<com.utunan.pojo.school.School>
+     * @return  java.util.List<com.utunan.pojo.base.school.School>
      */
     @Override
     public List<School> findSchoolBySchoolProvince(String[] schoolProvinceList) {
@@ -55,7 +55,7 @@ public class SchoolServiceImpl  implements SchoolService {
      * @description 根据学校类型检索学校(通过学校找到该校的研究方向)
      * @date  16:17 2018/11/28/028
      * @param  [schoolType]
-     * @return  java.util.List<com.utunan.pojo.school.School>
+     * @return  java.util.List<com.utunan.pojo.base.school.School>
      */
     @Override
     public List<School> findSchoolBySchoolType(String[] schoolTypeList) {
@@ -69,7 +69,7 @@ public class SchoolServiceImpl  implements SchoolService {
      * @description 根据所有参数检索所有学校
      * @date  22:51 2018/11/28/028
      * @param  [schoolProvinceList, schoolType]
-     * @return  java.util.List<com.utunan.pojo.school.School>
+     * @return  java.util.List<com.utunan.pojo.base.school.School>
      */
     @Override
     public List<School> findSchoolByAllParam(String[] schoolProvinceList, String[] schoolType) {

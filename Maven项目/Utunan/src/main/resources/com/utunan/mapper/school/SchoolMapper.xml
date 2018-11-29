@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.utunan.mapper.school.SchoolMapper">
-    <resultMap id="schoolResultMap" type="com.utunan.pojo.school.School">
+    <resultMap id="schoolResultMap" type="com.utunan.pojo.base.school.School">
         <id column="schoolId" property="schoolId"/>
         <result property="schoolName" column="schoolName"/>
         <result property="schoolProvince" column="schoolProvince"/>
         <result property="schoolType" column="schoolType"/>
         <result property="schoolSubjection" column="schoolSubjection"/>
-        <collection property="direction" javaType="java.util.List" ofType="com.utunan.pojo.school.Direction">
+        <collection property="direction" javaType="java.util.List" ofType="com.utunan.pojo.base.school.Direction">
             <id column="directionId" property="directionId"/>
             <result property="schoolName" column="schoolName"/>
             <result property="collegeName" column="collegeName"/>

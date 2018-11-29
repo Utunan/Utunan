@@ -1,7 +1,6 @@
 package com.utunan.controller.community;
 
-import com.utunan.pojo.community.Comment;
-import com.utunan.pojo.user.User;
+import com.utunan.pojo.base.user.User;
 import com.utunan.service.community.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

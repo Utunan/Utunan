@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.utunan.mapper.school.DirectionMapper">
-    <resultMap id="directionResultMap" type="com.utunan.pojo.school.Direction">
+    <resultMap id="directionResultMap" type="com.utunan.pojo.base.school.Direction">
         <id column="directionId" property="directionId"/>
         <result property="schoolName" column="schoolName"/>
         <result property="collegeName" column="collegeName"/>

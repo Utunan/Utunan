@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.utunan.mapper.community.CommentMapper">
-    <resultMap id="commentResultMap" type="com.utunan.pojo.community.Comment">
+    <resultMap id="commentResultMap" type="com.utunan.pojo.base.community.Comment">
         <id property="commentId" column="commentId"/>
         <result property="quizId" column="quizId"/>
         <result property="userId" column="userId"/>
@@ -9,7 +9,7 @@
         <result property="commentTime" column="commentTime"/>
         <result property="commentPraiseCount" column="commentPraiseCount"/>
         <result property="replyCommentId" column="replyCommentId"/>
-        <association property="quiz" javaType="com.utunan.pojo.community.Quiz">
+        <association property="quiz" javaType="com.utunan.pojo.base.community.Quiz">
             <id property="quizId" column="quizId"/>
             <result property="userId" column="userId"/>
             <result property="quizTitle" column="quizTitle"/>
@@ -17,7 +17,7 @@
             <result property="releaseTime" column="releaseTime"/>
             <result property="praiseCount" column="praiseCount"/>
         </association>
-        <association property="user" javaType="com.utunan.pojo.user.User">
+        <association property="user" javaType="com.utunan.pojo.base.user.User">
             <id property="userId" column="userId"/>
             <result property="userEmail" column="userEmail"/>
             <result property="userTelephone" column="userTelephone"/>
@@ -33,18 +33,18 @@
         </association>
     </resultMap>
     <!-- 插入数据，这里commentId是自动递增的，所以不需要插入 -->
-    <insert id="toInsert" parameterType="com.utunan.pojo.community.Comment" useGeneratedKeys="true" keyProperty="commentId">
+    <insert id="toInsert" parameterType="com.utunan.pojo.base.community.Comment" useGeneratedKeys="true" keyProperty="commentId">
         insert into comment(quizId,userId,commentContent,commentTime,commentPraiseCount,replyCommentId) values(#{quizId},#{userId},#{commentContent},#{commentTime},#{commentPraiseCount},#{replyCommentId})
     </insert>
 
 
     <!-- 插入评论，这里commentId是自动递增的，所以不需要插入 -->
-    <insert id="toInsert1" parameterType="com.utunan.pojo.community.Comment" useGeneratedKeys="true" keyProperty="commentId">
+    <insert id="toInsert1" parameterType="com.utunan.pojo.base.community.Comment" useGeneratedKeys="true" keyProperty="commentId">
         insert into comment(quizId,userId,commentContent,commentTime,commentPraiseCount,replyCommentId) values(#{quizId},#{userId},#{commentContent},#{commentTime},#{commentPraiseCount},#{replyCommentId})
     </insert>
     
     <!--根据回答quizId最大查询，每次只查一条-->
-    <select id="getComment" resultType="com.utunan.pojo.community.Comment">
+    <select id="getComment" resultType="com.utunan.pojo.base.community.Comment">
         select * from commemt where commentId=(select max(commentId) from comment)
     </select>
     

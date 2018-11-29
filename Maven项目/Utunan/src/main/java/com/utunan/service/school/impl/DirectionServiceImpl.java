@@ -1,7 +1,7 @@
 package com.utunan.service.school.impl;
 
 import com.utunan.mapper.school.DirectionMapper;
-import com.utunan.pojo.school.Direction;
+import com.utunan.pojo.base.school.Direction;
 import com.utunan.service.school.DirectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

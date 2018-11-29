@@ -10,7 +10,7 @@
         and dc.userId=#{userId}
     </select>
 
-    <resultMap id="selectDirectionResultMap" type="com.utunan.pojo.school.Direction">
+    <resultMap id="selectDirectionResultMap" type="com.utunan.pojo.base.school.Direction">
         <id column="directionId" property="directionId"/>
         <result column="schoolName" property="schoolName"/>
         <result column="collegeName" property="collegeName"/>
@@ -21,7 +21,7 @@
         <result column="english" property="english"/>
         <result column="math" property="math"/>
         <result column="majorBasics" property="majorBasics"/>
-        <collection property="users" ofType="com.utunan.pojo.user.User">
+        <collection property="users" ofType="com.utunan.pojo.base.user.User">
             <id column="userId" property="userId"/>
             <result property="userEmail" column="userEmail"/>
             <result property="userTelephone" column="userTelephone"/>

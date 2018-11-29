@@ -1,9 +1,8 @@
 package com.utunan.service.community;
 
-import com.utunan.pojo.community.Quiz;
-import com.utunan.pojo.community.Tag;
-import com.utunan.pojo.user.User;
-import com.utunan.pojo.util.BigQuiz;
+import com.utunan.pojo.base.community.Quiz;
+import com.utunan.pojo.base.community.Tag;
+import com.utunan.pojo.base.user.User;
 
 import java.util.List;
 
@@ -14,7 +13,7 @@ public interface QuizService {
 ​	 * @date  16:20 2018/11/19
 ​	 * @param  pageNum
 ​	 * @param  pageSize
-​	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
+​	 * @return  java.util.List<com.utunan.pojo.base.community.Quiz>
 ​	 */
 	List<Quiz> quizListByTime(int pageNum, int pageSize);
 
@@ -24,7 +23,7 @@ public interface QuizService {
 	 * @date  17:15 2018/11/20
 	 * @param  pageNum
 	 * @param  pageSize
-	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
+	 * @return  java.util.List<com.utunan.pojo.base.community.Quiz>
 	 */
 	List<Quiz> quizListByPraise(int pageNum, int pageSize);
 	
@@ -59,7 +58,7 @@ public interface QuizService {
 	 * @description 根据quizId查找Quiz
 	 * @date  12:28 2018/11/24
 	 * @param  quizId
-	 * @return  com.utunan.pojo.community.Quiz
+	 * @return  com.utunan.pojo.base.community.Quiz
 	 */
 	Quiz findQuizById(Long quizId);
 	
@@ -77,7 +76,7 @@ public interface QuizService {
 	 * @description 根据quizId查标签列表
 	 * @date  16:19 2018/11/28
 	 * @param  quizId
-	 * @return  java.util.List<com.utunan.pojo.community.Tag>
+	 * @return  java.util.List<com.utunan.pojo.base.community.Tag>
 	 */
 	List<Tag> selectTagByQuizId(Long quizId);
 	
@@ -121,7 +120,7 @@ public interface QuizService {
 	 * @description 根据搜索条件查找提问列表
 	 * @date  20:12 2018/11/26
 	 * @param  searchValue
-	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
+	 * @return  java.util.List<com.utunan.pojo.base.community.Quiz>
 	 */
 	List<Quiz> findQuizBySearch(String searchValue, int pageNum, int pageSize);
 	
@@ -147,7 +146,7 @@ public interface QuizService {
 	 * @description 通过quizId查找用户
 	 * @date  20:15 2018/11/28
 	 * @param  quizId
-	 * @return  com.utunan.pojo.user.User
+	 * @return  com.utunan.pojo.base.user.User
 
 ​	 */
 	User findUserByQuizId(Long quizId);

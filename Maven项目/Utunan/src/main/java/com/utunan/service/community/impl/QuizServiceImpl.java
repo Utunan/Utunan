@@ -2,18 +2,14 @@ package com.utunan.service.community.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.utunan.mapper.community.QuizMapper;
-import com.utunan.pojo.community.Quiz;
-import com.utunan.pojo.community.QuizTag;
-import com.utunan.pojo.community.Tag;
-import com.utunan.pojo.user.User;
-import com.utunan.pojo.util.BigQuiz;
+import com.utunan.pojo.base.community.Quiz;
+import com.utunan.pojo.base.community.Tag;
+import com.utunan.pojo.base.user.User;
 import com.utunan.service.community.QuizService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,7 +24,7 @@ public class QuizServiceImpl implements QuizService {
 	 * @date  16:20 2018/11/19
 	 * @param  pageNum
 	 * @param  pageSize
-	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
+	 * @return  java.util.List<com.utunan.pojo.base.community.Quiz>
 	 */
 	@Override
 	public List<Quiz> quizListByTime(int pageNum, int pageSize){
@@ -46,7 +42,7 @@ public class QuizServiceImpl implements QuizService {
 	 * @date  17:15 2018/11/20
 	 * @param  pageNum
 	 * @param  pageSize
-	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
+	 * @return  java.util.List<com.utunan.pojo.base.community.Quiz>
 	 */
 	@Override
 	public List<Quiz> quizListByPraise(int pageNum, int pageSize){
@@ -74,7 +70,7 @@ public class QuizServiceImpl implements QuizService {
 	@Override
 	public void saveQuiz(Long uid,String title,String content){
 	    Quiz quiz=new Quiz();
-	    quiz.setUserId(uid);
+	    quiz.getUser().setUserId(uid);
 	    quiz.setQuizTitle(title);
 	    quiz.setQuizContent(content);
 	    quiz.setReleaseTime(new Date());
@@ -103,7 +99,7 @@ public class QuizServiceImpl implements QuizService {
 	 * @description 根据quizId查找Quiz
 	 * @date  12:36 2018/11/24
 	 * @param  [quizId]
-	 * @return  com.utunan.pojo.community.Quiz
+	 * @return  com.utunan.pojo.base.community.Quiz
 	 */
 	@Override
 	public Quiz findQuizById(Long quizId) {
@@ -126,7 +122,7 @@ public class QuizServiceImpl implements QuizService {
 	 * @description 根据quizId查标签列表
 	 * @date  16:19 2018/11/28
 	 * @param  quizId
-	 * @return  java.util.List<com.utunan.pojo.community.Tag>
+	 * @return  java.util.List<com.utunan.pojo.base.community.Tag>
 	 */
 	@Override
 	public List<Tag> selectTagByQuizId(Long quizId){
@@ -198,7 +194,7 @@ public class QuizServiceImpl implements QuizService {
 	 * @description 根据搜索条件查找提问列表
 	 * @date  20:12 2018/11/26
 	 * @param  searchValue
-	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
+	 * @return  java.util.List<com.utunan.pojo.base.community.Quiz>
 	 */
 	@Override
 	public List<Quiz> findQuizBySearch(String searchValue, int pageNum, int pageSize){
@@ -240,7 +236,7 @@ public class QuizServiceImpl implements QuizService {
 	 * @description 通过quizId查找用户
 	 * @date  20:15 2018/11/28
 	 * @param  quizId
-	 * @return  com.utunan.pojo.user.User
+	 * @return  com.utunan.pojo.base.user.User
 	 */
 	@Override
 	public User findUserByQuizId(Long quizId){

@@ -1,4 +1,4 @@
-package com.utunan.pojo.questionbank;
+package com.utunan.pojo.base.questionbank;
 
 import java.util.Date;
 

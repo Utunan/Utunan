@@ -2,8 +2,8 @@ package com.utunan.service.user.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.utunan.mapper.user.DirectionCollectorMapper;
-import com.utunan.pojo.school.Direction;
-import com.utunan.pojo.user.User;
+import com.utunan.pojo.base.school.Direction;
+import com.utunan.pojo.base.user.User;
 import com.utunan.service.user.DirectionCollectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

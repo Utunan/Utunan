@@ -1,7 +1,6 @@
 package com.utunan.controller.school;
 
-import com.utunan.pojo.school.Direction;
-import com.utunan.pojo.school.School;
+import com.utunan.pojo.base.school.School;
 
 import com.utunan.service.school.DirectionService;
 import com.utunan.service.school.SchoolService;

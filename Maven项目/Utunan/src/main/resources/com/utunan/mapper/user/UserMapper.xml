@@ -3,7 +3,7 @@
 
 <mapper namespace="com.utunan.mapper.user.UserMapper">
 
-    <select id="selectByPermit" resultType="com.utunan.pojo.user.User">
+    <select id="selectByPermit" resultType="com.utunan.pojo.base.user.User">
         select *
         from user
         where (
@@ -15,7 +15,7 @@
         userPassword=#{userPassword}
     </select>
 
-    <select id="selectByPorE" resultType="com.utunan.pojo.user.User">
+    <select id="selectByPorE" resultType="com.utunan.pojo.base.user.User">
         select *
         from user
         where
@@ -29,7 +29,7 @@
         values(#{userTelephone},#{userPassword},#{registerTime})
     </insert>
 
-    <update id="updateUser" parameterType="com.utunan.pojo.user.User">
+    <update id="updateUser" parameterType="com.utunan.pojo.base.user.User">
         update user
         set userNickName=#{userNickName},userEmail=#{userEmail},examTime=#{examTime},userSchool=#{userSchool},dreamSchool=#{dreamSchool}
         where userTelephone=#{userTelephone}

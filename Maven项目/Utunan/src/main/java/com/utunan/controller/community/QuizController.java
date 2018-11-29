@@ -1,11 +1,10 @@
 package com.utunan.controller.community;
 
 import com.github.pagehelper.PageInfo;
-import com.utunan.pojo.community.Quiz;
-import com.utunan.pojo.community.Tag;
-import com.utunan.pojo.user.User;
+import com.utunan.pojo.base.community.Quiz;
+import com.utunan.pojo.base.community.Tag;
+import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.util.BigQuiz;
-import com.utunan.pojo.util.Page;
 import com.utunan.service.community.QuizService;
 import com.utunan.service.community.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +16,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 @Controller
 public class QuizController {

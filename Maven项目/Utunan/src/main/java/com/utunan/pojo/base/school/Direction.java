@@ -1,9 +1,8 @@
-package com.utunan.pojo.school;
+package com.utunan.pojo.base.school;
 
-import com.utunan.pojo.user.User;
+import com.utunan.pojo.base.user.User;
 
 import java.util.List;
-import java.util.Set;
 
 /**
  * 研究方向实体类
