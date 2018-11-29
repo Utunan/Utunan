@@ -39,12 +39,11 @@ public class CommentController {
         String content= request.getParameter("textarea");
         Object ob=session.getAttribute("User");
         Long cid=this.commentService.getMaxCid();
-        System.out.print(cid);
         cid+=1;
         if (ob!=null) {
             User user = (User) ob;
             Long uid = user.getUserId();
-            this.commentService.saveComment(cid,Long.parseLong(quizId), content,uid);
+            this.commentService.saveComment( cid,Long.parseLong(quizId), content,uid);
         }
         return "redirect:/displayQuizByQuizId?quizId="+quizId;
     }
@@ -68,7 +67,7 @@ public class CommentController {
         if (ob!=null) {
             User user = (User) ob;
             Long uid = user.getUserId();
-            this.commentService.saveComment1(cid,Long.parseLong(commentId), content,uid);
+            this.commentService.saveComment1( cid,Long.parseLong(commentId), content,uid);
         }
         return "redirect:/displayChildComment?commentId="+commentId;
     }

@@ -138,7 +138,7 @@
             <div class="reply-evaluation">
                 <div class="a">
                     <div class="reply-praise">赞（${comment.commentPraiseCount}）</div>
-                    <img src="/images/community/jia1.svg" width="34px"height="34px">
+                    <a href="praise?quizId=${quiz.quizId}"><img src="/images/community/jia1.svg" width="34px"height="34px"></a>
                     <div class="reply-give-praise">点赞</div>
                     <img src="/images/community/zan.svg" width="34px"height="34px">
                     <div class="view-comments">查看评论</div>

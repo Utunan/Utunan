@@ -1,8 +1,10 @@
 package com.utunan.controller.community;
 
+import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.community.Comment;
 import com.utunan.pojo.community.Quiz;
 import com.utunan.pojo.community.Tag;
+import com.utunan.pojo.user.User;
 import com.utunan.pojo.util.BigQuiz;
 import com.utunan.pojo.util.Page;
 import com.utunan.service.community.CommentService;
@@ -49,17 +51,41 @@ public class QuizSearchController {
 			num=Integer.parseInt(pageNum);
 		}
 		//提问列表
-		List<BigQuiz> objects=this.quizService.findQuizBySearch(searchValue, num, 6);
-		//提问数量
-		Long quizNumber = this.quizService.countQuizBySearch(searchValue);
-		//封装分页
-		Page<BigQuiz> p = new Page<>(num, 6);
-		p.setList(objects);
-		p.setTotalCount(quizNumber);
+		List<Quiz> quizList=this.quizService.findQuizBySearch(searchValue, num, 6);
+		//封装BigQuiz
+		//*************以下代码会以同样的姿态在不同地方出现，正在努力封装************
+		//提取quizId列表
+		List<Long> quizIdList=new ArrayList<>();
+		for(int i=0; i<quizList.size(); i++){
+			quizIdList.add(quizList.get(i).getQuizId());
+		}
+		//获取提问的用户信息
+		List<User> userList=new ArrayList<>();
+		//获取提问的评论数量列表
+		List<Long> commentNumber=new ArrayList<>();
+		//获取提问的标签列表
+		List<List<Tag>> quizTagList=new ArrayList<>();
+		for(int i=0; i<quizList.size(); i++){
+			userList.add(quizService.findUserByQuizId(quizIdList.get(i)));
+			commentNumber.add(quizService.countCommentByQuizId(quizIdList.get(i)));
+			quizTagList.add(quizService.selectTagByQuizId(quizIdList.get(i)));
+		}
+		//将提问、评论数量、标签封装
+		List<BigQuiz> bigQuiz=new ArrayList<>();
+		for (int i=0;i<quizList.size(); i++){
+			BigQuiz bq=new BigQuiz();
+			bq.setQuiz(quizList.get(i));
+			bq.setUser(quizList.get(i).getUser());
+			bq.setCommentNumber(commentNumber.get(i));
+			bq.setTagList(quizTagList.get(i));
+			bigQuiz.add(bq);
+		}
+		//*************以上代码会以同样的姿态在不同地方出现，正在努力封装************
 		//返回数据
-		request.setAttribute("page",p);
+		request.setAttribute("object",bigQuiz);
 		request.setAttribute("url","searchQuiz");
 		request.setAttribute("searchValue", searchValue);
+		request.setAttribute("PageInfo",new PageInfo(quizList,5));
 		return "community/search";
 	}
 
@@ -83,20 +109,12 @@ public class QuizSearchController {
 		}
 		//回答列表
 		List<Comment> commentList=this.commentService.findCommentListBySearch(searchValue, num, 10);
-		//回答数量
-		Long commentNumber=this.commentService.countCommentBySearch(searchValue);
-		//封装分页
-		Page<Comment> p = new Page<>(num, 6);
-		p.setList(commentList);
-		p.setTotalCount(commentNumber);
-		//返回排序的选中状态
-		List<String> stateList=new ArrayList<String>();
-		stateList.add("option");
-		stateList.add("active");
+
 		//返回数据
-		request.setAttribute("page",p);
+		request.setAttribute("object",commentList);
 		request.setAttribute("url","searchComment");
 		request.setAttribute("searchValue", searchValue);
+		request.setAttribute("PageInfo",new PageInfo(commentList,5));
 		return "community/search";
 	}
 
@@ -114,11 +132,6 @@ public class QuizSearchController {
 		List<Tag> tagList=this.tagService.findTagListBySearch(searchValue);
 		//标签数量
 		Long tagNumber=this.tagService.countTagBySearch(searchValue);
-
-		//返回排序的选中状态
-		List<String> stateList=new ArrayList<String>();
-		stateList.add("option");
-		stateList.add("active");
 		//返回数据
 		request.setAttribute("tagList",tagList);
 		request.setAttribute("tagNumber",tagNumber);

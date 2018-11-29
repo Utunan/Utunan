@@ -81,7 +81,6 @@ public interface CommentService {
      */
     Long countCommentBySearch(String searchValue);
 
-
     /*
      * @author  张正扬
      * @description 获取最大commentid

@@ -1,5 +1,6 @@
 package com.utunan.service.community.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.utunan.mapper.community.QuizMapper;
 import com.utunan.pojo.community.Quiz;
 import com.utunan.pojo.community.QuizTag;
@@ -12,79 +13,51 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Service("quizService")
 public class QuizServiceImpl implements QuizService {
 	@Autowired
 	private QuizMapper quizMapper;
 
+	/**
+	 * @author  孙程程
+	 * @description 根据发表时间分页查询问答列表
+	 * @date  16:20 2018/11/19
+	 * @param  pageNum
+	 * @param  pageSize
+	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
+	 */
 	@Override
-	public List<BigQuiz> quizListByTime(int pageNum, int pageSize){
+	public List<Quiz> quizListByTime(int pageNum, int pageSize){
+		PageHelper.startPage(pageNum,pageSize);
 		//按发表时间的提问列表
+		List<Quiz> quizList = quizMapper.listQuizByTime();
+		//限制问题标题、内容展示字数
+		condenseQuiz(quizList);
+		return quizList;
+	}
 
-		List<Quiz> quizListByTime = quizMapper.listQuizByTime((pageNum-1)*pageSize,pageSize);
-		System.out.print(quizListByTime);
-		//限制问题标题、内容展示字数
-		condenseQuiz(quizListByTime);
-		//提取quizId列表
-		List<Long> quizIdList=new ArrayList<>();
-		for(int i=0; i<quizListByTime.size(); i++){
-			quizIdList.add(quizListByTime.get(i).getQuizId());
-		}
-		//获取提问的评论数量列表
-		List<Long> commentNumber=new ArrayList<>();
-//		List<Long> commentNumber=quizMapper.countCommentNumberByTime((pageNum-1)*pageSize,pageSize);
-		//获取评论的标签列表
-		List<List<Tag>> quizTagList=new ArrayList<>();
-		for(int i=0; i<quizListByTime.size(); i++){
-			commentNumber.add(quizMapper.countCommentByQuizId(quizIdList.get(i)));
-			quizTagList.add(quizMapper.selectTagByQuizId(quizIdList.get(i)));
-		}
-		//将提问、评论数量、标签封装
-		List<BigQuiz> objects=new ArrayList<>();
-		for (int i=0;i<quizListByTime.size(); i++){
-			BigQuiz bigQuiz=new BigQuiz();
-			bigQuiz.setQuiz(quizListByTime.get(i));
-			bigQuiz.setUser(quizListByTime.get(i).getUser());
-			bigQuiz.setCommentNumber(commentNumber.get(i));
-			bigQuiz.setTagList(quizTagList.get(i));
-			objects.add(bigQuiz);
-		}
-		return objects;
-	}
+	/**
+	 * @author  孙程程
+	 * @description 根据点赞数量分页查询问答列表
+	 * @date  17:15 2018/11/20
+	 * @param  pageNum
+	 * @param  pageSize
+	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
+	 */
 	@Override
-	public List<BigQuiz> quizListByPraise(int pageNum, int pageSize){
-		//按点赞顺序的提问列表
-		List<Quiz> quizListByPraise = quizMapper.listQuizByPraise((pageNum-1)*pageSize,pageSize);
+	public List<Quiz> quizListByPraise(int pageNum, int pageSize){
+		PageHelper.startPage(pageNum,pageSize);
+		//按发表时间的提问列表
+		List<Quiz> quizList = quizMapper.listQuizByPraise();
 		//限制问题标题、内容展示字数
-		condenseQuiz(quizListByPraise);
-		//提取quizId列表
-		List<Long> quizIdList=new ArrayList<>();
-		for(int i=0; i<quizListByPraise.size(); i++){
-			quizIdList.add(quizListByPraise.get(i).getQuizId());
-		}
-		//获取提问的评论数量列表
-		List<Long> commentNumber=new ArrayList<>();
-//		List<Long> commentNumber=quizMapper.countCommentNumberByPraise((pageNum-1)*pageSize,pageSize);
-		//获取提问的标签列表
-		List<List<Tag>> quizTagList=new ArrayList<>();
-		for(int i=0; i<quizListByPraise.size(); i++){
-			commentNumber.add(quizMapper.countCommentByQuizId(quizIdList.get(i)));
-			quizTagList.add(quizMapper.selectTagByQuizId(quizIdList.get(i)));
-		}
-		//将提问、评论数量、标签封装
-		List<BigQuiz> objects=new ArrayList<>();
-		for (int i=0;i<quizListByPraise.size(); i++){
-			BigQuiz bigQuiz=new BigQuiz();
-			bigQuiz.setQuiz(quizListByPraise.get(i));
-			bigQuiz.setUser(quizListByPraise.get(i).getUser());
-			bigQuiz.setCommentNumber(commentNumber.get(i));
-			bigQuiz.setTagList(quizTagList.get(i));
-			objects.add(bigQuiz);
-		}
-		return objects;
+		condenseQuiz(quizList);
+		return quizList;
 	}
+
 	@Override
 	public Long countAllQuiz(){
 		return this.quizMapper.countAllQuiz();
@@ -149,78 +122,54 @@ public class QuizServiceImpl implements QuizService {
 		return this.quizMapper.countCommentByQuizId(quizId);
 	}
 
+	/**
+	 * @author  孙程程
+	 * @description 根据quizId查标签列表
+	 * @date  16:19 2018/11/28
+	 * @param  quizId
+	 * @return  java.util.List<com.utunan.pojo.community.Tag>
+	 */
 	@Override
-	public List<BigQuiz> quizListByTimeWithTagName(String tagName, int pageNum, int pageSize){
-		//某标签的quizId
-		List<Long> quizId=quizMapper.selectQuizIdByTagName(tagName);
-		//按点赞顺序的提问列表
-		List<Quiz> quizListByTime = quizMapper.listQuizByTimeWithTagName(quizId, (pageNum-1)*pageSize,pageSize);
-		//限制问题标题、内容展示字数
-		condenseQuiz(quizListByTime);
-		//提取quizId列表
-		List<Long> quizIdList=new ArrayList<>();
-		for(int i=0; i<quizListByTime.size(); i++){
-			quizIdList.add(quizListByTime.get(i).getQuizId());
-		}
-		//获取提问的用户信息
-		List<User> userList=new ArrayList<>();
-		//获取提问的评论数量列表
-		List<Long> commentNumber=new ArrayList<>();
-		//获取提问的标签列表
-		List<List<Tag>> quizTagList=new ArrayList<>();
-		for(int i=0; i<quizListByTime.size(); i++){
-			userList.add(quizMapper.findUserByQuizId(quizIdList.get(i)));
-			commentNumber.add(quizMapper.countCommentByQuizId(quizIdList.get(i)));
-			quizTagList.add(quizMapper.selectTagByQuizId(quizIdList.get(i)));
-		}
-		//将提问、评论数量、标签封装
-		List<BigQuiz> objects=new ArrayList<>();
-		for (int i=0;i<quizListByTime.size(); i++){
-			BigQuiz bigQuiz=new BigQuiz();
-			bigQuiz.setQuiz(quizListByTime.get(i));
-			bigQuiz.setUser(userList.get(i));
-			bigQuiz.setCommentNumber(commentNumber.get(i));
-			bigQuiz.setTagList(quizTagList.get(i));
-			objects.add(bigQuiz);
-		}
-		return objects;
+	public List<Tag> selectTagByQuizId(Long quizId){
+		return this.quizMapper.selectTagByQuizId(quizId);
 	}
 
+	/**
+	 * @author  孙程程
+	 * @description 在某标签下根据发表时间分页查询问答列表
+	 * @date  8:46 2018/11/26
+	 * @param  tagName, pageNum, pageSize
+	 * @return  java.util.List<com.utunan.pojo.util.BigQuiz>
+	 */
 	@Override
-	public List<BigQuiz> quizListByPraiseWithTagName(String tagName, int pageNum, int pageSize){
+	public List<Quiz> quizListByTimeWithTagName(String tagName, int pageNum, int pageSize){
 		//某标签的quizId
 		List<Long> quizId=quizMapper.selectQuizIdByTagName(tagName);
-		//按点赞顺序的提问列表
-		List<Quiz> quizListByPraise = quizMapper.listQuizByPraiseWithTagName(quizId, (pageNum-1)*pageSize,pageSize);
+		PageHelper.startPage(pageNum,pageSize);
+		//按发表时间的提问列表
+		List<Quiz> quizList = quizMapper.listQuizByTimeWithTagName(quizId);
 		//限制问题标题、内容展示字数
-		condenseQuiz(quizListByPraise);
-		//提取quizId列表
-		List<Long> quizIdList=new ArrayList<>();
-		for(int i=0; i<quizListByPraise.size(); i++){
-			quizIdList.add(quizListByPraise.get(i).getQuizId());
-		}
-		//获取提问的用户信息
-		List<User> userList=new ArrayList<>();
-		//获取提问的评论数量列表
-		List<Long> commentNumber=new ArrayList<>();
-		//获取提问的标签列表
-		List<List<Tag>> quizTagList=new ArrayList<>();
-		for(int i=0; i<quizListByPraise.size(); i++){
-			userList.add(quizMapper.findUserByQuizId(quizIdList.get(i)));
-			commentNumber.add(quizMapper.countCommentByQuizId(quizIdList.get(i)));
-			quizTagList.add(quizMapper.selectTagByQuizId(quizIdList.get(i)));
-		}
-		//将提问、评论数量、标签封装
-		List<BigQuiz> objects=new ArrayList<>();
-		for (int i=0;i<quizListByPraise.size(); i++){
-			BigQuiz bigQuiz=new BigQuiz();
-			bigQuiz.setQuiz(quizListByPraise.get(i));
-			bigQuiz.setUser(userList.get(i));
-			bigQuiz.setCommentNumber(commentNumber.get(i));
-			bigQuiz.setTagList(quizTagList.get(i));
-			objects.add(bigQuiz);
-		}
-		return objects;
+		condenseQuiz(quizList);
+		return quizList;
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 在某标签下根据点赞数量分页查询问答列表
+	 * @date  15:36 2018/11/26
+	 * @param  tagName, pageNum, pageSize
+	 * @return  java.util.List<com.utunan.pojo.util.BigQuiz>
+	 */
+	@Override
+	public List<Quiz> quizListByPraiseWithTagName(String tagName, int pageNum, int pageSize){
+		//某标签的quizId
+		List<Long> quizId=quizMapper.selectQuizIdByTagName(tagName);
+		PageHelper.startPage(pageNum,pageSize);
+		//按点赞顺序的提问列表
+		List<Quiz> quizList = quizMapper.listQuizByPraiseWithTagName(quizId);
+		//限制问题标题、内容展示字数
+		condenseQuiz(quizList);
+		return quizList;
 	}
 
 	@Override
@@ -245,38 +194,30 @@ public class QuizServiceImpl implements QuizService {
 			}
 		}
 
+	/**
+	 * @author  孙程程
+	 * @description 根据搜索条件查找提问列表
+	 * @date  20:12 2018/11/26
+	 * @param  searchValue
+	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
+	 */
 	@Override
-	public List<BigQuiz> findQuizBySearch(String searchValue, int pageNum, int pageSize){
+	public List<Quiz> findQuizBySearch(String searchValue, int pageNum, int pageSize){
+		PageHelper.startPage(pageNum,pageSize);
 		//按提问列表
-		List<Quiz> quizListByPraise = quizMapper.findQuizBySearch("%"+searchValue+"%", (pageNum-1)*pageSize,pageSize);
+		List<Quiz> quizList = quizMapper.findQuizBySearch("%"+searchValue+"%");
 		//限制问题标题、内容展示字数
-		condenseQuiz(quizListByPraise);
-		//提取quizId列表
-		List<Long> quizIdList=new ArrayList<>();
-		for(int i=0; i<quizListByPraise.size(); i++){
-			quizIdList.add(quizListByPraise.get(i).getQuizId());
-		}
-		//获取提问的评论数量列表
-		List<Long> commentNumber=new ArrayList<>();
-		//获取提问的标签列表
-		List<List<Tag>> quizTagList=new ArrayList<>();
-		for(int i=0; i<quizListByPraise.size(); i++){
-			commentNumber.add(quizMapper.countCommentByQuizId(quizIdList.get(i)));
-			quizTagList.add(quizMapper.selectTagByQuizId(quizIdList.get(i)));
-		}
-		//将提问、评论数量、标签封装
-		List<BigQuiz> objects=new ArrayList<>();
-		for (int i=0;i<quizListByPraise.size(); i++){
-			BigQuiz bigQuiz=new BigQuiz();
-			bigQuiz.setQuiz(quizListByPraise.get(i));
-			bigQuiz.setUser(quizListByPraise.get(i).getUser());
-			bigQuiz.setCommentNumber(commentNumber.get(i));
-			bigQuiz.setTagList(quizTagList.get(i));
-			objects.add(bigQuiz);
-		}
-		return objects;
+		condenseQuiz(quizList);
+		return quizList;
 	}
 
+	/**
+	 * @author  孙程程
+	 * @description 符合搜索条件的提问数量
+	 * @date  21:19 2018/11/26
+	 * @param  searchValue
+	 * @return  java.lang.Long
+	 */
 	@Override
 	public Long countQuizBySearch(String searchValue){
 		return this.quizMapper.countQuizBySearch("%"+searchValue+"%");
@@ -295,20 +236,22 @@ public class QuizServiceImpl implements QuizService {
 		this.quizMapper.updatePraiseCount(quizId);
 	}
 
-
-
-	/*
-	 * @author  张正扬
-	 * @description
-	 * @date  18:02 2018/11/28
-	 * @param  []
-	 * @return  java.lang.Long
+	/**
+	 * @author  孙程程
+	 * @description 通过quizId查找用户
+	 * @date  20:15 2018/11/28
+	 * @param  quizId
+	 * @return  com.utunan.pojo.user.User
 	 */
 	@Override
-	public Long getMaxQid() {
-
+	public User findUserByQuizId(Long quizId){
+		return this.quizMapper.findUserByQuizId(quizId);
+	}
+	@Override
+	public Long getMaxQid(){
 		return this.quizMapper.getMax();
 	}
+
 }
 
 
