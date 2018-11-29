@@ -37,15 +37,29 @@
                                 <a href="/user/statistics"><img src="/images/statistics.svg" alt="" srcset=""></a>
                             </div>
                             <div class="opimg" style="margin: 0 5px;">
-                                <a href="/user/publishpost"><img src="/images/record.svg" alt="" srcset=""></a>
+                                <a href="/user/publishquiz"><img src="/images/record.svg" alt="" srcset=""></a>
                             </div>
                             <div class="opimg">
-                                <a href="/user/collectmatter"><img src="/images/collection.svg" alt="" srcset=""></a>
+                                <a href="/user/myspace"><img src="/images/collection.svg" alt="" srcset=""></a>
                             </div>
-                            <div id="oplist" class="oplist">
+                            <div id="oplistone" class="oplist">
                                 <a href="/user/statistics">题库统计</a>
-                                <a href="/user/publishpost" style="margin:0 5px;">社区记录</a>
-                                <a href="/user/collectmatter">我的收藏</a>
+                                <a href="/user/publishquiz" style="margin:0 5px;">社区记录</a>
+                                <a href="/user/myspace">个人资料</a>
+                            </div>
+                            <div class="opimg">
+                                <a href="/user/directioncollector"><img src="/images/statistics.svg" alt="" srcset=""></a>
+                            </div>
+                            <div class="opimg">
+                                <a href="/user/quizcollector"><img src="/images/statistics.svg" alt="" srcset=""></a>
+                            </div>
+                            <div class="opimg">
+                                <a href="/user/questioncollector"><img src="/images/statistics.svg" alt="" srcset=""></a>
+                            </div>
+                            <div id="oplisttwo" class="oplist">
+                                <a href="/user/directioncollector">院系收藏</a>
+                                <a href="/user/quizcollector" style="margin:0 5px;">问答收藏</a>
+                                <a href="/user/questioncollector">题目收藏</a>
                             </div>
                         </div>
                         <div class="opbottom" id="opbottom">

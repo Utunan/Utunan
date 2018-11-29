@@ -15,6 +15,6 @@ public interface UserMapper {
     //通过
     User selectByPermit(User user);
     User selectByPorE(User user);
-    List<Dictionary> updateUser(User user);
+    int updateUser(User user);
 }
 
