@@ -42,7 +42,7 @@ public interface QuizService {
 	 * @return  null
 	 */
 
-	void saveQuiz(Long uid,String title,String content);
+	void saveQuiz(Long qid,Long uid,String title,String content);
 	/**
 	 * @author  张正扬
 	 * @description
@@ -131,5 +131,14 @@ public interface QuizService {
 	 * @return  void
 	 */
 	void praiseQuiz(Long quizId);
+
+	/*
+	 * @author  张正扬
+	 * @description 取出最大quizId
+	 * @date  17:48 2018/11/28
+	 * @param  null
+	 * @return   Long
+	 */
+	Long getMaxQid();
 
 }

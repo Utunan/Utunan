@@ -50,6 +50,7 @@ public class QuizController {
 		List<BigQuiz> objects=this.quizService.quizListByTime(num,6);
 		//提问数量
 		Long quizNumber = this.quizService.countAllQuiz();
+		System.out.print(quizNumber);
 		//热门标签
 		Object hotTagList=this.tagService.getTop10Tag();
 		//封装分页
@@ -129,10 +130,14 @@ public class QuizController {
 		String content= request.getParameter("textarea");
 		System.out.print(content);
 		Object ob=session.getAttribute("User");
+		Long qid=this.quizService.getMaxQid();
+		System.out.print(qid);
+		qid+=1;
 		if (ob!=null) {
+
 			User user = (User) ob;
 			Long uid = user.getUserId();
-			this.quizService.saveQuiz(uid, title, content);
+			this.quizService.saveQuiz(qid,uid, title, content);
 		}
 		return "redirect:/quiz1 ";
 	}
