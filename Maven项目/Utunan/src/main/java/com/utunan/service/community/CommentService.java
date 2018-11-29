@@ -15,8 +15,8 @@ public interface CommentService {
      * @param content
      * @return   null
      */
-
-    void saveComment(Long quizId,String content,Long uid);
+    
+    void saveComment(Long cid,Long quizId,String content,Long uid);
     /*
      * @author  张正扬
      * @description  向comment表中插入评论
@@ -24,9 +24,9 @@ public interface CommentService {
      * @param content，commentId，uid
      * @return   null
      */
-
-    void saveComment1(Long commentId,String content,Long uid);
-
+    
+    void saveComment1(Long cid,Long commentId,String content,Long uid);
+    
     /*
      * @author  王碧云
      * @description 根据quizId返回评论列表
@@ -35,7 +35,7 @@ public interface CommentService {
      * @return  java.util.List<com.utunan.pojo.community.Comment>
      */
     List<Comment> findCommentListByQuizId(Long quizId);
-
+    
     /*
      * @author  王碧云
      * @description 根据commentId返回子评论列表
@@ -44,7 +44,7 @@ public interface CommentService {
      * @return  java.util.List<com.utunan.pojo.community.Comment>
      */
     List<Comment> findChildCommentListByCommentId(Long commentId);
-
+    
     /*
      * @author  王碧云
      * @description 根据热度返回评论列表
@@ -53,7 +53,7 @@ public interface CommentService {
      * @return  java.util.List<com.utunan.pojo.community.Comment>
      */
     List<Comment> findCommentListByPraiseCount(Long quizId);
-
+    
     /*
      * @author  王碧云
      * @description 根据quizId获取父级为null的评论数
@@ -62,7 +62,7 @@ public interface CommentService {
      * @return  java.lang.Long
      */
     Long countCommentByQuizId(Long quizId);
-
+    
     /**
      * @author  孙程程
      * @description 根据搜索条件返回评论列表
@@ -71,7 +71,7 @@ public interface CommentService {
      * @return  java.util.List<com.utunan.pojo.community.Comment>
      */
     List<Comment> findCommentListBySearch(String searchValue, int pageNum, int pageSize);
-
+    
     /**
      * @author  孙程程
      * @description 根据搜索条件返回评论数量
@@ -80,4 +80,15 @@ public interface CommentService {
      * @return  java.lang.Long
      */
     Long countCommentBySearch(String searchValue);
+
+
+    /*
+     * @author  张正扬
+     * @description 获取最大commentid
+     * @date  19:25 2018/11/28
+     * @param  null
+     * @return  Long
+     */
+    Long getMaxCid();
+
 }
