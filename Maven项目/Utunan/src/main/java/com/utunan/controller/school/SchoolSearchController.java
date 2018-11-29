@@ -54,22 +54,39 @@ public class SchoolSearchController {
     @RequestMapping("/displaySchoolBySearch")
     public String displaySchoolBySearch(@RequestParam(value = "schoolProvince",required = false) String[] schoolProvinceList,
                                         HttpServletRequest request,
-                                        @RequestParam(value = "schoolType",required = false) String[] schoolTypeList){
+                                        @RequestParam(value = "schoolType",required = false) String[] schoolTypeList,
+                                        @RequestParam(value = "degreeType",required = false) String[] degreeTypeList,
+                                        @RequestParam(value = "math",required = false) String[] mathList,
+                                        @RequestParam(value = "english",required = false) String[] englishList){
         String aaa = Arrays.toString(schoolTypeList);
         String bbb = Arrays.toString(schoolProvinceList);
+        String ccc = Arrays.toString(degreeTypeList);
+        String ddd = Arrays.toString(mathList);
+        String eee = Arrays.toString(englishList);
 
         List<School> schoolList = new ArrayList<>();
-
-       if(schoolProvinceList==null || "".equals(schoolProvinceList)){
-            schoolList = this.schoolService.findAllSchool();
-        }else {
+        //防止复选框为空的情况
+     /*  if((schoolProvinceList==null || "".equals(schoolProvinceList))&&(schoolTypeList==null || "".equals(schoolTypeList))){
+           System.out.println("都为空");
+           schoolList = this.schoolService.findAllSchool();
+        }else if ((schoolProvinceList!=null || !"".equals(schoolProvinceList))&&(schoolTypeList==null || "".equals(schoolTypeList))){
+           System.out.println("学校类型为空");
+           schoolList = this.schoolService.findSchoolBySchoolProvince(schoolProvinceList);
+       } else if((schoolProvinceList==null || "".equals(schoolProvinceList))&&(schoolTypeList!=null || !"".equals(schoolTypeList))){
+           System.out.println("省份为空");
+           schoolList = this.schoolService.findSchoolBySchoolType(schoolTypeList);
+       } else {
            schoolList = this.schoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList);
-        }
+        }*/
 
+        schoolList = this.schoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList);
         request.setAttribute("schoolList", schoolList);
 
-        System.out.println(bbb);
-        System.out.println(aaa);
+        System.out.println("[schoolProvinceList]"+bbb);
+        System.out.println("[schoolTypeList]"+aaa);
+        System.out.println("[degreeTypeList]"+ccc);
+        System.out.println("[math]"+ddd);
+        System.out.println("[english]"+eee);
         System.out.println(schoolList);
         return "/school/schoolsearch";
     }

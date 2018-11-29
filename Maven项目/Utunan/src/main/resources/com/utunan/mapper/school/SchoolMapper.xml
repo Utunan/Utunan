@@ -71,7 +71,24 @@
                     schoolType like CONCAT('%','${schoolType}','%' )
                 </foreach>
             </if>
-
+            <if test="degreeTypeList!=null">
+                and
+                <foreach collection="degreeTypeList" item="degreeTypeList" open="(" close=") " separator="or">
+                     direction.degreeType like CONCAT('%','${degreeTypeList}','%' )
+                </foreach>
+            </if>
+            <if test="mathList!=null">
+                and
+                <foreach collection="mathList" item="mathList" open="(" close=") " separator="or">
+                    direction.math like CONCAT('%','${mathList}','%' )
+                </foreach>
+            </if>
+            <if test="englishList!=null">
+                and
+                <foreach collection="englishList" item="englishList" open="(" close=") " separator="or">
+                    direction.english like CONCAT('%','${englishList}','%' )
+                </foreach>
+            </if>
         </where>
     </select>
 </mapper>

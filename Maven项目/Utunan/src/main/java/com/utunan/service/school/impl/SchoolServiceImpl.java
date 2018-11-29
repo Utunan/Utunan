@@ -40,7 +40,7 @@ public class SchoolServiceImpl  implements SchoolService {
        List<School> directionlist = new ArrayList<School>();
 
         for(String schoolProvince:schoolProvinceList){
-            if(schoolProvince==null || "".equals(schoolProvince) || schoolProvince.equals("null")){
+            if(schoolProvince.equals("null")){
                 directionlist = this.schoolMapper.findAllSchool();
                 break;
             }else {
@@ -59,9 +59,12 @@ public class SchoolServiceImpl  implements SchoolService {
      */
     @Override
     public List<School> findSchoolBySchoolType(String[] schoolTypeList) {
-        System.out.println("[000]"+schoolTypeList);
         List<School> directionlist = new ArrayList<>();
-        directionlist = this.schoolMapper.findSchoolBySchoolType(schoolTypeList);
+        if(schoolTypeList.equals("null")){
+            directionlist = this.schoolMapper.findAllSchool();
+        }else{
+            directionlist = this.schoolMapper.findSchoolBySchoolType(schoolTypeList);
+        }
         return directionlist;
     }
     /*
@@ -72,8 +75,8 @@ public class SchoolServiceImpl  implements SchoolService {
      * @return  java.util.List<com.utunan.pojo.base.school.School>
      */
     @Override
-    public List<School> findSchoolByAllParam(String[] schoolProvinceList, String[] schoolType) {
-        List<School> directionlist = this.schoolMapper.findSchoolByAllParam(schoolProvinceList, schoolType);
+    public List<School> findSchoolByAllParam(String[] schoolProvinceList, String[] schoolType,String[] degreeTypeList,String[] mathList,String[] englishList) {
+        List<School> directionlist = this.schoolMapper.findSchoolByAllParam(schoolProvinceList, schoolType,degreeTypeList,mathList,englishList);
         return directionlist;
     }
 
