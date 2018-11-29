@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * @author 王碧云
- * @description: 院校库
+ * @description: 院校库首页
  * @date 2018/11/27/027 20:34
  */
 @Controller
@@ -68,10 +68,7 @@ public class SchoolSearchController {
     @RequestMapping("/displaySchool")
     public String displaySchool(HttpServletRequest request){
         List<PublishDirection> schoolList = this.publishDirectionService.findAllSchool();
-
         request.setAttribute("schoolList", schoolList);
-
-
         return "/school/schoolsearch";
     }
 
@@ -104,6 +101,7 @@ public class SchoolSearchController {
         System.out.println("[degreeTypeList]"+ccc);
         System.out.println("[math]"+ddd);
         System.out.println("[english]"+eee);
+
         System.out.println(schoolList);
         return "/school/schoolsearch";
     }

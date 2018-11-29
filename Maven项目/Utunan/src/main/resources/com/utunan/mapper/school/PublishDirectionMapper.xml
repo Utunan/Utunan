@@ -29,31 +29,6 @@
         join direction on school.schoolName = direction.schoolName
     </select>
 
-
-    <!--王碧云 根据省份检索学校(通过学校找到该校的研究方向)-->
-    <select id="findSchoolBySchoolProvince" resultMap="DirectionCollectorMap">
-        select *
-        from school
-        join direction on school.schoolName = direction.schoolName
-        <where>
-            <foreach collection="schoolProvince" item="schoolProvince" open="and schoolProvince in (" close=") " separator=",">
-                #{schoolProvince}
-            </foreach>
-        </where>
-    </select>
-
-    <!--王碧云 根据院校特性检索学校-->
-    <select id="findSchoolBySchoolType" resultMap="DirectionCollectorMap">
-        select *
-        from school
-        join direction on school.schoolName = direction.schoolName
-        <where>
-            <foreach collection="schoolType" item="schoolType" open="(" close=") " separator="or">
-                schoolType like CONCAT('%','${schoolType}','%' )
-            </foreach>
-        </where>
-    </select>
-
     <!--王碧云 根据所有参数检索学校-->
     <select id="findSchoolByAllParam" resultMap="DirectionCollectorMap">
         select *

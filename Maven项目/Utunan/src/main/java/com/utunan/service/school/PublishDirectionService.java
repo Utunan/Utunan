@@ -23,24 +23,6 @@ public interface PublishDirectionService {
 
     /*
      * @author  王碧云
-     * @description 根据省份检索学校(通过学校找到该校的研究方向)
-     * @date  10:08 2018/11/28/028
-     * @param  [schoolProvince]
-     * @return  java.util.List<com.utunan.pojo.base.school.School>
-     */
-    List<PublishDirection> findSchoolBySchoolProvince(String[] schoolProvinceList);
-
-    /*
-     * @author  王碧云
-     * @description 根据学校类型检索学校(通过学校找到该校的研究方向)
-     * @date  16:16 2018/11/28/028
-     * @param  [schoolType]
-     * @return  java.util.List<com.utunan.pojo.base.school.School>
-     */
-    List<PublishDirection> findSchoolBySchoolType(String[] schoolType);
-
-    /*
-     * @author  王碧云
      * @description 根据所有参数检索学校
      * @date  22:49 2018/11/28/028
      * @param  [schoolProvinceList, schoolType]
