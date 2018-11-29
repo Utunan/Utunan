@@ -19,13 +19,7 @@ import java.util.List;
 public class CommentServiceImpl implements CommentService {
     @Autowired
     private CommentMapper commentMapper;
-    /*
-     * @author  张正扬
-     * @description 向comment表插入回答
-     * @date  15:47 2018/11/22
-     * @param  content
-     * @return  null
-     */
+
 
     /*
      * @author  张正扬
@@ -36,8 +30,9 @@ public class CommentServiceImpl implements CommentService {
      */
 
     @Override
-    public void saveComment(Long quizId,String content,Long uid){
+    public void saveComment(Long cid,Long quizId,String content,Long uid){
         Comment comment=new Comment();
+        comment.setCommentId(cid);
         comment.setQuizId(quizId);
         comment.setUserId(uid);
         comment.setCommentContent(content);
@@ -122,15 +117,16 @@ public class CommentServiceImpl implements CommentService {
     }
     /*
      * @author  张正扬
-     * @description 向comment表插入回答
+     * @description 向comment表插入评论
      * @date  15:47 2018/11/22
      * @param  content
      * @return  null
      */
 
     @Override
-    public void saveComment1(Long commentId,String content,Long uid){
+    public void saveComment1(Long cid,Long commentId,String content,Long uid){
         Comment comment=new Comment();
+        comment.setCommentId(cid);
         comment.setReplyCommentId(commentId);
         comment.setUserId(uid);
         comment.setCommentContent(content);
@@ -139,5 +135,11 @@ public class CommentServiceImpl implements CommentService {
         long j=(long) i;
         comment.setCommentPraiseCount(j);
         commentMapper.toInsert1(comment);
+    }
+
+
+    @Override
+    public Long getMaxCid() {
+        return this.commentMapper.getMaxCid();
     }
 }

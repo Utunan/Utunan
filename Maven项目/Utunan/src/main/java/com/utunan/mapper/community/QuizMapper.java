@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 @Repository
@@ -28,10 +29,9 @@ public interface QuizMapper {
 	List<Quiz> listQuizByPraiseWithTagName(@Param("quizId") List<Long> quizId);
 	Long countQuizWithTagName(@Param("tagName") String tagName);
 	List<Long> selectQuizIdByTagName(@Param("tagName") String tagName);
-
 	List<Quiz> findQuizBySearch(@Param("searchValue") String searchValue);
 	Long countQuizBySearch(@Param("searchValue") String searchValue);
-
+	
 	/*
 	 * @author  张正扬
 	 * @description 点赞更新
@@ -40,5 +40,24 @@ public interface QuizMapper {
 	 * @return  void
 	 */
 	void updatePraiseCount(@Param("quizId") Long quizId);
-    List<Quiz> selectQuizByUserId(User user);
+
+
+	/**
+	 * @author  yanzhengwei
+	 * 功能:	通过用户Id 查询帖子
+	 */
+	List<Quiz> selectQuizByUserId(User user);
+	
+	/*
+	 * @author  张正扬
+	 * @description 获取最大quizId
+	 * @date  17:40 2018/11/28
+	 * @param  null
+	 * @return  Long
+	 */
+	Long getMax();
+
+
+​    List<Quiz> selectQuizByUserId(User user);
+
 }

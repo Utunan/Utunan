@@ -38,10 +38,13 @@ public class CommentController {
         String quizId = request.getParameter("quizId");
         String content= request.getParameter("textarea");
         Object ob=session.getAttribute("User");
+        Long cid=this.commentService.getMaxCid();
+        System.out.print(cid);
+        cid+=1;
         if (ob!=null) {
             User user = (User) ob;
             Long uid = user.getUserId();
-            this.commentService.saveComment(Long.parseLong(quizId), content,uid);
+            this.commentService.saveComment(cid,Long.parseLong(quizId), content,uid);
         }
         return "redirect:/displayQuizByQuizId?quizId="+quizId;
     }
@@ -60,10 +63,12 @@ public class CommentController {
         String commentId = request.getParameter("commentId");
         String content= request.getParameter("text");
         Object ob=session.getAttribute("User");
+        Long cid=this.commentService.getMaxCid();
+        cid+=1;
         if (ob!=null) {
             User user = (User) ob;
             Long uid = user.getUserId();
-            this.commentService.saveComment1(Long.parseLong(commentId), content,uid);
+            this.commentService.saveComment1(cid,Long.parseLong(commentId), content,uid);
         }
         return "redirect:/displayChildComment?commentId="+commentId;
     }

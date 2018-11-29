@@ -44,7 +44,7 @@ public interface QuizService {
 	 * @return  null
 	 */
 
-	void saveQuiz(Long uid,String title,String content);
+	void saveQuiz(Long qid,Long uid,String title,String content);
 	/**
 	 * @author  张正扬
 	 * @description
@@ -142,6 +142,7 @@ public interface QuizService {
 	 */
 	void praiseQuiz(Long quizId);
 
+
 	/**
 	 * @author  孙程程
 	 * @description 通过quizId查找用户
@@ -150,5 +151,15 @@ public interface QuizService {
 	 * @return  com.utunan.pojo.user.User
 	 */
 	User findUserByQuizId(Long quizId);
+
+	/*
+	 * @author  张正扬
+	 * @description 取出最大quizId
+	 * @date  17:48 2018/11/28
+	 * @param  null
+	 * @return   Long
+	 */
+	Long getMaxQid();
+
 
 }
