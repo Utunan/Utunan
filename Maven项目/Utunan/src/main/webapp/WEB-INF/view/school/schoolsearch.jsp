@@ -145,9 +145,9 @@
                 <div class="schoolType">
                     <span>院校特性 :</span>
                     <nav>
-                        <li><input type="checkbox" value="985">985院校</li>
-                        <li><input type="checkbox" value="211">211院校</li>
-                        <li><input type="checkbox" value="zzhx">自主划线</li>
+                        <li><input name="schoolType" type="checkbox" value="985">985院校</li>
+                        <li><input name="schoolType" type="checkbox" value="211">211院校</li>
+                        <li><input name="schoolType" type="checkbox" value="自划线">自主划线</li>
                     </nav>
 
                 </div>
@@ -202,10 +202,11 @@
                 <td>${direction.schoolName}</td>
                 <td>${direction.collegeName}</td>
                 <td>${direction.degreeType}</td>
-                <td>${direction.majorName}</td>
+                <td>${direction.majorlName}</td>
                 <td>${direction.directionName}</td>
                 <td><a href="#">详情</a> </td>
                 <td><a><img src="../images/school/redheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
+
             </tr>
                 </c:forEach>
             </c:forEach>

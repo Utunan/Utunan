@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
 
@@ -9,14 +10,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>欢迎来到Utunan</title>
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/user/schoolcollector.css">
+    <link rel="stylesheet" href="/css/user/publishpost.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <script> var pagenum="${PageInfo.pageNum}"</script>
 </head>
 
 <body>
-<%@include file="../common/header.jsp" %>
+<%@include file="../common/header.jsp"%>
 <div class="container">
     <div class="wrapper">
         <div class="usercard">
@@ -59,53 +60,51 @@
             </li>
             <nav class="postinfo" id="postinfo" style="height:100px;">
                 <a href="/user/publishpost">
-                    <li>发表的帖子</li>
+                    <li id="active">发表的帖子</li>
                 </a>
                 <a href="/user/publishreply">
                     <li>发表的回复</li>
                 </a>
             </nav>
             <li id="mycollection">
-                <img src="/images/user/collection.svg">
+                <img src="../images/user/collection.svg">
                 <span>我的收藏</span>
-                <img src="/images/user/arrow.svg">
+                <img src="../images/user/arrow.svg">
             </li>
             <nav class="collection" id="collection" style="height:150px;">
-                <a href="/user/mattercollector">
-                    <li>题目收藏夹</li>
+                <a href="/user/directioncollector">
+                    <li>院校收藏夹</li>
                 </a>
-                <a href="/user/schoolcollector">
-                    <li id="active">院校收藏夹</li>
-                </a>
-                <a href="/user/postcollector">
+                <a href="/user/quizcollector">
                     <li>帖子收藏夹</li>
+                </a>
+                <a href="/user/questioncollector">
+                    <li>题目收藏夹</li>
                 </a>
             </nav>
         </nav>
         <div class="content">
             <div class="title">
-                <span>院校收藏</span>
+                <span>发表的帖子</span>
             </div>
-            <table border="0" cellpadding="6" cellspacing="0">
-                <tr style="background-color: rgba(209, 231, 250,0.5 );">
-                    <th style="width:150px;height: 50px;">招生单位</th>
-                    <th style="width:120px;">院系名称</th>
-                    <th style="width:80px;">学位类型</th>
-                    <th style="width:160px;">专业</th>
-                    <th style="width:80px">其他</th>
-                    <th style="width:40px;"></th>
-                </tr>
-                <c:forEach items="${Directions}" var="D">
-                    <tr>
-                        <td style="height: 50px;">${D.schoolName}</td>
-                        <td>${D.collegeName}</td>
-                        <td>${D.degreeType}</td>
-                        <td>${D.directionName}</td>
-                        <td><a href="">详情</a></td>
-                        <td><img src="/images/user/delete.svg"></td>
-                    </tr>
+            <nav id="publishpost" class="publishpost">
+                <c:forEach items="${Quizzes }" var="Q">
+                <li>
+                    <div>
+                        <span class="publishtime">
+                           <fmt:formatDate value="${Q.releaseTime }" type="date" pattern="yyyy-MM-dd"/>
+                         </span>
+                        <span class="posttitle">${Q.quizTitle }</span>
+                        <span class="publishtype">经验分享</span>
+                    </div>
+                    <p class="postcontent">
+                        ${Q.quizContent }
+                    </p>
+                    <span><a href="">收到的回复(15)</a></span>
+                    <span><a href="">>>详细</a></span>
+                </li>
                 </c:forEach>
-            </table>
+            </nav>
             <nav id="page" class="page">
                 <li class="home"><a href="/user/schoolcollector">首页</a></li>
                 <li class="next"><a href="?pageNum=${PageInfo.prePage}">上一页</a></li>
@@ -125,7 +124,7 @@
         </div>
     </div>
 </div>
-<%@include file="../common/footer.jsp" %>
+<%@include file="../common/footer.jsp"%>
 </body>
 <script src="/js/usercommon.js"></script>
 <script src="/js/common.js"></script>
