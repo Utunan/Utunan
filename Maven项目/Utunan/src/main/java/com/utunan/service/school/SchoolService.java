@@ -41,5 +41,5 @@ public interface SchoolService {
      * @param  [schoolProvinceList, schoolType]
      * @return  java.util.List<com.utunan.pojo.school.School>
      */
-    List<School> findSchoolByAllParam(String[] schoolProvinceList,String[] schoolType);
+    List<School> findSchoolByAllParam(String[] schoolProvinceList,String[] schoolType,String[] degreeTypeList,String[] mathList,String[] englishList);
 }
