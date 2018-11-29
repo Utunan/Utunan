@@ -1,5 +1,6 @@
 package com.utunan.service.community.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.utunan.mapper.community.CommentMapper;
 import com.utunan.pojo.community.Comment;
 import com.utunan.service.community.CommentService;
@@ -98,7 +99,8 @@ public class CommentServiceImpl implements CommentService {
      */
     @Override
     public List<Comment> findCommentListBySearch(String searchValue, int pageNum, int pageSize){
-        List<Comment> commentList=this.commentMapper.findCommentListBySearch("%"+searchValue+"%", (pageNum-1)*pageSize,pageSize);
+        PageHelper.startPage(pageNum,pageSize);
+        List<Comment> commentList=this.commentMapper.findCommentListBySearch("%"+searchValue+"%");
         return commentList;
     }
 

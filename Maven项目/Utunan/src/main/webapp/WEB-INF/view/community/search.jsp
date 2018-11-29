@@ -10,7 +10,10 @@
 <html>
 <head>
     <title>Title</title>
-
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/css/community/questionIndex.css"/>
+    <script> var pagenum="${PageInfo.pageNum}"</script>
 </head>
 <body>
 <div>
@@ -32,7 +35,7 @@
                 <td>回答</td>
                 <td>标签</td>
             </tr>
-            <c:forEach items="${page.list}" var="obj">
+            <c:forEach items="${object}" var="obj">
             <tr>
                 <td>${obj.quiz.quizId}</td>
                 <td>${obj.quiz.user.userNickName}</td>
@@ -49,13 +52,22 @@
             </tr>
             </c:forEach>
             <table/>
-            <div style="height: 20px;">
-                <h4>共有${page.totalCount }条数据，一共${page.totalPageNum }页，这是第${page.currentPageNum }页</h4>
-                <a href="/${url }?searchValue=${searchValue}&pageNum=1">首页</a>&nbsp;&nbsp;
-                <a href="/${url }?searchValue=${searchValue}&pageNum=${page.prePageNum }">上一页</a>&nbsp;&nbsp;
-                <a href="/${url }?searchValue=${searchValue}&pageNum=${page.nextPageNum }">下一页</a>&nbsp;&nbsp;
-                <a href="/${url }?searchValue=${searchValue}&pageNum=${page.totalPageNum }">末页</a>&nbsp;&nbsp;
-            </div>
+            <nav id="page" class="page">
+                <li class="home"><a href="/${url }?searchValue=${searchValue}">首页</a></li>
+                <li class="next"><a href="/${url }?searchValue=${searchValue}&pageNum=${PageInfo.prePage}">上一页</a></li>
+                <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                    <li class="pagenum"><a name="${i}" href="/${url }?searchValue=${searchValue}&pageNum=${i}">${i}</a></li>
+                </c:forEach>
+                <c:choose>
+                    <c:when test="${PageInfo.nextPage==0}">
+                        <li class="next"><a href="/${url }?searchValue=${searchValue}&pageNum=${PageInfo.pages}">下一页</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="next"><a href="/${url }?searchValue=${searchValue}&pageNum=${PageInfo.nextPage}">下一页</a></li>
+                    </c:otherwise>
+                </c:choose>
+                <li class="tail"><a href="/${url }?searchValue=${searchValue}&pageNum=${PageInfo.pages}">尾页</a></li>
+            </nav>
     </div>
 </c:if>
 <c:if test="${url=='searchComment'}">
@@ -70,7 +82,7 @@
                 <td>点赞</td>
                 <td>上级评论</td>
             </tr>
-            <c:forEach items="${page.list}" var="obj">
+            <c:forEach items="${object}" var="obj">
             <tr>
                 <td>${obj.commentId}</td>
                 <td>${obj.quizId}</td>
@@ -82,13 +94,22 @@
             </tr>
             </c:forEach>
             <table/>
-            <div style="height: 20px;">
-                <h4>共有${page.totalCount }条数据，一共${page.totalPageNum }页，这是第${page.currentPageNum }页</h4>
-                <a href="/${url }?searchValue=${searchValue}&pageNum=1">首页</a>&nbsp;&nbsp;
-                <a href="/${url }?searchValue=${searchValue}&pageNum=${page.prePageNum }">上一页</a>&nbsp;&nbsp;
-                <a href="/${url }?searchValue=${searchValue}&pageNum=${page.nextPageNum }">下一页</a>&nbsp;&nbsp;
-                <a href="/${url }?searchValue=${searchValue}&pageNum=${page.totalPageNum }">末页</a>&nbsp;&nbsp;
-            </div>
+            <nav id="page" class="page">
+                <li class="home"><a href="/${url }?searchValue=${searchValue}">首页</a></li>
+                <li class="next"><a href="/${url }?searchValue=${searchValue}&pageNum=${PageInfo.prePage}">上一页</a></li>
+                <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                    <li class="pagenum"><a name="${i}" href="/${url }?searchValue=${searchValue}&pageNum=${i}">${i}</a></li>
+                </c:forEach>
+                <c:choose>
+                    <c:when test="${PageInfo.nextPage==0}">
+                        <li class="next"><a href="/${url }?searchValue=${searchValue}&pageNum=${PageInfo.pages}">下一页</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="next"><a href="/${url }?searchValue=${searchValue}&pageNum=${PageInfo.nextPage}">下一页</a></li>
+                    </c:otherwise>
+                </c:choose>
+                <li class="tail"><a href="/${url }?searchValue=${searchValue}&pageNum=${PageInfo.pages}">尾页</a></li>
+            </nav>
     </div>
 </c:if>
 <c:if test="${url=='searchTag'}">

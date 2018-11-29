@@ -15,22 +15,13 @@
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" type="text/css" href="/css/community/questionIndex.css"/>
+    <script> var pagenum="${PageInfo.pageNum}"</script>
     <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+
 </head>
 
 <body>
-<!--
-    <div >
-        <div style="height: 20px;">
-            <h4>共有${page.totalCount }条数据，一共${page.totalPageNum }页，这是第${page.currentPageNum }页</h4>
-            <a href="/${url }?pageNum=1">首页</a>&nbsp;&nbsp;
-            <a href="/${url }?pageNum=${page.prePageNum }">上一页</a>&nbsp;&nbsp;
-            <a href="/${url }?pageNum=${page.nextPageNum }">下一页</a>&nbsp;&nbsp;
-            <a href="/${url }?pageNum=${page.totalPageNum }">末页</a>&nbsp;&nbsp;
-        </div>
-    </div>
-    -->
 <%@include file="../common/header.jsp"%>
 <div class="mask"></div>
 <!--内容-->
@@ -38,7 +29,7 @@
 
     <!--左半部分-->
     <!--初始界面-->
-    <c:if test="${empty tagName}">
+    <c:if test="${url=='quiz1' || url=='quiz2'}">
         <div class="left-content">
             <!--内容声明-->
             <div class="left-content-header">
@@ -62,17 +53,15 @@
                             <div class="searchText">
                                 <input type="text" style="width:140px; height:20px;border-radius:8px;border: none;margin-top: 10px;" name="searchValue"/>
                             </div>
-
                             <!--搜索图标-->
                             <button class="searchImg" type="submit">
                                 <img src="images/search.png" width="20px" height="20px" >
                             </button>
-
                         </form>
                     </div>
                 </div>
                 <!--帖子-->
-                <c:forEach items="${page.list}" var="obj">
+                <c:forEach items="${object}" var="obj">
                     <div class="post">
                         <div class="post-content">
                             <div class="top">
@@ -102,19 +91,27 @@
                         </div>
                     </div>
                 </c:forEach>
-                <div class="bottom">
-                    <div class="page">
-                        <a href="/${url }?pageNum=1">首页</a>
-                        <a href="/${url }?pageNum=${page.prePageNum }">上一页</a>
-                        <a href="/${url }?pageNum=${page.nextPageNum }">下一页</a>
-                        <a href="/${url }?pageNum=${page.totalPageNum }">末页</a>
-                    </div>
-                </div>
+                <nav id="page" class="page">
+                    <li class="home"><a href="/${url }">首页</a></li>
+                    <li class="next"><a href="/${url }?pageNum=${PageInfo.prePage}">上一页</a></li>
+                    <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                        <li class="pagenum"><a name="${i}" href="/${url }?pageNum=${i}">${i}</a></li>
+                    </c:forEach>
+                    <c:choose>
+                        <c:when test="${PageInfo.nextPage==0}">
+                            <li class="next"><a href="/${url }?pageNum=${PageInfo.pages}">下一页</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="next"><a href="/${url }?pageNum=${PageInfo.nextPage}">下一页</a></li>
+                        </c:otherwise>
+                    </c:choose>
+                    <li class="tail"><a href="/${url }?pageNum=${PageInfo.pages}">尾页</a></li>
+                </nav>
             </div>
         </div>
     </c:if>
     <!--选择标签后-->
-    <c:if test="${not empty tagName}">
+    <c:if test="${url=='quiz3' || url=='quiz4'}">
         <div class="left-content">
             <!--内容声明-->
             <div class="left-content-header">
@@ -139,17 +136,15 @@
                             <div class="searchText">
                                 <input type="text" style="width:140px; height:20px;border-radius:8px;border: none;margin-top: 10px;" name="searchValue"/>
                             </div>
-
                             <!--搜索图标-->
                             <button class="searchImg" type="submit">
                                 <img src="images/search.png" width="20px" height="20px" >
                             </button>
-
                         </form>
                     </div>
                 </div>
                 <!--帖子-->
-                <c:forEach items="${page.list}" var="obj">
+                <c:forEach items="${object}" var="obj">
                     <div class="post">
                         <div class="post-content">
                             <div class="top">
@@ -179,14 +174,22 @@
                         </div>
                     </div>
                 </c:forEach>
-                <div class="bottom">
-                    <div class="page">
-                        <a href="/${url }?tagName=${tagName}&pageNum=1">首页</a>
-                        <a href="/${url }?tagName=${tagName}&pageNum=${page.prePageNum }">上一页</a>
-                        <a href="/${url }?tagName=${tagName}&pageNum=${page.nextPageNum }">下一页</a>
-                        <a href="/${url }?tagName=${tagName}&pageNum=${page.totalPageNum }">末页</a>
-                    </div>
-                </div>
+                <nav id="page" class="page">
+                    <li class="home"><a href="/${url }?tagName=${tagName}">首页</a></li>
+                    <li class="next"><a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.prePage}">上一页</a></li>
+                    <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                        <li class="pagenum"><a name="${i}" href="/${url }?tagName=${tagName}&pageNum=${i}">${i}</a></li>
+                    </c:forEach>
+                    <c:choose>
+                        <c:when test="${PageInfo.nextPage==0}">
+                            <li class="next"><a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.pages}">下一页</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="next"><a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.nextPage}">下一页</a></li>
+                        </c:otherwise>
+                    </c:choose>
+                    <li class="tail"><a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.pages}">尾页</a></li>
+                </nav>
             </div>
         </div>
     </c:if>
@@ -267,7 +270,7 @@
             <div class="tags-title">热门标签</div>
             <ul>
                 <c:forEach items="${tag}" var="tags">
-                    <li><a href="">${tags[0].tagName}</a></li>
+                    <li><a href="">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></li>
                 </c:forEach>
             </ul>
         </div>
