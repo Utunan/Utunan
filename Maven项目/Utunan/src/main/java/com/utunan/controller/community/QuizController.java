@@ -184,14 +184,10 @@ public class QuizController {
 		String content= request.getParameter("textarea");
 		System.out.print(content);
 		Object ob=session.getAttribute("User");
-		Long qid=this.quizService.getMaxQid();
-		System.out.print(qid);
-		qid+=1;
 		if (ob!=null) {
-
 			User user = (User) ob;
 			Long uid = user.getUserId();
-			this.quizService.saveQuiz(qid,uid, title, content);
+			this.quizService.saveQuiz(uid, title, content);
 		}
 		return "redirect:/quiz1 ";
 	}
