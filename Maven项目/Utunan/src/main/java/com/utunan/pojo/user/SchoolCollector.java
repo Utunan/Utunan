@@ -1,8 +1,6 @@
 package com.utunan.pojo.user;
 
 import com.utunan.pojo.school.Direction;
-import com.utunan.pojo.school.Major;
-import com.utunan.pojo.school.School;
 
 public class SchoolCollector {
 
