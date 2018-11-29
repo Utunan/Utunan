@@ -1,5 +1,7 @@
 package com.utunan.pojo.user;
 
+import com.utunan.pojo.community.Quiz;
+
 /**
  * 帖子收藏列表-QuizCollector
  */
@@ -7,17 +9,9 @@ public class QuizCollector {
 	//帖子收藏列表ID
 	private Long quizCollectorId;
 	//用户Id
-	private Long userId;
+	private User user;
 	//提问ID
-	private Long quizId;
-
-	public Long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
+	private Quiz quiz;
 
 	public Long getQuizCollectorId() {
 		return quizCollectorId;
@@ -27,19 +21,28 @@ public class QuizCollector {
 		this.quizCollectorId = quizCollectorId;
 	}
 
-	public Long getQuizId() {
-		return quizId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setQuizId(Long quizId) {
-		this.quizId = quizId;
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Quiz getQuiz() {
+		return quiz;
+	}
+
+	public void setQuiz(Quiz quiz) {
+		this.quiz = quiz;
 	}
 
 	@Override
 	public String toString() {
 		return "QuizCollector{" +
-				"postCollectorId=" + quizCollectorId +
-				", postId=" + quizId +
+				"quizCollectorId=" + quizCollectorId +
+				", user=" + user +
+				", quiz=" + quiz +
 				'}';
 	}
 }

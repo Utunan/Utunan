@@ -19,8 +19,8 @@ import java.util.List;
 
 @Service("quizService")
 public class QuizServiceImpl implements QuizService {
-	@Autowired
-	private QuizMapper quizMapper;
+​	@Autowired
+​	private QuizMapper quizMapper;
 
 	/**
 	 * @author  孙程程
@@ -39,7 +39,7 @@ public class QuizServiceImpl implements QuizService {
 		condenseQuiz(quizList);
 		return quizList;
 	}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 根据点赞数量分页查询问答列表
@@ -57,48 +57,47 @@ public class QuizServiceImpl implements QuizService {
 		condenseQuiz(quizList);
 		return quizList;
 	}
-
+	
 	@Override
 	public Long countAllQuiz(){
 		return this.quizMapper.countAllQuiz();
 	}
-
-    /*
-     * @author  张正扬
-     * @description 向quiz表插入问题
-     * @date  15:47 2018/11/22
-     * @param  title,content
-     * @return  null
-     */
-
-    @Override
-    public void saveQuiz(Long qid,Long uid,String title,String content){
-        Quiz quiz=new Quiz();
-        quiz.setQuizId(qid);
-        quiz.setUserId(uid);
-        quiz.setQuizTitle(title);
-        quiz.setQuizContent(content);
-        quiz.setReleaseTime(new Date());
-        int i=0;
-        long j=(long) i;
-        quiz.setPraiseCount(j);
-        quizMapper.toInsert(quiz);
-    }
-
-    /*
-     * @author  张正扬
-     * @description 从quiz表取出刚刚插入的问题
-     * @date  15:47 2018/11/22
-     * @param  null
-     * @return  Quiz对象
-     */
-
-    @Override
-    public Quiz getQuiz(){
-        Quiz q= quizMapper.getQuiz1();
-        return q;
-    }
-
+	
+	/*
+	 * @author  张正扬
+	 * @description 向quiz表插入问题
+	 * @date  15:47 2018/11/22
+	 * @param  title,content
+	 * @return  null
+	 */
+	
+	@Override
+	public void saveQuiz(Long uid,String title,String content){
+	    Quiz quiz=new Quiz();
+	    quiz.setUserId(uid);
+	    quiz.setQuizTitle(title);
+	    quiz.setQuizContent(content);
+	    quiz.setReleaseTime(new Date());
+	    int i=0;
+	    long j=(long) i;
+	    quiz.setPraiseCount(j);
+	    quizMapper.toInsert(quiz);
+	}
+	
+	/*
+	 * @author  张正扬
+	 * @description 从quiz表取出刚刚插入的问题
+	 * @date  15:47 2018/11/22
+	 * @param  null
+	 * @return  Quiz对象
+	 */
+	
+	@Override
+	public Quiz getQuiz(){
+	    Quiz q= quizMapper.getQuiz1();
+	    return q;
+	}
+	
 	/*
 	 * @author  王碧云
 	 * @description 根据quizId查找Quiz
@@ -121,7 +120,7 @@ public class QuizServiceImpl implements QuizService {
 	public Long countCommentByQuizId(Long quizId) {
 		return this.quizMapper.countCommentByQuizId(quizId);
 	}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 根据quizId查标签列表
@@ -133,7 +132,7 @@ public class QuizServiceImpl implements QuizService {
 	public List<Tag> selectTagByQuizId(Long quizId){
 		return this.quizMapper.selectTagByQuizId(quizId);
 	}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 在某标签下根据发表时间分页查询问答列表
@@ -152,7 +151,7 @@ public class QuizServiceImpl implements QuizService {
 		condenseQuiz(quizList);
 		return quizList;
 	}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 在某标签下根据点赞数量分页查询问答列表
@@ -171,7 +170,7 @@ public class QuizServiceImpl implements QuizService {
 		condenseQuiz(quizList);
 		return quizList;
 	}
-
+	
 	@Override
 	public Long countQuizWithTagName(String tagName) {
 		return this.quizMapper.countQuizWithTagName(tagName);
@@ -193,7 +192,7 @@ public class QuizServiceImpl implements QuizService {
 					q.setQuizTitle(q.getQuizTitle().substring(0,30)+" ...");
 			}
 		}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 根据搜索条件查找提问列表
@@ -210,7 +209,7 @@ public class QuizServiceImpl implements QuizService {
 		condenseQuiz(quizList);
 		return quizList;
 	}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 符合搜索条件的提问数量
@@ -222,7 +221,7 @@ public class QuizServiceImpl implements QuizService {
 	public Long countQuizBySearch(String searchValue){
 		return this.quizMapper.countQuizBySearch("%"+searchValue+"%");
 	}
-
+	
 	/*
 	 * @author  张正扬
 	 * @description  更新点赞计数
@@ -235,7 +234,7 @@ public class QuizServiceImpl implements QuizService {
 		System.out.print(quizId);
 		this.quizMapper.updatePraiseCount(quizId);
 	}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 通过quizId查找用户
@@ -246,10 +245,12 @@ public class QuizServiceImpl implements QuizService {
 	@Override
 	public User findUserByQuizId(Long quizId){
 		return this.quizMapper.findUserByQuizId(quizId);
-	}
-	@Override
-	public Long getMaxQid(){
+
+​	}
+​	@Override
+​	public Long getMaxQid(){
 		return this.quizMapper.getMax();
+
 	}
 
 }

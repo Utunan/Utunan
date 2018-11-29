@@ -1,17 +1,17 @@
 package com.utunan.pojo.user;
 
+import com.utunan.pojo.questionbank.Question;
+
 /**
  * 题目收藏列表-QuestionCollector
  */
 public class QuestionCollector {
 	//题目收藏列表ID
 	private Long questionCollector;
-	//用户ID
-	private Long userId;
-	//题目ID
-	private Long questionId;
-	//笔记
-	private String note;
+	//用户
+	private User user;
+	//题目
+	private Question question;
 
 	public Long getQuestionCollector() {
 		return questionCollector;
@@ -21,37 +21,28 @@ public class QuestionCollector {
 		this.questionCollector = questionCollector;
 	}
 
-	public Long getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public Long getQuestionId() {
-		return questionId;
+	public Question getQuestion() {
+		return question;
 	}
 
-	public void setQuestionId(Long questionId) {
-		this.questionId = questionId;
-	}
-
-	public String getNote() {
-		return note;
-	}
-
-	public void setNote(String note) {
-		this.note = note;
+	public void setQuestion(Question question) {
+		this.question = question;
 	}
 
 	@Override
 	public String toString() {
 		return "QuestionCollector{" +
 				"questionCollector=" + questionCollector +
-				", userId=" + userId +
-				", questionId=" + questionId +
-				", note='" + note + '\'' +
+				", user=" + user +
+				", question=" + question +
 				'}';
 	}
 }

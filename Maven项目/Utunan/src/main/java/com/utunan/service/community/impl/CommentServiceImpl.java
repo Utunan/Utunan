@@ -36,9 +36,8 @@ public class CommentServiceImpl implements CommentService {
      */
 
     @Override
-    public void saveComment(Long cid,Long quizId,String content,Long uid){
+    public void saveComment(Long quizId,String content,Long uid){
         Comment comment=new Comment();
-        comment.setCommentId(cid);
         comment.setQuizId(quizId);
         comment.setUserId(uid);
         comment.setCommentContent(content);
@@ -46,7 +45,7 @@ public class CommentServiceImpl implements CommentService {
         int i=0;
         long j=(long) i;
         comment.setCommentPraiseCount(j);
-        commentMapper.toInsert(comment);
+       commentMapper.toInsert(comment);
     }
     /*
      * @author  王碧云
@@ -130,23 +129,24 @@ public class CommentServiceImpl implements CommentService {
      */
 
     @Override
-    public void saveComment1(Long cid,Long commentId,String content,Long uid){
-        Comment comment=new Comment();
-        comment.setCommentId(cid);
-        comment.setReplyCommentId(commentId);
-        comment.setUserId(uid);
-        comment.setCommentContent(content);
-        comment.setCommentTime(new Date());
-        int i=0;
-        long j=(long) i;
-        comment.setCommentPraiseCount(j);
-        commentMapper.toInsert1(comment);
+    public void saveComment1(Long commentId,String content,Long uid){
+    ​    Comment comment=new Comment();
+    ​    comment.setReplyCommentId(commentId);
+    ​    comment.setUserId(uid);
+    ​    comment.setCommentContent(content);
+    ​    comment.setCommentTime(new Date());
+    ​    int i=0;
+    ​    long j=(long) i;
+    ​    comment.setCommentPraiseCount(j);
+    ​    commentMapper.toInsert1(comment);
     }
+
 
 
     @Override
     public Long getMaxCid() {
         return this.commentMapper.getMaxCid();
     }
+
 
 }
