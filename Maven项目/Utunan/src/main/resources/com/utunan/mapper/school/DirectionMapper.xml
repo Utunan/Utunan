@@ -6,7 +6,7 @@
         <id column="directionId" property="directionId"/>
         <result property="schoolName" column="schoolName"/>
         <result property="collegeName" column="collegeName"/>
-        <result property="majorName" column="majorName"/>
+        <result property="majorlName" column="majorlName"/>
         <result property="directionName" column="directionName"/>
         <result property="degreeType" column="degreeType"/>
         <result property="politics" column="politics"/>

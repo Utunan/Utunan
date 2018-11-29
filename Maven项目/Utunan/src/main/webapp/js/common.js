@@ -22,3 +22,8 @@ userheadop.onmouseout = function (e) {
     else
         userheadop.style.display = "none";
 }
+
+postcontents=document.getElementsByClassName("postcontent");
+for(var i=0;i<postcontents.length;i++){
+    postcontents[i].innerHTML=(postcontents[i].innerHTML.substr(1,150)).replace(/[\r\n]/g,"")
+}

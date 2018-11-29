@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
 
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="/css/user/publishpost.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <script> var pagenum="${PageInfo.pageNum}"</script>
 </head>
 
 <body>
@@ -86,92 +88,38 @@
                 <span>发表的帖子</span>
             </div>
             <nav id="publishpost" class="publishpost">
+                <c:forEach items="${Quizzes }" var="Q">
                 <li>
                     <div>
-                        <span class="publishtime">2018.11.23</span>
-                        <span class="posttitle">女神涵天下第一美</span>
+                        <span class="publishtime">
+                           <fmt:formatDate value="${Q.releaseTime }" type="date" pattern="yyyy-MM-dd"/>
+                         </span>
+                        <span class="posttitle">${Q.quizTitle }</span>
                         <span class="publishtype">经验分享</span>
                     </div>
                     <p class="postcontent">
-                        同学，祝贺你喜提彩蛋~
-                        或许你们还在犹豫是否加入，我会坦诚的告诉你我们超酷；
-                        在这里大家都用无人车代步，AI音箱不仅播放还可以交互；
-                        人工智能是发展的核心技术，做自己让未来不只领先几步；
+                        ${Q.quizContent }
                     </p>
                     <span><a href="">收到的回复(15)</a></span>
                     <span><a href="">>>详细</a></span>
                 </li>
-                <li>
-                    <div>
-                        <span class="publishtime">2018.11.23</span>
-                        <span class="posttitle">女神涵天下第一美</span>
-                        <span class="publishtype">经验分享</span>
-                    </div>
-                    <p class="postcontent">
-                        同学，祝贺你喜提彩蛋~
-                        或许你们还在犹豫是否加入，我会坦诚的告诉你我们超酷；
-                        在这里大家都用无人车代步，AI音箱不仅播放还可以交互；
-                        人工智能是发展的核心技术，做自己让未来不只领先几步；
-                    </p>
-                    <span><a href="">收到的回复(15)</a></span>
-                    <span><a href="">>>详细</a></span>
-                </li>
-                <li>
-                    <div>
-                        <span class="publishtime">2018.11.23</span>
-                        <span class="posttitle">女神涵天下第一美</span>
-                        <span class="publishtype">经验分享</span>
-                    </div>
-                    <p class="postcontent">
-                        同学，祝贺你喜提彩蛋~
-                        或许你们还在犹豫是否加入，我会坦诚的告诉你我们超酷；
-                        在这里大家都用无人车代步，AI音箱不仅播放还可以交互；
-                        人工智能是发展的核心技术，做自己让未来不只领先几步；
-                    </p>
-                    <span><a href="">收到的回复(15)</a></span>
-                    <span><a href="">>>详细</a></span>
-                </li>
-                <li>
-                    <div>
-                        <span class="publishtime">2018.11.23</span>
-                        <span class="posttitle">女神涵天下第一美</span>
-                        <span class="publishtype">经验分享</span>
-                    </div>
-                    <p class="postcontent">
-                        同学，祝贺你喜提彩蛋~
-                        或许你们还在犹豫是否加入，我会坦诚的告诉你我们超酷；
-                        在这里大家都用无人车代步，AI音箱不仅播放还可以交互；
-                        人工智能是发展的核心技术，做自己让未来不只领先几步；
-                    </p>
-                    <span><a href="">收到的回复(15)</a></span>
-                    <span><a href="">>>详细</a></span>
-                </li>
-                <li>
-                    <div>
-                        <span class="publishtime">2018.11.23</span>
-                        <span class="posttitle">女神涵天下第一美</span>
-                        <span class="publishtype">经验分享</span>
-                    </div>
-                    <p class="postcontent">
-                        同学，祝贺你喜提彩蛋~
-                        或许你们还在犹豫是否加入，我会坦诚的告诉你我们超酷；
-                        在这里大家都用无人车代步，AI音箱不仅播放还可以交互；
-                        人工智能是发展的核心技术，做自己让未来不只领先几步；
-                    </p>
-                    <span><a href="">收到的回复(15)</a></span>
-                    <span><a href="">>>详细</a></span>
-                </li>
+                </c:forEach>
             </nav>
-            <nav class="page">
-                <li class="home" ><a href="">首页</a></li>
-                <li class="prev"><a href="">上一页</a></li>
-                <li><a href="?page=1">1</a></li>
-                <li><a href="?page=2">2</a></li>
-                <li><a href="?page=3">3</a></li>
-                <li><a href="?page=4">4</a></li>
-                <li><a href="?page=5">5</a></li>
-                <li class="next"><a href="">下一页</a></li>
-                <li class="tail"><a href="">尾页</a></li>
+            <nav id="page" class="page">
+                <li class="home"><a href="/user/schoolcollector">首页</a></li>
+                <li class="next"><a href="?pageNum=${PageInfo.prePage}">上一页</a></li>
+                <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                    <li class="pagenum"><a name="${i}" href="?pageNum=${i}">${i}</a></li>
+                </c:forEach>
+                <c:choose>
+                    <c:when test="${PageInfo.nextPage==0}">
+                        <li class="next"><a href="?pageNum=${PageInfo.pages}">下一页</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="next"><a href="?pageNum=${PageInfo.nextPage}">下一页</a></li>
+                    </c:otherwise>
+                </c:choose>
+                <li class="tail"><a href="?pageNum=${PageInfo.pages}">尾页</a></li>
             </nav>
         </div>
     </div>

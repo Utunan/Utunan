@@ -29,7 +29,7 @@
         values(#{userTelephone},#{userPassword},#{registerTime})
     </insert>
 
-    <update id="updateUser" parameterType="java.lang.String">
+    <update id="updateUser" parameterType="com.utunan.pojo.user.User">
         update user
         set userNickName=#{userNickName},userEmail=#{userEmail},examTime=#{examTime},userSchool=#{userSchool},dreamSchool=#{dreamSchool}
         where userTelephone=#{userTelephone}

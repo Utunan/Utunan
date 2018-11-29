@@ -113,9 +113,8 @@
     <div class="answers">
         <div class="answers-num">一共有${commentCountByQuizId}条评论</div>
         <select class="sequencing-principle"name="" onchange="self.location.href=options[selectedIndex].value">
-            <option value="/displayQuizByQuizId?quizId=${quiz.quizId}">按时间顺序</option>
-            <option value="/displayCommentByPraiseCount?quizId=${quiz.quizId}">按热度排序</option>
-            <option value="1">智能推荐</option>
+            <option value="/displayQuizByQuizId?quizId=${quiz.quizId}" ${timeselect}>按时间顺序</option>
+            <option value="/displayCommentByPraiseCount?quizId=${quiz.quizId}"  ${praiseselect}>按热度排序</option>
         </select>
     </div>
     <div class="answers-content">
@@ -153,7 +152,6 @@
                     <select class="comments-sequencing-principle"name="">
                         <option value="0">按时间顺序</option>
                         <option value="1">按热度排序</option>
-                        <option value="1">智能推荐</option>
                     </select>
                     <div class="close">收起评论</div>
                 </div>

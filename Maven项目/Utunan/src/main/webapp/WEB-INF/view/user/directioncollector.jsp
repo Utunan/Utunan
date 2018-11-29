@@ -72,10 +72,10 @@
             </li>
             <nav class="collection" id="collection" style="height:150px;">
                 <a href="/user/directioncollector">
-                    <li>院校收藏夹</li>
+                    <li id="active">院校收藏夹</li>
                 </a>
                 <a href="/user/quizcollector">
-                    <li id="active">帖子收藏夹</li>
+                    <li>帖子收藏夹</li>
                 </a>
                 <a href="/user/questioncollector">
                     <li>题目收藏夹</li>

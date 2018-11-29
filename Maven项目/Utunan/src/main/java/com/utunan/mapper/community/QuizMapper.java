@@ -13,8 +13,8 @@ import java.util.List;
 @Mapper
 @Repository
 public interface QuizMapper {
-    List<Quiz> listQuizByTime(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
-    List<Quiz> listQuizByPraise(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
+    List<Quiz> listQuizByTime();
+    List<Quiz> listQuizByPraise();
     Long countAllQuiz();
     User findUserByQuizId(@Param("quizId") Long quizId);
 	Long countCommentByQuizId(@Param("quizId") Long quizId);
@@ -24,12 +24,12 @@ public interface QuizMapper {
     /*王碧云 通过quizId查找问题*/
     Quiz findQuizById(@Param("quizId") Long quizId);
 
-	List<Quiz> listQuizByTimeWithTagName(@Param("quizId") List<Long> quizId, @Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
-	List<Quiz> listQuizByPraiseWithTagName(@Param("quizId") List<Long> quizId,@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
+	List<Quiz> listQuizByTimeWithTagName(@Param("quizId") List<Long> quizId);
+	List<Quiz> listQuizByPraiseWithTagName(@Param("quizId") List<Long> quizId);
 	Long countQuizWithTagName(@Param("tagName") String tagName);
 	List<Long> selectQuizIdByTagName(@Param("tagName") String tagName);
 
-	List<Quiz> findQuizBySearch(@Param("searchValue") String searchValue, @Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
+	List<Quiz> findQuizBySearch(@Param("searchValue") String searchValue);
 	Long countQuizBySearch(@Param("searchValue") String searchValue);
 
 	/*
@@ -40,11 +40,5 @@ public interface QuizMapper {
 	 * @return  void
 	 */
 	void updatePraiseCount(@Param("quizId") Long quizId);
-
-	/**
-	 * @author  yanzhengwei
-	 * 功能:	通过用户Id 查询帖子
-	 */
-	List<Quiz> selectQuizByUserId(User user);
-
+    List<Quiz> selectQuizByUserId(User user);
 }

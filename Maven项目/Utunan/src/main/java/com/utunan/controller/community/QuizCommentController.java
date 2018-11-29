@@ -68,6 +68,7 @@ public class QuizCommentController {
         request.setAttribute("commentCountByQuizId", commentCountByQuizId);
         request.setAttribute("commentListByQuizId", commentListByQuizId);
         request.setAttribute("url", url);
+        request.setAttribute("timeselect","selected=\"selected\"");
 
         return "community/quizcommentpage";
     }
@@ -114,6 +115,7 @@ public class QuizCommentController {
         request.setAttribute("quiz", quiz);
         request.setAttribute("commentCountByQuizId", commentCountByQuizId);
         request.setAttribute("commentListByQuizId", commentListByQuizId);
+        request.setAttribute("praiseselect","selected=\"selected\"");
     
         return "community/quizcommentpage";
     }

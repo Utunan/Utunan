@@ -23,10 +23,22 @@ public class Quiz {
     private Long praiseCount;
     //与用户多对一
     private User user;
+    //标签
+    private Tag tag;
+
     //与评论一对多
     private List<Comment> comment;
     //与quiz_tag一对多
     private List<QuizTag> quizTag;
+
+
+    public Tag getTag() {
+        return tag;
+    }
+
+    public void setTag(Tag tag) {
+        this.tag = tag;
+    }
 
     public List<QuizTag> getQuizTag() {
         return quizTag;
@@ -60,9 +72,13 @@ public class Quiz {
         this.quizId = quizId;
     }
 
-    public Long getUserId() { return userId; }
+    public Long getUserId() {
+        return userId;
+    }
 
-    public void setUserId(Long userId) { this.userId = userId; }
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
     public String getQuizTitle() {
         return quizTitle;
