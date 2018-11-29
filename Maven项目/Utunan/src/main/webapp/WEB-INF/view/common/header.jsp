@@ -40,7 +40,7 @@
                                 <a href="/user/publishquiz"><img src="/images/common/record.svg" alt="" srcset=""></a>
                             </div>
                             <div class="opimg">
-                                <a href="/user/myspace"><img src="/images/common/collection.svg" alt="" srcset=""></a>
+                                <a href="/user/myspace"><img src="/images/common/myspace.svg" alt="" srcset=""></a>
                             </div>
                             <div id="oplistone" class="oplist">
                                 <a href="/user/statistics">题库统计</a>
@@ -48,13 +48,13 @@
                                 <a href="/user/myspace">个人资料</a>
                             </div>
                             <div class="opimg">
-                                <a href="/user/directioncollector"><img src="/images/common/statistics.svg" alt="" srcset=""></a>
+                                <a href="/user/directioncollector"><img src="/images/common/school.svg" alt="" srcset=""></a>
+                            </div>
+                            <div class="opimg" style="margin: 0 5px;">
+                                <a href="/user/quizcollector"><img src="/images/common/quiz.svg" alt="" srcset=""></a>
                             </div>
                             <div class="opimg">
-                                <a href="/user/quizcollector"><img src="/images/common/statistics.svg" alt="" srcset=""></a>
-                            </div>
-                            <div class="opimg">
-                                <a href="/user/questioncollector"><img src="/images/common/statistics.svg" alt="" srcset=""></a>
+                                <a href="/user/questioncollector"><img src="/images/common/question.svg" alt="" srcset=""></a>
                             </div>
                             <div id="oplisttwo" class="oplist">
                                 <a href="/user/directioncollector">院系收藏</a>
