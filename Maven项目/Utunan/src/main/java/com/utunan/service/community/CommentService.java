@@ -16,7 +16,7 @@ public interface CommentService {
      * @return   null
      */
 
-    void saveComment(Long quizId,String content,Long uid);
+    void saveComment(Long cid,Long quizId,String content,Long uid);
     /*
      * @author  张正扬
      * @description  向comment表中插入评论
@@ -25,7 +25,7 @@ public interface CommentService {
      * @return   null
      */
 
-    void saveComment1(Long commentId,String content,Long uid);
+    void saveComment1(Long cid,Long commentId,String content,Long uid);
 
     /*
      * @author  王碧云
@@ -80,4 +80,14 @@ public interface CommentService {
      * @return  java.lang.Long
      */
     Long countCommentBySearch(String searchValue);
+
+
+    /*
+     * @author  张正扬
+     * @description 获取最大commentid
+     * @date  19:25 2018/11/28
+     * @param  null
+     * @return  Long
+     */
+    Long getMaxCid();
 }

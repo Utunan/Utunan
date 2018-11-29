@@ -15,9 +15,10 @@
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" type="text/css" href="/css/community/questionIndex.css"/>
+    <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 </head>
-<script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+
 <body>
 <!--
     <div >
@@ -223,7 +224,7 @@
                             'image',    //插入图片
                             'code'    //插入代码
                         ];
-                        editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
+                        editor1.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
                         editor1.customConfig.uploadImgMaxSize = 3 * 1024 * 1024   //每张图片最大上传大小
                         editor1.customConfig.uploadImgMaxLength = 5              //每次最多上传5张
                         var $text1 = $('#text1')

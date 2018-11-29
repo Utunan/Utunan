@@ -12,9 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service("quizService")
 public class QuizServiceImpl implements QuizService {
@@ -24,7 +22,9 @@ public class QuizServiceImpl implements QuizService {
 	@Override
 	public List<BigQuiz> quizListByTime(int pageNum, int pageSize){
 		//按发表时间的提问列表
+
 		List<Quiz> quizListByTime = quizMapper.listQuizByTime((pageNum-1)*pageSize,pageSize);
+		System.out.print(quizListByTime);
 		//限制问题标题、内容展示字数
 		condenseQuiz(quizListByTime);
 		//提取quizId列表
@@ -99,8 +99,9 @@ public class QuizServiceImpl implements QuizService {
      */
 
     @Override
-    public void saveQuiz(Long uid,String title,String content){
+    public void saveQuiz(Long qid,Long uid,String title,String content){
         Quiz quiz=new Quiz();
+        quiz.setQuizId(qid);
         quiz.setUserId(uid);
         quiz.setQuizTitle(title);
         quiz.setQuizContent(content);
@@ -295,6 +296,19 @@ public class QuizServiceImpl implements QuizService {
 	}
 
 
+
+	/*
+	 * @author  张正扬
+	 * @description
+	 * @date  18:02 2018/11/28
+	 * @param  []
+	 * @return  java.lang.Long
+	 */
+	@Override
+	public Long getMaxQid() {
+
+		return this.quizMapper.getMax();
+	}
 }
 
 

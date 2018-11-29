@@ -34,7 +34,7 @@
         </collection>
     </resultMap>
     <!--根据发表时间分页查询-->
-    <select id="listQuizByTime" resultMap="quizResultMap">
+    <select id="listQuizByTime"  resultMap="quizResultMap">
         SELECT *
         from quiz q
         join user u on q.userId=u.userId
@@ -82,9 +82,9 @@
         where qt.quizId=#{quizId}
     </select>
 
-    <!-- 插入数据，这里quizId是自动递增的，所以不需要插入 -->
+    <!-- 插入问题 -->
     <insert id="toInsert" parameterType="com.utunan.pojo.community.Quiz" useGeneratedKeys="true" keyProperty="quizId">
-        insert into quiz(userId,quizTitle,quizContent,releaseTime,praiseCount) values(#{userId},#{quizTitle},#{quizContent},#{releaseTime},#{praiseCount})
+        insert into quiz(quizId,userId,quizTitle,quizContent,releaseTime,praiseCount) values(#{quizId},#{userId},#{quizTitle},#{quizContent},#{releaseTime},#{praiseCount})
     </insert>
 
     <!--根据回答quizId最大查询，每次只查一条-->
@@ -157,5 +157,12 @@
         from quiz
         where quizTitle like #{searchValue}
           or quizContent like #{searchValue}
+    </select>
+
+
+
+    <!--张正扬，查询最大quizId-->
+    <select id="getMax" resultType="java.lang.Long">
+        select max(quizId) from quiz
     </select>
 </mapper>
