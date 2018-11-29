@@ -27,6 +27,7 @@ public class UserSessionInterceptor implements HandlerInterceptor {
 
             User checkUser =userService.getUser(user);
             if (user.getUserPassword().equals(checkUser.getUserPassword())){
+                session.setAttribute("User",checkUser);
                 return true;
             }else{
                 session.removeAttribute("User");
