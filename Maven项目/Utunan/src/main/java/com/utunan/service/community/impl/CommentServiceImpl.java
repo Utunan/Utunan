@@ -45,7 +45,7 @@ public class CommentServiceImpl implements CommentService {
         int i=0;
         long j=(long) i;
         comment.setCommentPraiseCount(j);
-        commentMapper.toInsert(comment);
+       commentMapper.toInsert(comment);
     }
     /*
      * @author  王碧云
@@ -130,14 +130,23 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public void saveComment1(Long commentId,String content,Long uid){
-        Comment comment=new Comment();
-        comment.setReplyCommentId(commentId);
-        comment.setUserId(uid);
-        comment.setCommentContent(content);
-        comment.setCommentTime(new Date());
-        int i=0;
-        long j=(long) i;
-        comment.setCommentPraiseCount(j);
-        commentMapper.toInsert1(comment);
+    ​    Comment comment=new Comment();
+    ​    comment.setReplyCommentId(commentId);
+    ​    comment.setUserId(uid);
+    ​    comment.setCommentContent(content);
+    ​    comment.setCommentTime(new Date());
+    ​    int i=0;
+    ​    long j=(long) i;
+    ​    comment.setCommentPraiseCount(j);
+    ​    commentMapper.toInsert1(comment);
     }
+
+
+
+    @Override
+    public Long getMaxCid() {
+        return this.commentMapper.getMaxCid();
+    }
+
+
 }

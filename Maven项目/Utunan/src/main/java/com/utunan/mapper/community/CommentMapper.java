@@ -38,6 +38,11 @@ public interface CommentMapper {
 
 
     //向comment表中插入评论
-    void toInsert1(Comment comment);
+
+
+    //从comment表中取出最大commentId
+    Long getMaxCid();
+
+
 }
 
