@@ -2,6 +2,7 @@ package com.utunan.controller.community;
 
 import com.utunan.pojo.base.user.User;
 import com.utunan.service.community.CommentService;
+import com.utunan.service.community.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,9 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
+    @Autowired
+    private QuizService quizService;
+
 
     /*
      * @author  张正扬
@@ -35,7 +39,7 @@ public class CommentController {
         String quizId = request.getParameter("quizId");
         String content = request.getParameter("textarea");
         Object ob = session.getAttribute("User");
-
+        this.quizService.addCommentCount(Long.parseLong(quizId));
         Long cid = this.commentService.getMaxCid();
         cid += 1;
         if (ob != null) {
@@ -47,7 +51,15 @@ public class CommentController {
         return "redirect:/displayQuizByQuizId?quizId=" + quizId;
     }
 
+
     @RequestMapping(value = "/comment1", method = RequestMethod.POST)
+    /*
+     * @author  张正扬
+     * @description 向评论表中插入评论
+     * @date  20:48 2018/11/29
+     * @param  [request, session]
+     * @return  java.lang.String
+     */
     public String insertComment1(HttpServletRequest request, HttpSession session) throws
             UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");
@@ -55,6 +67,7 @@ public class CommentController {
         String content = request.getParameter("text");
         Object ob = session.getAttribute("User");
         Long cid = this.commentService.getMaxCid();
+
         cid += 1;
         if (ob != null) {
             User user = (User) ob;

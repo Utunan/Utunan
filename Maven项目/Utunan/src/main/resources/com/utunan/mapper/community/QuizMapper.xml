@@ -23,7 +23,7 @@
             <result property="userIntegral" column="userIntegral"/>
         </association>
         <collection property="comment" javaType="java.util.List" ofType="com.utunan.pojo.base.community.Comment">
-             <id property="commentId" column="commentId"/>
+            <id property="commentId" column="commentId"/>
             <result property="quizId" column="quizId"/>
             <result property="commentContent" column="commentContent"/>
             <result property="commentTime" column="commentTime"/>
@@ -36,14 +36,14 @@
     <select id="listQuizByTime" resultMap="quizResultMap">
         SELECT *
         from quiz q
-        join user u on q.userId=u.userId
+                 join user u on q.userId = u.userId
         order by q.releaseTime desc
     </select>
     <!--根据点赞数量分页查询-->
     <select id="listQuizByPraise" resultMap="quizResultMap">
         select *
         from quiz q
-        join user u on q.userId=u.userId
+                 join user u on q.userId = u.userId
         order by q.praiseCount desc
     </select>
     <!--统计所有quiz个数-->
@@ -55,48 +55,54 @@
     <select id="findUserByQuizId" resultType="com.utunan.pojo.base.user.User">
         select u.*
         from user u
-        join quiz q on q.userId=u.userId
-        where quizId=#{quizId}
+                 join quiz q on q.userId = u.userId
+        where quizId = #{quizId}
     </select>
-    
+
     <!--根据quizId查评论数量-->
     <select id="countCommentByQuizId" resultType="java.lang.Long">
         select count(commentId)
         from comment
-        where quizId=#{quizId}
+        where quizId = #{quizId}
     </select>
     <!--根据quizId查标签列表-->
     <select id="selectTagByQuizId" resultType="com.utunan.pojo.base.community.Tag">
         select t.tagName
         from tag t
-        join quiz_tag qt on t.tagId=qt.tagId
-        where qt.quizId=#{quizId}
+                 join quiz_tag qt on t.tagId = qt.tagId
+        where qt.quizId = #{quizId}
     </select>
-    
+
     <!-- 插入数据，这里quizId是自动递增的，所以不需要插入 -->
-    <insert id="toInsert" parameterType="com.utunan.pojo.base.community.Quiz" useGeneratedKeys="true" keyProperty="quizId">
-        insert into quiz(userId,quizTitle,quizContent,releaseTime,praiseCount) values(#{userId},#{quizTitle},#{quizContent},#{releaseTime},#{praiseCount})
+    <insert id="toInsert" parameterType="com.utunan.pojo.base.community.Quiz" useGeneratedKeys="true"
+            keyProperty="quizId">
+        insert into quiz(quizId, userId, quizTitle, quizContent, releaseTime, praiseCount, commentCount)
+        values (#{quizId}, #{userId}, #{quizTitle}, #{quizContent}, #{releaseTime}, #{praiseCount}, #{commentCount})
     </insert>
-    
+
     <!--根据回答quizId最大查询，每次只查一条-->
     <select id="getQuiz1" resultType="com.utunan.pojo.base.community.Quiz">
-        select * from quiz where quizId=(select max(quizId) from quiz)
+        select *
+        from quiz
+        where quizId = (select max(quizId) from quiz)
     </select>
-    
+
     <!--更新quiz表点赞数-->
     <update id="updatePraiseCount" parameterType="java.lang.Long">
-        update quiz set praiseCount=praiseCount+1 where quizId=#{quizId}
+        update quiz
+        set praiseCount=praiseCount + 1
+        where quizId = #{quizId}
     </update>
-    
+
     <!--@author 王碧云 根据QuizId查找Quiz-->
     <select id="findQuizById" resultMap="quizResultMap">
         select *
         from quiz
-        join user on quiz.userId=user.userId
+                 join user on quiz.userId = user.userId
         where
-        quizId=#{quizId}
+            quizId = #{quizId}
     </select>
-    
+
     <!--在某标签下根据发表时间分页查询-->
     <select id="listQuizByTimeWithTagName" resultType="com.utunan.pojo.base.community.Quiz">
         select *
@@ -121,40 +127,40 @@
     <select id="countQuizWithTagName" resultType="java.lang.Long">
         select count(qt.quizId)
         from quiz_tag qt
-        join tag t on qt.tagId=t.tagId
-        where t.tagName=#{tagName}
+                 join tag t on qt.tagId = t.tagId
+        where t.tagName = #{tagName}
     </select>
-    
+
     <!--根据tagName查quizId-->
     <select id="selectQuizIdByTagName" resultType="java.lang.Long">
         select qt.quizId
         from quiz_tag qt
-        join tag t on qt.tagId=t.tagId
-        where t.tagName=#{tagName}
+                 join tag t on qt.tagId = t.tagId
+        where t.tagName = #{tagName}
         group by qt.quizId
     </select>
-    
+
     <!--根据搜索条件查询提问-->
     <select id="findQuizBySearch" resultMap="quizResultMap">
         select *
         from quiz q
-        join user u on q.userId=u.userId
+                 join user u on q.userId = u.userId
         where q.quizTitle like #{searchValue}
-          or q.quizContent like #{searchValue}
+           or q.quizContent like #{searchValue}
     </select>
     <!--根据搜索条件统计提问数量-->
     <select id="countQuizBySearch" resultType="java.lang.Long">
         select count(*)
         from quiz
         where quizTitle like #{searchValue}
-          or quizContent like #{searchValue}
+           or quizContent like #{searchValue}
     </select>
-    
+
     <!--根据UserId 查询 Quiz-->
     <select id="selectQuizByUserId" resultMap="quizResultMap">
         select *
         from quiz
-        where userId=#{userId}
+        where userId = #{userId}
 
     </select>
 
@@ -164,4 +170,11 @@
         from quiz
 
     </select>
+
+    <!--张正扬， 增加问题回答数-->
+    <update id="addcommentcount" parameterType="java.lang.Long">
+        update quiz
+        set commentCount=commentCount+1
+        where quizId=#{quizId}
+    </update>
 </mapper>

@@ -161,4 +161,13 @@ public interface QuizService {
 	 */
      Long getMaxQid();
 
+     /*
+      * @author  张正扬
+      * @description 增加问题回答数
+      * @date  20:51 2018/11/29
+      * @param  null
+      * @return  null
+      */
+     void addCommentCount(Long qid);
+
 }

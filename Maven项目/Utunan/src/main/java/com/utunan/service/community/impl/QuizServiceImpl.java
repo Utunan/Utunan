@@ -74,9 +74,6 @@ public class QuizServiceImpl implements QuizService {
 	    quiz.setQuizTitle(title);
 	    quiz.setQuizContent(content);
 	    quiz.setReleaseTime(new Date());
-	    int i=0;
-	    long j=(long) i;
-	    quiz.setPraiseCount(j);
 	    quizMapper.toInsert(quiz);
 	}
 	
@@ -248,6 +245,12 @@ public class QuizServiceImpl implements QuizService {
 	public Long getMaxQid(){
 		return this.quizMapper.getMax();
 
+	}
+
+
+	@Override
+	public void addCommentCount(Long qid){
+		 this.quizMapper.addcommentcount(qid);
 	}
 
 }

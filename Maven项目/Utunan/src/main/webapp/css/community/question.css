@@ -299,6 +299,7 @@ body{
     height: 160px;
     margin: 0 auto;
     margin-top: 20px;
+    border: #9c9ea5 solid 0.5px;
 }
 .toolbar{
     width: 950px;
