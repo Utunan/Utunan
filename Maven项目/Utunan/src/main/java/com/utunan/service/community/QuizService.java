@@ -8,7 +8,7 @@ import com.utunan.pojo.util.BigQuiz;
 import java.util.List;
 
 public interface QuizService {
-​	/**
+	/**
 ​	 * @author  孙程程
 ​	 * @description 根据发表时间分页查询问答列表
 ​	 * @date  16:20 2018/11/19
@@ -16,7 +16,7 @@ public interface QuizService {
 ​	 * @param  pageSize
 ​	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
 ​	 */
-​	List<Quiz> quizListByTime(int pageNum, int pageSize);
+	List<Quiz> quizListByTime(int pageNum, int pageSize);
 
 	/**
 	 * @author  孙程程
@@ -150,7 +150,7 @@ public interface QuizService {
 	 * @return  com.utunan.pojo.user.User
 
 ​	 */
-​	User findUserByQuizId(Long quizId);
+	User findUserByQuizId(Long quizId);
 
 	/*
 	 * @author  张正扬
@@ -160,6 +160,6 @@ public interface QuizService {
 	 * @return   Long
 
 	 */
-	User findUserByQuizId(Long quizId);
+     Long getMaxQid();
 
 }

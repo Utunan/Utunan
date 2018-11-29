@@ -185,7 +185,7 @@ public class QuizController {
 		System.out.print(content);
 		Object ob=session.getAttribute("User");
 
-​		Long qid=this.quizService.getMaxQid();
+		Long qid=this.quizService.getMaxQid();
 		qid+=1;
 
 		if (ob!=null) {

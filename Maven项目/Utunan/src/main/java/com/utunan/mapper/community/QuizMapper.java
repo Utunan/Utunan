@@ -13,16 +13,16 @@ import java.util.List;
 @Mapper
 @Repository
 public interface QuizMapper {
-​    List<Quiz> listQuizByTime();
-​    List<Quiz> listQuizByPraise();
-​    Long countAllQuiz();
-​    User findUserByQuizId(@Param("quizId") Long quizId);
-​	Long countCommentByQuizId(@Param("quizId") Long quizId);
-​	List<Tag> selectTagByQuizId(@Param("quizId") Long quizId);
-​    void toInsert(Quiz quiz);
-​    Quiz getQuiz1();
-​    /*王碧云 通过quizId查找问题*/
-​    Quiz findQuizById(@Param("quizId") Long quizId);
+    List<Quiz> listQuizByTime();
+    List<Quiz> listQuizByPraise();
+    Long countAllQuiz();
+    User findUserByQuizId(@Param("quizId") Long quizId);
+	Long countCommentByQuizId(@Param("quizId") Long quizId);
+	List<Tag> selectTagByQuizId(@Param("quizId") Long quizId);
+    void toInsert(Quiz quiz);
+   Quiz getQuiz1();
+     /*王碧云 通过quizId查找问题*/
+    Quiz findQuizById(@Param("quizId") Long quizId);
 
 	List<Quiz> listQuizByTimeWithTagName(@Param("quizId") List<Long> quizId);
 	List<Quiz> listQuizByPraiseWithTagName(@Param("quizId") List<Long> quizId);

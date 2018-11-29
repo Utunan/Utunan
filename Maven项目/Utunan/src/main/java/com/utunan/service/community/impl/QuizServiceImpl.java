@@ -19,8 +19,8 @@ import java.util.List;
 
 @Service("quizService")
 public class QuizServiceImpl implements QuizService {
-​	@Autowired
-​	private QuizMapper quizMapper;
+	@Autowired
+	private QuizMapper quizMapper;
 
 	/**
 	 * @author  孙程程
@@ -246,9 +246,10 @@ public class QuizServiceImpl implements QuizService {
 	public User findUserByQuizId(Long quizId){
 		return this.quizMapper.findUserByQuizId(quizId);
 
-​	}
-​	@Override
-​	public Long getMaxQid(){
+	}
+
+	@Override
+	public Long getMaxQid(){
 		return this.quizMapper.getMax();
 
 	}
