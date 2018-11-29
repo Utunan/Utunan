@@ -205,7 +205,7 @@
 </div>
 <%@include file="../common/footer.jsp"%>
 </body>
-<script src="/js/common.js"></script>
+<script src="/js/common/common.js"></script>
 <script>
 var viewComments=window.document.getElementsByClassName("view-comments");
 var index;

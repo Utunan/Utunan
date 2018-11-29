@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<nav class="userfunction">
-    <input type="hidden" id="currentplate" value="directioncollector">
+<nav id="userfunction" class="userfunction">
+    <input type="hidden" id="currentplate" value="${plate}">
     <a href="/user/myspace">
         <li>
             <img src="/images/user/home.svg" alt="" srcset="">

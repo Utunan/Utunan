@@ -12,5 +12,5 @@
 <%@include file="../common/header.jsp"%>
 <%@include file="../common/footer.jsp"%>
 </body>
-<script src="/js/common.js"></script>
+<script src="/js/common/common.js"></script>
 </html>

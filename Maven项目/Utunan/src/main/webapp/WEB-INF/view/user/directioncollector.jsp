@@ -53,6 +53,6 @@
 </div>
 <%@include file="../common/footer.jsp" %>
 </body>
-<script src="/js/usercommon.js"></script>
-<script src="/js/common.js"></script>
+<script src="/js/user/usercommon.js"></script>
+<script src="/js/common/common.js"></script>
 </html>

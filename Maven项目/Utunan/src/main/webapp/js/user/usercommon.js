@@ -3,10 +3,17 @@ postinfo = document.getElementById('postinfo');
 mycollection = document.getElementById('mycollection');
 collection = document.getElementById('collection');
 plate=document.getElementById("currentplate").value;
+
 dict={
-    0:"myspace",1:"statistics",2:"publishquiz",
-    3:"publishreply",4:"directioncollector",5:"quizcollector",
-    6:"questioncollector"}
+    "myspace":0,"information":1,"statistics":2,"publishquiz":4,
+    "publishreply":5,"directioncollector":7,"quizcollector":8,
+    "questioncollector":9,"settings":10
+}
+
+userfunction=document.getElementById("userfunction");
+functions=userfunction.getElementsByTagName("li");
+functions[dict[plate]].style.backgroundColor="rgba(49, 126, 212, 0.1)";
+functions[dict[plate]].style.color="rgba(49, 126, 212, 1)";
 
 com_pull_state = false
 col_pull_state = false

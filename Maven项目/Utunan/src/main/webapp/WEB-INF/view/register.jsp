@@ -77,5 +77,5 @@
 
 </body>
 
-<script src="/js/register.js"></script>
+<script src="/js/common/register.js"></script>
 </html>
