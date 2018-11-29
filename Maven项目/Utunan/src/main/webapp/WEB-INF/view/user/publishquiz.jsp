@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="zh-cn">
 
@@ -88,25 +89,25 @@
                 <span>发表的帖子</span>
             </div>
             <nav id="publishpost" class="publishpost">
-                <c:forEach items="${Quizzes }" var="Q">
+                <c:forEach items="${Quizzes[0].quizzes }" var="Q">
                 <li>
                     <div>
                         <span class="publishtime">
                            <fmt:formatDate value="${Q.releaseTime }" type="date" pattern="yyyy-MM-dd"/>
                          </span>
                         <span class="posttitle">${Q.quizTitle }</span>
-                        <span class="publishtype">经验分享</span>
+                        <span class="publishtype">${Q.tags[0]==null?"Utunan":Q.tags[0].tagName}</span>
                     </div>
                     <p class="postcontent">
                         ${Q.quizContent }
                     </p>
-                    <span><a href="">收到的回复(15)</a></span>
+                    <span>评论数(${Q.commentCount })</span>
                     <span><a href="">>>详细</a></span>
                 </li>
                 </c:forEach>
             </nav>
             <nav id="page" class="page">
-                <li class="home"><a href="/user/schoolcollector">首页</a></li>
+                <li class="home"><a href="/user/publishquiz">首页</a></li>
                 <li class="next"><a href="?pageNum=${PageInfo.prePage}">上一页</a></li>
                 <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
                     <li class="pagenum"><a name="${i}" href="?pageNum=${i}">${i}</a></li>

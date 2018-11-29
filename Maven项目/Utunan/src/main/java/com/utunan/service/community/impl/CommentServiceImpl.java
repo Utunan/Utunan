@@ -39,8 +39,8 @@ public class CommentServiceImpl implements CommentService {
     public void saveComment(Long cid,Long quizId,String content,Long uid){
         Comment comment=new Comment();
         comment.setCommentId(cid);
-        comment.setQuizId(quizId);
-        comment.setUserId(uid);
+        comment.getQuiz().setQuizId(quizId);
+        comment.getUser().setUserId(uid);
         comment.setCommentContent(content);
         comment.setCommentTime(new Date());
         int i=0;
@@ -133,8 +133,8 @@ public class CommentServiceImpl implements CommentService {
     public void saveComment1(Long cid,Long commentId,String content,Long uid){
         Comment comment=new Comment();
         comment.setCommentId(cid);
-        comment.setReplyCommentId(commentId);
-        comment.setUserId(uid);
+        comment.getParentComment().setCommentId(commentId);
+        comment.getUser().setUserId(uid);
         comment.setCommentContent(content);
         comment.setCommentTime(new Date());
         int i=0;

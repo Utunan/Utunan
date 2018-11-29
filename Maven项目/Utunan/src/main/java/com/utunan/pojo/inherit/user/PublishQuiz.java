@@ -22,7 +22,7 @@ public class PublishQuiz extends User {
     @Override
     public String toString() {
         return "QuizCollector{" +
-                "quizList=" + quizzes +
+                "quizzes=" + quizzes +
                 '}';
     }
 }

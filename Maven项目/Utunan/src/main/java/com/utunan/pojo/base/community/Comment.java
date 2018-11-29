@@ -10,97 +10,85 @@ import java.util.Date;
 public class Comment {
 	//评论ID
 	private Long commentId;
-	//提问ID
-	private Long quizId;
-	//作者Id
-	private Long userId;
 	//评论内容
 	private String commentContent;
-	//评论时间
-	private Date commentTime;
-	//点赞个数
-	private  Long commentPraiseCount;
-	//父级评论Id
-	private Long replyCommentId;
 	//提问
 	private Quiz quiz;
 	//用户
 	private User user;
+	//评论时间
+	private Date commentTime;
+	//点赞个数
+	private  Long commentPraiseCount;
+	//父级评论
+	private Comment parentComment;
 
-	public User getUser() { return user; }
+    public Long getCommentId() {
+        return commentId;
+    }
 
-	public void setUser(User user) { this.user = user; }
+    public void setCommentId(Long commentId) {
+        this.commentId = commentId;
+    }
 
-	public Quiz getQuiz() {
-		return quiz;
-	}
+    public String getCommentContent() {
+        return commentContent;
+    }
 
-	public void setQuiz(Quiz quiz) {
-		this.quiz = quiz;
-	}
+    public void setCommentContent(String commentContent) {
+        this.commentContent = commentContent;
+    }
 
-	public Long getCommentId() {
-		return commentId;
-	}
+    public Quiz getQuiz() {
+        return quiz;
+    }
 
-	public void setCommentId(Long commentId) {
-		this.commentId = commentId;
-	}
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
+    }
 
-	public Long getQuizId() {
-		return quizId;
-	}
+    public User getUser() {
+        return user;
+    }
 
-	public void setQuizId(Long quizId) {
-		this.quizId = quizId;
-	}
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-	public Long getUserId() {
-		return userId;
-	}
+    public Date getCommentTime() {
+        return commentTime;
+    }
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
+    public void setCommentTime(Date commentTime) {
+        this.commentTime = commentTime;
+    }
 
-	public String getCommentContent() {
-		return commentContent;
-	}
+    public Long getCommentPraiseCount() {
+        return commentPraiseCount;
+    }
 
-	public void setCommentContent(String commentContent) {
-		this.commentContent = commentContent;
-	}
+    public void setCommentPraiseCount(Long commentPraiseCount) {
+        this.commentPraiseCount = commentPraiseCount;
+    }
 
-	public Date getCommentTime() {
-		return commentTime;
-	}
+    public Comment getParentComment() {
+        return parentComment;
+    }
 
-	public void setCommentTime(Date commentTime) {
-		this.commentTime = commentTime;
-	}
+    public void setParentComment(Comment parentComment) {
+        this.parentComment = parentComment;
+    }
 
-	public Long getCommentPraiseCount() { return commentPraiseCount; 	}
-
-	public void setCommentPraiseCount(Long commentPraiseCount) { this.commentPraiseCount = commentPraiseCount; }
-
-	public Long getReplyCommentId() {
-		return replyCommentId;
-	}
-
-	public void setReplyCommentId(Long replyCommentId) {
-		this.replyCommentId = replyCommentId;
-	}
-
-	@Override
-	public String toString() {
-		return "Comment{" +
-				"commentId=" + commentId +
-				", quizId=" + quizId +
-				", userId=" + userId +
-				", commentContent='" + commentContent + '\'' +
-				", commentTime=" + commentTime +
-				", commentPraiseCount=" + commentPraiseCount +
-				", replyCommentId=" + replyCommentId +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "commentId=" + commentId +
+                ", commentContent='" + commentContent + '\'' +
+                ", quiz=" + quiz +
+                ", user=" + user +
+                ", commentTime=" + commentTime +
+                ", commentPraiseCount=" + commentPraiseCount +
+                ", parentComment=" + parentComment +
+                '}';
+    }
 }

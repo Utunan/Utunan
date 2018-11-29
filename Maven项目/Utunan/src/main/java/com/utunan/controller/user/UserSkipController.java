@@ -58,7 +58,6 @@ public class UserSkipController {
             return "/user/publishquiz";
         request.setAttribute("PageInfo",new PageInfo(publishQuizs,5));
         request.setAttribute("Quizzes", publishQuizs);
-        System.out.println(publishQuizs);
         return "/user/publishquiz";
     }
 
