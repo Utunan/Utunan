@@ -2,7 +2,7 @@ package com.utunan.service.community.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.utunan.mapper.community.CommentMapper;
-import com.utunan.pojo.community.Comment;
+import com.utunan.pojo.base.community.Comment;
 import com.utunan.service.community.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,23 +36,24 @@ public class CommentServiceImpl implements CommentService {
      */
 
     @Override
-    public void saveComment(Long quizId,String content,Long uid){
+    public void saveComment(Long cid,Long quizId,String content,Long uid){
         Comment comment=new Comment();
-        comment.setQuizId(quizId);
-        comment.setUserId(uid);
+        comment.setCommentId(cid);
+        comment.getQuiz().setQuizId(quizId);
+        comment.getUser().setUserId(uid);
         comment.setCommentContent(content);
         comment.setCommentTime(new Date());
         int i=0;
         long j=(long) i;
         comment.setCommentPraiseCount(j);
-        commentMapper.toInsert(comment);
+       commentMapper.toInsert(comment);
     }
     /*
      * @author  王碧云
      * @description 根据quiaId返回评论列表
      * @date  15:35 2018/11/25/025
      * @param  []
-     * @return  java.util.List<com.utunan.pojo.community.Comment>
+     * @return  java.util.List<com.utunan.pojo.base.community.Comment>
      */
     @Override
     public List<Comment> findCommentListByQuizId(Long quizId) {
@@ -64,7 +65,7 @@ public class CommentServiceImpl implements CommentService {
      * @description 根据commentId返回子评论列表
      * @date  21:12 2018/11/25/025
      * @param  [commentId]
-     * @return  java.util.List<com.utunan.pojo.community.Comment>
+     * @return  java.util.List<com.utunan.pojo.base.community.Comment>
      */
     @Override
     public List<Comment> findChildCommentListByCommentId(Long commentId) {
@@ -76,7 +77,7 @@ public class CommentServiceImpl implements CommentService {
      * @description 根据热度返回评论列表
      * @date  11:15 2018/11/26/026
      * @param  [quizId]
-     * @return  java.util.List<com.utunan.pojo.community.Comment>
+     * @return  java.util.List<com.utunan.pojo.base.community.Comment>
      */
     @Override
     public List<Comment> findCommentListByPraiseCount(Long quizId) {
@@ -100,7 +101,7 @@ public class CommentServiceImpl implements CommentService {
      * @description 根据搜索条件返回评论列表
      * @date  16:12 2018/11/27
      * @param  searchValue, pageNum, pageSize
-     * @return  java.util.List<com.utunan.pojo.community.Comment>
+     * @return  java.util.List<com.utunan.pojo.base.community.Comment>
      */
     @Override
     public List<Comment> findCommentListBySearch(String searchValue, int pageNum, int pageSize){
@@ -129,10 +130,11 @@ public class CommentServiceImpl implements CommentService {
      */
 
     @Override
-    public void saveComment1(Long commentId,String content,Long uid){
+    public void saveComment1(Long cid,Long commentId,String content,Long uid){
         Comment comment=new Comment();
-        comment.setReplyCommentId(commentId);
-        comment.setUserId(uid);
+        comment.setCommentId(cid);
+        comment.getParentComment().setCommentId(commentId);
+        comment.getUser().setUserId(uid);
         comment.setCommentContent(content);
         comment.setCommentTime(new Date());
         int i=0;
@@ -140,4 +142,13 @@ public class CommentServiceImpl implements CommentService {
         comment.setCommentPraiseCount(j);
         commentMapper.toInsert1(comment);
     }
+
+
+
+    @Override
+    public Long getMaxCid() {
+        return this.commentMapper.getMaxCid();
+    }
+
+
 }

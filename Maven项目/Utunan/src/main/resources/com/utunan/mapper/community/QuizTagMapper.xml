@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.utunan.mapper.community.QuizTagMapper">
-    <resultMap id="quizTagResultMap" type="com.utunan.pojo.community.QuizTag">
+    <resultMap id="quizTagResultMap" type="com.utunan.pojo.base.community.QuizTag">
         <id column="quizTagId" property="quizTagId"/>
         <result property="quizId" column="quizId"/>
         <result property="tagId" column="tagId"/>
-        <association property="tag" javaType="com.utunan.pojo.community.Tag">
+        <association property="tag" javaType="com.utunan.pojo.base.community.Tag">
             <id column="tagId" property="tagId"/>
             <result property="tagName" column="tagName"/>
         </association>

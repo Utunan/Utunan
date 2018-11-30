@@ -1,6 +1,6 @@
 package com.utunan.mapper.community;
 
-import com.utunan.pojo.community.QuizTag;
+import com.utunan.pojo.base.community.QuizTag;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

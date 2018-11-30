@@ -2,18 +2,14 @@ package com.utunan.service.community.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.utunan.mapper.community.QuizMapper;
-import com.utunan.pojo.community.Quiz;
-import com.utunan.pojo.community.QuizTag;
-import com.utunan.pojo.community.Tag;
-import com.utunan.pojo.user.User;
-import com.utunan.pojo.util.BigQuiz;
+import com.utunan.pojo.base.community.Quiz;
+import com.utunan.pojo.base.community.Tag;
+import com.utunan.pojo.base.user.User;
 import com.utunan.service.community.QuizService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,7 +24,7 @@ public class QuizServiceImpl implements QuizService {
 	 * @date  16:20 2018/11/19
 	 * @param  pageNum
 	 * @param  pageSize
-	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
+	 * @return  java.util.List<com.utunan.pojo.base.community.Quiz>
 	 */
 	@Override
 	public List<Quiz> quizListByTime(int pageNum, int pageSize){
@@ -39,14 +35,14 @@ public class QuizServiceImpl implements QuizService {
 		condenseQuiz(quizList);
 		return quizList;
 	}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 根据点赞数量分页查询问答列表
 	 * @date  17:15 2018/11/20
 	 * @param  pageNum
 	 * @param  pageSize
-	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
+	 * @return  java.util.List<com.utunan.pojo.base.community.Quiz>
 	 */
 	@Override
 	public List<Quiz> quizListByPraise(int pageNum, int pageSize){
@@ -57,53 +53,53 @@ public class QuizServiceImpl implements QuizService {
 		condenseQuiz(quizList);
 		return quizList;
 	}
-
+	
 	@Override
 	public Long countAllQuiz(){
 		return this.quizMapper.countAllQuiz();
 	}
-
-    /*
-     * @author  张正扬
-     * @description 向quiz表插入问题
-     * @date  15:47 2018/11/22
-     * @param  title,content
-     * @return  null
-     */
-
-    @Override
-    public void saveQuiz(Long uid,String title,String content){
-        Quiz quiz=new Quiz();
-        quiz.setUserId(uid);
-        quiz.setQuizTitle(title);
-        quiz.setQuizContent(content);
-        quiz.setReleaseTime(new Date());
-        int i=0;
-        long j=(long) i;
-        quiz.setPraiseCount(j);
-        quizMapper.toInsert(quiz);
-    }
-
-    /*
-     * @author  张正扬
-     * @description 从quiz表取出刚刚插入的问题
-     * @date  15:47 2018/11/22
-     * @param  null
-     * @return  Quiz对象
-     */
-
-    @Override
-    public Quiz getQuiz(){
-        Quiz q= quizMapper.getQuiz1();
-        return q;
-    }
-
+	
+	/*
+	 * @author  张正扬
+	 * @description 向quiz表插入问题
+	 * @date  15:47 2018/11/22
+	 * @param  title,content
+	 * @return  null
+	 */
+	
+	@Override
+	public void saveQuiz(Long uid,String title,String content){
+	    Quiz quiz=new Quiz();
+	    quiz.getUser().setUserId(uid);
+	    quiz.setQuizTitle(title);
+	    quiz.setQuizContent(content);
+	    quiz.setReleaseTime(new Date());
+	    int i=0;
+	    long j=(long) i;
+	    quiz.setPraiseCount(j);
+	    quizMapper.toInsert(quiz);
+	}
+	
+	/*
+	 * @author  张正扬
+	 * @description 从quiz表取出刚刚插入的问题
+	 * @date  15:47 2018/11/22
+	 * @param  null
+	 * @return  Quiz对象
+	 */
+	
+	@Override
+	public Quiz getQuiz(){
+	    Quiz q= quizMapper.getQuiz1();
+	    return q;
+	}
+	
 	/*
 	 * @author  王碧云
 	 * @description 根据quizId查找Quiz
 	 * @date  12:36 2018/11/24
 	 * @param  [quizId]
-	 * @return  com.utunan.pojo.community.Quiz
+	 * @return  com.utunan.pojo.base.community.Quiz
 	 */
 	@Override
 	public Quiz findQuizById(Long quizId) {
@@ -120,19 +116,19 @@ public class QuizServiceImpl implements QuizService {
 	public Long countCommentByQuizId(Long quizId) {
 		return this.quizMapper.countCommentByQuizId(quizId);
 	}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 根据quizId查标签列表
 	 * @date  16:19 2018/11/28
 	 * @param  quizId
-	 * @return  java.util.List<com.utunan.pojo.community.Tag>
+	 * @return  java.util.List<com.utunan.pojo.base.community.Tag>
 	 */
 	@Override
 	public List<Tag> selectTagByQuizId(Long quizId){
 		return this.quizMapper.selectTagByQuizId(quizId);
 	}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 在某标签下根据发表时间分页查询问答列表
@@ -151,7 +147,7 @@ public class QuizServiceImpl implements QuizService {
 		condenseQuiz(quizList);
 		return quizList;
 	}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 在某标签下根据点赞数量分页查询问答列表
@@ -170,7 +166,7 @@ public class QuizServiceImpl implements QuizService {
 		condenseQuiz(quizList);
 		return quizList;
 	}
-
+	
 	@Override
 	public Long countQuizWithTagName(String tagName) {
 		return this.quizMapper.countQuizWithTagName(tagName);
@@ -192,13 +188,13 @@ public class QuizServiceImpl implements QuizService {
 					q.setQuizTitle(q.getQuizTitle().substring(0,30)+" ...");
 			}
 		}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 根据搜索条件查找提问列表
 	 * @date  20:12 2018/11/26
 	 * @param  searchValue
-	 * @return  java.util.List<com.utunan.pojo.community.Quiz>
+	 * @return  java.util.List<com.utunan.pojo.base.community.Quiz>
 	 */
 	@Override
 	public List<Quiz> findQuizBySearch(String searchValue, int pageNum, int pageSize){
@@ -209,7 +205,7 @@ public class QuizServiceImpl implements QuizService {
 		condenseQuiz(quizList);
 		return quizList;
 	}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 符合搜索条件的提问数量
@@ -221,7 +217,7 @@ public class QuizServiceImpl implements QuizService {
 	public Long countQuizBySearch(String searchValue){
 		return this.quizMapper.countQuizBySearch("%"+searchValue+"%");
 	}
-
+	
 	/*
 	 * @author  张正扬
 	 * @description  更新点赞计数
@@ -234,17 +230,24 @@ public class QuizServiceImpl implements QuizService {
 		System.out.print(quizId);
 		this.quizMapper.updatePraiseCount(quizId);
 	}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 通过quizId查找用户
 	 * @date  20:15 2018/11/28
 	 * @param  quizId
-	 * @return  com.utunan.pojo.user.User
+	 * @return  com.utunan.pojo.base.user.User
 	 */
 	@Override
 	public User findUserByQuizId(Long quizId){
 		return this.quizMapper.findUserByQuizId(quizId);
+
+	}
+
+	@Override
+	public Long getMaxQid(){
+		return this.quizMapper.getMax();
+
 	}
 
 }

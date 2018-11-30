@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" type="text/css" href="/css/community/questionIndex.css"/>
     <script> var pagenum="${PageInfo.pageNum}"</script>

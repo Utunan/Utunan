@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>问答列表</title>
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" type="text/css" href="/css/community/questionIndex.css"/>
     <script> var pagenum="${PageInfo.pageNum}"</script>
@@ -225,7 +225,7 @@
                             'image',    //插入图片
                             'code'    //插入代码
                         ];
-                        editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
+                        editor1.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
                         editor1.customConfig.uploadImgMaxSize = 3 * 1024 * 1024   //每张图片最大上传大小
                         editor1.customConfig.uploadImgMaxLength = 5              //每次最多上传5张
                         var $text1 = $('#text1')
@@ -277,6 +277,6 @@
 <%@include file="../common/footer.jsp"%>
 </body>
 <script src="/js/questionMain.js"></script>
-<script src="/js/common.js"></script>
+<script src="/js/common/common.js"></script>
 
 </html>

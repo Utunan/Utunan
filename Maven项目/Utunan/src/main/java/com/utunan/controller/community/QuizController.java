@@ -1,11 +1,10 @@
 package com.utunan.controller.community;
 
 import com.github.pagehelper.PageInfo;
-import com.utunan.pojo.community.Quiz;
-import com.utunan.pojo.community.Tag;
-import com.utunan.pojo.user.User;
+import com.utunan.pojo.base.community.Quiz;
+import com.utunan.pojo.base.community.Tag;
+import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.util.BigQuiz;
-import com.utunan.pojo.util.Page;
 import com.utunan.service.community.QuizService;
 import com.utunan.service.community.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +16,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 @Controller
 public class QuizController {
@@ -28,7 +25,7 @@ public class QuizController {
 	private QuizService quizService;
 	@Autowired
 	private TagService tagService;
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 根据发表时间展示问答列表
@@ -97,7 +94,7 @@ public class QuizController {
 		request.setAttribute("PageInfo",new PageInfo(quizList,5));
 		return "community/quiz";
 	}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 根据点赞数量展示问答列表
@@ -156,7 +153,7 @@ public class QuizController {
 		List<String> stateList=new ArrayList<String>();
 		stateList.add("option");
 		stateList.add("active");
-
+	
 		//返回数据
 		request.setAttribute("object",bigQuiz);
 		request.setAttribute("url","quiz2");
@@ -184,6 +181,10 @@ public class QuizController {
 		String content= request.getParameter("textarea");
 		System.out.print(content);
 		Object ob=session.getAttribute("User");
+
+		Long qid=this.quizService.getMaxQid();
+		qid+=1;
+
 		if (ob!=null) {
 			User user = (User) ob;
 			Long uid = user.getUserId();
@@ -256,7 +257,7 @@ public class QuizController {
 		request.setAttribute("PageInfo",new PageInfo(quizList,5));
 		return "community/quiz";
 	}
-
+	
 	/**
 	 * @author  孙程程
 	 * @description 在某标签下根据点赞数量分页查询问答列表
@@ -321,7 +322,7 @@ public class QuizController {
 		request.setAttribute("PageInfo",new PageInfo(quizList,5));
 		return "community/quiz";
 	}
-
+	
 	/*
 	 * @author  张正扬
 	 * @description 给问题点赞

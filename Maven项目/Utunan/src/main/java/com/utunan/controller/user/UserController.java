@@ -1,6 +1,6 @@
 package com.utunan.controller.user;
 
-import com.utunan.pojo.user.User;
+import com.utunan.pojo.base.user.User;
 import com.utunan.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

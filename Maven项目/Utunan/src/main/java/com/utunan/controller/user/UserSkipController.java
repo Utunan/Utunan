@@ -2,9 +2,10 @@ package com.utunan.controller.user;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
-import com.utunan.pojo.community.Quiz;
-import com.utunan.pojo.school.Direction;
-import com.utunan.pojo.user.User;
+import com.utunan.pojo.base.community.Quiz;
+import com.utunan.pojo.base.school.Direction;
+import com.utunan.pojo.base.user.User;
+import com.utunan.pojo.inherit.user.PublishQuiz;
 import com.utunan.service.user.DirectionCollectorService;
 import com.utunan.service.user.PublishQuizService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,17 +48,16 @@ public class UserSkipController {
     public String publishpost(HttpServletRequest request,HttpSession session) {
         User user = (User) session.getAttribute("User");
         String pageNum = request.getParameter("pageNum");
-        List<Quiz> quizzes = null;
+        List<PublishQuiz> publishQuizs = null;
         if (pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0)
-            quizzes =  publishQuizService.getUserPublishQuiz(user, 1, 10);
+            publishQuizs =  publishQuizService.getUserPublishQuiz(user, 1, 10);
         else
-            quizzes = publishQuizService.getUserPublishQuiz(user, Integer.parseInt(pageNum), 10);
+            publishQuizs = publishQuizService.getUserPublishQuiz(user, Integer.parseInt(pageNum), 10);
 
-        if(quizzes==null)
+        if(publishQuizs==null)
             return "/user/publishquiz";
-
-        request.setAttribute("PageInfo",new PageInfo(quizzes,5));
-        request.setAttribute("Quizzes", quizzes);
+        request.setAttribute("PageInfo",new PageInfo(publishQuizs,5));
+        request.setAttribute("Quizzes", publishQuizs);
         return "/user/publishquiz";
     }
 

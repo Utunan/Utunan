@@ -1,12 +1,11 @@
 package com.utunan.controller.community;
 
 import com.github.pagehelper.PageInfo;
-import com.utunan.pojo.community.Comment;
-import com.utunan.pojo.community.Quiz;
-import com.utunan.pojo.community.Tag;
-import com.utunan.pojo.user.User;
+import com.utunan.pojo.base.community.Comment;
+import com.utunan.pojo.base.community.Quiz;
+import com.utunan.pojo.base.community.Tag;
+import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.util.BigQuiz;
-import com.utunan.pojo.util.Page;
 import com.utunan.service.community.CommentService;
 import com.utunan.service.community.QuizService;
 import com.utunan.service.community.TagService;

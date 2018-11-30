@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.utunan.mapper.community.TagMapper">
-    <resultMap id="tagResultMap" type="com.utunan.pojo.community.Tag">
+    <resultMap id="tagResultMap" type="com.utunan.pojo.base.community.Tag">
         <id column="tagId" property="tagId"/>
         <result property="tagName" column="tagName"/>
-        <collection property="quizTag" javaType="java.util.List" ofType="com.utunan.pojo.community.QuizTag">
+        <collection property="quizTag" javaType="java.util.List" ofType="com.utunan.pojo.base.community.QuizTag">
             <id property="quizTagId" column="quizTagId"/>
             <result property="quizId" column="quizId"/>
             <result property="tagId" column="tagId"/>
@@ -51,7 +51,7 @@
         </foreach>
     </select>
     <!--根据搜索条件查询标签-->
-    <select id="findTagListBySearch" resultType="com.utunan.pojo.community.Tag">
+    <select id="findTagListBySearch" resultType="com.utunan.pojo.base.community.Tag">
         select *
         from tag
         where tagName like #{searchValue}

@@ -1,6 +1,6 @@
 package com.utunan.service.user;
 
-import com.utunan.pojo.user.User;
+import com.utunan.pojo.base.user.User;
 
 public interface UserService {
     User getUser(User user);

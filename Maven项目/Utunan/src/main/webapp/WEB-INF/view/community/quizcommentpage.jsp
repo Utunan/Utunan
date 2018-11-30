@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" type="text/css" href="/css/community/question.css"/>
     <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
@@ -205,7 +205,7 @@
 </div>
 <%@include file="../common/footer.jsp"%>
 </body>
-<script src="/js/common.js"></script>
+<script src="/js/common/common.js"></script>
 <script>
 var viewComments=window.document.getElementsByClassName("view-comments");
 var index;

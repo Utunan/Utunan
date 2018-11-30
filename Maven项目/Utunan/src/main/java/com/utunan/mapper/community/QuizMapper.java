@@ -1,9 +1,8 @@
 package com.utunan.mapper.community;
 
-import com.utunan.pojo.community.Quiz;
-import com.utunan.pojo.community.QuizTag;
-import com.utunan.pojo.community.Tag;
-import com.utunan.pojo.user.User;
+import com.utunan.pojo.base.community.Quiz;
+import com.utunan.pojo.base.community.Tag;
+import com.utunan.pojo.base.user.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -20,18 +19,18 @@ public interface QuizMapper {
 	Long countCommentByQuizId(@Param("quizId") Long quizId);
 	List<Tag> selectTagByQuizId(@Param("quizId") Long quizId);
     void toInsert(Quiz quiz);
-    Quiz getQuiz1();
-    /*王碧云 通过quizId查找问题*/
+   Quiz getQuiz1();
+     /*王碧云 通过quizId查找问题*/
     Quiz findQuizById(@Param("quizId") Long quizId);
 
 	List<Quiz> listQuizByTimeWithTagName(@Param("quizId") List<Long> quizId);
 	List<Quiz> listQuizByPraiseWithTagName(@Param("quizId") List<Long> quizId);
 	Long countQuizWithTagName(@Param("tagName") String tagName);
 	List<Long> selectQuizIdByTagName(@Param("tagName") String tagName);
-
+	
 	List<Quiz> findQuizBySearch(@Param("searchValue") String searchValue);
 	Long countQuizBySearch(@Param("searchValue") String searchValue);
-
+	
 	/*
 	 * @author  张正扬
 	 * @description 点赞更新
@@ -40,5 +39,14 @@ public interface QuizMapper {
 	 * @return  void
 	 */
 	void updatePraiseCount(@Param("quizId") Long quizId);
-    List<Quiz> selectQuizByUserId(User user);
+	List<Quiz> selectQuizByUserId(User user);
+
+
+
+	/*
+	 * @author  张正扬
+	 * @description 获取最大quizId
+	 * */
+	Long getMax();
+
 }

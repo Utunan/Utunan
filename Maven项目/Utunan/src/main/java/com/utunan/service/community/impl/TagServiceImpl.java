@@ -1,7 +1,7 @@
 package com.utunan.service.community.impl;
 
 import com.utunan.mapper.community.TagMapper;
-import com.utunan.pojo.community.Tag;
+import com.utunan.pojo.base.community.Tag;
 import com.utunan.service.community.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,7 +46,7 @@ public class TagServiceImpl implements TagService {
 	 * @description 根据搜索条件查询标签列表
 	 * @date  17:14 2018/11/27
 	 * @param  searchValue
-	 * @return  java.util.List<com.utunan.pojo.community.Tag>
+	 * @return  java.util.List<com.utunan.pojo.base.community.Tag>
 	 */
 	@Override
 	public List<Tag> findTagListBySearch(String searchValue){

@@ -1,6 +1,6 @@
 package com.utunan.mapper.community;
 
-import com.utunan.pojo.community.Tag;
+import com.utunan.pojo.base.community.Tag;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

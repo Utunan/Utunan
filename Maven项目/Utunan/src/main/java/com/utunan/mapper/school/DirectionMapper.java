@@ -1,6 +1,6 @@
 package com.utunan.mapper.school;
 
-import com.utunan.pojo.school.Direction;
+import com.utunan.pojo.base.school.Direction;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
