@@ -27,37 +27,6 @@ public class SchoolSearchController {
     @Autowired
     private PublishDirectionService publishDirectionService;
 
-
-    /*@RequestMapping("/displaySchoolBySearch")
-    public String displaySchoolBySearch(@RequestParam(value = "schoolProvince",required = false) String[] schoolProvinceList,
-                                        HttpServletRequest request,
-                                        @RequestParam(value = "schoolType",required = false) String[] schoolTypeList,
-                                        @RequestParam(value = "degreeType",required = false) String[] degreeTypeList,
-                                        @RequestParam(value = "math",required = false) String[] mathList,
-                                        @RequestParam(value = "english",required = false) String[] englishList){
-        String aaa = Arrays.toString(schoolTypeList);
-        String bbb = Arrays.toString(schoolProvinceList);
-        String ccc = Arrays.toString(degreeTypeList);
-        String ddd = Arrays.toString(mathList);
-        String eee = Arrays.toString(englishList);
-
-        List<School> schoolList = new ArrayList<>();
-        //防止复选框为空的情况
-     *//*  if((schoolProvinceList==null || "".equals(schoolProvinceList))&&(schoolTypeList==null || "".equals(schoolTypeList))){
-           System.out.println("都为空");
-           schoolList = this.schoolService.findAllSchool();
-        }else if ((schoolProvinceList!=null || !"".equals(schoolProvinceList))&&(schoolTypeList==null || "".equals(schoolTypeList))){
-           System.out.println("学校类型为空");
-           schoolList = this.schoolService.findSchoolBySchoolProvince(schoolProvinceList);
-       } else if((schoolProvinceList==null || "".equals(schoolProvinceList))&&(schoolTypeList!=null || !"".equals(schoolTypeList))){
-           System.out.println("省份为空");
-           schoolList = this.schoolService.findSchoolBySchoolType(schoolTypeList);
-       } else {
-           schoolList = this.schoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList);
-        }*//*
-
-    }*/
-
     /*
      * @author  王碧云
      * @description 显示院校库初始页面
@@ -69,7 +38,7 @@ public class SchoolSearchController {
     public String displaySchool(HttpServletRequest request){
         List<PublishDirection> schoolList = this.publishDirectionService.findAllSchool();
         request.setAttribute("schoolList", schoolList);
-        return "/school/schoolsearch";
+        return "/school/schoolIndex";
     }
 
     /*
@@ -85,7 +54,8 @@ public class SchoolSearchController {
                                         @RequestParam(value = "schoolType",required = false) String[] schoolTypeList,
                                         @RequestParam(value = "degreeType",required = false) String[] degreeTypeList,
                                         @RequestParam(value = "math",required = false) String[] mathList,
-                                        @RequestParam(value = "english",required = false) String[] englishList){
+                                        @RequestParam(value = "english",required = false) String[] englishList,
+                                        @RequestParam(value = "directionName",required = false) String directionName){
         String aaa = Arrays.toString(schoolTypeList);
         String bbb = Arrays.toString(schoolProvinceList);
         String ccc = Arrays.toString(degreeTypeList);
@@ -93,7 +63,7 @@ public class SchoolSearchController {
         String eee = Arrays.toString(englishList);
 
         List<PublishDirection> schoolList = new ArrayList<>();
-        schoolList = this.publishDirectionService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList);
+        schoolList = this.publishDirectionService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionName);
         request.setAttribute("schoolList", schoolList);
 
         System.out.println("[schoolProvinceList]"+bbb);
@@ -101,9 +71,10 @@ public class SchoolSearchController {
         System.out.println("[degreeTypeList]"+ccc);
         System.out.println("[math]"+ddd);
         System.out.println("[english]"+eee);
+        System.out.println("[directionName]"+directionName);
 
         System.out.println(schoolList);
-        return "/school/schoolsearch";
+        return "/school/schoolIndex";
     }
 }
 

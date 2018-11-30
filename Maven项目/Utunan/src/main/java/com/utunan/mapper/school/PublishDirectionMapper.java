@@ -23,5 +23,6 @@ public interface PublishDirectionMapper {
                                       @Param("schoolType") String[] schoolType,
                                       @Param("degreeTypeList") String[] degreeTypeList,
                                       @Param("mathList") String[] mathList,
-                                      @Param("englishList") String[] englishList);
+                                      @Param("englishList") String[] englishList,
+                                      @Param("directionName") String directionName);
 }
