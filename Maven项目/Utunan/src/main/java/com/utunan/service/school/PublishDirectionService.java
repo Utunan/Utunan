@@ -28,6 +28,6 @@ public interface PublishDirectionService {
      * @param  [schoolProvinceList, schoolType]
      * @return  java.util.List<com.utunan.pojo.base.school.School>
      */
-    List<PublishDirection> findSchoolByAllParam(String[] schoolProvinceList,String[] schoolType,String[] degreeTypeList,String[] mathList,String[] englishList);
+    List<PublishDirection> findSchoolByAllParam(String[] schoolProvinceList,String[] schoolType,String[] degreeTypeList,String[] mathList,String[] englishList,String directionName);
 
 }

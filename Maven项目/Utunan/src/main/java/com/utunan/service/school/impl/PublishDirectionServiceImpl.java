@@ -43,14 +43,14 @@ public class PublishDirectionServiceImpl implements PublishDirectionService {
      * @return  java.util.List<com.utunan.pojo.base.school.School>
      */
     @Override
-    public List<PublishDirection> findSchoolByAllParam(String[] schoolProvinceList, String[] schoolType, String[] degreeTypeList, String[] mathList, String[] englishList) {
+    public List<PublishDirection> findSchoolByAllParam(String[] schoolProvinceList, String[] schoolType, String[] degreeTypeList, String[] mathList, String[] englishList,String directionName) {
         schoolProvinceList = judgeParam(schoolProvinceList);
         schoolType = judgeParam(schoolType);
         degreeTypeList = judgeParam(degreeTypeList);
         mathList = judgeParam(mathList);
         englishList = judgeParam(englishList);
 
-        List<PublishDirection> directionlist = this.publishDirectionMapper.findSchoolByAllParam(schoolProvinceList, schoolType,degreeTypeList,mathList,englishList);
+        List<PublishDirection> directionlist = this.publishDirectionMapper.findSchoolByAllParam(schoolProvinceList, schoolType,degreeTypeList,mathList,englishList,directionName);
         return directionlist;
     }
 
