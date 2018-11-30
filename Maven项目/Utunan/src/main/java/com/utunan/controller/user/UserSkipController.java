@@ -39,6 +39,11 @@ public class UserSkipController {
         return "/user/myspace";
     }
 
+    @RequestMapping("information")
+    public String information(){
+        return "/user/information";
+    }
+
     @RequestMapping("statistics")
     public String statistics() {
         return "/user/statistics";
@@ -89,6 +94,11 @@ public class UserSkipController {
     @RequestMapping("quizcollector")
     public String collectpost() {
         return "/user/quizcollector";
+    }
+
+    @RequestMapping("settings")
+    public String settings(){
+        return  "user/settings";
     }
 
 }
