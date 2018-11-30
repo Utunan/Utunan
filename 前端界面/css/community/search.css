@@ -44,7 +44,6 @@ body{
 .content-main-menu{
 	background-color: #0cc8d9;
 	height: 40px;
-	border-radius: 5px;
 }
 .menu-description{
 	margin-left: 10px;
@@ -103,7 +102,7 @@ a:link{
 .post-content{
 	width: 730px;
 	height: 200px;
-	margin-left: 20px;
+	margin-left: 25px;
 	float: left;
 }
 .top{
@@ -140,6 +139,7 @@ a:link{
 	color: #ffffff;
 	float: left;
 	line-height: 30px;
+	border-radius: 5px;
 }
 .question{
 	height: 28px;
@@ -169,6 +169,7 @@ a:link{
 	text-align: center;
 	display:table;
 	padding: 3px 5px 3px 5px;
+	font-size: 14px;
 }
 .answer_num{
 	text-align: center;
@@ -180,7 +181,49 @@ a:link{
 	background-color: #f2858e;
 	line-height: 20px;
 	margin-top: 10px;
-
+	border-radius: 8px;
+}
+.answer_num span{
+	line-height: 30px;
+	
+}
+.answer_num p{
+	line-height: 20px;	
+	margin-top: 5px;
+}
+.comments{
+	width:848px;
+	margin: 0;
+	padding-top: 10px;
+	border-style: solid;
+	border-width:0px 1px 1px 1px; 
+	border-color:#e5e5e5;
+	background-color: #ffffff;
+}
+.quizTitle{
+	width:800px;
+	height: 40px;
+	margin: 0 auto;
+	line-height: 40px;
+	color: #000000;
+	font-weight: bold;
+	font-size: 16px;
+}
+.comment-content{
+	width:800px;
+	margin: 0 auto;
+	font-size: 14px;
+	line-height: 25px;
+	color: #383838;
+	text-indent:30px;
+	margin-top: 10px;
+}
+.comments-praise{
+	margin-left: 25px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: #2a82e4;
+	font-size: 14px;
 }
 .bottom{
 	width: 848px;
