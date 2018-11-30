@@ -6,7 +6,7 @@ header {
     min-width: 1180px;
     height: 100%;
     margin: 0 auto;
-    background: rgba(51, 153, 153, 1);
+    background: rgba(36, 94, 210,1);
 }
 
 .container {
@@ -62,6 +62,7 @@ header {
     background: #fff;
     border-radius: 50px;
     height: 30px;
+    width: 160px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -169,7 +170,7 @@ header {
     right: 20px;
     padding:0 10px 10px 10px;
     background: rgba(255,255,255,0.8);
-    height: 170px;
+    height: 210px;
     width:220px;
 }
 
@@ -212,6 +213,7 @@ header {
 }
 
 .header .optop span:first-of-type{
+    cursor:default;
     color: #fc8c23;
     float: left;
     width: 135px;
@@ -219,6 +221,7 @@ header {
     font-size: 13px;
 }
 .header .optop span:last-of-type{
+
     float: left;
     width: 70px;
     font-size: 14px;
@@ -228,14 +231,14 @@ header {
     float: left;
     width: 60px;
     height: 20px;
-    border:2px solid #83cbac;
+    border:2px solid rgba(23, 85, 210,0.5);
     line-height: 20px;
     margin:3px;
     font-size: 12px;
     padding:1px 3px;
     text-align: center;
     border-radius: 4px;
-    color: #12a182;
+    color: rgba(23, 85, 210,0.5);
 }
 
 .header .opmiddle{
@@ -247,17 +250,17 @@ header {
 .header .opimg{
     float: left;
     width: 70px;
-    height: 60px;
+    height: 45px;
 }
 
 .header .opimg>a>img{
     height: 40px;
     width: 40px;
-    margin: 15px 15px 10px 15px;
+    margin: 5px 15px 0 15px;
 }
 
 .opimg>a{
-    height: 20px;
+    height: 45px;
     float: left;
     font-size: 12px;
     color:#000;
@@ -265,22 +268,36 @@ header {
 .opimg>a:hover,.opimg>a:link,.opimg>a:visited{
     color:#000;
 }
-#oplist{
+#oplistone{
     float: left;
-    height: 32px;
+    height: 20px;
     text-align: center;
 }
 
-#oplist>a{
+#oplistone>a{
     text-align: center;
-    line-height: 32px;
+    line-height: 20px;
     width: 70px;
-    height: 32px;
+    height: 20px;
     float: left;
-    font-size: 15px;
+    font-size: 13px;
     color:#10aec2;
 }
+#oplisttwo{
+    float: left;
+    height: 20px;
+    text-align: center;
+}
 
+#oplisttwo>a{
+    text-align: center;
+    line-height: 20px;
+    width: 70px;
+    height: 20px;
+    float: left;
+    font-size: 13px;
+    color:#10aec2;
+}
 .opbottom{
     float: left;
     width: 200px;
@@ -301,7 +318,7 @@ header {
 #opbottom>span:first-of-type>a{
     width:60px;
     font-size: 15px;
-    color:#fed71a;
+    color:#fc8c23;
     line-height: 30px;
     float: left;
     height: 30px;
@@ -350,4 +367,40 @@ footer>p{
 footer>nav>li>a{
     text-decoration: none;
     color:grey;
+}
+.page {
+    clear: both;
+    padding: 15px 0 10px 0;
+    height: 30px;
+    width: auto;
+    text-align: center;
+}
+
+.page>li {
+    text-align: center;
+    display:inline-flex;
+    margin: 0 auto;
+    width: 30px;
+    padding:3px 5px;
+    border:1px solid rgba(49, 126, 212, 1);
+}
+
+.page>li>a {
+    width: 100%;
+    float: left;
+    color: rgba(49, 126, 212, 1);
+    text-decoration: none;
+}
+
+.page>.home {
+    width: 60px;
+}
+.page>.prev {
+    width: 60px;
+}
+.page>.next {
+    width: 60px;
+}
+.page>.tail {
+    width: 60px;
 }
