@@ -40,11 +40,9 @@ body{
 	border-radius: 12px;
 	font-size: 16px;
 }
-
 .content-main-menu{
 	background-color: #0cc8d9;
 	height: 40px;
-	border-radius: 5px;
 }
 .menu-description{
 	margin-left: 10px;
@@ -79,22 +77,21 @@ body{
 }
 .searchText{
 	float: left;
-	width: 140px;
+	width: 160px;
 	height: 20px;
 	border: none;
 }
 .searchImg{
 	float: left;
-	margin-top: 10px;
-	background-color: #0cc8d9;
-	border: none;
 }
-
+.searchImg img{
+	margin-top: 10px;
+}
 a:link{
 	text-decoration:none;
 } 
 .post{
-	height: 210px;
+	height: 200px;
 	border-style:solid; 
 	border-width:0px 1px 1px 1px; 
 	border-color:#e5e5e5;
@@ -102,7 +99,7 @@ a:link{
 }
 .post-content{
 	width: 730px;
-	height: 210px;
+	height: 200px;
 	margin-left: 20px;
 	float: left;
 }
@@ -139,7 +136,6 @@ a:link{
 	color: #ffffff;
 	float: left;
 	line-height: 30px;
-	border-radius: 5px;
 }
 .praise{
 	margin-left: 40px;
@@ -158,7 +154,6 @@ a:link{
 	color: #ffffff;
 	float: left;
 	line-height: 30px;
-	border-radius: 5px;
 }
 .question{
 	height: 28px;
@@ -177,9 +172,6 @@ a:link{
 	font-size: 14px;
 	color: #808080;
 }
-.post-tags{
-	margin-top: 10px;
-}
 .post-tags a{
 	float: left;
 	margin-right: 20px;
@@ -189,7 +181,6 @@ a:link{
 	border-width:1px; 
 	border-color:#a6a6a6;
 	text-align: center;
-	font-size: 14px;
 	display:table;
 	padding: 3px 5px 3px 5px;
 }
@@ -201,16 +192,9 @@ a:link{
 	font-size: 15px;
 	color: #ffffff;
 	background-color: #f2858e;
+	line-height: 20px;
 	margin-top: 10px;
-	border-radius: 8px;	
-}
-.answer_num span{
-	line-height: 30px;
-	
-}
-.answer_num p{
-	line-height: 20px;	
-	margin-top: 5px;
+
 }
 .bottom{
 	width: 848px;
@@ -221,6 +205,7 @@ a:link{
 	border-color:#e5e5e5;
 }
 .page{
+    width: 700px;
 	height: 70px;
 	line-height: 70px;
 	text-align: center;
@@ -247,25 +232,21 @@ a:link{
 	color: #ffffff;
 }
 .tags{
-	width: 199px;
 	margin-top: 15px;
 	border-style:solid; 
-	border-width:2px; 
-	border-color: #5a555521;
-	border-radius: 5px;
+	border-width:1px; 
+	border-color: #e5e5e5;
 }
 .tags-title{
 	width: 200px;
 	height: 30px;
 	line-height: 30px;
 	text-align:center;
-	background-color: #ffffff;
 }
 .tags ul{
 	margin-top: 0px;
 	padding-left:0px;
 	margin-bottom: 0px;
-	font-size: 14px;
 }
 .tags ul li{
 	display:block;
@@ -273,13 +254,12 @@ a:link{
 	height: 30px;
 	padding-left: 5px;
 	line-height: 30px;
-	background-color: #ffffff;
 }
 .tags ul li a{
 	color: #505050;
 }
 .tags ul li:nth-child(2n+1){
-	background-color: #d2e8f1;
+	background-color: #64505050;
 }
 .mask{
 	display:none;
@@ -292,11 +272,12 @@ a:link{
 	display:none;
 	background:white;
 	width:500px;
+	height:350px;
 	position:absolute;
 	left:50%;
 	top:50%;
 	margin-left:-200px;
-	margin-top:-135px;
+	margin-top:-125px;
 }
 .ask-question{
 	width: 500px;
@@ -349,7 +330,20 @@ a:link{
 	font-size: 14px;
 	margin: auto;
 }
-
+.setReward{
+	padding-left: 20px;
+	margin-top:5px; 
+	height: 20px;
+	width: 500px;
+	font-size: 14px;
+	color: #505050;
+}
+.setReward-value{
+	width: 40px;
+	height: 15px;
+	margin-left: 0px;
+	border: #cccccc solid 2px;
+}
 .text{
 	width: 460px;
 	height: 120px;
@@ -372,82 +366,56 @@ a:link{
     float: right;
     margin-right: 10px;
 }
-.addtags{
-	width: 460px;
-	margin: 0 auto;
-	margin-top: 10px;
-}
-.addtags-description{
-	height: 20px;
-	line-height: 20px;
-	font-size: 14px;
-	float: left;
-	margin: 5px 10px 5px 0px;
-	padding: 2px 3px 2px 3px;
-}
-.tagsContaine .tagList .tagItem{
-	height: 20px;
-	line-height: 20px;
-	background-color: #66CCFF;
-	padding: 2px 3px 2px 3px;
-	text-align: center;
-	float: left;
-	margin: 5px 10px 5px 0px;
-	border-radius: 5px;
-	color: #FFFFFF;
-	font-size: 14px;
-	letter-spacing: 2px;
-	cursor: pointer;
-}
-.tagsContaine .tagList .tagItem:hover{
-	background-color: #0099FF;
-}
-.tagsContaine .tagList .tagItem .delete{
-	float: right;
-	width: 15px;
-	height: 15px;
-	background-image: url(../../images/community/x.png);
-	background-repeat: round;
-	margin-top: -10px;
-	margin-right: -10px;
-	display: none;
-}
-.tagsContaine .tagList .tagItem:hover .delete{
-	display: block;
-}
-.tagsContaine .tagInput{
-	width: 150px;
-	outline: none;
-	height: 20px;
-	line-height: 20px;
-	font-size: 18px;
-	border: solid thin #AAAAAA;
-	border-radius: 5px;
-	padding: 2px;
-	margin: 5px 0px;
-	text-align: center;
-}
-.tagsContaine .tagInput:focus{
-	border-color: #66CCFF;
-}
-.add-buttom{
-	width: 460px;
-	height: 20px;;
-	margin: 0 auto;
-	margin-top: 10px;
-	margin-bottom: 20px;
-}
 .radio{
-	height: 20px;	
-	line-height: 20px;
-	font-size: 15px;
+	height: 20px;
+	margin-left: 20px;	
+	margin-top: 5px;
+}
+.addtags{
+	padding-left: 20px;
+	line-height: 14px;
+	font-size: 14px;
+	color: #0cc8d9;
+	width: 500px;
+	height: 25px;
+	margin-top: 5px;
+}
+.newtag{
 	float: left;
+	margin-right: 20px;
+	color: #0cc8d9;
+	border-radius: 12px;
+	background-color: #fafafa;
+	text-align: center;
+	display:table; 
+	padding-left: 5px;
+}
+.newtag-description{
+	float: left;
+	height: 20px;
+	line-height: 20px;	
+}
+.cancel{
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	margin-left: 10px;
+}
+.add{
+	float: left;
+	width: 15px;
+	font-size: 20px;
+	line-height: 20px;
+}
+.addword{
+	float: left;
+	line-height: 20px;
 }
 .submit{
-	color: #0ec8d9;
+	color: #ffffff;
 	float: right;
 	margin-right: 20px;
-	font-size: 15px;
+	background-color: #0cc8d9;
 }
 .active{ 
 	margin-top: 7px;

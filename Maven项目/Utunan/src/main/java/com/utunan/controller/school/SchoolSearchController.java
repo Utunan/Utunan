@@ -1,17 +1,22 @@
 package com.utunan.controller.school;
 
+import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.base.school.School;
 
 import com.utunan.pojo.inherit.school.PublishDirection;
+import com.utunan.pojo.inherit.school.PublishSchool;
 import com.utunan.service.school.DirectionService;
 import com.utunan.service.school.PublishDirectionService;
+import com.utunan.service.school.PublishSchoolService;
 import com.utunan.service.school.SchoolService;
+import org.apache.commons.codec.binary.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.ws.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,7 +30,7 @@ import java.util.List;
 public class SchoolSearchController {
 
     @Autowired
-    private PublishDirectionService publishDirectionService;
+    private PublishSchoolService publishSchoolService;
 
     /*
      * @author  王碧云
@@ -35,9 +40,18 @@ public class SchoolSearchController {
      * @return  java.lang.String
      */
     @RequestMapping("/displaySchool")
-    public String displaySchool(HttpServletRequest request){
-        List<PublishDirection> schoolList = this.publishDirectionService.findAllSchool();
+    public String displaySchool(HttpServletRequest request,
+                                @RequestParam(value = "pageNum",required = false) String pageNum){
+        List<PublishSchool> schoolList =null;
+        if(pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0){
+            schoolList = this.publishSchoolService.findAllSchool(1,10);
+        }else{
+            schoolList = this.publishSchoolService.findAllSchool(Integer.parseInt(pageNum),10);
+        }
+
+        request.setAttribute("url", "displaySchool");
         request.setAttribute("schoolList", schoolList);
+        request.setAttribute("PageInfo",new PageInfo(schoolList,8));
         return "/school/schoolIndex";
     }
 
@@ -55,23 +69,33 @@ public class SchoolSearchController {
                                         @RequestParam(value = "degreeType",required = false) String[] degreeTypeList,
                                         @RequestParam(value = "math",required = false) String[] mathList,
                                         @RequestParam(value = "english",required = false) String[] englishList,
-                                        @RequestParam(value = "directionName",required = false) String directionName){
-        String aaa = Arrays.toString(schoolTypeList);
-        String bbb = Arrays.toString(schoolProvinceList);
-        String ccc = Arrays.toString(degreeTypeList);
-        String ddd = Arrays.toString(mathList);
-        String eee = Arrays.toString(englishList);
+                                        @RequestParam(value = "directionName",required = false) String directionName,
+                                        @RequestParam(value = "pageNum",required = false) String pageNum){
+        String aaa = Arrays.toString(schoolProvinceList);
+        System.out.println("[aaa]"+aaa);
 
-        List<PublishDirection> schoolList = new ArrayList<>();
-        schoolList = this.publishDirectionService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionName);
+        List<PublishSchool> schoolList =null;
+        if(pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0){
+            schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionName,1,10);
+        }else{
+            schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionName,Integer.parseInt(pageNum),10);
+        }
+
+        String schoolProvince = String.join(",",schoolProvinceList);
+        String schoolType = String.join(",",schoolTypeList);
+        String degreeType = String.join(",",degreeTypeList);
+        String math = String.join(",",mathList);
+        String english = String.join(",",englishList);
+
         request.setAttribute("schoolList", schoolList);
-
-        System.out.println("[schoolProvinceList]"+bbb);
-        System.out.println("[schoolTypeList]"+aaa);
-        System.out.println("[degreeTypeList]"+ccc);
-        System.out.println("[math]"+ddd);
-        System.out.println("[english]"+eee);
-        System.out.println("[directionName]"+directionName);
+        request.setAttribute("url", "displaySchoolBySearch");
+        request.setAttribute("schoolProvince", schoolProvince);
+        request.setAttribute("schoolType", schoolType);
+        request.setAttribute("degreeType", degreeType);
+        request.setAttribute("math", math);
+        request.setAttribute("english", english);
+        request.setAttribute("directionName", directionName);
+        request.setAttribute("PageInfo",new PageInfo(schoolList,8));
 
         System.out.println(schoolList);
         return "/school/schoolIndex";
