@@ -12,6 +12,8 @@
 <%@include file="../common/header.jsp"%>
 =========
 <h2><a href="/displaySchool">院校库首页</a> </h2>
+<%--<h2><a href="/displaySchoolBySearch">院校库首页</a> </h2>--%>
+
 =========
 <%@include file="../common/footer.jsp"%>
 </body>

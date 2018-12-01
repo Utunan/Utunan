@@ -11,7 +11,7 @@ import java.util.List;
  * @description: 继承学校类
  * @date 2018/11/29/029 18:47
  */
-public class PublishDirection extends School {
+public class PublishSchool extends School {
     //与研究方向一对多
     private List<Direction> direction;
 

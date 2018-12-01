@@ -2,26 +2,25 @@ package com.utunan.service.school.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.utunan.mapper.school.PublishDirectionMapper;
-import com.utunan.mapper.school.SchoolMapper;
-import com.utunan.pojo.base.school.School;
+import com.utunan.mapper.school.PublishSchoolMapper;
 import com.utunan.pojo.inherit.school.PublishDirection;
+import com.utunan.pojo.inherit.school.PublishSchool;
 import com.utunan.service.school.PublishDirectionService;
+import com.utunan.service.school.PublishSchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author 王碧云
- * @description: TODO
- * @date 2018/11/29/029 19:28
+ * @description: 学校
+ * @date 2018/12/1/001 19:00
  */
-@Service("publishDirectionService")
-public class PublishDirectionServiceImpl implements PublishDirectionService {
-
+@Service("publishSchoolService")
+public class PublishSchoolServiceImpl implements PublishSchoolService {
     @Autowired
-    private PublishDirectionMapper publishDirectionMapper;
+    private PublishSchoolMapper publishSchoolMapper;
 
     /*
      * @author  王碧云
@@ -31,9 +30,9 @@ public class PublishDirectionServiceImpl implements PublishDirectionService {
      * @return  java.util.List<com.utunan.pojo.base.school.School>
      */
     @Override
-    public List<PublishDirection> findAllSchool(int pageNum, int pageSize) {
+    public List<PublishSchool> findAllSchool(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        return this.publishDirectionMapper.findAllSchool();
+        return this.publishSchoolMapper.findAllSchool();
     }
 
 
@@ -45,7 +44,7 @@ public class PublishDirectionServiceImpl implements PublishDirectionService {
      * @return  java.util.List<com.utunan.pojo.base.school.School>
      */
     @Override
-    public List<PublishDirection> findSchoolByAllParam(String[] schoolProvinceList, String[] schoolType, String[] degreeTypeList, String[] mathList, String[] englishList,String directionName, int pageNum, int pageSize) {
+    public List<PublishSchool> findSchoolByAllParam(String[] schoolProvinceList, String[] schoolType, String[] degreeTypeList, String[] mathList, String[] englishList,String directionName, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
 
         schoolProvinceList = judgeParam(schoolProvinceList);
@@ -54,7 +53,7 @@ public class PublishDirectionServiceImpl implements PublishDirectionService {
         mathList = judgeParam(mathList);
         englishList = judgeParam(englishList);
 
-        List<PublishDirection> directionlist = this.publishDirectionMapper.findSchoolByAllParam(schoolProvinceList, schoolType,degreeTypeList,mathList,englishList,directionName);
+        List<PublishSchool> directionlist = this.publishSchoolMapper.findSchoolByAllParam(schoolProvinceList, schoolType,degreeTypeList,mathList,englishList,directionName);
         return directionlist;
     }
 

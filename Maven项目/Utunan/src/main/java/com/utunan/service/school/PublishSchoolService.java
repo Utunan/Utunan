@@ -1,17 +1,16 @@
 package com.utunan.service.school;
 
-import com.utunan.pojo.base.school.School;
 import com.utunan.pojo.inherit.school.PublishDirection;
+import com.utunan.pojo.inherit.school.PublishSchool;
 
 import java.util.List;
 
 /**
  * @author 王碧云
- * @description: 研究方向
- * @date 2018/11/29/029 19:21
+ * @description: 学校Service
+ * @date 2018/12/1/001 18:58
  */
-public interface PublishDirectionService {
-
+public interface PublishSchoolService {
     /*
      * @author  王碧云
      * @description 查询所有的学校
@@ -19,7 +18,7 @@ public interface PublishDirectionService {
      * @param  []
      * @return  java.util.List<com.utunan.pojo.base.school.School>
      */
-    List<PublishDirection> findAllSchool(int pageNum, int pageSize);
+    List<PublishSchool> findAllSchool(int pageNum, int pageSize);
 
     /*
      * @author  王碧云
@@ -28,6 +27,7 @@ public interface PublishDirectionService {
      * @param  [schoolProvinceList, schoolType]
      * @return  java.util.List<com.utunan.pojo.base.school.School>
      */
-    List<PublishDirection> findSchoolByAllParam(String[] schoolProvinceList,String[] schoolType,String[] degreeTypeList,String[] mathList,String[] englishList,String directionName,int pageNum, int pageSize);
+    List<PublishSchool> findSchoolByAllParam(String[] schoolProvinceList,String[] schoolType,String[] degreeTypeList,String[] mathList,String[] englishList,String directionName,int pageNum, int pageSize);
+
 
 }

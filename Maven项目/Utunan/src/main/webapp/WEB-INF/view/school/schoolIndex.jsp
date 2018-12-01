@@ -9,7 +9,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/school/school.css">
-    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">    
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <script> var pagenum="${PageInfo.pageNum}"</script>
 </head>
 
 <body>
@@ -125,6 +126,23 @@
             </tbody>
           </table>
     </div>
+    <%--分页--%>
+    <nav id="page" class="page">
+        <li class="home"><a href="/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}">首页</a></li>
+        <li class="next"><a href="/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.prePage}">上一页</a></li>
+        <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+            <li class="pagenum"><a name="${i}" href="/${url }?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${i}">${i}</a></li>
+        </c:forEach>
+        <c:choose>
+            <c:when test="${PageInfo.nextPage==0}">
+                <li class="next"><a href="/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pages}">下一页</a></li>
+            </c:when>
+            <c:otherwise>
+                <li class="next"><a href="/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.nextPage}">下一页</a></li>
+            </c:otherwise>
+        </c:choose>
+        <li class="tail"><a href="/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pages}">尾页</a></li>
+    </nav>
     <%@include file="../common/footer.jsp"%>
 </body>
 <script src="../js/usercommon.js"></script>
