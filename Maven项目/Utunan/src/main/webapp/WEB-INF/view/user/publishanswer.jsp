@@ -30,7 +30,7 @@
                 <c:forEach items="${Answers}" var="A">
                     <li>
                         <div class="replytop">
-                            <div class="replytype">${A.quiz.tags[0].tagName}</div>
+                            <div class="replytype">${A.quiz.tags[0].tagName==null?"Utunan":A.quiz.tags[0].tagName}</div>
                             <div class="replytitle"><a href="">${A.quiz.quizTitle}</a></div>
                             <div class="replydetails"><a href="">>>详情</a></div>
                         </div>
