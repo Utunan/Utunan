@@ -69,7 +69,7 @@
                 <div class="schoolProvince">
                     <span>院校所在地 :</span>
                     <nav>
-                        <li><input name="schoolProvince" type="checkbox" checked="checked" value="null">全部</li>
+                        <li><input name="schoolProvince" type="checkbox" checked="checked" value="全部">全部</li>
                         <li><input name="schoolProvince" type="checkbox" value="北京">北京</li>
                         <li><input name="schoolProvince" type="checkbox" value="天津">天津</li>
                         <li><input name="schoolProvince" type="checkbox" value="上海">上海</li>
@@ -107,7 +107,7 @@
                 <div class="schoolType">
                     <span>院校特性 :</span>
                     <nav>
-                        <li><input name="schoolType" type="checkbox" checked="checked" value="null">全部</li>
+                        <li><input name="schoolType" type="checkbox" checked="checked" value="全部">全部</li>
                         <li><input name="schoolType" type="checkbox" value="985">985院校</li>
                         <li><input name="schoolType" type="checkbox" value="211">211院校</li>
                         <li><input name="schoolType" type="checkbox" value="自划线">自主划线</li>
@@ -117,7 +117,7 @@
                 <div class="degreeType">
                     <span>学位类型 :</span>
                     <nav>
-                        <li><input name="degreeType" type="checkbox" checked="checked" value="null">全部</li>
+                        <li><input name="degreeType" type="checkbox" checked="checked" value="全部">全部</li>
                         <li><input name="degreeType" type="checkbox" value="学硕">学硕</li>
                         <li><input name="degreeType" type="checkbox" value="专硕">专硕</li>
                     </nav>
@@ -127,14 +127,14 @@
                     <nav>
                         <li>
                             <nav>
-                        <li><input name="math" type="checkbox" checked="checked" value="null">全部</li>
+                        <li><input name="math" type="checkbox" checked="checked" value="全部">全部</li>
                         <li><input name="math" type="checkbox" value="一">数学(一)</li>
                         <li><input name="math" type="checkbox" value="二">数学(二)</li>
                     </nav>
                     </li>
                     <li>
                         <nav>
-                    <li><input name="english" type="checkbox" checked="checked" value="null">全部</li>
+                    <li><input name="english" type="checkbox" checked="checked" value="全部">全部</li>
                     <li><input name="english" type="checkbox" value="一">英语(一)</li>
                     <li><input name="english" type="checkbox" value="二">英语(二)</li>
                     </nav>

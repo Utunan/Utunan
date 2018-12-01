@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/user/schoolcollector.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
     <script> var pagenum="${PageInfo.pageNum}"</script>
 </head>
 
@@ -53,6 +53,6 @@
 </div>
 <%@include file="../common/footer.jsp" %>
 </body>
-<script src="/js/usercommon.js"></script>
-<script src="/js/common.js"></script>
+<script src="/js/user/usercommon.js"></script>
+<script src="/js/common/common.js"></script>
 </html>

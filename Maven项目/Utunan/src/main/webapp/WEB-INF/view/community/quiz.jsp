@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>问答列表</title>
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" type="text/css" href="/css/community/questionIndex.css"/>
     <script> var pagenum="${PageInfo.pageNum}"</script>
@@ -277,6 +277,6 @@
 <%@include file="../common/footer.jsp"%>
 </body>
 <script src="/js/questionMain.js"></script>
-<script src="/js/common.js"></script>
+<script src="/js/common/common.js"></script>
 
 </html>

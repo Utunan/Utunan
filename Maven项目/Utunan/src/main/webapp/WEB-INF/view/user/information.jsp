@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="plate" value="questioncollector"/>
+<c:set var="plate" value="information"/>
 <!DOCTYPE html>
 <html lang="zh-cn">
 
@@ -22,8 +22,6 @@
     <div class="wrapper background">
         <%@include file="common/userfunction.jsp"%>
         <div class="content">
-            
-            <%@include file="common/page.jsp"%>
         </div>
     </div>
 </div>

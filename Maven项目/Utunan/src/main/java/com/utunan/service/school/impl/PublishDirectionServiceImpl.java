@@ -34,46 +34,7 @@ public class PublishDirectionServiceImpl implements PublishDirectionService {
         return this.publishDirectionMapper.findAllSchool();
     }
 
-    /*
-     * @author  王碧云
-     * @description 根据省份检索学校(通过学校找到该校的研究方向)
-     * @date  10:07 2018/11/28/028
-     * @param  [schoolProvince]
-     * @return  java.util.List<com.utunan.pojo.base.school.School>
-     */
-    @Override
-    public List<PublishDirection> findSchoolBySchoolProvince(String[] schoolProvinceList) {
 
-        List<PublishDirection> directionlist = new ArrayList<PublishDirection>();
-
-        for(String schoolProvince:schoolProvinceList){
-            if(schoolProvince.equals("null")){
-                directionlist = this.publishDirectionMapper.findAllSchool();
-                break;
-            }else {
-                directionlist = this.publishDirectionMapper.findSchoolBySchoolProvince(schoolProvinceList);
-            }
-        }
-
-        return directionlist;
-    }
-    /*
-     * @author  王碧云
-     * @description 根据学校类型检索学校(通过学校找到该校的研究方向)
-     * @date  16:17 2018/11/28/028
-     * @param  [schoolType]
-     * @return  java.util.List<com.utunan.pojo.base.school.School>
-     */
-    @Override
-    public List<PublishDirection> findSchoolBySchoolType(String[] schoolTypeList) {
-        List<PublishDirection> directionlist = new ArrayList<>();
-        if(schoolTypeList.equals("null")){
-            directionlist = this.publishDirectionMapper.findAllSchool();
-        }else{
-            directionlist = this.publishDirectionMapper.findSchoolBySchoolType(schoolTypeList);
-        }
-        return directionlist;
-    }
     /*
      * @author  王碧云
      * @description 根据所有参数检索所有学校
@@ -82,9 +43,38 @@ public class PublishDirectionServiceImpl implements PublishDirectionService {
      * @return  java.util.List<com.utunan.pojo.base.school.School>
      */
     @Override
-    public List<PublishDirection> findSchoolByAllParam(String[] schoolProvinceList, String[] schoolType, String[] degreeTypeList, String[] mathList, String[] englishList) {
-        List<PublishDirection> directionlist = this.publishDirectionMapper.findSchoolByAllParam(schoolProvinceList, schoolType,degreeTypeList,mathList,englishList);
+    public List<PublishDirection> findSchoolByAllParam(String[] schoolProvinceList, String[] schoolType, String[] degreeTypeList, String[] mathList, String[] englishList,String directionName) {
+        schoolProvinceList = judgeParam(schoolProvinceList);
+        schoolType = judgeParam(schoolType);
+        degreeTypeList = judgeParam(degreeTypeList);
+        mathList = judgeParam(mathList);
+        englishList = judgeParam(englishList);
+
+        List<PublishDirection> directionlist = this.publishDirectionMapper.findSchoolByAllParam(schoolProvinceList, schoolType,degreeTypeList,mathList,englishList,directionName);
         return directionlist;
+    }
+
+    /*
+     * @author  王碧云
+     * @description 判断返回的参数是否选中全部
+     * @date  21:33 2018/11/29/029
+     * @param  [list]
+     * @return  java.lang.String[]
+     */
+    public String[] judgeParam(String[] list){
+        if(list==null){
+            return list;
+        }else {
+            for(String l:list){
+                if(l.equals("全部")){
+                    list=null;
+                    break;
+                }
+            }
+            return list;
+        }
+
+
     }
 
 }

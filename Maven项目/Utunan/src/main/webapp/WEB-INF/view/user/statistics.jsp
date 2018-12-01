@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="plate" value="statistics"/>
 <!DOCTYPE html>
 <html lang="zh-cn">
 
@@ -11,7 +12,7 @@
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/user/publishpost.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -26,6 +27,6 @@
 </div>
 <%@include file="../common/footer.jsp"%>
 </body>
-<script src="/js/usercommon.js"></script>
-<script src="/js/common.js"></script>
+<script src="/js/user/usercommon.js"></script>
+<script src="/js/common/common.js"></script>
 </html>

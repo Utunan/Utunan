@@ -14,8 +14,9 @@
     </style>
 </head>
 <body>
-<div id="info">请等待3秒钟,谢谢~</div>
+<div id="info">请等待1秒钟,谢谢~</div>
 </body>
+
 <script>
     info = document.getElementById("info")
     timer = 1;
@@ -29,4 +30,5 @@
         window.location.href = "/homepage"
     }, 1000);
 </script>
+
 </html>
