@@ -12,22 +12,41 @@
 </head>
 <body>
     <%--按研究方向--%>
-    招生单位：
-    专业名称：
-    学位类型：
-    所在地：
-    院系名称：
-    院校特性：
-    院校隶属：
-    研究方向：
-    ==========
-    考试范围：
-        政治：
-        外语：
-        业务课一：
-        业务课二：
-    ==========
-    讨论区
+    招生单位：${publishDirection.schoolName}<br>
+    专业名称：${publishDirection.majorlName}<br>
+    学位类型：${publishDirection.degreeType}<br>
+    所在地：${publishDirection.school.schoolProvince}<br>
+    院系名称：${publishDirection.collegeName}<br>
+    院校特性：${publishDirection.school.schoolType}<br>
+    院校隶属：${publishDirection.school.schoolSubjection}<br>
+    研究方向：${publishDirection.directionName}<br>
+    ==========<br>
+    考试范围：<br>
+        政治：${publishDirection.politics}<br>
+        外语：${publishDirection.english}<br>
+        业务课一：${publishDirection.math}<br>
+        业务课二：${publishDirection.majorBasics}<br>
+    ==========<br>
+    讨论区<<br>
+    共有条评论：
+    <a>按时间排序</a> &nbsp;&nbsp;<a>按热度排序</a>
+    <table>
+        <tr>
+            <td>时间</td>
+            <td>评论人</td>
+            <td>内容</td>
+            <td>点赞数</td>
+            <td>点赞</td>
+        </tr>
+        <%--<c:forEach items="${childAnswerList}" var="childcomment" >
+            <tr>
+                <td>${childcomment.commentTime}</td>
+                <td>${childcomment.user.userNickName}</td>
+                <td>${childcomment.commentContent}</td>
+                <td>${childcomment.commentPraiseCount}</td>
+            </tr>
+        </c:forEach>--%>
+    </table>
 
 
 </body>

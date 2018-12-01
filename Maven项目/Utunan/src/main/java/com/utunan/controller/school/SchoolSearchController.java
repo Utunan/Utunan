@@ -1,6 +1,7 @@
 package com.utunan.controller.school;
 
 import com.github.pagehelper.PageInfo;
+import com.utunan.pojo.base.school.Direction;
 import com.utunan.pojo.base.school.School;
 
 import com.utunan.pojo.inherit.school.PublishDirection;
@@ -31,6 +32,8 @@ public class SchoolSearchController {
 
     @Autowired
     private PublishSchoolService publishSchoolService;
+    @Autowired
+    private PublishDirectionService publishDirectionService;
 
     /*
      * @author  王碧云
@@ -44,9 +47,9 @@ public class SchoolSearchController {
                                 @RequestParam(value = "pageNum",required = false) String pageNum){
         List<PublishSchool> schoolList =null;
         if(pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0){
-            schoolList = this.publishSchoolService.findAllSchool(1,10);
+            schoolList = this.publishSchoolService.findAllSchool(1,15);
         }else{
-            schoolList = this.publishSchoolService.findAllSchool(Integer.parseInt(pageNum),10);
+            schoolList = this.publishSchoolService.findAllSchool(Integer.parseInt(pageNum),15);
         }
 
         request.setAttribute("url", "displaySchool");
@@ -63,8 +66,8 @@ public class SchoolSearchController {
      * @return  java.lang.String
      */
     @RequestMapping("/displaySchoolBySearch")
-    public String displaySchoolBySearch(@RequestParam(value = "schoolProvince",required = false) String[] schoolProvinceList,
-                                        HttpServletRequest request,
+    public String displaySchoolBySearch(HttpServletRequest request,
+                                        @RequestParam(value = "schoolProvince",required = false) String[] schoolProvinceList,
                                         @RequestParam(value = "schoolType",required = false) String[] schoolTypeList,
                                         @RequestParam(value = "degreeType",required = false) String[] degreeTypeList,
                                         @RequestParam(value = "math",required = false) String[] mathList,
@@ -76,9 +79,9 @@ public class SchoolSearchController {
 
         List<PublishSchool> schoolList =null;
         if(pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0){
-            schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionName,1,10);
+            schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionName,1,15);
         }else{
-            schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionName,Integer.parseInt(pageNum),10);
+            schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionName,Integer.parseInt(pageNum),15);
         }
 
         String schoolProvince = String.join(",",schoolProvinceList);
@@ -99,6 +102,15 @@ public class SchoolSearchController {
 
         System.out.println(schoolList);
         return "/school/schoolIndex";
+    }
+
+    @RequestMapping("/displayDirectionDetail")
+    public String displayDirectionDetail(HttpServletRequest request,
+                                        @RequestParam(value = "directionName") String directionName){
+        PublishDirection publishDirection = this.publishDirectionService.findDirectionByDirectionName(directionName);
+        request.setAttribute("publishDirection", publishDirection);
+        System.out.println("[lalala]"+publishDirection);
+        return "/school/schooldetail";
     }
 }
 
