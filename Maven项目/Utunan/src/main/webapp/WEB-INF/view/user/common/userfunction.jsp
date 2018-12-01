@@ -34,7 +34,7 @@
         <a href="/user/publishquiz#userfunction">
             <li>发表的问答</li>
         </a>
-        <a href="/user/publishreply#userfunction">
+        <a href="/user/publishanswer#userfunction">
             <li>发表的回复</li>
         </a>
     </nav>
@@ -48,7 +48,7 @@
             <li>院校收藏夹</li>
         </a>
         <a href="/user/quizcollector#userfunction">
-            <li>帖子收藏夹</li>
+            <li>问答收藏夹</li>
         </a>
         <a href="/user/questioncollector#userfunction">
             <li>题目收藏夹</li>

@@ -1,0 +1,153 @@
+.publishreply {
+    list-style-type: none;
+    clear: both;
+    width: 680px;
+}
+
+.publishreply>li {
+    width: 680px;
+    float: left;
+    min-height: 120px;
+    max-height: 120px;
+    border-bottom: 1px dotted;
+}
+
+
+.replytop {
+    margin-top: 10px;
+    height: 50px;
+    width: 560px;
+    padding: 0 60px;
+    background: rgba(49, 126, 212, 0.1);
+}
+
+.replycontent {
+    clear: both;
+    margin: 0px;
+    width: 560px;
+    padding:0 60px;
+    height: 60px;
+}
+
+.replypraise{
+    line-height: 20px;
+    width: 80px;
+    font-size: 13px;
+    height:20px;
+    float: left;
+    margin: 20px 0px;
+    text-align: center;
+}
+
+.publishtime {
+    color: #2f90b9;
+    height: 26px;
+    line-height: 26px;
+    width: 100px;
+    float: left;
+}
+
+.replytitle {
+    height: 26px;
+    line-height: 26px;
+    text-align: left;
+    text-indent: 2em;
+    margin: 12px 0;
+    font-size: 13px;
+    width: 380px;
+    float: left;
+}
+.replytitle>a {
+    color: rgba(128, 128, 128, 1);
+    text-decoration: none;
+    float: left;
+}
+.replytype {
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    margin: 12px 0;
+    padding: 0 5px;
+    float: left;
+    width: 80px;
+    font-size:12px;
+    color: rgba(242, 133, 142, 1);
+    background-color: rgba(242, 133, 142, 0.2);
+}
+.newreply{
+    padding-left: 27px;
+    font-size: 15px;
+    height:20px;
+    margin: 20px 0px;
+    width: 340px;
+    float: left;
+}
+.newreply>a{
+   text-decoration: none;
+   color:#2b1216;
+}
+.replytime{
+    line-height: 20px;
+    float: right;
+    height:20px;
+    width: 110px;
+    text-align: right;
+    font-size: 13px;
+    margin: 20px 0px;
+}
+.replydetails {
+    float: right;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    margin: 12px 0;
+    padding: 0 5px;
+    font-size: 14px;
+}
+
+.replydetails>a{
+    color:rgba(128, 128, 128, 1);
+    text-decoration: none;
+
+}
+
+.page {
+    clear: both;
+    padding: 15px 0 10px 0;
+    height: 30px;
+    width: auto;
+    text-align: center;
+}
+
+.page>li {
+    text-align: center;
+    display: inline-flex;
+    margin: 0 auto;
+    width: 30px;
+    padding: 3px 5px;
+    text-align: center;
+    border: 1px solid rgba(12, 200, 217, 1);
+}
+
+.page>li>a {
+    width: 100%;
+    float: left;
+    color: rgba(9, 198, 217, 1);
+    text-decoration: none;
+}
+
+.page>.home {
+    width: 60px;
+}
+
+.page>.prev {
+    width: 60px;
+}
+
+.page>.next {
+    width: 60px;
+}
+
+.page>.tail {
+    width: 60px;
+}

@@ -2,11 +2,13 @@ package com.utunan.controller.user;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
+import com.utunan.mapper.user.PublishAnswerMapper;
+import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.school.Direction;
 import com.utunan.pojo.base.user.User;
-import com.utunan.pojo.inherit.user.PublishQuiz;
 import com.utunan.service.user.DirectionCollectorService;
+import com.utunan.service.user.PublishAnswerService;
 import com.utunan.service.user.PublishQuizService;
 import com.utunan.service.user.QuizCollectorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,8 @@ public class UserSkipController {
     private DirectionCollectorService directionCollectorService;
     @Autowired
     private PublishQuizService publishQuizService;
+    @Autowired
+    private PublishAnswerService publishAnswerService;
     @Autowired
     private QuizCollectorService quizCollectorService;
 
@@ -75,9 +79,22 @@ public class UserSkipController {
         return "/user/publishquiz";
     }
 
-    @RequestMapping("publishreply")
-    public String publishreply() {
-        return "/user/publishreply";
+    @RequestMapping("publishanswer")
+    public String publishreply(HttpSession session,HttpServletRequest request) {
+        User user = (User) session.getAttribute("User");
+        String pageNum = request.getParameter("pageNum");
+        List<Answer> answers = null;
+        if (pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0)
+            answers =  publishAnswerService.getPublishAnswer(user, 1, 5);
+        else
+            answers = publishAnswerService.getPublishAnswer(user, Integer.parseInt(pageNum), 5);
+
+        if(answers==null)
+            return "/user/publishquiz";
+        request.setAttribute("PageInfo",new PageInfo(answers,5));
+        request.setAttribute("Answers", answers);
+        System.out.println(answers);
+        return "user/publishanswer";
     }
 
     @RequestMapping("directioncollector")

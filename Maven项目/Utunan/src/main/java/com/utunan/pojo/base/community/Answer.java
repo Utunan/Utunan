@@ -19,7 +19,7 @@ public class Answer {
 	//评论时间
 	private Date answerTime;
 	//点赞个数
-	private  Long answerPraiseCount;
+	private  Long praiseCount;
 	//父级评论
 	private Answer parentAnswer;
 
@@ -63,12 +63,12 @@ public class Answer {
         this.answerTime = answerTime;
     }
 
-    public Long getAnswerPraiseCount() {
-        return answerPraiseCount;
+    public Long getPraiseCount() {
+        return praiseCount;
     }
 
-    public void setAnswerPraiseCount(Long answerPraiseCount) {
-        this.answerPraiseCount = answerPraiseCount;
+    public void setPraiseCount(Long answerPraiseCount) {
+        this.praiseCount = answerPraiseCount;
     }
 
     public Answer getParentAnswer() {
@@ -87,7 +87,7 @@ public class Answer {
                 ", quiz=" + quiz +
                 ", user=" + user +
                 ", answerTime=" + answerTime +
-                ", answerPraiseCount=" + answerPraiseCount +
+                ", answerPraiseCount=" + praiseCount +
                 ", parentAnswer=" + parentAnswer +
                 '}';
     }
