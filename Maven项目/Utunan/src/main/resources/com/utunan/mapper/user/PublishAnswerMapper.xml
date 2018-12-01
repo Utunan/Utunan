@@ -8,7 +8,6 @@
         <result property="answerContent" column="answerContent"/>
         <result property="answerTime" column="answerTime"/>
         <result property="praiseCount" column="praiseCount"/>
-        <result property="replyCommentId" column="replyCommentId"/>
         <association property="quiz" javaType="com.utunan.pojo.base.community.Quiz">
             <id property="quizId" column="quizId"/>
             <result property="quizTitle" column="quizTitle"/>
