@@ -1,5 +1,6 @@
 package com.utunan.mapper.school;
 
+import com.utunan.pojo.base.school.Direction;
 import com.utunan.pojo.base.school.School;
 import com.utunan.pojo.inherit.school.PublishDirection;
 import org.apache.ibatis.annotations.Mapper;
@@ -16,13 +17,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface PublishDirectionMapper {
-    /*王碧云 查询所有的学校*/
-    List<PublishDirection> findAllSchool();
-    /*王碧云 根据所有参数检索学校*/
-    List<PublishDirection> findSchoolByAllParam(@Param("schoolProvince") String[] schoolProvince,
-                                      @Param("schoolType") String[] schoolType,
-                                      @Param("degreeTypeList") String[] degreeTypeList,
-                                      @Param("mathList") String[] mathList,
-                                      @Param("englishList") String[] englishList,
-                                      @Param("directionName") String directionName);
+    /*查询研究方向详情*/
+    PublishDirection findDirectionByDirectionName(@Param("directionName") String directionName);
+
 }
