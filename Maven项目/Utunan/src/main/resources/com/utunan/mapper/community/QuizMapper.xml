@@ -22,7 +22,7 @@
             <result property="dreamSchool" column="dreamSchool"/>
             <result property="userIntegral" column="userIntegral"/>
         </association>
-        <collection property="comment" javaType="java.util.List" ofType="com.utunan.pojo.base.community.Comment">
+        <collection property="answer" javaType="java.util.List" ofType="com.utunan.pojo.base.community.Answer">
              <id property="commentId" column="commentId"/>
             <result property="quizId" column="quizId"/>
             <result property="commentContent" column="commentContent"/>
@@ -62,7 +62,7 @@
     <!--根据quizId查评论数量-->
     <select id="countCommentByQuizId" resultType="java.lang.Long">
         select count(commentId)
-        from comment
+        from answer
         where quizId=#{quizId}
     </select>
     <!--根据quizId查标签列表-->

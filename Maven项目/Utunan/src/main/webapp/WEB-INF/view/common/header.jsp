@@ -20,7 +20,7 @@
                     <a href="/login">
                         <img src="/images/common/information.svg">
                     </a>
-                    <a href="/information" style="margin-left: 5px;">消息</a>
+                    <a href="/user/information" style="margin-left: 5px;">消息</a>
                 </span>
                     <span>
                     <a id="userheadimg" href="/register">

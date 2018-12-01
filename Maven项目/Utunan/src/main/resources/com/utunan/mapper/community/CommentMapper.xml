@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.utunan.mapper.community.CommentMapper">
-    <resultMap id="commentResultMap" type="com.utunan.pojo.base.community.Comment">
+    <resultMap id="commentResultMap" type="com.utunan.pojo.base.community.Answer">
         <id property="commentId" column="commentId"/>
         <result property="quizId" column="quizId"/>
         <result property="userId" column="userId"/>
@@ -33,26 +33,26 @@
         </association>
     </resultMap>
     <!-- 插入数据，这里commentId是自动递增的，所以不需要插入 -->
-    <insert id="toInsert" parameterType="com.utunan.pojo.base.community.Comment" useGeneratedKeys="true" keyProperty="commentId">
-        insert into comment(quizId,userId,commentContent,commentTime,commentPraiseCount,replyCommentId) values(#{quizId},#{userId},#{commentContent},#{commentTime},#{commentPraiseCount},#{replyCommentId})
+    <insert id="toInsert" parameterType="com.utunan.pojo.base.community.Answer" useGeneratedKeys="true" keyProperty="commentId">
+        insert into answer(quizId,userId,commentContent,commentTime,commentPraiseCount,replyCommentId) values(#{quizId},#{userId},#{commentContent},#{commentTime},#{commentPraiseCount},#{replyCommentId})
     </insert>
 
 
     <!-- 插入评论，这里commentId是自动递增的，所以不需要插入 -->
-    <insert id="toInsert1" parameterType="com.utunan.pojo.base.community.Comment" useGeneratedKeys="true" keyProperty="commentId">
-        insert into comment(quizId,userId,commentContent,commentTime,commentPraiseCount,replyCommentId) values(#{quizId},#{userId},#{commentContent},#{commentTime},#{commentPraiseCount},#{replyCommentId})
+    <insert id="toInsert1" parameterType="com.utunan.pojo.base.community.Answer" useGeneratedKeys="true" keyProperty="commentId">
+        insert into answer(quizId,userId,commentContent,commentTime,commentPraiseCount,replyCommentId) values(#{quizId},#{userId},#{commentContent},#{commentTime},#{commentPraiseCount},#{replyCommentId})
     </insert>
     
     <!--根据回答quizId最大查询，每次只查一条-->
-    <select id="getComment" resultType="com.utunan.pojo.base.community.Comment">
-        select * from commemt where commentId=(select max(commentId) from comment)
+    <select id="getComment" resultType="com.utunan.pojo.base.community.Answer">
+        select * from commemt where commentId=(select max(commentId) from answer)
     </select>
     
     <!--王碧云 根据quizId查询评论列表（子评论除外）(默认：根据时间排序)-->
     <select id="findCommentListByQuizId" resultMap="commentResultMap">
         select *
-        from comment
-        join user on comment.userId=user.userId
+        from answer
+        join user on answer.userId=user.userId
         where
         quizId = #{quizId} and replyCommentId is null
         order by commentTime asc
@@ -61,7 +61,7 @@
     <!--王碧云 根据quizId返回（父级为null的）评论数量-->
     <select id="countCommentByQuizId" resultType="java.lang.Long">
         select count(*)
-        from comment
+        from answer
         where
         quizId = #{quizId} and replyCommentId is null
     </select>
@@ -69,8 +69,8 @@
     <!--王碧云 根据热度返回评论列表-->
     <select id="findCommentListByPraiseCount" resultMap="commentResultMap">
         select *
-        from comment
-        join user on comment.userId=user.userId
+        from answer
+        join user on answer.userId=user.userId
         where
         quizId = #{quizId} and replyCommentId is null
         order by commentPraiseCount desc
@@ -79,35 +79,35 @@
     <!--王碧云 根据commentId查询子评论-->
     <select id="findChildCommentListByCommentId" resultMap="commentResultMap">
         select *
-        from comment
-        join user on comment.userId=user.userId
+        from answer
+        join user on answer.userId=user.userId
         where
         replyCommentId=#{commentId}
     </select>
     
     <!--更新quiz表点赞数-->
     <update id="updatePraiseCount" parameterType="java.lang.Long">
-        update comment set praiseCount=#{commentPraiseCount}+1 where commentId=#{commentId}
+        update answer set praiseCount=#{commentPraiseCount}+1 where commentId=#{commentId}
     </update>
     
     <!--根据搜索条件查询回答列表-->
     <select id="findCommentListBySearch" resultMap="commentResultMap">
         select *
-        from comment c
+        from answer c
         join quiz q on c.quizId=q.quizId
         where c.commentContent like #{searchValue}
     </select>
     <!--根据搜索条件查询回答数量-->
     <select id="countCommentBySearch" resultType="java.lang.Long">
         select count(*)
-        from comment
+        from answer
         where commentContent like #{searchValue}
     </select>
 
     <!--张正扬获取最大commentId-->
     <select id="getMaxCid" resultType="java.lang.Long">
         select max(commentId)
-        from comment
+        from answer
     </select>
 
 </mapper>

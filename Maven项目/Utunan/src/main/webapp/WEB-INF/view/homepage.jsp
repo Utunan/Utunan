@@ -186,7 +186,7 @@
             </div>
             <p>漫漫考研路，这里有和你一样的志同道合者！考研经验交流、题目解惑、院校答疑，尽在此处。来这里与大家畅快交流！</p>
             <div class="commoncon">
-                <div class="comment">
+                <div class="answer">
                     <p style="margin-top:30px;">13:15 网友“杀鲨鱼”提问：</p>
                     <p style="font-size: 15px;">《C语言中双向队列链表应该如何遍历？》</p>
                     <p>标签 【数据结构】 【 链表】 </p>

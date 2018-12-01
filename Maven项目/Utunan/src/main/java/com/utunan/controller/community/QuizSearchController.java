@@ -1,7 +1,7 @@
 package com.utunan.controller.community;
 
 import com.github.pagehelper.PageInfo;
-import com.utunan.pojo.base.community.Comment;
+import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.community.Tag;
 import com.utunan.pojo.base.user.User;
@@ -107,13 +107,13 @@ public class QuizSearchController {
 			num=Integer.parseInt(pageNum);
 		}
 		//回答列表
-		List<Comment> commentList=this.commentService.findCommentListBySearch(searchValue, num, 10);
+		List<Answer> answerList =this.commentService.findCommentListBySearch(searchValue, num, 10);
 
 		//返回数据
-		request.setAttribute("object",commentList);
+		request.setAttribute("object", answerList);
 		request.setAttribute("url","searchComment");
 		request.setAttribute("searchValue", searchValue);
-		request.setAttribute("PageInfo",new PageInfo(commentList,5));
+		request.setAttribute("PageInfo",new PageInfo(answerList,5));
 		return "community/search";
 	}
 

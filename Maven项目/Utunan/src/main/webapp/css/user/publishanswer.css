@@ -18,7 +18,7 @@
     height: 50px;
     width: 560px;
     padding: 0 60px;
-    background: rgba(238, 238, 238, 1);
+    background: rgba(49, 126, 212, 0.1);
 }
 
 .replycontent {
@@ -54,7 +54,7 @@
     text-indent: 2em;
     margin: 12px 0;
     font-size: 13px;
-    width: 419px;
+    width: 380px;
     float: left;
 }
 .replytitle>a {
@@ -68,8 +68,9 @@
     text-align: center;
     margin: 12px 0;
     padding: 0 5px;
-    width: 70px;
     float: left;
+    width: 80px;
+    font-size:12px;
     color: rgba(242, 133, 142, 1);
     background-color: rgba(242, 133, 142, 0.2);
 }

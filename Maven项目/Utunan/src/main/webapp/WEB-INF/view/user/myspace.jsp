@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="plate" value="myspace"/>
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -60,7 +61,7 @@
                         </li>
                         <li>
                             <label>注册时间</label>
-                            <span>${User.registerTime}</span>
+                            <span><fmt:formatDate value="${User.registerTime }" type="date" pattern="yyyy-MM-dd hh:mm:ss"/></span>
                         </li>
                         <li class="userop">
                             <button type="submit">提交</button>

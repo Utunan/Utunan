@@ -49,7 +49,7 @@ http://www.springframework.org/schema/task/spring-task.xsd">
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/user/**"/>
-            <mvc:mapping path="/comment"/>
+            <mvc:mapping path="/answer"/>
             <mvc:mapping path="/comment1"/>
             <bean class="com.utunan.interceptor.user.UserSessionInterceptor">
             </bean>

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="plate" value="publishreply"/>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="plate" value="publishquiz"/>
 <!DOCTYPE html>
 <html lang="zh-cn">
 
@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>欢迎来到Utunan</title>
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/user/publishpost.css">
+    <link rel="stylesheet" href="/css/user/publishanswer.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 </head>
@@ -24,25 +24,27 @@
         <%@include file="common/userfunction.jsp"%>
         <div class="content">
             <div class="title">
-                <span>发表的帖子</span>
+                <span>发表的回复</span>
             </div>
-            <nav id="publishpost" class="publishpost">
-                <c:forEach items="${Quizzes }" var="Q">
+            <nav id="publishreply" class="publishreply">
+                <c:forEach items="${Answers}" var="A">
                     <li>
-                        <div>
-                        <span class="publishtime">
-                           <fmt:formatDate value="${Q.releaseTime }" type="date" pattern="yyyy-MM-dd"/>
-                         </span>
-                            <span class="posttitle">${Q.quizTitle }</span>
-                            <span class="publishtype">${Q.tags[0]==null?"Utunan":Q.tags[0].tagName}</span>
+                        <div class="replytop">
+                            <div class="replytype">${A.quiz.tags[0].tagName}</div>
+                            <div class="replytitle"><a href="">${A.quiz.quizTitle}</a></div>
+                            <div class="replydetails"><a href="">>>详情</a></div>
                         </div>
-                        <p class="postcontent">${Q.quizContent }</p>
-                        <span>评论数(${Q.commentCount })</span>
-                        <span><a href="">>>详细</a></span>
+                        <div class="replycontent">
+                            <div class="replypraise">赞(${A.quiz.praiseCount})</div>
+                            <div class="newreply">
+                                <a href="">${A.answerContent}</a>
+                            </div>
+                            <div class="replytime"><fmt:formatDate value="${A.answerTime }" type="date" pattern="yyyy-MM-dd"/></div>
+                        </div>
                     </li>
                 </c:forEach>
             </nav>
-            <%@include file="common/page.jsp" %>
+            <%@include file="common/page.jsp"%>
         </div>
     </div>
 </div>

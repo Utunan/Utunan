@@ -19,16 +19,16 @@ public class PublishQuizServiceImpl implements PublishQuizService {
     private PublishQuizMapper publishQuizMapper;
 
     @Override
-    public List<PublishQuiz> getUserPublishQuiz(User user, int pageNum, int pageSize) {
+    public List<Quiz> getUserPublishQuiz(User user, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        List<PublishQuiz> publishQuizs = publishQuizMapper.selecAllQuizCollectorByUser(user);
-        for (Quiz quiz : publishQuizs.get(0).getQuizzes()) {
+        List<Quiz> quizzes = publishQuizMapper.selectPublishQuiz(user);
+        for (Quiz quiz : quizzes) {
             quiz.setQuizContent(StringUtil.delHTMLTag(quiz.getQuizContent()));
             if(quiz.getQuizTitle().length()>23)
-//                System.out.println(666);
                 quiz.setQuizTitle(quiz.getQuizTitle().substring(0,23));
+            quiz.setTags(publishQuizMapper.selectQuizTag(quiz));
 
         }
-        return publishQuizs;
+        return quizzes;
     }
 }

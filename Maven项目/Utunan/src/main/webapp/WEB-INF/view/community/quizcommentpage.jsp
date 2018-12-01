@@ -48,16 +48,16 @@
             <td>点赞数</td>
             <td>子评论</td>
         </tr>
-    <c:forEach items="${commentListByQuizId}" var="comment" varStatus="cou">
+    <c:forEach items="${answerListByQuizId}" var="answer" varStatus="cou">
         <tr>
         <td>${cou.count}</td>
-        <td>${comment.user.userNickName}</td>
-        <td>${comment.commentTime}</td>
-        <td>${comment.user.examTime}</td>
-        <td>${comment.user.userSchool}</td>
-        <td>${comment.user.dreamSchool}</td>
-        <td>${comment.commentContent}</td>
-        <td>${comment.commentPraiseCount}</td>
+        <td>${answer.user.userNickName}</td>
+        <td>${answer.commentTime}</td>
+        <td>${answer.user.examTime}</td>
+        <td>${answer.user.userSchool}</td>
+        <td>${answer.user.dreamSchool}</td>
+        <td>${answer.commentContent}</td>
+        <td>${answer.commentPraiseCount}</td>
         <td>
         <%--<c:forEach items="${obj.tagList}" var="taglist">
             ${taglist.tagName}&nbsp;&nbsp;&nbsp;
@@ -118,26 +118,26 @@
         </select>
     </div>
     <div class="answers-content">
-        <c:forEach items="${commentListByQuizId}" var="comment" varStatus="cou">
+        <c:forEach items="${answerListByQuizId}" var="answer" varStatus="cou">
         <div class="reply">
             <div class="reply-top">
-                <img src="${comment.user.userHeadImg}"width="55px"height="55px">
+                <img src="${answer.user.userHeadImg}"width="55px"height="55px">
                 <div class="reply-top-center">
-                    <a href="#">${comment.user.userNickName}</a>
+                    <a href="#">${answer.user.userNickName}</a>
                     <div class="description">
-                        <div class="year">考研年份：${comment.user.examTime}</div>
-                        <div class="school">所在院校：${comment.user.userSchool}</div>
-                        <div class="dream-school">目标院校：${comment.user.dreamSchool}</div>
+                        <div class="year">考研年份：${answer.user.examTime}</div>
+                        <div class="school">所在院校：${answer.user.userSchool}</div>
+                        <div class="dream-school">目标院校：${answer.user.dreamSchool}</div>
                     </div>
                 </div>
-                <div class="reply-right">发表于&nbsp;${comment.commentTime}&nbsp;</div>
+                <div class="reply-right">发表于&nbsp;${answer.commentTime}&nbsp;</div>
             </div>
             <div class="reply-content">
-                <p>${comment.commentContent}</p>
+                <p>${answer.commentContent}</p>
             </div>
             <div class="reply-evaluation">
                 <div class="a">
-                    <div class="reply-praise">赞（${comment.commentPraiseCount}）</div>
+                    <div class="reply-praise">赞（${answer.commentPraiseCount}）</div>
                     <a href="praise?quizId=${quiz.quizId}"><img src="/images/community/jia1.svg" width="34px"height="34px"></a>
                     <div class="reply-give-praise">点赞</div>
                     <img src="/images/community/zan.svg" width="34px"height="34px">
@@ -166,7 +166,7 @@
                     <div class="comments-content-give-praise">点赞</div>
                 </div>
             </div>
-            <form action="comment1?commentId=${comment.commentId}" method="post">
+            <form action="comment1?commentId=${answer.commentId}" method="post">
                 <div class="comments-reply">
                     <input class="comments-reply-input"type="text" width="660px" height="30px" name="text">
                     <div class="comments-reply-report"><input type="submit" value="发表评论"/></div>
@@ -187,7 +187,7 @@
             <div class="write-answer-top">写回答</div>
         </div>
         <!--富文本编辑器-->
-        <form action="comment?quizId=${quiz.quizId}" method="post">
+        <form action="answer?quizId=${quiz.quizId}" method="post">
         <div class="text" >
 
                <div id="div1" class="toolbar" style="height: 35px"></div>
