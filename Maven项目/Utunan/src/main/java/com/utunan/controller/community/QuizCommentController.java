@@ -1,6 +1,6 @@
 package com.utunan.controller.community;
 
-import com.utunan.pojo.base.community.Comment;
+import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.community.QuizTag;
 import com.utunan.pojo.util.BigQuiz;
@@ -47,7 +47,7 @@ public class QuizCommentController {
         //根据quizId返回评论数量
         Long commentCountByQuizId = this.quizService.countCommentByQuizId(Long.parseLong(quizId));
         //根据quizId返回评论列表(根据时间排序)
-        List<Comment> commentListByQuizId = this.commentService.findCommentListByQuizId(Long.parseLong(quizId));
+        List<Answer> answerListByQuizId = this.commentService.findCommentListByQuizId(Long.parseLong(quizId));
 
         //获取页数
         String pageNum=request.getParameter("pageNum");
@@ -66,7 +66,7 @@ public class QuizCommentController {
         request.setAttribute("quizTagList", quizTagList);
         request.setAttribute("quiz", quiz);
         request.setAttribute("commentCountByQuizId", commentCountByQuizId);
-        request.setAttribute("commentListByQuizId", commentListByQuizId);
+        request.setAttribute("answerListByQuizId", answerListByQuizId);
         request.setAttribute("url", url);
         request.setAttribute("timeselect","selected=\"selected\"");
 
@@ -84,10 +84,10 @@ public class QuizCommentController {
     public String displayChildComment(HttpServletRequest request){
         String commentId = request.getParameter("commentId");
         //根据commentId返回子评论
-        List<Comment> childCommentList = this.commentService.findChildCommentListByCommentId(Long.parseLong(commentId));
+        List<Answer> childAnswerList = this.commentService.findChildCommentListByCommentId(Long.parseLong(commentId));
     
-        request.setAttribute("childCommentList", childCommentList);
-        System.out.println("[childComment]"+childCommentList);
+        request.setAttribute("childAnswerList", childAnswerList);
+        System.out.println("[childComment]"+ childAnswerList);
     
         return "community/childcomment";
     }
@@ -109,12 +109,12 @@ public class QuizCommentController {
         //根据quizId返回评论数量
         Long commentCountByQuizId = this.quizService.countCommentByQuizId(Long.parseLong(quizId));
         //根据quizId返回评论列表(根据热度排序)
-        List<Comment> commentListByQuizId = this.commentService.findCommentListByPraiseCount(Long.parseLong(quizId));
+        List<Answer> answerListByQuizId = this.commentService.findCommentListByPraiseCount(Long.parseLong(quizId));
     
         request.setAttribute("quizTagList", quizTagList);
         request.setAttribute("quiz", quiz);
         request.setAttribute("commentCountByQuizId", commentCountByQuizId);
-        request.setAttribute("commentListByQuizId", commentListByQuizId);
+        request.setAttribute("answerListByQuizId", answerListByQuizId);
         request.setAttribute("praiseselect","selected=\"selected\"");
     
         return "community/quizcommentpage";

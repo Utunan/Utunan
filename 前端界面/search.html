@@ -5,6 +5,8 @@
 <link rel="stylesheet" type="text/css" href="css/community/search.css"/> 
 <title>搜索后问题</title>  
 </head>
+<script src="js/community//jquery-1.10.2.js"></script>
+<script src="js/community/tag.js"></script> 
 <body>
 	<div class="mask"></div>
 	<!--内容-->
@@ -138,10 +140,7 @@
 						<!--验证问题是否有问号，没有问号，显示-->
 						<p>你还没有给问题添加问号哦</p>
 					</div>
-					<div class="setReward">
-						设置悬赏金额
-						<input class="setReward-value" type="text"placeholder="0"/>
-					</div>
+				
 					<!--富文本编辑器-->	
 					<div class="text">			
 						<div class="toolbar" unselectable="on">
@@ -161,16 +160,13 @@
 					
 
 					<div class="addtags">
-						<div class="newtag">
-							&nbsp;
-							<div class="newtag-description">知乎</div>
-							<div class="cancel">X</div>
-						</div>
-						<div class="add">+</div>
-						<div class="addword">添加话题</div>
+						<div class="addtags-description">添加标签：</div>
+						<input type="text" id="tagValue" placeholder="用户名或邮件地址">
 					</div>
-					<input type="radio" name="radio" class="radio">匿名提问
-					<input type="submit" value="发布问题" class="submit"/>
+					<div class="add-buttom">
+						<div class="radio"><input type="radio" name="radio" >匿名提问</div>
+						<input type="submit" value="发布问题" class="submit"/>
+					</div>
 				</form>
 			</div>
 			<div class="ask">
@@ -196,3 +192,8 @@
 </body>
 <script src="js/community/questionMain.js"></script>
 </html>
+<script >
+	//添加标签
+	var tag = new Tag("tagValue");
+	tag.initView();
+</script>

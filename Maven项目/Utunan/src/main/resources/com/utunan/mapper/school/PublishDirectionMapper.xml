@@ -3,72 +3,31 @@
 
 <mapper namespace="com.utunan.mapper.school.PublishDirectionMapper">
     <resultMap id="DirectionCollectorMap" type="com.utunan.pojo.inherit.school.PublishDirection">
-        <id column="schoolId" property="schoolId"/>
+        <id column="directionId" property="directionId"/>
         <result property="schoolName" column="schoolName"/>
-        <result property="schoolProvince" column="schoolProvince"/>
-        <result property="schoolType" column="schoolType"/>
-        <result property="schoolSubjection" column="schoolSubjection"/>
-        <collection property="direction" javaType="java.util.List" ofType="com.utunan.pojo.base.school.Direction">
-            <id column="directionId" property="directionId"/>
+        <result property="collegeName" column="collegeName"/>
+        <result property="majorlName" column="majorlName"/>
+        <result property="directionName" column="directionName"/>
+        <result property="degreeType" column="degreeType"/>
+        <result property="politics" column="politics"/>
+        <result property="english" column="english"/>
+        <result property="math" column="math"/>
+        <result property="majorBasics" column="majorBasics"/>
+        <association property="school" javaType="com.utunan.pojo.base.school.School">
+            <id column="schoolId" property="schoolId"/>
             <result property="schoolName" column="schoolName"/>
-            <result property="collegeName" column="collegeName"/>
-            <result property="majorlName" column="majorlName"/>
-            <result property="directionName" column="directionName"/>
-            <result property="degreeType" column="degreeType"/>
-            <result property="politics" column="politics"/>
-            <result property="english" column="english"/>
-            <result property="math" column="math"/>
-            <result property="majorBasics" column="majorBasics"/>
-        </collection>
+            <result property="schoolProvince" column="schoolProvince"/>
+            <result property="schoolType" column="schoolType"/>
+            <result property="schoolSubjection" column="schoolSubjection"/>
+        </association>
     </resultMap>
 
-    <!--王碧云 返回所有的学校-->
-    <select id="findAllSchool" resultMap="DirectionCollectorMap">
+    <!--王碧云 根据研究方向查找该方向的详情-->
+    <select id="findDirectionByDirectionName" resultMap="DirectionCollectorMap">
         select *
-        from school
-        join direction on school.schoolName = direction.schoolName
+        from direction
+        join school on school.schoolName = direction.schoolName
+        where
+        directionName=#{directionName}
     </select>
-
-    <!--王碧云 根据所有参数检索学校-->
-    <select id="findSchoolByAllParam" resultMap="DirectionCollectorMap">
-        select *
-        from school
-        join direction on school.schoolName = direction.schoolName
-        <where>
-            <if test="schoolProvince!=null">
-                <foreach collection="schoolProvince" item="schoolProvince" open="and schoolProvince in (" close=") " separator=",">
-                    #{schoolProvince}
-                </foreach>
-            </if>
-            <if test="schoolType!=null">
-                and
-                <foreach collection="schoolType" item="schoolType" open="(" close=") " separator="or">
-                    schoolType like CONCAT('%','${schoolType}','%' )
-                </foreach>
-            </if>
-            <if test="degreeTypeList!=null">
-                and
-                <foreach collection="degreeTypeList" item="degreeTypeList" open="(" close=") " separator="or">
-                    direction.degreeType like CONCAT('%','${degreeTypeList}','%' )
-                </foreach>
-            </if>
-            <if test="mathList!=null">
-                and
-                <foreach collection="mathList" item="mathList" open="(" close=") " separator="or">
-                    direction.math like CONCAT('%','${mathList}','%' )
-                </foreach>
-            </if>
-            <if test="englishList!=null">
-                and
-                <foreach collection="englishList" item="englishList" open="(" close=") " separator="or">
-                    direction.english like CONCAT('%','${englishList}','%' )
-                </foreach>
-            </if>
-            <if test="directionName!=null">
-                and
-                direction.directionName like CONCAT('%','${directionName}','%' )
-            </if>
-        </where>
-    </select>
-
 </mapper>

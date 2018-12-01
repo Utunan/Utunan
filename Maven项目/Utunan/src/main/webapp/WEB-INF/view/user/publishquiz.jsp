@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>欢迎来到Utunan</title>
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/user/publishpost.css">
+    <link rel="stylesheet" href="/css/user/publishquiz.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 </head>
@@ -27,7 +27,7 @@
                 <span>发表的帖子</span>
             </div>
             <nav id="publishpost" class="publishpost">
-                <c:forEach items="${Quizzes[0].quizzes }" var="Q">
+                <c:forEach items="${Quizzes }" var="Q">
                     <li>
                         <div>
                         <span class="publishtime">

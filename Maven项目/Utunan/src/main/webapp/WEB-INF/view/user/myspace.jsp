@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="plate" value="myspace"/>
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -44,14 +45,18 @@
                                    placeholder="${User.userSchool}"/>
                         </li>
                         <li>
-                            <label>绑定手机</label>
-                            <input type="hidden" name="userTelephone" value="${User.userTelephone}"/>
-                            <span style="line-height: 32px;">${User.userTelephone}<span/>
+                            <label for="userTelephone">绑定手机</label>
+                            <input type="hidden" id="userTelephone" name="userTelephone" value="${User.userTelephone}"/>
+                            <span style="line-height: 32px;">${User.userTelephone}</span>
+                            <span><a href="/user/settings#userfunction"><img src="/images/user/edit.svg"></a></span>
                         </li>
                         <li>
                             <label for="userEmail">绑定邮箱</label>
-                            <input type="text" id="userEmail" name="userEmail" value="${User.userEmail}"
+
+                            <input type="hidden" id="userEmail" name="userEmail" value="${User.userEmail}"
                                    placeholder="${User.userEmail}"/>
+                            <span style="line-height: 32px;">${User.userEmail}</span>
+                            <span><a href="/user/settings#userfunction"><img src="/images/user/edit.svg"></a></span>
                         </li>
                         <li>
                             <label for="examTime">考研年份</label>
@@ -60,7 +65,7 @@
                         </li>
                         <li>
                             <label>注册时间</label>
-                            <span>${User.registerTime}</span>
+                            <span><fmt:formatDate value="${User.registerTime }" type="date" pattern="yyyy-MM-dd hh:mm:ss"/></span>
                         </li>
                         <li class="userop">
                             <button type="submit">提交</button>
@@ -73,7 +78,7 @@
 
             <div class="changeheadimg">
                 <img src="${User.userHeadImg}" alt="" srcset="">
-                <h4><a href="">更改头像</a></h4>
+                <h4><a href="/user/settings#userfunction">更改头像</a></h4>
             </div>
         </div>
     </div>

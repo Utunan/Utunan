@@ -17,7 +17,7 @@ public class DirectionCollectorServiceImpl implements DirectionCollectorService 
     private DirectionCollectorMapper directionCollectorMapper;
 
     @Override
-    public List<Direction> getUserSchoolCollector(User user,int pageNum,int pageSize) {
+    public List<Direction> getUserDirectionCollector(User user,int pageNum,int pageSize) {
         PageHelper.startPage(pageNum,pageSize);
         List<Direction> list=directionCollectorMapper.selectAllByUser(user);
         return list;

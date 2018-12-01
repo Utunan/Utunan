@@ -6,7 +6,7 @@ header {
     min-width: 1180px;
     height: 100%;
     margin: 0 auto;
-    background: rgba(36, 94, 210,1);
+    background: rgb(63, 119, 210);
 }
 
 .container {
@@ -369,10 +369,12 @@ footer>nav>li>a{
     color:grey;
 }
 .page {
+    position: relative;
+    bottom:0px;
     clear: both;
     padding: 15px 0 10px 0;
     height: 30px;
-    width: auto;
+    width: 100%;
     text-align: center;
 }
 

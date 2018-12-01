@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="container">
     <div class="wrapper">
-        <div class="usercard">
+        <div class="usercard" id="usercard">
             <div class="userheadimg">
                 <img src="${User.userHeadImg}" alt="" srcset="">
             </div>

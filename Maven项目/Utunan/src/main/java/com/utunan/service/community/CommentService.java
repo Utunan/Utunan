@@ -1,6 +1,6 @@
 package com.utunan.service.community;
 
-import com.utunan.pojo.base.community.Comment;
+import com.utunan.pojo.base.community.Answer;
 
 import java.util.List;
 
@@ -31,27 +31,27 @@ public interface CommentService {
      * @description 根据quizId返回评论列表
      * @date  15:31 2018/11/25/025
      * @param  []
-     * @return  java.util.List<com.utunan.pojo.base.community.Comment>
+     * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
-    List<Comment> findCommentListByQuizId(Long quizId);
+    List<Answer> findCommentListByQuizId(Long quizId);
     
     /*
      * @author  王碧云
      * @description 根据commentId返回子评论列表
      * @date  21:11 2018/11/25/025
      * @param  [commentId]
-     * @return  java.util.List<com.utunan.pojo.base.community.Comment>
+     * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
-    List<Comment> findChildCommentListByCommentId(Long commentId);
+    List<Answer> findChildCommentListByCommentId(Long commentId);
     
     /*
      * @author  王碧云
      * @description 根据热度返回评论列表
      * @date  11:14 2018/11/26/026
      * @param  [quizId]
-     * @return  java.util.List<com.utunan.pojo.base.community.Comment>
+     * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
-    List<Comment> findCommentListByPraiseCount(Long quizId);
+    List<Answer> findCommentListByPraiseCount(Long quizId);
     
     /*
      * @author  王碧云
@@ -67,9 +67,9 @@ public interface CommentService {
      * @description 根据搜索条件返回评论列表
      * @date  16:12 2018/11/27
      * @param  searchValue, pageNum, pageSize
-     * @return  java.util.List<com.utunan.pojo.base.community.Comment>
+     * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
-    List<Comment> findCommentListBySearch(String searchValue, int pageNum, int pageSize);
+    List<Answer> findCommentListBySearch(String searchValue, int pageNum, int pageSize);
     
     /**
      * @author  孙程程

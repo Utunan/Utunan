@@ -2,6 +2,7 @@ package com.utunan.service.school;
 
 import com.utunan.pojo.base.school.School;
 import com.utunan.pojo.inherit.school.PublishDirection;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,20 +15,10 @@ public interface PublishDirectionService {
 
     /*
      * @author  王碧云
-     * @description 查询所有的学校
-     * @date  20:10 2018/11/27/027
-     * @param  []
-     * @return  java.util.List<com.utunan.pojo.base.school.School>
+     * @description 查询研究方向详情
+     * @date  19:42 2018/12/1/001
+     * @param  [directionName]
+     * @return  com.utunan.pojo.inherit.school.PublishDirection
      */
-    List<PublishDirection> findAllSchool();
-
-    /*
-     * @author  王碧云
-     * @description 根据所有参数检索学校
-     * @date  22:49 2018/11/28/028
-     * @param  [schoolProvinceList, schoolType]
-     * @return  java.util.List<com.utunan.pojo.base.school.School>
-     */
-    List<PublishDirection> findSchoolByAllParam(String[] schoolProvinceList,String[] schoolType,String[] degreeTypeList,String[] mathList,String[] englishList,String directionName);
-
+    PublishDirection findDirectionByDirectionName(String directionName);
 }

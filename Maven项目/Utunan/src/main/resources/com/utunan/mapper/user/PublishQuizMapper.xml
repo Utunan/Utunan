@@ -3,26 +3,16 @@
 
 <mapper namespace="com.utunan.mapper.user.PublishQuizMapper">
 
-    <resultMap id="QuizCollectorMap" type="com.utunan.pojo.inherit.user.PublishQuiz">
-        <id property="userId" column="userId"/>
-        <collection property="quizzes" ofType="com.utunan.pojo.base.community.Quiz">
-            <id property="quizId" column="quizId"/>
-            <result property="quizTitle" column="quizTitle"/>
-            <result property="quizContent" column="quizContent"/>
-            <result property="releaseTime" column="releaseTime"/>
-            <result property="praiseCount" column="praiseCount"/>
-            <result property="commentCount" column="commentCount"/>
-            <collection property="tags" ofType="com.utunan.pojo.base.community.Tag">
-                <id property="tagId" column="tagId"/>
-                <result property="tagName" column="tagName"/>
-            </collection>
-        </collection>
-    </resultMap>
 
-    <select id="selecAllQuizCollectorByUser" resultMap="QuizCollectorMap">
+    <select id="selectPublishQuiz" resultType="com.utunan.pojo.base.community.Quiz">
         select *
-        from quiz q left outer join user u on q.userId=u.userId left outer join  quiz_tag qt on q.quizId=qt.quizId left  outer join tag t on qt.tagId=t.tagId
+        from quiz q
         where q.userId=#{userId}
+    </select>
+    <select id="selectQuizTag" resultType="com.utunan.pojo.base.community.Tag">
+        select t.*
+        from tag t,quiz_tag qt
+        where qt.quizId=#{quizId} and t.tagId=qt.tagId
     </select>
 
 </mapper>

@@ -1,19 +1,25 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <nav id="userfunction" class="userfunction">
     <input type="hidden" id="currentplate" value="${plate}">
-    <a href="/user/myspace">
+    <a href="/user/myspace#usercard">
         <li>
             <img src="/images/user/home.svg" alt="" srcset="">
             <span>个人资料</span>
         </li>
     </a>
-    <a href="/user/information">
+    <a href="/user/information#usercard">
         <li>
             <img src="/images/user/information.svg" alt="" srcset="">
             <span>消息通知</span>
         </li>
     </a>
-    <a href="/user/statistics">
+    <a href="/user/follow#userfunction">
+        <li>
+            <img src="/images/user/follow.svg" alt="" srcset="">
+            <span>关注用户</span>
+        </li>
+    </a>
+    <a href="/user/statistics#userfunction">
         <li>
             <img src="/images/user/statistics.svg">
             <span>题库统计</span>
@@ -25,10 +31,10 @@
         <img src="/images/user/arrow.svg">
     </li>
     <nav class="postinfo" id="postinfo" style="height:100px;">
-        <a href="/user/publishquiz">
+        <a href="/user/publishquiz#userfunction">
             <li>发表的问答</li>
         </a>
-        <a href="/user/publishreply">
+        <a href="/user/publishanswer#userfunction">
             <li>发表的回复</li>
         </a>
     </nav>
@@ -38,17 +44,17 @@
         <img src="/images/user/arrow.svg">
     </li>
     <nav class="collection" id="collection" style="height:150px;">
-        <a href="/user/directioncollector">
+        <a href="/user/directioncollector#userfunction">
             <li>院校收藏夹</li>
         </a>
-        <a href="/user/quizcollector">
-            <li>帖子收藏夹</li>
+        <a href="/user/quizcollector#userfunction">
+            <li>问答收藏夹</li>
         </a>
-        <a href="/user/questioncollector">
+        <a href="/user/questioncollector#userfunction">
             <li>题目收藏夹</li>
         </a>
     </nav>
-    <a href="/user/settings">
+    <a href="/user/settings#userfunction">
         <li>
             <img src="/images/user/settings.svg" alt="" srcset="">
             <span>用户设置</span>

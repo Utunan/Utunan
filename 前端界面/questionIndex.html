@@ -2,11 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="css/community/questionIndex.css"/>
-<title>问答首页</title>
+<link rel="stylesheet" type="text/css" href="css/community/questionIndex.css"/> 
+<title>问答首页</title>  
 </head>
-<script src="js/community//jquery-1.10.2.js"></script>
-<script src="js/community/tag.js"></script> 
 <body>
 	<div class="mask"></div>
 	<!--内容-->
@@ -33,18 +31,14 @@
 						</ul>
 					</div>
 					<div class="search">
-						<form name="searchForm">
-							<!--搜索帖子-->
-							<div class="searchText">
-								<input type="text" style="width:140px; height:20px;border-radius:8px;border: none;margin-top: 10px;"/>
-							</div>
-
-							<!--搜索图标-->
-							<button class="searchImg" type="submit">
-								<img src="images/search.png" width="20px" height="20px" >
-							</button>
-							
-						</form>				
+						<!--搜索帖子-->
+						<div class="searchText">
+							<input type="text" style="width:140px; height:20px;border-radius: 8px;border: none;" />
+						</div>
+						<!--搜索图标-->
+						<div class="searchImg">
+							<img src="images/search.png" width="20px" height="20px">
+						</div>
 					</div>
 				</div>
 				<!--帖子-->
@@ -72,7 +66,7 @@
 							<a href="#">算机专业课</a>
 						</div>
 					</div>
-					<a class="answer_num" title="暂无满意答案" target="_blank" href="#">
+					<a class="answer_num " title="暂无满意答案" target="_blank" href="#">
 						<span>0</span>
 						<p>回答</p>
 					</a>
@@ -132,6 +126,10 @@
 						<!--验证问题是否有问号，没有问号，显示-->
 						<p>你还没有给问题添加问号哦</p>
 					</div>
+					<div class="setReward">
+						设置悬赏金额
+						<input class="setReward-value" type="text"placeholder="0"/>
+					</div>
 					<!--富文本编辑器-->	
 					<div class="text">			
 						<div class="toolbar" unselectable="on">
@@ -151,14 +149,16 @@
 					
 
 					<div class="addtags">
-						<div class="addtags-description">添加标签：</div>
-						<input type="text" id="tagValue" placeholder="用户名或邮件地址">
+						<div class="newtag">
+							&nbsp;
+							<div class="newtag-description">知乎</div>
+							<div class="cancel">X</div>
+						</div>
+						<div class="add">+</div>
+						<div class="addword">添加话题</div>
 					</div>
-					<div class="add-buttom">
-						<div class="radio"><input type="radio" name="radio" >匿名提问</div>
-						<input type="submit" value="发布问题" class="submit"/>
-					</div>
-					
+					<input type="radio" name="radio" class="radio">匿名提问
+					<input type="submit" value="发布问题" class="submit"/>
 				</form>
 			</div>
 			<div class="ask">
@@ -182,10 +182,5 @@
 		</div>
 	</div>
 </body>
-<script src="js/community/questionMain.js"></script> 
+<script src="js/community/questionMain.js"></script>
 </html>
-<script >
-	//添加标签
-	var tag = new Tag("tagValue");
-	tag.initView();
-</script>
