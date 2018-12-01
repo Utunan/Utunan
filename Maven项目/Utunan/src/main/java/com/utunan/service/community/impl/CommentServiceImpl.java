@@ -2,7 +2,7 @@ package com.utunan.service.community.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.utunan.mapper.community.CommentMapper;
-import com.utunan.pojo.base.community.Comment;
+import com.utunan.pojo.base.community.Answer;
 import com.utunan.service.community.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,26 +37,26 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public void saveComment(Long cid,Long quizId,String content,Long uid){
-        Comment comment=new Comment();
-        comment.setCommentId(cid);
-        comment.getQuiz().setQuizId(quizId);
-        comment.getUser().setUserId(uid);
-        comment.setCommentContent(content);
-        comment.setCommentTime(new Date());
+        Answer answer =new Answer();
+        //answer.setCommentId(cid);
+        //answer.getQuiz().setQuizId(quizId);
+        //answer.getUser().setUserId(uid);
+        //answer.setCommentContent(content);
+        //answer.setCommentTime(new Date());
         int i=0;
         long j=(long) i;
-        comment.setCommentPraiseCount(j);
-       commentMapper.toInsert(comment);
+        //answer.setCommentPraiseCount(j);
+       commentMapper.toInsert(answer);
     }
     /*
      * @author  王碧云
      * @description 根据quiaId返回评论列表
      * @date  15:35 2018/11/25/025
      * @param  []
-     * @return  java.util.List<com.utunan.pojo.base.community.Comment>
+     * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
     @Override
-    public List<Comment> findCommentListByQuizId(Long quizId) {
+    public List<Answer> findCommentListByQuizId(Long quizId) {
         return this.commentMapper.findCommentListByQuizId(quizId);
     }
 
@@ -65,10 +65,10 @@ public class CommentServiceImpl implements CommentService {
      * @description 根据commentId返回子评论列表
      * @date  21:12 2018/11/25/025
      * @param  [commentId]
-     * @return  java.util.List<com.utunan.pojo.base.community.Comment>
+     * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
     @Override
-    public List<Comment> findChildCommentListByCommentId(Long commentId) {
+    public List<Answer> findChildCommentListByCommentId(Long commentId) {
         return this.commentMapper.findChildCommentListByCommentId(commentId);
     }
 
@@ -77,10 +77,10 @@ public class CommentServiceImpl implements CommentService {
      * @description 根据热度返回评论列表
      * @date  11:15 2018/11/26/026
      * @param  [quizId]
-     * @return  java.util.List<com.utunan.pojo.base.community.Comment>
+     * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
     @Override
-    public List<Comment> findCommentListByPraiseCount(Long quizId) {
+    public List<Answer> findCommentListByPraiseCount(Long quizId) {
         return this.commentMapper.findCommentListByPraiseCount(quizId);
     }
 
@@ -101,13 +101,13 @@ public class CommentServiceImpl implements CommentService {
      * @description 根据搜索条件返回评论列表
      * @date  16:12 2018/11/27
      * @param  searchValue, pageNum, pageSize
-     * @return  java.util.List<com.utunan.pojo.base.community.Comment>
+     * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
     @Override
-    public List<Comment> findCommentListBySearch(String searchValue, int pageNum, int pageSize){
+    public List<Answer> findCommentListBySearch(String searchValue, int pageNum, int pageSize){
         PageHelper.startPage(pageNum,pageSize);
-        List<Comment> commentList=this.commentMapper.findCommentListBySearch("%"+searchValue+"%");
-        return commentList;
+        List<Answer> answerList =this.commentMapper.findCommentListBySearch("%"+searchValue+"%");
+        return answerList;
     }
 
     /**
@@ -131,16 +131,16 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public void saveComment1(Long cid,Long commentId,String content,Long uid){
-        Comment comment=new Comment();
-        comment.setCommentId(cid);
-        comment.getParentComment().setCommentId(commentId);
-        comment.getUser().setUserId(uid);
-        comment.setCommentContent(content);
-        comment.setCommentTime(new Date());
+        Answer answer =new Answer();
+        //answer.setCommentId(cid);
+        //answer.getParentAnswer().setCommentId(commentId);
+        //answer.getUser().setUserId(uid);
+        //answer.setCommentContent(content);
+        //answer.setCommentTime(new Date());
         int i=0;
         long j=(long) i;
-        comment.setCommentPraiseCount(j);
-        commentMapper.toInsert1(comment);
+        //answer.setCommentPraiseCount(j);
+        commentMapper.toInsert1(answer);
     }
 
 

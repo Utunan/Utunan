@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.utunan.mapper.school.DirectionMapper">
+
+    <!--王碧云 查询所有的研究方向-->
+    <select id="findAllDirection" resultType="com.utunan.pojo.base.school.Direction">
+        select *
+        from direction
+    </select>
+    
+
+
+</mapper>

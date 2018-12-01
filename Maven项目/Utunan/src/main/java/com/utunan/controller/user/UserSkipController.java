@@ -8,6 +8,7 @@ import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.inherit.user.PublishQuiz;
 import com.utunan.service.user.DirectionCollectorService;
 import com.utunan.service.user.PublishQuizService;
+import com.utunan.service.user.QuizCollectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,9 @@ public class UserSkipController {
     private DirectionCollectorService directionCollectorService;
     @Autowired
     private PublishQuizService publishQuizService;
+    @Autowired
+    private QuizCollectorService quizCollectorService;
+
     @RequestMapping("")
     public String user() {
         return "/user/myspace";
@@ -37,6 +41,11 @@ public class UserSkipController {
     @RequestMapping("myspace")
     public String myspace() {
         return "/user/myspace";
+    }
+
+    @RequestMapping("follow")
+    public String follow(){
+        return  "/user/follow";
     }
 
     @RequestMapping("information")
@@ -53,16 +62,16 @@ public class UserSkipController {
     public String publishpost(HttpServletRequest request,HttpSession session) {
         User user = (User) session.getAttribute("User");
         String pageNum = request.getParameter("pageNum");
-        List<PublishQuiz> publishQuizs = null;
+        List<Quiz> quizzes = null;
         if (pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0)
-            publishQuizs =  publishQuizService.getUserPublishQuiz(user, 1, 10);
+            quizzes =  publishQuizService.getUserPublishQuiz(user, 1, 5);
         else
-            publishQuizs = publishQuizService.getUserPublishQuiz(user, Integer.parseInt(pageNum), 10);
+            quizzes = publishQuizService.getUserPublishQuiz(user, Integer.parseInt(pageNum), 5);
 
-        if(publishQuizs==null)
+        if(quizzes==null)
             return "/user/publishquiz";
-        request.setAttribute("PageInfo",new PageInfo(publishQuizs,5));
-        request.setAttribute("Quizzes", publishQuizs);
+        request.setAttribute("PageInfo",new PageInfo(quizzes,5));
+        request.setAttribute("Quizzes", quizzes);
         return "/user/publishquiz";
     }
 
@@ -77,9 +86,9 @@ public class UserSkipController {
         String pageNum = request.getParameter("pageNum");
         Page<Direction> directions = null;
         if (pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0)
-            directions = (Page<Direction>) directionCollectorService.getUserSchoolCollector(user, 1, 10);
+            directions = (Page<Direction>) directionCollectorService.getUserDirectionCollector(user, 1, 10);
         else
-            directions = (Page<Direction>) directionCollectorService.getUserSchoolCollector(user, Integer.parseInt(pageNum), 10);
+            directions = (Page<Direction>) directionCollectorService.getUserDirectionCollector(user, Integer.parseInt(pageNum), 10);
 
         request.setAttribute("PageInfo",new PageInfo(directions,5));
         request.setAttribute("Directions", directions);
@@ -92,7 +101,22 @@ public class UserSkipController {
     }
 
     @RequestMapping("quizcollector")
-    public String collectpost() {
+    public String collectpost(HttpSession session,HttpServletRequest request) {
+
+        User user = (User) session.getAttribute("User");
+        String pageNum = request.getParameter("pageNum");
+
+        List<Quiz> quizzes = null;
+
+        if (pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0)
+            quizzes = quizCollectorService.getQuizCollector(user, 1, 8);
+        else
+            quizzes = quizCollectorService.getQuizCollector(user, Integer.parseInt(pageNum), 8);
+
+        if(quizzes==null)
+            return "/user/quizcollector";
+        request.setAttribute("PageInfo",new PageInfo(quizzes,5));
+        request.setAttribute("Quizzes", quizzes);
         return "/user/quizcollector";
     }
 
