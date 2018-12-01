@@ -1,13 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <nav id="userfunction" class="userfunction">
     <input type="hidden" id="currentplate" value="${plate}">
-    <a href="/user/myspace#userfunction">
+    <a href="/user/myspace#usercard">
         <li>
             <img src="/images/user/home.svg" alt="" srcset="">
             <span>个人资料</span>
         </li>
     </a>
-    <a href="/user/information#userfunction">
+    <a href="/user/information#usercard">
         <li>
             <img src="/images/user/information.svg" alt="" srcset="">
             <span>消息通知</span>

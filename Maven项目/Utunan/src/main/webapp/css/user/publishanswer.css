@@ -54,6 +54,7 @@
     text-indent: 2em;
     margin: 12px 0;
     font-size: 13px;
+    overflow: hidden;
     width: 380px;
     float: left;
 }
@@ -76,10 +77,12 @@
 }
 .newreply{
     padding-left: 27px;
+    padding-right: 20px;
     font-size: 15px;
     height:20px;
     margin: 20px 0px;
-    width: 340px;
+    overflow: hidden;
+    width: 300px;
     float: left;
 }
 .newreply>a{
@@ -90,7 +93,7 @@
     line-height: 20px;
     float: right;
     height:20px;
-    width: 110px;
+    width: 130px;
     text-align: right;
     font-size: 13px;
     margin: 20px 0px;

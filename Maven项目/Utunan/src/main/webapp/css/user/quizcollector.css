@@ -14,7 +14,7 @@
     float: left;
     min-height: 120px;
     max-height: 120px;
-    padding-bottom: 10px;
+    padding-bottom: 14px;
 }
 
 .posttop{
@@ -31,12 +31,12 @@
     font-weight: bold;
     height: 50px;
     padding-left: 46px;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 50px;
     float: left;
 }
 .posttop>span:first-of-type>a{
-    color:#525288;
+    color: #4f46ff;
 }
 
 .delete{

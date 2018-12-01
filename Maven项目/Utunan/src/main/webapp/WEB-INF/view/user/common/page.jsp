@@ -4,7 +4,7 @@
     <li class="home"><a href="/user/${plate}#userfunction">首页</a></li>
     <li class="next"><a href="?pageNum=${PageInfo.prePage}#userfunction">上一页</a></li>
     <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-        <li class="pagenum"><a name="${i}" href="#userfunction?pageNum=${i}#userfunction">${i}</a></li>
+        <li class="pagenum"><a name="${i}" href="?pageNum=${i}#userfunction">${i}</a></li>
     </c:forEach>
     <c:choose>
         <c:when test="${PageInfo.nextPage==0}">
