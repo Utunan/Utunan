@@ -117,7 +117,7 @@
                 <td><label for="${direction.degreeType}">${direction.degreeType}</label></td>
                 <td>${direction.majorlName}</td>
                 <td>${direction.directionName}</td>
-                <td><a href="/displayDirectionDetail?directionName=${direction.directionName}">详情</a></td>
+                <td><a href="/displayDirectionDetail?directionId=${direction.directionId}">详情</a></td>
                 <td><a><img src="../images/school/redheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
               </tr>
                 </c:forEach>

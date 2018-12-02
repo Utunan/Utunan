@@ -25,7 +25,13 @@ public class PublishDirectionServiceImpl implements PublishDirectionService {
 
 
     @Override
-    public PublishDirection findDirectionByDirectionName(String directionName) {
-        return this.publishDirectionMapper.findDirectionByDirectionName(directionName);
+    public PublishDirection findDirectionByDirectionId(String directionId,String sort) {
+        PublishDirection publishDirection = null;
+        if(sort==null || "".equals(sort) || sort.equals("时间")){
+            publishDirection = this.publishDirectionMapper.findDirectionByDirectionId(directionId);
+        }else {
+            publishDirection = this.publishDirectionMapper.findDirectionOrderByPraiseCount(directionId);
+        }
+        return publishDirection;
     }
 }

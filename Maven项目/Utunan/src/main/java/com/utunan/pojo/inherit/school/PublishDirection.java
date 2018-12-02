@@ -3,7 +3,7 @@ package com.utunan.pojo.inherit.school;
 import com.utunan.pojo.base.questionbank.DirectionComment;
 import com.utunan.pojo.base.school.Direction;
 import com.utunan.pojo.base.school.School;
-import com.utunan.pojo.base.user.User;
+import com.utunan.pojo.inherit.questionbank.PublishDirectionComment;
 
 import java.util.List;
 
@@ -15,7 +15,16 @@ import java.util.List;
 public class PublishDirection extends Direction {
     //与学校一对一
     private School school;
-    //与评论一对多
+    //与研究方向的评论一对多
+    private List<DirectionComment> directionComments;
+
+    public List<DirectionComment> getDirectionComments() {
+        return directionComments;
+    }
+
+    public void setDirectionComments(List<DirectionComment> directionComments) {
+        this.directionComments = directionComments;
+    }
 
     public School getSchool() {
         return school;
@@ -29,6 +38,7 @@ public class PublishDirection extends Direction {
     public String toString() {
         return "PublishDirection{" +
                 "school=" + school +
+                ", directionComments=" + directionComments +
                 '}';
     }
 }
