@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>院校详情</title>
@@ -20,9 +21,10 @@
         业务课一：${publishDirection.math}<br>
         业务课二：${publishDirection.majorBasics}<br>
     ==========<br>
-    讨论区<<br>
+    讨论区<br>
     共有条评论：
-    <a>按时间排序</a> &nbsp;&nbsp;<a>按热度排序</a>
+    <a href="/displayDirectionDetail?directionId=${publishDirection.directionId}&sort=时间">按时间排序</a> &nbsp;&nbsp;
+    <a href="/displayDirectionDetail?directionId=${publishDirection.directionId}&sort=热度">按热度排序</a>
     <table>
         <tr>
             <td>时间</td>
@@ -30,15 +32,18 @@
             <td>内容</td>
             <td>点赞数</td>
             <td>点赞</td>
+            <td>评论</td>
         </tr>
-        <%--<c:forEach items="${childAnswerList}" var="childcomment" >
+        <c:forEach items="${publishDirection.directionComments}" var="directioncomment" >
             <tr>
-                <td>${childcomment.commentTime}</td>
-                <td>${childcomment.user.userNickName}</td>
-                <td>${childcomment.commentContent}</td>
-                <td>${childcomment.commentPraiseCount}</td>
+                <td>${directioncomment.directionCommentTime}</td>
+                <td>${directioncomment.user.userNickName}</td>
+                <td>${directioncomment.directionCommentContent}</td>
+                <td>${directioncomment.directionCommentPraiseCount}</td>
+                <td>点赞</td>
+                <td><a>查看评论</a></td>
             </tr>
-        </c:forEach>--%>
+        </c:forEach>
     </table>
 
 

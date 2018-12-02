@@ -17,7 +17,8 @@ import java.util.List;
 @Mapper
 @Repository
 public interface PublishDirectionMapper {
-    /*查询研究方向详情*/
-    PublishDirection findDirectionByDirectionName(@Param("directionName") String directionName);
-
+    /*查询研究方向详情(按时间排序)*/
+    PublishDirection findDirectionByDirectionId(@Param("directionId") String directionId);
+    /*查询研究方向详情(按热度排序)*/
+    PublishDirection findDirectionOrderByPraiseCount(@Param("directionId") String directionId);
 }

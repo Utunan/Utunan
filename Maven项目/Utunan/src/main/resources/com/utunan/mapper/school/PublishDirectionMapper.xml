@@ -20,14 +20,49 @@
             <result property="schoolType" column="schoolType"/>
             <result property="schoolSubjection" column="schoolSubjection"/>
         </association>
+        <collection property="directionComments" javaType="java.util.List" ofType="com.utunan.pojo.base.questionbank.DirectionComment">
+            <id property="directionCommentId" column="directionCommentId"/>
+            <result property="directionCommentContent" column="directionCommentContent"/>
+            <result property="directionCommentTime" column="directionCommentTime"/>
+            <result property="directionCommentPraiseCount" column="directionCommentPraiseCount"/>
+            <result property="replyDirectionCommentId" column="replyDirectionCommentId"/>
+            <association property="user" javaType="com.utunan.pojo.base.user.User">
+                <id property="userId" column="userId"/>
+                <result property="userEmail" column="userEmail"/>
+                <result property="userTelephone" column="userTelephone"/>
+                <result property="userPassword" column="userPassword"/>
+                <result property="userIdentity" column="userIdentity"/>
+                <result property="examTime" column="examTime"/>
+                <result property="registerTime" column="registerTime"/>
+                <result property="userHeadImg" column="userHeadImg"/>
+                <result property="userNickName" column="userNickName"/>
+                <result property="userSchool" column="userSchool"/>
+                <result property="dreamSchool" column="dreamSchool"/>
+                <result property="userIntegral" column="userIntegral"/>
+            </association>
+        </collection>
     </resultMap>
 
-    <!--王碧云 根据研究方向查找该方向的详情-->
-    <select id="findDirectionByDirectionName" resultMap="DirectionCollectorMap">
+    <!--王碧云 根据研究Id查找该方向的详情（按时间排序）-->
+    <select id="findDirectionByDirectionId" resultMap="DirectionCollectorMap">
         select *
-        from direction
-        join school on school.schoolName = direction.schoolName
+        from direction d
+        left outer join school s on s.schoolName = d.schoolName
+        left outer join direction_comment dc on d.directionId = dc.directionId
+        left outer join user u on dc.userId = u.userId
         where
-        directionName=#{directionName}
+        d.directionId=#{directionId} and dc.replyDirectionCommentId is null
+        order by dc.directionCommentTime asc
+    </select>
+    <!--王碧云 根据研究Id查找该方向的详情（按热度排序）-->
+    <select id="findDirectionOrderByPraiseCount" resultMap="DirectionCollectorMap">
+        select *
+        from direction d
+        left outer join school s on s.schoolName = d.schoolName
+        left outer join direction_comment dc on d.directionId = dc.directionId
+        left outer join user u on dc.userId = u.userId
+        where
+        d.directionId=#{directionId} and dc.replyDirectionCommentId is null
+        order by dc.directionCommentPraiseCount desc
     </select>
 </mapper>

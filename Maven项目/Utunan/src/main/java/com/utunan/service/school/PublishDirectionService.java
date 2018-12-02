@@ -20,5 +20,5 @@ public interface PublishDirectionService {
      * @param  [directionName]
      * @return  com.utunan.pojo.inherit.school.PublishDirection
      */
-    PublishDirection findDirectionByDirectionName(String directionName);
+    PublishDirection findDirectionByDirectionId(String directionId,String sort);
 }

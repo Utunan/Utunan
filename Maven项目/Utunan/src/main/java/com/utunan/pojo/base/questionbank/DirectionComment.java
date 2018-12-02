@@ -1,5 +1,7 @@
 package com.utunan.pojo.base.questionbank;
 
+import com.utunan.pojo.base.user.User;
+
 import java.util.Date;
 
 /**
@@ -22,6 +24,17 @@ public class DirectionComment {
 	private Long directionCommentPraiseCount;
 	//上级评论ID
 	private Long replyDirectionCommentId;
+
+	//与用户一对一
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public Long getDirectionCommentId() {
 		return directionCommentId;
@@ -89,6 +102,7 @@ public class DirectionComment {
 				", directionCommentTime=" + directionCommentTime +
 				", directionCommentPraiseCount=" + directionCommentPraiseCount +
 				", replyDirectionCommentId=" + replyDirectionCommentId +
+				", user=" + user +
 				'}';
 	}
 }
