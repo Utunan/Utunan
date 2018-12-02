@@ -22,7 +22,7 @@ public class Quiz {
     //点赞计数
     private Long praiseCount;
     //评论数量
-    private Long commentCount;
+    private Long answerCount;
     //标签
     private List<Tag> tags;
 
@@ -75,11 +75,11 @@ public class Quiz {
     }
 
     public Long getCommentCount() {
-        return commentCount;
+        return answerCount;
     }
 
     public void setCommentCount(Long commentCount) {
-        this.commentCount = commentCount;
+        this.answerCount = commentCount;
     }
 
     public List<Tag> getTags() {
@@ -99,7 +99,7 @@ public class Quiz {
                 ", quizContent='" + quizContent + '\'' +
                 ", releaseTime=" + releaseTime +
                 ", praiseCount=" + praiseCount +
-                ", commentCount=" + commentCount +
+                ", commentCount=" + answerCount +
                 ", tags=" + tags +
                 '}';
     }

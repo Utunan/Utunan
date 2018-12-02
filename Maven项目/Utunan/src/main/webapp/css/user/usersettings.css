@@ -3,13 +3,20 @@
     width: 100%;
     margin-top:20px;
 }
-.changeinfo>span:first-of-type{
+.changeinfo>div{
+    height: 50px;
+    width: 100%;
+    background-color:rgba(49, 126, 212, 0.1);
+}
+.changeinfo>div>span:first-of-type{
     float: left;
     cursor: default;
     padding:0 30px;
     padding-left: 30px;
     width: auto;
-    background:  rgba(49, 126, 212, 0.2);
+    background:  rgba(49, 126, 212, 0.5);
+    color:#fff;
+    font-weight: bold;
     border-radius:0 50px 50px 0;
     height: 50px;
     line-height: 50px;
@@ -19,6 +26,12 @@
     float: left;
     padding:20px 0 20px 150px;;
     clear: both;
+}
+
+.changeinfo>form>div:first-of-type{
+    text-align: center;
+    width: 320px;
+    color:red;
 }
 .changeinfo>form>div{
     clear: both;

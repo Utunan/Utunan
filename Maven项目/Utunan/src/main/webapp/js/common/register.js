@@ -63,6 +63,7 @@ getcode.onclick = function () {
                 }
             }
         }
+
         setTimeout(function () {
                 if (issend == false && !isregister) {
                     issend = true;
@@ -102,14 +103,14 @@ function checkForm() {
     reply_value = ""
     check_state = true;
     if (!code_state) {
-        reply_value = "请输入验证码";
+        reply_value = "请输入正确验证码";
         vcode.parentNode.style.border = '1px solid red';
         check_state = false;
     } else
         vcode.parentNode.style.border = '1px solid LightSteelBlue';
 
     if (!checkvcode(vcode.value)) {
-        reply_value = '请输入验证码';
+        reply_value = '请输入正确验证码';
         vcode.parentNode.style.border = '1px solid red';
         check_state = false;
     }

@@ -31,7 +31,13 @@
 
     <update id="updateUser" parameterType="com.utunan.pojo.base.user.User">
         update user
-        set userNickName=#{userNickName},userEmail=#{userEmail},examTime=#{examTime},userSchool=#{userSchool},dreamSchool=#{dreamSchool}
+        set userNickName=#{userNickName},examTime=#{examTime},userSchool=#{userSchool},dreamSchool=#{dreamSchool}
         where userTelephone=#{userTelephone}
+    </update>
+
+    <update id="updateUserPassword" parameterType="com.utunan.pojo.base.user.User">
+        update user
+        set userPassword=#{userPassword}
+        where userId=#{userId}
     </update>
 </mapper>

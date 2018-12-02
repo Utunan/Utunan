@@ -55,8 +55,8 @@
 
                             <input type="hidden" id="userEmail" name="userEmail" value="${User.userEmail}"
                                    placeholder="${User.userEmail}"/>
-                            <span style="line-height: 32px;">${User.userEmail}</span>
-                            <span><a href="/user/settings#userfunction"><img src="/images/user/edit.svg"></a></span>
+                            <span style="line-height: 32px;">${User.userEmail==null?"用户未设置邮箱":User.userEmail}</span>
+                            <span><a href="/user/settings#changeemail"><img src="/images/user/edit.svg"></a></span>
                         </li>
                         <li>
                             <label for="examTime">考研年份</label>
