@@ -3,16 +3,24 @@
     background-color: rgba(244, 249, 255, 1);
  }
  .title{
-    display: block;
-    line-height: 40px;
     font-size: 22px;
     text-align: center;
     color:black;
+    margin-left: 35%;
+}
+.collector{
+    margin-left: 2%;
+}
+.schoolheader{
+    display: block;
+    line-height: 40px;
     width: 100%;
     height: 40px;
     float: left;
     font-weight: bold;
-    border-bottom: 3px solid rgba(105, 196, 196, 1);
+    border-bottom: 3px solid #2a82e4;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 label{
     font-size: 14px;
@@ -63,11 +71,10 @@ label{
     margin: 20px;
 }
 .bigwrapper{
-    border: 2px solid #cad8e9;
-    max-width: 960px;
-    min-width: 960px;
+    border: 2px solid #c9c9c9;
+    width:960px;
     margin: 0 auto;
-    margin-top: 50px;
+    overflow: hidden;
 }
 #search{
     margin-left: 50px;
@@ -77,9 +84,17 @@ label{
     margin-left: 4px;
 }
 #blank{
-    height:70px;
+    height:40px;
 }
 .show{
     width: 960px;
     margin:0 auto;
+    text-align: center;
+}
+.table>tbody>tr>td{
+    border:0px;
+}
+.table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border-bottom-width: 3px;
+    text-align: center;
 }
