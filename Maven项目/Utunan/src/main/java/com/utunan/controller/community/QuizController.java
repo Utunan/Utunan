@@ -52,15 +52,9 @@ public class QuizController {
 		for(int i=0; i<quizList.size(); i++){
 			quizIdList.add(quizList.get(i).getQuizId());
 		}
-		//获取提问的用户信息
-		List<User> userList=new ArrayList<>();
-		//获取提问的评论数量列表
-		List<Long> commentNumber=new ArrayList<>();
 		//获取提问的标签列表
 		List<List<Tag>> quizTagList=new ArrayList<>();
 		for(int i=0; i<quizList.size(); i++){
-			userList.add(quizService.findUserByQuizId(quizIdList.get(i)));
-			commentNumber.add(quizService.countCommentByQuizId(quizIdList.get(i)));
 			quizTagList.add(quizService.selectTagByQuizId(quizIdList.get(i)));
 		}
 		//将提问、评论数量、标签封装
@@ -68,8 +62,6 @@ public class QuizController {
 		for (int i=0;i<quizList.size(); i++){
 			BigQuiz bq=new BigQuiz();
 			bq.setQuiz(quizList.get(i));
-			bq.setUser(quizList.get(i).getUser());
-			bq.setCommentNumber(commentNumber.get(i));
 			bq.setTagList(quizTagList.get(i));
 			bigQuiz.add(bq);
 		}
@@ -121,15 +113,9 @@ public class QuizController {
 		for(int i=0; i<quizList.size(); i++){
 			quizIdList.add(quizList.get(i).getQuizId());
 		}
-		//获取提问的用户信息
-		List<User> userList=new ArrayList<>();
-		//获取提问的评论数量列表
-		List<Long> commentNumber=new ArrayList<>();
 		//获取提问的标签列表
 		List<List<Tag>> quizTagList=new ArrayList<>();
 		for(int i=0; i<quizList.size(); i++){
-			userList.add(quizService.findUserByQuizId(quizIdList.get(i)));
-			commentNumber.add(quizService.countCommentByQuizId(quizIdList.get(i)));
 			quizTagList.add(quizService.selectTagByQuizId(quizIdList.get(i)));
 		}
 		//将提问、评论数量、标签封装
@@ -137,8 +123,6 @@ public class QuizController {
 		for (int i=0;i<quizList.size(); i++){
 			BigQuiz bq=new BigQuiz();
 			bq.setQuiz(quizList.get(i));
-			bq.setUser(quizList.get(i).getUser());
-			bq.setCommentNumber(commentNumber.get(i));
 			bq.setTagList(quizTagList.get(i));
 			bigQuiz.add(bq);
 		}
@@ -222,13 +206,10 @@ public class QuizController {
 		}
 		//获取提问的用户信息
 		List<User> userList=new ArrayList<>();
-		//获取提问的评论数量列表
-		List<Long> commentNumber=new ArrayList<>();
 		//获取提问的标签列表
 		List<List<Tag>> quizTagList=new ArrayList<>();
 		for(int i=0; i<quizList.size(); i++){
 			userList.add(quizService.findUserByQuizId(quizIdList.get(i)));
-			commentNumber.add(quizService.countCommentByQuizId(quizIdList.get(i)));
 			quizTagList.add(quizService.selectTagByQuizId(quizIdList.get(i)));
 		}
 		//将提问、评论数量、标签封装
@@ -236,8 +217,7 @@ public class QuizController {
 		for (int i=0;i<quizList.size(); i++){
 			BigQuiz bq=new BigQuiz();
 			bq.setQuiz(quizList.get(i));
-			bq.setUser(quizList.get(i).getUser());
-			bq.setCommentNumber(commentNumber.get(i));
+			bq.setUser(userList.get(i));
 			bq.setTagList(quizTagList.get(i));
 			bigQuiz.add(bq);
 		}
@@ -287,13 +267,10 @@ public class QuizController {
 		}
 		//获取提问的用户信息
 		List<User> userList=new ArrayList<>();
-		//获取提问的评论数量列表
-		List<Long> commentNumber=new ArrayList<>();
 		//获取提问的标签列表
 		List<List<Tag>> quizTagList=new ArrayList<>();
 		for(int i=0; i<quizList.size(); i++){
 			userList.add(quizService.findUserByQuizId(quizIdList.get(i)));
-			commentNumber.add(quizService.countCommentByQuizId(quizIdList.get(i)));
 			quizTagList.add(quizService.selectTagByQuizId(quizIdList.get(i)));
 		}
 		//将提问、评论数量、标签封装
@@ -301,8 +278,7 @@ public class QuizController {
 		for (int i=0;i<quizList.size(); i++){
 			BigQuiz bq=new BigQuiz();
 			bq.setQuiz(quizList.get(i));
-			bq.setUser(quizList.get(i).getUser());
-			bq.setCommentNumber(commentNumber.get(i));
+			bq.setUser(userList.get(i));
 			bq.setTagList(quizTagList.get(i));
 			bigQuiz.add(bq);
 		}
