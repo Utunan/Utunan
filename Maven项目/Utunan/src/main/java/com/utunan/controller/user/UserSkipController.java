@@ -3,7 +3,7 @@ package com.utunan.controller.user;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.utunan.mapper.user.PublishAnswerMapper;
-import com.utunan.mapper.user.QuestionCollecctorMapper;
+import com.utunan.mapper.user.QuestionCollectorMapper;
 import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.questionbank.Question;

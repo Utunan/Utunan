@@ -10,4 +10,9 @@
         where qc.userId=#{userId}
     </select>
 
+    <delete id="deleteQuizCollector">
+        delete from quiz_collector
+        where  userId=#{userId} and quizId=#{quizId}
+    </delete>
+
 </mapper>
