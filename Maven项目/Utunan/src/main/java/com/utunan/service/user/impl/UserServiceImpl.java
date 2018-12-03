@@ -47,4 +47,11 @@ public class UserServiceImpl implements UserService {
         User updateUser =userMapper.selectByPermit(user);
         return updateUser;
     }
+
+    @Override
+    public boolean changeUserHeadImg(User user, String userHeadImg) {
+
+        userMapper.updateUserHeadImg(user.getUserId(),userHeadImg);
+        return true;
+    }
 }

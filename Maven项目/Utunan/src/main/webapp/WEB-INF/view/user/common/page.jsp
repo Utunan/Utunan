@@ -6,9 +6,10 @@
         </c:when>
         <c:when test="${PageInfo.pages==0}">
             <div class="noresult">
-                <h2 style="text-align:left;padding-top:100px;padding-left: 50px;color:rgb(247, 184, 102);">您的收藏夹空了</h2>
-                <h2 style="text-align:left;padding-top:0px;padding-left:90px;color:rgb(247, 184, 102);">还不赶紧去</h2>
-                <h1 style="text-align:left;padding-left: 150px; color:rgb(243, 149, 149);">收藏?</h1>
+                <h2 style="text-align:left;padding-top:50px;font-size:30px;padding-left: 100px;color:#2e317c;">少侠~</h2>
+                <h2 style="text-align:left;padding-top:0px;padding-left:70px;color:rgb(247, 184, 102);">你的收藏夹空了</h2>
+                <h2 style="text-align:left;padding-top:0px;padding-left:120px;color:rgb(247, 184, 102);">还不赶紧去</h2>
+                <h1 style="text-align:left;padding-left: 180px; color:rgb(243, 149, 149);">收藏?</h1>
             </div>
         </c:when>
         <c:otherwise>

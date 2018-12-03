@@ -25,11 +25,11 @@
                     <span>
                     <a id="userheadimg" href="/register">
 
-                        <img src="/images/userheadimg//default.png" alt="" srcset="">
+                        <img src="${User.userHeadImg}" alt="" srcset="">
                     </a>
                     <div id="userheadop" class="userheadop">
                         <div id="optop" class="optop">
-                            <span>徐思涵天下第一美</span>
+                            <span>${User.userNickName}</span>
                             <span><a href="/user">个人主页</a></span>
                         </div>
                         <div class="opmiddle">

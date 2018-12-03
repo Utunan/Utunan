@@ -25,7 +25,7 @@
         <%@include file="common/userfunction.jsp"%>
         <div class="content">
             <div class="title">
-                <span>院校收藏</span>
+                <span>院系收藏</span>
             </div>
             <table border="0" cellpadding="6" cellspacing="0">
                 <tr style="background-color: rgba(209, 231, 250,0.5 );">
