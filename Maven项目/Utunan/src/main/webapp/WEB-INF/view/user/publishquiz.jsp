@@ -18,10 +18,10 @@
 
 <body>
 <%@include file="../common/header.jsp" %>
-<%@include file="common/usercard.jsp"%>
+<%@include file="common/usercard.jsp" %>
 <div class="container" style="margin-top: 30px;">
     <div class="wrapper background">
-        <%@include file="common/userfunction.jsp"%>
+        <%@include file="common/userfunction.jsp" %>
         <div class="content">
             <div class="title">
                 <span>发表的帖子</span>
@@ -31,13 +31,13 @@
                     <li>
                         <div>
                         <span class="publishtime">
-                           <fmt:formatDate value="${Q.releaseTime }" type="date" pattern="yyyy-MM-dd"/>
-                         </span>
+                                <fmt:formatDate value="${Q.releaseTime }" type="date" pattern="yyyy-MM-dd"/>
+                        </span>
                             <span class="posttitle">${Q.quizTitle }</span>
                             <span class="publishtype">${Q.tags[0]==null?"Utunan":Q.tags[0].tagName}</span>
                         </div>
                         <p class="postcontent">${Q.quizContent }</p>
-                        <span>评论数(${Q.commentCount })</span>
+                        <span>评论数(${Q.answerCount })</span>
                         <span><a href="">>>详细</a></span>
                     </li>
                 </c:forEach>

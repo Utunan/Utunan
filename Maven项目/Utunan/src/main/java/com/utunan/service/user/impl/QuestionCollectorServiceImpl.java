@@ -1,7 +1,7 @@
 package com.utunan.service.user.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.utunan.mapper.user.QuestionCollecctorMapper;
+import com.utunan.mapper.user.QuestionCollectorMapper;
 import com.utunan.pojo.base.questionbank.Question;
 import com.utunan.pojo.base.user.User;
 import com.utunan.service.questionbank.QuestionService;
@@ -15,14 +15,14 @@ import java.util.List;
 public class QuestionCollectorServiceImpl implements QuestionCollectorService {
 
     @Autowired
-    private QuestionCollecctorMapper questionCollecctorMapper;
+    private QuestionCollectorMapper questionCollectorMapper;
 
     @Override
     public List<Question> getQuestionCollector(User user, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum,pageSize);
-        List<Question> questions=questionCollecctorMapper.selectQuestionCollector(user);
+        List<Question> questions=questionCollectorMapper.selectQuestionCollector(user);
         for(Question question:questions){
-            question.setSubject(questionCollecctorMapper.selectSubject(question.getSubject()));
+            question.setSubject(questionCollectorMapper.selectSubject(question.getSubject()));
         }
         return  questions;
     }
