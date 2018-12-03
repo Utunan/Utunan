@@ -47,10 +47,10 @@ public class AnswerServiceImpl implements AnswerService {
      * @param  []
      * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
-    @Override
-    public List<Answer> findAnswerListByQuizId(Long quizId) {
-        return this.answerMapper.findAnswerListByQuizId(quizId);
-    }
+//    @Override
+//    public List<Answer> findAnswerListByQuizId(Long quizId) {
+//        return this.answerMapper.findAnswerListByQuizId(quizId);
+//    }
 
     /*
      * @author  王碧云
@@ -71,10 +71,10 @@ public class AnswerServiceImpl implements AnswerService {
      * @param  [quizId]
      * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
-    @Override
-    public List<Answer> findAnswerListByPraiseCount(Long quizId) {
-        return this.answerMapper.findAnswerListByPraiseCount(quizId);
-    }
+//    @Override
+//    public List<Answer> findAnswerListByPraiseCount(Long quizId) {
+//        return this.answerMapper.findAnswerListByPraiseCount(quizId);
+//    }
 
     /*
      * @author  王碧云
@@ -83,10 +83,10 @@ public class AnswerServiceImpl implements AnswerService {
      * @param  [quizId]
      * @return  java.lang.Long
      */
-    @Override
-    public Long countAnswerByQuizId(Long quizId) {
-        return this.answerMapper.countAnswerByQuizId(quizId);
-    }
+   // @Override
+//    public Long countAnswerByQuizId(Long quizId) {
+//        return this.answerMapper.countAnswerByQuizId(quizId);
+//    }
 
     /**
      * @author  孙程程
@@ -95,12 +95,12 @@ public class AnswerServiceImpl implements AnswerService {
      * @param  searchValue, pageNum, pageSize
      * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
-    @Override
-    public List<Answer> findAnswerListBySearch(String searchValue, int pageNum, int pageSize){
-        PageHelper.startPage(pageNum,pageSize);
-        List<Answer> answerList =this.answerMapper.findAnswerListBySearch("%"+searchValue+"%");
-        return answerList;
-    }
+//    @Override
+//    public List<Answer> findAnswerListBySearch(String searchValue, int pageNum, int pageSize){
+//        PageHelper.startPage(pageNum,pageSize);
+//        List<Answer> answerList =this.answerMapper.findAnswerListBySearch("%"+searchValue+"%");
+//        return answerList;
+//    }
 
     /**
      * @author  孙程程

@@ -161,9 +161,13 @@ public class QuizController {
 		request.setCharacterEncoding("UTF-8");
 		//int num=Integer.parseInt(request.getParameter("j1"));
 		String title=request.getParameter("title");
-		System.out.print(title);
+		String[] tags=request.getParameter("tags").split(",");
+		for (int i = 0; i < tags.length; i++) {
+			System.out.println(tags[i]);
+		}
+
 		String content= request.getParameter("textarea");
-		System.out.print(content);
+
 		Object ob=session.getAttribute("User");
 
 		Long qid=this.quizService.getMaxQid();
@@ -171,8 +175,7 @@ public class QuizController {
 
 		if (ob!=null) {
 			User user = (User) ob;
-			Long uid = user.getUserId();
-			this.quizService.saveQuiz(uid, title, content);
+			this.quizService.saveQuiz(qid,user, title, content);
 		}
 		return "redirect:/quiz1 ";
 	}

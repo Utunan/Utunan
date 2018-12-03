@@ -8,10 +8,11 @@ body{
 .content{
 	margin: 0 auto;
 	width: 1000px;
-    padding-top: 80px;
 }
 .question{
+    margin-top: 30px;
     width: 1000px;
+    height: 360px;
     background-color: #ffffff;
     border-style:solid; 
 	border-width:2px; 
@@ -74,12 +75,13 @@ body{
 }
 .question-content{
     width: 950px;
+    height: 200px;
     margin: 0 auto;
     color: #505050;
     font-size: 14px;
     line-height: 200%;
     text-align: left;
-    padding: 5px;
+    padding-left: 5px;
 }
 .post-bottom{
     width: 950px;
@@ -156,6 +158,7 @@ body{
 }
 .reply{
     width: 1000px;
+    height: 215px;
     border-style:solid; 
     border-width:0px 0px 1px 0px;
     border-color:#e5e5e5;
@@ -211,6 +214,7 @@ body{
 }
 .reply-content{
     width: 950px;
+    height: 60px;
     margin: 0 auto;
     margin-top: 24px;
 }
@@ -299,7 +303,7 @@ body{
     height: 160px;
     margin: 0 auto;
     margin-top: 20px;
-    border: #9c9ea5 solid 0.5px;
+    border: #a6a6a6 solid 1px;
 }
 .toolbar{
     width: 950px;
@@ -309,8 +313,8 @@ body{
     border-color:#e5e5e5;
 }
 .comment-content{
-    height: 120px;
-    width: 950px;
+    height: 97px;
+    width: 928px;
     padding: 10px;
     font-size: 14px;
 }
@@ -363,9 +367,9 @@ body{
     width: 1000px;
     height: 40px;
     background-color: #ffffff;
-    border-style:solid;
-    border-width:0px 0px 1px 0px;
-    border-color:#e5e5e5;
+    border-style:solid; 
+	border-width:0px 0px 1px 0px; 
+	border-color:#e5e5e5;
 }
 .right{
     float: right;
@@ -391,9 +395,9 @@ body{
 .comments-content{
     height: 35px;
     width: 1000px;
-    border-style: dashed;
-    border-width:0px 0px 1px 0px;
-    border-color:#e5e5e5;
+    border-style: dashed; 
+	border-width:0px 0px 1px 0px; 
+	border-color:#e5e5e5;
 }
 .time{
     margin-left: 25px;
@@ -401,7 +405,7 @@ body{
     width: 150px;
     line-height: 35px;
     color: rgba(80, 80, 80, 1);
-    font-size: 14px;
+	font-size: 14px;
 }
 .nickname{
     float: left;
@@ -416,13 +420,13 @@ body{
     width: 400px;
     line-height: 35px;
     color: rgba(80, 80, 80, 1);
-    font-size: 14px;
+	font-size: 14px; 
 }
 .b{
     float: right;
 }
 .comments-content-praise{
-    line-height: 35px;
+    line-height: 35px;  
     font-weight: bolder;
     color: #f2858e;
     font-size: 14px;
@@ -444,9 +448,9 @@ body{
 .comments-reply{
     width: 1000px;
     height: 40px;
-    border-style: solid;
-    border-width:0px 0px 1px 0px;
-    border-color:#e5e5e5;
+    border-style: solid; 
+	border-width:0px 0px 1px 0px; 
+	border-color:#e5e5e5;
 }
 .comments-reply-input{
     width: 600px;
@@ -460,6 +464,6 @@ body{
     margin-left: 15px;
     line-height: 40px;
     color: rgba(128, 128, 128, 1);
-    font-size: 14px;
-    font-weight: bold;
+	font-size: 14px;
+	font-weight: bold;
 }
