@@ -43,7 +43,7 @@
                 <td>${obj.quiz.quizContent}</td>
                 <td>${obj.quiz.releaseTime}</td>
                 <td>${obj.quiz.praiseCount}</td>
-                <td>${obj.commentNumber}</td>
+                <td>${obj.quiz.answerCount}</td>
                 <td>
                     <c:forEach items="${obj.tagList}" var="taglist">
                         ${taglist.tagName}&nbsp;&nbsp;&nbsp;
@@ -84,13 +84,13 @@
             </tr>
             <c:forEach items="${object}" var="obj">
             <tr>
-                <td>${obj.commentId}</td>
+                <td>${obj.answerId}</td>
                 <td>${obj.quizId}</td>
                 <td>回复：${obj.quiz.quizTitle}</td>
-                <td>${obj.commentContent}</td>
-                <td>${obj.commentTime}</td>
-                <td>${obj.commentPraiseCount}</td>
-                <td>${obj.replyCommentId}</td>
+                <td>${obj.answerContent}</td>
+                <td>${obj.answerTime}</td>
+                <td>${obj.praiseCount}</td>
+                <td>${obj.parentAnswer}</td>
             </tr>
             </c:forEach>
             <table/>

@@ -64,7 +64,7 @@
                         <div class="post-content">
                             <div class="top">
                                 <div class="post-information">
-                                        ${obj.quiz.releaseTime} &nbsp;来自:<a href="#">${obj.user.userNickName}</a>
+                                        ${obj.quiz.releaseTime} &nbsp;来自:<a href="#">${obj.quiz.user.userNickName}</a>
                                 </div>
                                 <div></div>
                                 <div class="praise">赞:</div>
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="answer_num " title="暂无满意答案" target="_blank" href="#">
-                            <span>${obj.commentNumber}</span>
+                            <span>${obj.quiz.answerCount}</span>
                             <p>回答</p>
                         </div>
                     </div>
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                         <div class="answer_num " title="暂无满意答案" target="_blank" href="#">
-                            <span>${obj.commentNumber}</span>
+                            <span>${obj.quiz.answerCount}</span>
                             <p>回答</p>
                         </div>
                     </div>
