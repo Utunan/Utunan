@@ -21,7 +21,7 @@ public class Answer {
 	//点赞个数
 	private  Long praiseCount;
 	//父级评论
-	private Answer parentAnswer;
+	private Long parentAnswer;
 
     public Long getAnswerId() {
         return answerId;
@@ -71,11 +71,11 @@ public class Answer {
         this.praiseCount = answerPraiseCount;
     }
 
-    public Answer getParentAnswer() {
+    public Long getParentAnswer() {
         return parentAnswer;
     }
 
-    public void setParentAnswer(Answer parentAnswer) {
+    public void setParentAnswer(Long parentAnswer) {
         this.parentAnswer = parentAnswer;
     }
 

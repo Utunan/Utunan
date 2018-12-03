@@ -26,69 +26,75 @@ public class Quiz {
     //标签
     private List<Tag> tags;
 
+
+
     public Long getQuizId() {
         return quizId;
     }
-
+    
     public void setQuizId(Long quizId) {
         this.quizId = quizId;
     }
-
+    
     public User getUser() {
         return user;
     }
-
+    
     public void setUser(User user) {
         this.user = user;
     }
-
+    
     public String getQuizTitle() {
         return quizTitle;
     }
-
+    
     public void setQuizTitle(String quizTitle) {
         this.quizTitle = quizTitle;
     }
-
+    
     public String getQuizContent() {
         return quizContent;
     }
-
+    
     public void setQuizContent(String quizContent) {
         this.quizContent = quizContent;
     }
-
+    
     public Date getReleaseTime() {
         return releaseTime;
     }
-
+    
     public void setReleaseTime(Date releaseTime) {
         this.releaseTime = releaseTime;
     }
-
+    
     public Long getPraiseCount() {
         return praiseCount;
     }
-
+    
     public void setPraiseCount(Long praiseCount) {
         this.praiseCount = praiseCount;
     }
 
-    public Long getCommentCount() {
+
+    public Long getAnswerCount() {
         return answerCount;
     }
 
-    public void setCommentCount(Long commentCount) {
-        this.answerCount = commentCount;
+    public void setAnswerCount(Long answerCount) {
+        this.answerCount = answerCount;
+
+   
     }
 
     public List<Tag> getTags() {
         return tags;
     }
-
+    
     public void setTags(List<Tag> tags) {
         this.tags = tags;
     }
+
 
     @Override
     public String toString() {
@@ -99,8 +105,9 @@ public class Quiz {
                 ", quizContent='" + quizContent + '\'' +
                 ", releaseTime=" + releaseTime +
                 ", praiseCount=" + praiseCount +
-                ", commentCount=" + answerCount +
-                ", tags=" + tags +
+                ", answerCount=" + answerCount +
+
+               ", tags=" + tags +
                 '}';
     }
 }

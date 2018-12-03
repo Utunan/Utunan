@@ -5,7 +5,7 @@ import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.community.QuizTag;
 import com.utunan.pojo.util.BigQuiz;
 import com.utunan.pojo.util.Page;
-import com.utunan.service.community.CommentService;
+import com.utunan.service.community.AnswerService;
 import com.utunan.service.community.QuizService;
 import com.utunan.service.community.QuizTagService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class QuizCommentController {
     @Autowired
     private QuizTagService quizTagService;
     @Autowired
-    private CommentService commentService;
+    private AnswerService answerService;
     /*
      * @author  王碧云
      * @description 返回对应QuizId对应的问题页面的值(默认按照时间排序)(分页)
@@ -47,7 +47,7 @@ public class QuizCommentController {
         //根据quizId返回评论数量
         Long commentCountByQuizId = this.quizService.countCommentByQuizId(Long.parseLong(quizId));
         //根据quizId返回评论列表(根据时间排序)
-        List<Answer> answerListByQuizId = this.commentService.findCommentListByQuizId(Long.parseLong(quizId));
+        List<Answer> answerListByQuizId = this.answerService.findAnswerListByQuizId(Long.parseLong(quizId));
 
         //获取页数
         String pageNum=request.getParameter("pageNum");
@@ -84,7 +84,7 @@ public class QuizCommentController {
     public String displayChildComment(HttpServletRequest request){
         String commentId = request.getParameter("commentId");
         //根据commentId返回子评论
-        List<Answer> childAnswerList = this.commentService.findChildCommentListByCommentId(Long.parseLong(commentId));
+        List<Answer> childAnswerList = this.answerService.findChildAnswerListByAnswerId(Long.parseLong(commentId));
     
         request.setAttribute("childAnswerList", childAnswerList);
         System.out.println("[childComment]"+ childAnswerList);
@@ -109,7 +109,7 @@ public class QuizCommentController {
         //根据quizId返回评论数量
         Long commentCountByQuizId = this.quizService.countCommentByQuizId(Long.parseLong(quizId));
         //根据quizId返回评论列表(根据热度排序)
-        List<Answer> answerListByQuizId = this.commentService.findCommentListByPraiseCount(Long.parseLong(quizId));
+        List<Answer> answerListByQuizId = this.answerService.findAnswerListByPraiseCount(Long.parseLong(quizId));
     
         request.setAttribute("quizTagList", quizTagList);
         request.setAttribute("quiz", quiz);

@@ -1,8 +1,14 @@
 package com.utunan.service.community;
 
+import com.utunan.pojo.base.community.Answer;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @author 王碧云
@@ -18,6 +24,6 @@ public interface IdentityPicService {
      * @param  [req, resp]
      * @return  void
      */
-    void getIdentityPic(HttpServletRequest req, HttpServletResponse resp) throws IOException;
+    void getIdentityPic(HttpServletRequest request, HttpServletResponse response) throws IOException;
 
 }
