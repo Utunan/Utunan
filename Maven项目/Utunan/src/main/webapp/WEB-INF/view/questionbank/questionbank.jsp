@@ -10,6 +10,7 @@
 </head>
 <body>
 <%@include file="../common/header.jsp"%>
+<h2><a href="/searchQuestion">题目搜索</a></h2>
 <%@include file="../common/footer.jsp"%>
 </body>
 <script src="/js/common/common.js"></script>
