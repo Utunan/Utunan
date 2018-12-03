@@ -1,0 +1,49 @@
+*{
+	letter-spacing:0.5px;
+	font-family:"SimHei",黑体；
+}
+.content{
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.content-top{
+  width: 100%;
+  height: 40px;
+}
+.content-ul{
+  width: 500px;
+  height: 40px;
+  margin: 0 auto; 
+}
+.content-ul li{
+  float: left;
+  height: 30px;
+  margin: 5px;
+  padding: 5px 15px;
+  list-style: none;
+  line-height: 30px;
+}
+.active{
+  border-width:0px 0px 2px 0px ;
+  border-style: solid;
+  border-color: #ff7675; 
+}
+
+a{
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+.content-display{
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 25px;
+}  
+.content-display>div{
+  display:none;
+}
+.content-display>div:target{
+  display:block;
+}
