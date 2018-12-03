@@ -1,6 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="java.util.List,com.utunan.pojo.*"%>
+<!DOCTYPE html>
+<html lang="zh-cn">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,15 +9,16 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/school/school.css">
-    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
-    <script> var pagenum="${PageInfo.pageNum}"</script>
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">    
 </head>
 
 <body>
-    <%--<%@include file="../common/header.jsp"%>--%>
-    <!--<div class="title">院校库</div>-->
-    <form class="condition" action="/displaySchoolBySearch">
-        <div class="bigwrapper">
+    <div class="schoolheader">
+        <span class="collector"></span><a>查看院校收藏夹</a></span>
+        <span class="title">院校库</span>
+    </div>
+    <div class="bigwrapper">
+        <form class="condition">
             <div  class="RadioStyle">
                 <div class="options">
                     <span class="optionName">院校所在地 ></span>
@@ -55,43 +56,41 @@
                 <div class="options">
                     <span class="optionName">院校特性 ></span>
                     <div class="option">
-                        <input name="schoolType" type="checkbox" value="全部"  id="院校特性全部" checked><label for="院校特性全部">全部</label>
-                        <input name="schoolType" type="checkbox" value="985" id="985院校"><label for="985院校">985院校</label>
-                        <input name="schoolType" type="checkbox" value="211" id="211院校"><label for="211院校">211院校</label>
-                        <input name="schoolType" type="checkbox" value="自划线" id="自划线"><label for="自划线">自主划线</label>
+                        <input type="checkbox" value=""  id="院校特性全部" checked><label for="院校特性全部">全部</label>
+                        <input type="checkbox" value="985" id="985院校"><label for="985院校">985院校</label>
+                        <input type="checkbox" value="211" id="211院校"><label for="211院校">211院校</label>                                <input type="checkbox" value="自划线" id="自划线"><label for="自划线">自主划线</label>
                     </div>
                 </div>
                 <div class="options">
                     <span class="optionName">学位类型 ></span>
                     <div class="option">
-                        <input name="degreeType" type="checkbox" value="全部" id="学位全部" checked><label for="学位全部">全部</label>
-                        <input name="degreeType" type="checkbox" value="学硕" id="学硕"><label for="学硕">学硕</label>
-                        <input name="degreeType" type="checkbox" value="专硕" id="专硕"><label for="专硕">专硕</label>
+                        <input type="checkbox" value="" id="学位全部" checked><label for="学位全部">全部</label>                                <input type="checkbox" value="学硕" id="学硕"><label for="学硕">学硕</label>
+                        <input type="checkbox" value="专硕" id="专硕"><label for="专硕">专硕</label>
                     </div>
                 </div>
                 <div class="options">
                     <span class="optionName">考试科目 ></span>
                     <div class="subjectoption">
                     <div class="option">
-                        <input name="math" type="checkbox" value="全部" id="数学全部" checked><label for="数学全部">全部</label>
-                        <input name="math" type="checkbox" value="一" id="数学(一)"><label for="数学(一)">数学(一)</label>
-                        <input name="math" type="checkbox" value="二" id="数学(二)"><label for="数学(二)">数学(二)</label>
+                        <input name="math" type="checkbox" value="" id="数学全部" checked><label for="数学全部">全部</label>
+                        <input name="math" type="checkbox" value="one" id="数学(一)"><label for="数学(一)">数学(一)</label>
+                        <input name="math" type="checkbox" value="two" id="数学(二)"><label for="数学(二)">数学(二)</label>
                     </div>
                     <div class="option">
-                        <input name="english" type="checkbox" value="全部" id="英语全部" checked><label for="英语全部">全部</label>
-                        <input name="english" type="checkbox" value="一" id="英语(一)"><label for="英语(一)">英语(一)</label>
-                        <input name="english" type="checkbox" value="二" id="英语(二)"><label for="英语(二)">英语(二)</label>
+                        <input name="english" type="checkbox" value="" id="英语全部" checked><label for="英语全部">全部</label>
+                        <input name="english" type="checkbox" value="one" id="英语(一)"><label for="英语(一)">英语(一)</label>
+                        <input name="english" type="checkbox" value="two" id="英语(二)"><label for="英语(二)">英语(二)</label>
                     </div>
                     </div>
                 </div>
             </div>
             <div class="options">
                 <span class="optionName">研究方向 ></span>
-                <input name="directionName" type="text" value="" placeholder="（选填）如：大数据" id="direction"/>
-                <input type="submit" value="搜索！" id="search"/>
+                <input type="text" value="（选填）如：大数据" id="direction"/>
+                <input type="button" value="搜索！" id="search"/>
             </div>
-        </div>
-    </form>
+        </form><!--condition-->
+    </div><!--bigwrapper-->
 
     <div id="blank"></div>
 
@@ -109,41 +108,37 @@
               </tr>
             </thead>
             <tbody>
-            <c:forEach items="${schoolList}" var="school" >
-                <c:forEach items="${school.direction}" var="direction" >
               <tr>
-                <td>${direction.schoolName}</td>
-                <td>${direction.collegeName}</td>
-                <td><label for="${direction.degreeType}">${direction.degreeType}</label></td>
-                <td>${direction.majorlName}</td>
-                <td>${direction.directionName}</td>
-                <td><a href="/displayDirectionDetail?directionId=${direction.directionId}">详情</a></td>
+                <td>胖大海大学</td>
+                <td>胖大海学院</td>
+                <td>学硕</td>
+                <td>软件工程</td>
+                <td>大数据捏泥人</td>
+                <td><a>详情</a></td>
                 <td><a><img src="../images/school/redheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
               </tr>
-                </c:forEach>
-            </c:forEach>
-
+              <tr>
+                <td>蓝大海大学</td>
+                <td>蓝大海学院</td>
+                <td>学硕</td>
+                <td>软件工程</td>
+                <td>H5前端爆破</td>
+                <td><a>详情</a></td>
+                <td><a><img src="../images/school/redheart.svg" width="20px" height="20px" alt="" srcset=""></a></td>
+              </tr>
+              <tr>
+                <td>土大海大学</td>
+                <td>土大海学院</td>
+                <td>学硕</td>
+                <td>软件工程</td>
+                <td>人工智能诈骗</td>
+                <td><a>详情</a></td>
+                <td><a><img src="../images/school/whiteheart.svg" width="20px" height="20px" alt="" srcset=""></a></td>
+              </tr>
+              <tr>
             </tbody>
           </table>
     </div>
-    <%--分页--%>
-    <nav id="page" class="page">
-        <li class="home"><a href="/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}">首页</a></li>
-        <li class="next"><a href="/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.prePage}">上一页</a></li>
-        <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-            <li class="pagenum"><a name="${i}" href="/${url }?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${i}">${i}</a></li>
-        </c:forEach>
-        <c:choose>
-            <c:when test="${PageInfo.nextPage==0}">
-                <li class="next"><a href="/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pages}">下一页</a></li>
-            </c:when>
-            <c:otherwise>
-                <li class="next"><a href="/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.nextPage}">下一页</a></li>
-            </c:otherwise>
-        </c:choose>
-        <li class="tail"><a href="/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pages}">尾页</a></li>
-    </nav>
-    <%@include file="../common/footer.jsp"%>
 </body>
 <script src="../js/usercommon.js"></script>
 <script src="https://code.jquery.com/jquery.js"></script>

@@ -106,8 +106,9 @@ public class SchoolSearchController {
 
     @RequestMapping("/displayDirectionDetail")
     public String displayDirectionDetail(HttpServletRequest request,
-                                        @RequestParam(value = "directionName") String directionName){
-        PublishDirection publishDirection = this.publishDirectionService.findDirectionByDirectionName(directionName);
+                                        @RequestParam(value = "directionId") String directionId,
+                                        @RequestParam(value = "sort",required = false) String sort){
+        PublishDirection publishDirection = this.publishDirectionService.findDirectionByDirectionId(directionId,sort);
         request.setAttribute("publishDirection", publishDirection);
         System.out.println("[lalala]"+publishDirection);
         return "/school/schooldetail";

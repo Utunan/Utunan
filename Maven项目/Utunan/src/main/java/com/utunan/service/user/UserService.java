@@ -7,4 +7,5 @@ public interface UserService {
     void saveUser(User user);
     boolean isExist(User user);
     boolean changeInfo(User user);
+    User changeUserPassword(User user);
 }

@@ -31,50 +31,51 @@ public class Quiz {
     public Long getQuizId() {
         return quizId;
     }
-
+    
     public void setQuizId(Long quizId) {
         this.quizId = quizId;
     }
-
+    
     public User getUser() {
         return user;
     }
-
+    
     public void setUser(User user) {
         this.user = user;
     }
-
+    
     public String getQuizTitle() {
         return quizTitle;
     }
-
+    
     public void setQuizTitle(String quizTitle) {
         this.quizTitle = quizTitle;
     }
-
+    
     public String getQuizContent() {
         return quizContent;
     }
-
+    
     public void setQuizContent(String quizContent) {
         this.quizContent = quizContent;
     }
-
+    
     public Date getReleaseTime() {
         return releaseTime;
     }
-
+    
     public void setReleaseTime(Date releaseTime) {
         this.releaseTime = releaseTime;
     }
-
+    
     public Long getPraiseCount() {
         return praiseCount;
     }
-
+    
     public void setPraiseCount(Long praiseCount) {
         this.praiseCount = praiseCount;
     }
+
 
     public Long getAnswerCount() {
         return answerCount;
@@ -82,12 +83,14 @@ public class Quiz {
 
     public void setAnswerCount(Long answerCount) {
         this.answerCount = answerCount;
+
+   
     }
 
     public List<Tag> getTags() {
         return tags;
     }
-
+    
     public void setTags(List<Tag> tags) {
         this.tags = tags;
     }
@@ -103,7 +106,8 @@ public class Quiz {
                 ", releaseTime=" + releaseTime +
                 ", praiseCount=" + praiseCount +
                 ", answerCount=" + answerCount +
-                ", tags=" + tags +
+
+               ", tags=" + tags +
                 '}';
     }
 }

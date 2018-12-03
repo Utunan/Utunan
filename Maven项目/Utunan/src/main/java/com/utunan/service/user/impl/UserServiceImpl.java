@@ -40,4 +40,11 @@ public class UserServiceImpl implements UserService {
         userMapper.updateUser(user);
         return true;
     }
+
+    @Override
+    public User changeUserPassword(User user) {
+        userMapper.updateUserPassword(user);
+        User updateUser =userMapper.selectByPermit(user);
+        return updateUser;
+    }
 }

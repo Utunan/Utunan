@@ -13,5 +13,6 @@ public interface UserMapper {
     User selectByPermit(User user);
     User selectByPorE(User user);
     int updateUser(User user);
+    int updateUserPassword(User user);
 }
 
