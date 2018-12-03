@@ -18,7 +18,7 @@
 }
 
 .posttop{
-    background:rgba(49, 126, 212, 0.1);
+    background: rgba(201, 224, 255,0.1);
     height: 50px;
     float: left;
     width: 630px;
@@ -36,7 +36,7 @@
     float: left;
 }
 .posttop>span:first-of-type>a{
-    color: #4f46ff;
+    color: #7e7cf7;
 }
 
 .delete{

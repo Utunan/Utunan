@@ -3,14 +3,13 @@ package com.utunan.controller.user;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.utunan.mapper.user.PublishAnswerMapper;
+import com.utunan.mapper.user.QuestionCollecctorMapper;
 import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
+import com.utunan.pojo.base.questionbank.Question;
 import com.utunan.pojo.base.school.Direction;
 import com.utunan.pojo.base.user.User;
-import com.utunan.service.user.DirectionCollectorService;
-import com.utunan.service.user.PublishAnswerService;
-import com.utunan.service.user.PublishQuizService;
-import com.utunan.service.user.QuizCollectorService;
+import com.utunan.service.user.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +35,9 @@ public class UserSkipController {
     private PublishAnswerService publishAnswerService;
     @Autowired
     private QuizCollectorService quizCollectorService;
+    @Autowired
+    private QuestionCollectorService questionCollectorService;
+
 
     @RequestMapping("")
     public String user() {
@@ -113,7 +115,23 @@ public class UserSkipController {
     }
 
     @RequestMapping("questioncollector")
-    public String collectmatter() {
+    public String collectmatter(HttpSession session,HttpServletRequest request) {
+        User user = (User) session.getAttribute("User");
+        String pageNum = request.getParameter("pageNum");
+
+        List<Question> questions=null;
+
+        if (pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0)
+            questions = questionCollectorService.getQuestionCollector(user, 1, 8);
+        else
+            questions = questionCollectorService.getQuestionCollector(user, Integer.parseInt(pageNum), 8);
+
+        if(questions==null)
+            return "/user/questioncollector";
+
+        request.setAttribute("PageInfo",new PageInfo(questions,5));
+        request.setAttribute("Questions", questions);
+        System.out.println(questions);
         return "/user/questioncollector";
     }
 

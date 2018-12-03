@@ -6,7 +6,7 @@ plate=document.getElementById("currentplate").value;
 
 dict={
     "myspace":0,"information":1,"follow":2,"statistics":3,"publishquiz":5,
-    "publishreply":6,"directioncollector":8,"quizcollector":9,
+    "publishanswer":6,"directioncollector":8,"quizcollector":9,
     "questioncollector":10,"settings":11
 }
 
