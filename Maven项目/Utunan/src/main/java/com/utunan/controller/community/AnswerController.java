@@ -1,7 +1,7 @@
 package com.utunan.controller.community;
 
 import com.utunan.pojo.base.user.User;
-import com.utunan.service.community.CommentService;
+import com.utunan.service.community.AnswerService;
 import com.utunan.service.community.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,9 +18,9 @@ import java.io.UnsupportedEncodingException;
  * @date 2018/11/22 15:53
  */
 @Controller
-public class CommentController {
+public class AnswerController {
     @Autowired
-    private CommentService commentService;
+    private AnswerService answerService;
 
     @Autowired
     private QuizService quizService;
@@ -39,13 +39,13 @@ public class CommentController {
         String quizId = request.getParameter("quizId");
         String content = request.getParameter("textarea");
         Object ob = session.getAttribute("User");
-        this.quizService.addCommentCount(Long.parseLong(quizId));
-        Long cid = this.commentService.getMaxCid();
-        cid += 1;
+        this.quizService.addAnswerCount(Long.parseLong(quizId));
+        Long aid = this.answerService.getMaxAid();
+        aid += 1;
         if (ob != null) {
             User user = (User) ob;
             Long uid = user.getUserId();
-            this.commentService.saveComment(cid, Long.parseLong(quizId), content, uid);
+            this.answerService.saveAnswer(aid, Long.parseLong(quizId), content, uid);
 
         }
         return "redirect:/displayQuizByQuizId?quizId=" + quizId;
@@ -63,21 +63,21 @@ public class CommentController {
     public String insertComment1(HttpServletRequest request, HttpSession session) throws
             UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");
-        String commentId = request.getParameter("commentId");
+        String answerId = request.getParameter("answerId");
         String content = request.getParameter("text");
         Object ob = session.getAttribute("User");
-        Long cid = this.commentService.getMaxCid();
+        Long aid = this.answerService.getMaxAid();
 
-        cid += 1;
+        aid += 1;
         if (ob != null) {
             User user = (User) ob;
             Long uid = user.getUserId();
 
-            this.commentService.saveComment1(cid, Long.parseLong(commentId), content, uid);
+            this.answerService.saveAnswer1(aid, Long.parseLong(answerId), content, uid);
 
 
 
         }
-        return "redirect:/displayChildComment?commentId=" + commentId;
+        return "redirect:/displayChildAnswer?answerId=" + answerId;
     }
 }

@@ -57,6 +57,6 @@ public interface QuizMapper {
 	 * @param
 	 * @return
 	 */
-	void addcommentcount(Long qid);
+	void addAnswerCount(Long qid);
 
 }

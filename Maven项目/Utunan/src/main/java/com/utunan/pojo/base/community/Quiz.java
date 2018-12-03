@@ -22,9 +22,11 @@ public class Quiz {
     //点赞计数
     private Long praiseCount;
     //评论数量
-    private Long commentCount;
+    private Long answerCount;
     //标签
     private List<Tag> tags;
+
+
 
     public Long getQuizId() {
         return quizId;
@@ -74,12 +76,12 @@ public class Quiz {
         this.praiseCount = praiseCount;
     }
 
-    public Long getCommentCount() {
-        return commentCount;
+    public Long getAnswerCount() {
+        return answerCount;
     }
 
-    public void setCommentCount(Long commentCount) {
-        this.commentCount = commentCount;
+    public void setAnswerCount(Long answerCount) {
+        this.answerCount = answerCount;
     }
 
     public List<Tag> getTags() {
@@ -90,6 +92,7 @@ public class Quiz {
         this.tags = tags;
     }
 
+
     @Override
     public String toString() {
         return "Quiz{" +
@@ -99,7 +102,7 @@ public class Quiz {
                 ", quizContent='" + quizContent + '\'' +
                 ", releaseTime=" + releaseTime +
                 ", praiseCount=" + praiseCount +
-                ", commentCount=" + commentCount +
+                ", answerCount=" + answerCount +
                 ", tags=" + tags +
                 '}';
     }

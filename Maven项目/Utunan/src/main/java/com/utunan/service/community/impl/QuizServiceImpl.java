@@ -30,7 +30,7 @@ public class QuizServiceImpl implements QuizService {
 	public List<Quiz> quizListByTime(int pageNum, int pageSize){
 		PageHelper.startPage(pageNum,pageSize);
 		//按发表时间的提问列表
-		List<Quiz> quizList = quizMapper.listQuizByTime();
+ 		List<Quiz> quizList = quizMapper.listQuizByTime();
 		//限制问题标题、内容展示字数
 		condenseQuiz(quizList);
 		return quizList;
@@ -249,8 +249,8 @@ public class QuizServiceImpl implements QuizService {
 
 
 	@Override
-	public void addCommentCount(Long qid){
-		 this.quizMapper.addcommentcount(qid);
+	public void addAnswerCount(Long qid){
+		 this.quizMapper.addAnswerCount(qid);
 	}
 
 }

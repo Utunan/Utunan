@@ -11,13 +11,8 @@ public class QuizTag {
 	//标签
 	private Tag tag;
 
-	public Long getQuizTagId() {
-		return quizTagId;
-	}
 
-	public void setQuizTagId(Long quizTagId) {
-		this.quizTagId = quizTagId;
-	}
+
 
 	public Quiz getQuiz() {
 		return quiz;
@@ -35,12 +30,21 @@ public class QuizTag {
 		this.tag = tag;
 	}
 
-	@Override
-	public String toString() {
-		return "QuizTag{" +
-				"quizTagId=" + quizTagId +
-				", quiz=" + quiz +
-				", tag=" + tag +
-				'}';
-	}
+    public Long getQuizTagId() {
+        return quizTagId;
+    }
+
+    public void setQuizTagId(Long quizTagId) {
+        this.quizTagId = quizTagId;
+    }
+
+
+    @Override
+    public String toString() {
+        return "QuizTag{" +
+                "quizTagId=" + quizTagId +
+                ", quiz=" + quiz +
+                ", tag=" + tag +
+                '}';
+    }
 }

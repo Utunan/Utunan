@@ -168,6 +168,6 @@ public interface QuizService {
       * @param  null
       * @return  null
       */
-     void addCommentCount(Long qid);
+     void addAnswerCount(Long qid);
 
 }

@@ -5,7 +5,16 @@
     <resultMap id="quizTagResultMap" type="com.utunan.pojo.base.community.QuizTag">
         <id column="quizTagId" property="quizTagId"/>
         <result property="quizId" column="quizId"/>
-        <result property="tagId" column="tagId"/>
+        <!--<result property="tagId" column="tagId"/>-->
+        <!--<association property="quiz" javaType="com.utunan.pojo.base.community.Quiz">
+            <id property="quizId" column="quizId"/>
+            <result property="userId" column="userId"/>
+            <result property="quizTitle" column="quizTitle"/>
+            <result property="quizContent" column="quizContent"/>
+            <result property="releaseTime" column="releaseTime"/>
+            <result property="praiseCount" column="praiseCount"/>
+            <result property="answerCount" column="answerCount"/>
+        </association>-->
         <association property="tag" javaType="com.utunan.pojo.base.community.Tag">
             <id column="tagId" property="tagId"/>
             <result property="tagName" column="tagName"/>
