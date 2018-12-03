@@ -10,6 +10,7 @@
         <result property="praiseCount" column="praiseCount"/>
         <result property="answerCount" column="answerCount"/>
         <association property="user" javaType="com.utunan.pojo.base.user.User">
+            <id property="userId" column="userId"></id>
             <result property="userEmail" column="userEmail"/>
             <result property="userTelephone" column="userTelephone"/>
             <result property="userPassword" column="userPassword"/>
@@ -27,18 +28,6 @@
             <result property="tagName" column="tagName"/>
         </collection>
     </resultMap>
-    
-    <resultMap id="quizWithAnswer" extends="quizBaseMap" type="com.utunan.pojo.inherit.community.PublishQuiz">
-        <collection property="answer"  ofType="com.utunan.pojo.base.community.Answer">
-            <id property="answerId" column="answerId"/>
-            <result property="quizId" column="quizId"/>
-            <result property="answerContent" column="answerContent"/>
-            <result property="answerTime" column="answerTime"/>
-            <result property="answerPraiseCount" column="praiseCount"/>
-            <result property="replyCommentId" column="replyCommentId"/>
-        </collection>
-    </resultMap>
-
     <!--根据发表时间分页查询-->
     <select id="listQuizByTime" resultMap="quizBaseMap">
         SELECT *
@@ -67,7 +56,7 @@
     </select>
     
     <!--根据quizId查评论数量-->
-    <select id="countCommentByQuizId" resultType="java.lang.Long">
+    <select id="countAnswerByQuizId" resultType="java.lang.Long">
         select count(answerId)
         from answer
         where quizId=#{quizId}
@@ -83,7 +72,7 @@
     <!-- 向quiz表插入数据 -->
     <insert id="toInsert" parameterType="com.utunan.pojo.base.community.Quiz">
         insert into quiz(quizId, userId, quizTitle, quizContent, releaseTime, praiseCount, answerCount)
-        values (#{quizId}, #{userId}, #{quizTitle}, #{quizContent}, #{releaseTime}, #{praiseCount}, #{answerCount})
+        values (#{quizId}, #{user.userId}, #{quizTitle}, #{quizContent}, #{releaseTime}, #{praiseCount}, #{answerCount})
     </insert>
     
     <!--根据回答quizId最大查询，每次只查一条-->
@@ -179,7 +168,7 @@
     <!--张正扬， 增加问题回答数-->
     <update id="addAnswerCount" parameterType="java.lang.Long">
         update quiz
-        set commentCount=commentCount+1
+        set answerCount=answerCount+1
         where quizId=#{quizId}
     </update>
 </mapper>

@@ -1,0 +1,39 @@
+
+.subject-plate{
+    width: 215px;
+    height: 215px;
+    float: left;
+    margin:25px 27px;
+    border-width: 23px;
+    border-style: solid;
+    border-radius: 15px;
+}
+.subject-name{
+    font-size: 30px;
+    font-weight: bold;
+    margin:10px;
+}
+.subject-description{
+    width: 190px;
+    margin: 0 auto;
+    color: rgba(80, 80, 80, 1);
+	font-size: 15px;
+	line-height: 150%;
+	text-align: left;
+}
+.subject-progress{
+    width: 190px;
+    margin: 0 auto;
+    margin-top: 10px;
+    color: rgba(80, 80, 80, 1);
+	font-size: 15px;
+	line-height: 150%;
+	text-align: left;
+}
+.subject-plate a{
+    line-height: 60px;
+    color:#7948ea;
+    font-size: 16px;
+    float: right;
+    margin-right: 10px;
+}

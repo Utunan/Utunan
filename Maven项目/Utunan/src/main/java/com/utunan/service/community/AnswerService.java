@@ -33,7 +33,7 @@ public interface AnswerService {
      * @param  []
      * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
-    List<Answer> findAnswerListByQuizId(Long quizId);
+    //List<Answer> findAnswerListByQuizId(Long quizId);
     
     /*
      * @author  王碧云
@@ -51,7 +51,7 @@ public interface AnswerService {
      * @param  [quizId]
      * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
-    List<Answer> findAnswerListByPraiseCount(Long quizId);
+    //List<Answer> findAnswerListByPraiseCount(Long quizId);
     
     /*
      * @author  王碧云
@@ -60,7 +60,7 @@ public interface AnswerService {
      * @param  [quizId]
      * @return  java.lang.Long
      */
-    Long countAnswerByQuizId(Long quizId);
+    //Long countAnswerByQuizId(Long quizId);
     
     /**
      * @author  孙程程
@@ -69,7 +69,7 @@ public interface AnswerService {
      * @param  searchValue, pageNum, pageSize
      * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
-    List<Answer> findAnswerListBySearch(String searchValue, int pageNum, int pageSize);
+    //List<Answer> findAnswerListBySearch(String searchValue, int pageNum, int pageSize);
     
     /**
      * @author  孙程程

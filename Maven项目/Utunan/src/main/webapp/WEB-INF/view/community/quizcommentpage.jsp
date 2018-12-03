@@ -52,12 +52,12 @@
         <tr>
         <td>${cou.count}</td>
         <td>${answer.user.userNickName}</td>
-        <td>${answer.commentTime}</td>
+        <td>${answer.answerTime}</td>
         <td>${answer.user.examTime}</td>
         <td>${answer.user.userSchool}</td>
         <td>${answer.user.dreamSchool}</td>
-        <td>${answer.commentContent}</td>
-        <td>${answer.commentPraiseCount}</td>
+        <td>${answer.answerContent}</td>
+        <td>${answer.praiseCount}</td>
         <td>
         <%--<c:forEach items="${obj.tagList}" var="taglist">
             ${taglist.tagName}&nbsp;&nbsp;&nbsp;
@@ -130,10 +130,10 @@
                         <div class="dream-school">目标院校：${answer.user.dreamSchool}</div>
                     </div>
                 </div>
-                <div class="reply-right">发表于&nbsp;${answer.commentTime}&nbsp;</div>
+                <div class="reply-right">发表于&nbsp;${answer.answerTime}&nbsp;</div>
             </div>
             <div class="reply-content">
-                <p>${answer.commentContent}</p>
+                <p>${answer.answerContent}</p>
             </div>
             <div class="reply-evaluation">
                 <div class="a">
@@ -166,7 +166,7 @@
                     <div class="comments-content-give-praise">点赞</div>
                 </div>
             </div>
-            <form action="comment1?commentId=${answer.commentId}" method="post">
+            <form action="comment1?commentId=${answer.answerId}" method="post">
                 <div class="comments-reply">
                     <input class="comments-reply-input"type="text" width="660px" height="30px" name="text">
                     <div class="comments-reply-report"><input type="submit" value="发表评论"/></div>

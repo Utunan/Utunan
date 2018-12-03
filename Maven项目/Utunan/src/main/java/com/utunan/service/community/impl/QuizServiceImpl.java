@@ -68,12 +68,15 @@ public class QuizServiceImpl implements QuizService {
 	 */
 	
 	@Override
-	public void saveQuiz(Long uid,String title,String content){
+	public void saveQuiz(Long qid,User user,String title,String content){
 	    Quiz quiz=new Quiz();
-	    quiz.getUser().setUserId(uid);
+	    quiz.setQuizId(qid);
+	    quiz.setUser(user);
 	    quiz.setQuizTitle(title);
 	    quiz.setQuizContent(content);
 	    quiz.setReleaseTime(new Date());
+	    quiz.setPraiseCount(Long.parseLong("0"));
+	    quiz.setAnswerCount(Long.parseLong("0"));
 	    quizMapper.toInsert(quiz);
 	}
 	
@@ -110,8 +113,8 @@ public class QuizServiceImpl implements QuizService {
 	 * @return  java.lang.Long
 	 */
 	@Override
-	public Long countCommentByQuizId(Long quizId) {
-		return this.quizMapper.countCommentByQuizId(quizId);
+	public Long countAnswerByQuizId(Long quizId) {
+		return this.quizMapper.countAnswerByQuizId(quizId);
 	}
 	
 	/**

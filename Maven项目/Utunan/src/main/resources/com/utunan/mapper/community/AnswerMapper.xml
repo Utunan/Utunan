@@ -30,13 +30,13 @@
             <result property="userIntegral" column="userIntegral"/>
         </association>
     </resultMap>
-    <!-- 插入数据，这里commentId是自动递增的，所以不需要插入 -->
+    <!-- 插入回答 -->
     <insert id="toInsert" parameterType="com.utunan.pojo.base.community.Answer" >
         insert into answer(answerId,quizId,userId,answerContent,answerTime,praiseCount,parentAnswer) values(#{answerId},#{quizId},#{userId},#{answerContent},#{answerTime},#{praiseCount},#{parentAnswer})
     </insert>
 
 
-    <!-- 插入评论，这里commentId是自动递增的，所以不需要插入 -->
+    <!-- 插入评论 -->
     <insert id="toInsert1" parameterType="com.utunan.pojo.base.community.Answer" >
         insert into answer(answerId,quizId,userId,answerContent,answerTime,praiseCount,parentAnswer) values(#{answerId},#{quizId},#{userId},#{answerContent},#{answerTime},#{praiseCount},#{parentAnswer})
     </insert>
@@ -44,32 +44,32 @@
 
     
     <!--王碧云 根据quizId查询评论列表（子评论除外）(默认：根据时间排序)-->
-    <select id="findAnswerListByQuizId" resultMap="answerResultMap">
+    <!--<select id="findAnswerListByQuizId" resultMap="answerResultMap">
         select *
         from answer
         join user on answer.userId=user.userId
         where
         quizId = #{quizId} and parentAnswer is null
         order by answerTime asc
-    </select>
+    </select>-->
     
     <!--王碧云 根据quizId返回（父级为null的）评论数量-->
-    <select id="countAnswerByQuizId" resultType="java.lang.Long">
+    <!--<select id="countAnswerByQuizId" resultType="java.lang.Long">
         select count(*)
         from answer
         where
         quizId = #{quizId} and parentAnswer is null
-    </select>
+    </select>-->
     
     <!--王碧云 根据热度返回评论列表-->
-    <select id="findAnswerListByPraiseCount" resultMap="answerResultMap">
+    <!--<select id="findAnswerListByPraiseCount" resultMap="answerResultMap">
         select *
         from answer
         join user on answer.userId=user.userId
         where
         quizId = #{quizId} and parentAnswer is null
         order by praiseCount desc
-    </select>
+    </select>-->
     
     <!--王碧云 根据answerId查询子评论-->
     <select id="findChildAnswerListByAnswerId" resultMap="answerResultMap">
@@ -80,18 +80,18 @@
         parentAnswer=#{answerId}
     </select>
     
-    <!--更新quiz表点赞数-->
+    <!--更新回答点赞数-->
     <update id="updatePraiseCount" parameterType="java.lang.Long">
         update answer set praiseCount=praiseCount+1 where answerId=#{answerId}
     </update>
     
     <!--根据搜索条件查询回答列表-->
-    <select id="findAnswerListBySearch" resultMap="answerResultMap">
+    <!--<select id="findAnswerListBySearch" resultMap="answerResultMap">
         select *
         from answer c
         join quiz q on c.quizId=q.quizId
         where c.answerContent like #{searchValue}
-    </select>
+    </select>-->
     <!--根据搜索条件查询回答数量-->
     <select id="countAnswerBySearch" resultType="java.lang.Long">
         select count(*)

@@ -16,9 +16,12 @@
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" type="text/css" href="/css/community/questionIndex.css"/>
     <script> var pagenum="${PageInfo.pageNum}"</script>
+    <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
+    <!--<script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>-->
+    <script src="/js/community/jquery-1.10.2.js"></script>
+    <script src="/js/community/tag.js"></script>
 </head>
-<script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+
 <body>
 <%@include file="../common/header.jsp"%>
 <div class="mask"></div>
@@ -205,10 +208,6 @@
                     <!--验证问题是否有问号，没有问号，显示-->
                     <p>你还没有给问题添加问号哦</p>
                 </div>
-                <div class="setReward">
-                    设置悬赏金额
-                    <input class="setReward-value" type="text" placeholder="0" name="j1"/>
-                </div>
                 <!--富文本编辑器-->
                 <div class="text">
                     <div id="div1" class="toolbar" ></div>
@@ -240,24 +239,13 @@
 
 
                 <div class="addtags">
-                    <c:forEach items="${tags}" var="tag1">
-                        <div class="newtag">
-                            &nbsp;
-                            <div class="newtag-description">${tag1.tagName}</div>
-                            <div class="cancel"><a >X</a></div>
-                        </div>
-                    </c:forEach>
-                    <div class="add">+</div>
-                    <div class="addword">添加话题</div>
-                    <div style="display: none">
-                        <c:forEach items="${alltag}" var="a">
-                            <div class="newtag-description">${a.tagName}</div>
-                            <div class="add"><a>+</a></div>
-                        </c:forEach>
-                    </div>
+                    <div class="addtags-description">添加标签：</div>
+                    <input type="text" id="tagValue" placeholder="用户名或邮件地址" name="tags"/>
                 </div>
-                <input type="radio" name="radio" class="radio" style="float: left">匿名提问
-                <input type="submit" value="发布问题" class="submit"/>
+                <div class="add-buttom">
+                    <div class="radio"><input type="radio" name="radio" >匿名提问</div>
+                    <input type="submit" value="发布问题" class="submit"/>
+                </div>
             </form>
         </div>
         <div class="ask">
@@ -276,7 +264,12 @@
 </div>
 <%@include file="../common/footer.jsp"%>
 </body>
-<script src="/js/questionMain.js"></script>
+<script src="/js/community/questionMain.js"></script>
 <script src="/js/common/common.js"></script>
+<script >
+    //添加标签
+    var tag = new Tag("tagValue");
+    tag.initView();
+</script>
 
 </html>
