@@ -7,6 +7,7 @@ import com.utunan.pojo.base.community.Tag;
 import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.util.BigQuiz;
 import com.utunan.service.community.AnswerService;
+import com.utunan.service.community.PublishQuizService;
 import com.utunan.service.community.QuizService;
 import com.utunan.service.community.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,9 @@ public class QuizSearchController {
 	private AnswerService answerService;
 	@Autowired
 	private TagService tagService;
+
+	@Autowired
+	private PublishQuizService publishQuizService;
 
 	/**
 	 * @author  孙程程
@@ -99,7 +103,7 @@ public class QuizSearchController {
 			num=Integer.parseInt(pageNum);
 		}
 		//回答列表
-		List<Answer> answerList =this.answerService.findAnswerListBySearch(searchValue, num, 10);
+		List<Answer> answerList =this.publishQuizService.findAnswerListBySearch(searchValue, num, 10);
 
 		//返回数据
 		request.setAttribute("object", answerList);

@@ -43,7 +43,7 @@ public interface QuizService {
 	 * @return  null
 	 */
 	
-	void saveQuiz(Long uid,String title,String content);
+	void saveQuiz(Long qid,User user,String title,String content);
 	/**
 	 * @author  张正扬
 	 * @description
@@ -69,7 +69,7 @@ public interface QuizService {
 	 * @param  quizId
 	 * @return  java.lang.Long
 	 */
-	Long countCommentByQuizId(Long quizId);
+	Long countAnswerByQuizId(Long quizId);
 	
 	/**
 	 * @author  孙程程
