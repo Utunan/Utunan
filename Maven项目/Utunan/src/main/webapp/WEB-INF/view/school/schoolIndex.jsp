@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="java.util.List,com.utunan.pojo.*"%>
 <head>
     <meta charset="UTF-8">
@@ -10,7 +11,9 @@
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/school/school.css">
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
-    <script> var pagenum="${PageInfo.pageNum}"</script>
+    <script>
+        var pagenum="${PageInfo.pageNum}"
+    </script>
 </head>
 
 <body>
@@ -109,20 +112,30 @@
               </tr>
             </thead>
             <tbody>
+            <c:set var="num" value="0"></c:set>
             <c:forEach items="${schoolList}" var="school" >
                 <c:forEach items="${school.direction}" var="direction" >
-              <tr>
-                <td>${direction.schoolName}</td>
-                <td>${direction.collegeName}</td>
-                <td><label for="${direction.degreeType}">${direction.degreeType}</label></td>
-                <td>${direction.majorlName}</td>
-                <td>${direction.directionName}</td>
-                <td><a href="/displayDirectionDetail?directionId=${direction.directionId}">详情</a></td>
-                <td><a><img src="../images/school/redheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
-              </tr>
+                  <tr>
+                    <td>${direction.schoolName}</td>
+                    <td>${direction.collegeName}</td>
+                    <td><label for="${direction.degreeType}">${direction.degreeType}</label></td>
+                    <td>${direction.majorlName}</td>
+                    <td>${direction.directionName}</td>
+                    <td><a href="/displayDirectionDetail?directionId=${direction.directionId}">详情</a></td>
+                      ${directionIds[num]}******
+                    <c:choose>
+                        <c:when test="${directionIds[num]==direction.directionId}">
+                            <td><a><img src="../images/school/redheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
+                        </c:when>
+                        <c:otherwise>
+                            <td><a><img src="../images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
+                        </c:otherwise>
+                    </c:choose>
+                  </tr>
+                    <c:set var="num" value="${num+1}"></c:set>
                 </c:forEach>
             </c:forEach>
-
+<%--<c:when test="${fn:contains(directionIds, direction.directionId)}">--%>
             </tbody>
           </table>
     </div>

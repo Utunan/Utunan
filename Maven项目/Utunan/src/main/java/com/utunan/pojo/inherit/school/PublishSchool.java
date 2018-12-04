@@ -3,6 +3,7 @@ package com.utunan.pojo.inherit.school;
 import com.utunan.pojo.base.school.Direction;
 import com.utunan.pojo.base.school.School;
 import com.utunan.pojo.base.user.User;
+import com.utunan.pojo.inherit.user.PublishDirectionCollector;
 
 import java.util.List;
 
@@ -14,6 +15,23 @@ import java.util.List;
 public class PublishSchool extends School {
     //与研究方向一对多
     private List<Direction> direction;
+    /*//与院校收藏一对多
+    private List<PublishDirectionCollector> publishDirectionCollectors;111*/
+
+    @Override
+    public String toString() {
+        return "PublishSchool{" +
+                "direction=" + direction +
+                '}';
+    }
+/*
+    public List<PublishDirectionCollector> getPublishDirectionCollectors() {
+        return publishDirectionCollectors;
+    }
+
+    public void setPublishDirectionCollectors(List<PublishDirectionCollector> publishDirectionCollectors) {
+        this.publishDirectionCollectors = publishDirectionCollectors;
+    }*/
 
     @Override
     public List<Direction> getDirection() {
@@ -25,10 +43,4 @@ public class PublishSchool extends School {
         this.direction = direction;
     }
 
-    @Override
-    public String toString() {
-        return "PublishDirection{" +
-                "direction=" + direction +
-                '}';
-    }
 }
