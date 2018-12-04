@@ -1,6 +1,7 @@
 package com.utunan.service.community;
 
 import com.utunan.pojo.base.community.Answer;
+import com.utunan.pojo.inherit.community.PublishQuiz;
 
 import java.util.List;
 
@@ -17,9 +18,9 @@ public interface PublishQuizService {
      * @param  [quizId]
      * @return  java.lang.Long
      */
-    public Long countAnswerByQuizId(Long quizId);
+     Long countAnswerByQuizId(Long quizId);
 
-    public List<Answer> findAnswerListByQuizId(Long quizId);
+     PublishQuiz findAnswerListByQuizId(Long quizId);
 
     /*
      * @author  王碧云
@@ -28,7 +29,7 @@ public interface PublishQuizService {
      * @param  [quizId]
      * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
-    List<Answer> findAnswerListByPraiseCount(Long quizId);
+    PublishQuiz findAnswerListByPraiseCount(Long quizId);
 
     /**
      * @author  孙程程

@@ -22,7 +22,8 @@
 </head>
 <body>
 <%@include file="../common/header.jsp"%>
-    <!--
+
+    <%--
     问题：${quiz.quizTitle}<br/>
     用户：${quiz.user.userNickName}<br/>
     发表时间：${quiz.releaseTime}<br/>
@@ -59,15 +60,15 @@
         <td>${answer.answerContent}</td>
         <td>${answer.praiseCount}</td>
         <td>
-        <%--<c:forEach items="${obj.tagList}" var="taglist">
+        <c:forEach items="${obj.tagList}" var="taglist">
             ${taglist.tagName}&nbsp;&nbsp;&nbsp;
-        </c:forEach>--%>
+        </c:forEach>
             <a href="#">查看子评论</a>
         </td>
         </tr>
     </c:forEach>
-    </table>
-    -->
+    </table>--%>
+
 
 <div class="content">
     <div class="question">
@@ -111,14 +112,14 @@
         </div>
     </div>
     <div class="answers">
-        <div class="answers-num">一共有${commentCountByQuizId}条评论</div>
+        <div class="answers-num">一共有${answerCountByQuizId}条回答</div>
         <select class="sequencing-principle"name="" onchange="self.location.href=options[selectedIndex].value">
             <option value="/displayQuizByQuizId?quizId=${quiz.quizId}" ${timeselect}>按时间顺序</option>
             <option value="/displayCommentByPraiseCount?quizId=${quiz.quizId}"  ${praiseselect}>按热度排序</option>
         </select>
     </div>
     <div class="answers-content">
-        <c:forEach items="${answerListByQuizId}" var="answer" varStatus="cou">
+        <c:forEach items="${answer}" var="answer" varStatus="cou">
         <div class="reply">
             <div class="reply-top">
                 <img src="${answer.user.userHeadImg}"width="55px"height="55px">
@@ -137,11 +138,11 @@
             </div>
             <div class="reply-evaluation">
                 <div class="a">
-                    <div class="reply-praise">赞（${answer.commentPraiseCount}）</div>
+                    <div class="reply-praise">赞（${answer.praiseCount}）</div>
                     <a href="praise?quizId=${quiz.quizId}"><img src="/images/community/jia1.svg" width="34px"height="34px"></a>
                     <div class="reply-give-praise">点赞</div>
                     <img src="/images/community/zan.svg" width="34px"height="34px">
-                    <div class="view-comments">查看评论</div>
+                    <div class="view-comments"><a href="#"> 查看评论</a></div>
                 </div>
             </div>
         </div>
@@ -153,7 +154,7 @@
                         <option value="0">按时间顺序</option>
                         <option value="1">按热度排序</option>
                     </select>
-                    <div class="close">收起评论</div>
+                    <div class="close"><a href="#"> 收起评论</a></div>
                 </div>
             </div>
             <div class="comments-content">
@@ -168,7 +169,7 @@
             </div>
             <form action="comment1?commentId=${answer.answerId}" method="post">
                 <div class="comments-reply">
-                    <input class="comments-reply-input"type="text" width="660px" height="30px" name="text">
+                    <input class="comments-reply-input" type="text" width="660px" height="30px" name="text">
                     <div class="comments-reply-report"><input type="submit" value="发表评论"/></div>
                 </div>
             </form>
