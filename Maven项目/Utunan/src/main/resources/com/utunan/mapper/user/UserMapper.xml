@@ -31,8 +31,8 @@
     </select>
 
     <insert id="insert">
-        insert into user(userTelephone,userPassword,registerTime)
-        values(#{userTelephone},#{userPassword},#{registerTime})
+        insert into user(userTelephone,userPassword,userNickName,registerTime)
+        values(#{userTelephone},#{userPassword},#{userNickName},#{registerTime})
     </insert>
 
     <update id="updateUser" parameterType="com.utunan.pojo.base.user.User">

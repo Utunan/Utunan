@@ -29,6 +29,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUser(User user) {
         Date date = new Date();
+        int x=(int)(Math.random()*100);
+        String userNickName="Utunan"+(int)((Math.random()*9+1)*100000)+date.getTime()%10000000;
+        System.out.println(userNickName);
+        user.setUserNickName(userNickName);
         user.setRegisterTime(date);
         userMapper.insert(user);
     }
