@@ -30,7 +30,7 @@ public class QuestionSearchController {
 	@RequestMapping("/searchQuestion")
 	public String searchQuestion(HttpServletRequest request){
 		Long questionNumber=questionService.countAllQuestion();
-		request.setAttribute("totleQuestion","在"+questionNumber+"道题目中搜索");
+		request.setAttribute("totleQuestion",questionNumber);
 		return "questionbank/searchQuestion";
 	}
 
