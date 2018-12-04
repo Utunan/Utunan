@@ -76,8 +76,15 @@ public class PublishSchoolServiceImpl implements PublishSchoolService {
             }
             return list;
         }
+    }
 
-
+    public String judgeIsNull(String[] list){
+        if (list == null){
+            return null;
+        }else {
+            String s =String.join(",",list);
+            return s;
+        }
     }
 
 }
