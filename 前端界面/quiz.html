@@ -8,7 +8,6 @@
 
 <link rel="stylesheet" href="css/questionBank/quiz.css">
 <link rel="stylesheet" href="css/questionBank/subject.css">
-<script type="text/javascript" src="js/questionBank/quiz.js"></script>
 
 </head>
 <body>
@@ -18,60 +17,60 @@
     <div class="content-top">
         <ul class="content-ul">
             <li class="active">
-                <a href="#subject" >专项练习</a>
+                专项练习
             </li>
             <li class="option">
-                <a href="#wrong" >错题练习</a>
+                错题练习
             </li>
             <li class="option">
-                <a href="#recommend" class="option">智能推荐</a>
+                智能推荐
             </li>
             <li  class="option">
-                <a href="#serach" > 搜索</a>
+                 搜索
             </li>
         </ul>
     </div>
     <!--content display-->
 	<div  class="content-display">
-        <div id="subject">
+        <div class="active-content">
             <div class="subject-plate">
                 <div class="subject-name">数据结构</div>
                 <div class="subject-description">数据结构是计算机存储、组织数据的方式。</div>
                 <div class="subject-progress">共88题，已做33题</div>
-                <a href="#subject">开始练习>>></a>
+                <a href="#">开始练习>>></a>
             </div>
             <div class="subject-plate">
-                    <div class="subject-name">计算机组成原理</div>
+                    <div class="subject-name">计算机<br>组成原理</div>
                     <div class="subject-description">数据结构是计算机存储、组织数据的方式。</div>
                     <div class="subject-progress">共88题，已做33题</div>
-                    <a href="#subject">开始练习>>></a>
+                    <a href="#">开始练习>>></a>
             </div>
             <div class="subject-plate">
                 <div class="subject-name">操作系统</div>
                 <div class="subject-description">数据结构是计算机存储、组织数据的方式。</div>
                 <div class="subject-progress">共88题，已做33题</div>
-                <a href="#subject">开始练习>>></a>
+                <a href="#">开始练习>>></a>
             </div>
             <div class="subject-plate">
                 <div class="subject-name">计算机网络</div>
                 <div class="subject-description">数据结构是计算机存储、组织数据的方式。</div>
                 <div class="subject-progress">共88题，已做33题</div>
-                <a href="#subject">开始练习>>></a>
+                <a href="#">开始练习>>></a>
             </div>
             <div class="subject-plate">
                 <div class="subject-name">数据库原理</div>
                 <div class="subject-description">数据结构是计算机存储、组织数据的方式。</div>
                 <div class="subject-progress">共88题，已做33题</div>
-                <a href="#subject">开始练习>>></a>
+                <a href="#">开始练习>>></a>
             </div>
             <div class="subject-plate">
                 <div class="subject-name">C语言</div>
                 <div class="subject-description">数据结构是计算机存储、组织数据的方式。</div>
                 <div class="subject-progress">共88题，已做33题</div>
-                <a href="#subject">开始练习>>></a>
+                <a href="#">开始练习>>></a>
             </div>
         </div>
-        <div id="wrong">
+        <div class="option-content">
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -110,10 +109,10 @@
                 </tbody>
             </table>
         </div>
-        <div id="recommend">
+        <div class="option-content">
             
         </div>
-        <div id="search">
+        <div class="option-content">
             <form>
                 <input type="text" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}">
                 <input type="submit"  value="Search"/>
@@ -123,26 +122,9 @@
     <!--//content display-->
 </div>
 <!--//content-->
-<script>
-    var options = document.getElementsByTagName("li");
-    for (var i = 0; i < options.length; i++) {
-        options[i].onclick = function () {
-            for (var n = 0; n < options.length; n++) {
-                options[n].className ="option";
-            }
-            this.className ="active";
-        }
-    }
 
-    var  array= new Array("#8063b2","#00baad","#ff8571","#f1819c","#ffc979","#4e99ec");
-    var subjectPlates=document.getElementsByClassName("subject-plate");
-    for(var i=0;i<subjectPlates.length;i++){
-        var index = Math.floor((Math.random()*array.length)); 
-        subjectPlates[i].style.borderColor=array[index];
-    }
 
-    var a=document.getElementsByClassName()
-</script>
+<script src="js/questionBank/quiz.js"></script>
 
 
 </body>
