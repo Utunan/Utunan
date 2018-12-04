@@ -330,3 +330,15 @@ header{
     left:670px;
     position: relative;
 }
+
+.answer{
+    width: 300px;
+    background-color:  rgba(67, 126, 170, 1);
+    color: #fff;
+    text-indent: 1em;
+    font-weight: bold;
+    padding-top:10px;
+    height: 170px;
+    border-radius: 20px;
+    float: left;
+}

@@ -79,8 +79,8 @@
                         </li>
                         <li>
                             <label>注册时间</label>
-                            <span><fmt:formatDate value="${User.registerTime }" type="date"
-                                                  pattern="yyyy-MM-dd hh:mm:ss"/></span>
+                            <span style="line-height: 32px;"><fmt:formatDate value="${User.registerTime }" type="date"
+                                                  pattern="yyyy-MM-dd HH:mm:ss"/></span>
                         </li>
                         <li class="userop">
                             <button type="submit">提交</button>
