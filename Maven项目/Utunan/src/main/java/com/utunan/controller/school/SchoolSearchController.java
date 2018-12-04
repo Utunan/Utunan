@@ -4,12 +4,15 @@ import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.base.school.Direction;
 import com.utunan.pojo.base.school.School;
 
+import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.inherit.school.PublishDirection;
 import com.utunan.pojo.inherit.school.PublishSchool;
+import com.utunan.pojo.inherit.user.PublishDirectionCollector;
 import com.utunan.service.school.DirectionService;
 import com.utunan.service.school.PublishDirectionService;
 import com.utunan.service.school.PublishSchoolService;
 import com.utunan.service.school.SchoolService;
+import com.utunan.service.user.PublishDirectionCollectorService;
 import org.apache.commons.codec.binary.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,9 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.xml.ws.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -34,6 +39,8 @@ public class SchoolSearchController {
     private PublishSchoolService publishSchoolService;
     @Autowired
     private PublishDirectionService publishDirectionService;
+    @Autowired
+    private PublishDirectionCollectorService publishDirectionCollectorService;
 
     /*
      * @author  王碧云
@@ -44,7 +51,24 @@ public class SchoolSearchController {
      */
     @RequestMapping("/displaySchool")
     public String displaySchool(HttpServletRequest request,
-                                @RequestParam(value = "pageNum",required = false) String pageNum){
+                                @RequestParam(value = "pageNum",required = false) String pageNum,
+                                HttpSession session){
+        Object obj = session.getAttribute("User");
+        Long userId = null;
+        if(obj != null){
+            //用户已登录
+            User user = (User)obj;
+            userId = user.getUserId();
+            System.out.println("[uuuuser]"+user);
+        }
+
+        /*List<PublishDirectionCollector> publishDirectionCollectorList = this.publishDirectionCollectorService.findDirectionCollectorByUser(userId);
+        System.out.println("[hahahha]"+publishDirectionCollectorList);*/
+        //查找收藏的院校Id
+        List<Long> directionIdList = this.publishDirectionCollectorService.findDirectionIdByUser(userId);
+        /*String directionIds = String.join(",",directionIdList.toString());
+        System.out.println("[yayaya]"+directionIds);*/
+
         List<PublishSchool> schoolList =null;
         if(pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0){
             schoolList = this.publishSchoolService.findAllSchool(1,15);
@@ -55,6 +79,7 @@ public class SchoolSearchController {
         request.setAttribute("url", "displaySchool");
         request.setAttribute("schoolList", schoolList);
         request.setAttribute("PageInfo",new PageInfo(schoolList,8));
+        request.setAttribute("directionIds",directionIdList);
         return "/school/schoolIndex";
     }
 
