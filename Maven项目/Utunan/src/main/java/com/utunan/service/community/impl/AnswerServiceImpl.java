@@ -3,6 +3,8 @@ package com.utunan.service.community.impl;
 import com.github.pagehelper.PageHelper;
 import com.utunan.mapper.community.AnswerMapper;
 import com.utunan.pojo.base.community.Answer;
+import com.utunan.pojo.base.community.Quiz;
+import com.utunan.pojo.base.user.User;
 import com.utunan.service.community.AnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,11 +30,11 @@ public class AnswerServiceImpl implements AnswerService {
      */
 
     @Override
-    public void saveAnswer(Long aid,Long quizId,String content,Long uid){
+    public void saveAnswer(Long aid, Quiz quiz, String content, User user){
         Answer answer =new Answer();
         answer.setAnswerId(aid);
-        answer.getQuiz().setQuizId(quizId);
-        answer.getUser().setUserId(uid);
+        answer.setQuiz(quiz);
+        answer.setUser(user);
         answer.setAnswerContent(content);
         answer.setAnswerTime(new Date());
         int i=0;
@@ -122,11 +124,11 @@ public class AnswerServiceImpl implements AnswerService {
      */
 
     @Override
-    public void saveAnswer1(Long aid,Long answerId,String content,Long uid){
+    public void saveAnswer1(Long aid,Long answerId,String content,User user){
         Answer answer =new Answer();
         answer.setAnswerId(aid);
         answer.setParentAnswer(answerId);
-        answer.getUser().setUserId(uid);
+        answer.setUser(user);
         answer.setAnswerContent(content);
         answer.setAnswerTime(new Date());
         int i=0;

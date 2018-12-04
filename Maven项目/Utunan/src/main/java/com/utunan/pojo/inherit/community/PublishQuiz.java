@@ -11,20 +11,20 @@ import java.util.List;
  * @date 2018/12/2 21:01
  */
 public class PublishQuiz extends Quiz {
-    private List<Answer> answer;
+    private List<Answer> answers;
 
-    public List<Answer> getAnswer() {
-        return answer;
+    public List<Answer> getAnswers() {
+        return answers;
     }
 
-    public void setAnswer(List<Answer> answer) {
-        this.answer = answer;
+    public void setAnswers(List<Answer> answer) {
+        this.answers = answer;
     }
 
     @Override
     public String toString() {
         return "PublishQuiz{" +
-                "answer=" + answer +
+                "answers=" + answers +
                 '}';
     }
 }

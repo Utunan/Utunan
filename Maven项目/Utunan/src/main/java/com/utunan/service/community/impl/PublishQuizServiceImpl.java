@@ -3,6 +3,7 @@ package com.utunan.service.community.impl;
 import com.github.pagehelper.PageHelper;
 import com.utunan.mapper.community.PublishQuizMapper1;
 import com.utunan.pojo.base.community.Answer;
+import com.utunan.pojo.inherit.community.PublishQuiz;
 import com.utunan.service.community.PublishQuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,7 @@ public class PublishQuizServiceImpl implements PublishQuizService {
     }
 
     @Override
-    public List<Answer> findAnswerListByQuizId(Long quizId) {
+    public PublishQuiz findAnswerListByQuizId(Long quizId) {
         return this.publishQuizMapper1.findAnswerListByQuizId(quizId);
     }
 
@@ -45,7 +46,7 @@ public class PublishQuizServiceImpl implements PublishQuizService {
      * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
     @Override
-    public List<Answer> findAnswerListByPraiseCount(Long quizId) {
+    public PublishQuiz findAnswerListByPraiseCount(Long quizId) {
         return this.publishQuizMapper1.findAnswerListByPraiseCount(quizId);
     }
 

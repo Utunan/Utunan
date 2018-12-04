@@ -1,5 +1,6 @@
 package com.utunan.controller.community;
 
+import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.user.User;
 import com.utunan.service.community.AnswerService;
 import com.utunan.service.community.QuizService;
@@ -33,10 +34,11 @@ public class AnswerController {
      * @param  [request, session]
      * @return  java.lang.String
      */
-    @RequestMapping(value = "/comment", method = RequestMethod.POST)
+    @RequestMapping(value = "/answer", method = RequestMethod.POST)
     public String insertComment(HttpServletRequest request, HttpSession session) throws UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");
-        String quizId = request.getParameter("quizId");
+        Quiz quiz=(Quiz)session.getAttribute("quiz");
+        String quizId=request.getParameter("quizId");
         String content = request.getParameter("textarea");
         Object ob = session.getAttribute("User");
         this.quizService.addAnswerCount(Long.parseLong(quizId));
@@ -44,15 +46,14 @@ public class AnswerController {
         aid += 1;
         if (ob != null) {
             User user = (User) ob;
-            Long uid = user.getUserId();
-            this.answerService.saveAnswer(aid, Long.parseLong(quizId), content, uid);
+            this.answerService.saveAnswer(aid, quiz, content, user);
 
         }
         return "redirect:/displayQuizByQuizId?quizId=" + quizId;
     }
 
 
-    @RequestMapping(value = "/comment1", method = RequestMethod.POST)
+    @RequestMapping(value = "/answer1", method = RequestMethod.POST)
     /*
      * @author  张正扬
      * @description 向评论表中插入评论
@@ -67,13 +68,12 @@ public class AnswerController {
         String content = request.getParameter("text");
         Object ob = session.getAttribute("User");
         Long aid = this.answerService.getMaxAid();
-
         aid += 1;
         if (ob != null) {
             User user = (User) ob;
-            Long uid = user.getUserId();
 
-            this.answerService.saveAnswer1(aid, Long.parseLong(answerId), content, uid);
+
+            this.answerService.saveAnswer1(aid, Long.parseLong(answerId), content, user);
 
 
 

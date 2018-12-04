@@ -1,6 +1,7 @@
 package com.utunan.mapper.community;
 
 import com.utunan.pojo.base.community.Answer;
+import com.utunan.pojo.inherit.community.PublishQuiz;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -19,10 +20,10 @@ public interface PublishQuizMapper1 {
     Long countAnswerByQuizId(@Param("quizId") Long quizId);
 
     /*根据quizId返回评论列表（王碧云）*/
-    List<Answer> findAnswerListByQuizId(@Param("quizId") Long quizId);
+    PublishQuiz findAnswerListByQuizId(@Param("quizId") Long quizId);
 
     /*王碧云 根据热度返回评论列表*/
-    List<Answer> findAnswerListByPraiseCount(@Param("quizId") Long quizId);
+    PublishQuiz findAnswerListByPraiseCount(@Param("quizId") Long quizId);
 
 
     //根据搜索条件返回评论列表

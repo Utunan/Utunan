@@ -32,7 +32,7 @@
     </resultMap>
     <!-- 插入回答 -->
     <insert id="toInsert" parameterType="com.utunan.pojo.base.community.Answer" >
-        insert into answer(answerId,quizId,userId,answerContent,answerTime,praiseCount,parentAnswer) values(#{answerId},#{quizId},#{userId},#{answerContent},#{answerTime},#{praiseCount},#{parentAnswer})
+        insert into answer(answerId,quizId,userId,answerContent,answerTime,praiseCount,parentAnswer) values(#{answerId},#{quiz.quizId},#{user.userId},#{answerContent},#{answerTime},#{praiseCount},#{parentAnswer})
     </insert>
 
 

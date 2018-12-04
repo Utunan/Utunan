@@ -3,6 +3,7 @@ package com.utunan.controller.community;
 import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.community.QuizTag;
+import com.utunan.pojo.inherit.community.PublishQuiz;
 import com.utunan.pojo.util.BigQuiz;
 import com.utunan.pojo.util.Page;
 import com.utunan.service.community.AnswerService;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -41,7 +43,7 @@ public class QuizCommentController {
      * @return  java.lang.String
      */
     @RequestMapping("/displayQuizByQuizId")
-    public String displayQuizByQuizId(HttpServletRequest request){
+    public String displayQuizByQuizId(HttpServletRequest request, HttpSession session){
         String url = "displayQuizByQuizId";
         String quizId = request.getParameter("quizId");
         //根据quizId返回quiz
@@ -49,9 +51,14 @@ public class QuizCommentController {
         //根据quizId返回标签
         List<QuizTag> quizTagList =this.quizTagService.findQuizTagByQuizId(Long.parseLong(quizId));
         //根据quizId返回评论数量
-        Long answerCountByQuizId = this.quizService.countAnswerByQuizId(Long.parseLong(quizId));
+        Long answerCountByQuizId = this.publishQuizService.countAnswerByQuizId(Long.parseLong(quizId));
         //根据quizId返回评论列表(根据时间排序)
-        List<Answer> answer = this.publishQuizService.findAnswerListByQuizId(Long.parseLong(quizId));
+        PublishQuiz ans = this.publishQuizService.findAnswerListByQuizId(Long.parseLong(quizId));
+        if (ans!=null){
+            List<Answer> answer= ans.getAnswers();
+            request.setAttribute("answer", answer);
+        }
+
 
         //获取页数
         String pageNum=request.getParameter("pageNum");
@@ -68,9 +75,8 @@ public class QuizCommentController {
         Page<BigQuiz> p = new Page<>(num, 6);
         p.setTotalCount(quizNumber);
         request.setAttribute("quizTagList", quizTagList);
-        request.setAttribute("quiz", quiz);
+        session.setAttribute("quiz", quiz);
         request.setAttribute("answerCountByQuizId", answerCountByQuizId);
-        request.setAttribute("answer", answer);
         request.setAttribute("url", url);
         request.setAttribute("timeselect","selected=\"selected\"");
 
@@ -111,14 +117,17 @@ public class QuizCommentController {
         //根据quizId返回标签
         List<QuizTag> quizTagList =this.quizTagService.findQuizTagByQuizId(Long.parseLong(quizId));
         //根据quizId返回评论数量
-        Long commentCountByQuizId = this.quizService.countAnswerByQuizId(Long.parseLong(quizId));
+        Long answerCountByQuizId = this.publishQuizService.countAnswerByQuizId(Long.parseLong(quizId));
         //根据quizId返回评论列表(根据热度排序)
-        List<Answer> answerListByQuizId = this.publishQuizService.findAnswerListByPraiseCount(Long.parseLong(quizId));
+        PublishQuiz ans = this.publishQuizService.findAnswerListByPraiseCount(Long.parseLong(quizId));
+        if (ans!=null){
+            List<Answer> answer= ans.getAnswers();
+            request.setAttribute("answer", answer);
+        }
     
         request.setAttribute("quizTagList", quizTagList);
         request.setAttribute("quiz", quiz);
-        request.setAttribute("commentCountByQuizId", commentCountByQuizId);
-        request.setAttribute("answerListByQuizId", answerListByQuizId);
+        request.setAttribute("answerCountByQuizId", answerCountByQuizId);
         request.setAttribute("praiseselect","selected=\"selected\"");
     
         return "community/quizcommentpage";
