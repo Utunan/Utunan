@@ -3,7 +3,7 @@ package com.utunan.controller.community;
 import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.community.QuizTag;
-import com.utunan.pojo.util.BigQuiz;
+import com.utunan.pojo.inherit.community.BigQuiz;
 import com.utunan.pojo.util.Page;
 import com.utunan.service.community.AnswerService;
 import com.utunan.service.community.PublishQuizService;

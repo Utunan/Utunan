@@ -1,4 +1,4 @@
-package com.utunan.pojo.util;
+package com.utunan.pojo.inherit.community;
 
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.community.Tag;

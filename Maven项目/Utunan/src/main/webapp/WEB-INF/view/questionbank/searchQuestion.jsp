@@ -12,12 +12,14 @@
     <title>在无边无际的题库中摸索</title>
 </head>
 <body>
+    <!--搜索框-->
     <c:if test="${empty searchValue}">
         <form action="/searchResult" method="post">
-            <input type="text" name="searchValue" value="${totleQuestion}">
+            <input type="text" name="searchValue" value="在${totleQuestion}道题目中搜索">
             <input type="submit" value="好题尽在优图南">
         </form>
     </c:if>
+    <!--搜索结果-->
     <c:if test="${not empty searchValue}">
         <table>
             <tr>
