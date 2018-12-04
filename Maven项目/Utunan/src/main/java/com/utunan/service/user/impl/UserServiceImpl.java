@@ -3,6 +3,7 @@ package com.utunan.service.user.impl;
 import com.utunan.mapper.user.UserMapper;
 import com.utunan.pojo.base.user.User;
 import com.utunan.service.user.UserService;
+import com.utunan.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser(User user) {
-        User u=userMapper.selectByPermit(user);
+        User u=null;
+        if(StringUtil.isEmail(user.getUserEmail())) {
+            u = userMapper.selectByPermit(user);
+        }else{
+            u=userMapper.selectByP(user);
+        }
         return u;
     }
 

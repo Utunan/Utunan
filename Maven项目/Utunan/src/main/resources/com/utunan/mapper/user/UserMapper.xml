@@ -14,6 +14,12 @@
         and
         userPassword=#{userPassword}
     </select>
+    <select id="selectByP" resultType="com.utunan.pojo.base.user.User">
+        select *
+        from  user
+        where userTelephone=#{userTelephone}
+              and userPassword=#{userPassword}
+    </select>
 
     <select id="selectByPorE" resultType="com.utunan.pojo.base.user.User">
         select *

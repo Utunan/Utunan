@@ -6,7 +6,7 @@ state = false;
 
 function checkpermit() {
     var regt = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
-    var rege = new RegExp("^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$");
+    var rege = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     return (!regt.test(permit.value)) && (!rege.test(permit.value));
 }
 
@@ -63,22 +63,24 @@ password.onblur = function () {
 
 
 function checkForm() {
-
+    var checkForm_state=true;
+    var replywords=""
     if (password.value == '' || permit.value == '') {
-        reply.innerHTML = '通行证或密码不能为空';
+        replywords = '通行证或密码不能为空';
+        checkForm_state = false;
         if (password.value == '') {
             password.parentNode.style.border = '1px solid red';
         }
         if (permit.value == '') {
             permit.parentNode.style.border = '1px solid red';
         }
-        state = false;
     }
 
     if (checkpermit()) {
-        reply.innerHTML = '请使用手机号或邮箱登录'
+        replywords = '请使用手机号或邮箱登录'
         permit.parentNode.style.border = '1px solid red';
-        state = false;
+        checkForm_state = false;
     }
-    return state;
+    reply.innerHTML =replywords
+    return checkForm_state;
 }

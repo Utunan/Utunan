@@ -39,7 +39,7 @@
                             <div class="newreply">
                                 <a href="">${A.answerContent}</a>
                             </div>
-                            <div class="replytime"><fmt:formatDate value="${A.answerTime }" type="date" pattern="yyyy-MM-dd hh:mm:ss"/></div>
+                            <div class="replytime"><fmt:formatDate value="${A.answerTime }" type="date" pattern="yyyy-MM-dd HH:mm:ss"/></div>
                         </div>
                     </li>
                 </c:forEach>
