@@ -24,7 +24,7 @@
             </div>
         </div>
         <div  class="reply" id="reply">${reply}</div>
-        <form class="loginform" id="loginform" action="/login" method="post" onsubmit="return checkForm()">
+        <form class="loginform" id="loginform" action="/login" method="post"  onsubmit="return checkForm()">
             <div class="permit inputcase">
                 <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="您的手机/邮箱">
             </div>

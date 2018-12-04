@@ -14,6 +14,12 @@
         and
         userPassword=#{userPassword}
     </select>
+    <select id="selectByP" resultType="com.utunan.pojo.base.user.User">
+        select *
+        from  user
+        where userTelephone=#{userTelephone}
+              and userPassword=#{userPassword}
+    </select>
 
     <select id="selectByPorE" resultType="com.utunan.pojo.base.user.User">
         select *
@@ -25,8 +31,8 @@
     </select>
 
     <insert id="insert">
-        insert into user(userTelephone,userPassword,registerTime)
-        values(#{userTelephone},#{userPassword},#{registerTime})
+        insert into user(userTelephone,userPassword,userNickName,registerTime)
+        values(#{userTelephone},#{userPassword},#{userNickName},#{registerTime})
     </insert>
 
     <update id="updateUser" parameterType="com.utunan.pojo.base.user.User">
@@ -38,6 +44,12 @@
     <update id="updateUserPassword" parameterType="com.utunan.pojo.base.user.User">
         update user
         set userPassword=#{userPassword}
+        where userId=#{userId}
+    </update>
+
+    <update id="updateUserHeadImg" parameterType="com.utunan.pojo.base.user.User">
+        update user
+        set userHeadImg=#{userHeadImg}
         where userId=#{userId}
     </update>
 </mapper>

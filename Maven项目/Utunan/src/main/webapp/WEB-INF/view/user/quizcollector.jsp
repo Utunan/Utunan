@@ -22,7 +22,7 @@
     <div class="wrapper background">
         <%@include file="common/userfunction.jsp" %>
         <div class="content">
-            <div class="title"><span>收藏的帖子</span></div>
+            <div class="title"><span>问答收藏</span></div>
             <nav class="postlist">
                 <c:forEach items="${Quizzes }" var="Q">
                     <li>

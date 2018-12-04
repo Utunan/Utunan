@@ -45,7 +45,7 @@
     </li>
     <nav class="collection" id="collection" style="height:150px;">
         <a href="/user/directioncollector#userfunction">
-            <li>院校收藏夹</li>
+            <li>院系收藏夹</li>
         </a>
         <a href="/user/quizcollector#userfunction">
             <li>问答收藏夹</li>

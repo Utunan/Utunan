@@ -85,7 +85,7 @@ public interface QuizService {
 	 * @description 在某标签下根据发表时间分页查询问答列表
 	 * @date  8:46 2018/11/26
 	 * @param  tagName, pageNum, pageSize
-	 * @return  java.util.List<com.utunan.pojo.util.BigQuiz>
+	 * @return  java.util.List<com.utunan.pojo.inherit.community.BigQuiz>
 	 */
 	List<Quiz> quizListByTimeWithTagName(String tagName, int pageNum, int pageSize);
 	
@@ -94,7 +94,7 @@ public interface QuizService {
 	 * @description 在某标签下根据点赞数量分页查询问答列表
 	 * @date  15:36 2018/11/26
 	 * @param  tagName, pageNum, pageSize
-	 * @return  java.util.List<com.utunan.pojo.util.BigQuiz>
+	 * @return  java.util.List<com.utunan.pojo.inherit.community.BigQuiz>
 	 */
 	List<Quiz> quizListByPraiseWithTagName(String tagName, int pageNum, int pageSize);
 	

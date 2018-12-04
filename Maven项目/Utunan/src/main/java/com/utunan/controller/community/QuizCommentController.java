@@ -3,8 +3,11 @@ package com.utunan.controller.community;
 import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.community.QuizTag;
+
 import com.utunan.pojo.inherit.community.PublishQuiz;
-import com.utunan.pojo.util.BigQuiz;
+
+import com.utunan.pojo.inherit.community.BigQuiz;
+
 import com.utunan.pojo.util.Page;
 import com.utunan.service.community.AnswerService;
 import com.utunan.service.community.PublishQuizService;
@@ -79,10 +82,10 @@ public class QuizCommentController {
         request.setAttribute("answerCountByQuizId", answerCountByQuizId);
         request.setAttribute("url", url);
         request.setAttribute("timeselect","selected=\"selected\"");
-
+    
         return "community/quizcommentpage";
     }
-
+    
     /*
      * @author  王碧云
      * @description 跳转返回子评论

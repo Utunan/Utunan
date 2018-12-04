@@ -8,4 +8,5 @@ public interface UserService {
     boolean isExist(User user);
     boolean changeInfo(User user);
     User changeUserPassword(User user);
+    boolean changeUserHeadImg(User user,String img);
 }

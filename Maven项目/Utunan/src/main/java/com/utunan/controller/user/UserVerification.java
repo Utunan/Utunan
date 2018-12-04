@@ -5,17 +5,21 @@ import com.aliyuncs.exceptions.ClientException;
 import com.utunan.mapper.user.UserMapper;
 import com.utunan.pojo.base.user.User;
 import com.utunan.service.user.UserService;
+import com.utunan.util.ImgUtil;
 import com.utunan.util.RandUtil;
 import com.utunan.util.SmsDemo;
 import com.utunan.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.util.Date;
 
 @Controller
 public class UserVerification {
@@ -90,4 +94,33 @@ public class UserVerification {
         session.setAttribute("User",updateUser);
         return "redirect:/user/settings";
     }
+
+    @RequestMapping("/user/uploadHeadImg")
+    @ResponseBody
+    public String uploadHeadImg(HttpServletRequest request,HttpServletResponse response) throws InterruptedException {
+        String s=request.getParameter("image");
+        HttpSession session=request.getSession();
+        User user=(User)session.getAttribute("User");
+        long date=new Date().getTime();
+
+        String linux="/usr/local/tomcat/apache-tomcat-9.0.12/webapps/Utunan/images/userheadimg/";
+        String windows="C:/Users/ViFullCoder/Desktop/GitHub/Utunan/Maven项目/Utunan/target/Utunan/images/userheadimg/";
+
+        String path1=linux+user.getUserId()+"tempheadimg.png";
+        String path2=linux+user.getUserId()+date+"headimg.png";
+
+        ImgUtil.base64StrToImage(s,path1);
+        ImgUtil.changeImgSize(path1,path2,100,100);
+
+        String path3="/images/userheadimg/"+user.getUserId()+date+"headimg.png";
+        userService.changeUserHeadImg(user,path3);
+        File file=new File(linux+user.getUserHeadImg().substring(20));
+        file.delete();
+//        response.setHeader("Pragma","No-Cache");
+//        response.setHeader("Cache-Control","No-Cache");
+//        response.setDateHeader("Expires", 0);
+        session.setAttribute("User",user);
+        return "200";
+    }
+
 }

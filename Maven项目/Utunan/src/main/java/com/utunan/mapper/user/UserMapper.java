@@ -2,6 +2,7 @@ package com.utunan.mapper.user;
 
 import com.utunan.pojo.base.user.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 @Mapper
@@ -12,7 +13,9 @@ public interface UserMapper {
     //通过
     User selectByPermit(User user);
     User selectByPorE(User user);
+    User selectByP(User user);
     int updateUser(User user);
     int updateUserPassword(User user);
+    int updateUserHeadImg(@Param("userId")Long userId, @Param("userHeadImg")String userHeadImg);
 }
 

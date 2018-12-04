@@ -4,7 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.community.Tag;
 import com.utunan.pojo.base.user.User;
-import com.utunan.pojo.util.BigQuiz;
+import com.utunan.pojo.inherit.community.BigQuiz;
 import com.utunan.service.community.QuizService;
 import com.utunan.service.community.TagService;
 import org.springframework.beans.factory.annotation.Autowired;

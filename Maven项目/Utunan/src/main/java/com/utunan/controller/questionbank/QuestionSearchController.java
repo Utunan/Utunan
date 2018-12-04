@@ -30,8 +30,8 @@ public class QuestionSearchController {
 	@RequestMapping("/searchQuestion")
 	public String searchQuestion(HttpServletRequest request){
 		Long questionNumber=questionService.countAllQuestion();
-		request.setAttribute("totleQuestion","在"+questionNumber+"道题目中搜索");
-		return "questionbank/searchQuestion";
+		request.setAttribute("totleQuestion",questionNumber);
+		return "questionbank/searchquestion";
 	}
 
 	/**
@@ -59,7 +59,7 @@ public class QuestionSearchController {
 		request.setAttribute("url","searchResult");
 		request.setAttribute("searchValue", searchValue);
 		request.setAttribute("PageInfo", new PageInfo(questionList,5));
-		return "questionbank/searchQuestion";
+		return "questionbank/searchquestion";
 	}
 
 
