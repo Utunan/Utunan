@@ -40,14 +40,21 @@
             user.userId = #{userId}
         </where>
     </select>
-
+    <!--王碧云 根据用户查找收藏的院校Id-->
     <select id="findDirectionIdByUser" resultType="java.lang.Long">
-        select directionId
+        select distinct directionId
         from direction_collector dc
         join user on user.userId = dc.userId
         <where>
             user.userId = #{userId}
         </where>
+        order by directionId asc
     </select>
+    <!--王碧云 加入院校收藏夹-->
+    <insert id="insertDirectionCollector" parameterType="com.utunan.pojo.base.user.DirectionCollector">
+        insert
+        into direction_collector(userId,directionId)
+        values (#{userId},#{directionId})
+    </insert>
 
 </mapper>
