@@ -30,9 +30,37 @@ public class PublishDirectionCollectorServiceImpl implements PublishDirectionCol
     public List<PublishDirectionCollector> findDirectionCollectorByUser(Long userId) {
         return this.publishDirectionCollectorMapper.findDirectionCollectorByUser(userId);
     }
-
+    /*
+     * @author  王碧云
+     * @description 查找用户收藏的院校Id
+     * @date  19:58 2018/12/4/004
+     * @param  [userId]
+     * @return  java.util.List<java.lang.Long>
+     */
     @Override
     public List<Long> findDirectionIdByUser(Long userId) {
         return this.publishDirectionCollectorMapper.findDirectionIdByUser(userId);
+    }
+    /*
+     * @author  王碧云
+     * @description 加入用户院校收藏夹
+     * @date  19:58 2018/12/4/004
+     * @param  [userId, directionId]
+     * @return  void
+     */
+    @Override
+    public void insertDirectionCollector(Long userId, Long directionId) {
+        this.publishDirectionCollectorMapper.insertDirectionCollector(userId,directionId);
+    }
+    /*
+     * @author  王碧云
+     * @description 在院校收藏夹中删除
+     * @date  14:24 2018/12/5/005
+     * @param  [directionId]
+     * @return  void
+     */
+    @Override
+    public void deleteDirectionCollector(Long userId,Long directionId) {
+        this.publishDirectionCollectorMapper.deleteDirectionCollector(userId,directionId);
     }
 }

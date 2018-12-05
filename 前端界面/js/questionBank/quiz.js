@@ -1,6 +1,6 @@
 var options = document.getElementsByTagName("li");
 var contentDisplay=document.getElementsByClassName("content-display")[0];
-var optionsContent=contentDisplay.childNodes;
+var optionsContent=contentDisplay.children;
 console.log(optionsContent);
 
 for (var i = 0; i < options.length; i++) {
@@ -10,8 +10,8 @@ for (var i = 0; i < options.length; i++) {
             options[n].className ="option";
             optionsContent[n].className="option-content";
         }
-        this.className ="active";
-        optionsContent[this.index+1].className="active-content"
+        options[this.index].className ="active";
+        optionsContent[this.index].className="active-content"
     }
 }
 

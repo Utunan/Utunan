@@ -11,12 +11,7 @@
 <body>
 <%@include file="../common/header.jsp"%>
 <h2><a href="/searchQuestion">题目搜索</a></h2>
-<h2>
-    <form action="/subject" method="post">
-        <input type="hidden" value="${User.userId}" name="userId">
-        <input type="submit" value="专项练习">
-    </form>
-</h2>
+<h2><a href="/subject">专项练习</a></h2>
 <%@include file="../common/footer.jsp"%>
 </body>
 <script src="/js/common/common.js"></script>

@@ -25,8 +25,8 @@
             <div class="title">用户设置</div>
             <div class="changeinfo">
                 <div id><span>修改手机号</span></div>
-                <form method="POST" action="/user/changetelephone" onsubmit="onchecktelephone()">
-                    <div><span>${telephonereply}</span></div>
+                <form method="POST" action="/user/changetelephone" onsubmit="return onchecktelephone()">
+                    <div><span id="telephonereply">${telephonereply}</span></div>
                     <div>
                         <label for="oldtelephone">原手机号</label>
                         <input type="hidden" value="${User.userTelephone}" id="oldtelephone" />
@@ -34,7 +34,7 @@
                     </div>
                     <div>
                         <label for="newtelephone">新手机号</label>
-                        <input id="newtelephone" type="text">
+                        <input name="newtelephone" id="newtelephone" value="${pretelephonere}" type="text">
                     </div>
                     <div>
                         <label for="telecode">验证码</label>
@@ -46,16 +46,16 @@
             </div>
             <div class="changeinfo" id="changeemail">
                 <div><span>修改邮箱</span></div>
-                <form method="POST" action="/user/changeemail" onsubmit="oncheckemail()">
-                    <div><span>${emailreply}</span></div>
+                <form method="POST" action="/user/changeemail" onsubmit="return oncheckemail()">
+                    <div><span id="emailreply">${emailreply}</span></div>
                     <div>
                         <label for="oldemail">原邮箱</label>
-                        <input type="hidden" value="${User.userEmail}" id="oldemail" />
+                        <input name="oldemail" type="hidden" value="${User.userEmail}" id="oldemail" />
                         <span>${User.userEmail==null?"用户未设置邮箱":User.userEmail}</span>
                     </div>
                     <div>
                         <label for="newemail">新邮箱</label>
-                        <input type="text" id="newemail" />
+                        <input name="newemail" type="text" id="newemail" />
                     </div>
                     <div>
                         <label for="emailcode">验证码</label>
@@ -67,8 +67,8 @@
             </div>
             <div class="changeinfo" id="changepassword">
                 <div><span>修改密码</span></div>
-                <form method="POST" action="/user/changepassword">
-                    <div><span>${passwordreply}</span></div>
+                <form method="POST" action="/user/changepassword" onsubmit="return oncheckpassword()">
+                    <div><span id="passwordreply">${passwordreply}</span></div>
                     <div>
                         <label for="oldpassword">旧密码</label>
                         <input name="oldpassword" id="oldpassword" type="text">

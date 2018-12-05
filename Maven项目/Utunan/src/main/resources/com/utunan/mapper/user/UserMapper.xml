@@ -52,4 +52,17 @@
         set userHeadImg=#{userHeadImg}
         where userId=#{userId}
     </update>
+
+    <update id="updateUserTelephone" parameterType="com.utunan.pojo.base.user.User">
+        update user
+        set userTelephone=#{userTelephone}
+        where userId=#{userId}
+    </update>
+
+    <update id="updateUserEmail" parameterType="com.utunan.pojo.base.user.User">
+        update user
+        set userEmail=#{userEmail}
+        where userId=#{userId}
+    </update>
+
 </mapper>

@@ -14,22 +14,4 @@
         select count(*)
         from question
     </select>
-    <!--所有科目-->
-    <select id="listSubject" resultType="com.utunan.pojo.base.questionbank.Subject">
-        select *
-        from subject
-    </select>
-    <!--科目下所有题目数量-->
-    <select id="countQuestionBySubject" resultType="java.lang.Long">
-        select count(*)
-        from question
-        where subjectId=#{subjectId}
-    </select>
-    <!--科目下已做题目数量-->
-    <select id="countResolveQuestionBySubject" resultType="java.lang.Long">
-        select count(uqb.questionId)
-        from user_question_bank uqb
-        join question q on uqb.questionId=q.questionId
-        where q.subjectId=#{subjectId} and uqb.userId=#{userId}
-    </select>
 </mapper>

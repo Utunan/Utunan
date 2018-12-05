@@ -13,7 +13,4 @@ import java.util.List;
 public interface QuestionSearchMapper {
 	List<Question> selectQuestionBySearchValue(@Param("searchValue") String searchValue);
 	Long countAllQuestion();
-	List<Subject> listSubject();
-	Long countQuestionBySubject(@Param("subjectId") Long subjectId);
-	Long countResolveQuestionBySubject(@Param("subjectId") Long subjectId, @Param("userId") Long userId);
 }

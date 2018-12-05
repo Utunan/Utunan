@@ -20,5 +20,8 @@ public interface PublishDirectionCollectorMapper {
     List<PublishDirectionCollector> findDirectionCollectorByUser(@Param("userId") Long userId);
     /*王碧云 根据用户查找收藏的院校Id*/
     List<Long> findDirectionIdByUser(@Param("userId") Long userId);
-
+    /*王碧云 加入院校收藏夹*/
+    void insertDirectionCollector(@Param("userId") Long userId,@Param("directionId") Long directionId);
+    /*王碧云 在院校收藏夹中删除*/
+    void deleteDirectionCollector(@Param("userId") Long userId,@Param("directionId") Long directionId);
 }

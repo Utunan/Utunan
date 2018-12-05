@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="java.util.List,com.utunan.pojo.*"%>
+<%@ taglib uri="/intel" prefix="ya" %>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +33,8 @@
                         <input name="schoolProvince" type="checkbox" value="重庆" id="重庆"><label for="重庆">重庆</label>
                         <input name="schoolProvince" type="checkbox" value="河北" id="河北"><label for="河北">河北</label>
                         <input name="schoolProvince" type="checkbox" value="山西" id="山西"><label for="山西">山西</label>
-                        <input name="schoolProvince" type="checkbox" value="辽宁" id="辽宁"><label for="辽宁">辽宁</label>                                <input name="schoolProvince" type="checkbox" value="吉林" id="吉林"><label for="吉林">吉林</label>
+                        <input name="schoolProvince" type="checkbox" value="辽宁" id="辽宁"><label for="辽宁">辽宁</label>
+                        <input name="schoolProvince" type="checkbox" value="吉林" id="吉林"><label for="吉林">吉林</label>
                         <input name="schoolProvince" type="checkbox" value="黑龙江" id="黑龙江"><label for="黑龙江">黑龙江</label>
                         <input name="schoolProvince" type="checkbox" value="江苏" id="江苏"><label for="江苏">江苏</label>
                         <input name="schoolProvince" type="checkbox" value="浙江" id="浙江"><label for="浙江">浙江</label>
@@ -112,7 +114,7 @@
               </tr>
             </thead>
             <tbody>
-            <c:set var="num" value="0"></c:set>
+            <c:set var="sum" value="0"></c:set>
             <c:forEach items="${schoolList}" var="school" >
                 <c:forEach items="${school.direction}" var="direction" >
                   <tr>
@@ -122,20 +124,17 @@
                     <td>${direction.majorlName}</td>
                     <td>${direction.directionName}</td>
                     <td><a href="/displayDirectionDetail?directionId=${direction.directionId}">详情</a></td>
-                      ${directionIds[num]}******
                     <c:choose>
-                        <c:when test="${directionIds[num]==direction.directionId}">
-                            <td><a><img src="../images/school/redheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
+                        <c:when test="${ya:judge(directionIds,direction.directionId)}">
+                            <td><a href="/deleteDirectionCollector?directionId=${direction.directionId}"><img src="../images/school/redheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
                         </c:when>
                         <c:otherwise>
-                            <td><a><img src="../images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
+                            <td><a href="/addDirectionCollector?directionId=${direction.directionId}"><img src="../images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
                         </c:otherwise>
                     </c:choose>
                   </tr>
-                    <c:set var="num" value="${num+1}"></c:set>
                 </c:forEach>
             </c:forEach>
-<%--<c:when test="${fn:contains(directionIds, direction.directionId)}">--%>
             </tbody>
           </table>
     </div>

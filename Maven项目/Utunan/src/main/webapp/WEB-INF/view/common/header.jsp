@@ -87,10 +87,10 @@
                 <a href="/questionbank">题库</a>
             </li>
             <li>
-                <a href="/school">院校库</a>
+                <a href="/displaySchool">院校库</a>
             </li>
             <li>
-                <a href="/community">优问答</a>
+                <a href="/quiz1">优问答</a>
             </li>
         </nav>
 

@@ -89,18 +89,23 @@
             </tbody>
           </table>
         </div><!--zsml-result-->
-        <div>
             <div class="commenttitle">讨论区</div>
-        </div>
         <div class="comments">
-            <div class="comments-number">
-                <div class="answers-num">一共有15条评论</div>
-                <div class="right">
-                    <select class="comments-sequencing-principle"name="">
-                        <option value="0">按时间顺序</option>
-                        <option value="1">按热度排序</option>
-                    </select>
-                    <div class="close">收起评论</div>
+            <div class="infobar">
+                <span class="num">一共有15条评论</span>
+                <select class="sort"name="">
+                    <option value="0">按时间顺序</option>
+                    <option value="1">按热度排序</option>
+                </select>
+            </div>
+            <div class="comments-content">
+                <div class="time">2018.11.25</div>
+                <div class="nickname">这是一个昵称</div>
+                <div class="comments-content-content">吧啦吧啦吧啦吧啦吧啦吧</div>
+                <div class="b">
+                    <div class="comments-content-praise">赞（528）</div>
+                    <img src="images/community/jia1.svg" width="22px"height="22px">
+                    <div class="comments-content-give-praise">点赞</div>
                 </div>
             </div>
             <div class="comments-content">
@@ -113,6 +118,12 @@
                     <div class="comments-content-give-praise">点赞</div>
                 </div>
             </div>
+            <div class="comments-reply">
+                <input class="comments-reply-input"type="text" width="660px" height="30px">
+                <div class="comments-reply-report">发表评论</div>
+            </div>
+        </div>
+    </div>
             <form action="comment1?commentId=${answer.commentId}" method="post">
                 <div class="comments-reply">
                     <input class="comments-reply-input"type="text" width="660px" height="30px" name="text">
