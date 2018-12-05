@@ -1,6 +1,7 @@
 package com.utunan.controller.questionbank;
 
 import com.utunan.pojo.base.questionbank.Subject;
+import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.inherit.questionbank.SubjectCount;
 import com.utunan.service.questionbank.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +31,14 @@ public class SubjectController {
 	 */
 	@RequestMapping("/subject")
 	public String subject(HttpServletRequest request){
-		String userId=request.getParameter("userId");
+		User user=(User) request.getSession().getAttribute("User");
+		String userId="0";
 		//判断用户是否登录
-		if(userId==null || userId.equals("")){
+		if (user==null){
 			userId="0";
+		}
+		else {
+			userId=user.getUserId().toString();
 		}
 		//科目列表
 		List<Subject> subjectList=this.subjectService.listSubject();
