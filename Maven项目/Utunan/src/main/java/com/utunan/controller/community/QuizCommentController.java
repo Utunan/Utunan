@@ -1,5 +1,6 @@
 package com.utunan.controller.community;
 
+import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.community.QuizTag;
@@ -48,6 +49,16 @@ public class QuizCommentController {
     @RequestMapping("/displayQuizByQuizId")
     public String displayQuizByQuizId(HttpServletRequest request, HttpSession session){
         String url = "displayQuizByQuizId";
+        //获取页数
+        String pageNum=request.getParameter("pageNum");
+        //判断当前页
+        int num=0;
+        if(pageNum==null || pageNum.equals("")){
+            num=1;
+        }else{
+            num=Integer.parseInt(pageNum);
+        }
+
         String quizId = request.getParameter("quizId");
         //根据quizId返回quiz
         Quiz quiz = this.quizService.findQuizById(Long.parseLong(quizId));
@@ -56,32 +67,17 @@ public class QuizCommentController {
         //根据quizId返回评论数量
         Long answerCountByQuizId = this.publishQuizService.countAnswerByQuizId(Long.parseLong(quizId));
         //根据quizId返回评论列表(根据时间排序)
-        PublishQuiz ans = this.publishQuizService.findAnswerListByQuizId(Long.parseLong(quizId));
-        if (ans!=null){
-            List<Answer> answer= ans.getAnswers();
-            request.setAttribute("answer", answer);
-        }
 
 
-        //获取页数
-        String pageNum=request.getParameter("pageNum");
-        //提问评论的数量(quizId父级为null的评论数)
-        Long quizNumber = this.quizService.countAnswerByQuizId(Long.parseLong(quizId));
-        //判断当前页
-        int num=0;
-        if(pageNum==null || pageNum.equals("")){
-            num=1;
-        }else{
-            num=Integer.parseInt(pageNum);
-        }
-        //封装分页
-        Page<BigQuiz> p = new Page<>(num, 6);
-        p.setTotalCount(quizNumber);
+        List<Answer> answers=answerService.findAnswerListByQuizId(num,5,Long.parseLong(quizId));
         request.setAttribute("quizTagList", quizTagList);
         session.setAttribute("quiz", quiz);
         request.setAttribute("answerCountByQuizId", answerCountByQuizId);
         request.setAttribute("url", url);
         request.setAttribute("timeselect","selected=\"selected\"");
+        request.setAttribute("answer",answers);
+        request.setAttribute("PageInfo",new PageInfo(answers,5));
+
     
         return "community/quizcommentpage";
     }
@@ -114,6 +110,15 @@ public class QuizCommentController {
      */
     @RequestMapping("/displayCommentByPraiseCount")
     public String displayCommentByPraiseCount(HttpServletRequest request){
+        //获取页数
+        String pageNum=request.getParameter("pageNum");
+        //判断当前页
+        int num=0;
+        if(pageNum==null || pageNum.equals("")){
+            num=1;
+        }else{
+            num=Integer.parseInt(pageNum);
+        }
         String quizId = request.getParameter("quizId");
         //根据quizId返回quiz
         Quiz quiz = this.quizService.findQuizById(Long.parseLong(quizId));
@@ -122,17 +127,33 @@ public class QuizCommentController {
         //根据quizId返回评论数量
         Long answerCountByQuizId = this.publishQuizService.countAnswerByQuizId(Long.parseLong(quizId));
         //根据quizId返回评论列表(根据热度排序)
-        PublishQuiz ans = this.publishQuizService.findAnswerListByPraiseCount(Long.parseLong(quizId));
-        if (ans!=null){
-            List<Answer> answer= ans.getAnswers();
-            request.setAttribute("answer", answer);
-        }
+        List<Answer> answers = this.answerService.findAnswerListByPraiseCount(num,6,Long.parseLong(quizId));
+
     
         request.setAttribute("quizTagList", quizTagList);
         request.setAttribute("quiz", quiz);
         request.setAttribute("answerCountByQuizId", answerCountByQuizId);
         request.setAttribute("praiseselect","selected=\"selected\"");
+        request.setAttribute("answer",answers);
+        request.setAttribute("PageInfo",new PageInfo(answers,5));
     
         return "community/quizcommentpage";
+    }
+
+
+    /*
+     * @author  张正扬
+     * @description 给回答点赞
+     * @date  21:26 2018/11/27
+     * @param  request
+     * @return  String
+     */
+    @RequestMapping(value = "/aprise")
+    public String praiseQuiz(HttpServletRequest request,HttpSession session){
+        String answerId=request.getParameter("answerId");
+        Quiz quiz=(Quiz)session.getAttribute("quiz");
+        Long num=Long.parseLong(answerId);
+        this.answerService.praiseAnswer(num);
+        return "redirect:/displayQuizByQuizId?quizId="+quiz.getQuizId();
     }
 }

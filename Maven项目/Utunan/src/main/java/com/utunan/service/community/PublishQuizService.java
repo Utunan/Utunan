@@ -20,7 +20,7 @@ public interface PublishQuizService {
      */
      Long countAnswerByQuizId(Long quizId);
 
-     PublishQuiz findAnswerListByQuizId(Long quizId);
+     PublishQuiz findAnswerListByQuizId(int pageNum,int pageSize,Long quizId);
 
     /*
      * @author  王碧云
