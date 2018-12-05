@@ -17,5 +17,7 @@ public interface UserMapper {
     int updateUser(User user);
     int updateUserPassword(User user);
     int updateUserHeadImg(@Param("userId")Long userId, @Param("userHeadImg")String userHeadImg);
+    int updateUserTelephone(User user);
+    int updateUserEmail(User user);
 }
 

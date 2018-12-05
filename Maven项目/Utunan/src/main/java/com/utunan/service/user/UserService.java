@@ -9,4 +9,6 @@ public interface UserService {
     boolean changeInfo(User user);
     User changeUserPassword(User user);
     boolean changeUserHeadImg(User user,String img);
+    boolean changeUserTelephone(User user);
+    boolean changeUserEmail(User user);
 }

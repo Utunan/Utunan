@@ -64,4 +64,16 @@ public class UserServiceImpl implements UserService {
         userMapper.updateUserHeadImg(user.getUserId(),userHeadImg);
         return true;
     }
+
+    @Override
+    public boolean changeUserTelephone(User user) {
+        userMapper.updateUserTelephone(user);
+        return true;
+    }
+
+    @Override
+    public boolean changeUserEmail(User user) {
+        userMapper.updateUserEmail(user);
+        return true;
+    }
 }
