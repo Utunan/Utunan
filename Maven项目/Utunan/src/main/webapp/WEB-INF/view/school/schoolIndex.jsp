@@ -125,9 +125,8 @@
                     <td>${direction.directionName}</td>
                     <td><a href="/displayDirectionDetail?directionId=${direction.directionId}">详情</a></td>
                     <c:choose>
-                        <%--<c:when test="${directionIds[num]==direction.directionId}">--%>
                         <c:when test="${ya:judge(directionIds,direction.directionId)}">
-                            <td><a href="#"><img src="../images/school/redheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
+                            <td><a href="/deleteDirectionCollector?directionId=${direction.directionId}"><img src="../images/school/redheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
                         </c:when>
                         <c:otherwise>
                             <td><a href="/addDirectionCollector?directionId=${direction.directionId}"><img src="../images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>

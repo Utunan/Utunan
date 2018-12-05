@@ -56,5 +56,11 @@
         into direction_collector(userId,directionId)
         values (#{userId},#{directionId})
     </insert>
+    <!--王碧云 根据directionId删除院校收藏-->
+    <delete id="deleteDirectionCollector" parameterType="com.utunan.pojo.base.user.DirectionCollector">
+        delete
+        from direction_collector
+        where userId=#{userId} and directionId=#{directionId}
+    </delete>
 
 </mapper>
