@@ -1,15 +1,14 @@
 package com.utunan.service.school.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.utunan.mapper.school.PublishDirectionMapper;
 import com.utunan.mapper.school.PublishSchoolMapper;
-import com.utunan.pojo.inherit.school.PublishDirection;
 import com.utunan.pojo.inherit.school.PublishSchool;
-import com.utunan.service.school.PublishDirectionService;
 import com.utunan.service.school.PublishSchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -77,7 +76,13 @@ public class PublishSchoolServiceImpl implements PublishSchoolService {
             return list;
         }
     }
-
+    /*
+     * @author  王碧云
+     * @description 将字符数组转为字符串
+     * @date  8:34 2018/12/5/005
+     * @param  [list]
+     * @return  java.lang.String
+     */
     public String judgeIsNull(String[] list){
         if (list == null){
             return null;
