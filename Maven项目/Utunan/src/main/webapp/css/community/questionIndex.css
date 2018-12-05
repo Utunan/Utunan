@@ -1,4 +1,4 @@
-*{
+﻿*{
 	letter-spacing:0.5px;
 	font-family:"SimHei",黑体；
 }
@@ -219,19 +219,6 @@ a:link{
 	border-style:solid; 
 	border-width:0px 1px 1px 1px; 
 	border-color:#e5e5e5;
-}
-.page{
-	height: 70px;
-	line-height: 70px;
-	text-align: center;
-}
-.page a{
-	padding: 5px;
-	border: rgba(9, 198, 217, 1) solid 1px;
-    text-align: center;
-    font-size: 14px;
-    text-decoration: none;
-    color: #0ec8d9;
 }
 .ask{
 	width: 140px;
