@@ -37,7 +37,7 @@
 
     <!-- 插入评论 -->
     <insert id="toInsert1" parameterType="com.utunan.pojo.base.community.Answer" >
-        insert into answer(answerId,quizId,userId,answerContent,answerTime,praiseCount,parentAnswer) values(#{answerId},#{quizId},#{userId},#{answerContent},#{answerTime},#{praiseCount},#{parentAnswer})
+        insert into answer(answerId,userId,answerContent,answerTime,praiseCount,parentAnswer) values(#{answerId},#{user.userId},#{answerContent},#{answerTime},#{praiseCount},#{parentAnswer})
     </insert>
     
 

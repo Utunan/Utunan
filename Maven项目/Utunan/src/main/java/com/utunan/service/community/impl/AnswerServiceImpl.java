@@ -133,9 +133,7 @@ public class AnswerServiceImpl implements AnswerService {
         answer.setUser(user);
         answer.setAnswerContent(content);
         answer.setAnswerTime(new Date());
-        int i=0;
-        long j=(long) i;
-        answer.setPraiseCount(j);
+        answer.setPraiseCount(Long.parseLong("0"));
         answerMapper.toInsert1(answer);
     }
 

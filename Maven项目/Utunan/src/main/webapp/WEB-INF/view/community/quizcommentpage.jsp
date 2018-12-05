@@ -108,7 +108,7 @@
             <div class="praise">赞（${quiz.praiseCount}）</div>
             <a href="praise?quizId=${quiz.quizId}"><img src="/images/community/jia1.svg" width="34px" height="34px"></a>
             <div class="give-praise">点赞</div>
-            <img src="/images/community/shoucang.svg" width="34px" height="34px">
+            <a href="quizCollector?quizId=${quiz.quizId}"><img src="/images/community/shoucang.svg" width="34px" height="34px"></a>
             <div class="collection">收藏此问题</div>
             <img src="/images/community/zan.svg" width="34px" height="34px">
             <div class="write-reply">写回答</div>
@@ -147,7 +147,7 @@
                                                                           height="34px"></a>
                         <div class="reply-give-praise">点赞</div>
                         <img src="/images/community/zan.svg" width="34px" height="34px">
-                        <div class="view-comments"><a href="#"> 查看评论</a></div>
+                        <div class="view-comments">查看评论</div>
                     </div>
                 </div>
             </div>
@@ -159,7 +159,7 @@
                             <option value="0">按时间顺序</option>
                             <option value="1">按热度排序</option>
                         </select>
-                        <div class="close"><a href="#"> 收起评论</a></div>
+                        <div class="close"><a> 收起评论</a></div>
                     </div>
                 </div>
                 <div class="comments-content">
@@ -172,10 +172,10 @@
                         <div class="comments-content-give-praise">点赞</div>
                     </div>
                 </div>
-                <form action="comment1?commentId=${answer.answerId}" method="post">
+                <form action="answer1?answerId=${answer.answerId}" method="post">
                     <div class="comments-reply">
                         <input class="comments-reply-input" type="text" width="660px" height="30px" name="text">
-                        <div class="comments-reply-report"><input type="submit" value="发表评论"/></div>
+                        <div class="comments-reply-report"><input type="button" value="发表评论"/></div>
                     </div>
                 </form>
             </div>
