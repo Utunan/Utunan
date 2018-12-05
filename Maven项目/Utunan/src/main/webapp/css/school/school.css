@@ -98,3 +98,24 @@ label{
     border-bottom-width: 3px;
     text-align: center;
 }
+.zsdw{
+    width:130px;
+}
+.yxmc{
+    width:200px;
+}
+.xwlx{
+    width:100px;
+}
+.zy{
+    width:150px;
+}
+.yjfx{
+    width:200px;
+}
+.ksfw{
+    width:100px;
+}
+.table>tbody>tr>td {
+    line-height: 24px;
+}
