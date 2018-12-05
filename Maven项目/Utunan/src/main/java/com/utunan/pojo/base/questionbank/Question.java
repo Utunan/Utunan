@@ -31,26 +31,10 @@ public class Question {
     private String questionAnalyse;
     //录入时间
     private String questionEnterTime;
-
-
-    @Override
-    public String toString() {
-        return "Question{" +
-                "questionId=" + questionId +
-                ", subject=" + subject +
-                ", chapterName='" + chapterName + '\'' +
-                ", User=" + User +
-                ", questionType='" + questionType + '\'' +
-                ", questionContent='" + questionContent + '\'' +
-                ", optionA='" + optionA + '\'' +
-                ", optionB='" + optionB + '\'' +
-                ", optionC='" + optionC + '\'' +
-                ", optionD='" + optionD + '\'' +
-                ", questionAnswer='" + questionAnswer + '\'' +
-                ", questionAnalyse='" + questionAnalyse + '\'' +
-                ", questionEnterTime='" + questionEnterTime + '\'' +
-                '}';
-    }
+    //正确数量
+    private Long rightNum;
+    //错误数量
+    private Long errorNum;
 
     public Subject getSubject() {
         return subject;
@@ -155,4 +139,40 @@ public class Question {
         this.questionEnterTime = questionEnterTime;
     }
 
+    public Long getRightNum() {
+        return rightNum;
+    }
+
+    public void setRightNum(Long rightNum) {
+        this.rightNum = rightNum;
+    }
+
+    public Long getErrorNum() {
+        return errorNum;
+    }
+
+    public void setErrorNum(Long errorNum) {
+        this.errorNum = errorNum;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "questionId=" + questionId +
+                ", subject=" + subject +
+                ", chapterName='" + chapterName + '\'' +
+                ", User=" + User +
+                ", questionType='" + questionType + '\'' +
+                ", questionContent='" + questionContent + '\'' +
+                ", optionA='" + optionA + '\'' +
+                ", optionB='" + optionB + '\'' +
+                ", optionC='" + optionC + '\'' +
+                ", optionD='" + optionD + '\'' +
+                ", questionAnswer='" + questionAnswer + '\'' +
+                ", questionAnalyse='" + questionAnalyse + '\'' +
+                ", questionEnterTime='" + questionEnterTime + '\'' +
+                ", rightNum=" + rightNum +
+                ", errorNum=" + errorNum +
+                '}';
+    }
 }

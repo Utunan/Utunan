@@ -6,6 +6,8 @@ public class Subject {
     private Long subjectId;
     //科目名称
     private String subjectName;
+    //描述
+    private String discription;
 
     public Long getSubjectId() {
         return subjectId;
@@ -23,11 +25,20 @@ public class Subject {
         this.subjectName = subjectName;
     }
 
+    public String getDiscription() {
+        return discription;
+    }
+
+    public void setDiscription(String discription) {
+        this.discription = discription;
+    }
+
     @Override
     public String toString() {
         return "Subject{" +
                 "subjectId=" + subjectId +
                 ", subjectName='" + subjectName + '\'' +
+                ", discription='" + discription + '\'' +
                 '}';
     }
 }

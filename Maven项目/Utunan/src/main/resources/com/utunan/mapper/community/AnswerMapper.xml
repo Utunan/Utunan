@@ -4,12 +4,11 @@
     <resultMap id="answerResultMap" type="com.utunan.pojo.base.community.Answer">
         <id property="answerId" column="answerId"/>
         <result property="answerContent" column="answerContent"/>
-        <result property="answertTime" column="answerTime"/>
+        <result property="answerTime" column="answerTime"/>
         <result property="praiseCount" column="praiseCount"/>
         <result property="parentAnswer" column="parentAnswer"/>
         <association property="quiz" javaType="com.utunan.pojo.base.community.Quiz">
             <id property="quizId" column="quizId"/>
-            <result property="userId" column="userId"/>
             <result property="quizTitle" column="quizTitle"/>
             <result property="quizContent" column="quizContent"/>
             <result property="releaseTime" column="releaseTime"/>
@@ -44,14 +43,14 @@
 
     
     <!--王碧云 根据quizId查询评论列表（子评论除外）(默认：根据时间排序)-->
-    <!--<select id="findAnswerListByQuizId" resultMap="answerResultMap">
+    <select id="findAnswerListByQuizId" resultMap="answerResultMap">
         select *
         from answer
         join user on answer.userId=user.userId
         where
         quizId = #{quizId} and parentAnswer is null
-        order by answerTime asc
-    </select>-->
+        order by answerTime desc
+    </select>
     
     <!--王碧云 根据quizId返回（父级为null的）评论数量-->
     <!--<select id="countAnswerByQuizId" resultType="java.lang.Long">
@@ -62,14 +61,14 @@
     </select>-->
     
     <!--王碧云 根据热度返回评论列表-->
-    <!--<select id="findAnswerListByPraiseCount" resultMap="answerResultMap">
+    <select id="findAnswerListByPraiseCount" resultMap="answerResultMap">
         select *
         from answer
         join user on answer.userId=user.userId
         where
         quizId = #{quizId} and parentAnswer is null
         order by praiseCount desc
-    </select>-->
+    </select>
     
     <!--王碧云 根据answerId查询子评论-->
     <select id="findChildAnswerListByAnswerId" resultMap="answerResultMap">
@@ -104,5 +103,6 @@
         select max(answerId)
         from answer
     </select>
+
 
 </mapper>

@@ -35,7 +35,7 @@ public interface AnswerService {
      * @param  []
      * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
-    //List<Answer> findAnswerListByQuizId(Long quizId);
+    List<Answer> findAnswerListByQuizId(int pageNum,int pageSize,Long quizId);
     
     /*
      * @author  王碧云
@@ -53,7 +53,7 @@ public interface AnswerService {
      * @param  [quizId]
      * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
-    //List<Answer> findAnswerListByPraiseCount(Long quizId);
+    List<Answer> findAnswerListByPraiseCount(int pageNum,int pageSize,Long quizId);
     
     /*
      * @author  王碧云
@@ -92,4 +92,12 @@ public interface AnswerService {
      */
     Long getMaxAid();
 
+    /*
+     * @author  张正扬
+     * @description 实现回答点赞功能
+     * @date  22:35 2018/12/4
+     * @param  Long
+     * @return  void
+     */
+    void praiseAnswer(Long num);
 }

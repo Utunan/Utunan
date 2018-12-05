@@ -29,11 +29,13 @@ public class PublishQuizServiceImpl implements PublishQuizService {
      */
     @Override
     public Long countAnswerByQuizId(Long quizId) {
+
         return this.publishQuizMapper1.countAnswerByQuizId(quizId);
     }
 
     @Override
-    public PublishQuiz findAnswerListByQuizId(Long quizId) {
+    public PublishQuiz findAnswerListByQuizId(int pageNum,int pageSize,Long quizId) {
+        PageHelper.startPage(pageNum,pageSize);
         return this.publishQuizMapper1.findAnswerListByQuizId(quizId);
     }
 

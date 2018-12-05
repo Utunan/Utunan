@@ -18,11 +18,11 @@
 </head>
 
 <body>
-    <%@include file="../common/header.jsp"%>
     <div class="schoolheader">
         <span class="collector"></span><a>查看院校收藏夹</a></span>
         <span class="title">院校库</span>
     </div>
+
         <div class="bigwrapper">
             <form class="condition" action="/displaySchoolBySearch">
             <div  class="RadioStyle">
