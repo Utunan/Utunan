@@ -50,7 +50,7 @@
                 <button type="submit">提交</button>
             </div>
             <span><a href="">忘记密码</a> </span>
-            <span><a href="">立即注册</a> </span>
+            <span><a href="/login">立即登陆</a> </span>
         </form>
         <div class="textcase">
             <div class="registertext welcome">

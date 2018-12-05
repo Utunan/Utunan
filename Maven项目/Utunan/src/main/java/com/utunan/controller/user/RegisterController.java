@@ -40,6 +40,7 @@ public class RegisterController {
         }
         userService.saveUser(user);
         User account=userService.getUser(user);
+        session.removeAttribute("registertel");
         session.setAttribute("User",account);
         return "redirect:/user";
     }

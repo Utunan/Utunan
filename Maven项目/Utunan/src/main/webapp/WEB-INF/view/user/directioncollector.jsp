@@ -28,14 +28,22 @@
                 <span>院系收藏</span>
             </div>
             <table border="0" cellpadding="6" cellspacing="0">
-                <tr style="background-color: rgba(209, 231, 250,0.5 );">
-                    <th style="width:150px;height: 50px;">招生单位</th>
-                    <th style="width:120px;">院系名称</th>
-                    <th style="width:80px;">学位类型</th>
-                    <th style="width:160px;">专业</th>
-                    <th style="width:80px">其他</th>
-                    <th style="width:40px;"></th>
-                </tr>
+                <c:choose>
+                    <c:when test="${PageInfo.pages==0}">
+
+                    </c:when>
+                    <c:otherwise>
+                        <tr style="background-color: rgba(209, 231, 250,0.5 );">
+                            <th style="width:150px;height: 50px;">招生单位</th>
+                            <th style="width:120px;">院系名称</th>
+                            <th style="width:80px;">学位类型</th>
+                            <th style="width:160px;">专业</th>
+                            <th style="width:80px">其他</th>
+                            <th style="width:40px;"></th>
+                        </tr>
+                    </c:otherwise>
+                </c:choose>
+
                 <c:forEach items="${Directions}" var="D">
                     <tr>
                         <td style="height: 50px;">${D.schoolName}</td>
