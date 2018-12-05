@@ -18,10 +18,13 @@
 </head>
 
 <body>
-    <%--<%@include file="../common/header.jsp"%>--%>
-    <!--<div class="title">院校库</div>-->
-    <form class="condition" action="/displaySchoolBySearch">
+    <%@include file="../common/header.jsp"%>
+    <div class="schoolheader">
+        <span class="collector"></span><a>查看院校收藏夹</a></span>
+        <span class="title">院校库</span>
+    </div>
         <div class="bigwrapper">
+            <form class="condition" action="/displaySchoolBySearch">
             <div  class="RadioStyle">
                 <div class="options">
                     <span class="optionName">院校所在地 ></span>
@@ -95,8 +98,8 @@
                 <input name="directionName" type="text" value="" placeholder="（选填）如：大数据" id="direction"/>
                 <input type="submit" value="搜索！" id="search"/>
             </div>
-        </div>
     </form>
+     </div>
 
     <div id="blank"></div>
 
