@@ -115,10 +115,8 @@ public class SchoolSearchController {
         List<Long> directionIdList = this.publishDirectionCollectorService.findDirectionIdByUser(userId);
         System.out.println("[yayaya]"+directionIdList);
 
-        /*String directionName=null;*/
-        /*if(searchName!=null || !"".equals(searchName))
-            directionName=searchName;*/
         System.out.println("[schoolTypeList]"+schoolTypeList);
+        System.out.println(Arrays.toString(schoolTypeList));
        System.out.println("[direction]"+directionName);
 
         List<PublishSchool> schoolList =null;
@@ -132,12 +130,6 @@ public class SchoolSearchController {
         String degreeType=this.publishSchoolService.judgeIsNull(degreeTypeList);
         String math=this.publishSchoolService.judgeIsNull(mathList);
         String english = this.publishSchoolService.judgeIsNull(englishList);
-
-        /*String schoolProvince = String.join(",",schoolProvinceList);
-        String schoolType = String.join(",",schoolTypeList);
-        String degreeType = String.join(",",degreeTypeList);
-        String math = String.join(",",mathList);
-        String english = String.join(",",englishList);*/
 
         request.setAttribute("schoolList", schoolList);
         request.setAttribute("url", "displaySchoolBySearch");
@@ -153,7 +145,13 @@ public class SchoolSearchController {
         System.out.println(schoolList);
         return "/school/schoolIndex";
     }
-
+    /*
+     * @author  王碧云
+     * @description 显示页面详情页
+     * @date  11:16 2018/12/5/005
+     * @param  [request, directionId, sort]
+     * @return  java.lang.String
+     */
     @RequestMapping("/displayDirectionDetail")
     public String displayDirectionDetail(HttpServletRequest request,
                                         @RequestParam(value = "directionId") String directionId,
