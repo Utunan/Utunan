@@ -1,9 +1,11 @@
 ﻿*{
 	letter-spacing:0.5px;
-  font-family:"SimHei",黑体；
+  font-family:"SimHei",黑体;
 }
 body{
-  background: transparent url(../../images/questionBank/) no-repeat;
+  background-color: #ffffff;
+background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 .content{
   width: 100%;

@@ -1,7 +1,9 @@
 package com.utunan.pojo.base.questionbank;
 
 import com.utunan.pojo.base.user.User;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -22,8 +24,6 @@ public class DirectionComment {
 	private Date directionCommentTime;
 	//评论点赞数量
 	private Long directionCommentPraiseCount;
-	//上级评论ID
-	private Long replyDirectionCommentId;
 
 	//与用户一对一
 	private User user;
@@ -84,14 +84,6 @@ public class DirectionComment {
 		this.directionCommentPraiseCount = directionCommentPraiseCount;
 	}
 
-	public Long getReplyDirectionCommentId() {
-		return replyDirectionCommentId;
-	}
-
-	public void setReplyDirectionCommentId(Long replyDirectionCommentId) {
-		this.replyDirectionCommentId = replyDirectionCommentId;
-	}
-
 	@Override
 	public String toString() {
 		return "DirectionComment{" +
@@ -101,7 +93,6 @@ public class DirectionComment {
 				", directionCommentContent='" + directionCommentContent + '\'' +
 				", directionCommentTime=" + directionCommentTime +
 				", directionCommentPraiseCount=" + directionCommentPraiseCount +
-				", replyDirectionCommentId=" + replyDirectionCommentId +
 				", user=" + user +
 				'}';
 	}

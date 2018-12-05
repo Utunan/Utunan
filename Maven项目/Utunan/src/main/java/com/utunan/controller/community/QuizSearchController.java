@@ -28,8 +28,6 @@ public class QuizSearchController {
 	private QuizService quizService;
 	@Autowired
 	private AnswerService answerService;
-	@Autowired
-	private TagService tagService;
 
 	@Autowired
 	private PublishQuizService publishQuizService;
@@ -102,35 +100,13 @@ public class QuizSearchController {
 			num=Integer.parseInt(pageNum);
 		}
 		//回答列表
-		List<Answer> answerList =this.publishQuizService.findAnswerListBySearch(searchValue, num, 10);
+		List<Answer> answerList =this.answerService.findAnswerListBySearch(searchValue, num, 10);
 
 		//返回数据
 		request.setAttribute("object", answerList);
 		request.setAttribute("url","searchComment");
 		request.setAttribute("searchValue", searchValue);
 		request.setAttribute("PageInfo",new PageInfo(answerList,5));
-		return "community/search";
-	}
-
-	/**
-	 * @author  孙程程
-	 * @description 搜索标签
-	 * @date  16:59 2018/11/27
-	 * @param  request
-	 * @return  java.lang.String
-	 */
-	@RequestMapping("/searchTag")
-	public String searchTag(HttpServletRequest request){
-		String searchValue=request.getParameter("searchValue");
-		//标签列表
-		List<Tag> tagList=this.tagService.findTagListBySearch(searchValue);
-		//标签数量
-		Long tagNumber=this.tagService.countTagBySearch(searchValue);
-		//返回数据
-		request.setAttribute("tagList",tagList);
-		request.setAttribute("tagNumber",tagNumber);
-		request.setAttribute("url","searchTag");
-		request.setAttribute("searchValue", searchValue);
 		return "community/search";
 	}
 }

@@ -25,7 +25,6 @@
             <result property="directionCommentContent" column="directionCommentContent"/>
             <result property="directionCommentTime" column="directionCommentTime"/>
             <result property="directionCommentPraiseCount" column="directionCommentPraiseCount"/>
-            <result property="replyDirectionCommentId" column="replyDirectionCommentId"/>
             <association property="user" javaType="com.utunan.pojo.base.user.User">
                 <id property="userId" column="userId"/>
                 <result property="userEmail" column="userEmail"/>
@@ -51,7 +50,7 @@
         left outer join direction_comment dc on d.directionId = dc.directionId
         left outer join user u on dc.userId = u.userId
         where
-        d.directionId=#{directionId} and dc.replyDirectionCommentId is null
+        d.directionId=#{directionId}
         order by dc.directionCommentTime asc
     </select>
     <!--王碧云 根据研究Id查找该方向的详情（按热度排序）-->
@@ -62,7 +61,8 @@
         left outer join direction_comment dc on d.directionId = dc.directionId
         left outer join user u on dc.userId = u.userId
         where
-        d.directionId=#{directionId} and dc.replyDirectionCommentId is null
+        d.directionId=#{directionId}
         order by dc.directionCommentPraiseCount desc
     </select>
+
 </mapper>
