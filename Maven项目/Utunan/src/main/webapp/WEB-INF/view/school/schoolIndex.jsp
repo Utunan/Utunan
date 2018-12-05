@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <%--<%@include file="../common/header.jsp"%>--%>
+    <%@include file="../common/header.jsp"%>
     <!--<div class="title">院校库</div>-->
     <form class="condition" action="/displaySchoolBySearch">
         <div class="bigwrapper">
