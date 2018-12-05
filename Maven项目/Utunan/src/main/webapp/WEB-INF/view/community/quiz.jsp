@@ -81,7 +81,7 @@
                             </div>
                             <!--搜索图标-->
                             <button class="searchImg" type="submit">
-                                <img src="images/search.png" width="20px" height="20px" >
+                                <img src="/images/search.png" width="20px" height="20px" >
                             </button>
                         </form>
                     </div>

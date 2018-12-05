@@ -67,9 +67,11 @@ public class QuizCommentController {
         //根据quizId返回评论数量
         Long answerCountByQuizId = this.publishQuizService.countAnswerByQuizId(Long.parseLong(quizId));
         //根据quizId返回评论列表(根据时间排序)
-
-
         List<Answer> answers=answerService.findAnswerListByQuizId(num,5,Long.parseLong(quizId));
+
+        //根据commentId返回子评论
+        //List<Answer> childAnswerList = this.answerService.findChildAnswerListByAnswerId(Long.parseLong(answerId));
+
         request.setAttribute("quizTagList", quizTagList);
         session.setAttribute("quiz", quiz);
         request.setAttribute("answerCountByQuizId", answerCountByQuizId);
@@ -77,6 +79,7 @@ public class QuizCommentController {
         request.setAttribute("timeselect","selected=\"selected\"");
         request.setAttribute("answer",answers);
         request.setAttribute("PageInfo",new PageInfo(answers,5));
+        //request.setAttribute("childAnswerList", childAnswerList);
 
     
         return "community/quizcommentpage";
@@ -89,14 +92,14 @@ public class QuizCommentController {
      * @param  [request]
      * @return  java.lang.String
      */
-    @RequestMapping("/displayChildComment")
+    @RequestMapping("/displayChildAnswer")
     public String displayChildComment(HttpServletRequest request){
-        String commentId = request.getParameter("commentId");
+        String answerId = request.getParameter("answerId");
         //根据commentId返回子评论
-        List<Answer> childAnswerList = this.answerService.findChildAnswerListByAnswerId(Long.parseLong(commentId));
+        List<Answer> childAnswerList = this.answerService.findChildAnswerListByAnswerId(Long.parseLong(answerId));
     
         request.setAttribute("childAnswerList", childAnswerList);
-        System.out.println("[childComment]"+ childAnswerList);
+        System.out.println("[childAnswer]"+ childAnswerList);
     
         return "community/childcomment";
     }
@@ -109,7 +112,7 @@ public class QuizCommentController {
      * @return  java.lang.String
      */
     @RequestMapping("/displayCommentByPraiseCount")
-    public String displayCommentByPraiseCount(HttpServletRequest request){
+    public String displayCommentByPraiseCount(HttpServletRequest request,HttpSession session){
         //获取页数
         String pageNum=request.getParameter("pageNum");
         //判断当前页
@@ -131,7 +134,7 @@ public class QuizCommentController {
 
     
         request.setAttribute("quizTagList", quizTagList);
-        request.setAttribute("quiz", quiz);
+        session.setAttribute("quiz", quiz);
         request.setAttribute("answerCountByQuizId", answerCountByQuizId);
         request.setAttribute("praiseselect","selected=\"selected\"");
         request.setAttribute("answer",answers);
