@@ -9,9 +9,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>在无边无际的题库中摸索</title>
+    <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/common.css">
 </head>
 <body>
+<%@include file="../common/header.jsp"%>
     <!--搜索框-->
     <c:if test="${empty searchValue}">
         <form action="/searchResult" method="post">
@@ -54,5 +60,6 @@
             <li class="tail"><a href="/${url }?searchValue=${searchValue}&pageNum=${PageInfo.pages}">尾页</a></li>
         </nav>
     </c:if>
+<%@include file="../common/footer.jsp"%>
 </body>
 </html>

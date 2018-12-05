@@ -20,4 +20,17 @@
         join question q on uqb.questionId=q.questionId
         where q.subjectId=#{subjectId} and uqb.userId=#{userId}
     </select>
+    <!--科目下所有题目-->
+    <select id="listQuestionBySubject" resultType="com.utunan.pojo.base.questionbank.Question">
+        select *
+        from question q
+        join subject s on q.subjectId=s.subjectId
+        where s.subjectName=#{subjectName}
+    </select>
+    <!--科目名称查科目ID-->
+    <select id="findSubjectIdByName" resultType="java.lang.Long">
+        select subjectId
+        from subject
+        where subjectName=#{subjectName}
+    </select>
 </mapper>
