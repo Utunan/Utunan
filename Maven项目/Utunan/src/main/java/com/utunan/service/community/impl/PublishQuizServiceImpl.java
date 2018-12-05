@@ -51,20 +51,4 @@ public class PublishQuizServiceImpl implements PublishQuizService {
     public PublishQuiz findAnswerListByPraiseCount(Long quizId) {
         return this.publishQuizMapper1.findAnswerListByPraiseCount(quizId);
     }
-
-
-
-    /**
-     * @author  孙程程
-     * @description 根据搜索条件返回评论列表
-     * @date  16:12 2018/11/27
-     * @param  searchValue, pageNum, pageSize
-     * @return  java.util.List<com.utunan.pojo.base.community.Answer>
-     */
-    @Override
-    public List<Answer> findAnswerListBySearch(String searchValue, int pageNum, int pageSize){
-        PageHelper.startPage(pageNum,pageSize);
-        List<Answer> answerList =this.publishQuizMapper1.findAnswerListBySearch("%"+searchValue+"%");
-        return answerList;
-    }
 }

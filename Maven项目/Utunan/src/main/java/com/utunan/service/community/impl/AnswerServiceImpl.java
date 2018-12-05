@@ -2,6 +2,7 @@ package com.utunan.service.community.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.utunan.mapper.community.AnswerMapper;
+import com.utunan.mapper.community.SearchAnswerMapper;
 import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.user.User;
@@ -21,6 +22,8 @@ import java.util.List;
 public class AnswerServiceImpl implements AnswerService {
     @Autowired
     private AnswerMapper answerMapper;
+    @Autowired
+    private SearchAnswerMapper searchAnswerMapper;
     /*
      * @author  张正扬
      * @description 向comment表插入回答
@@ -99,24 +102,13 @@ public class AnswerServiceImpl implements AnswerService {
      * @param  searchValue, pageNum, pageSize
      * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
-//    @Override
-//    public List<Answer> findAnswerListBySearch(String searchValue, int pageNum, int pageSize){
-//        PageHelper.startPage(pageNum,pageSize);
-//        List<Answer> answerList =this.answerMapper.findAnswerListBySearch("%"+searchValue+"%");
-//        return answerList;
-//    }
-
-    /**
-     * @author  孙程程
-     * @description 根据搜索条件返回评论数量
-     * @date  16:13 2018/11/27
-     * @param  searchValue
-     * @return  java.lang.Long
-     */
     @Override
-    public Long countAnswerBySearch(String searchValue){
-        return this.answerMapper.countAnswerBySearch("%"+searchValue+"%");
+    public List<Answer> findAnswerListBySearch(String searchValue, int pageNum, int pageSize){
+        PageHelper.startPage(pageNum,pageSize);
+        List<Answer> answerList =this.searchAnswerMapper.findAnswerListBySearch("%"+searchValue+"%");
+        return answerList;
     }
+
     /*
      * @author  张正扬
      * @description 向comment表插入回答

@@ -18,8 +18,7 @@
 <body>
 <div>
     <h2><a href="/searchQuiz?searchValue=${searchValue}">搜索提问</a>&nbsp;&nbsp;&nbsp;
-        <a href="/searchComment?searchValue=${searchValue}">搜索回答</a>&nbsp;&nbsp;&nbsp;
-        <a href="/searchTag?searchValue=${searchValue}">搜索标签</a>&nbsp;&nbsp;&nbsp;
+        <a href="/searchComment?searchValue=${searchValue}">搜索回答</a>
     </h2>
 </div>
 <c:if test="${url=='searchQuiz'}">
@@ -85,7 +84,7 @@
             <c:forEach items="${object}" var="obj">
             <tr>
                 <td>${obj.answerId}</td>
-                <td>${obj.quizId}</td>
+                <td>${obj.quiz.quizId}</td>
                 <td>回复：${obj.quiz.quizTitle}</td>
                 <td>${obj.answerContent}</td>
                 <td>${obj.answerTime}</td>
@@ -110,25 +109,6 @@
                 </c:choose>
                 <li class="tail"><a href="/${url }?searchValue=${searchValue}&pageNum=${PageInfo.pages}">尾页</a></li>
             </nav>
-    </div>
-</c:if>
-<c:if test="${url=='searchTag'}">
-    <div>
-        <table>
-            <tr>
-                <td>序号</td>
-                <td>名称</td>
-            </tr>
-            <c:forEach items="${tagList}" var="tag">
-            <tr>
-                <td>${tag.tagId}</td>
-                <td>${tag.tagName}</td>
-            </tr>
-            </c:forEach>
-            <table/>
-            <div style="height: 20px;">
-                <h4>共有${tagNumber}条数据</h4>
-            </div>
     </div>
 </c:if>
 </body>
