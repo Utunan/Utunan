@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
@@ -98,26 +99,18 @@
                     <option value="1">按热度排序</option>
                 </select>
             </div>
+            <c:forEach items="${publishDirection.directionComments}" var="dcomment">
             <div class="comments-content">
-                <div class="time">2018.11.25</div>
-                <div class="nickname">这是一个昵称</div>
-                <div class="comments-content-content">吧啦吧啦吧啦吧啦吧啦吧</div>
+                <div class="time"><fmt:formatDate value='${dcomment.directionCommentTime}' type='date' pattern='yyyy-MM-dd HH:mm:ss'/></div>
+                <div class="nickname">${dcomment.user.userNickName}</div>
+                <div class="comments-content-content">${dcomment.directionCommentContent}</div>
                 <div class="b">
-                    <div class="comments-content-praise">赞（528）</div>
+                    <div class="comments-content-praise">赞（${dcomment.directionCommentPraiseCount}）</div>
                     <img src="images/community/jia1.svg" width="22px"height="22px">
                     <div class="comments-content-give-praise">点赞</div>
                 </div>
             </div>
-            <div class="comments-content">
-                <div class="time">2018.11.25</div>
-                <div class="nickname">这是一个昵称</div>
-                <div class="comments-content-content">吧啦吧啦吧啦吧啦吧啦吧</div>
-                <div class="b">
-                    <div class="comments-content-praise">赞（528）</div>
-                    <img src="images/community/jia1.svg" width="22px"height="22px">
-                    <div class="comments-content-give-praise">点赞</div>
-                </div>
-            </div>
+            </c:forEach>
             <div class="comments-reply">
                 <input class="comments-reply-input"type="text" width="660px" height="30px">
                 <div class="comments-reply-report">发表评论</div>
