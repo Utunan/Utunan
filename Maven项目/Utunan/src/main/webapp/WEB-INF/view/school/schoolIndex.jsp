@@ -107,12 +107,12 @@
     <table class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th>招生单位</th>
-                <th>院系名称</th>
-                <th>学位类型</th>
-                <th>专业</th>
-                <th>研究方向</th>
-                <th>考试范围</th>
+                <th class="zsdw">招生单位</th>
+                <th class="yxmc">院系名称</th>
+                <th class="xwlx">学位类型</th>
+                <th class="zy">专业</th>
+                <th class="yjfx">研究方向</th>
+                <th class="ksfw">考试范围</th>
                 <th>收藏</th>
               </tr>
             </thead>
