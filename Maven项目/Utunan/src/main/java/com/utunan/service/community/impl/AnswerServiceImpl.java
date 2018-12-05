@@ -49,10 +49,11 @@ public class AnswerServiceImpl implements AnswerService {
      * @param  []
      * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
-//    @Override
-//    public List<Answer> findAnswerListByQuizId(Long quizId) {
-//        return this.answerMapper.findAnswerListByQuizId(quizId);
-//    }
+    @Override
+    public List<Answer> findAnswerListByQuizId(int pageNum,int pageSize,Long quizId) {
+        PageHelper.startPage(pageNum,pageSize);
+        return this.answerMapper.findAnswerListByQuizId(quizId);
+    }
 
     /*
      * @author  王碧云
@@ -73,10 +74,11 @@ public class AnswerServiceImpl implements AnswerService {
      * @param  [quizId]
      * @return  java.util.List<com.utunan.pojo.base.community.Answer>
      */
-//    @Override
-//    public List<Answer> findAnswerListByPraiseCount(Long quizId) {
-//        return this.answerMapper.findAnswerListByPraiseCount(quizId);
-//    }
+    @Override
+    public List<Answer> findAnswerListByPraiseCount(int pageNum,int pageSize,Long quizId) {
+        PageHelper.startPage(pageNum,pageSize);
+        return this.answerMapper.findAnswerListByPraiseCount(quizId);
+    }
 
     /*
      * @author  王碧云
@@ -142,6 +144,11 @@ public class AnswerServiceImpl implements AnswerService {
     @Override
     public Long getMaxAid() {
         return this.answerMapper.getMaxAid();
+    }
+
+    @Override
+    public void praiseAnswer(Long num){
+        this.answerMapper.updatePraiseCount(num);
     }
 
 

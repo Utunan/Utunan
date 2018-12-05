@@ -19,13 +19,13 @@ public interface AnswerMapper {
 
 
     /*根据quizId返回评论列表（王碧云）*/
-    //List<Answer> findAnswerListByQuizId(@Param("quizId") Long quizId);
+    List<Answer> findAnswerListByQuizId(@Param("quizId") Long quizId);
 
     /*根据commentId返回子评论列表（王碧云）*/
     List<Answer> findChildAnswerListByAnswerId(@Param("answerId") Long answerId);
 
     /*王碧云 根据热度返回评论列表*/
-    //List<Answer> findAnswerListByPraiseCount(@Param("quizId") Long quizId);
+    List<Answer> findAnswerListByPraiseCount(@Param("quizId") Long quizId);
 
     /*王碧云 根据quizId获取父级为null的评论数*/
     //Long countAnswerByQuizId(@Param("quizId") Long quizId);
@@ -44,4 +44,12 @@ public interface AnswerMapper {
     Long getMaxAid();
 
 
+    /*
+     * @author  张正扬
+     * @description 更新回答点赞
+     * @date  22:39 2018/12/4
+     * @param Long
+     * @return null
+     */
+    void updatePraiseCount(Long answerId);
 }

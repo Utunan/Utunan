@@ -17,9 +17,10 @@ public class PublishQuiz extends Quiz {
         return answers;
     }
 
-    public void setAnswers(List<Answer> answer) {
-        this.answers = answer;
+    public void setAnswer(List<Answer> answers) {
+        this.answers = answers;
     }
+
 
     @Override
     public String toString() {
