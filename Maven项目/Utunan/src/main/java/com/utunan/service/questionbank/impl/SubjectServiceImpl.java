@@ -1,6 +1,7 @@
 package com.utunan.service.questionbank.impl;
 
 import com.utunan.mapper.questionbank.QuestionSearchMapper;
+import com.utunan.mapper.questionbank.SubjectMapper;
 import com.utunan.pojo.base.questionbank.Subject;
 import com.utunan.service.questionbank.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 public class SubjectServiceImpl implements SubjectService {
 
 	@Autowired
-	private QuestionSearchMapper questionSearchMapper;
+	private SubjectMapper subjectMapper;
 
 	/**
 	 * @author  孙程程
@@ -22,7 +23,7 @@ public class SubjectServiceImpl implements SubjectService {
 	 */
 	@Override
 	public List<Subject> listSubject(){
-		return this.questionSearchMapper.listSubject();
+		return this.subjectMapper.listSubject();
 	}
 
 	/**
@@ -34,7 +35,7 @@ public class SubjectServiceImpl implements SubjectService {
 	 */
 	@Override
 	public Long countQuestionBySubject( Long subjectId){
-		return this.questionSearchMapper.countQuestionBySubject(subjectId);
+		return this.subjectMapper.countQuestionBySubject(subjectId);
 	}
 
 	/**
@@ -46,7 +47,7 @@ public class SubjectServiceImpl implements SubjectService {
 	 */
 	@Override
 	public Long countResolveQuestionBySubject(Long subjectId, Long userId){
-		return this.questionSearchMapper.countResolveQuestionBySubject(subjectId,userId);
+		return this.subjectMapper.countResolveQuestionBySubject(subjectId,userId);
 	}
 
 }
