@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -49,6 +49,9 @@ http://www.springframework.org/schema/task/spring-task.xsd">
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/user/**"/>
+            <mvc:mapping path="/answer"/>
+            <mvc:mapping path="/answer1"/>
+            <mvc:mapping path="/addDirectionCollector"/>
             <bean class="com.utunan.interceptor.user.UserSessionInterceptor">
             </bean>
         </mvc:interceptor>
@@ -71,6 +74,7 @@ http://www.springframework.org/schema/task/spring-task.xsd">
         <property name="defaultEncoding" value="UTF-8"/>
         <!-- 指定所上传文件的总大小不能超过200KB。注意maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和 -->
         <property name="maxUploadSize" value="200000"/>
+        <property name="resolveLazily" value="true" />
     </bean>
-	
+
 </beans>

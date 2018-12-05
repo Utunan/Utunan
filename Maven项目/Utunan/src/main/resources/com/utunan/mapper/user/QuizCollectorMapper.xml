@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.utunan.mapper.user.QuizCollectorMapper">
+
+
+    <select id="selectQuizCollector" resultType="com.utunan.pojo.base.community.Quiz">
+        select *
+        from quiz_collector qc left join quiz q on qc.quizId=q.quizId
+        where qc.userId=#{userId}
+    </select>
+
+    <delete id="deleteQuizCollector">
+        delete from quiz_collector
+        where  userId=#{userId} and quizId=#{quizId}
+    </delete>
+
+</mapper>

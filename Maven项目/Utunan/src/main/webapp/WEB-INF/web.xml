@@ -56,4 +56,14 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+    <jsp-config>
+        <taglib>
+            <!-- 配置标签的引用地址 JSP页面中引用时使用-->
+            <taglib-uri>/intel</taglib-uri>
+            <!-- 配置标签的TLD文件地址 -->
+            <taglib-location>/WEB-INF/intel.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+
+
 </web-app>

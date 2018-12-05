@@ -2,8 +2,8 @@ body {
     background-color:#F5F5F5;
 }
 #active {
-    color: rgba(12, 200, 217, 1);
-    background-color: rgba(12, 200, 217, 0.2);
+    color: rgba(49, 126, 212, 1);
+    background-color: rgba(49, 126, 212, 0.1);
 }
 header {
 }
@@ -46,7 +46,7 @@ header {
 .countdown h4 {
     padding:25px 0;
     margin:0;
-    background: #51c4d3;
+    background-color: rgb(63, 119, 210);
     font-size: 20px;
     letter-spacing: 0px;
     text-align: center;
@@ -78,7 +78,7 @@ header {
     padding-left: 40px;
     margin-top: 8%;
     font-size: 20px;
-    color: #51c4d3;
+    color: rgba(49, 126, 212, 1);
 }
 
 .schoolinfo {
@@ -148,30 +148,31 @@ header {
     width: 15px;
     margin:18px 0;
     left: 80px;
-    /*margin:18px 0 18px 60px;*/
     float: left;
 }
 
 .content{
+    position: relative;
     border: 1px solid #C0C0C0;
     float: right;
     width: 680px;
+    min-height: 500px;
     background: #fff;
 }
 .userfunction>li:hover{
-    color: rgba(12, 200, 217, 1);
     width: 198px;
     padding-left: 20px;
-    background-color: rgba(12, 200, 217, 0.2);
-    border-right:2px solid rgba(12, 200, 217, 1);
+    color: rgba(49, 126, 212, 1);
+    background-color: rgba(49, 126, 212, 0.1);
+    border-right:2px solid rgba(49, 126, 212, 1);
 }
 .userfunction>a>li:hover{
 
     width: 198px;
     padding-left: 20px;
-    color: rgba(12, 200, 217, 1);
-    background-color: rgba(12, 200, 217, 0.2);
-    border-right:2px solid rgba(12, 200, 217, 1);
+    color: rgba(49, 126, 212, 1);
+    background-color: rgba(49, 126, 212, 0.1);
+    border-right:2px solid rgba(49, 126, 212, 1);
 }
 .userfunction>nav{
     clear: both;
@@ -180,7 +181,7 @@ header {
 
 .userfunction>nav>a{
     text-decoration: none;
-    color:#1690f3;
+    color:rgba(36, 94, 210,1);
 }
 
 .userfunction>nav>a>li{
@@ -193,9 +194,9 @@ header {
 }
 .userfunction nav>a>li:hover{
     width: 158px;
-    color: rgba(12, 200, 217, 1);
-    background-color: rgba(12, 200, 217, 0.2);
-    border-right:2px solid rgba(12, 200, 217, 1);
+    color: rgba(49, 126, 212, 1);
+    background-color: rgba(49, 126, 212, 0.1);
+    border-right:2px solid rgba(49, 126, 212, 1);
 }
 
 .mintitle{
@@ -204,7 +205,7 @@ header {
     float: left;
     padding:10px 0px;
     margin:50px 0px 20px 0;
-    color: #51c4d3;
+    color: rgba(49, 126, 212, 1);
     font-size: 20px;
     font-weight: bold;
 }
@@ -213,8 +214,8 @@ header {
     width: 100%;
     float: left;
     padding:15px 0px;
-    margin:15px 0px 0px 0;
-    color: #51c4d3;
+    margin:0;
+    color: rgba(49, 126, 212, 1);
     font-size: 20px;
     font-weight: bold;
     border-bottom:2px solid rgba(229, 229, 229, 1);
@@ -229,40 +230,13 @@ header {
 .collection{
     overflow: hidden;
 }
-.page {
+
+.noresult{
     clear: both;
-    padding: 15px 0 10px 0;
-    height: 30px;
-    width: auto;
-    text-align: center;
-}
-
-.page>li {
-    text-align: center;
-    display:inline-flex;
-    margin: 0 auto;
-    width: 30px;
-    padding:3px 5px;
-    text-align: center;
-    border:1px solid rgba(12, 200, 217, 1);
-}
-
-.page>li>a {
     width: 100%;
-    float: left;
-    color: rgba(9, 198, 217, 1);
-    text-decoration: none;
-}
-
-.page>.home {
-    width: 60px;
-}
-.page>.prev {
-    width: 60px;
-}
-.page>.next {
-    width: 60px;
-}
-.page>.tail {
-    width: 60px;
+    height: 400px;
+    background: url(/images/user/notfound.jpg);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: right;
 }

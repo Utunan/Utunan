@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/login.css">
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <header>
@@ -20,11 +20,11 @@
     <div class="wrapper center">
         <div class="textcase">
             <div class="logintext">
-                <a href=""><img src="/images/logo.png" alt="" srcset=""></a>
+                <a href=""><img src="/images/common/logo.png" alt="" srcset=""></a>
             </div>
         </div>
         <div  class="reply" id="reply">${reply}</div>
-        <form class="loginform" id="loginform" action="/login" method="post" onsubmit="return checkForm()">
+        <form class="loginform" id="loginform" action="/login" method="post"  onsubmit="return checkForm()">
             <div class="permit inputcase">
                 <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="您的手机/邮箱">
             </div>
@@ -60,5 +60,5 @@
     </footer>
 </div>
 </body>
-<script src="/js/login.js"></script>
+<script src="/js/common/login.js"></script>
 </html>

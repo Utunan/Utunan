@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.utunan.mapper.community.AnswerMapper">
+    <resultMap id="answerResultMap" type="com.utunan.pojo.base.community.Answer">
+        <id property="answerId" column="answerId"/>
+        <result property="answerContent" column="answerContent"/>
+        <result property="answerTime" column="answerTime"/>
+        <result property="praiseCount" column="praiseCount"/>
+        <result property="parentAnswer" column="parentAnswer"/>
+        <association property="quiz" javaType="com.utunan.pojo.base.community.Quiz">
+            <id property="quizId" column="quizId"/>
+            <result property="quizTitle" column="quizTitle"/>
+            <result property="quizContent" column="quizContent"/>
+            <result property="releaseTime" column="releaseTime"/>
+            <result property="praiseCount" column="praiseCount"/>
+        </association>
+        <association property="user" javaType="com.utunan.pojo.base.user.User">
+            <id property="userId" column="userId"/>
+            <result property="userEmail" column="userEmail"/>
+            <result property="userTelephone" column="userTelephone"/>
+            <result property="userPassword" column="userPassword"/>
+            <result property="userIdentity" column="userIdentity"/>
+            <result property="examTime" column="examTime"/>
+            <result property="registerTime" column="registerTime"/>
+            <result property="userHeadImg" column="userHeadImg"/>
+            <result property="userNickName" column="userNickName"/>
+            <result property="userSchool" column="userSchool"/>
+            <result property="dreamSchool" column="dreamSchool"/>
+            <result property="userIntegral" column="userIntegral"/>
+        </association>
+    </resultMap>
+    <!-- 插入回答 -->
+    <insert id="toInsert" parameterType="com.utunan.pojo.base.community.Answer" >
+        insert into answer(answerId,quizId,userId,answerContent,answerTime,praiseCount,parentAnswer) values(#{answerId},#{quiz.quizId},#{user.userId},#{answerContent},#{answerTime},#{praiseCount},#{parentAnswer})
+    </insert>
+
+
+    <!-- 插入评论 -->
+    <insert id="toInsert1" parameterType="com.utunan.pojo.base.community.Answer" >
+        insert into answer(answerId,quizId,userId,answerContent,answerTime,praiseCount,parentAnswer) values(#{answerId},#{quizId},#{userId},#{answerContent},#{answerTime},#{praiseCount},#{parentAnswer})
+    </insert>
+    
+
+    
+    <!--王碧云 根据quizId查询评论列表（子评论除外）(默认：根据时间排序)-->
+    <select id="findAnswerListByQuizId" resultMap="answerResultMap">
+        select *
+        from answer
+        join user on answer.userId=user.userId
+        where
+        quizId = #{quizId} and parentAnswer is null
+        order by answerTime desc
+    </select>
+    
+    <!--王碧云 根据quizId返回（父级为null的）评论数量-->
+    <!--<select id="countAnswerByQuizId" resultType="java.lang.Long">
+        select count(*)
+        from answer
+        where
+        quizId = #{quizId} and parentAnswer is null
+    </select>-->
+    
+    <!--王碧云 根据热度返回评论列表-->
+    <select id="findAnswerListByPraiseCount" resultMap="answerResultMap">
+        select *
+        from answer
+        join user on answer.userId=user.userId
+        where
+        quizId = #{quizId} and parentAnswer is null
+        order by praiseCount desc
+    </select>
+    
+    <!--王碧云 根据answerId查询子评论-->
+    <select id="findChildAnswerListByAnswerId" resultMap="answerResultMap">
+        select *
+        from answer
+        join user on answer.userId=user.userId
+        where
+        parentAnswer=#{answerId}
+    </select>
+    
+    <!--更新回答点赞数-->
+    <update id="updatePraiseCount" parameterType="java.lang.Long">
+        update answer set praiseCount=praiseCount+1 where answerId=#{answerId}
+    </update>
+    
+    <!--根据搜索条件查询回答列表-->
+    <!--<select id="findAnswerListBySearch" resultMap="answerResultMap">
+        select *
+        from answer c
+        join quiz q on c.quizId=q.quizId
+        where c.answerContent like #{searchValue}
+    </select>-->
+    <!--根据搜索条件查询回答数量-->
+    <select id="countAnswerBySearch" resultType="java.lang.Long">
+        select count(*)
+        from answer
+        where answerContent like #{searchValue}
+    </select>
+
+    <!--张正扬获取最大commentId-->
+    <select id="getMaxAid" resultType="java.lang.Long">
+        select max(answerId)
+        from answer
+    </select>
+
+
+</mapper>

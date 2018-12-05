@@ -174,8 +174,8 @@
                 <span>研究方向: <input name="schoolName" type="text"> </span>
                 <input type="submit" class="searchschoolinfo" value="查询">
                 <p style="color:#fff;font-weight:900;font-size: 18px;">112所高校研招信息全部收入囊中，提供多种检索方式。时光宝贵，我们帮助您更快、更精确的找到您理想高校。</p>
-                <input type="submit" class="allschoolinfo" value="查看更多">
             </form>
+            <a href="/school"class="allschoolinfo" >查看更多</a>
         </div>
     </div>
     <div class="community">
@@ -186,7 +186,7 @@
             </div>
             <p>漫漫考研路，这里有和你一样的志同道合者！考研经验交流、题目解惑、院校答疑，尽在此处。来这里与大家畅快交流！</p>
             <div class="commoncon">
-                <div class="comment">
+                <div class="answer">
                     <p style="margin-top:30px;">13:15 网友“杀鲨鱼”提问：</p>
                     <p style="font-size: 15px;">《C语言中双向队列链表应该如何遍历？》</p>
                     <p>标签 【数据结构】 【 链表】 </p>
@@ -214,5 +214,5 @@
 </div>
 <%@include file="common/footer.jsp"%>
 </body>
-<script src="/js/common.js"></script>
+<script src="/js/common/common.js"></script>
 </html>

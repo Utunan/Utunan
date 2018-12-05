@@ -1,6 +1,6 @@
 package com.utunan.interceptor.user;
 
-import com.utunan.pojo.user.User;
+import com.utunan.pojo.base.user.User;
 import com.utunan.service.user.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +22,12 @@ public class UserSessionInterceptor implements HandlerInterceptor {
         User user=(User)session.getAttribute("User");
         if(user==null){
             response.sendRedirect("/login");
+            return false;
         }else{
+
             User checkUser =userService.getUser(user);
             if (user.getUserPassword().equals(checkUser.getUserPassword())){
+                session.setAttribute("User",checkUser);
                 return true;
             }else{
                 session.removeAttribute("User");
