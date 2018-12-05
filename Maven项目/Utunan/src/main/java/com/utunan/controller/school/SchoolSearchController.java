@@ -1,19 +1,14 @@
 package com.utunan.controller.school;
 
 import com.github.pagehelper.PageInfo;
-import com.utunan.pojo.base.school.Direction;
-import com.utunan.pojo.base.school.School;
-
 import com.utunan.pojo.base.user.User;
+import com.utunan.pojo.inherit.questionbank.PublishDirectionComment;
 import com.utunan.pojo.inherit.school.PublishDirection;
 import com.utunan.pojo.inherit.school.PublishSchool;
-import com.utunan.pojo.inherit.user.PublishDirectionCollector;
-import com.utunan.service.school.DirectionService;
+import com.utunan.service.questionbank.PublishDirectionCommentService;
 import com.utunan.service.school.PublishDirectionService;
 import com.utunan.service.school.PublishSchoolService;
-import com.utunan.service.school.SchoolService;
 import com.utunan.service.user.PublishDirectionCollectorService;
-import org.apache.commons.codec.binary.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,11 +18,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.xml.ws.Service;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -44,7 +36,8 @@ public class SchoolSearchController {
     private PublishDirectionService publishDirectionService;
     @Autowired
     private PublishDirectionCollectorService publishDirectionCollectorService;
-
+    @Autowired
+    private PublishDirectionCommentService publishDirectionCommentService;
     /*
      * @author  王碧云
      * @description 显示院校库初始页面
@@ -197,9 +190,22 @@ public class SchoolSearchController {
                                          @RequestParam(value = "directionId") String directionId,
                                          @RequestParam(value = "sort",required = false) String sort){
         PublishDirection publishDirection = this.publishDirectionService.findDirectionByDirectionId(directionId,sort);
+        int directionCommentCount =publishDirection.getDirectionComments().size();
+
         request.setAttribute("publishDirection", publishDirection);
+        request.setAttribute("directionCommentCount", directionCommentCount);
         System.out.println("[lalala]"+publishDirection);
         return "/school/schooldetail";
+    }
+
+    @RequestMapping("/updateDirectionCommentPraiseCount")
+    public void updateDirectionCommentPraiseCount(@RequestParam(value = "directionCommentId") String directionCommentId,
+                                                    @RequestParam(value = "directionId",required = false) Long directionId,
+                                                    HttpServletRequest request,
+                                                    HttpServletResponse response) throws ServletException, IOException {
+        Long praiseCount = this.publishDirectionCommentService.updateDirectionCommentPraiseCount(Long.parseLong(directionCommentId));
+
+        request.getRequestDispatcher("/displayDirectionDetail?directionId="+directionId).forward(request,response );
     }
 }
 

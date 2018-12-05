@@ -64,4 +64,5 @@
         d.directionId=#{directionId}
         order by dc.directionCommentPraiseCount desc
     </select>
+
 </mapper>

@@ -27,4 +27,11 @@
         </association>
     </resultMap>
 
+    <!--王碧云 修改点赞数-->
+    <update id="updateDirectionCommentPraiseCount" parameterType="java.lang.Long">
+        update direction_comment
+        set directionCommentPraiseCount=directionCommentPraiseCount+1
+        where directionCommentId=#{directionCommentId}
+    </update>
+
 </mapper>
