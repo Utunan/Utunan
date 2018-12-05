@@ -21,7 +21,32 @@
     <script src="/js/community/jquery-1.10.2.js"></script>
     <script src="/js/community/tag.js"></script>
 </head>
+<script>
+    //禁用Enter键表单自动提交
+    document.onkeydown = function(event) {
+        var target, code, tag;
+        if (!event) {
+            event = window.event; //针对ie浏览器
+            target = event.srcElement;
+            code = event.keyCode;
+            if (code == 13) {
+                tag = target.tagName;
+                if (tag == "TEXTAREA") { return true; }
+                else { return false; }
+            }
+        }
+        else {
+            target = event.target; //针对遵循w3c标准的浏览器，如Firefox
+            code = event.keyCode;
+            if (code == 13) {
+                tag = target.tagName;
+                if (tag == "INPUT") { return false; }
+                else { return true; }
+            }
+        }
+    };
 
+</script>
 <body>
 <%@include file="../common/header.jsp"%>
 <div class="mask"></div>
@@ -198,7 +223,7 @@
     <div class="right-content">
         <div class="modalDialogcontent">
             <span class="close_modalDialogcontent">×</span>
-            <form action="uiz3" method="post">
+            <form action="/uiz3" method="post">
                 <div class="ask-question">
                     <!--从数据库查出头像-->
                     <%--@declare id="autocomplete59--1"--%><div class="headAppear"><img src="images/userheadimg/hand.jpg"/></div>
@@ -243,7 +268,7 @@
                     <input type="text" id="tagValue" placeholder="用户名或邮件地址" name="tags"/>
                 </div>
                 <div class="add-buttom">
-                    <div class="radio"><input type="radio" name="radio" >匿名提问</div>
+                    <div class="radio"><label for="checkbox"><input type="checkbox" id="checkbox">匿名提问</div>
                     <input type="submit" value="发布问题" class="submit"/>
                 </div>
             </form>
