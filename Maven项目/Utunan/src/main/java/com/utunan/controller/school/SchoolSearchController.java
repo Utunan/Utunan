@@ -163,7 +163,13 @@ public class SchoolSearchController {
     }
 
 
-    /*加入收藏夹*/
+    /*
+     * @author  王碧云
+     * @description 将院校加入收藏夹
+     * @date  14:03 2018/12/5/005
+     * @param  [directionId, session, request, response]
+     * @return  void
+     */
     @RequestMapping("/addDirectionCollector")
     public void addDirectionCollector(@RequestParam(value = "directionId") String directionId,
                                       HttpSession session,
@@ -181,6 +187,23 @@ public class SchoolSearchController {
             //用户未登录
             System.out.println("用户没登录！！");
         }
+        request.getRequestDispatcher("/displaySchoolBySearch").forward(request,response );
+    }
+    /*
+     * @author  王碧云
+     * @description 将院校在收藏夹中删除
+     * @date  14:06 2018/12/5/005
+     * @param  []
+     * @return  void
+     */
+    @RequestMapping("/deleteDirectionCollector")
+    public void deleteDirectionCollector(@RequestParam(value = "directionId") String directionId,
+                                         HttpSession session,
+                                         HttpServletRequest request,
+                                         HttpServletResponse response) throws ServletException, IOException {
+        User user =(User)session.getAttribute("User");
+        Long userId = user.getUserId();
+        this.publishDirectionCollectorService.deleteDirectionCollector(userId, Long.parseLong(directionId));
         request.getRequestDispatcher("/displaySchoolBySearch").forward(request,response );
     }
 }
