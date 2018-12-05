@@ -73,7 +73,7 @@ td{
 }
 
 .zsml-result{padding:10px 0 0;margin-top:10px;border-top:1px solid #e5e5e5}
-.zsml-res-items{background-color:#f9fcff; text-align: center;}
+.zsml-res-items{background-color:#fafafa; text-align: center;}
 .zsml-res-items td{padding:15px 10px;vertical-align:top}
 .zsml-res-items .sub-msg{display:block;font-size:12px;color:#999}
 .zsml-res-divider{text-align:center;color:#999}
@@ -100,9 +100,61 @@ td{
     font-size: 19px;
     padding-left: 50%;
     padding-top:20px;
+    border-top:1px solid #e5e5e5;
+    margin-top:20px;
+}
+
+
+.comments-number{
+    background-color: #f9fcff;
+}
+
+.close{
+    float: left;
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    color: rgba(80, 80, 80, 1);
+    font-size: 14px;
+    margin-right: 25px;
+}
+.comments-content{
+    height: 35px;
+    width: 1000px;
+    border-style: dashed; 
+	border-width:0px 0px 1px 0px; 
+    border-color:#e5e5e5;
+    margin-top: 10px;
+}
+.time{
+    margin-left: 25px;
+    float: left;
+    width: 150px;
+    line-height: 35px;
+    color: rgba(80, 80, 80, 1);
+	font-size: 14px;
+}
+.nickname{
+    float: left;
+    width:200px;
+    line-height: 35px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #505050;
+}
+.comments-content-content{
+    float: left;
+    width: 400px;
+    line-height: 35px;
+    color: rgba(80, 80, 80, 1);
+	font-size: 14px; 
+}
+.b{
+    float: right;
+    margin-right: 30px;
 }
 .comments-content-praise{
-    line-height: 35px;
+    line-height: 35px;  
     font-weight: bolder;
     color: #f2858e;
     font-size: 14px;
@@ -124,9 +176,10 @@ td{
 .comments-reply{
     width: 1000px;
     height: 40px;
-    border-style: solid;
-    border-width:0px 0px 1px 0px;
+    border-style: solid; 
+	border-width:0px 0px 1px 0px; 
     border-color:#e5e5e5;
+    margin-top: 10px;
 }
 .comments-reply-input{
     width: 600px;
@@ -137,9 +190,29 @@ td{
 }
 .comments-reply-report{
     float: left;
-    margin-left: 15px;
+    margin-left: 45px;
     line-height: 40px;
     color: rgba(128, 128, 128, 1);
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.infobar{
+    background-color: #f9fcff;
+    width:960px;
+    height:40px;
+    margin-top: 10px;
+}
+.sort{
+    float:right;
+    height: 24px;
     font-size: 14px;
-    font-weight: bold;
+    color: #505050;
+    margin-top: 8px;
+    margin-right: 25px;
+    border: none;
+    background-color: #f9fcff
+}
+.num{
+    width:100px;
 }
