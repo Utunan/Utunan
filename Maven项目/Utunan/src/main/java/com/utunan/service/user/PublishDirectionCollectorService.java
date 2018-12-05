@@ -15,4 +15,7 @@ public interface PublishDirectionCollectorService {
     List<PublishDirectionCollector> findDirectionCollectorByUser(Long userId);
 
     List<Long> findDirectionIdByUser(Long userId);
+
+    /*王碧云 加入院校收藏夹*/
+    void insertDirectionCollector(Long userId,Long directionId);
 }

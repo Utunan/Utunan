@@ -1,6 +1,8 @@
 package com.utunan.service.community;
 
 import com.utunan.pojo.base.community.Answer;
+import com.utunan.pojo.base.community.Quiz;
+import com.utunan.pojo.base.user.User;
 
 import java.util.List;
 
@@ -15,7 +17,7 @@ public interface AnswerService {
      * @return   null
      */
     
-    void saveAnswer(Long aid,Long quizId,String content,Long uid);
+    void saveAnswer(Long aid, Quiz quiz, String content, User user);
     /*
      * @author  张正扬
      * @description  向comment表中插入评论
@@ -24,7 +26,7 @@ public interface AnswerService {
      * @return   null
      */
     
-    void saveAnswer1(Long aid,Long answerId,String content,Long uid);
+    void saveAnswer1(Long aid,Long answerId,String content,User user);
     
     /*
      * @author  王碧云
