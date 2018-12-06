@@ -22,5 +22,4 @@ public class QuizCollectorServiceImpl implements QuizCollectorService {
         List<Quiz> quizzes= quizCollectorMapper.selectQuizCollector(user);
         return  quizzes;
     }
-
 }

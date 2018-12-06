@@ -8,6 +8,7 @@ import com.utunan.pojo.inherit.community.BigQuiz;
 import com.utunan.service.community.QuizService;
 import com.utunan.service.community.QuizTagService;
 import com.utunan.service.community.TagService;
+import org.apache.commons.lang.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,8 @@ public class QuizController {
 	private TagService tagService;
 	@Autowired
     private QuizTagService quizTagService;
+
+
 	
 	/**
 	 * @author  孙程程
@@ -165,29 +168,32 @@ public class QuizController {
 		request.setCharacterEncoding("UTF-8");
 		//int num=Integer.parseInt(request.getParameter("j1"));
 		String title=request.getParameter("title");
-		String[] tags=request.getParameter("tags").split(",");
+
+
+		String t=request.getParameter("tags");
 		String content= request.getParameter("textarea");
 
-		Object ob=session.getAttribute("User");
+		User user=(User)session.getAttribute("User");
 
 		Long qid=this.quizService.getMaxQid();
 		qid+=1;
-
-		if (ob!=null) {
-			User user = (User) ob;
-			this.quizService.saveQuiz(qid,user, title, content);
-		}
-
-		if(tags!=null){
-		    //将数组转化为list集合
+		if (t!=null&&!t.equals("")){
+			String[] tags=t.split(",");
+			//将数组转化为list集合
 			List<String> listtag= Arrays.asList(tags);
 
 			//获得用户输入的标签的id
 			List<Long> tagss=this.tagService.getTags(listtag);
 
 			this.quizTagService.saveQuizTag(qid,tagss);
+		}
 
 
+
+
+
+		if (user!=null) {
+			this.quizService.saveQuiz(qid,user, title, content);
 		}
 		return "redirect:/quiz1 ";
 	}

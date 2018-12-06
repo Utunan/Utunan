@@ -149,11 +149,9 @@
                     <!--帖子显示原则选项-->
                     <div class="menu-description">排序：</div>
                     <div class="menu-optionSet">
-                        <ul>
-                            <li class="${statelist[0]}" ><a href="quiz3?tagName=${tagName}">按时间排序</a></li>
-                            <li class="${statelist[1]}" ><a href="quiz4?tagName=${tagName}">按热度排序</a></li>
-                            <!--<li class="option" ><a href="#" >智能化推荐</a></li>-->
-                        </ul>
+                        <a href="quiz3?tagName=${tagName}"class="${statelist[0]}">按时间排序</a>
+                        <a href="quiz4?tagName=${tagName}"class="${statelist[1]}">按热度排序</a>
+                        <!--<li class="option" ><a href="#" >智能化推荐</a></li>-->
                     </div>
                     <div class="search">
                         <form name="searchForm" action="/searchQuiz" method="post">
@@ -235,10 +233,7 @@
                 <!--富文本编辑器-->
                 <div class="text">
                     <div id="div1" class="toolbar" ></div>
-                    <div id="div2" style="height: 100px">
-                        <p>输入问题背景、条件等详细信息</p>
-                    </div>
-                    <textarea id="text1" style="display: none" name="textarea"></textarea>
+                    <textarea id="div2" style="height: 95px;width: 460px;font-size: 16px;" name="textarea"placeholder="输入问题背景、条件等详细信息"></textarea>
                     <script type="text/javascript">
                         var E = window.wangEditor;
                         var editor1 = new E('#div1', '#div2');  // 两个参数也可以传入 elem 对象，class 选择器
@@ -280,7 +275,7 @@
             <div class="tags-title">热门标签</div>
             <ul>
                 <c:forEach items="${tag}" var="tags">
-                    <li><a href="">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></li>
+                    <li><a href="quiz3?tagName=${tags[0].tagName}">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></li>
                 </c:forEach>
             </ul>
         </div>
