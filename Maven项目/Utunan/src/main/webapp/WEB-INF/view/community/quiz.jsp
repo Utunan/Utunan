@@ -280,7 +280,7 @@
             <div class="tags-title">热门标签</div>
             <ul>
                 <c:forEach items="${tag}" var="tags">
-                    <li><a href="">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></li>
+                    <li><a href="quiz3?tagName=${tags[0].tagName}">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></li>
                 </c:forEach>
             </ul>
         </div>

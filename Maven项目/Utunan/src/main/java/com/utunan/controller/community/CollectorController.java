@@ -1,8 +1,9 @@
-package com.utunan.controller.user;
+package com.utunan.controller.community;
 
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.user.QuizCollector;
 import com.utunan.pojo.base.user.User;
+import com.utunan.service.community.QuizCollectService;
 import com.utunan.service.user.QuizCollectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,7 @@ import javax.servlet.http.HttpSession;
 public class CollectorController {
 
     @Autowired
-    private QuizCollectorService quizCollectorService;
+    private QuizCollectService quizCollectService;
 
     @RequestMapping(value = "quizCollector")
     public String quizCollector(HttpServletRequest request,HttpSession session){
@@ -29,11 +30,11 @@ public class CollectorController {
 
         User user1=(User)session.getAttribute("User");
         System.out.print(user1);
-        Long qcid=quizCollectorService.getMaxQCid();
+        Long qcid=quizCollectService.getMaxQCid();
         qcid+=1;
 
 
-        this.quizCollectorService.insertQuizCollector(qcid,user1, quiz);
+        this.quizCollectService.insertQuizCollector(qcid,user1, quiz);
         return "redirect:/displayQuizByQuizId?quizId=" + quizId;
 
 

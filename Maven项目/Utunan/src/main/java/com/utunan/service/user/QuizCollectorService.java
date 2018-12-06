@@ -8,7 +8,4 @@ import java.util.List;
 public interface QuizCollectorService {
     List<Quiz> getQuizCollector(User user,int pageNum,int pageSize);
 
-    void insertQuizCollector(Long qcid,User user,Quiz quiz);
-
-    Long getMaxQCid();
 }
