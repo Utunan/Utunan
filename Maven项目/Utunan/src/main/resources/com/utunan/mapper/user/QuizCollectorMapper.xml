@@ -49,8 +49,8 @@
 
 
     <select id="getMaxQCid" resultType="java.lang.Long">
-        select max (questionCollectorId)
-        from question_collector
+        select max(quizCollectorId)
+        from quiz_collector
     </select>
 
 </mapper>
