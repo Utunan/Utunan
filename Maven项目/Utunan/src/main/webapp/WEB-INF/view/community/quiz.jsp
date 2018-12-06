@@ -149,11 +149,9 @@
                     <!--帖子显示原则选项-->
                     <div class="menu-description">排序：</div>
                     <div class="menu-optionSet">
-                        <ul>
-                            <li class="${statelist[0]}" ><a href="quiz3?tagName=${tagName}">按时间排序</a></li>
-                            <li class="${statelist[1]}" ><a href="quiz4?tagName=${tagName}">按热度排序</a></li>
-                            <!--<li class="option" ><a href="#" >智能化推荐</a></li>-->
-                        </ul>
+                        <a href="quiz3?tagName=${tagName}"class="${statelist[0]}">按时间排序</a>
+                        <a href="quiz4?tagName=${tagName}"class="${statelist[1]}">按热度排序</a>
+                        <!--<li class="option" ><a href="#" >智能化推荐</a></li>-->
                     </div>
                     <div class="search">
                         <form name="searchForm" action="/searchQuiz" method="post">
