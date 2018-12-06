@@ -213,6 +213,10 @@ td{
     border: none;
     background-color: #f9fcff
 }
-.num{
-    width:100px;
+.num {
+    width: 100px;
+}
+.zsml-result {
+    margin-top: 60px;
+    width: 960px;
 }

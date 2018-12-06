@@ -112,10 +112,6 @@
                 </div>
             </div>
             </c:forEach>
-            <div class="comments-reply">
-                <input class="comments-reply-input"type="text" width="660px" height="30px">
-                <div class="comments-reply-report">发表评论</div>
-            </div>
         </div>
     </div>
             <form action="comment1?commentId=${answer.commentId}" method="post">
