@@ -1,4 +1,4 @@
-var options = document.getElementsByClassName("menu-optionSet")[0].getElementsByTagName("li");
+var options = document.getElementsByClassName("menu-optionSet")[0].getElementsByTagName("a");
 for (var i = 0; i < options.length; i++) {
     options[i].onclick = function () {
         for (var n = 0; n < options.length; n++) {

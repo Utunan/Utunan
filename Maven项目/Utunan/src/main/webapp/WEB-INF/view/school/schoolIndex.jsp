@@ -18,6 +18,7 @@
 </head>
 
 <body>
+<%@include file="../common/header.jsp"%>
     <div class="schoolheader">
         <span class="collector"></span><a>查看院校收藏夹</a></span>
         <span class="title">院校库</span>
@@ -123,7 +124,7 @@
                   <tr>
                     <td>${direction.schoolName}</td>
                     <td>${direction.collegeName}</td>
-                    <td><label for="${direction.degreeType}">${direction.degreeType}</label></td>
+                    <td>${direction.degreeType}</td>
                     <td>${direction.majorlName}</td>
                     <td>${direction.directionName}</td>
                     <td><a href="/displayDirectionDetail?directionId=${direction.directionId}">详情</a></td>

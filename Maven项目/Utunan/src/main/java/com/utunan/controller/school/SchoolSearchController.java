@@ -147,6 +147,7 @@ public class SchoolSearchController {
                                       HttpSession session,
                                       HttpServletRequest request,
                                       HttpServletResponse response) throws ServletException, IOException {
+        //获取当前用户
         Object obj = session.getAttribute("User");
         Long userId = null;
         if(obj != null){
@@ -173,9 +174,13 @@ public class SchoolSearchController {
                                          HttpSession session,
                                          HttpServletRequest request,
                                          HttpServletResponse response) throws ServletException, IOException {
+        //获取当前用户
         User user =(User)session.getAttribute("User");
+        //获取当前用户的Id
         Long userId = user.getUserId();
+        //根据用户Id和院校Id删除院校收藏
         this.publishDirectionCollectorService.deleteDirectionCollector(userId, Long.parseLong(directionId));
+        //返回数据
         request.getRequestDispatcher("/displaySchoolBySearch").forward(request,response );
     }
     /*
@@ -189,20 +194,31 @@ public class SchoolSearchController {
     public String displayDirectionDetail(HttpServletRequest request,
                                          @RequestParam(value = "directionId") String directionId,
                                          @RequestParam(value = "sort",required = false) String sort){
+        //根据分页方式显示页面详情
         PublishDirection publishDirection = this.publishDirectionService.findDirectionByDirectionId(directionId,sort);
+        //获取评论的长度
         int directionCommentCount =publishDirection.getDirectionComments().size();
 
+        //返回数据
         request.setAttribute("publishDirection", publishDirection);
         request.setAttribute("directionCommentCount", directionCommentCount);
         System.out.println("[lalala]"+publishDirection);
         return "/school/schooldetail";
     }
 
+    /*
+     * @author  王碧云
+     * @description 修改点赞数
+     * @date  9:11 2018/12/6/006
+     * @param  [directionCommentId, directionId, request, response]
+     * @return  void
+     */
     @RequestMapping("/updateDirectionCommentPraiseCount")
     public void updateDirectionCommentPraiseCount(@RequestParam(value = "directionCommentId") String directionCommentId,
                                                     @RequestParam(value = "directionId",required = false) Long directionId,
                                                     HttpServletRequest request,
                                                     HttpServletResponse response) throws ServletException, IOException {
+        //修改点赞数量
         Long praiseCount = this.publishDirectionCommentService.updateDirectionCommentPraiseCount(Long.parseLong(directionCommentId));
 
         request.getRequestDispatcher("/displayDirectionDetail?directionId="+directionId).forward(request,response );
