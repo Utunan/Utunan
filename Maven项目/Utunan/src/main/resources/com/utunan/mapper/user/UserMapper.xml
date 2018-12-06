@@ -3,6 +3,10 @@
 
 <mapper namespace="com.utunan.mapper.user.UserMapper">
 
+    <select id="selectAllUser" resultType="com.utunan.pojo.base.user.User">
+        select *
+        from user
+    </select>
     <select id="selectByPermit" resultType="com.utunan.pojo.base.user.User">
         select *
         from user

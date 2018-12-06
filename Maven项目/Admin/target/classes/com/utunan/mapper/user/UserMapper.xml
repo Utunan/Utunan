@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.utunan.mapper.user.UserMapper">
+
+    <select id="selectByPermit" resultType="com.utunan.pojo.base.user.User">
+        select *
+        from user
+        where (
+        userTelephone=#{userTelephone}
+        or
+        userEmail=#{userEmail}
+        )
+        and
+        userPassword=#{userPassword}
+    </select>
+    <select id="selectByP" resultType="com.utunan.pojo.base.user.User">
+        select *
+        from  user
+        where userTelephone=#{userTelephone}
+              and userPassword=#{userPassword}
+    </select>
+
+    <select id="selectByPorE" resultType="com.utunan.pojo.base.user.User">
+        select *
+        from user
+        where
+        userTelephone=#{userTelephone}
+        or
+        userEmail=#{userEmail}
+    </select>
+
+    <insert id="insert">
+        insert into user(userTelephone,userPassword,userNickName,registerTime)
+        values(#{userTelephone},#{userPassword},#{userNickName},#{registerTime})
+    </insert>
+
+    <update id="updateUser" parameterType="com.utunan.pojo.base.user.User">
+        update user
+        set userNickName=#{userNickName},examTime=#{examTime},userSchool=#{userSchool},dreamSchool=#{dreamSchool}
+        where userTelephone=#{userTelephone}
+    </update>
+
+    <update id="updateUserPassword" parameterType="com.utunan.pojo.base.user.User">
+        update user
+        set userPassword=#{userPassword}
+        where userId=#{userId}
+    </update>
+
+    <update id="updateUserHeadImg" parameterType="com.utunan.pojo.base.user.User">
+        update user
+        set userHeadImg=#{userHeadImg}
+        where userId=#{userId}
+    </update>
+
+    <update id="updateUserTelephone" parameterType="com.utunan.pojo.base.user.User">
+        update user
+        set userTelephone=#{userTelephone}
+        where userId=#{userId}
+    </update>
+
+    <update id="updateUserEmail" parameterType="com.utunan.pojo.base.user.User">
+        update user
+        set userEmail=#{userEmail}
+        where userId=#{userId}
+    </update>
+
+</mapper>

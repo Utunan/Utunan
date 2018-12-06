@@ -14,8 +14,4 @@ import java.util.List;
 public interface QuizCollectorMapper {
     List<Quiz> selectQuizCollector(User user);
     int deleteQuizCollector(@Param("userId")Long userId,@Param("quizId") String quizId);
-
-    void insertQuizCollector(QuizCollector quizCollector);
-
-    Long getMaxQCid();
 }

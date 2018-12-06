@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.utunan.mapper.user.PublishDirectionCollectorMapper">
+    <resultMap id="PublishDirectionCollectorMap" type="com.utunan.pojo.inherit.user.PublishDirectionCollector">
+        <id property="directionCollectorId" column="directionCollectorId"/>
+        <association property="user" javaType="com.utunan.pojo.base.user.User">
+            <id column="userId" property="userId"/>
+            <result property="userEmail" column="userEmail"/>
+            <result property="userTelephone" column="userTelephone"/>
+            <result property="userPassword" column="userPassword"/>
+            <result property="userIdentity" column="userIdentity"/>
+            <result property="examTime" column="examTime"/>
+            <result property="registerTime" column="registerTime"/>
+            <result property="userHeadImg" column="userHeadImg"/>
+            <result property="userNickName" column="userNickName"/>
+            <result property="userSchool" column="userSchool"/>
+            <result property="dreamSchool" column="dreamSchool"/>
+            <result property="userIntegral" column="userIntegral"/>
+        </association>
+        <association property="direction" javaType="com.utunan.pojo.base.school.Direction">
+            <id column="directionId" property="directionId"/>
+            <result property="schoolName" column="schoolName"/>
+            <result property="collegeName" column="collegeName"/>
+            <result property="majorlName" column="majorlName"/>
+            <result property="directionName" column="directionName"/>
+            <result property="degreeType" column="degreeType"/>
+            <result property="politics" column="politics"/>
+            <result property="english" column="english"/>
+            <result property="math" column="math"/>
+            <result property="majorBasics" column="majorBasics"/>
+        </association>
+    </resultMap>
+    <!--王碧云 根据用户查找收藏的院校-->
+    <select id="findDirectionCollectorByUser" resultMap="PublishDirectionCollectorMap">
+        select *
+        from direction_collector dc
+        join user on user.userId = dc.userId
+        <where>
+            user.userId = #{userId}
+        </where>
+    </select>
+    <!--王碧云 根据用户查找收藏的院校Id-->
+    <select id="findDirectionIdByUser" resultType="java.lang.Long">
+        select distinct directionId
+        from direction_collector dc
+        join user on user.userId = dc.userId
+        <where>
+            user.userId = #{userId}
+        </where>
+        order by directionId asc
+    </select>
+    <!--王碧云 加入院校收藏夹-->
+    <insert id="insertDirectionCollector" parameterType="com.utunan.pojo.base.user.DirectionCollector">
+        insert
+        into direction_collector(userId,directionId)
+        values (#{userId},#{directionId})
+    </insert>
+    <!--王碧云 根据directionId删除院校收藏-->
+    <delete id="deleteDirectionCollector" parameterType="com.utunan.pojo.base.user.DirectionCollector">
+        delete
+        from direction_collector
+        where userId=#{userId} and directionId=#{directionId}
+    </delete>
+
+</mapper>

@@ -1,5 +1,6 @@
 package com.utunan.service.user.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.utunan.mapper.user.UserMapper;
 import com.utunan.pojo.base.user.User;
 import com.utunan.service.user.UserService;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -75,5 +77,12 @@ public class UserServiceImpl implements UserService {
     public boolean changeUserEmail(User user) {
         userMapper.updateUserEmail(user);
         return true;
+    }
+
+    @Override
+    public List<User> getAllUser(int pageNum,int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<User> users=userMapper.selectAllUser();
+        return users;
     }
 }

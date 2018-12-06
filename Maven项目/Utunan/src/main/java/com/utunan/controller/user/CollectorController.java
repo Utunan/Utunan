@@ -29,11 +29,10 @@ public class CollectorController {
 
         User user1=(User)session.getAttribute("User");
         System.out.print(user1);
-        Long qcid=quizCollectorService.getMaxQCid();
-        qcid+=1;
 
 
-        this.quizCollectorService.insertQuizCollector(qcid,user1, quiz);
+
+
         return "redirect:/displayQuizByQuizId?quizId=" + quizId;
 
 

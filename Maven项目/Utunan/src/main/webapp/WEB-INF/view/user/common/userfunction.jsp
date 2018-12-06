@@ -60,4 +60,14 @@
             <span>用户设置</span>
         </li>
     </a>
+    <c:choose>
+        <c:when test="${User.userIdentity=='1'}">
+            <a href="/admin">
+                <li>
+                    <img src="/images/user/settings.svg" alt="" srcset="">
+                    <span>后台管理</span>
+                </li>
+            </a>
+        </c:when>
+    </c:choose>
 </nav>
