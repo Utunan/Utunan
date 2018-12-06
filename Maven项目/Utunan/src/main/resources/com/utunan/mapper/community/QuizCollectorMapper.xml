@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.utunan.mapper.community.QuizCollectMapper">
+
+
+    <insert id="insertQuizCollector"  parameterType="com.utunan.pojo.base.user.QuizCollector" >
+       insert into quiz_collector(quizCollectorId, userId, quizId)
+       values (#{quizCollectorId}, #{user.userId}, #{quiz.quizId})
+    </insert>
+
+
+    <select id="getMaxQCid" resultType="java.lang.Long">
+        select max(quizCollectorId)
+        from quiz_collector
+    </select>
+</mapper>

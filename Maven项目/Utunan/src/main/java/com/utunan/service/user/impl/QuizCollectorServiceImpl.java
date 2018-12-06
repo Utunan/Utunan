@@ -22,21 +22,4 @@ public class QuizCollectorServiceImpl implements QuizCollectorService {
         List<Quiz> quizzes= quizCollectorMapper.selectQuizCollector(user);
         return  quizzes;
     }
-
-    @Override
-    public void insertQuizCollector(Long qcid,User user,Quiz quiz){
-        QuizCollector quizCollector=new QuizCollector();
-        quizCollector.setQuizCollectorId(qcid);
-        quizCollector.setUser(user);
-        quizCollector.setQuiz(quiz);
-
-        quizCollectorMapper.insertQuizCollector(quizCollector);
-
-    }
-
-
-    @Override
-    public Long getMaxQCid(){
-        return quizCollectorMapper.getMaxQCid();
-    }
 }
