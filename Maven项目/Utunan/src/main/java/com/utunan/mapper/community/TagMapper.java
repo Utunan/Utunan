@@ -31,4 +31,7 @@ public interface TagMapper {
 	 */
 	List<Tag> getRemainTag(@Param("tagList3") List<Tag> tagList3);
 
+	//获取用户输入的标签
+	List<Long> getTags(@Param("listtag") List<String> listtag);
+
 }

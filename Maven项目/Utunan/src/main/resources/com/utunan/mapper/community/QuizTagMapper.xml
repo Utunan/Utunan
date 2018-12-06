@@ -28,4 +28,12 @@
         quizId=#{quizId}
     </select>
 
+    <!--将quiztag插入quiztag表中-->
+    <insert id="saveQuizTag" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="quizTagId">
+        insert into quiz_tag(quizId,tagId) values
+        <foreach collection="quizTags" item="item"   separator="," >
+            (#{item.quizId},#{item.tagId})
+        </foreach>
+    </insert>
+
 </mapper>

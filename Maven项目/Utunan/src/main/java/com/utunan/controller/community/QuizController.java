@@ -6,6 +6,7 @@ import com.utunan.pojo.base.community.Tag;
 import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.inherit.community.BigQuiz;
 import com.utunan.service.community.QuizService;
+import com.utunan.service.community.QuizTagService;
 import com.utunan.service.community.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -25,6 +27,8 @@ public class QuizController {
 	private QuizService quizService;
 	@Autowired
 	private TagService tagService;
+	@Autowired
+    private QuizTagService quizTagService;
 	
 	/**
 	 * @author  孙程程
@@ -162,10 +166,6 @@ public class QuizController {
 		//int num=Integer.parseInt(request.getParameter("j1"));
 		String title=request.getParameter("title");
 		String[] tags=request.getParameter("tags").split(",");
-		for (int i = 0; i < tags.length; i++) {
-			System.out.println(tags[i]);
-		}
-
 		String content= request.getParameter("textarea");
 
 		Object ob=session.getAttribute("User");
@@ -176,6 +176,18 @@ public class QuizController {
 		if (ob!=null) {
 			User user = (User) ob;
 			this.quizService.saveQuiz(qid,user, title, content);
+		}
+
+		if(tags!=null){
+		    //将数组转化为list集合
+			List<String> listtag= Arrays.asList(tags);
+
+			//获得用户输入的标签的id
+			List<Long> tagss=this.tagService.getTags(listtag);
+
+			this.quizTagService.saveQuizTag(qid,tagss);
+
+
 		}
 		return "redirect:/quiz1 ";
 	}

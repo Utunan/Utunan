@@ -41,4 +41,9 @@ public class TagServiceImpl implements TagService {
 		return this.tagMapper.getRemainTag(tagList3);
 	}
 
+
+	@Override
+	public List<Long> getTags(List<String> listtag){
+		return this.tagMapper.getTags(listtag);
+	}
 }

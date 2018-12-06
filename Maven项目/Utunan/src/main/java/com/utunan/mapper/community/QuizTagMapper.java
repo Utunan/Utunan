@@ -14,4 +14,6 @@ public interface QuizTagMapper {
     /*王碧云 通过quizId查找标签*/
     List<QuizTag> findQuizTagByQuizId(@Param("quizId") Long quizId);
 
+    //将quiztag存入QuizTag表
+    void saveQuizTag(@Param("quizTags") List<QuizTag> quizTags);
 }

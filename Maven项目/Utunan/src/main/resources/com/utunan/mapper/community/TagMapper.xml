@@ -73,4 +73,15 @@
             #{tag.tagId}
         </foreach>
     </select>
+
+
+    <!--查询用户输入的标签id-->
+    <select id="getTags" resultType="java.lang.Long">
+        select tagId
+        from tag
+        where tagName in
+        <foreach item="tag" collection="listtag" separator="," open="(" close=")">
+            #{tag}
+        </foreach>
+    </select>
 </mapper>

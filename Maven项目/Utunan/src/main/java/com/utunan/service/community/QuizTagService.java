@@ -15,4 +15,14 @@ public interface QuizTagService {
      */
     List<QuizTag> findQuizTagByQuizId(Long quizId);
 
+
+    /*
+     * @author  张正扬
+     * @description 存入问题标签
+     * @date  9:03 2018/12/6
+     * @param  Long,List<Long>
+     * @return  void
+     */
+    void saveQuizTag(Long quizId,List<Long> tagss);
+
 }
