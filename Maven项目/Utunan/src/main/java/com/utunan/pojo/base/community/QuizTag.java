@@ -12,6 +12,12 @@ public class QuizTag {
 	private Tag tag;
 
 
+	private Long quizId;
+
+
+	private Long tagId;
+
+
 
 
 	public Quiz getQuiz() {
@@ -39,12 +45,30 @@ public class QuizTag {
     }
 
 
-    @Override
-    public String toString() {
-        return "QuizTag{" +
-                "quizTagId=" + quizTagId +
-                ", quiz=" + quiz +
-                ", tag=" + tag +
-                '}';
-    }
+	public Long getQuizId() {
+		return quizId;
+	}
+
+	public void setQuizId(Long quizId) {
+		this.quizId = quizId;
+	}
+
+	public Long getTagId() {
+		return tagId;
+	}
+
+	public void setTagId(Long tagId) {
+		this.tagId = tagId;
+	}
+
+	@Override
+	public String toString() {
+		return "QuizTag{" +
+				"quizTagId=" + quizTagId +
+				", quiz=" + quiz +
+				", tag=" + tag +
+				", quizId=" + quizId +
+				", tagId=" + tagId +
+				'}';
+	}
 }

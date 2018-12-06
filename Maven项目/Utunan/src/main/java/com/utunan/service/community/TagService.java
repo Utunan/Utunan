@@ -39,4 +39,7 @@ public interface TagService {
 	 */
 	List<Tag> getRemianTags(List<Tag> tagList3);
 
+
+	List<Long> getTags(List<String> listtag);
+
 }

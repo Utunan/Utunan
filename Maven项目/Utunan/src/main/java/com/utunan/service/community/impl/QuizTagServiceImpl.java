@@ -1,12 +1,13 @@
 package com.utunan.service.community.impl;
 
 import com.utunan.mapper.community.QuizTagMapper;
+import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.community.QuizTag;
 import com.utunan.service.community.QuizTagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 
 @Service("quizTagService")
 public class QuizTagServiceImpl implements QuizTagService {
@@ -23,5 +24,19 @@ public class QuizTagServiceImpl implements QuizTagService {
     @Override
     public List<QuizTag> findQuizTagByQuizId(Long quizId) {
         return this.quizTagMapper.findQuizTagByQuizId(quizId);
+    }
+
+
+    @Override
+    public void saveQuizTag(Long quizId,List<Long> tagss){
+        List<QuizTag> quizTags=new ArrayList<QuizTag>();
+        for(Long i:tagss){
+            QuizTag quizTag=new QuizTag();
+            quizTag.setQuizId(quizId);
+            quizTag.setTagId(i);
+            quizTags.add(quizTag);
+        }
+
+        this.quizTagMapper.saveQuizTag(quizTags);
     }
 }

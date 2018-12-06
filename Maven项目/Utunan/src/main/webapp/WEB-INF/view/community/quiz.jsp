@@ -222,7 +222,7 @@
     <div class="right-content">
         <div class="modalDialogcontent">
             <span class="close_modalDialogcontent">×</span>
-            <form action="/uiz3" method="post">
+            <form action="uiz3" method="post">
                 <div class="ask-question">
                     <!--从数据库查出头像-->
                     <%--@declare id="autocomplete59--1"--%><div class="headAppear"><img src="images/userheadimg/hand.jpg"/></div>
