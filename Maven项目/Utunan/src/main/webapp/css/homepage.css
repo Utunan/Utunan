@@ -342,3 +342,11 @@ header{
     border-radius: 20px;
     float: left;
 }
+
+.qbmiddle>p {
+        font-size: 15px;
+        line-height: 2;
+}
+.schoolsearch h2 {
+    color: white;
+}
