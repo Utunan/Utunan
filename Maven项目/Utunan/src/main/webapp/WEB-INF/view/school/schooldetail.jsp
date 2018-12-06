@@ -13,6 +13,7 @@
 </head>
 
 <body>
+<%@include file="../common/header.jsp"%>
     <div class="schoolheader">
         <span class="collector"></span><a href="#">查看院校收藏夹</a></span>
         <span class="title">院校库</span>
