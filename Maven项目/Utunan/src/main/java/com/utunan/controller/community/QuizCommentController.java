@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 王碧云
@@ -67,9 +69,23 @@ public class QuizCommentController {
         //根据quizId返回评论数量
         Long answerCountByQuizId = this.publishQuizService.countAnswerByQuizId(Long.parseLong(quizId));
         //根据quizId返回评论列表(根据时间排序)
-        List<Answer> answers=answerService.findAnswerListByQuizId(num,5,Long.parseLong(quizId));
+        List<Answer> answers=answerService.findAnswerListByQuizId(num,6,Long.parseLong(quizId));
+        Map<Answer,List<Answer>> map=new HashMap<>();
+        Map<Answer,Long>map0=new HashMap<>();
 
-        //根据commentId返回子评论
+        Answer[] a=new Answer[answers.size()];
+        answers.toArray(a);
+        for (int i=0;i<a.length;i++){
+            //根据answerId返回子评论按时间查询
+            List<Answer> childAnswerList = this.answerService.findChildAnswerListByAnswerId(a[i].getAnswerId());
+            //根据answerId返回子评论数量
+            Long childAnswerCount=this.answerService.findchildAnswerCount(a[i].getAnswerId());
+            map.put(a[i],childAnswerList);
+            map0.put(a[i],childAnswerCount);
+        }
+
+
+
         //List<Answer> childAnswerList = this.answerService.findChildAnswerListByAnswerId(Long.parseLong(answerId));
 
         request.setAttribute("quizTagList", quizTagList);
@@ -78,10 +94,10 @@ public class QuizCommentController {
         request.setAttribute("url", url);
         request.setAttribute("timeselect","selected=\"selected\"");
         request.setAttribute("answer",answers);
+        request.setAttribute("map",map);
+        request.setAttribute("map0",map0);
         request.setAttribute("PageInfo",new PageInfo(answers,5));
         //request.setAttribute("childAnswerList", childAnswerList);
-
-    
         return "community/quizcommentpage";
     }
     
@@ -132,12 +148,28 @@ public class QuizCommentController {
         //根据quizId返回评论列表(根据热度排序)
         List<Answer> answers = this.answerService.findAnswerListByPraiseCount(num,6,Long.parseLong(quizId));
 
+        Map<Answer,List<Answer>> map=new HashMap<>();
+        Map<Answer,Long>map0=new HashMap<>();
+
+        Answer[] a=new Answer[answers.size()];
+        answers.toArray(a);
+        for (int i=0;i<a.length;i++){
+            //根据answerId返回子评论按热度查询
+            List<Answer> childAnswerList = this.answerService.findChildAnswerListByCount(a[i].getAnswerId());
+            //根据answerId返回子评论数量
+            Long childAnswerCount=this.answerService.findchildAnswerCount(a[i].getAnswerId());
+            map.put(a[i],childAnswerList);
+            map0.put(a[i],childAnswerCount);
+        }
+
     
         request.setAttribute("quizTagList", quizTagList);
         session.setAttribute("quiz", quiz);
         request.setAttribute("answerCountByQuizId", answerCountByQuizId);
         request.setAttribute("praiseselect","selected=\"selected\"");
         request.setAttribute("answer",answers);
+        request.setAttribute("map",map);
+        request.setAttribute("map0",map0);
         request.setAttribute("PageInfo",new PageInfo(answers,5));
     
         return "community/quizcommentpage";

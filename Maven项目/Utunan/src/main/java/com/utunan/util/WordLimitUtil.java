@@ -14,9 +14,9 @@ public class WordLimitUtil {
      */
     public static boolean isNull(String str){
         if(str==null||str.trim().equals("")||str.trim().equalsIgnoreCase("null")){
-            return true;
-        }else{
             return false;
+        }else{
+            return true;
         }
     }
 

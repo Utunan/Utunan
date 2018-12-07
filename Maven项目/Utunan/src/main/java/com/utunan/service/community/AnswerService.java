@@ -90,4 +90,12 @@ public interface AnswerService {
      * @return  void
      */
     void praiseAnswer(Long num);
+
+    //根据answerId查询子评论数量按时间查询
+    Long findchildAnswerCount(Long answerId);
+
+
+
+    //根据answerId查询子评论数量按热度查询
+    List<Answer> findChildAnswerListByCount(Long answerId);
 }

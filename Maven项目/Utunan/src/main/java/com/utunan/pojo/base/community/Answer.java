@@ -3,6 +3,7 @@ package com.utunan.pojo.base.community;
 import com.utunan.pojo.base.user.User;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 评论表-Answer
@@ -22,6 +23,8 @@ public class Answer {
 	private  Long praiseCount;
 	//父级评论
 	private Long parentAnswer;
+
+	private List<Answer> answer;
 
     public Long getAnswerId() {
         return answerId;
@@ -79,6 +82,14 @@ public class Answer {
         this.parentAnswer = parentAnswer;
     }
 
+    public List<Answer> getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(List<Answer> answer) {
+        this.answer = answer;
+    }
+
     @Override
     public String toString() {
         return "Answer{" +
@@ -87,8 +98,9 @@ public class Answer {
                 ", quiz=" + quiz +
                 ", user=" + user +
                 ", answerTime=" + answerTime +
-                ", answerPraiseCount=" + praiseCount +
+                ", praiseCount=" + praiseCount +
                 ", parentAnswer=" + parentAnswer +
+                ", answer=" + answer +
                 '}';
     }
 }
