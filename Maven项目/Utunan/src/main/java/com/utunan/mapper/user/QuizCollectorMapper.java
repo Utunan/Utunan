@@ -12,8 +12,6 @@ import java.util.List;
 @Mapper
 @Repository
 public interface QuizCollectorMapper {
-    List<Quiz> selectQuizCollector(User user);
-    int deleteQuizCollector(@Param("userId")Long userId,@Param("quizId") String quizId);
-
-
+	List<Quiz> selectQuizCollector(User user);
+	int deleteQuizCollector(@Param("userId")Long userId,@Param("quizId") String quizId);
 }

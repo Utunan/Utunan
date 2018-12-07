@@ -55,6 +55,11 @@ http://www.springframework.org/schema/task/spring-task.xsd">
             <bean class="com.utunan.interceptor.user.UserSessionInterceptor">
             </bean>
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/**"/>
+            <mvc:exclude-mapping path="/admin/login"/>
+            <bean class="com.utunan.interceptor.admin.AdminInterceptor"></bean>
+        </mvc:interceptor>
     </mvc:interceptors>
 
     <!-- 解析器注册 -->

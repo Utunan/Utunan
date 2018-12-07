@@ -6,6 +6,6 @@ import com.utunan.pojo.base.user.User;
 import java.util.List;
 
 public interface QuizCollectorService {
-    List<Quiz> getQuizCollector(User user,int pageNum,int pageSize);
+	List<Quiz> getQuizCollector(User user,int pageNum,int pageSize);
 
 }

@@ -25,15 +25,13 @@ public class CollectorController {
 
     @RequestMapping(value = "quizCollector")
     public String quizCollector(HttpServletRequest request,HttpSession session){
-        String quizId=request.getParameter("quizId");
-        Quiz quiz=(Quiz)session.getAttribute("quiz");
+    String quizId=request.getParameter("quizId");
+    Quiz quiz=(Quiz)session.getAttribute("quiz");
 
         User user1=(User)session.getAttribute("User");
         System.out.print(user1);
         Long qcid=quizCollectService.getMaxQCid();
         qcid+=1;
-
-
         this.quizCollectService.insertQuizCollector(qcid,user1, quiz);
         return "redirect:/displayQuizByQuizId?quizId=" + quizId;
 

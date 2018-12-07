@@ -31,7 +31,6 @@ public class UserController {
 
     @RequestMapping("/changeemail")
     public String  changeemail(HttpServletRequest request,HttpSession session){
-        System.out.println("你来了");
         String newemail=request.getParameter("newemail");
         User user=(User)session.getAttribute("User");
         String emailcode=request.getParameter("emailcode");

@@ -20,7 +20,7 @@ public class User {
     //用户密码
     private String userPassword;
     //用户权限
-    private int userIdentity;
+    private String userIdentity;
     //考研年份
     private String examTime;
     //注册时间
@@ -36,26 +36,6 @@ public class User {
     //用户积分
     private Integer userIntegral;
 
-    //关联查询属性Quiz
-    private List<Quiz> quiz;
-
-    private List<Dictionary> dictionaries;
-
-    public List<Dictionary> getDictionaries() {
-        return dictionaries;
-    }
-
-    public void setDictionaries(List<Dictionary> dictionaries) {
-        this.dictionaries = dictionaries;
-    }
-
-    public List<Quiz> getQuiz() {
-        return quiz;
-    }
-
-    public void setQuiz(List<Quiz> quiz) {
-        this.quiz = quiz;
-    }
 
     public Long getUserId() {
         return userId;
@@ -89,11 +69,11 @@ public class User {
         this.userPassword = userPassword;
     }
 
-    public int getUserIdentity() {
+    public String getUserIdentity() {
         return userIdentity;
     }
 
-    public void setUserIdentity(int userIdentity) {
+    public void setUserIdentity(String userIdentity) {
         this.userIdentity = userIdentity;
     }
 
@@ -168,8 +148,6 @@ public class User {
                 ", userSchool='" + userSchool + '\'' +
                 ", dreamSchool='" + dreamSchool + '\'' +
                 ", userIntegral=" + userIntegral +
-                ", quiz=" + quiz +
-                ", dictionaries=" + dictionaries +
                 '}';
     }
 }

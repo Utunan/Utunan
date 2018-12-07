@@ -1,0 +1,242 @@
+body {
+    background-color:#F5F5F5;
+}
+#active {
+    color: rgba(49, 126, 212, 1);
+    background-color: rgba(49, 126, 212, 0.1);
+}
+header {
+}
+.background{
+    background-color: #fff;
+}
+.usercard {
+    height: 180px;
+    min-width: 798px;
+    margin: 0 auto;
+    margin-top: 50px;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #C0C0C0;
+}
+
+.userheadimg {
+    float: left;
+    height: 180px;
+    width: 144px;
+    margin-left: 50px;
+}
+
+.userheadimg img {
+    border-radius: 100px;
+    border: 2px solid grey;
+    height: 120px;
+    width: 120px;
+    margin: 30px 10px;
+}
+
+.countdown {
+    margin-right: 10px;
+    border-radius: 0 5px 0 0;
+    float: right;
+    width: 220px;
+    height: 180px;
+}
+
+.countdown h4 {
+    padding:25px 0;
+    margin:0;
+    background-color: rgb(63, 119, 210);
+    font-size: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #fff;
+    
+    border-radius: 0px 0px 10px 10px;
+}
+.countdown h5 {
+    font-size: 16px;
+    margin-top:30px;
+    text-align: center;
+
+}
+.countdown h5>span {
+    padding:0 5px;
+    font-size: 20px;
+    margin-top:30px;
+    text-align: center;
+
+}
+
+.userinfo {
+    width: 524px;
+    float: left;
+    height: 180px;
+}
+
+.nickname {
+    padding-left: 40px;
+    margin-top: 8%;
+    font-size: 20px;
+    color: rgba(49, 126, 212, 1);
+}
+
+.schoolinfo {
+    padding-left: 40px;
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.schoolinfo span:first-child {
+    padding-right: 5%;
+}
+
+
+
+.userfunction {
+    background-color: #fff;
+    float: left;
+    padding-top: 50px;
+    padding-bottom: 60px;
+    width: 240px;
+    border-radius: 5px;
+    border: 1px solid #C0C0C0;
+}
+
+
+.userfunction>li {
+    color: gray;
+    cursor: pointer;
+    display:block;
+    float: left;
+    height: 50px;
+    font-size: 15px;
+    line-height: 50px;
+    width: 200px;
+    padding-left: 20px;
+    padding-right:20px;
+}
+
+.userfunction>a>li {
+    color: gray;
+    cursor: pointer;
+    display:block;
+    float: left;
+    height: 50px;
+    font-size: 15px;
+    line-height: 50px;
+    width: 200px;
+    padding-left: 20px;
+    padding-right:20px;
+}
+
+.userfunction span {
+    height: 50px;
+    float: left;
+}
+
+.userfunction img:first-child {
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+.userfunction img:last-child {
+    position: relative;
+    height: 15px;
+    width: 15px;
+    margin:18px 0;
+    left: 80px;
+    float: left;
+}
+
+.content{
+    position: relative;
+    border: 1px solid #C0C0C0;
+    float: right;
+    width: 680px;
+    min-height: 500px;
+    background: #fff;
+}
+.userfunction>li:hover{
+    width: 198px;
+    padding-left: 20px;
+    color: rgba(49, 126, 212, 1);
+    background-color: rgba(49, 126, 212, 0.1);
+    border-right:2px solid rgba(49, 126, 212, 1);
+}
+.userfunction>a>li:hover{
+
+    width: 198px;
+    padding-left: 20px;
+    color: rgba(49, 126, 212, 1);
+    background-color: rgba(49, 126, 212, 0.1);
+    border-right:2px solid rgba(49, 126, 212, 1);
+}
+.userfunction>nav{
+    clear: both;
+    list-style-type: none;
+}
+
+.userfunction>nav>a{
+    text-decoration: none;
+    color:rgba(36, 94, 210,1);
+}
+
+.userfunction>nav>a>li{
+    cursor: pointer;
+    color: gray;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 80px;
+    width: 160px;
+}
+.userfunction nav>a>li:hover{
+    width: 158px;
+    color: rgba(49, 126, 212, 1);
+    background-color: rgba(49, 126, 212, 0.1);
+    border-right:2px solid rgba(49, 126, 212, 1);
+}
+
+.mintitle{
+    text-align: center;
+    width: 100%;
+    float: left;
+    padding:10px 0px;
+    margin:50px 0px 20px 0;
+    color: rgba(49, 126, 212, 1);
+    font-size: 20px;
+    font-weight: bold;
+}
+.title{
+    text-align: center;
+    width: 100%;
+    float: left;
+    padding:15px 0px;
+    margin:0;
+    color: rgba(49, 126, 212, 1);
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom:2px solid rgba(229, 229, 229, 1);
+}
+.title>span{
+    padding:20px 30px;
+}
+
+.postinfo{
+    overflow: hidden;
+}
+.collection{
+    overflow: hidden;
+}
+
+.noresult{
+    clear: both;
+    width: 100%;
+    height: 400px;
+    background: url(/images/user/notfound.jpg);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: right;
+}

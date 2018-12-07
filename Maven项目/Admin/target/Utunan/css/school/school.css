@@ -1,0 +1,133 @@
+.table-striped > tbody > tr:nth-child(2n+1) > td, 
+.table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: rgba(244, 249, 255, 1);
+ }
+ .title{
+    font-size: 22px;
+    text-align: center;
+    color:black;
+    margin-left: 35%;
+}
+.collector{
+    margin-left: 2%;
+}
+.schoolheader{
+    display: block;
+    line-height: 40px;
+    width: 100%;
+    height: 40px;
+    float: left;
+    font-weight: bold;
+    border-bottom: 3px solid #2a82e4;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+label{
+    font-size: 14px;
+    font-weight: normal;
+    float:left;
+}
+
+.RadioStyle{
+    width:1000px;
+    margin:0 auto;
+}
+ .RadioStyle input {
+    display: none
+}
+.RadioStyle label {
+	border: 1px solid white;
+	color: #666;
+	padding: 2px 10px 2px 5px;
+	line-height: 18px;
+	min-width: 54px;
+	text-align: center;
+	float: left;
+	margin: 2px;
+	border-radius: 4px
+}
+.RadioStyle input:checked + label {
+	border: 1px solid #2a82e4;
+	background-size: 21px 21px;
+    color: white;
+    background-color: #2a82e4;
+}
+
+.optionName{
+    width: 95px;
+    float: left;
+    margin-top: 6px;
+}
+.option{
+    float:left;
+    width: 850px;
+    margin:4px;
+}
+.subjectoption{
+    float:left;
+    width: 850px;
+}
+.options{
+    margin: 20px;
+}
+.bigwrapper{
+    border: 2px solid #c9c9c9;
+    width:960px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#search{
+    margin-left: 50px;
+}
+#direction{
+    margin-top: 6px;
+    margin-left: 4px;
+}
+#blank{
+    height:40px;
+}
+.show{
+    width: 960px;
+    margin:0 auto;
+    text-align: center;
+}
+.table>tbody>tr>td{
+    border:0px;
+}
+.table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border-bottom-width: 3px;
+    text-align: center;
+}
+.zsdw{
+    width:130px;
+}
+.yxmc{
+    width:200px;
+}
+.xwlx{
+    width:100px;
+}
+.zy{
+    width:150px;
+}
+.yjfx{
+    width:200px;
+}
+.ksfw{
+    width:100px;
+}
+.table>tbody>tr>td {
+    line-height: 24px;
+}
+.table>thead>tr>th {
+    vertical-align: middle;
+}
+.table>tbody>tr>td,table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th{
+    line-height: 1.8;
+}
+.table>thead>tr>td, .table>thead>tr>th{
+    line-height: 0.8;
+}
+table {
+    text-align: center;
+}

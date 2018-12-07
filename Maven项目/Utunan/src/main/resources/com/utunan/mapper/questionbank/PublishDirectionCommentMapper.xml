@@ -10,7 +10,6 @@
         <result property="directionCommentContent" column="directionCommentContent"/>
         <result property="directionCommentTime" column="directionCommentTime"/>
         <result property="directionCommentPraiseCount" column="directionCommentPraiseCount"/>
-        <result property="replyDirectionCommentId" column="replyDirectionCommentId"/>
         <association property="user" javaType="com.utunan.pojo.base.user.User">
             <id property="userId" column="userId"/>
             <result property="userEmail" column="userEmail"/>
@@ -33,5 +32,11 @@
         set directionCommentPraiseCount=directionCommentPraiseCount+1
         where directionCommentId=#{directionCommentId}
     </update>
+    <!--王碧云 插入评论-->
+    <insert id="directionCommentContent" parameterType="com.utunan.pojo.base.questionbank.DirectionComment">
+        insert
+        into direction_comment(userId,directionId,directionCommentContent,directionCommentTime,directionCommentPraiseCount)
+        values (#{userId},#{directionId},#{directionCommentContent},#{directionCommentTime},#{directionCommentPraiseCount})
+    </insert>
 
 </mapper>

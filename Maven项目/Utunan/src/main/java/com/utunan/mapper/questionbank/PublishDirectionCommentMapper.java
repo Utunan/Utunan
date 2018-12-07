@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
+
 /**
  * @author 王碧云
  * @description: TODO
@@ -16,5 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface PublishDirectionCommentMapper {
     /*王碧云 修改点赞数量*/
     Long updateDirectionCommentPraiseCount(@Param("directionCommentId") Long directionCommentId);
-
+    /*王碧云 插入评论*/
+    void directionCommentContent(@Param("userId") Long userId, @Param("directionId") Long directionId, String directionCommentContent, Date  directionCommentTime,Long directionCommentPraiseCount);
 }
