@@ -28,6 +28,13 @@
             <result property="dreamSchool" column="dreamSchool"/>
             <result property="userIntegral" column="userIntegral"/>
         </association>
+        <collection property="answer" ofType="com.utunan.pojo.base.community.Answer">
+            <id property="answerId" column="answerId"/>
+            <result property="answerContent" column="answerContent"/>
+            <result property="answerTime" column="answerTime"/>
+            <result property="praiseCount" column="praiseCount"/>
+            <result property="parentAnswer" column="parentAnswer"/>
+        </collection>
     </resultMap>
     <!-- 插入回答 -->
     <insert id="toInsert" parameterType="com.utunan.pojo.base.community.Answer" >
@@ -45,20 +52,13 @@
     <!--王碧云 根据quizId查询评论列表（子评论除外）(默认：根据时间排序)-->
     <select id="findAnswerListByQuizId" resultMap="answerResultMap">
         select *
-        from answer
-        join user on answer.userId=user.userId
+        from answer a
+        join user u on a.userId=u.userId
         where
         quizId = #{quizId} and parentAnswer is null
         order by answerTime desc
     </select>
-    
-    <!--王碧云 根据quizId返回（父级为null的）评论数量-->
-    <!--<select id="countAnswerByQuizId" resultType="java.lang.Long">
-        select count(*)
-        from answer
-        where
-        quizId = #{quizId} and parentAnswer is null
-    </select>-->
+
     
     <!--王碧云 根据热度返回评论列表-->
     <select id="findAnswerListByPraiseCount" resultMap="answerResultMap">
@@ -70,14 +70,17 @@
         order by praiseCount desc
     </select>
     
-    <!--王碧云 根据answerId查询子评论-->
+    <!--王碧云 根据answerId查询子评论（按时间查询）-->
     <select id="findChildAnswerListByAnswerId" resultMap="answerResultMap">
         select *
         from answer
         join user on answer.userId=user.userId
         where
         parentAnswer=#{answerId}
+        order by answerTime asc
     </select>
+
+
     
     <!--更新回答点赞数-->
     <update id="updatePraiseCount" parameterType="java.lang.Long">
@@ -102,6 +105,24 @@
     <select id="getMaxAid" resultType="java.lang.Long">
         select max(answerId)
         from answer
+    </select>
+
+    <!--根据answerId查询子评论数量-->
+    <select id="findchildAnswerCount" resultType="java.lang.Long">
+        select count(*)
+        from answer
+        where parentAnswer=#{answerId}
+    </select>
+
+
+    <!--根据answerId查询子评论（按热度查询）-->
+    <select id="findChildAnswerListByCount" resultMap="answerResultMap">
+        select *
+        from answer
+        join user on answer.userId=user.userId
+        where
+        parentAnswer=#{answerId}
+        order by praiseCount desc
     </select>
 
 

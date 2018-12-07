@@ -52,4 +52,11 @@ public interface AnswerMapper {
      * @return null
      */
     void updatePraiseCount(Long answerId);
+
+
+    //根据answerId查询子评论数量
+     Long findchildAnswerCount(Long answerId);
+
+    //根据answerId查询子评论按热度查询
+    List<Answer> findChildAnswerListByCount(Long answerId);
 }
