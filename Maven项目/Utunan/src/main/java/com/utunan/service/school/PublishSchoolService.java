@@ -29,6 +29,4 @@ public interface PublishSchoolService {
      */
     List<PublishSchool> findSchoolByAllParam(String[] schoolProvinceList,String[] schoolType,String[] degreeTypeList,String[] mathList,String[] englishList,String directionName,int pageNum, int pageSize);
 
-    String judgeIsNull(String[] list);
-
 }
