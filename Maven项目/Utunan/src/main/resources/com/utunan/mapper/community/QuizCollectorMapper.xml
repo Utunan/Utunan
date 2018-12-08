@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.utunan.mapper.community.QuizCollectMapper">
-
     <resultMap id="quizCollectorResultMap" type="com.utunan.pojo.base.user.QuizCollector">
     <id property="quizCollectorId" column="quizCollectorId"/>
     <association property="user" javaType="com.utunan.pojo.base.user.User">
@@ -34,8 +33,19 @@
     </insert>
 
 
+
     <select id="getMaxQCid" resultType="java.lang.Long">
         select max(quizCollectorId)
         from quiz_collector
     </select>
+    <select id="getQuizCollector" resultType="com.utunan.pojo.base.user.QuizCollector">
+        select *
+        from quiz_collector
+        where quizId=#{quizId} and userId=#{userId}
+    </select>
+
+    <delete id="delQuizCollector" parameterType="Long">
+        delete from quiz_collector
+        where quizId=#{quizId} and userId=#{userId}
+    </delete>
 </mapper>

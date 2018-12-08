@@ -2,6 +2,7 @@ package com.utunan.mapper.community;
 
 import com.utunan.pojo.base.user.QuizCollector;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -13,7 +14,14 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 public interface QuizCollectMapper {
+
     void insertQuizCollector(QuizCollector quizCollector);
 
     Long getMaxQCid();
+
+    //获取QuizCollector表信息
+    QuizCollector getQuizCollector(@Param("quizId") Long quizId, @Param("userId") Long userId);
+
+    //删除用户收藏
+    void delQuizCollector(@Param("quizId") Long quizId, @Param("userId") Long userId);
 }

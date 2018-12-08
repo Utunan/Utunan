@@ -36,4 +36,14 @@ public class QuizCollectServiceImpl implements QuizCollectService {
     public Long getMaxQCid(){
         return quizCollectMapper.getMaxQCid();
     }
+
+    @Override
+    public QuizCollector getQuizCollector(Long quizId, Long userId) {
+        return this.quizCollectMapper.getQuizCollector(quizId,userId);
+    }
+
+    @Override
+    public void delQuizCollector(Long quizId, Long userId) {
+        this.quizCollectMapper.delQuizCollector(quizId,userId);
+    }
 }
