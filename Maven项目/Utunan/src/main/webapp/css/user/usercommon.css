@@ -1,9 +1,10 @@
 body {
-    background-color:#F5F5F5;
+    background-color:#fff;
+
 }
 #active {
-    color: rgba(49, 126, 212, 1);
-    background-color: rgba(49, 126, 212, 0.1);
+    color: rgb(255, 221, 77);
+    background-color: rgba(255, 221, 77, 0.1);
 }
 header {
 }
@@ -46,11 +47,11 @@ header {
 .countdown h4 {
     padding:25px 0;
     margin:0;
-    background-color: rgb(63, 119, 210);
+    background-color: #ffdc02;
     font-size: 20px;
     letter-spacing: 0px;
     text-align: center;
-    color: #fff;
+    color: #000000;
     
     border-radius: 0px 0px 10px 10px;
 }
@@ -78,7 +79,7 @@ header {
     padding-left: 40px;
     margin-top: 8%;
     font-size: 20px;
-    color: rgba(49, 126, 212, 1);
+    color: rgb(0, 0, 0);
 }
 
 .schoolinfo {
@@ -162,17 +163,17 @@ header {
 .userfunction>li:hover{
     width: 198px;
     padding-left: 20px;
-    color: rgba(49, 126, 212, 1);
-    background-color: rgba(49, 126, 212, 0.1);
-    border-right:2px solid rgba(49, 126, 212, 1);
+    color: rgb(255, 221, 77);
+    background-color: rgba(255, 221, 77, 0.1);
+    border-right:2px solid rgb(255, 221, 77);
 }
 .userfunction>a>li:hover{
 
     width: 198px;
     padding-left: 20px;
-    color: rgba(49, 126, 212, 1);
-    background-color: rgba(49, 126, 212, 0.1);
-    border-right:2px solid rgba(49, 126, 212, 1);
+    color: rgb(255, 221, 77);
+    background-color: rgba(255, 221, 77, 0.1);
+    border-right:2px solid rgb(255, 221, 77);
 }
 .userfunction>nav{
     clear: both;
@@ -194,9 +195,9 @@ header {
 }
 .userfunction nav>a>li:hover{
     width: 158px;
-    color: rgba(49, 126, 212, 1);
-    background-color: rgba(49, 126, 212, 0.1);
-    border-right:2px solid rgba(49, 126, 212, 1);
+    color: rgb(255, 221, 77);
+    background-color: rgba(255, 221, 77, 0.1);
+    border-right:2px solid rgb(255, 221, 77);
 }
 
 .mintitle{
@@ -215,7 +216,7 @@ header {
     float: left;
     padding:15px 0px;
     margin:0;
-    color: rgba(49, 126, 212, 1);
+    color:  rgb(255, 219, 0);
     font-size: 20px;
     font-weight: bold;
     border-bottom:2px solid rgba(229, 229, 229, 1);

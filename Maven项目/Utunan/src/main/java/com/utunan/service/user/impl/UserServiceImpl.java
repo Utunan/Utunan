@@ -85,4 +85,18 @@ public class UserServiceImpl implements UserService {
         List<User> users=userMapper.selectAllUser();
         return users;
     }
+
+    @Override
+    public List<User> getAllMember(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<User> users=userMapper.selectAllMember();
+        return users;
+    }
+
+    @Override
+    public List<User> getAllAdmin(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<User> admins=userMapper.selectAllAdmin();
+        return admins;
+    }
 }

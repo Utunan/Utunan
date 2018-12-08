@@ -141,15 +141,15 @@ public class SchoolSearchController {
      */
     @RequestMapping("/addDirectionCollector")
     public String addDirectionCollector(@RequestParam(value = "directionId") String directionId,
-                                      @RequestParam(value = "schoolProvince",required = false) String[] schoolProvinceList,
-                                      @RequestParam(value = "schoolType",required = false) String[] schoolTypeList,
-                                      @RequestParam(value = "degreeType",required = false) String[] degreeTypeList,
-                                      @RequestParam(value = "math",required = false) String[] mathList,
-                                      @RequestParam(value = "english",required = false) String[] englishList,
-                                      @RequestParam(value = "directionName",required = false) String directionName,
-                                      @RequestParam(value = "pageNum",required = false) String pageNum,
-                                      HttpSession session,
-                                      RedirectAttributes attr){
+                                        @RequestParam(value = "schoolProvince",required = false) String[] schoolProvinceList,
+                                        @RequestParam(value = "schoolType",required = false) String[] schoolTypeList,
+                                        @RequestParam(value = "degreeType",required = false) String[] degreeTypeList,
+                                        @RequestParam(value = "math",required = false) String[] mathList,
+                                        @RequestParam(value = "english",required = false) String[] englishList,
+                                        @RequestParam(value = "directionName",required = false) String directionName,
+                                        @RequestParam(value = "pageNum",required = false) String pageNum,
+                                        HttpSession session,
+                                        RedirectAttributes attr){
         //获取当前用户
         User user = (User) session.getAttribute("User");
         Long userId = null;
@@ -183,15 +183,15 @@ public class SchoolSearchController {
      */
     @RequestMapping("/deleteDirectionCollector")
     public String deleteDirectionCollector(@RequestParam(value = "directionId") String directionId,
-                                         @RequestParam(value = "schoolProvince",required = false) String[] schoolProvinceList,
-                                         @RequestParam(value = "schoolType",required = false) String[] schoolTypeList,
-                                         @RequestParam(value = "degreeType",required = false) String[] degreeTypeList,
-                                         @RequestParam(value = "math",required = false) String[] mathList,
-                                         @RequestParam(value = "english",required = false) String[] englishList,
-                                         @RequestParam(value = "directionName",required = false) String directionName,
-                                         @RequestParam(value = "pageNum",required = false) String pageNum,
-                                         HttpSession session,
-                                         RedirectAttributes attr){
+                                           @RequestParam(value = "schoolProvince",required = false) String[] schoolProvinceList,
+                                           @RequestParam(value = "schoolType",required = false) String[] schoolTypeList,
+                                           @RequestParam(value = "degreeType",required = false) String[] degreeTypeList,
+                                           @RequestParam(value = "math",required = false) String[] mathList,
+                                           @RequestParam(value = "english",required = false) String[] englishList,
+                                           @RequestParam(value = "directionName",required = false) String directionName,
+                                           @RequestParam(value = "pageNum",required = false) String pageNum,
+                                           HttpSession session,
+                                           RedirectAttributes attr){
         //获取当前用户
         User user =(User)session.getAttribute("User");
         //获取当前用户的Id

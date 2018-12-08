@@ -6,7 +6,7 @@ header {
     min-width: 1180px;
     height: 100%;
     margin: 0 auto;
-    background: rgb(63, 119, 210);
+    background: rgb(255, 219, 0);
 }
 
 .container {
@@ -47,7 +47,7 @@ header {
     height: 40px;
     line-height: 40px;
     text-decoration: none;
-    color: #fff;
+    color: #000000;
 }
 
 
@@ -68,6 +68,8 @@ header {
 }
 
 .header .search .text input {
+
+    line-height: 40px;
     padding: 0;
     outline: none;
     float: left;
@@ -105,7 +107,7 @@ header {
 .header .login a:link,
 .header .login a:hover,
 .header .login a:visited {
-    color: #fff;
+    color: #000000;
     text-decoration: none;
 }
 
@@ -196,7 +198,7 @@ header {
 .header .banner a:hover,
 .header .banner a:visited {
     text-decoration: none;
-    color: #fff;
+    color: #000000;
     font-size: 20px;
 }
 
