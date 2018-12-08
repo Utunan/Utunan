@@ -15,6 +15,8 @@
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" type="text/css" href="/css/community/questionIndex.css"/>
+    <link rel="stylesheet" href="/css/community/layui.css">
+    <link rel="stylesheet" href="/css/community/global.css">
     <script> var pagenum="${PageInfo.pageNum}"</script>
     <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
     <!--<script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>-->
@@ -47,12 +49,25 @@
     };
 
 </script>
+<script>
+    var options = document.getElementsByClassName("fly-panel-title fly-filter")[0].getElementsByTagName("a");
+    for (var i = 0; i < options.length; i++) {
+        options[i].onclick = function () {
+            for (var n = 0; n < options.length; n++) {
+                options[n].className ="option";
+            }
+            this.className ="active";
+        }
+    }
+</script>
 <body>
 <%@include file="../common/header.jsp"%>
-<div class="mask"></div>
+<!--<div class="mask"></div>-->
 <!--内容-->
-<div class="content">
 
+<%--
+<div class="content">
+    <!--旧的-->
     <!--左半部分-->
     <!--初始界面-->
     <c:if test="${url=='quiz1' || url=='quiz2'}">
@@ -223,7 +238,8 @@
             <form action="uiz3" method="post">
                 <div class="ask-question">
                     <!--从数据库查出头像-->
-                    <%--@declare id="autocomplete59--1"--%><div class="headAppear"><img src="images/userheadimg/hand.jpg"/></div>
+
+                    <div class="headAppear"><img src="images/userheadimg/hand.jpg"/></div>
                     <textarea class="question-content" required="" rows="1"  autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-activedescendant="AutoComplete59--1"  aria-haspopup="true" aria-owns="Popover58-content"  placeholder="写下你的问题，准确地描述问题更容易得到解答" name="title"></textarea>
                 </div>
                 <div class="question-inspection">
@@ -233,7 +249,7 @@
                 <!--富文本编辑器-->
                 <div class="text">
                     <div id="div1" class="toolbar" ></div>
-                    <div id="div2" style="height: 95px;width: 460px;font-size: 16px;" name="textarea"></div>
+                    <textarea id="div2" style="height: 95px;width: 460px;font-size: 16px;" name="textarea"placeholder="输入问题背景、条件等详细信息"></textarea>
                     <script type="text/javascript">
                         var E = window.wangEditor;
                         var editor1 = new E('#div1', '#div2');  // 两个参数也可以传入 elem 对象，class 选择器
@@ -252,7 +268,7 @@
                             $text1.val(html)
                         }
 
-                        editor1.create()
+                        editor1.create();
                     </script>
                 </div>
 
@@ -281,6 +297,141 @@
         </div>
     </div>
 </div>
+--%>
+<div class="layui-container">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md8">
+        <c:if test="${url=='quiz1' || url=='quiz2'}">
+            <div class="fly-panel" style="margin-bottom: 0;">
+
+                <div class="fly-panel-title fly-filter">
+                    <a href="quiz1"class="${statelist[0]}">最新问题</a>
+                    <span class="fly-mid"></span>
+                    <a href="quiz2"class="${statelist[0]}">热门问题</a>
+                    <span class="fly-mid"></span>
+                    <a href="">智能推荐</a>
+                    <span class="fly-mid"></span>
+                    <!--<span>TX：这里要加一个靠右的搜索框</span>-->
+                    <div class="searchindex">
+                        <from>
+                            <input type="text" class="" placeholder="请输入搜索条件...">
+                            <button class="layui-btn" type="button">Go!</button>
+                        </from>
+                    </div>
+                </div>
+                <ul class="fly-list">
+                    <c:forEach items="${object}" var="obj">
+                    <li>
+                        <a href="user/home.html" class="fly-avatar">
+                            <img src="images/userheadimg/hand.jpg" alt="昵称">
+                        </a>
+                        <h2>
+                            <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
+                        </h2>
+                        <span class="question-description">${obj.quiz.quizContent}</span>
+                        <div class="fly-list-info">
+                            <a href="user/home.html" link>
+                                ${obj.user.userNickName}
+                                <!--
+                                <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                                <i class="layui-badge fly-badge-vip">VIP3</i>
+                                -->
+                            </a>
+                            <span>${obj.quiz.releaseTime}</span>
+
+                            <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
+                            <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
+                            <span class="fly-list-nums">
+                                <i class="iconfont icon-pinglun1" title="回答"></i> ${obj.quiz.answerCount}
+                            </span>
+                        </div>
+                        <div class="fly-list-badge">
+                            <c:forEach items="${obj.tagList}" var="taglist">
+                                <span class="layui-badge layui-bg-red"><a href="quiz3?tagName=${taglist.tagName}">${taglist.tagName}</a></span>
+                            </c:forEach>
+                        </div>
+                    </li>
+                    </c:forEach>
+
+
+
+                </ul>
+
+                <!-- <div class="fly-none">没有相关数据</div> -->
+
+                <div style="text-align: center">
+                    <div class="laypage-main"><span class="laypage-curr">1</span><a href="/jie/page/2/">2</a><a href="/jie/page/3/">3</a><a href="/jie/page/4/">4</a><a href="/jie/page/5/">5</a><span>…</span><a href="/jie/page/148/" class="laypage-last" title="尾页">尾页</a><a href="/jie/page/2/" class="laypage-next">下一页</a></div>
+                </div>
+            </div>
+        </c:if>
+        </div>
+        <div class="layui-col-md4">
+            <div class="fly-panel">
+                <div class="fly-panel-main">
+                    <a href="" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">发表提问</a>
+                </div>
+            </div>
+
+            <dl class="fly-panel fly-list-one">
+                <dt class="fly-panel-title">本周热议</dt>
+                <dd>
+                    <a href="">我的审美要出问题啦</a>
+                    <span><i class="iconfont icon-pinglun1"></i> 16</span>
+                </dd>
+                <dd>
+                    <a href="">我的审美要出问题啦</a>
+                    <span><i class="iconfont icon-pinglun1"></i> 16</span>
+                </dd>
+                <dd>
+                    <a href="">我的审美要出问题啦</a>
+                    <span><i class="iconfont icon-pinglun1"></i> 16</span>
+                </dd>
+                <dd>
+                    <a href="">我的审美要出问题啦</a>
+                    <span><i class="iconfont icon-pinglun1"></i> 16</span>
+                </dd>
+                <dd>
+                    <a href="">我的审美要出问题啦</a>
+                    <span><i class="iconfont icon-pinglun1"></i> 16</span>
+                </dd>
+                <dd>
+                    <a href="">我的审美要出问题啦</a>
+                    <span><i class="iconfont icon-pinglun1"></i> 16</span>
+                </dd>
+                <dd>
+                    <a href="">我的审美要出问题啦</a>
+                    <span><i class="iconfont icon-pinglun1"></i> 16</span>
+                </dd>
+                <dd>
+                    <a href="">我的审美要出问题啦</a>
+                    <span><i class="iconfont icon-pinglun1"></i> 16</span>
+                </dd>
+                <dd>
+                    <a href="">我的审美要出问题啦</a>
+                    <span><i class="iconfont icon-pinglun1"></i> 16</span>
+                </dd>
+            </dl>
+
+
+
+            <div class="fly-panel fly-link">
+                <h3 class="fly-panel-title">热门标签</h3>
+                <dl class="fly-panel-main">
+                    <dd><a href="" target="_blank" class="tag">数据库 88</a><dd>
+                    <dd><a href="" target="_blank"class="tag">数据结构 94</a><dd>
+                    <dd><a href="" target="_blank"class="tag">院校咨询22</a><dd>
+                    <dd><a href="" target="_blank"class="tag">清华大学44</a><dd>
+                    <dd><a href="" target="_blank"class="tag">C语言33</a><dd>
+                    <dd><a href="" target="_blank"class="tag">链表66</a><dd>
+                    <dd><a href="" target="_blank"class="tag">计算机组成原理77</a><dd>
+                </dl>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
 <%@include file="../common/footer.jsp"%>
 </body>
 <script src="/js/community/questionMain.js"></script>
