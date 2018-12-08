@@ -14,4 +14,6 @@ public interface UserService {
     boolean changeUserTelephone(User user);
     boolean changeUserEmail(User user);
     List<User> getAllUser(int pageNum,int pageSize);
+    List<User> getAllMember(int pageNum,int pageSize);
+    List<User> getAllAdmin(int pageNum,int pageSize);
 }

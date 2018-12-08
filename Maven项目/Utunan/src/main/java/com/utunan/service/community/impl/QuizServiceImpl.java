@@ -227,7 +227,6 @@ public class QuizServiceImpl implements QuizService {
 	 */
 	@Override
 	public void praiseQuiz(Long quizId) {
-		System.out.print(quizId);
 		this.quizMapper.updatePraiseCount(quizId);
 	}
 	

@@ -14,6 +14,8 @@ public interface UserMapper {
     int insert(User user);
     //通过
     List<User> selectAllUser();
+    List<User> selectAllMember();
+    List<User> selectAllAdmin();
     User selectByPermit(User user);
     User selectByPorE(User user);
     User selectByP(User user);

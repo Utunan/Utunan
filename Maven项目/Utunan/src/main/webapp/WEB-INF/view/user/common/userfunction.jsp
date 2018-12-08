@@ -64,7 +64,7 @@
         <c:when test="${User.userIdentity=='1'}">
             <a href="/admin">
                 <li>
-                    <img src="/images/user/settings.svg" alt="" srcset="">
+                    <img src="/images/user/backstage.svg" alt="" srcset="">
                     <span>后台管理</span>
                 </li>
             </a>

@@ -12,8 +12,8 @@ dict={
 
 userfunction=document.getElementById("userfunction");
 functions=userfunction.getElementsByTagName("li");
-functions[dict[plate]].style.backgroundColor="rgba(49, 126, 212, 0.1)";
-functions[dict[plate]].style.color="rgba(49, 126, 212, 1)";
+functions[dict[plate]].style.backgroundColor="rgba(255, 221, 77, 0.1)";
+functions[dict[plate]].style.color="rgb(255, 221, 77)";
 
 com_pull_state = false
 col_pull_state = false

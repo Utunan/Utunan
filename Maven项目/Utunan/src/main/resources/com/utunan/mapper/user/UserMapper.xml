@@ -7,6 +7,17 @@
         select *
         from user
     </select>
+    <select id="selectAllMember" resultType="com.utunan.pojo.base.user.User">
+        select *
+        from  user
+        where userIdentity!='1'
+    </select>
+    <select id="selectAllAdmin" resultType="com.utunan.pojo.base.user.User">
+        select *
+        from  user
+        where userIdentity!='3'
+        order by userIdentity asc
+    </select>
     <select id="selectByPermit" resultType="com.utunan.pojo.base.user.User">
         select *
         from user

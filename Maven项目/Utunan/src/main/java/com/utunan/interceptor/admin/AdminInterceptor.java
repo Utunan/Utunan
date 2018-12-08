@@ -8,6 +8,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 
 public class AdminInterceptor implements HandlerInterceptor {
 
@@ -18,6 +19,9 @@ public class AdminInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session= request.getSession();
         User user=(User)session.getAttribute("User");
+        response.setCharacterEncoding("UTF-8");
+        PrintWriter out=response.getWriter();
+
         if(user==null){
             response.sendRedirect("/admin/login");
             return false;
@@ -26,12 +30,13 @@ public class AdminInterceptor implements HandlerInterceptor {
             User checkUser =userService.getUser(user);
             if (user.getUserPassword().equals(checkUser.getUserPassword())){
                 session.setAttribute("User",checkUser);
-                if(!user.getUserIdentity().equals("1")){
+                if(user.getUserIdentity().equals("3")){
                     response.sendRedirect("/user");
                     return false;
                 }
                 return true;
             }else{
+
                 session.removeAttribute("User");
                 response.sendRedirect("/admin/login");
                 return false;

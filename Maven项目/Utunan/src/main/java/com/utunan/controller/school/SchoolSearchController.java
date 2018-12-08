@@ -59,7 +59,6 @@ public class SchoolSearchController {
         }
         //查找收藏的院校Id
         List<Long> directionIdList = this.publishDirectionCollectorService.findDirectionIdByUser(userId);
-        System.out.println("[yayaya]"+directionIdList);
 
         List<PublishSchool> schoolList =null;
         if(pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0){
@@ -94,7 +93,6 @@ public class SchoolSearchController {
                                         @RequestParam(value = "pageNum",required = false) String pageNum,
                                         HttpSession session){
         String aaa = Arrays.toString(schoolProvinceList);
-        System.out.println("[aaa]"+aaa);
 
         Object obj = session.getAttribute("User");
         Long userId = null;
@@ -131,7 +129,6 @@ public class SchoolSearchController {
         request.setAttribute("PageInfo",new PageInfo(schoolList,8));
         request.setAttribute("directionIds",directionIdList);
 
-        System.out.println(schoolList);
         return "/school/schoolIndex";
     }
 
@@ -158,7 +155,6 @@ public class SchoolSearchController {
             this.publishDirectionCollectorService.insertDirectionCollector(userId, Long.parseLong(directionId));
         }else {
             //用户未登录
-            System.out.println("用户没登录！！");
         }
         request.getRequestDispatcher("/displaySchoolBySearch").forward(request,response );
     }
@@ -202,7 +198,6 @@ public class SchoolSearchController {
         //返回数据
         request.setAttribute("publishDirection", publishDirection);
         request.setAttribute("directionCommentCount", directionCommentCount);
-        System.out.println("[lalala]"+publishDirection);
         return "/school/schooldetail";
     }
 
