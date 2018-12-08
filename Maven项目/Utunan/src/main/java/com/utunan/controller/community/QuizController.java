@@ -2,9 +2,11 @@ package com.utunan.controller.community;
 
 import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.base.community.Quiz;
+import com.utunan.pojo.base.community.QuizGreat;
 import com.utunan.pojo.base.community.Tag;
 import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.inherit.community.BigQuiz;
+import com.utunan.service.community.QuizGreatService;
 import com.utunan.service.community.QuizService;
 import com.utunan.service.community.QuizTagService;
 import com.utunan.service.community.TagService;
@@ -31,6 +33,8 @@ public class QuizController {
 	private TagService tagService;
 	@Autowired
     private QuizTagService quizTagService;
+	@Autowired
+	private QuizGreatService quizGreatService;
 
 
 	
@@ -324,10 +328,22 @@ public class QuizController {
 	 * @return  String
 	 */
 	@RequestMapping(value = "/praise")
-	public String praiseQuiz(HttpServletRequest request){
+	public String praiseQuiz(HttpServletRequest request,HttpSession session){
 		String quizId=request.getParameter("quizId");
-		Long num=Long.parseLong(quizId);
-		this.quizService.praiseQuiz(num);
+		User user=(User)session.getAttribute("User");
+		//到问题点赞表进行查询是否有记录
+		QuizGreat quizGreat=quizGreatService.getQuizGreat(Long.parseLong(quizId),user.getUserId());
+		if(quizGreat==null){
+            quizGreatService.addQuizGreat(Long.parseLong(quizId),user.getUserId());
+            this.quizService.praiseQuiz(Long.parseLong(quizId));
+        }
+		else {
+            quizGreatService.delQuizGreat(Long.parseLong(quizId),user.getUserId());
+            this.quizService.delPraiseQuiz(Long.parseLong(quizId));
+        }
+
+
+
 		return "redirect:/displayQuizByQuizId?quizId="+quizId;
 	}
 }

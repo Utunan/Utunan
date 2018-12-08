@@ -151,4 +151,9 @@ public class AnswerServiceImpl implements AnswerService {
     public List<Answer> findChildAnswerListByCount(Long answerId) {
         return this.answerMapper.findChildAnswerListByCount(answerId);
     }
+
+    @Override
+    public void delPraiseAnswer(Long answerId) {
+       this.answerMapper.delPraiseAnswer(answerId);
+    }
 }

@@ -233,7 +233,7 @@
                 <!--富文本编辑器-->
                 <div class="text">
                     <div id="div1" class="toolbar" ></div>
-                    <textarea id="div2" style="height: 95px;width: 460px;font-size: 16px;" name="textarea"placeholder="输入问题背景、条件等详细信息"></textarea>
+                    <div id="div2" style="height: 95px;width: 460px;font-size: 16px;" name="textarea"></div>
                     <script type="text/javascript">
                         var E = window.wangEditor;
                         var editor1 = new E('#div1', '#div2');  // 两个参数也可以传入 elem 对象，class 选择器
@@ -252,7 +252,7 @@
                             $text1.val(html)
                         }
 
-                        editor1.create();
+                        editor1.create()
                     </script>
                 </div>
 

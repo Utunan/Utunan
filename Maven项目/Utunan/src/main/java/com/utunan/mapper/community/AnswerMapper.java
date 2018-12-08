@@ -59,4 +59,7 @@ public interface AnswerMapper {
 
     //根据answerId查询子评论按热度查询
     List<Answer> findChildAnswerListByCount(Long answerId);
+
+    //取消回答点赞
+    void delPraiseAnswer(Long answerId);
 }

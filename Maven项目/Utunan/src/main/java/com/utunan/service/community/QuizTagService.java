@@ -24,5 +24,4 @@ public interface QuizTagService {
      * @return  void
      */
     void saveQuizTag(Long quizId,List<Long> tagss);
-
 }

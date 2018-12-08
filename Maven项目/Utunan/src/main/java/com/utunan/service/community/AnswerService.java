@@ -98,4 +98,7 @@ public interface AnswerService {
 
     //根据answerId查询子评论数量按热度查询
     List<Answer> findChildAnswerListByCount(Long answerId);
+
+    //取消回答点赞
+    void delPraiseAnswer(Long answerId);
 }
