@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <%@ page import="java.util.List,com.utunan.pojo.*" %>
 <html>
 <head>
@@ -108,7 +108,8 @@
             <div class="praise">赞（${quiz.praiseCount}）</div>
             <a href="praise?quizId=${quiz.quizId}"><img src="/images/community/jia1.svg" width="34px" height="34px"></a>
             <div class="give-praise">点赞</div>
-            <a href="quizCollector?quizId=${quiz.quizId}"><img src="/images/community/shoucang.svg" width="34px" height="34px"></a>
+            <a href="quizCollector?quizId=${quiz.quizId}"><img src="/images/community/shoucang.svg" width="34px"
+                                                               height="34px"></a>
             <div class="collection">收藏此问题</div>
             <img src="/images/community/zan.svg" width="34px" height="34px">
             <div class="write-reply">写回答</div>
@@ -143,8 +144,7 @@
                 <div class="reply-evaluation">
                     <div class="a">
                         <div class="reply-praise">赞（${answer.praiseCount}）</div>
-                        <a href="aprise?answerId=${answer.answerId}"><img src="/images/community/jia1.svg" width="34px"
-                                                                          height="34px"></a>
+                        <a href="aprise?answerId=${answer.answerId}"><img src="/images/community/jia1.svg" width="34px" height="34px"></a>
                         <div class="reply-give-praise">点赞</div>
                         <img src="/images/community/zan.svg" width="34px" height="34px">
                         <div class="view-comments">查看评论</div>
@@ -153,7 +153,11 @@
             </div>
             <div class="comments">
                 <div class="comments-number">
-                    <div class="answers-num">一共有15条评论</div>
+                <c:forEach items="${map0.keySet()}" var="b">
+                    <c:if test="${b.answerId==answer.answerId}">
+                    <div class="answers-num">一共有${map0.get(b)}条评论</div>
+                   </c:if>
+                </c:forEach>
                     <div class="right">
                         <select class="comments-sequencing-principle" name="">
                             <option value="0">按时间顺序</option>
@@ -163,14 +167,22 @@
                     </div>
                 </div>
                 <div class="comments-content">
-                    <div class="time">2018.11.25</div>
-                    <div class="nickname">这是一个昵称</div>
-                    <div class="comments-content-content">吧啦吧啦吧啦吧啦吧啦吧</div>
-                    <div class="b">
-                        <div class="comments-content-praise">赞（528）</div>
-                        <img src="images/community/jia1.svg" width="22px" height="22px">
-                        <div class="comments-content-give-praise">点赞</div>
-                    </div>
+                    <c:forEach items="${map.keySet()}" var="m1">
+                        <c:if test="${m1.answerId==answer.answerId}">
+                            <c:forEach items="${map.get(m1)}" var="m2">
+                                <div class="time"> 
+                                    <fmt:formatDate value="${m2.getAnswerTime() }" pattern="yyyy-MM-dd "/>
+                                </div>
+                                <div class="nickname">${m2.user.userNickName}</div>
+                                <div class="comments-content-content">${m2.answerContent}</div>
+                                <div class="b">
+                                    <div class="comments-content-praise">赞（528）</div>
+                                    <img src="images/community/jia1.svg" width="22px" height="22px">
+                                    <div class="comments-content-give-praise">点赞</div>
+                                </div>
+                            </c:forEach>
+                        </c:if>
+                    </c:forEach>
                 </div>
                 <form action="answer1?answerId=${answer.answerId}" method="post">
                     <div class="comments-reply">

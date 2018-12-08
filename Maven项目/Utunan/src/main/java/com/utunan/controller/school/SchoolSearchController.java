@@ -2,9 +2,9 @@ package com.utunan.controller.school;
 
 import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.base.user.User;
-import com.utunan.pojo.inherit.questionbank.PublishDirectionComment;
 import com.utunan.pojo.inherit.school.PublishDirection;
 import com.utunan.pojo.inherit.school.PublishSchool;
+import com.utunan.util.SchoolOther;
 import com.utunan.service.questionbank.PublishDirectionCommentService;
 import com.utunan.service.school.PublishDirectionService;
 import com.utunan.service.school.PublishSchoolService;
@@ -13,58 +13,53 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Arrays;
+import java.net.URLDecoder;
 import java.util.List;
 
 /**
  * @author 王碧云
- * @description: 院校库首页
+ * @description: 院校库首页控制
  * @date 2018/11/27/027 20:34
- */
-@Controller
-public class SchoolSearchController {
-
+    */
+    @Controller
+    public class SchoolSearchController {
     @Autowired
     private PublishSchoolService publishSchoolService;
     @Autowired
-    private PublishDirectionService publishDirectionService;
-    @Autowired
     private PublishDirectionCollectorService publishDirectionCollectorService;
-    @Autowired
-    private PublishDirectionCommentService publishDirectionCommentService;
+
     /*
      * @author  王碧云
      * @description 显示院校库初始页面
      * @date  23:21 2018/11/27/027
      * @param  [request]
      * @return  java.lang.String
-     */
-    @RequestMapping("/displaySchool")
-    public String displaySchool(HttpServletRequest request,
-                                @RequestParam(value = "pageNum",required = false) String pageNum,
-                                HttpSession session){
-        Object obj = session.getAttribute("User");
+        */
+        @RequestMapping("/displaySchool")
+        public String displaySchool(HttpServletRequest request,
+        ​                        @RequestParam(value = "pageNum",required = false) String pageNum,
+        ​                        HttpSession session){
+        User user = (User) session.getAttribute("User");
         Long userId = null;
-        if(obj != null){
-            //用户已登录
-            User user = (User)obj;
-            userId = user.getUserId();
-            System.out.println("[uuuuser]"+user);
+        if(user != null){
+        ​    //用户已登录
+        ​    userId = user.getUserId();
         }
         //查找收藏的院校Id
         List<Long> directionIdList = this.publishDirectionCollectorService.findDirectionIdByUser(userId);
-
+        //查询列表并分页
         List<PublishSchool> schoolList =null;
         if(pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0){
-            schoolList = this.publishSchoolService.findAllSchool(1,15);
+        ​    schoolList = this.publishSchoolService.findAllSchool(1,15);
         }else{
-            schoolList = this.publishSchoolService.findAllSchool(Integer.parseInt(pageNum),15);
+        ​    schoolList = this.publishSchoolService.findAllSchool(Integer.parseInt(pageNum),15);
         }
 
         request.setAttribute("url", "displaySchool");
@@ -73,7 +68,7 @@ public class SchoolSearchController {
         request.setAttribute("directionIds",directionIdList);
 
         return "/school/schoolIndex";
-    }
+        }
 
     /*
      * @author  王碧云
@@ -81,42 +76,47 @@ public class SchoolSearchController {
      * @date  21:36 2018/11/27/027
      * @param  []
      * @return  java.lang.String
-     */
-    @RequestMapping("/displaySchoolBySearch")
-    public String displaySchoolBySearch(HttpServletRequest request,
-                                        @RequestParam(value = "schoolProvince",required = false) String[] schoolProvinceList,
-                                        @RequestParam(value = "schoolType",required = false) String[] schoolTypeList,
-                                        @RequestParam(value = "degreeType",required = false) String[] degreeTypeList,
-                                        @RequestParam(value = "math",required = false) String[] mathList,
-                                        @RequestParam(value = "english",required = false) String[] englishList,
-                                        @RequestParam(value = "directionName",required = false) String directionName,
-                                        @RequestParam(value = "pageNum",required = false) String pageNum,
-                                        HttpSession session){
-        String aaa = Arrays.toString(schoolProvinceList);
+        */
+        @RequestMapping("/displaySchoolBySearch")
+        public String displaySchoolBySearch(HttpServletRequest request,
+        ​                                @RequestParam(value = "schoolProvince",required = false) String[] schoolProvinceList,
+        ​                                @RequestParam(value = "schoolType",required = false) String[] schoolTypeList,
+        ​                                @RequestParam(value = "degreeType",required = false) String[] degreeTypeList,
+        ​                                @RequestParam(value = "math",required = false) String[] mathList,
+        ​                                @RequestParam(value = "english",required = false) String[] englishList,
+        ​                                @RequestParam(value = "directionName",required = false) String directionName,
+        ​                                @RequestParam(value = "pageNum",required = false) String pageNum,
+        ​                                HttpSession session){
+        SchoolOther so = new SchoolOther();
+        //判断搜索条件是否为空
+        schoolProvinceList=so.ifListIsNull(schoolProvinceList);
+        schoolTypeList=so.ifListIsNull(schoolTypeList);
+        degreeTypeList=so.ifListIsNull(degreeTypeList);
+        mathList=so.ifListIsNull(mathList);
+        englishList=so.ifListIsNull(englishList);
 
-        Object obj = session.getAttribute("User");
+        //获取用户
+        User user = (User) session.getAttribute("User");
         Long userId = null;
-        if(obj != null){
-            //用户已登录
-            User user = (User)obj;
-            userId = user.getUserId();
+        if(user != null){
+        ​    //用户已登录
+        ​    userId = user.getUserId();
         }
-
         //查找收藏的院校Id
         List<Long> directionIdList = this.publishDirectionCollectorService.findDirectionIdByUser(userId);
-        System.out.println("[yayaya]"+directionIdList);
-
+        //搜索学校列表并分页
         List<PublishSchool> schoolList =null;
         if(pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0){
-            schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionName,1,15);
+        ​    schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionName,1,15);
         }else{
-            schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionName,Integer.parseInt(pageNum),15);
+        ​    schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionName,Integer.parseInt(pageNum),15);
         }
-        String schoolProvince=this.publishSchoolService.judgeIsNull(schoolProvinceList);
-        String schoolType=this.publishSchoolService.judgeIsNull(schoolTypeList);
-        String degreeType=this.publishSchoolService.judgeIsNull(degreeTypeList);
-        String math=this.publishSchoolService.judgeIsNull(mathList);
-        String english = this.publishSchoolService.judgeIsNull(englishList);
+        //将String[]转为String
+        String schoolProvince=so.listToString(schoolProvinceList);
+        String schoolType=so.listToString(schoolTypeList);
+        String degreeType=so.listToString(degreeTypeList);
+        String math=so.listToString(mathList);
+        String english = so.listToString(englishList);
 
         request.setAttribute("schoolList", schoolList);
         request.setAttribute("url", "displaySchoolBySearch");
@@ -130,7 +130,7 @@ public class SchoolSearchController {
         request.setAttribute("directionIds",directionIdList);
 
         return "/school/schoolIndex";
-    }
+        }
 
     /*
      * @author  王碧云
@@ -138,85 +138,83 @@ public class SchoolSearchController {
      * @date  14:03 2018/12/5/005
      * @param  [directionId, session, request, response]
      * @return  void
-     */
-    @RequestMapping("/addDirectionCollector")
-    public void addDirectionCollector(@RequestParam(value = "directionId") String directionId,
-                                      HttpSession session,
-                                      HttpServletRequest request,
-                                      HttpServletResponse response) throws ServletException, IOException {
+        */
+        @RequestMapping("/addDirectionCollector")
+        public String addDirectionCollector(@RequestParam(value = "directionId") String directionId,
+        ​                              @RequestParam(value = "schoolProvince",required = false) String[] schoolProvinceList,
+        ​                              @RequestParam(value = "schoolType",required = false) String[] schoolTypeList,
+        ​                              @RequestParam(value = "degreeType",required = false) String[] degreeTypeList,
+        ​                              @RequestParam(value = "math",required = false) String[] mathList,
+        ​                              @RequestParam(value = "english",required = false) String[] englishList,
+        ​                              @RequestParam(value = "directionName",required = false) String directionName,
+        ​                              @RequestParam(value = "pageNum",required = false) String pageNum,
+        ​                              HttpSession session,
+        ​                              RedirectAttributes attr){
         //获取当前用户
-        Object obj = session.getAttribute("User");
+        User user = (User) session.getAttribute("User");
         Long userId = null;
-        if(obj != null){
-            //用户已登录
-            User user = (User)obj;
-            userId = user.getUserId();
-            //加入收藏夹
-            this.publishDirectionCollectorService.insertDirectionCollector(userId, Long.parseLong(directionId));
-        }else {
-            //用户未登录
+        if (user != null) {
+        ​    //用户已登录,则加入收藏夹
+        ​    this.publishDirectionCollectorService.insertDirectionCollector(user.getUserId(), Long.parseLong(directionId));
         }
-        request.getRequestDispatcher("/displaySchoolBySearch").forward(request,response );
-    }
-    /*
+        //将String[]转为String
+        SchoolOther so = new SchoolOther();
+        String schoolProvince = so.listToString(schoolProvinceList);
+        String schoolType = so.listToString(schoolTypeList);
+        String degreeType = so.listToString(degreeTypeList);
+        String math = so.listToString(mathList);
+        String english = so.listToString(englishList);
+        //添加地址栏参数
+        attr.addAttribute("schoolProvince", schoolProvince);
+        attr.addAttribute("schoolType", schoolType);
+        attr.addAttribute("degreeType", degreeType);
+        attr.addAttribute("math", math);
+        attr.addAttribute("english", english);
+        attr.addAttribute("pageNum", pageNum);
+
+        return "redirect:/displaySchoolBySearch";
+        }
+        /*
      * @author  王碧云
      * @description 将院校在收藏夹中删除
      * @date  14:06 2018/12/5/005
      * @param  []
      * @return  void
-     */
-    @RequestMapping("/deleteDirectionCollector")
-    public void deleteDirectionCollector(@RequestParam(value = "directionId") String directionId,
-                                         HttpSession session,
-                                         HttpServletRequest request,
-                                         HttpServletResponse response) throws ServletException, IOException {
+        */
+        @RequestMapping("/deleteDirectionCollector")
+        public String deleteDirectionCollector(@RequestParam(value = "directionId") String directionId,
+        ​                                 @RequestParam(value = "schoolProvince",required = false) String[] schoolProvinceList,
+        ​                                 @RequestParam(value = "schoolType",required = false) String[] schoolTypeList,
+        ​                                 @RequestParam(value = "degreeType",required = false) String[] degreeTypeList,
+        ​                                 @RequestParam(value = "math",required = false) String[] mathList,
+        ​                                 @RequestParam(value = "english",required = false) String[] englishList,
+        ​                                 @RequestParam(value = "directionName",required = false) String directionName,
+        ​                                 @RequestParam(value = "pageNum",required = false) String pageNum,
+        ​                                 HttpSession session,
+        ​                                 RedirectAttributes attr){
         //获取当前用户
         User user =(User)session.getAttribute("User");
         //获取当前用户的Id
         Long userId = user.getUserId();
         //根据用户Id和院校Id删除院校收藏
         this.publishDirectionCollectorService.deleteDirectionCollector(userId, Long.parseLong(directionId));
-        //返回数据
-        request.getRequestDispatcher("/displaySchoolBySearch").forward(request,response );
-    }
-    /*
-     * @author  王碧云
-     * @description 显示页面详情页
-     * @date  11:16 2018/12/5/005
-     * @param  [request, directionId, sort]
-     * @return  java.lang.String
-     */
-    @RequestMapping("/displayDirectionDetail")
-    public String displayDirectionDetail(HttpServletRequest request,
-                                         @RequestParam(value = "directionId") String directionId,
-                                         @RequestParam(value = "sort",required = false) String sort){
-        //根据分页方式显示页面详情
-        PublishDirection publishDirection = this.publishDirectionService.findDirectionByDirectionId(directionId,sort);
-        //获取评论的长度
-        int directionCommentCount =publishDirection.getDirectionComments().size();
+        //将String[]转为String
+        SchoolOther so = new SchoolOther();
+        String schoolProvince = so.listToString(schoolProvinceList);
+        String schoolType = so.listToString(schoolTypeList);
+        String degreeType = so.listToString(degreeTypeList);
+        String math = so.listToString(mathList);
+        String english = so.listToString(englishList);
+        //添加地址栏参数
+        attr.addAttribute("schoolProvince", schoolProvince);
+        attr.addAttribute("schoolType", schoolType);
+        attr.addAttribute("degreeType", degreeType);
+        attr.addAttribute("math", math);
+        attr.addAttribute("english", english);
+        attr.addAttribute("pageNum", pageNum);
 
         //返回数据
-        request.setAttribute("publishDirection", publishDirection);
-        request.setAttribute("directionCommentCount", directionCommentCount);
-        return "/school/schooldetail";
-    }
+        return "redirect:/displaySchoolBySearch";
+        }
 
-    /*
-     * @author  王碧云
-     * @description 修改点赞数
-     * @date  9:11 2018/12/6/006
-     * @param  [directionCommentId, directionId, request, response]
-     * @return  void
-     */
-    @RequestMapping("/updateDirectionCommentPraiseCount")
-    public void updateDirectionCommentPraiseCount(@RequestParam(value = "directionCommentId") String directionCommentId,
-                                                    @RequestParam(value = "directionId",required = false) Long directionId,
-                                                    HttpServletRequest request,
-                                                    HttpServletResponse response) throws ServletException, IOException {
-        //修改点赞数量
-        Long praiseCount = this.publishDirectionCommentService.updateDirectionCommentPraiseCount(Long.parseLong(directionCommentId));
-
-        request.getRequestDispatcher("/displayDirectionDetail?directionId="+directionId).forward(request,response );
-    }
 }
-

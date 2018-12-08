@@ -3,12 +3,11 @@ package com.utunan.service.school.impl;
 import com.github.pagehelper.PageHelper;
 import com.utunan.mapper.school.PublishSchoolMapper;
 import com.utunan.pojo.inherit.school.PublishSchool;
+import com.utunan.util.SchoolOther;
 import com.utunan.service.school.PublishSchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -33,8 +32,6 @@ public class PublishSchoolServiceImpl implements PublishSchoolService {
         PageHelper.startPage(pageNum, pageSize);
         return this.publishSchoolMapper.findAllSchool();
     }
-
-
     /*
      * @author  王碧云
      * @description 根据所有参数检索所有学校
@@ -46,50 +43,15 @@ public class PublishSchoolServiceImpl implements PublishSchoolService {
     public List<PublishSchool> findSchoolByAllParam(String[] schoolProvinceList, String[] schoolType, String[] degreeTypeList, String[] mathList, String[] englishList,String directionName, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
 
-        schoolProvinceList = judgeParam(schoolProvinceList);
-        schoolType = judgeParam(schoolType);
-        degreeTypeList = judgeParam(degreeTypeList);
-        mathList = judgeParam(mathList);
-        englishList = judgeParam(englishList);
+        SchoolOther so = new SchoolOther();
+        schoolProvinceList = so.clickAll(schoolProvinceList);
+        schoolType = so.clickAll(schoolType);
+        degreeTypeList = so.clickAll(degreeTypeList);
+        mathList = so.clickAll(mathList);
+        englishList = so.clickAll(englishList);
 
         List<PublishSchool> directionlist = this.publishSchoolMapper.findSchoolByAllParam(schoolProvinceList, schoolType,degreeTypeList,mathList,englishList,directionName);
         return directionlist;
-    }
-
-    /*
-     * @author  王碧云
-     * @description 判断返回的参数是否选中全部
-     * @date  21:33 2018/11/29/029
-     * @param  [list]
-     * @return  java.lang.String[]
-     */
-    public String[] judgeParam(String[] list){
-        if(list==null){
-            return list;
-        }else {
-            for(String l:list){
-                if(l.equals("全部")){
-                    list=null;
-                    break;
-                }
-            }
-            return list;
-        }
-    }
-    /*
-     * @author  王碧云
-     * @description 将字符数组转为字符串
-     * @date  8:34 2018/12/5/005
-     * @param  [list]
-     * @return  java.lang.String
-     */
-    public String judgeIsNull(String[] list){
-        if (list == null){
-            return null;
-        }else {
-            String s =String.join(",",list);
-            return s;
-        }
     }
 
 }

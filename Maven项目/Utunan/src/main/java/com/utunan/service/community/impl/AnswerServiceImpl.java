@@ -141,5 +141,14 @@ public class AnswerServiceImpl implements AnswerService {
         this.answerMapper.updatePraiseCount(num);
     }
 
+    @Override
+    public Long findchildAnswerCount(Long answerId) {
+        return this.answerMapper.findchildAnswerCount(answerId);
+    }
 
+
+    @Override
+    public List<Answer> findChildAnswerListByCount(Long answerId) {
+        return this.answerMapper.findChildAnswerListByCount(answerId);
+    }
 }

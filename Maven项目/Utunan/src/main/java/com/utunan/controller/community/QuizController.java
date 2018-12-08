@@ -8,6 +8,7 @@ import com.utunan.pojo.inherit.community.BigQuiz;
 import com.utunan.service.community.QuizService;
 import com.utunan.service.community.QuizTagService;
 import com.utunan.service.community.TagService;
+import com.utunan.util.WordLimitUtil;
 import org.apache.commons.lang.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -168,8 +169,6 @@ public class QuizController {
 		request.setCharacterEncoding("UTF-8");
 		//int num=Integer.parseInt(request.getParameter("j1"));
 		String title=request.getParameter("title");
-
-
 		String t=request.getParameter("tags");
 		String content= request.getParameter("textarea");
 
@@ -178,7 +177,8 @@ public class QuizController {
 		Long qid=this.quizService.getMaxQid();
 		qid+=1;
 		if (t!=null&&!t.equals("")){
-			String[] tags=t.split(",");
+			String regex = ",|，|\\s+";    //以中英文逗号、空格（一个或多个）分割字符串
+			String[] tags=t.split(regex);
 			//将数组转化为list集合
 			List<String> listtag= Arrays.asList(tags);
 
@@ -187,12 +187,8 @@ public class QuizController {
 
 			this.quizTagService.saveQuizTag(qid,tagss);
 		}
-
-
-
-
-
-		if (user!=null) {
+		//限定用户登录并且title不为空并且title限定字数为7到50字
+		if (user!=null&&WordLimitUtil.isNull(title)&&WordLimitUtil.getLength(title)>=7&&WordLimitUtil.getLength(title)<=50) {
 			this.quizService.saveQuiz(qid,user, title, content);
 		}
 		return "redirect:/quiz1 ";
