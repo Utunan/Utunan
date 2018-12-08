@@ -1,19 +1,15 @@
 package com.utunan.controller.community;
 
 import com.github.pagehelper.PageInfo;
-import com.utunan.pojo.base.community.Answer;
-import com.utunan.pojo.base.community.Quiz;
-import com.utunan.pojo.base.community.QuizTag;
+import com.utunan.pojo.base.community.*;
 
+import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.inherit.community.PublishQuiz;
 
 import com.utunan.pojo.inherit.community.BigQuiz;
 
 import com.utunan.pojo.util.Page;
-import com.utunan.service.community.AnswerService;
-import com.utunan.service.community.PublishQuizService;
-import com.utunan.service.community.QuizService;
-import com.utunan.service.community.QuizTagService;
+import com.utunan.service.community.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,9 +34,10 @@ public class QuizCommentController {
     private QuizTagService quizTagService;
     @Autowired
     private AnswerService answerService;
-
     @Autowired
     private PublishQuizService publishQuizService;
+    @Autowired
+    private AnswerGreatService answerGreatService;
     /*
      * @author  王碧云
      * @description 返回对应QuizId对应的问题页面的值(默认按照时间排序)(分页)
@@ -187,8 +184,18 @@ public class QuizCommentController {
     public String praiseQuiz(HttpServletRequest request,HttpSession session){
         String answerId=request.getParameter("answerId");
         Quiz quiz=(Quiz)session.getAttribute("quiz");
-        Long num=Long.parseLong(answerId);
-        this.answerService.praiseAnswer(num);
+        User user=(User)session.getAttribute("User");
+        //到回答评论点赞表进行查询是否有记录
+        AnswerGreat answerGreat =answerGreatService.getAnswerGreat(Long.parseLong(answerId),user.getUserId());
+        if(answerGreat==null){
+            answerGreatService.addAnswerGreat(Long.parseLong(answerId),user.getUserId());
+            this.answerService.praiseAnswer(Long.parseLong(answerId));
+        }
+        else {
+            answerGreatService.delAnswerGreat(Long.parseLong(answerId),user.getUserId());
+            this.answerService.delPraiseAnswer(Long.parseLong(answerId));
+        }
+
         return "redirect:/displayQuizByQuizId?quizId="+quiz.getQuizId();
     }
 }

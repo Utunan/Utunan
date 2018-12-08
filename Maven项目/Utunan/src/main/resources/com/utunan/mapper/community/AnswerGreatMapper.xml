@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.utunan.mapper.community.AnswerGreatMapper">
+    <!--查询quizgreat表信息-->
+    <select id="getAnswerGreat" parameterType="java.lang.Long" resultType="com.utunan.pojo.base.community.AnswerGreat">
+        select *
+        from answer_great
+        where answerId=#{answerId} and userId=#{userId}
+    </select>
+    <insert id="addAnswerGreat" parameterType="java.lang.Long">
+        insert into answer_great
+        values (#{answerId},#{userId})
+    </insert>
+    <delete id="delAnswerGreat" parameterType="java.lang.Long">
+        delete from answer_great
+        where answerId=#{answerId} and userId=#{userId}
+    </delete>
+</mapper>

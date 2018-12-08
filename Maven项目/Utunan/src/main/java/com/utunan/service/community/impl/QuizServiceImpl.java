@@ -255,6 +255,10 @@ public class QuizServiceImpl implements QuizService {
 		 this.quizMapper.addAnswerCount(qid);
 	}
 
+	@Override
+	public void delPraiseQuiz(Long quizId) {
+		this.quizMapper.delPraiseQuiz(quizId);
+	}
 }
 
 

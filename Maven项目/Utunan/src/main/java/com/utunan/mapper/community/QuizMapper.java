@@ -57,6 +57,8 @@ public interface QuizMapper {
 	 * @param
 	 * @return
 	 */
-	void addAnswerCount(Long qid);
+	void addAnswerCount(@Param("qid") Long qid);
 
+	//删除点赞数
+    void delPraiseQuiz(@Param("quizId") Long quizId);
 }

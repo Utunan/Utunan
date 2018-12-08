@@ -171,4 +171,9 @@
         set answerCount=answerCount+1
         where quizId=#{quizId}
     </update>
+    <update id="delPraiseQuiz" parameterType="java.lang.Long">
+        update quiz
+        set praiseCount=praiseCount-1
+        where quizId=#{quizId}
+    </update>
 </mapper>

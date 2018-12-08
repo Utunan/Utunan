@@ -170,4 +170,6 @@ public interface QuizService {
       */
      void addAnswerCount(Long qid);
 
+     //删除点赞数量
+    void delPraiseQuiz(Long quizId);
 }
