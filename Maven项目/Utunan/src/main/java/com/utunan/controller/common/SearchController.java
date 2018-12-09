@@ -1,0 +1,112 @@
+package com.utunan.controller.common;
+
+import com.github.pagehelper.PageInfo;
+import com.utunan.pojo.base.community.Answer;
+import com.utunan.pojo.base.community.Quiz;
+import com.utunan.pojo.base.community.Tag;
+import com.utunan.pojo.inherit.community.BigQuiz;
+import com.utunan.pojo.util.Analyzer;
+import com.utunan.service.common.SearchService;
+import com.utunan.service.community.QuizService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author 孙程程
+ * @description: TODO
+ * @date 2018/12/8 14:06
+ */
+@Controller
+public class SearchController {
+	@Autowired
+	private SearchService searchService;
+	@Autowired
+	private QuizService quizService;
+
+	@RequestMapping("/searchQuiz")
+	public String SE(HttpServletRequest request) throws Exception {
+		String pageNum=request.getParameter("pageNum");
+		//判断当前页
+		int num=0;
+		if(pageNum==null || pageNum.equals("")){
+			num=1;
+		}else{
+			num=Integer.parseInt(pageNum);
+		}
+		String keyWord=request.getParameter("keyWord");
+		//对搜索条件进行分词
+		Analyzer analyzer=new Analyzer();
+		List<String> keyWords= null;
+		try {
+			keyWords = analyzer.Analyzer(keyWord);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		//返回提问列表
+		List<Quiz> quizList = this.searchService.findQuiz(keyWords, num, 6);
+		//封装BigQuiz
+		//*************以下代码会以同样的姿态在不同地方出现，正在努力封装************
+		//提取quizId列表
+		List<Long> quizIdList=new ArrayList<>();
+		for(int i=0; i<quizList.size(); i++){
+			quizIdList.add(quizList.get(i).getQuizId());
+		}
+		//获取提问的标签列表
+		List<List<Tag>> quizTagList=new ArrayList<>();
+		for(int i=0; i<quizList.size(); i++){
+			quizTagList.add(quizService.selectTagByQuizId(quizIdList.get(i)));
+		}
+		//将提问、标签封装
+		List<BigQuiz> bigQuiz=new ArrayList<>();
+		for (int i=0;i<quizList.size(); i++){
+			BigQuiz bq=new BigQuiz();
+			bq.setQuiz(quizList.get(i));
+			bq.setTagList(quizTagList.get(i));
+			bigQuiz.add(bq);
+		}
+		//*************以上代码会以同样的姿态在不同地方出现，正在努力封装************
+		//返回数据
+		request.setAttribute("object",bigQuiz);
+		request.setAttribute("url","searchQuiz");
+		request.setAttribute("keyWord", keyWord);
+		request.setAttribute("keyWords", keyWords);
+		request.setAttribute("PageInfo",new PageInfo(quizList,5));
+		return "common/searchresult";
+	}
+
+	@RequestMapping("/searchAnswer")
+	public String searchComment(HttpServletRequest request){
+		String pageNum=request.getParameter("pageNum");
+		//判断当前页
+		int num=0;
+		if(pageNum==null || pageNum.equals("")){
+			num=1;
+		}else{
+			num=Integer.parseInt(pageNum);
+		}
+		String keyWord=request.getParameter("keyWord");
+		//对搜索条件进行分词
+		Analyzer analyzer=new Analyzer();
+		List<String> keyWords= null;
+		try {
+			keyWords = analyzer.Analyzer(keyWord);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		//回答列表
+		List<Answer> answerList =this.searchService.findAnswer(keyWords, num, 10);
+
+		//返回数据
+		request.setAttribute("object", answerList);
+		request.setAttribute("url","searchAnswer");
+		request.setAttribute("keyWord", keyWord);
+		request.setAttribute("keyWords", keyWords);
+		request.setAttribute("PageInfo",new PageInfo(answerList,5));
+		return "common/searchresult";
+	}
+}

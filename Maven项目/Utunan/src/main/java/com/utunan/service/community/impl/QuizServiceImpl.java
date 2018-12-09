@@ -188,36 +188,7 @@ public class QuizServiceImpl implements QuizService {
 					q.setQuizTitle(q.getQuizTitle().substring(0,30)+" ...");
 			}
 		}
-	
-	/**
-	 * @author  孙程程
-	 * @description 根据搜索条件查找提问列表
-	 * @date  20:12 2018/11/26
-	 * @param  searchValue
-	 * @return  java.util.List<com.utunan.pojo.base.community.Quiz>
-	 */
-	@Override
-	public List<Quiz> findQuizBySearch(String searchValue, int pageNum, int pageSize){
-		PageHelper.startPage(pageNum,pageSize);
-		//按提问列表
-		List<Quiz> quizList = quizMapper.findQuizBySearch("%"+searchValue+"%");
-		//限制问题标题、内容展示字数
-		condenseQuiz(quizList);
-		return quizList;
-	}
-	
-	/**
-	 * @author  孙程程
-	 * @description 符合搜索条件的提问数量
-	 * @date  21:19 2018/11/26
-	 * @param  searchValue
-	 * @return  java.lang.Long
-	 */
-	@Override
-	public Long countQuizBySearch(String searchValue){
-		return this.quizMapper.countQuizBySearch("%"+searchValue+"%");
-	}
-	
+
 	/*
 	 * @author  张正扬
 	 * @description  更新点赞计数

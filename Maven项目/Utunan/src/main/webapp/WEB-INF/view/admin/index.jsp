@@ -93,37 +93,37 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="/admin/directionlist">
+                        <a _href="/admin/DSQuestion">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>数据结构</cite>
                         </a>
                     </li >
                     <li>
-                        <a _href="/admin/directionlist">
+                        <a _href="/admin/CQuestion">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>C语言程序设计</cite>
                         </a>
                     </li >
                     <li>
-                        <a _href="/admin/directionlist">
+                        <a _href="/admin/OSQuestion">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>操作系统</cite>
                         </a>
                     </li >
                     <li>
-                        <a _href="/admin/directionlist">
+                        <a _href="/admin/ConstituteQuestion">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>组成原理</cite>
                         </a>
                     </li >
                     <li>
-                        <a _href="/admin/directionlist">
+                        <a _href="/admin/NetworkQuestion">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>网络原理</cite>
                         </a>
                     </li >
                     <li>
-                        <a _href="/admin/directionlist">
+                        <a _href="/admin/SEQuestion">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>软件工程</cite>
                         </a>
@@ -183,11 +183,17 @@
                             <li>
                                 <a _href="xx.html">
                                     <i class="iconfont">&#xe6a7;</i>
-                                    <cite>等级管理</cite>
+                                    <cite>院校信息审核</cite>
 
                                 </a>
                             </li>
+                            <li>
+                                <a _href="xx.html">
+                                    <i class="iconfont">&#xe6a7;</i>
+                                    <cite>院系评论审核</cite>
 
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
