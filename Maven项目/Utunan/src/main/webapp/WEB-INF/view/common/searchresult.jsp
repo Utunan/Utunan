@@ -20,10 +20,30 @@
 <div>
     <h2>搜索条件：${keyWord}</h2>
     <h2>分词结果：<c:forEach items="${keyWords}" var="word">${word}&nbsp;</c:forEach></h2>
-    <h2><a href="/searchQuiz?keyWord=${keyWord}">搜索提问</a>&nbsp;&nbsp;&nbsp;
+    <h2><a href="/searchUser?keyWord=${keyWord}">搜索用户</a>&nbsp;&nbsp;&nbsp;
+        <a href="/searchQuiz?keyWord=${keyWord}">搜索提问</a>&nbsp;&nbsp;&nbsp;
         <a href="/searchAnswer?keyWord=${keyWord}">搜索回答</a>
     </h2>
 </div>
+<div id="content">
+<c:if test="${url=='searchUser'}">
+    <table>
+        <tr>
+            <td>用户</td>
+            <td>学校</td>
+            <td>目标</td>
+            <td>积分</td>
+        </tr>
+        <c:forEach items="${object}" var="user">
+            <tr>
+                <td>${user.userNickName}</td>
+                <td>${user.userSchool}</td>
+                <td>${user.dreamSchool}</td>
+                <td>${user.userIntegral}</td>
+            </tr>
+        </c:forEach>
+    </table>
+</c:if>
 <c:if test="${url=='searchQuiz'}">
     <div>
         <table>
@@ -84,15 +104,15 @@
                 <td>点赞</td>
                 <td>上级评论</td>
             </tr>
-            <c:forEach items="${object}" var="obj">
+            <c:forEach items="${object}" var="answer">
             <tr>
-                <td>${obj.answerId}</td>
-                <td>${obj.quiz.quizId}</td>
-                <td>回复：${obj.quiz.quizTitle}</td>
-                <td>${obj.answerContent}</td>
-                <td>${obj.answerTime}</td>
-                <td>${obj.praiseCount}</td>
-                <td>${obj.parentAnswer}</td>
+                <td>${answer.answerId}</td>
+                <td>${answer.quiz.quizId}</td>
+                <td>回复：${answer.quiz.quizTitle}</td>
+                <td>${answer.answerContent}</td>
+                <td>${answer.answerTime}</td>
+                <td>${answer.praiseCount}</td>
+                <td>${answer.parentAnswer}</td>
             </tr>
             </c:forEach>
             <table/>
@@ -114,6 +134,7 @@
             </nav>
     </div>
 </c:if>
+</div>
 <%@include file="footer.jsp"%>
 </body>
 </html>

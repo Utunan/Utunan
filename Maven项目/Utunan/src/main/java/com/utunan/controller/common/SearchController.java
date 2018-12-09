@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.community.Tag;
+import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.inherit.community.BigQuiz;
 import com.utunan.pojo.util.Analyzer;
 import com.utunan.service.common.SearchService;
@@ -28,8 +29,45 @@ public class SearchController {
 	@Autowired
 	private QuizService quizService;
 
+
+	/**
+	 * @author  孙程程
+	 * @description 搜索用户
+	 * @date  17:14 2018/12/9
+	 * @param  request
+	 * @return  java.lang.String
+	 */
+	@RequestMapping("searchUser")
+	public String searchUser(HttpServletRequest request){
+		String keyWord=request.getParameter("keyWord");
+		//对搜索条件进行分词
+		Analyzer analyzer=new Analyzer();
+		List<String> keyWords= null;
+		try {
+			keyWords = analyzer.Analyzer(keyWord);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		//返回用户列表
+		List<User> userList=this.searchService.findUser(keyWords);
+		//返回数据
+		request.setAttribute("object", userList);
+		request.setAttribute("url","searchUser");
+		request.setAttribute("keyWord", keyWord);
+		request.setAttribute("keyWords", keyWords);
+		request.setAttribute("PageInfo",new PageInfo(userList,5));
+		return "common/searchresult";
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 搜索提问
+	 * @date  17:14 2018/12/9
+	 * @param  request
+	 * @return  java.lang.String
+	 */
 	@RequestMapping("/searchQuiz")
-	public String SE(HttpServletRequest request) throws Exception {
+	public String searchQuiz(HttpServletRequest request) {
 		String pageNum=request.getParameter("pageNum");
 		//判断当前页
 		int num=0;
@@ -79,8 +117,15 @@ public class SearchController {
 		return "common/searchresult";
 	}
 
+	/**
+	 * @author  孙程程
+	 * @description 搜索回答
+	 * @date  17:14 2018/12/9
+	 * @param  request
+	 * @return  java.lang.String
+	 */
 	@RequestMapping("/searchAnswer")
-	public String searchComment(HttpServletRequest request){
+	public String searchAnswer(HttpServletRequest request){
 		String pageNum=request.getParameter("pageNum");
 		//判断当前页
 		int num=0;
