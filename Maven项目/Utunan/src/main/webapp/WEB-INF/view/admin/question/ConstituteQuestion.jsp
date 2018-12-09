@@ -55,19 +55,12 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${Admins}" var="A">
+        <c:forEach items="${ConstituteQuestion}" var="A">
             <tr>
-                <c:choose>
-                    <c:when test="${A.userIdentity=='1'}">
-                        <td>无法进行操作</td>
-                    </c:when>
-                    <c:otherwise>
-                        <td>
-                            <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${A.userId}'><i
-                                    class="layui-icon">&#xe605;</i></div>
-                        </td>
-                    </c:otherwise>
-                </c:choose>
+                <td>
+                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${A.userId}'><i
+                            class="layui-icon">&#xe605;</i></div>
+                </td>
                 <td>${A.userIdentity=='1'?"管理员":"编辑员"}</td>
                 <td>${A.userNickName}</td>
                 <td>${A.userTelephone}</td>
