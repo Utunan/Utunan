@@ -2,7 +2,6 @@ package com.utunan.service.community.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.utunan.mapper.community.AnswerMapper;
-import com.utunan.mapper.community.SearchAnswerMapper;
 import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.user.User;
@@ -22,8 +21,7 @@ import java.util.List;
 public class AnswerServiceImpl implements AnswerService {
     @Autowired
     private AnswerMapper answerMapper;
-    @Autowired
-    private SearchAnswerMapper searchAnswerMapper;
+
     /*
      * @author  张正扬
      * @description 向comment表插入回答
@@ -95,20 +93,6 @@ public class AnswerServiceImpl implements AnswerService {
 //        return this.answerMapper.countAnswerByQuizId(quizId);
 //    }
 
-    /**
-     * @author  孙程程
-     * @description 根据搜索条件返回评论列表
-     * @date  16:12 2018/11/27
-     * @param  searchValue, pageNum, pageSize
-     * @return  java.util.List<com.utunan.pojo.base.community.Answer>
-     */
-    @Override
-    public List<Answer> findAnswerListBySearch(String searchValue, int pageNum, int pageSize){
-        PageHelper.startPage(pageNum,pageSize);
-        List<Answer> answerList =this.searchAnswerMapper.findAnswerListBySearch("%"+searchValue+"%");
-        return answerList;
-    }
-
     /*
      * @author  张正扬
      * @description 向comment表插入回答
@@ -150,5 +134,10 @@ public class AnswerServiceImpl implements AnswerService {
     @Override
     public List<Answer> findChildAnswerListByCount(Long answerId) {
         return this.answerMapper.findChildAnswerListByCount(answerId);
+    }
+
+    @Override
+    public void delPraiseAnswer(Long answerId) {
+       this.answerMapper.delPraiseAnswer(answerId);
     }
 }

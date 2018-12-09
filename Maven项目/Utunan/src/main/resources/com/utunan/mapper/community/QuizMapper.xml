@@ -134,23 +134,7 @@
         where t.tagName = #{tagName}
         group by qt.quizId
     </select>
-    
-    <!--根据搜索条件查询提问-->
-    <select id="findQuizBySearch" resultMap="quizBaseMap">
-        select *
-        from quiz q
-        join user u on q.userId = u.userId
-        where q.quizTitle like #{searchValue}
-           or q.quizContent like #{searchValue}
-    </select>
-    <!--根据搜索条件统计提问数量-->
-    <select id="countQuizBySearch" resultType="java.lang.Long">
-        select count(*)
-        from quiz
-        where quizTitle like #{searchValue}
-           or quizContent like #{searchValue}
-    </select>
-    
+
     <!--根据UserId 查询 Quiz-->
     <select id="selectQuizByUserId" resultMap="quizBaseMap">
         select *
@@ -169,6 +153,11 @@
     <update id="addAnswerCount" parameterType="java.lang.Long">
         update quiz
         set answerCount=answerCount+1
+        where quizId=#{quizId}
+    </update>
+    <update id="delPraiseQuiz" parameterType="java.lang.Long">
+        update quiz
+        set praiseCount=praiseCount-1
         where quizId=#{quizId}
     </update>
 </mapper>

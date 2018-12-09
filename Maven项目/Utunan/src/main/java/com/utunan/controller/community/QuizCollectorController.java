@@ -1,5 +1,6 @@
 package com.utunan.controller.community;
 
+import com.alibaba.druid.sql.visitor.functions.If;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.user.QuizCollector;
 import com.utunan.pojo.base.user.User;
@@ -31,7 +32,14 @@ public class QuizCollectorController {
         User user1=(User)session.getAttribute("User");
         Long qcid=quizCollectService.getMaxQCid();
         qcid+=1;
-        this.quizCollectService.insertQuizCollector(qcid,user1, quiz);
+        //判断用户是否点赞
+        QuizCollector quizCollector=this.quizCollectService.getQuizCollector(Long.parseLong(quizId),user1.getUserId());
+        if(quizCollector==null) {
+            this.quizCollectService.insertQuizCollector(qcid, user1, quiz);
+        }
+        else {
+            this.quizCollectService.delQuizCollector(Long.parseLong(quizId),user1.getUserId());
+        }
         return "redirect:/displayQuizByQuizId?quizId=" + quizId;
 
 

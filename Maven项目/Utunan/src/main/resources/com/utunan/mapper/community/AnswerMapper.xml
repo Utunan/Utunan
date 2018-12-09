@@ -37,18 +37,17 @@
         </collection>
     </resultMap>
     <!-- 插入回答 -->
-    <insert id="toInsert" parameterType="com.utunan.pojo.base.community.Answer" >
+    <insert id="toInsert" parameterType="com.utunan.pojo.base.community.Answer">
         insert into answer(answerId,quizId,userId,answerContent,answerTime,praiseCount,parentAnswer) values(#{answerId},#{quiz.quizId},#{user.userId},#{answerContent},#{answerTime},#{praiseCount},#{parentAnswer})
     </insert>
 
 
     <!-- 插入评论 -->
-    <insert id="toInsert1" parameterType="com.utunan.pojo.base.community.Answer" >
+    <insert id="toInsert1" parameterType="com.utunan.pojo.base.community.Answer">
         insert into answer(answerId,userId,answerContent,answerTime,praiseCount,parentAnswer) values(#{answerId},#{user.userId},#{answerContent},#{answerTime},#{praiseCount},#{parentAnswer})
     </insert>
-    
 
-    
+
     <!--王碧云 根据quizId查询评论列表（子评论除外）(默认：根据时间排序)-->
     <select id="findAnswerListByQuizId" resultMap="answerResultMap">
         select *
@@ -59,7 +58,7 @@
         order by answerTime desc
     </select>
 
-    
+
     <!--王碧云 根据热度返回评论列表-->
     <select id="findAnswerListByPraiseCount" resultMap="answerResultMap">
         select *
@@ -69,7 +68,7 @@
         quizId = #{quizId} and parentAnswer is null
         order by praiseCount desc
     </select>
-    
+
     <!--王碧云 根据answerId查询子评论（按时间查询）-->
     <select id="findChildAnswerListByAnswerId" resultMap="answerResultMap">
         select *
@@ -81,25 +80,10 @@
     </select>
 
 
-    
     <!--更新回答点赞数-->
     <update id="updatePraiseCount" parameterType="java.lang.Long">
         update answer set praiseCount=praiseCount+1 where answerId=#{answerId}
     </update>
-    
-    <!--根据搜索条件查询回答列表-->
-    <!--<select id="findAnswerListBySearch" resultMap="answerResultMap">
-        select *
-        from answer c
-        join quiz q on c.quizId=q.quizId
-        where c.answerContent like #{searchValue}
-    </select>-->
-    <!--根据搜索条件查询回答数量-->
-    <select id="countAnswerBySearch" resultType="java.lang.Long">
-        select count(*)
-        from answer
-        where answerContent like #{searchValue}
-    </select>
 
     <!--张正扬获取最大commentId-->
     <select id="getMaxAid" resultType="java.lang.Long">
@@ -124,6 +108,12 @@
         parentAnswer=#{answerId}
         order by praiseCount desc
     </select>
+
+    <!--取消点赞功能-->
+    <update id="delPraiseAnswer" parameterType="Long">
+        update answer set praiseCount=praiseCount-1
+        where answerId=#{answerId}
+    </update>
 
 
 </mapper>

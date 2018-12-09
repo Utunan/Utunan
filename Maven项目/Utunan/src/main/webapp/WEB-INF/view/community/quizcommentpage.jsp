@@ -107,7 +107,7 @@
             <!--数据库获取-->
             <div class="praise">赞（${quiz.praiseCount}）</div>
             <a href="praise?quizId=${quiz.quizId}"><img src="/images/community/jia1.svg" width="34px" height="34px"></a>
-            <div class="give-praise">点赞</div>
+            <div class="give-praise"><a href="praise?quizId=${quiz.quizId}">点赞</a></div>
             <a href="quizCollector?quizId=${quiz.quizId}"><img src="/images/community/shoucang.svg" width="34px"
                                                                height="34px"></a>
             <div class="collection">收藏此问题</div>
@@ -176,7 +176,7 @@
                                 <div class="nickname">${m2.user.userNickName}</div>
                                 <div class="comments-content-content">${m2.answerContent}</div>
                                 <div class="b">
-                                    <div class="comments-content-praise">赞（528）</div>
+                                    <div class="comments-content-praise">赞（${m2.praiseCount}）</div>
                                     <img src="images/community/jia1.svg" width="22px" height="22px">
                                     <div class="comments-content-give-praise">点赞</div>
                                 </div>

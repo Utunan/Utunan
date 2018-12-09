@@ -63,15 +63,6 @@ public interface AnswerService {
      * @return  java.lang.Long
      */
     //Long countAnswerByQuizId(Long quizId);
-    
-    /**
-     * @author  孙程程
-     * @description 根据搜索条件返回评论列表
-     * @date  16:12 2018/11/27
-     * @param  searchValue, pageNum, pageSize
-     * @return  java.util.List<com.utunan.pojo.base.community.Answer>
-     */
-    List<Answer> findAnswerListBySearch(String searchValue, int pageNum, int pageSize);
 
     /*
      * @author  张正扬
@@ -98,4 +89,7 @@ public interface AnswerService {
 
     //根据answerId查询子评论数量按热度查询
     List<Answer> findChildAnswerListByCount(Long answerId);
+
+    //取消回答点赞
+    void delPraiseAnswer(Long answerId);
 }
