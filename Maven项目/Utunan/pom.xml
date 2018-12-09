@@ -250,6 +250,12 @@
             <artifactId>ezmorph</artifactId>
             <version>1.0.6</version>
         </dependency>
+        <!--    搜索 分词   -->
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-core</artifactId>
+            <version>7.2.1</version>
+        </dependency>
 
     </dependencies>
 
