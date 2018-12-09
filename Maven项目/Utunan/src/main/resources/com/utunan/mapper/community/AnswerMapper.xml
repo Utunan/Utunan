@@ -85,20 +85,6 @@
         update answer set praiseCount=praiseCount+1 where answerId=#{answerId}
     </update>
 
-    <!--根据搜索条件查询回答列表-->
-    <!--<select id="findAnswerListBySearch" resultMap="answerResultMap">
-        select *
-        from answer c
-        join quiz q on c.quizId=q.quizId
-        where c.answerContent like #{searchValue}
-    </select>-->
-    <!--根据搜索条件查询回答数量-->
-    <select id="countAnswerBySearch" resultType="java.lang.Long">
-        select count(*)
-        from answer
-        where answerContent like #{searchValue}
-    </select>
-
     <!--张正扬获取最大commentId-->
     <select id="getMaxAid" resultType="java.lang.Long">
         select max(answerId)

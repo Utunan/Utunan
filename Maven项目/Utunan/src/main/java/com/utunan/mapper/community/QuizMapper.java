@@ -27,9 +27,7 @@ public interface QuizMapper {
 	List<Quiz> listQuizByPraiseWithTagName(@Param("quizId") List<Long> quizId);
 	Long countQuizWithTagName(@Param("tagName") String tagName);
 	List<Long> selectQuizIdByTagName(@Param("tagName") String tagName);
-	
-	List<Quiz> findQuizBySearch(@Param("searchValue") String searchValue);
-	Long countQuizBySearch(@Param("searchValue") String searchValue);
+
 	
 	/*
 	 * @author  张正扬

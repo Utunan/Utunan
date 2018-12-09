@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.utunan.mapper.common.SearchMapper">
+    <resultMap id="quizBaseMap" type="com.utunan.pojo.base.community.Quiz">
+        <id property="quizId" column="quizId"/>
+        <result property="quizTitle" column="quizTitle"/>
+        <result property="quizContent" column="quizContent"/>
+        <result property="releaseTime" column="releaseTime"/>
+        <result property="praiseCount" column="praiseCount"/>
+        <result property="answerCount" column="answerCount"/>
+        <association property="user" javaType="com.utunan.pojo.base.user.User">
+            <id property="userId" column="userId"></id>
+            <result property="userEmail" column="userEmail"/>
+            <result property="userTelephone" column="userTelephone"/>
+            <result property="userPassword" column="userPassword"/>
+            <result property="userIdentity" column="userIdentity"/>
+            <result property="examTime" column="examTime"/>
+            <result property="registerTime" column="registerTime"/>
+            <result property="userHeadImg" column="userHeadImg"/>
+            <result property="userNickName" column="userNickName"/>
+            <result property="userSchool" column="userSchool"/>
+            <result property="dreamSchool" column="dreamSchool"/>
+            <result property="userIntegral" column="userIntegral"/>
+        </association>
+    </resultMap>
+    <!--搜索提问-->
+    <select id="findQuiz" resultMap="quizBaseMap">
+        select *
+        from quiz q
+        join user u on q.userId = u.userId
+        where q.quizTitle regexp #{keyWord}
+          or q.quizContent regexp #{keyWord}
+    </select>
+    <resultMap id="answerResultMap" type="com.utunan.pojo.base.community.Answer">
+        <id property="answerId" column="answerId"/>
+        <result property="answerContent" column="answerContent"/>
+        <result property="answerTime" column="answerTime"/>
+        <result property="praiseCount" column="praiseCount"/>
+        <result property="parentAnswer" column="parentAnswer"/>
+        <association property="quiz" javaType="com.utunan.pojo.base.community.Quiz">
+            <id property="quizId" column="quizId"/>
+            <result property="quizTitle" column="quizTitle"/>
+            <result property="quizContent" column="quizContent"/>
+            <result property="releaseTime" column="releaseTime"/>
+            <result property="praiseCount" column="praiseCount"/>
+        </association>
+        <association property="user" javaType="com.utunan.pojo.base.user.User">
+            <id property="userId" column="userId"/>
+            <result property="userEmail" column="userEmail"/>
+            <result property="userTelephone" column="userTelephone"/>
+            <result property="userPassword" column="userPassword"/>
+            <result property="userIdentity" column="userIdentity"/>
+            <result property="examTime" column="examTime"/>
+            <result property="registerTime" column="registerTime"/>
+            <result property="userHeadImg" column="userHeadImg"/>
+            <result property="userNickName" column="userNickName"/>
+            <result property="userSchool" column="userSchool"/>
+            <result property="dreamSchool" column="dreamSchool"/>
+            <result property="userIntegral" column="userIntegral"/>
+        </association>
+    </resultMap>
+    <!--根据搜索条件查询回答列表-->
+    <select id="findAnswer" resultMap="answerResultMap">
+        select *
+        from answer c
+        join quiz q on c.quizId=q.quizId
+        where c.answerContent regexp #{keyWord}
+    </select>
+</mapper>
