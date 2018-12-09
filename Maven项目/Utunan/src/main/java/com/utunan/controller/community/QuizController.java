@@ -57,6 +57,9 @@ public class QuizController {
 		}
 		//提问列表
 		List<Quiz> quizList=quizService.quizListByTime(num,6);
+
+		//查询前10个评论数量的问题
+		List<Quiz> quizListTop10=quizService.quizListTop10();
 		//封装BigQuiz
 		//*************以下代码会以同样的姿态在不同地方出现，正在努力封装************
 		//提取quizId列表
@@ -96,6 +99,7 @@ public class QuizController {
 		request.setAttribute("alltag",getAllTag);
 		request.setAttribute("statelist",stateList);
 		request.setAttribute("PageInfo",new PageInfo(quizList,5));
+		request.setAttribute("quizListTop10",quizListTop10);
 		return "community/quiz";
 	}
 	
@@ -344,6 +348,6 @@ public class QuizController {
 
 
 
-		return "redirect:/displayQuizByQuizId?quizId="+quizId;
+		return "redirect:/quiz1";
 	}
 }

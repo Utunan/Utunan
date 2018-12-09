@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
+<%@ page import="java.util.List,com.utunan.pojo.*" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -339,7 +342,7 @@
                             </a>
                             <span>${obj.quiz.releaseTime}</span>
 
-                            <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
+                            <span class="fly-list-kiss layui-hide-xs" title="点赞"><a href="praise?quizId=${obj.quiz.quizId}"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;"></a>&nbsp;${obj.quiz.praiseCount}</span>
                             <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
                             <span class="fly-list-nums">
                                 <i class="iconfont icon-pinglun1" title="回答"></i> ${obj.quiz.answerCount}
@@ -360,7 +363,32 @@
                 <!-- <div class="fly-none">没有相关数据</div> -->
 
                 <div style="text-align: center">
-                    <div class="laypage-main"><span class="laypage-curr">1</span><a href="/jie/page/2/">2</a><a href="/jie/page/3/">3</a><a href="/jie/page/4/">4</a><a href="/jie/page/5/">5</a><span>…</span><a href="/jie/page/148/" class="laypage-last" title="尾页">尾页</a><a href="/jie/page/2/" class="laypage-next">下一页</a></div>
+                    <div class="laypage-main">
+                        <%--<span class="laypage-curr">1</span>
+                        <a href="/jie/page/2/">2</a>
+                        <a href="/jie/page/3/">3</a>
+                        <a href="/jie/page/4/">4</a>
+                        <a href="/jie/page/5/">5</a>
+
+                        <a href="/jie/page/148/" class="laypage-last" title="尾页">尾页</a>
+                        <a href="/jie/page/2/" class="laypage-next">下一页</a>--%>
+
+                        <a href="/${url }">首页</a>
+                        <a href="/${url }?pageNum=${PageInfo.prePage}">上一页</a>
+                        <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                            <a name="${i}" href="/${url }?pageNum=${i}">${i}</a>
+                        </c:forEach>
+                        <span>…</span>
+                        <c:choose>
+                            <c:when test="${PageInfo.nextPage==0}">
+                                <a href="/${url }?pageNum=${PageInfo.pages}">下一页</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="/${url }?pageNum=${PageInfo.nextPage}">下一页</a>
+                            </c:otherwise>
+                        </c:choose>
+                        <a href="/${url }?pageNum=${PageInfo.pages}">尾页</a>
+                    </div>
                 </div>
             </div>
         </c:if>
@@ -373,8 +401,15 @@
             </div>
 
             <dl class="fly-panel fly-list-one">
+                <!--选出10个评论数最高的问题-->
                 <dt class="fly-panel-title">本周热议</dt>
-                <dd>
+                <c:forEach items="${quizListTop10}" var="q">
+                    <dd>
+                        <a href="">${q.quizTitle }</a>
+                        <span><i class="iconfont icon-pinglun1"></i>${q.answerCount }</span>
+                    </dd>
+                </c:forEach>
+                <%--<dd>
                     <a href="">我的审美要出问题啦</a>
                     <span><i class="iconfont icon-pinglun1"></i> 16</span>
                 </dd>
@@ -405,11 +440,7 @@
                 <dd>
                     <a href="">我的审美要出问题啦</a>
                     <span><i class="iconfont icon-pinglun1"></i> 16</span>
-                </dd>
-                <dd>
-                    <a href="">我的审美要出问题啦</a>
-                    <span><i class="iconfont icon-pinglun1"></i> 16</span>
-                </dd>
+                </dd>--%>
             </dl>
 
 
@@ -417,16 +448,18 @@
             <div class="fly-panel fly-link">
                 <h3 class="fly-panel-title">热门标签</h3>
                 <dl class="fly-panel-main">
-                    <dd><a href="" target="_blank" class="tag">数据库 88</a><dd>
+                    <%--<dd><a href="" target="_blank" class="tag">数据库 88</a><dd>
                     <dd><a href="" target="_blank"class="tag">数据结构 94</a><dd>
                     <dd><a href="" target="_blank"class="tag">院校咨询22</a><dd>
                     <dd><a href="" target="_blank"class="tag">清华大学44</a><dd>
                     <dd><a href="" target="_blank"class="tag">C语言33</a><dd>
                     <dd><a href="" target="_blank"class="tag">链表66</a><dd>
-                    <dd><a href="" target="_blank"class="tag">计算机组成原理77</a><dd>
+                    <dd><a href="" target="_blank"class="tag">计算机组成原理77</a><dd>--%>
+                    <c:forEach items="${tag}" var="tags">
+                        <dd><a href="quiz3?tagName=${tags[0].tagName}" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
+                    </c:forEach>
                 </dl>
             </div>
-
         </div>
     </div>
 </div>

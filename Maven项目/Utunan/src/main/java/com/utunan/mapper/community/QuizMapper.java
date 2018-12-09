@@ -61,4 +61,7 @@ public interface QuizMapper {
 
 	//删除点赞数
     void delPraiseQuiz(@Param("quizId") Long quizId);
+
+    //查询评论数前10的问题
+    List<Quiz> quizListTop10();
 }

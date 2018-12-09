@@ -164,7 +164,7 @@
         select max(quizId)
         from quiz
     </select>
-    
+
     <!--张正扬， 增加问题回答数-->
     <update id="addAnswerCount" parameterType="java.lang.Long">
         update quiz
@@ -176,4 +176,11 @@
         set praiseCount=praiseCount-1
         where quizId=#{quizId}
     </update>
+
+    <select id="quizListTop10" parameterType="int" resultMap="quizBaseMap">
+        select *
+        from quiz
+        order by answerCount desc ,releaseTime desc
+        limit 10
+    </select>
 </mapper>

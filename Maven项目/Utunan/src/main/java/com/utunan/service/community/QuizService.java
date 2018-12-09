@@ -172,4 +172,7 @@ public interface QuizService {
 
      //删除点赞数量
     void delPraiseQuiz(Long quizId);
+
+    //获取前10个评论数最高的问题
+    List<Quiz> quizListTop10();
 }
