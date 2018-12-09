@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
  */
 
 public interface QuizCollectService {
+
+
     void insertQuizCollector(Long qcid, User user, Quiz quiz);
 
     Long getMaxQCid();

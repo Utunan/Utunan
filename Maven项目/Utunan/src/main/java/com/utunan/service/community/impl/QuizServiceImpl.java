@@ -230,6 +230,13 @@ public class QuizServiceImpl implements QuizService {
 	public void delPraiseQuiz(Long quizId) {
 		this.quizMapper.delPraiseQuiz(quizId);
 	}
+
+	@Override
+	public List<Quiz> quizListTop10() {
+		List<Quiz> quizs= quizMapper.quizListTop10();
+		condenseQuiz(quizs);
+		return quizs;
+	}
 }
 
 

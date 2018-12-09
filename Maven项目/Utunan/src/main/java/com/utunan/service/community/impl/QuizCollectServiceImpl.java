@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  * @description: TODO
  * @date 2018/12/6 16:14
  */
-@Service("quizCollectService")
+@Service("QuizCollectService")
 public class QuizCollectServiceImpl implements QuizCollectService {
 
     @Autowired

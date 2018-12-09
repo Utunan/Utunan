@@ -21,6 +21,23 @@
     <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
     <title>问题页面</title>
     <script> var pagenum = "${PageInfo.pageNum}"</script>
+    <script>
+        function praise(quizId){
+            $.ajax({
+            url:'praise?quizId=${quiz.quizId}',//处理数据的地址
+            type:'post',//数据提交形式
+            data:{'id':1,'user':123},//需要提交的数据
+            success:function(data){//数据返回成功的执行放大
+            if(data==1){//成功
+            alert('执行成功');
+            }
+            if(data==2){//失败
+            alert('执行失败');
+            }
+            }
+            });
+        }
+    </script>
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
