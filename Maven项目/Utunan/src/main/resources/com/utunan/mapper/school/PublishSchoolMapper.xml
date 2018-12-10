@@ -19,6 +19,7 @@
             <result property="english" column="english"/>
             <result property="math" column="math"/>
             <result property="majorBasics" column="majorBasics"/>
+            <result property="viewCount" column="viewCount"/>
         </collection>
     </resultMap>
 

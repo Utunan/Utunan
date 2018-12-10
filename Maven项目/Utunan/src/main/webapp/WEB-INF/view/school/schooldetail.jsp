@@ -121,7 +121,7 @@
             </form>
         </div>
     </div>
-    浏览量：<%--<div id="viewCount"></div>--%>
+    浏览量：${viewCount}
 </body>
 <%--<script>
     if (localStorage.pagecount){
