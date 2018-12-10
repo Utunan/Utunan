@@ -104,7 +104,10 @@ header {
     border-radius: 5px;
     border: 1px solid #C0C0C0;
 }
+#userfunction{
+    font-size: 15px;
 
+}
 
 .userfunction>li {
     color: gray;
