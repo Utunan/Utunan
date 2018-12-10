@@ -118,6 +118,7 @@
             </thead>
             <tbody>
             <c:set var="sum" value="0"></c:set>
+            <%--显示各个学校的各个专业--%>
             <c:forEach items="${schoolList}" var="school" >
                 <c:forEach items="${school.direction}" var="direction" >
                   <tr>
@@ -127,7 +128,8 @@
                     <td>${direction.majorlName}</td>
                     <td>${direction.directionName}</td>
                     <td><a href="/displayDirectionDetail?directionId=${direction.directionId}">详情</a></td>
-                    <c:choose>
+                      <%--判断是否是用户所收藏的院校，是显示红心，不是显示灰心--%>
+                      <c:choose>
                         <c:when test="${ya:judge(directionIds,direction.directionId)}">
                             <td><a href="/deleteDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}"><img src="../images/school/redheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
                         </c:when>
