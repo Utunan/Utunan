@@ -45,55 +45,38 @@
                 <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i
                         class="layui-icon">&#xe605;</i></div>
             </th>
-            <th>身份</th>
-            <th>昵称</th>
-            <th>手机</th>
-            <th>邮箱</th>
-            <th>加入时间</th>
-            <th>积分</th>
+            <th>录入人ID</th>
+            <th>章节名称</th>
+            <th>题干内容</th>
+            <th>录入时间</th>
+            <th>正确数量</th>
+            <th>答题数量</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${Admins}" var="A">
+        <c:forEach items="${SEQuestions}" var="Q">
             <tr>
-                <c:choose>
-                    <c:when test="${A.userIdentity=='1'}">
-                        <td>无法进行操作</td>
-                    </c:when>
-                    <c:otherwise>
-                        <td>
-                            <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${A.userId}'><i
-                                    class="layui-icon">&#xe605;</i></div>
-                        </td>
-                    </c:otherwise>
-                </c:choose>
-                <td>${A.userIdentity=='1'?"管理员":"编辑员"}</td>
-                <td>${A.userNickName}</td>
-                <td>${A.userTelephone}</td>
-                <td>${A.userEmail}</td>
-                <td><fmt:formatDate value="${A.registerTime }" type="date" pattern="yyyy-MM-dd"/></td>
-                <td>${A.userIntegral}</td>
-                <c:choose>
-                    <c:when test="${A.userIdentity=='1'}">
-                        <td>无法进行操作</td>
-                    </c:when>
-                    <c:otherwise>
-                        <td class="td-manage">
+                <td>
+                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${A.userId}'><i
+                            class="layui-icon">&#xe605;</i></div>
+                </td>
+                <td>${Q.user.userId}</td>
+                <td>${Q.chapterName}</td>
+                <td>${Q.questionContent}</td>
+                <td>${Q.questionEnterTime}</td>
+                <td>${Q.rightNum}</td>
+                <td>${Q.errorNum+Q.rightNum}</td>
+                <td class="td-manage">
 
-                            <a title="编辑" onclick="x_admin_show('编辑','/admin/memberedit',600,400)" href="javascript:;">
-                                <i class="layui-icon">&#xe642;</i>
-                            </a>
-                            <a onclick="x_admin_show('修改密码','member-password.html',600,400)" title="修改密码"
-                               href="javascript:;">
-                                <i class="layui-icon">&#xe631;</i>
-                            </a>
-                            <a title="删除" onclick="member_del(this,'${A.userId}')" href="javascript:;">
-                                <i class="layui-icon">&#xe640;</i>
-                            </a>
-                        </td>
-                    </c:otherwise>
-                </c:choose>
+                    <a title="编辑" onclick="x_admin_show('编辑','/admin/memberedit',600,400)" href="javascript:;">
+                        <i class="layui-icon">&#xe642;</i>
+                    </a>
+                    <a title="删除" onclick="member_del(this,'${A.userId}')" href="javascript:;">
+                        <i class="layui-icon">&#xe640;</i>
+                    </a>
+                </td>
+
             </tr>
         </c:forEach>
         </tbody>

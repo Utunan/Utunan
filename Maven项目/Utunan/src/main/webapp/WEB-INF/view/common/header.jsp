@@ -84,13 +84,16 @@
 
         <nav class="banner">
             <li>
-                <a href="/questionbank">题库</a>
-            </li>
-            <li>
                 <a href="/displaySchool">院校库</a>
             </li>
             <li>
+                <a href="/questionbank">优题库</a>
+            </li>
+            <li>
                 <a href="/quiz1">优问答</a>
+            </li>
+            <li>
+                <a href="/quiz1">优共享</a>
             </li>
         </nav>
 
