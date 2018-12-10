@@ -1,5 +1,6 @@
 package com.utunan.controller.share;
 
+import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.base.share.File;
 import com.utunan.service.share.ShareIndexService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,22 @@ public class ShareIndexController {
 
 	@RequestMapping("/share")
 	public String shareIndex(HttpServletRequest request){
-		List<File> fileList = this.shareIndexService.listFileByTime();
+		String pageNum=request.getParameter("pageNum");
+		//判断当前页
+		int num=0;
+		if(pageNum==null || pageNum.equals("")){
+			num=1;
+		}else{
+			num=Integer.parseInt(pageNum);
+		}
+		//最新文件
+		List<File> fileList = this.shareIndexService.listFileByTime(num,10);
+		//热门文件
+		List<File> hotFileList = this.shareIndexService.listHotFile();
+		request.setAttribute("url","share");
 		request.setAttribute("fileList", fileList);
+		request.setAttribute("hotFileList", hotFileList);
+		request.setAttribute("PageInfo",new PageInfo(fileList,5));
 		return "share/share";
 	}
 }

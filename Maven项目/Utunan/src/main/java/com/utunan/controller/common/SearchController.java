@@ -86,7 +86,7 @@ public class SearchController {
 			e.printStackTrace();
 		}
 		//返回提问列表
-		List<Quiz> quizList = this.searchService.findQuiz(keyWords, num, 6);
+		List<Quiz> quizList = this.searchService.findQuiz(keyWords, num, 10);
 		//封装BigQuiz
 		//*************以下代码会以同样的姿态在不同地方出现，正在努力封装************
 		//提取quizId列表

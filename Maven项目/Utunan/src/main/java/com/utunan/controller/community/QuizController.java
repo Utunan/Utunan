@@ -56,7 +56,7 @@ public class QuizController {
 			num=Integer.parseInt(pageNum);
 		}
 		//提问列表
-		List<Quiz> quizList=quizService.quizListByTime(num,6);
+		List<Quiz> quizList=quizService.quizListByTime(num,10);
 
 		//查询前10个评论数量的问题
 		List<Quiz> quizListTop10=quizService.quizListTop10();
@@ -122,7 +122,7 @@ public class QuizController {
 			num=Integer.parseInt(pageNum);
 		}
 		//提问列表
-		List<Quiz> quizList=quizService.quizListByPraise(num,6);
+		List<Quiz> quizList=quizService.quizListByPraise(num,10);
 
 
         //查询前10个评论数量的问题
@@ -228,7 +228,7 @@ public class QuizController {
 			num=Integer.parseInt(pageNum);
 		}
 		//提问列表
-		List<Quiz> quizList=this.quizService.quizListByTimeWithTagName(tagName, num,6);
+		List<Quiz> quizList=this.quizService.quizListByTimeWithTagName(tagName, num,10);
 		//封装BigQuiz
 		//*************以下代码会以同样的姿态在不同地方出现，正在努力封装************
 		//提取quizId列表
@@ -289,7 +289,7 @@ public class QuizController {
 			num=Integer.parseInt(pageNum);
 		}
 		//提问列表
-		List<Quiz> quizList=this.quizService.quizListByPraiseWithTagName(tagName, num,6);
+		List<Quiz> quizList=this.quizService.quizListByPraiseWithTagName(tagName, num,10);
 		//封装BigQuiz
 		//*************以下代码会以同样的姿态在不同地方出现，正在努力封装************
 		//提取quizId列表

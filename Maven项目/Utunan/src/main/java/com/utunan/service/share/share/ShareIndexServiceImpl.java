@@ -18,9 +18,29 @@ public class ShareIndexServiceImpl implements ShareIndexService {
     @Autowired
     private ShareIndexMapper shareIndexMapper;
 
+    /**
+     * @author  孙程程
+     * @description 最新文件
+     * @date  18:00 2018/12/10
+     * @param  pageNum, pageSize
+     * @return  java.util.List<com.utunan.pojo.base.share.File>
+     */
 	@Override
-    public List<File> listFileByTime(){
+    public List<File> listFileByTime(int pageNum, int pageSize){
+		PageHelper.startPage(pageNum,pageSize);
+		//文件列表
         List<File> fileList = this.shareIndexMapper.listFileByTime();
         return fileList;
+    }
+
+    /**
+     * @author  孙程程
+     * @description 热门文件
+     * @date  18:00 2018/12/10
+     * @return  java.util.List<com.utunan.pojo.base.share.File>
+     */
+    @Override
+	public List<File> listHotFile(){
+		return this.shareIndexMapper.listHotFile();
     }
 }
