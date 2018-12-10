@@ -330,7 +330,7 @@
                         <h2>
                             <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
                         </h2>
-                        <span class="question-description">${obj.quiz.quizContent}</span>
+                        <!--<span class="question-description">${obj.quiz.quizContent}</span>-->
                         <div class="fly-list-info">
                             <a href="user/home.html" link>
                                 ${obj.user.userNickName}
@@ -416,7 +416,7 @@
                             <h2>
                                 <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
                             </h2>
-                            <span class="question-description">${obj.quiz.quizContent}</span>
+                            <!--<span class="question-description">${obj.quiz.quizContent}</span>-->
                             <div class="fly-list-info">
                                 <a href="user/home.html" link>
                                         ${obj.user.userNickName}
