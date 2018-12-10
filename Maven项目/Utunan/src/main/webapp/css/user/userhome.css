@@ -78,7 +78,8 @@
 }
 
 .userop{
-    padding-top:20px;
+    padding-top:0px;
+    padding-left: 20px;
     height: 40px;
     width: 400px;
 }
@@ -86,7 +87,10 @@
     border-radius: 5px;
     outline: none;
     border:1px solid #e0e0e0;
-    height: 40px;
-    margin:20px 10px;
-    width: 80px;
+    height: 30px;
+    margin:5px 10px;
+    width: 60px;
+    color:#fff;
+    font-weight: bold;
+    background-color: #1a1a1a;
 }
