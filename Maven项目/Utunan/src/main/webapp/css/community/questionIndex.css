@@ -1,6 +1,6 @@
 .searchindex{
     float: right; 
-    margin: 8px 0px;
+    margin: 15px 0px;
     border-radius: 2px;
 }
 .searchindex input{
@@ -13,6 +13,7 @@
     border-width: 1px;
     border-color: #009688; 
     border-radius: 2px 0px 0px 2px;
+    font-size: 13px;
 }
 .searchindex button{
     float: left;
@@ -22,5 +23,5 @@
     color: #808080;
 }
 .active{
-    color: #5FB878;
+    color: #FF5722;
 }
