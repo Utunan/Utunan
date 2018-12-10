@@ -77,6 +77,7 @@ public class QuizController {
 		for (int i=0;i<quizList.size(); i++){
 			BigQuiz bq=new BigQuiz();
 			bq.setQuiz(quizList.get(i));
+			bq.setUser(quizList.get(i).getUser());
 			bq.setTagList(quizTagList.get(i));
 			bigQuiz.add(bq);
 		}
@@ -143,6 +144,7 @@ public class QuizController {
 		for (int i=0;i<quizList.size(); i++){
 			BigQuiz bq=new BigQuiz();
 			bq.setQuiz(quizList.get(i));
+			bq.setUser(quizList.get(i).getUser());
 			bq.setTagList(quizTagList.get(i));
 			bigQuiz.add(bq);
 		}

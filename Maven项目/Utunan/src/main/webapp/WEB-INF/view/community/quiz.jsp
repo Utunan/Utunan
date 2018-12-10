@@ -310,16 +310,16 @@
                 <div class="fly-panel-title fly-filter">
                     <a href="quiz1"class="${statelist[0]}">最新问题</a>
                     <span class="fly-mid"></span>
-                    <a href="quiz2"class="${statelist[0]}">热门问题</a>
+                    <a href="quiz2"class="${statelist[1]}">热门问题</a>
                     <span class="fly-mid"></span>
                     <a href="">智能推荐</a>
                     <span class="fly-mid"></span>
                     <!--<span>TX：这里要加一个靠右的搜索框</span>-->
                     <div class="searchindex">
-                        <from>
-                            <input type="text" class="" placeholder="请输入搜索条件...">
-                            <button class="layui-btn" type="button">Go!</button>
-                        </from>
+                        <form action="/searchQuiz" method="post">
+                            <input type="text" class="" placeholder="请输入搜索条件..." name="keyWord">
+                            <button class="layui-btn" type="submit">Go!</button>
+                        </form>
                     </div>
                 </div>
                 <ul class="fly-list">
@@ -327,7 +327,7 @@
                     <li>
                         <a href="user/home.html" class="fly-avatar">
 
-                           <img src="${obj.quiz.user.userHeadImg}" alt="昵称">
+                           <img src="${obj.user.userHeadImg}" alt="昵称">
                         </a>
                         <h2>
                             <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
@@ -335,7 +335,7 @@
                         <span class="question-description">${obj.quiz.quizContent}</span>
                         <div class="fly-list-info">
                             <a href="user/home.html" link>
-                                ${obj.quiz.user.userNickName}
+                                ${obj.user.userNickName}
                                 <!--
                                 <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
                                 <i class="layui-badge fly-badge-vip">VIP3</i>
@@ -378,7 +378,6 @@
                         <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
                             <a name="${i}" href="/${url }?pageNum=${i}">${i}</a>
                         </c:forEach>
-                        <span>…</span>
                         <c:choose>
                             <c:when test="${PageInfo.nextPage==0}">
                                 <a href="/${url }?pageNum=${PageInfo.pages}">下一页</a>
@@ -392,91 +391,90 @@
                 </div>
             </div>
         </c:if>
-            <c:if test="${url=='quiz3' || url=='quiz4'}">
-                <div class="fly-panel" style="margin-bottom: 0;">
+        <c:if test="${url=='quiz3' || url=='quiz4'}">
+            <div class="fly-panel" style="margin-bottom: 0;">
 
-                    <div class="fly-panel-title fly-filter">
-                        <a href="quiz1"class="${statelist[0]}">最新问题</a>
-                        <span class="fly-mid"></span>
-                        <a href="quiz2"class="${statelist[0]}">热门问题</a>
-                        <span class="fly-mid"></span>
-                        <a href="">智能推荐</a>
-                        <span class="fly-mid"></span>
-                        <!--<span>TX：这里要加一个靠右的搜索框</span>-->
-                        <div class="searchindex">
-                            <from>
-                                <input type="text" class="" placeholder="请输入搜索条件...">
-                                <button class="layui-btn" type="button">Go!</button>
-                            </from>
-                        </div>
-                    </div>
-                    <ul class="fly-list">
-                        <c:forEach items="${object}" var="obj">
-                            <li>
-                                <a href="user/home.html" class="fly-avatar">
-                                    <img src="images/userheadimg/hand.jpg" alt="昵称">
-                                </a>
-                                <h2>
-                                    <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
-                                </h2>
-                                <span class="question-description">${obj.quiz.quizContent}</span>
-                                <div class="fly-list-info">
-                                    <a href="user/home.html" link>
-                                            ${obj.user.userNickName}
-                                        <!--
-                                        <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                                        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                        -->
-                                    </a>
-                                    <span>${obj.quiz.releaseTime}</span>
-
-                                    <span class="fly-list-kiss layui-hide-xs" title="点赞"><a href="praise?quizId=${obj.quiz.quizId}"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;"></a>&nbsp;${obj.quiz.praiseCount}</span>
-                                    <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
-                                    <span class="fly-list-nums">
-                                <i class="iconfont icon-pinglun1" title="回答"></i> ${obj.quiz.answerCount}
-                            </span>
-                                </div>
-                                <div class="fly-list-badge">
-                                    <c:forEach items="${obj.tagList}" var="taglist">
-                                        <span class="layui-badge layui-bg-red"><a href="quiz3?tagName=${taglist.tagName}">${taglist.tagName}</a></span>
-                                    </c:forEach>
-                                </div>
-                            </li>
-                        </c:forEach>
-                    </ul>
-
-                    <!-- <div class="fly-none">没有相关数据</div> -->
-
-                    <div style="text-align: center">
-                        <div class="laypage-main">
-                                <%--<span class="laypage-curr">1</span>
-                                <a href="/jie/page/2/">2</a>
-                                <a href="/jie/page/3/">3</a>
-                                <a href="/jie/page/4/">4</a>
-                                <a href="/jie/page/5/">5</a>
-
-                                <a href="/jie/page/148/" class="laypage-last" title="尾页">尾页</a>
-                                <a href="/jie/page/2/" class="laypage-next">下一页</a>--%>
-
-                            <a href="/${url }">首页</a>
-                            <a href="/${url }?pageNum=${PageInfo.prePage}">上一页</a>
-                            <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                                <a name="${i}" href="/${url }?pageNum=${i}">${i}</a>
-                            </c:forEach>
-                            <span>…</span>
-                            <c:choose>
-                                <c:when test="${PageInfo.nextPage==0}">
-                                    <a href="/${url }?pageNum=${PageInfo.pages}">下一页</a>
-                                </c:when>
-                                <c:otherwise>
-                                    <a href="/${url }?pageNum=${PageInfo.nextPage}">下一页</a>
-                                </c:otherwise>
-                            </c:choose>
-                            <a href="/${url }?pageNum=${PageInfo.pages}">尾页</a>
-                        </div>
+                <div class="fly-panel-title fly-filter">
+                    <a href="quiz3?tagName=${tagName}"class="${statelist[0]}">最新问题</a>
+                    <span class="fly-mid"></span>
+                    <a href="quiz4?tagName=${tagName}"class="${statelist[1]}">热门问题</a>
+                    <span class="fly-mid"></span>
+                    <a href="">智能推荐</a>
+                    <span class="fly-mid"></span>
+                    <!--<span>TX：这里要加一个靠右的搜索框</span>-->
+                    <div class="searchindex">
+                        <form action="/searchQuiz" method="post">
+                            <input type="text" class="" placeholder="请输入搜索条件..." name="keyWord">
+                            <button class="layui-btn" type="submit">Go!</button>
+                        </form>
                     </div>
                 </div>
-            </c:if>
+                <ul class="fly-list">
+                    <c:forEach items="${object}" var="obj">
+                        <li>
+                            <a href="user/home.html" class="fly-avatar">
+                                <img src="${obj.user.userHeadImg}" alt="昵称">
+                            </a>
+                            <h2>
+                                <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
+                            </h2>
+                            <span class="question-description">${obj.quiz.quizContent}</span>
+                            <div class="fly-list-info">
+                                <a href="user/home.html" link>
+                                        ${obj.user.userNickName}
+                                    <!--
+                                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                                    <i class="layui-badge fly-badge-vip">VIP3</i>
+                                    -->
+                                </a>
+                                <span>${obj.quiz.releaseTime}</span>
+
+                                <span class="fly-list-kiss layui-hide-xs" title="点赞"><a href="praise?quizId=${obj.quiz.quizId}"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;"></a>&nbsp;${obj.quiz.praiseCount}</span>
+                                <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
+                                <span class="fly-list-nums">
+                            <i class="iconfont icon-pinglun1" title="回答"></i> ${obj.quiz.answerCount}
+                        </span>
+                            </div>
+                            <div class="fly-list-badge">
+                                <c:forEach items="${obj.tagList}" var="taglist">
+                                    <span class="layui-badge layui-bg-red"><a href="quiz3?tagName=${taglist.tagName}">${taglist.tagName}</a></span>
+                                </c:forEach>
+                            </div>
+                        </li>
+                    </c:forEach>
+                </ul>
+
+                <!-- <div class="fly-none">没有相关数据</div> -->
+
+                <div style="text-align: center">
+                    <div class="laypage-main">
+                            <%--<span class="laypage-curr">1</span>
+                            <a href="/jie/page/2/">2</a>
+                            <a href="/jie/page/3/">3</a>
+                            <a href="/jie/page/4/">4</a>
+                            <a href="/jie/page/5/">5</a>
+
+                            <a href="/jie/page/148/" class="laypage-last" title="尾页">尾页</a>
+                            <a href="/jie/page/2/" class="laypage-next">下一页</a>--%>
+
+                        <a href="/${url }?tagName=${tagName}">首页</a>
+                        <a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.prePage}">上一页</a>
+                        <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                            <a name="${i}" href="/${url }?tagName=${tagName}&pageNum=${i}">${i}</a>
+                        </c:forEach>
+                        <c:choose>
+                            <c:when test="${PageInfo.nextPage==0}">
+                                <a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.pages}">下一页</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.nextPage}">下一页</a>
+                            </c:otherwise>
+                        </c:choose>
+                        <a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.pages}">尾页</a>
+                    </div>
+                </div>
+            </div>
+        </c:if>
         </div>
         <div class="layui-col-md4">
             <div class="fly-panel">
