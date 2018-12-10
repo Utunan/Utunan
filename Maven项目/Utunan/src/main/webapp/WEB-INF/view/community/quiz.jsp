@@ -326,7 +326,8 @@
                     <c:forEach items="${object}" var="obj">
                     <li>
                         <a href="user/home.html" class="fly-avatar">
-                            <img src="images/userheadimg/hand.jpg" alt="昵称">
+
+                           <img src="${obj.quiz.user.userHeadImg}" alt="昵称">
                         </a>
                         <h2>
                             <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
@@ -334,13 +335,15 @@
                         <span class="question-description">${obj.quiz.quizContent}</span>
                         <div class="fly-list-info">
                             <a href="user/home.html" link>
-                                ${obj.user.userNickName}
+                                ${obj.quiz.user.userNickName}
                                 <!--
                                 <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
                                 <i class="layui-badge fly-badge-vip">VIP3</i>
                                 -->
                             </a>
-                            <span>${obj.quiz.releaseTime}</span>
+                            <span>
+                                <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
+                            </span>
 
                             <span class="fly-list-kiss layui-hide-xs" title="点赞"><a href="praise?quizId=${obj.quiz.quizId}"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;"></a>&nbsp;${obj.quiz.praiseCount}</span>
                             <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
