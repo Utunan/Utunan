@@ -13,6 +13,7 @@
         <result property="english" column="english"/>
         <result property="math" column="math"/>
         <result property="majorBasics" column="majorBasics"/>
+        <result property="viewCount" column="viewCount"/>
         <association property="school" javaType="com.utunan.pojo.base.school.School">
             <id column="schoolId" property="schoolId"/>
             <result property="schoolName" column="schoolName"/>

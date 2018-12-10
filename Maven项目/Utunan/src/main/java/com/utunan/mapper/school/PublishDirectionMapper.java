@@ -21,4 +21,5 @@ public interface PublishDirectionMapper {
     PublishDirection findDirectionByDirectionId(@Param("directionId") String directionId);
     /*查询研究方向详情(按热度排序)*/
     PublishDirection findDirectionOrderByPraiseCount(@Param("directionId") String directionId);
+
 }
