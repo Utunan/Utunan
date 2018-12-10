@@ -122,6 +122,15 @@
             </form>
         </div>
     </div>
-
+    浏览量：<%--<div id="viewCount"></div>--%>
 </body>
+<%--<script>
+    if (localStorage.pagecount){
+        localStorage.pagecount=Number(localStorage.pagecount)+1;
+    }
+    else{
+        localStorage.pagecount=1;
+    }
+    document.getElementById("viewCount").innerHTML=localStorage.pagecount;
+</script>--%>
 </html>
