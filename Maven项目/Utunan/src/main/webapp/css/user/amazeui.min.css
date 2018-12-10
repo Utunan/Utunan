@@ -5,11 +5,9 @@ body, html {
     min-height: 100%
 }
 
-html {
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%
+html{
+    font-size: 10px;
 }
-
 body {
     margin: 0
 }
@@ -161,31 +159,6 @@ table {
     border-spacing: 0
 }
 
-td, th {
-    padding: 0
-}
-
-html {
-    font-size: 10px;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
-}
-
-body {
-    position: relative;
-    font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
-    font-weight: 400;
-    line-height: 1.6;
-    color: #333;
-    font-size: 1.6rem
-}
-
-body, button, input, select, textarea {
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -moz-font-feature-settings: "liga", "kern"
-}
-
 @media only screen and (max-width: 640px) {
     body {
         word-wrap: break-word;
@@ -224,11 +197,7 @@ address, blockquote, dl, fieldset, figure, hr, ol, p, pre, ul {
     margin-top: 1.6rem
 }
 
-h1, h2, h3, h4, h5, h6 {
-    margin: 0 0 1.6rem 0;
-    font-weight: 600;
-    font-size: 100%
-}
+
 
 h1 {
     font-size: 1.5em
