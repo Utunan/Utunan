@@ -9,4 +9,5 @@ import java.util.List;
 @Mapper
 public interface ShareIndexMapper {
     List<File> listFileByTime();
+    List<File> listHotFile();
 }

@@ -43,4 +43,14 @@
         where f.isExamine=1
         order by f.fileTime desc
     </select>
+    <!--按下载数量查询前15个文件-->
+    <select id="listHotFile" resultMap="fileResultMap">
+        select *
+        from file f
+        join user u on f.userId=u.userId
+        join suffix s on f.suffixId=s.suffixId
+        where f.isExamine=1
+        order by f.downloadNumber desc
+        limit 15
+    </select>
 </mapper>
