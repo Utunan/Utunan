@@ -3,6 +3,7 @@ package com.utunan.controller.school;
 import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.inherit.school.PublishDirection;
 import com.utunan.service.questionbank.PublishDirectionCommentService;
+import com.utunan.service.school.DirectionService;
 import com.utunan.service.school.PublishDirectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,8 @@ public class SchoolDetailController {
     private PublishDirectionService publishDirectionService;
     @Autowired
     private PublishDirectionCommentService publishDirectionCommentService;
+    @Autowired
+    private DirectionService directionService;
 
     /*
      * @author  王碧云
@@ -40,10 +43,14 @@ public class SchoolDetailController {
         PublishDirection publishDirection = this.publishDirectionService.findDirectionByDirectionId(directionId,sort);
         //获取评论的长度
         int directionCommentCount =publishDirection.getDirectionComments().size();
+        //获取页面浏览次数
+        this.directionService.updateviewCount(Long.parseLong(directionId));
+        Long viewCount = this.directionService.findDirectionByDirectionId(Long.parseLong(directionId)).getViewCount();
 
         //返回数据
         request.setAttribute("publishDirection", publishDirection);
         request.setAttribute("directionCommentCount", directionCommentCount);
+        request.setAttribute("viewCount",viewCount);
         return "/school/schooldetail";
     }
 

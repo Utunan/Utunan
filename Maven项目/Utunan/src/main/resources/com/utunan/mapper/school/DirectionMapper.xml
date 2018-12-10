@@ -8,7 +8,35 @@
         select *
         from direction
     </select>
-    
+    <!--王碧云 查找研究方向通过Id-->
+    <select id="findDirectionByDirectionId" resultType="com.utunan.pojo.base.school.Direction">
+        select *
+        from direction
+        where directionId=#{directionId}
+    </select>
+    <!--王碧云 修改网页浏览次数-->
+    <update id="updateviewCount" parameterType="com.utunan.pojo.base.school.Direction">
+        update direction
+        set viewCount = viewCount+1
+        where directionId=#{directionId}
+    </update>
 
+    <!--<set>
+        <choose>
+            <when test="viewCount!=null">viewCount = viewCount+1</when>
+            <otherwise>viewCount=1</otherwise>
+        </choose>
+    </set>-->
+    <!--王碧云 设置初始访问量-->
+    <update id="setFirstViewCount" parameterType="com.utunan.pojo.base.school.Direction">
+        update direction
+        set viewCount=1
+        where directionId=#{directionId}
+    </update>
+
+   <!-- <set>
+        <if test="viewCount==null">viewCount=1</if>
+        <if test="viewCount!=null">viewCount = viewCount+1</if>
+    </set>-->
 
 </mapper>

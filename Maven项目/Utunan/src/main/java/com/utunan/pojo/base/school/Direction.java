@@ -28,6 +28,16 @@ public class Direction {
     private String math;
     //专业基础课
     private String majorBasics;
+    //院校浏览次数
+    private Long viewCount;
+
+    public Long getViewCount() {
+        return viewCount;
+    }
+
+    public void setViewCount(Long viewCount) {
+        this.viewCount = viewCount;
+    }
 
     private List<User> users;
 
@@ -133,6 +143,7 @@ public class Direction {
                 ", english='" + english + '\'' +
                 ", math='" + math + '\'' +
                 ", majorBasics='" + majorBasics + '\'' +
+                ", viewCount=" + viewCount +
                 ", users=" + users +
                 '}';
     }
