@@ -26,16 +26,8 @@
 
 <body class="layui-anim layui-anim-up">
 <div class="x-body">
-    <div class="layui-row">
-        <form class="layui-form layui-col-md12 x-so">
-            <input type="text" name="schoolName" placeholder="请输入学校名称" autocomplete="off" class="layui-input">
-            <button class="layui-btn" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
-        </form>
-    </div>
     <xblock>
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-        <button class="layui-btn" onclick="x_admin_show('添加用户','/admin/memberadd',600,400)"><i class="layui-icon"></i>添加
-        </button>
         <span class="x-right" style="line-height:40px">共有数据：88 条</span>
     </xblock>
     <table class="layui-table">
@@ -46,51 +38,28 @@
                         class="layui-icon">&#xe605;</i></div>
             </th>
             <th>学校名称</th>
-            <th>学院名称</th>
-            <th>专业名称</th>
             <th>研究方向</th>
-            <th>学位类型</th>
-            <th>政治</th>
-            <th>英语</th>
-            <th>数学</th>
-            <th>专业基础课</th>
+            <th>评价</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${Directions}" var="D">
-            <tr>
-                <td>
-                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${D.directionId}'><i
-                            class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>${D.schoolName}</td>
-                <td>${D.collegeName}</td>
-                <td>${D.majorlName}</td>
-                <td>${D.directionName}</td>
-                <td>${D.degreeType}</td>
-                <td>${D.politics}</td>
-                <td>${D.english}</td>
-                <td>${D.math}</td>
-                <td>${D.majorBasics}</td>
-                <c:choose>
-                    <c:when test="${U.userId==User.userId}">
-                        <td></td>
-                    </c:when>
-                    <c:otherwise>
-                        <td class="td-manage">
+        <tr>
+            <td>
+                <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${D.directionId}'><i
+                        class="layui-icon">&#xe605;</i></div>
+            </td>
+            <td>${D.schoolName}</td>
+            <td>${D.directionName}</td>
+            <td>${D.directionName}</td>
+            <td class="td-manage">
+                <a title="删除" onclick="member_del(this,'${D.directionId}')" href="javascript:;">
+                    <i class="layui-icon">&#xe640;</i>
+                </a>
+            </td>
 
-                            <a title="编辑" onclick="x_admin_show('编辑','/admin/memberedit',600,400)" href="javascript:;">
-                                <i class="layui-icon">&#xe642;</i>
-                            </a>
-                            <a title="删除" onclick="member_del(this,'${D.directionId}')" href="javascript:;">
-                                <i class="layui-icon">&#xe640;</i>
-                            </a>
-                        </td>
-                    </c:otherwise>
-                </c:choose>
-            </tr>
-        </c:forEach>
+            </c:forEach>
         </tbody>
     </table>
     <div class="page">

@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>欢迎来到Utunan</title>
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/user/schoolcollector.css">
+    <link rel="stylesheet" href="/css/user/directioncollector.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
     <script> var pagenum="${PageInfo.pageNum}"</script>
@@ -32,7 +32,7 @@
 
                     </c:when>
                     <c:otherwise>
-                        <tr style="background-color: rgba(209, 231, 250,0.5 );">
+                        <tr>
                             <th style="width:150px;height: 50px;">招生单位</th>
                             <th style="width:120px;">院系名称</th>
                             <th style="width:80px;">学位类型</th>
@@ -60,6 +60,15 @@
 </div>
 <%@include file="../common/footer.jsp" %>
 </body>
+<script>
+    trs=document.getElementsByTagName("tbody")[0].getElementsByTagName('tr');
+    console.log(trs);
+    if(trs.length>1){
+        for(var i=1;i<=trs.length;i=i+2){
+            trs[i].style.backgroundColor='rgba(0,150,136,0.1)';
+        }
+    }
+</script>
 <script src="/js/user/usercommon.js"></script>
 <script src="/js/common/common.js"></script>
 </html>

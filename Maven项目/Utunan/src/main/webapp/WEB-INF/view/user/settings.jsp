@@ -13,7 +13,13 @@
     <link rel="stylesheet" href="/css/user/usercommon.css">
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 </head>
-
+<c:choose>
+    <c:when test="${passwordreply==null}">
+    </c:when>
+    <c:otherwise>
+        <script>window.location.href="#changepassword"</script>
+    </c:otherwise>
+</c:choose>
 <body>
 <%@include file="../common/header.jsp" %>
 <%@include file="common/usercard.jsp"%>

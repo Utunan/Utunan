@@ -12,9 +12,8 @@ dict={
 
 userfunction=document.getElementById("userfunction");
 functions=userfunction.getElementsByTagName("li");
-functions[dict[plate]].style.backgroundColor="rgba(255, 221, 77, 0.1)";
-functions[dict[plate]].style.color="rgb(255, 221, 77)";
-
+functions[dict[plate]].style.backgroundColor="rgba(0,150,136,0.1)";
+functions[dict[plate]].style.color="rgba(0,150,136,1)";
 com_pull_state = false
 col_pull_state = false
 
@@ -22,12 +21,12 @@ community.onclick = function () {
     if (parseInt(postinfo.style.height) == 0) {
         com_pull_state = setInterval(function () {
             postinfo.style.height = parseInt(postinfo.style.height) + 2 + 'px'
-            if (parseInt(postinfo.style.height) == 100) {
+            if (parseInt(postinfo.style.height) == 80) {
                 clearInterval(com_pull_state)
             }
         }, 1)
     }
-    if (parseInt(postinfo.style.height) == 100) {
+    if (parseInt(postinfo.style.height) == 80) {
         com_pull_state = setInterval(function () {
             postinfo.style.height = parseInt(postinfo.style.height) - 2 + 'px'
             if (parseInt(postinfo.style.height) == 0) {
@@ -41,12 +40,12 @@ mycollection.onclick = function () {
     if (parseInt(collection.style.height) == 0) {
         col_pull_state = setInterval(function () {
             collection.style.height = parseInt(collection.style.height) + 3 + 'px'
-            if (parseInt(collection.style.height) == 150) {
+            if (parseInt(collection.style.height) == 120) {
                 clearInterval(col_pull_state)
             }
         }, 1)
     }
-    if (parseInt(collection.style.height) == 150) {
+    if (parseInt(collection.style.height) == 120) {
         col_pull_state = setInterval(function () {
             collection.style.height = parseInt(collection.style.height) - 3 + 'px'
             if (parseInt(collection.style.height) == 0) {

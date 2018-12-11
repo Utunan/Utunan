@@ -26,18 +26,8 @@
 
 <body class="layui-anim layui-anim-up">
 <div class="x-body">
-    <div class="layui-row">
-        <form class="layui-form layui-col-md12 x-so">
-            <input class="layui-input" placeholder="开始日" name="start" id="start">
-            <input class="layui-input" placeholder="截止日" name="end" id="end">
-            <input type="text" name="username" placeholder="请输入用户名" autocomplete="off" class="layui-input">
-            <button class="layui-btn" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
-        </form>
-    </div>
     <xblock>
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-        <button class="layui-btn" onclick="x_admin_show('添加用户','/admin/memberadd',600,400)"><i class="layui-icon"></i>添加
-        </button>
         <span class="x-right" style="line-height:40px">共有数据：88 条</span>
     </xblock>
     <table class="layui-table">
@@ -47,58 +37,29 @@
                 <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i
                         class="layui-icon">&#xe605;</i></div>
             </th>
-            <th>昵称</th>
-            <th>手机</th>
-            <th>邮箱</th>
-            <th>目标院校</th>
-            <th>所在院校</th>
-            <th>考研年份</th>
-            <th>加入时间</th>
-            <th>积分</th>
+            <th>发表用户</th>
+            <th>发表标题</th>
+            <th>发表内容</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${Users}" var="U">
+        <c:forEach items="${CQuestions}" var="Q">
             <tr>
-                <c:choose>
-                    <c:when test="${U.userId==User.userId}">
-                        <td></td>
-                    </c:when>
-                    <c:otherwise>
-                        <td>
-                            <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${U.userId}'><i
-                                    class="layui-icon">&#xe605;</i></div>
-                        </td>
-                    </c:otherwise>
-                </c:choose>
-                <td>${U.userNickName}</td>
-                <td>${U.userTelephone}</td>
-                <td>${U.userEmail}</td>
-                <td>${U.dreamSchool}</td>
-                <td>${U.userSchool}</td>
-                <td>${U.examTime}</td>
-                <td><fmt:formatDate value="${U.registerTime }" type="date" pattern="yyyy-MM-dd"/></td>
-                <td>${U.userIntegral}</td>
-                <c:choose>
-                    <c:when test="${U.userId==User.userId}">
-                        <td></td>
-                    </c:when>
-                    <c:otherwise>
-                        <td class="td-manage">
-                            <a title="编辑" onclick="x_admin_show('编辑','/admin/memberedit',600,400)" href="javascript:;">
-                                <i class="layui-icon">&#xe642;</i>
-                            </a>
-                            <a onclick="x_admin_show('修改密码','member-password.html',600,400)" title="修改密码"
-                               href="javascript:;">
-                                <i class="layui-icon">&#xe631;</i>
-                            </a>
-                            <a title="删除" onclick="member_del(this,'${U.userId}')" href="javascript:;">
-                                <i class="layui-icon">&#xe640;</i>
-                            </a>
-                        </td>
-                    </c:otherwise>
-                </c:choose>
+                <td>
+                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id=''><i
+                            class="layui-icon">&#xe605;</i></div>
+                </td>
+                <td>${Q.user.userId}</td>
+                <td>${Q.chapterName}</td>
+                <td>${Q.questionContent}</td>
+                <td>${Q.questionEnterTime}</td>
+                <td class="td-manage">
+                    <a title="删除" onclick="member_del(this,'${A.userId}')" href="javascript:;">
+                        <i class="layui-icon">&#xe640;</i>
+                    </a>
+                </td>
+
             </tr>
         </c:forEach>
         </tbody>
@@ -110,7 +71,7 @@
 
                 </c:when>
                 <c:otherwise>
-                    <a class="num" href="/admin/memberlist">首页</a>
+                    <a class="num" href="/admin/adminlist">首页</a>
                     <a class="prev" href="?pageNum=${PageInfo.prePage}">&lt;&lt;</a>
                     <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
                         <c:if test="${i==PageInfo.pageNum}">
@@ -161,19 +122,6 @@
     function delAll(argument) {
         var data = tableCheck.getData();
         layer.confirm('确认要删除吗？' + data, function (index) {
-            console.log(data)
-
-            $.ajax({
-                url:"url",
-                type:"get",
-                dataType:"String",
-                data:data,
-                success:function(response){
-
-                },
-                error:function() {
-                }
-            });
             //捉到所有被选中的，发异步进行删除
             layer.msg('删除成功', {icon: 1});
             $(".layui-form-checked").not('.header').parents('tr').remove();

@@ -30,7 +30,7 @@
         <span>社区记录</span>
         <img src="/images/user/arrow.svg">
     </li>
-    <nav class="postinfo" id="postinfo" style="height:100px;">
+    <nav class="postinfo" id="postinfo" style="height:80px;">
         <a href="/user/publishquiz#userfunction">
             <li>发表的问答</li>
         </a>
@@ -43,7 +43,7 @@
         <span>我的收藏</span>
         <img src="/images/user/arrow.svg">
     </li>
-    <nav class="collection" id="collection" style="height:150px;">
+    <nav class="collection" id="collection" style="height:120px;">
         <a href="/user/directioncollector#userfunction">
             <li>院系收藏夹</li>
         </a>

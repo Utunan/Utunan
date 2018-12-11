@@ -32,9 +32,6 @@
                             <span class="delete"><a href="/user/quizcollector/${Q.quizId}"><img src="/images/user/delete.svg"/></a></span>
                             <span class="detail"><a href="">详情>></a></span>
                         </div>
-                        <div class="postmiddle">
-                            <p>${Q.quizContent }</p>
-                        </div>
                     </li>
                 </c:forEach>
 

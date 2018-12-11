@@ -1,6 +1,8 @@
 package com.utunan.controller.admin;
 
 import com.github.pagehelper.PageInfo;
+import com.utunan.pojo.base.community.Answer;
+import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.questionbank.Question;
 import com.utunan.pojo.base.school.Direction;
 import com.utunan.pojo.base.user.User;
@@ -76,7 +78,7 @@ public class AdminSkipController {
         return "admin/user/memberedit";
     }
 
-    @RequestMapping("directionlist")
+    @RequestMapping("directioncommentlist")
     public String directionlist(HttpServletRequest request, HttpSession session) {
         List<Direction> directions = null;
         String pageNum = request.getParameter("pageNum");
@@ -87,7 +89,7 @@ public class AdminSkipController {
         request.setAttribute("PageInfo", new PageInfo(directions, 5));
         session.setAttribute("Directions", directions);
 
-        return "admin/direction/directionlist";
+        return "admin/direction/directioncommentlist";
     }
 
     @RequestMapping("adminlist")
@@ -179,6 +181,19 @@ public class AdminSkipController {
         request.setAttribute("PageInfo", new PageInfo(questions, 5));
         session.setAttribute("SEQuestions", questions);
         return "admin/question/SEQuestion";
+    }
+
+    @RequestMapping("quizlist")
+    public String quizlist(){
+        List<Quiz> quizzes=null;
+
+        return "admin/quiz/quizlist";
+    }
+    @RequestMapping("answerlist")
+    public String commentlist(){
+        List<Answer> answers=null;
+
+        return "admin/quiz/answerlist";
     }
 
 }

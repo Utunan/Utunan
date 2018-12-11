@@ -30,7 +30,7 @@ public class AdminInterceptor implements HandlerInterceptor {
             User checkUser =userService.getUser(user);
             if (user.getUserPassword().equals(checkUser.getUserPassword())){
                 session.setAttribute("User",checkUser);
-                if(user.getUserIdentity().equals("3")){
+                if(!user.getUserIdentity().equals("1")){
                     response.sendRedirect("/user");
                     return false;
                 }

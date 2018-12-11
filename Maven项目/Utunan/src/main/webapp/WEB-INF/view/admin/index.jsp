@@ -6,9 +6,10 @@
     <title>Utunan后台管理</title>
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="/css/admin/font.css">
     <link rel="stylesheet" href="/css/admin/xadmin.css">
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
@@ -61,13 +62,13 @@
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>普通会员</cite>
                         </a>
-                    </li >
+                    </li>
                     <li>
                         <a _href="/admin/adminlist">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>超级会员</cite>
                         </a>
-                    </li >
+                    </li>
                 </ul>
             </li>
             <li>
@@ -78,11 +79,11 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="/admin/directionlist">
+                        <a _href="/admin/directioncommentlist">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>院校列表</cite>
+                            <cite>院校评论</cite>
                         </a>
-                    </li >
+                    </li>
                 </ul>
             </li>
             <li>
@@ -97,37 +98,37 @@
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>数据结构</cite>
                         </a>
-                    </li >
+                    </li>
                     <li>
                         <a _href="/admin/CQuestion">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>C语言程序设计</cite>
                         </a>
-                    </li >
+                    </li>
                     <li>
                         <a _href="/admin/OSQuestion">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>操作系统</cite>
                         </a>
-                    </li >
+                    </li>
                     <li>
                         <a _href="/admin/ConstituteQuestion">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>组成原理</cite>
                         </a>
-                    </li >
+                    </li>
                     <li>
                         <a _href="/admin/NetworkQuestion">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>网络原理</cite>
                         </a>
-                    </li >
+                    </li>
                     <li>
                         <a _href="/admin/SEQuestion">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>软件工程</cite>
                         </a>
-                    </li >
+                    </li>
                 </ul>
             </li>
             <li>
@@ -138,125 +139,38 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="order-list.html">
+                        <a _href="/admin/quizlist">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>问答列表</cite>
                         </a>
-                    </li >
+                    </li>
                     <li>
-                        <a _href="order-list.html">
+                        <a _href="/admin/answerlist">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>评论列表</cite>
                         </a>
-                    </li >
+                    </li>
                 </ul>
             </li>
 
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>
-                    <cite>审核管理</cite>
+                    <cite>资源管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="javascript:;">
+                        <a _href="order-list.html">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>院校库审核</cite>
-                            <i class="iconfont nav_right">&#xe697;</i>
+                            <cite>资源列表</cite>
                         </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a _href="xxx.html">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>招生简章审核</cite>
-
-                                </a>
-                            </li >
-                            <li>
-                                <a _href="xx.html">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>考研真题审核</cite>
-
-                                </a>
-                            </li>
-                            <li>
-                                <a _href="xx.html">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>院校信息审核</cite>
-
-                                </a>
-                            </li>
-                            <li>
-                                <a _href="xx.html">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>院系评论审核</cite>
-
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
-                        <a href="javascript:;">
+                        <a _href="order-list.html">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>题库审核</cite>
-                            <i class="iconfont nav_right">&#xe697;</i>
+                            <cite>资源审核</cite>
                         </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a _href="xxx.html">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>会员列表</cite>
-
-                                </a>
-                            </li >
-                            <li>
-                                <a _href="xx.html">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>会员删除</cite>
-
-                                </a>
-                            </li>
-                            <li>
-                                <a _href="xx.html">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>等级管理</cite>
-
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>问答审核</cite>
-                            <i class="iconfont nav_right">&#xe697;</i>
-                        </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a _href="xxx.html">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>会员列表</cite>
-
-                                </a>
-                            </li >
-                            <li>
-                                <a _href="xx.html">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>会员删除</cite>
-
-                                </a>
-                            </li>
-                            <li>
-                                <a _href="xx.html">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>等级管理</cite>
-
-                                </a>
-                            </li>
-
-                        </ul>
                     </li>
                 </ul>
             </li>
@@ -272,13 +186,13 @@
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>发表通知</cite>
                         </a>
-                    </li >
+                    </li>
                     <li>
                         <a _href="cate.html">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>已发通知</cite>
                         </a>
-                    </li >
+                    </li>
 
                 </ul>
             </li>
@@ -305,7 +219,7 @@
 <!-- 中部结束 -->
 <!-- 底部开始 -->
 <div class="footer">
-    <div class="copyright">Copyright ©2017 冀ICP备17013704号 Utunan </div>
+    <div class="copyright">Copyright ©2017 冀ICP备17013704号 Utunan</div>
 </div>
 <!-- 底部结束 -->
 

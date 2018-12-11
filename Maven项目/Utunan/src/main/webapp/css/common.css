@@ -6,7 +6,7 @@ header {
     min-width: 1180px;
     height: 100%;
     margin: 0 auto;
-    background: rgb(255, 219, 0);
+    background: #393D49;
 }
 
 .container {
@@ -47,7 +47,7 @@ header {
     height: 40px;
     line-height: 40px;
     text-decoration: none;
-    color: #000000;
+    color: #ffffff;
 }
 
 
@@ -107,7 +107,7 @@ header {
 .header .login a:link,
 .header .login a:hover,
 .header .login a:visited {
-    color: #000000;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -161,7 +161,7 @@ header {
     height: 36px;
     margin:5px 0;
     border-radius: 20px;
-    border:2px solid #fff;
+    border:2px solid #ffffff;
 }
 
 .userheadop{
@@ -199,7 +199,7 @@ header {
 .header .banner a:hover,
 .header .banner a:visited {
     text-decoration: none;
-    color: #000000;
+    color: #ffffff;
     font-size: 20px;
 }
 

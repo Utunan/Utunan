@@ -8,11 +8,12 @@
     width: 630px;
     float: left;
     padding: 0 25px;
-    min-height: 180px;
-    max-height: 180px;
-    border-bottom: 1px dotted;
+    min-height: 120px;
+    max-height: 120px;
+    border-bottom: 1px solid  rgba(49, 136, 136, 0.5);
 }
-
+.publishpost>li:first-of-type{;
+}
 .publishpost>li>span:first-of-type {
     float: left;
     color: rgba(49, 136, 136, 1);
@@ -39,18 +40,22 @@
 .publishpost>li>div {
     width: 100%;
     float: left;
-    padding: 15px 0;
+    padding: 5px 0;
 }
 
 .postcontent {
     clear: both;
     margin: 0px;
     width: 550px;
-    height:62px;
+    height:50px;
     float: left;
+    font-size: 13px;
     text-indent: 2em;
     padding: 0px 40px;
-    margin-bottom: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+
+    letter-spacing:2px;
     overflow: hidden;
 }
 

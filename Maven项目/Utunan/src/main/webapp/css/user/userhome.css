@@ -3,7 +3,7 @@
     width:120px;
     position: relative;
     right: 80px;
-    top:30px;
+    top:50px;
 }
 .changeheadimg>img{
     border-radius: 100px;
@@ -90,5 +90,5 @@
     height: 30px;
     margin:5px;
     width: 60px;
-    background-color: bisque;
+    background-color: rgba(0,150,136,1);
 }
