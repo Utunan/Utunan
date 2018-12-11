@@ -1,6 +1,7 @@
 package com.utunan.service.share;
 
 import com.utunan.pojo.base.school.Direction;
+import com.utunan.pojo.base.school.School;
 import com.utunan.pojo.base.share.File;
 
 import java.util.List;
@@ -22,4 +23,20 @@ public interface ShareIndexService {
 	 * @return  java.util.List<com.utunan.pojo.base.share.File>
 	 */
     List<File> listHotFile();
+
+    /**
+     * @author  孙程程
+     * @description 学校省份
+     * @date  11:31 2018/12/11
+     * @return  java.util.List<java.lang.String>
+     */
+	List<String> listSchoolProvince();
+
+	/**
+	 * @author  孙程程
+	 * @description 学校
+	 * @date  11:31 2018/12/11
+	 * @return  java.util.List<com.utunan.pojo.base.school.School>
+	 */
+	List<School> listSchool();
 }

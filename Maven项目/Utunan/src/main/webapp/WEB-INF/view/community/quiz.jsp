@@ -372,16 +372,16 @@
                         <a href="/jie/page/2/" class="laypage-next">下一页</a>--%>
 
                         <a href="/${url }">首页</a>
-                        <a href="/${url }?pageNum=${PageInfo.prePage}">上一页</a>
+                        <a href="/${url }?pageNum=${PageInfo.prePage}"><<</a>
                         <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
                             <a name="${i}" href="/${url }?pageNum=${i}">${i}</a>
                         </c:forEach>
                         <c:choose>
                             <c:when test="${PageInfo.nextPage==0}">
-                                <a href="/${url }?pageNum=${PageInfo.pages}">下一页</a>
+                                <a href="/${url }?pageNum=${PageInfo.pages}">>></a>
                             </c:when>
                             <c:otherwise>
-                                <a href="/${url }?pageNum=${PageInfo.nextPage}">下一页</a>
+                                <a href="/${url }?pageNum=${PageInfo.nextPage}">>></a>
                             </c:otherwise>
                         </c:choose>
                         <a href="/${url }?pageNum=${PageInfo.pages}">尾页</a>
@@ -456,16 +456,16 @@
                             <a href="/jie/page/2/" class="laypage-next">下一页</a>--%>
 
                         <a href="/${url }?tagName=${tagName}">首页</a>
-                        <a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.prePage}">上一页</a>
+                        <a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.prePage}"><<</a>
                         <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
                             <a name="${i}" href="/${url }?tagName=${tagName}&pageNum=${i}">${i}</a>
                         </c:forEach>
                         <c:choose>
                             <c:when test="${PageInfo.nextPage==0}">
-                                <a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.pages}">下一页</a>
+                                <a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.pages}">>></a>
                             </c:when>
                             <c:otherwise>
-                                <a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.nextPage}">下一页</a>
+                                <a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.nextPage}">>></a>
                             </c:otherwise>
                         </c:choose>
                         <a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.pages}">尾页</a>

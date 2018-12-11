@@ -53,4 +53,15 @@
         order by f.downloadNumber desc
         limit 15
     </select>
+    <!--查询学校地区-->
+    <select id="listSchoolProvince" resultType="java.lang.String">
+        select schoolProvince
+        from school
+        group by schoolProvince
+    </select>
+    <!--查询学校-->
+    <select id="listSchool" resultType="com.utunan.pojo.base.school.School">
+        select *
+        from school
+    </select>
 </mapper>

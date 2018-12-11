@@ -76,16 +76,16 @@
             <table/>
             <nav id="page" class="page">
                 <li class="home"><a href="/${url }?keyWord=${keyWord}">首页</a></li>
-                <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.prePage}">上一页</a></li>
+                <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.prePage}"><<</a></li>
                 <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
                     <li class="pagenum"><a name="${i}" href="/${url }?keyWord=${keyWord}&pageNum=${i}">${i}</a></li>
                 </c:forEach>
                 <c:choose>
                     <c:when test="${PageInfo.nextPage==0}">
-                        <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">下一页</a></li>
+                        <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">>></a></li>
                     </c:when>
                     <c:otherwise>
-                        <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.nextPage}">下一页</a></li>
+                        <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.nextPage}">>></a></li>
                     </c:otherwise>
                 </c:choose>
                 <li class="tail"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">尾页</a></li>
@@ -118,16 +118,16 @@
             <table/>
             <nav id="page" class="page">
                 <li class="home"><a href="/${url }?keyWord=${keyWord}">首页</a></li>
-                <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.prePage}">上一页</a></li>
+                <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.prePage}"><<</a></li>
                 <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
                     <li class="pagenum"><a name="${i}" href="/${url }?keyWord=${keyWord}&pageNum=${i}">${i}</a></li>
                 </c:forEach>
                 <c:choose>
                     <c:when test="${PageInfo.nextPage==0}">
-                        <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">下一页</a></li>
+                        <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">>></a></li>
                     </c:when>
                     <c:otherwise>
-                        <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.nextPage}">下一页</a></li>
+                        <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.nextPage}">>></a></li>
                     </c:otherwise>
                 </c:choose>
                 <li class="tail"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">尾页</a></li>

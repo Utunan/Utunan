@@ -1,6 +1,7 @@
 package com.utunan.controller.share;
 
 import com.github.pagehelper.PageInfo;
+import com.utunan.pojo.base.school.School;
 import com.utunan.pojo.base.share.File;
 import com.utunan.service.share.ShareIndexService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +31,17 @@ public class ShareIndexController {
 		}else{
 			num=Integer.parseInt(pageNum);
 		}
+		//学校地区
+		List<String> provinceList = this.shareIndexService.listSchoolProvince();
+		//学校
+		List<School> schoolList = this.shareIndexService.listSchool();
 		//最新文件
 		List<File> fileList = this.shareIndexService.listFileByTime(num,10);
 		//热门文件
 		List<File> hotFileList = this.shareIndexService.listHotFile();
 		request.setAttribute("url","share");
+		request.setAttribute("provinceList", provinceList);
+		request.setAttribute("schoolList", schoolList);
 		request.setAttribute("fileList", fileList);
 		request.setAttribute("hotFileList", hotFileList);
 		request.setAttribute("PageInfo",new PageInfo(fileList,5));
