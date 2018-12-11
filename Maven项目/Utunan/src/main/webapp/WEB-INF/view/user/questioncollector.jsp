@@ -34,7 +34,7 @@
                             ${Q.questionContent}
                         </p>
                         <div class="questionbottom">
-                            <span><a href="/user/questioncollector/${Q.questionId}"><img src="/images/user/delete.svg"/></a><a href="/user/questioncollector/${Q.questionId}">取消收藏</a></span>
+                            <span><a href="/user/questioncollector/${Q.questionId}"><img src="/images/user/qzcdelete.svg"/></a><a href="/user/questioncollector/${Q.questionId}">取消收藏</a></span>
                             <span><a href="">查看详情</a></span>
                         </div>
                     </li>

@@ -90,5 +90,7 @@
     height: 30px;
     margin:5px;
     width: 60px;
+    color:#fff;
+    font-size:14px;
     background-color: rgba(0,150,136,1);
 }

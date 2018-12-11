@@ -13,13 +13,13 @@
             <span>消息通知</span>
         </li>
     </a>
-    <a href="/user/follow#userfunction">
+    <a href="/user/follow#usercard">
         <li>
             <img src="/images/user/follow.svg" alt="" srcset="">
             <span>关注用户</span>
         </li>
     </a>
-    <a href="/user/statistics#userfunction">
+    <a href="/user/statistics#usercard">
         <li>
             <img src="/images/user/statistics.svg">
             <span>题库统计</span>
@@ -31,10 +31,10 @@
         <img src="/images/user/arrow.svg">
     </li>
     <nav class="postinfo" id="postinfo" style="height:80px;">
-        <a href="/user/publishquiz#userfunction">
+        <a href="/user/publishquiz#usercard">
             <li>发表的问答</li>
         </a>
-        <a href="/user/publishanswer#userfunction">
+        <a href="/user/publishanswer#usercard">
             <li>发表的回复</li>
         </a>
     </nav>
@@ -44,17 +44,17 @@
         <img src="/images/user/arrow.svg">
     </li>
     <nav class="collection" id="collection" style="height:120px;">
-        <a href="/user/directioncollector#userfunction">
+        <a href="/user/directioncollector#usercard">
             <li>院系收藏夹</li>
         </a>
-        <a href="/user/quizcollector#userfunction">
+        <a href="/user/quizcollector#usercard">
             <li>问答收藏夹</li>
         </a>
-        <a href="/user/questioncollector#userfunction">
+        <a href="/user/questioncollector#usercard">
             <li>题目收藏夹</li>
         </a>
     </nav>
-    <a href="/user/settings#userfunction">
+    <a href="/user/settings#usercard">
         <li>
             <img src="/images/user/settings.svg" alt="" srcset="">
             <span>用户设置</span>

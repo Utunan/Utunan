@@ -26,11 +26,14 @@
                 <c:forEach items="${Quizzes }" var="Q">
                     <li>
                         <div class="posttop">
+
                         <span>
+                            <img src="/images/user/qzc.svg"/>
                             <a href="">${Q.quizTitle }</a>
                         </span>
-                            <span class="delete"><a href="/user/quizcollector/${Q.quizId}"><img src="/images/user/delete.svg"/></a></span>
-                            <span class="detail"><a href="">详情>></a></span>
+                        </span>
+                            <span class="delete"><a href="/user/quizcollector/${Q.quizId}"><img
+                                    src="/images/user/qzcdelete.svg"/></a></span>
                         </div>
                     </li>
                 </c:forEach>

@@ -70,9 +70,9 @@ public class UserSkipController {
         String pageNum = request.getParameter("pageNum");
         List<Quiz> quizzes = null;
         if (pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0)
-            quizzes =  publishQuizService.getUserPublishQuiz(user, 1, 5);
+            quizzes =  publishQuizService.getUserPublishQuiz(user, 1, 10);
         else
-            quizzes = publishQuizService.getUserPublishQuiz(user, Integer.parseInt(pageNum), 5);
+            quizzes = publishQuizService.getUserPublishQuiz(user, Integer.parseInt(pageNum), 10);
 
         if(quizzes==null)
             return "/user/publishquiz";
@@ -87,9 +87,9 @@ public class UserSkipController {
         String pageNum = request.getParameter("pageNum");
         List<Answer> answers = null;
         if (pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0)
-            answers =  publishAnswerService.getPublishAnswer(user, 1, 5);
+            answers =  publishAnswerService.getPublishAnswer(user, 1, 15);
         else
-            answers = publishAnswerService.getPublishAnswer(user, Integer.parseInt(pageNum), 5);
+            answers = publishAnswerService.getPublishAnswer(user, Integer.parseInt(pageNum), 15);
 
         if(answers==null)
             return "/user/publishquiz";
@@ -122,9 +122,9 @@ public class UserSkipController {
         List<Question> questions=null;
 
         if (pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0)
-            questions = questionCollectorService.getQuestionCollector(user, 1, 8);
+            questions = questionCollectorService.getQuestionCollector(user, 1, 15);
         else
-            questions = questionCollectorService.getQuestionCollector(user, Integer.parseInt(pageNum), 8);
+            questions = questionCollectorService.getQuestionCollector(user, Integer.parseInt(pageNum), 15);
 
         if(questions==null)
             return "/user/questioncollector";
@@ -144,9 +144,9 @@ public class UserSkipController {
         List<Quiz> quizzes = null;
 
         if (pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0)
-            quizzes = quizCollectorService.getQuizCollector(user, 1, 8);
+            quizzes = quizCollectorService.getQuizCollector(user, 1, 15);
         else
-            quizzes = quizCollectorService.getQuizCollector(user, Integer.parseInt(pageNum), 8);
+            quizzes = quizCollectorService.getQuizCollector(user, Integer.parseInt(pageNum), 15);
 
         if(quizzes==null)
             return "/user/quizcollector";

@@ -50,7 +50,7 @@
                         <td>${D.degreeType}</td>
                         <td>${D.directionName}</td>
                         <td><a href="">详情</a></td>
-                        <td><a href="/user/directioncollector/${D.directionId}"><img src="/images/user/delete.svg"></a></td>
+                        <td><a href="/user/directioncollector/${D.directionId}"><img src="/images/user/qzcdelete.svg"></a></td>
                     </tr>
                 </c:forEach>
             </table>

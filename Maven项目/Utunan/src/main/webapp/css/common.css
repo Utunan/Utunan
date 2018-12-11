@@ -116,7 +116,13 @@ header {
     float: left;
     width:75px;
     height: 50px;
-
+}
+.header .login span:first-of-type {
+    font-size: 18px;
+    float: left;
+    width:75px;
+    height: 50px;
+    overflow: hidden;
 }
 .header .before span:first-of-type a {
     font-size: 18px;
@@ -179,7 +185,7 @@ header {
 
 
 .header .banner {
-    max-width: 700px;
+    max-width: 650px;
     margin: 0 auto;
     height: 50px;
     text-align: center;
@@ -188,7 +194,7 @@ header {
 
 .header .banner>li {
     display: inline;
-    padding: 0 30px;
+    padding-left:40px;
     height: 50px;
     float: left;
     text-align: center;

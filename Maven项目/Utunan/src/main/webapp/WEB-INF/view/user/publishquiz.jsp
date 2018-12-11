@@ -23,21 +23,21 @@
         <%@include file="common/userfunction.jsp" %>
         <div class="content">
             <div class="title">
-                <span>发表的帖子</span>
+                <span>发表的问答</span>
             </div>
             <nav id="publishpost" class="publishpost">
                 <c:forEach items="${Quizzes }" var="Q">
                     <li>
-                        <div>
-                        <span class="publishtime">
-                                <fmt:formatDate value="${Q.releaseTime }" type="date" pattern="yyyy-MM-dd"/>
-                        </span>
-                            <span class="posttitle">${Q.quizTitle }</span>
-                            <span class="publishtype">${Q.tags[0]==null?"Utunan":Q.tags[0].tagName}</span>
+                        <img src="/images/user/pqzq.svg"/>
+                        <div class="posttop">
+                            <span class="posttitle"><a href="">${Q.quizTitle }</a></span>
                         </div>
-                        <p class="postcontent">${Q.quizContent }</p>
-                        <span>评论数(${Q.answerCount })</span>
-                        <span><a href="">>>详细</a></span>
+                        <div class="postbottom">
+                            <span>发表于 : <fmt:formatDate value="${Q.releaseTime }" type="date" pattern="yyyy-MM-dd HH:mm:ss"/></span>
+                            ·<span>评论数 : ${Q.answerCount}</span>
+                            ·<span>点赞数 : ${Q.praiseCount}</span>
+                            <%--<span><a href="">删除</a></span>--%>
+                        </div>
                     </li>
                 </c:forEach>
             </nav>

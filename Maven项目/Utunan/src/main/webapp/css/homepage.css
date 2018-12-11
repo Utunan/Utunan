@@ -3,7 +3,8 @@
     position: absolute;
 }
 header{
-    background: rgba(0,0,0,0.7);
+    background: rgba(57,61,73,1);
+
     color: #fff;
 }
 header a{
@@ -20,8 +21,11 @@ header a{
 }
 .homepageimg{
     width: 100%;
+    float: left;
+
 }
 .homepageimg>img{
+    float:left;
     width: 100%;
 }
 .propaganda{
@@ -53,7 +57,7 @@ header a{
     text-align: center;
     float: left;
     text-decoration: none;
-    color: #ffffff;
+    color: #000000;
     font-weight: bold;
     font-size: 20px;
 }
@@ -90,14 +94,22 @@ header a{
 
 .imgsign{
     font-weight: bold;
-    font-size: 35px;
+    font-size: 30px;
     position: absolute;
-    left: 100px;
-    line-height: 60px;
+    left: 400px;
+    line-height: 45px;
     text-align: center;
-    top:180px;
+    top:200px;
+    color:#fff;
 }
-
+.imgsign>span{
+    font-size: 35px;
+    color:#fff;
+    margin:0 10px 0 20px ;
+    font-weight: 600;
+    padding:5px;
+    background-color:rgba(0,0,0,0.6);
+}
 .questionbank{
     clear: both;
     width: 100%;
