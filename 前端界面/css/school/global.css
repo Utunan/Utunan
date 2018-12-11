@@ -1,12 +1,3 @@
-/**
- 
- @Name: Fly社区
- @Author: 贤心
- @Site: fly.layui.com
- 
- */
-
-
 /* 全局 */
 html,body{overflow-x: hidden;}
 html body{margin-top: 61px;}
@@ -92,7 +83,7 @@ i{font-style: normal;}
 
 
 /* 辅助 */
-a:hover{color: #009688; transition: all .3s;}
+a:hover{color: #FF5722; transition: all .3s;}
 pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid #009688;  background-color: #f8f8f8; font-family: Courier New; overflow: auto;}
 
 .layui-container{padding: 0;}
@@ -128,6 +119,8 @@ pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid 
 .fly-zanzhu:first-child{margin-top: 0;}
 .fly-zanzhu:hover{opacity: 0.9; color: #fff;}
 
+
+.tag{ width:120px;display: block; background-color: #009688;color: #fff; margin:5px 15px; font-size: 14px;padding: 5px;float: left; border-radius: 18px;text-align: center;}
 /* 图标 */
 .icon-touxiang{display: inline-block; font-size: 34px;}
 .icon-qq, .icon-weibo{font-size: 30px;}
@@ -177,10 +170,9 @@ pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid 
 
 /* 面板 */
 .fly-panel{margin-bottom: 15px; border-radius: 2px; background-color: #fff; box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);}
-.fly-panel[pad20]{padding: 20px;}
+.fly-panel[pad20]{padding: 50px;}
 .fly-panel-title{position: relative; height: 50px; line-height: 50px; padding: 0 15px; border-bottom: 1px dotted #E9E9E9; color: #333; border-radius: 2px 2px 0 0; font-size: 14px;}
 .fly-panel-main{padding: 10px 15px;}
-
 /* 专栏 */
 .fly-column{height: 50px; line-height: 50px;}
 .fly-column ul li{position: relative; display: inline-block; height: 50px;}
@@ -240,7 +232,7 @@ pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid 
 .fly-list li h2 a{display: inline-block; max-width: 80%; padding-right: 10px; font-size: 16px;}
 .fly-list li h2 .layui-badge{top: -2px; height: 16px; line-height: 16px; padding: 0 5px; margin-right: 10px; font-size: 12px; border: 1px solid #5FB878; background: none; color: #5FB878;}
 
-.fly-list-info{position: relative; font-size: 13px; color: #999;}
+.fly-list-info{position: relative; font-size: 13px; color: #999; margin-top: 5px;}
 .fly-list-info>*{padding-right: 15px;}
 .fly-list-info a[link]{color: #999;}
 .fly-list-info a[link]:hover{color: #5FB878;}

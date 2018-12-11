@@ -1,0 +1,64 @@
+.layui-elem-field {
+    width: 600px;
+    height: 280px;
+    margin:0 auto;
+}
+.blank{
+    height: 25px;
+}
+.zsml-summary{
+    font-weight: bold;
+}
+td{
+    height:55px;
+    white-space: nowrap;
+}
+.ssss{
+    width: 148px;
+}
+.diractiontitle{
+    color:#2a82e4;
+    font-weight: bold;
+    font-size: 19px;
+    margin-bottom: 15px;
+}
+.layui-elem-quote{
+    width:568px;
+    margin:0 auto;
+    margin-top: 20px;
+}
+.zsml-result{padding:10px 0 0;margin-top:10px;}
+.zsml-res-items{background-color:#f9fcff; text-align: center;}
+.zsml-res-items td{padding:15px 10px;vertical-align:top}
+.zsml-res-items .sub-msg{display:block;font-size:12px;color:#999}
+.zsml-res-divider{text-align:center;color:#999}
+.zsml-res-divider td{padding:0;height:35px;line-height:0}
+.zsml-res-divider span{display:inline-block;margin-top:-12px;padding:0 3px;background:#fff;height:28px;line-height:28px}
+.zsml-res-divider .zsml-line{margin:0;padding:0;margin-top:-14px;border-style:none;border-bottom:1px solid #e5e5e5}
+.zsml-side{padding:20px;border:1px solid #d6d6d6}
+.scope{
+    width:600px;
+    margin:0 auto;
+}
+.jieda {
+    margin-bottom: 30px;
+    margin:0 auto;
+    width:600px;
+}
+.detail-about-reply {
+    padding: 0 0 0 5px;
+    background: none;
+}
+.jieda-body {
+    margin-top: 15px;
+    margin-left:20px;
+    margin-bottom: 15px;
+}
+.jieda-reply {
+    margin-left: 10px;
+    font-size: 13px;
+}
+.layui-field-box {
+    padding: 10px 15px;
+    margin-left: 20px;
+}
