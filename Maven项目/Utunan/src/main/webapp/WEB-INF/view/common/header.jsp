@@ -84,7 +84,7 @@
 
         <nav class="banner">
             <li>
-                <a href="/displaySchool">院校库</a>
+                <a href="/school/displaySchool">院校库</a>
             </li>
             <li>
                 <a href="/questionbank">优题库</a>

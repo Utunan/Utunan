@@ -27,7 +27,7 @@
     <div class="layui-row layui-col-space15">
         <div class="back">
             <div class="bigwrapper">
-                    <form class="condition" action="/displaySchoolBySearch">
+                    <form class="condition" action="/school/displaySchoolBySearch">
                         <div  class="RadioStyle">
                             <div class="options">
                                 <span class="optionName">院校所在地 ></span>
@@ -137,14 +137,14 @@
                             <td class="type">&nbsp;&nbsp;${direction.degreeType}</td>
                             <td>${direction.majorlName}</td>
                             <td>${direction.directionName}</td>
-                            <td><a href="/displayDirectionDetail?directionId=${direction.directionId}">详情</a></td>
+                            <td><a href="/school/displayDirectionDetail?directionId=${direction.directionId}">详情</a></td>
                             <%--判断是否是用户所收藏的院校，是显示红心，不是显示灰心--%>
                             <c:choose>
                                 <c:when test="${ya:judge(directionIds,direction.directionId)}">
-                                    <td><a href="/deleteDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}"><img src="../images/school/redheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
+                                    <td><a href="/school/deleteDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}"><img src="../images/school/redheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
                                 </c:when>
                                 <c:otherwise>
-                                    <td><a href="/addDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}"><img src="../images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
+                                    <td><a href="/school/addDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}"><img src="../images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
                                 </c:otherwise>
                             </c:choose>
                         </tr>
@@ -156,20 +156,20 @@
 </div>
 <%--分页--%>
 <nav id="page" class="page">
-    <li class="home"><a href="/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}">首页</a></li>
-    <li class="next"><a href="/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.prePage}">上一页</a></li>
+    <li class="home"><a href="/school/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}">首页</a></li>
+    <li class="next"><a href="/school/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.prePage}">上一页</a></li>
     <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-        <li class="pagenum"><a name="${i}" href="/${url }?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${i}">${i}</a></li>
+        <li class="pagenum"><a name="${i}" href="/school/${url }?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${i}">${i}</a></li>
     </c:forEach>
     <c:choose>
         <c:when test="${PageInfo.nextPage==0}">
-            <li class="next"><a href="/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pages}">下一页</a></li>
+            <li class="next"><a href="/school/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pages}">下一页</a></li>
         </c:when>
         <c:otherwise>
-            <li class="next"><a href="/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.nextPage}">下一页</a></li>
+            <li class="next"><a href="/school/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.nextPage}">下一页</a></li>
         </c:otherwise>
     </c:choose>
-    <li class="tail"><a href="/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pages}">尾页</a></li>
+    <li class="tail"><a href="/school/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pages}">尾页</a></li>
 </nav>
 <%@include file="../common/footer.jsp"%>
 </body>
