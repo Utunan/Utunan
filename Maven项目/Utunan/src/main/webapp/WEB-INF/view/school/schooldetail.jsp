@@ -1,126 +1,233 @@
+<!--这是院校库2.0-->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<html lang="zh-cn">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>院校详情</title>
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/school/schooldetails.css">
-    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>院校详情</title>
+  <link rel="stylesheet" href="../layui/wyd/layui.css">
+  <link rel="stylesheet" href="../layui/wyd/global.css">
+  <link rel="stylesheet" href="../css/school/detail.css">
 </head>
-
 <body>
-<%@include file="../common/header.jsp"%>
-    <div class="schoolheader">
-        <span class="collector"></span><a href="#">查看院校收藏夹</a></span>
-        <span class="title">院校库</span>
-    </div>
-    <div class="main">
-        <div class="direction">
-            <div class="left">
-                <img src="../images/school/beida.jpg" class="pic"/>
-                <div class="blank"></div>
-                <span class="collect"><img src="../images/school/redheart.svg" class="heart"/> 加入院校收藏夹</span>
-            </div>
-            <div class="right">
-                <div class="diractiontitle">${publishDirection.schoolName} - ${publishDirection.majorlName}</div>
-                <table>
-                    <tr>
-                        <td class="zsml-title">招生单位：</td>
-                        <td class="zsml-summary" >${publishDirection.schoolName}</td>
-                        <td class="ssss" style="color:white">11111</td>
-                        <td class="zsml-title">学位类型：</td>
-                        <td class="zsml-summary">${publishDirection.degreeType}</td>
-                    </tr>
-                    <tr>
-                        <td class="zsml-title">所在地：</td>
-                        <td class="zsml-summary" >${publishDirection.school.schoolProvince}</td>
-                        <td class="ssss"></td>
-                        <td class="zsml-title">院系名称：</td>
-                        <td class="zsml-summary">${publishDirection.collegeName}</td>
-                    </tr>
-                    <tr>
-                        <td class="zsml-title">院校特性：</td>
-                        <td class="zsml-summary">${publishDirection.school.schoolType}</td>
-                        <td class="ssss"></td>
-                        <td class="zsml-title">专业名称：</td>
-                        <td class="zsml-summary">${publishDirection.degreeType}</td>
-                    </tr>
-                    <tr>
-                        <td class="zsml-title">院校隶属：</td>
-                        <td class="zsml-summary">${publishDirection.school.schoolSubjection}</td>
-                        <td class="ssss"></td>
-                        <td class="zsml-title">研究方向：</td>
-                        <td class="zsml-summary">${publishDirection.directionName}</td>
-                    </tr>
-                </table>
-            </div>
-        </div><!--direction-->
-        <div class="zsml-result">
-            <div class="resulttitle"> 考试范围</div>
-          <table  cellpadding="10" cellspacing="0" width="100%">
-          <colgroup>
-            <col width="25%">
-            <col width="25%">
-            <col width="25%">
-            <col width="25%">
-          </colgroup>
-            <thead>
+<!--提醒tx加上 1.加入院校收藏夹 2.浏览次数3.评论总数4.评论点赞5.写评论-->
+
+<div class="layui-container">
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-md8">
+      <div class="fly-panel" style="margin-bottom: 0;">
+        <div class="blank"></div>
+        <fieldset class="layui-elem-field">
+          <legend>${publishDirection.schoolName} - ${publishDirection.majorlName}</legend>
+          <div class="layui-field-box">
+            <table>
               <tr>
-                <th>政治</th>
-                <th>外语</th>
-                <th>业务课一</th>
-                <th>业务课二</th>
-               </tr>    
-            </thead>
-            <tbody class="zsml-res-items">
-              <tr>
-                <td>${publishDirection.politics}
-                <span class="sub-msg">见招生简章</span>
-                </td>
-                <td>${publishDirection.english}
-                 <span class="sub-msg">见招生简章</span></td>
-                <td>${publishDirection.math}
-                 <span class="sub-msg">见招生简章</span></td>
-                <td>${publishDirection.majorBasics}
-                 <span class="sub-msg">见招生简章</span></td>
+                  <td class="zsml-title">招生单位：</td>
+                  <td class="zsml-summary" >${publishDirection.schoolName}</td>
+                  <td class="ssss"></td>
+                  <td class="zsml-title">学位类型：</td>
+                  <td class="zsml-summary">${publishDirection.degreeType}</td>
               </tr>
-            </tbody>
+              <tr>
+                  <td class="zsml-title">所在地：</td>
+                  <td class="zsml-summary" >${publishDirection.school.schoolProvince}</td>
+                  <td class="ssss"></td>
+                  <td class="zsml-title">院系名称：</td>
+                  <td class="zsml-summary">${publishDirection.collegeName}</td>
+              </tr>
+              <tr>
+                  <td class="zsml-title">院校特性：</td>
+                  <td class="zsml-summary">${publishDirection.school.schoolType}</td>
+                  <td class="ssss"></td>
+                  <td class="zsml-title">专业名称：</td>
+                  <td class="zsml-summary">${publishDirection.degreeType}</td>
+              </tr>
+              <tr>
+                  <td class="zsml-title">院校隶属：</td>
+                  <td class="zsml-summary">${publishDirection.school.schoolSubjection}</td>
+                  <td class="ssss"></td>
+                  <td class="zsml-title">研究方向：</td>
+                  <td class="zsml-summary">${publishDirection.directionName}</td>
+              </tr>
           </table>
-        </div><!--zsml-result-->
-            <div class="commenttitle">讨论区</div>
-        <div class="comments">
-            <div class="infobar">
-                <span class="num">一共有${directionCommentCount}条评论</span>
-                <select class="sort"name="" onchange="self.location.href=options[selectedIndex].value">
-                    <option value="/school/displayDirectionDetail?directionId=${publishDirection.directionId}&sort=时间">按时间顺序</option>
-                    <option value="/school/displayDirectionDetail?directionId=${publishDirection.directionId}&sort=热度">按热度排序</option>
-                </select>
+          </div>
+        </fieldset>
+        <blockquote class="layui-elem-quote layui-quote-nm">考试范围</blockquote>
+        <div class="zsml-result">
+        <table  cellpadding="10" cellspacing="0" class="scope">
+        <colgroup>
+          <col width="25%">
+          <col width="25%">
+          <col width="25%">
+          <col width="25%">
+        </colgroup>
+          <thead>
+            <tr>
+              <th>政治</th>
+              <th>外语</th>
+              <th>业务课一</th>
+              <th>业务课二</th>
+             </tr>    
+          </thead>
+          <tbody class="zsml-res-items">
+            <tr>
+              <td>
+                  ${publishDirection.politics}
+              </td>
+              <td>${publishDirection.english}</td>
+              <td>${publishDirection.math}</td>
+              <td>${publishDirection.majorBasics}</td>
+            </tr>
+          </tbody>
+        </table>
+        <blockquote class="layui-elem-quote layui-quote-nm">官方公告</blockquote>
+        <ul class="layui-timeline">
+          <li class="layui-timeline-item">
+            <i class="layui-icon layui-timeline-axis"></i>
+            <div class="layui-timeline-content layui-text">
+              <div class="layui-timeline-title">《2018年北京大学硕士研究生招生简章》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a>查看往年招生简章</a></div>
+              <!--如果数据库里有这里改为
+                <div class="layui-timeline-title">&nbsp;&nbsp;<a>查看《2018年北京大学硕士研究生招生简章》</a></div>
+              -->
             </div>
-            <c:forEach items="${publishDirection.directionComments}" var="dcomment">
-            <div class="comments-content">
-                <div class="time"><fmt:formatDate value='${dcomment.directionCommentTime}' type='date' pattern='yyyy-MM-dd HH:mm:ss'/></div>
-                <div class="nickname">${dcomment.user.userNickName}</div>
-                <div class="comments-content-content">${dcomment.directionCommentContent}</div>
-                <div class="b">
-                    <div class="comments-content-praise">赞（${dcomment.directionCommentPraiseCount}）</div>
-                    <img src="images/community/jia1.svg" width="22px"height="22px">
-                    <div class="comments-content-give-praise"><a href="/school/updateDirectionCommentPraiseCount?directionCommentId=${dcomment.directionCommentId}&directionId=${publishDirection.directionId}">点赞</a></div>
-                </div>
+          </li>
+          <li class="layui-timeline-item">
+            <i class="layui-icon layui-timeline-axis"></i>
+            <div class="layui-timeline-content layui-text">
+              <div class="layui-timeline-title">&nbsp;&nbsp;<a>查看《2018年北京大学硕士研究生招生目录》</a></div>
             </div>
-            </c:forEach>
+          </li>
+        </ul>
+        <blockquote class="layui-elem-quote layui-quote-nm">评论区</blockquote>
+        <ul class="jieda" id="jieda">
+          <c:forEach items="${publishDirection.directionComments}" var="dcomment">
+          <li data-id="111" class="jieda-daan">
+            <a name="item-1111111111"></a>
+            <div class="detail-about detail-about-reply">
+              
+              <div class="fly-detail-user">
+                <a href="" class="fly-link">
+                  <cite>${dcomment.user.userNickName}</cite>
+                </a>
+                
+                <span> 发表于<fmt:formatDate value='${dcomment.directionCommentTime}' type='date' pattern='yyyy-MM-dd HH:mm:ss'/></span>
+              </div>
+
+            </div>
+            <div class="detail-body jieda-body photos">
+              <p>${dcomment.directionCommentContent}</p>
+            </div>
+            <div class="jieda-reply">
+              <span class="jieda-zan zanok" type="zan">
+                <i class="iconfont icon-zan"></i>
+                <em>${dcomment.directionCommentPraiseCount}</em>
+              </span>
+              <span type="reply">
+                <i class="iconfont icon-svgmoban53"></i>
+                回复
+              </span>
+            </div>
+          </li>
+          </c:forEach>
+          <!-- 无数据时 -->
+          <!-- <li class="fly-none">消灭零回复</li> -->
+        </ul>
+        <div class="layui-form layui-form-pane">
+          <form action="/jie/reply/" method="post">
+            <div class="layui-form-item layui-form-text">
+              <a name="comment"></a>
+              <div class="layui-input-block">
+                <textarea id="L_content" name="content" required lay-verify="required" placeholder="请输入内容"  class="layui-textarea fly-editor" style="height: 150px;"></textarea>
+              </div>
+            </div>
+            <div class="layui-form-item">
+              <input type="hidden" name="jid" value="123">
+              <button class="layui-btn" lay-filter="*" lay-submit>提交回复</button>
+            </div>
+          </form>
         </div>
+      </div><!--zsml-result-->
+        
+
+      </div>
     </div>
-            <form action="comment1?commentId=${answer.commentId}">
-                <div class="comments-reply">
-                    <input class="comments-reply-input"type="text" width="660px" height="30px" name="text">
-                    <div class="comments-reply-report"><input type="submit" value="发表评论"/></div>
-                </div>
-            </form>
+    <div class="layui-col-md4">
+        <div class="fly-panel">
+            <div class="fly-panel-main">
+              <a href="" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">搜索 [${publishDirection.schoolName}] 考研资料</a>
+            </div>
         </div>
+      <dl class="fly-panel fly-list-one">
+        <dt class="fly-panel-title">[${publishDirection.schoolName}]热门资料</dt>
+        <dd>
+          <a href="">王碧云傻</a>
+          <span><i class="iconfont icon-pinglun1"></i> 16</span>
+        </dd>
+        <dd>
+          <a href="">说得好</a>
+          <span><i class="iconfont icon-pinglun1"></i> 16</span>
+        </dd>
+        <dd>
+          <a href="">我同意</a>
+          <span><i class="iconfont icon-pinglun1"></i> 16</span>
+        </dd>
+        <dd>
+          <a href="">唐溪天下第一</a>
+          <span><i class="iconfont icon-pinglun1"></i> 16</span>
+        </dd>
+        <dd>
+          <a href="">说得好</a>
+          <span><i class="iconfont icon-pinglun1"></i> 16</span>
+        </dd>
+        <dd>
+          <a href="">我同意</a>
+          <span><i class="iconfont icon-pinglun1"></i> 16</span>
+        </dd>
+        <dd>
+            <a href="">基于 layui 的极简社区页面模版</a>
+            <span><i class="iconfont icon-pinglun1"></i> 16</span>
+          </dd>
+          <dd>
+            <a href="">基于 layui 的极简社区页面模版</a>
+            <span><i class="iconfont icon-pinglun1"></i> 16</span>
+          </dd>
+          <dd>
+            <a href="">基于 layui 的极简社区页面模版</a>
+            <span><i class="iconfont icon-pinglun1"></i> 16</span>
+          </dd>
+      </dl>
     </div>
-    浏览量：${viewCount}
+  </div>
+</div>
+
+<div class="fly-footer">
+  <p><a href="http://fly.layui.com/" target="_blank">Fly社区</a> 2017 &copy; <a href="http://www.layui.com/" target="_blank">layui.com 出品</a></p>
+  <p>
+    <a href="http://fly.layui.com/jie/3147/" target="_blank">付费计划</a>
+    <a href="http://www.layui.com/template/fly/" target="_blank">获取Fly社区模版</a>
+    <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+  </p>
+</div>
+
+<script src="/layui/layui.js"></script>
+<script>
+layui.cache.page = 'jie';
+layui.cache.user = {
+  username: '游客'
+  ,uid: -1
+  ,avatar: '../../res/images/avatar/00.jpg'
+  ,experience: 83
+  ,sex: '男'
+};
+layui.config({
+  version: "3.0.0"
+  ,base: '../../res/mods/'
+}).extend({
+  fly: 'index'
+}).use('fly');
+</script>
+
 </body>
 </html>

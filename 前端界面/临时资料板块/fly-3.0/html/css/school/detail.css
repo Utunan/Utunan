@@ -62,3 +62,7 @@ td{
     padding: 10px 15px;
     margin-left: 20px;
 }
+.layui-timeline {
+    margin-left: 30px;
+    margin-top: 20px;
+}
