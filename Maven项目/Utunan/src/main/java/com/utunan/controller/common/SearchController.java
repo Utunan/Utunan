@@ -40,13 +40,19 @@ public class SearchController {
 	@RequestMapping("searchUser")
 	public String searchUser(HttpServletRequest request){
 		String keyWord=request.getParameter("keyWord");
-		//对搜索条件进行分词
 		Analyzer analyzer=new Analyzer();
-		List<String> keyWords= null;
-		try {
-			keyWords = analyzer.Analyzer(keyWord);
-		} catch (Exception e) {
-			e.printStackTrace();
+		//过滤关键词
+		keyWord=analyzer.filter(keyWord);
+		List<String> keyWords= new ArrayList<>();
+		if(keyWord.equals("") || keyWord==null){
+			keyWords.add(".");
+		}else{
+			//对搜索条件进行分词
+			try {
+				keyWords = analyzer.Analyzer(keyWord);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		//返回用户列表
 		List<User> userList=this.searchService.findUser(keyWords);
@@ -77,14 +83,22 @@ public class SearchController {
 			num=Integer.parseInt(pageNum);
 		}
 		String keyWord=request.getParameter("keyWord");
-		//对搜索条件进行分词
 		Analyzer analyzer=new Analyzer();
-		List<String> keyWords= null;
-		try {
-			keyWords = analyzer.Analyzer(keyWord);
-		} catch (Exception e) {
-			e.printStackTrace();
+		//过滤关键词
+		keyWord=analyzer.filter(keyWord);
+		System.out.println(keyWord);
+		List<String> keyWords= new ArrayList<>();
+		if(keyWord.equals("") || keyWord==null){
+			keyWords.add(".");
+		}else{
+			//对搜索条件进行分词
+			try {
+				keyWords = analyzer.Analyzer(keyWord);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+		System.out.println(keyWords);
 		//返回提问列表
 		List<Quiz> quizList = this.searchService.findQuiz(keyWords, num, 10);
 		//封装BigQuiz
@@ -137,6 +151,7 @@ public class SearchController {
 		String keyWord=request.getParameter("keyWord");
 		//对搜索条件进行分词
 		Analyzer analyzer=new Analyzer();
+		keyWord=analyzer.filter(keyWord);
 		List<String> keyWords= null;
 		try {
 			keyWords = analyzer.Analyzer(keyWord);

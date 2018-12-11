@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Matcher;
 
 /**
  * @author 孙程程
@@ -74,9 +75,9 @@ public class ShareIndexController {
 			keyWords.add(".");
 		}else{
 			//对搜索条件进行分词
-			keyWord.replaceAll("<","");
-			keyWord.replaceAll(">","");
 			Analyzer analyzer=new Analyzer();
+			keyWord=analyzer.filter(keyWord);
+			System.out.println(keyWord);
 			try {
 				keyWords = analyzer.Analyzer(keyWord);
 			} catch (Exception e) {

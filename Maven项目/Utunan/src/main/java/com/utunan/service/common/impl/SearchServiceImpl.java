@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.regex.Matcher;
 
 
 @Service("SearchService")
@@ -101,7 +102,9 @@ public class SearchServiceImpl implements SearchService {
 		for(int i=0; i<userList.size(); i++){
 			User u=userList.get(i);
 			for(int j=0; j<keyWords.size(); j++){
-				u.setUserNickName(u.getUserNickName().replaceAll(keyWords.get(j),"<span style='color:red'>"+keyWords.get(j)+"</span>"));
+				if(keyWords.get(j)!="."){
+					u.setUserNickName(u.getUserNickName().replaceAll(keyWords.get(j),"<span style='color:red'>"+keyWords.get(j)+"</span>"));
+				}
 			}
 		}
 	}
@@ -116,8 +119,10 @@ public class SearchServiceImpl implements SearchService {
 		for(int i=0; i<quizList.size(); i++){
 			Quiz q=quizList.get(i);
 			for(int j=0; j<keyWords.size(); j++){
-				q.setQuizTitle(q.getQuizTitle().replaceAll(keyWords.get(j),"<span style='color:red'>"+keyWords.get(j)+"</span>"));
-				q.setQuizContent(q.getQuizContent().replaceAll(keyWords.get(j),"<span style='color:red'>"+keyWords.get(j)+"</span>"));
+				if(keyWords.get(j)!="."){
+					q.setQuizTitle(q.getQuizTitle().replaceAll(keyWords.get(j),"<span style='color:red'>"+keyWords.get(j)+"</span>"));
+					q.setQuizContent(q.getQuizContent().replaceAll(keyWords.get(j),"<span style='color:red'>"+keyWords.get(j)+"</span>"));
+				}
 			}
 		}
 	}
@@ -125,7 +130,9 @@ public class SearchServiceImpl implements SearchService {
 		for(int i=0; i<answerList.size(); i++){
 			Answer q=answerList.get(i);
 			for(int j=0; j<keyWords.size(); j++){
-				q.setAnswerContent(q.getAnswerContent().replaceAll(keyWords.get(j),"<span style='color:red'>"+keyWords.get(j)+"</span>"));
+				if(keyWords.get(j)!="."){
+					q.setAnswerContent(q.getAnswerContent().replaceAll(keyWords.get(j),"<span style='color:red'>"+keyWords.get(j)+"</span>"));
+				}
 			}
 		}
 	}
