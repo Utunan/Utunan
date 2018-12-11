@@ -47,4 +47,10 @@ public class ShareIndexController {
 		request.setAttribute("PageInfo",new PageInfo(fileList,5));
 		return "share/share";
 	}
+
+
+    @RequestMapping("/share1")
+    public String shareIndex(){
+	    return "share/upload";
+    }
 }
