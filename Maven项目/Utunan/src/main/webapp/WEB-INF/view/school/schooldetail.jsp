@@ -95,8 +95,8 @@
             <div class="infobar">
                 <span class="num">一共有${directionCommentCount}条评论</span>
                 <select class="sort"name="" onchange="self.location.href=options[selectedIndex].value">
-                    <option value="/displayDirectionDetail?directionId=${publishDirection.directionId}&sort=时间">按时间顺序</option>
-                    <option value="/displayDirectionDetail?directionId=${publishDirection.directionId}&sort=热度">按热度排序</option>
+                    <option value="/school/displayDirectionDetail?directionId=${publishDirection.directionId}&sort=时间">按时间顺序</option>
+                    <option value="/school/displayDirectionDetail?directionId=${publishDirection.directionId}&sort=热度">按热度排序</option>
                 </select>
             </div>
             <c:forEach items="${publishDirection.directionComments}" var="dcomment">
@@ -107,7 +107,7 @@
                 <div class="b">
                     <div class="comments-content-praise">赞（${dcomment.directionCommentPraiseCount}）</div>
                     <img src="images/community/jia1.svg" width="22px"height="22px">
-                    <div class="comments-content-give-praise"><a href="/updateDirectionCommentPraiseCount?directionCommentId=${dcomment.directionCommentId}&directionId=${publishDirection.directionId}">点赞</a></div>
+                    <div class="comments-content-give-praise"><a href="/school/updateDirectionCommentPraiseCount?directionCommentId=${dcomment.directionCommentId}&directionId=${publishDirection.directionId}">点赞</a></div>
                 </div>
             </div>
             </c:forEach>
@@ -123,13 +123,4 @@
     </div>
     浏览量：${viewCount}
 </body>
-<%--<script>
-    if (localStorage.pagecount){
-        localStorage.pagecount=Number(localStorage.pagecount)+1;
-    }
-    else{
-        localStorage.pagecount=1;
-    }
-    document.getElementById("viewCount").innerHTML=localStorage.pagecount;
-</script>--%>
 </html>

@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
  * @date 2018/12/7/007 21:19
  */
 @Controller
+@RequestMapping("/school")
 public class SchoolDetailController {
 
     @Autowired
@@ -67,7 +68,7 @@ public class SchoolDetailController {
         //修改点赞数量
         Long praiseCount = this.publishDirectionCommentService.updateDirectionCommentPraiseCount(Long.parseLong(directionCommentId));
 
-        return "redirect:/displayDirectionDetail?directionId="+directionId;
+        return "redirect:/school/displayDirectionDetail?directionId="+directionId;
     }
 
     /*

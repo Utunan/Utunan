@@ -29,6 +29,7 @@ import java.util.List;
  * @date 2018/11/27/027 20:34
  */
 @Controller
+@RequestMapping("/school")
 public class SchoolSearchController {
     @Autowired
     private PublishSchoolService publishSchoolService;
@@ -172,7 +173,7 @@ public class SchoolSearchController {
         attr.addAttribute("english", english);
         attr.addAttribute("pageNum", pageNum);
 
-        return "redirect:/displaySchoolBySearch";
+        return "redirect:/school/displaySchoolBySearch";
     }
     /*
      * @author  王碧云
@@ -214,7 +215,7 @@ public class SchoolSearchController {
         attr.addAttribute("pageNum", pageNum);
 
         //返回数据
-        return "redirect:/displaySchoolBySearch";
+        return "redirect:/school/displaySchoolBySearch";
     }
 
 }
