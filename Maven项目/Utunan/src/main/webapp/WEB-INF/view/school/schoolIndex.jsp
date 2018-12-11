@@ -102,7 +102,7 @@
                         <div class="option-search">
                             <div class="options">
                                 <span class="optionName">研究方向 ></span>
-                                <input name="directionName" type="text" id="direction" required  lay-verify="required" placeholder="（选填）如：大数据" autocomplete="off" class="layui-input">
+                                <input name="directionName" type="text" id="direction"  placeholder="（选填）如：大数据"  class="layui-input">
                                 <input type="submit" value="搜索" id="search" class="layui-btn layui-btn-normal"/>
                             </div>
                         </div>
