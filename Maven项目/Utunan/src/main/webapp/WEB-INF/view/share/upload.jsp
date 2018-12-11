@@ -4,21 +4,22 @@
   <meta charset="utf-8">
   <title>layui</title>
   <meta name="renderer" content="webkit">
+  <meta http-equiv="Content-Type"  content="multipart/form-data; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
   <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
 <body>
-          
-<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
-  <legend>拖拽上传</legend>
-</fieldset> 
- 
-<div class="layui-upload-drag" id="test10">
-  <i class="layui-icon"></i>
-  <p>点击上传，或将文件拖拽到此处</p>
-</div>
+
+
+
+    <div class="layui-upload-drag" id="test10">
+      <i class="layui-icon"></i>
+      <p>点击上传，或将文件拖拽到此处</p>
+    </div>
+
+
  
  
           
@@ -30,9 +31,10 @@ layui.use('upload', function(){
   ,upload = layui.upload;
   
   //普通图片上传
-  var uploadInst = upload.render({
+  /*var uploadInst = upload.render({
     elem: '#test1'
-    ,url: '/upload/'
+    ,url: 'upload'
+    ,accept: 'file' //普通文件
     ,before: function(obj){
       //预读本地文件示例，不支持ie8
       obj.preview(function(index, file, result){
@@ -139,28 +141,48 @@ layui.use('upload', function(){
     ,done: function(res){
       console.log(res)
     }
-  });
+  });*/
   
   //拖拽上传
-  upload.render({
+  /*var uploadInst = upload.render({
     elem: '#test10'
-    ,url: '/upload/'
+    ,url: 'upload'
+    ,accept: 'file' //普通文件
     ,done: function(res){
       console.log(res)
     }
-  });
+  });*/
   
 
   //绑定原始文件域
-  upload.render({
+  /*upload.render({
     elem: '#test20'
     ,url: '/upload/'
     ,done: function(res){
       console.log(res)
     }
+  });*/
+    //普通图片上传
+    var uploadInst = upload.render({
+      elem: '#test10'
+      , url: 'upload'
+      , accept: 'file' //普通文件
+      , before: function (obj) {
+        //预读本地文件示例，不支持ie8
+        obj.preview(function (index, file, result) {
+          $('#demo1').attr('src', result); //图片链接（base64）
+        });
+      }
+      , error: function () {
+        //演示失败状态，并实现重传
+        var demoText = $('#demoText');
+        demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
+        demoText.find('.demo-reload').on('click', function () {
+          uploadInst.upload();
+        });
+      }
+    });
   });
-  
-});
 </script>
 
 </body>
