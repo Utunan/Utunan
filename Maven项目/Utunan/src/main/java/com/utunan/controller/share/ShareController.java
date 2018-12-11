@@ -29,17 +29,18 @@ public class ShareController {
 
     @RequestMapping("/upload")
     @ResponseBody
-    public JSONObject uploadfile(@RequestParam("file") MultipartFile file, HttpServletRequest request){
-        String rootPath=request.getSession().getServletContext().getRealPath("/");
-        System.out.print(rootPath);
-        JSONObject resObj = new JSONObject();
-        resObj.put("msg", "ok");
-        try {
-            FileCopyUtils.copy(file.getBytes(), new File(rootPath,file.getOriginalFilename()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return resObj;
-    }
+    public JSONObject uploadfile(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
 
+            String rootPath = request.getSession().getServletContext().getRealPath("/");
+            System.out.print(rootPath);
+            JSONObject resObj = new JSONObject();
+            resObj.put("msg", "ok");
+            try {
+                FileCopyUtils.copy(file.getBytes(), new File(rootPath, file.getOriginalFilename()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return resObj;
+        }
 }
