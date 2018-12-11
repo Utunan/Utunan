@@ -39,4 +39,12 @@ public interface ShareIndexService {
 	 * @return  java.util.List<com.utunan.pojo.base.school.School>
 	 */
 	List<School> listSchool();
+
+	/**
+	 * @author  孙程程
+	 * @description 筛选文件
+	 * @date  16:27 2018/12/11
+	 * @return  java.util.List<com.utunan.pojo.base.share.File>
+	 */
+	List<File> selectFile(List<String> fileTypes, String fileSchool, List<String> keyWords, int pageNum, int pageSize);
 }

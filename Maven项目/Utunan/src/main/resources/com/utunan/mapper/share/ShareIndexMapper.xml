@@ -64,4 +64,12 @@
         select *
         from school
     </select>
+    <!--根据条件筛选文件-->
+    <select id="selectFile" resultMap="fileResultMap">
+        select *
+        from file
+        where fileType REGEXP #{fileType}
+        and fileSchool like #{fileSchool}
+        and fileTitle REGEXP #{keyWord}
+    </select>
 </mapper>
