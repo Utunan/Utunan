@@ -12,14 +12,15 @@
     background-color:#f4f9ff;
 color:#2a82e4;
 }
+body{
 
+}
 .layui-table[lay-skin=line] thead tr th{
     color:white;
     background-color: RGB(30,159,259);
 }
 .layui-table{
-    width:1100px;
-    margin:auto;
+    width:100%;
     margin-top: 30px;
 }
 *{
@@ -52,8 +53,8 @@ label{
 }
 
 .RadioStyle{
-    width:1100px;
-    margin:0 auto;
+    width: 100%;
+    margin: 10px;
 }
  .RadioStyle input {
     display: none
@@ -61,8 +62,8 @@ label{
 .RadioStyle label {
     border: 1px solid white;
 	color: #666;
-	padding: 2px 10px 2px 5px;
-	line-height: 18px;
+    padding: 3px 10px 3px 5px;
+    line-height: 22px;
 	min-width: 54px;
 	text-align: center;
 	float: left;
@@ -77,31 +78,26 @@ label{
 }
 
 .optionName{
-    width: 95px;
+    width: 10%;
     float: left;
-    margin-top: 6px;
-    margin-left: 12px;
 }
 .option{
     float:left;
-    width: 900px;
-    margin:4px;
-    margin-left: 14px;
+    width: 88%;
 }
 .subjectoption{
     float:left;
-    width: 900px;
+    width: 88%;
 }
 .options{
+    width: 100%;
     margin: 10px;
     overflow:hidden;
 }
 .bigwrapper{
     border: 1px solid RGB(229,229,229);
-    width:1100px;
-    margin: 0 auto;
+    width:100%;
     overflow: hidden;
-    height:340px;
     background-color: white;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -114,9 +110,8 @@ label{
     background-color: #2a82e4;
 }
 #direction{
-    margin-top: 6px;
-    margin-left: 15px;
-    width:300px;
+    margin-left: 5px;
+    width: 40%;
     float:left;
 }
 #blank{
@@ -135,8 +130,10 @@ label{
     text-align: center;
 }
 .back{
+    width: 100%;
     overflow:hidden;
-    background-color: #ffffff;
-background-image: url("https://www.transparenttextures.com/patterns/clean-textile.png");
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+.option-search{
+    width: 100%;
+    margin: 10px;
 }
