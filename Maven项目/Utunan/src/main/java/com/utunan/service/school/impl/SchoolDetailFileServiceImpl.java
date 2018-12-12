@@ -37,4 +37,9 @@ public class SchoolDetailFileServiceImpl implements SchoolDetailFileService {
     public List<File> findEGFormerYears(String fileType,String fileSchool) {
         return this.schoolDetailFileMapper.findEGFormerYears(fileType, fileSchool);
     }
+
+    @Override
+    public List<File> findTop9SchoolFile(String fileSchool) {
+        return this.schoolDetailFileMapper.findTop9SchoolFile(fileSchool);
+    }
 }

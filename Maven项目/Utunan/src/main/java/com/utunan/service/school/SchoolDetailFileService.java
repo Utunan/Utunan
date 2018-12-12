@@ -28,4 +28,13 @@ public interface SchoolDetailFileService {
      * @return  java.util.List<com.utunan.pojo.base.share.File>
      */
     List<File> findEGFormerYears(String fileType,String fileSchool);
+
+    /*
+     * @author  王碧云
+     * @description 相应学校的热门资料（按下载次数排序）
+     * @date  18:03 2018/12/12/012
+     * @param  [fileSchool]
+     * @return  java.util.List<com.utunan.pojo.base.share.File>
+     */
+    List<File> findTop9SchoolFile(String fileSchool);
 }

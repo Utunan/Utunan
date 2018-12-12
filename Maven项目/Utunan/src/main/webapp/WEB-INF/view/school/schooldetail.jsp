@@ -174,42 +174,12 @@
         </div>
       <dl class="fly-panel fly-list-one">
         <dt class="fly-panel-title">[${publishDirection.schoolName}]热门资料</dt>
+        <c:forEach items="${top9file}" var="file">
         <dd>
-          <a href="">王碧云真优秀</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
+          <a href="">${file.fileTitle}</a>
+          <span><i class="iconfont icon-pinglun1"></i>${file.downloadNumber}</span>
         </dd>
-        <dd>
-          <a href="">说得好</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">我同意</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">唐溪大傻子</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">说得好</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">我同意</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-            <a href="">基于 layui 的极简社区页面模版</a>
-            <span><i class="iconfont icon-pinglun1"></i> 16</span>
-          </dd>
-          <dd>
-            <a href="">基于 layui 的极简社区页面模版</a>
-            <span><i class="iconfont icon-pinglun1"></i> 16</span>
-          </dd>
-          <dd>
-            <a href="">基于 layui 的极简社区页面模版</a>
-            <span><i class="iconfont icon-pinglun1"></i> 16</span>
-          </dd>
+        </c:forEach>
       </dl>
     </div>
   </div>

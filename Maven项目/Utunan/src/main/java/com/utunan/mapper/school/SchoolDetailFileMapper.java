@@ -19,4 +19,6 @@ public interface SchoolDetailFileMapper {
     List<File> findEGThisYear(@Param("fileType") String fileType, @Param("fileSchool") String fileSchool, @Param("year") String year);
     /*查找往年的招生简章或招生目录*/
     List<File> findEGFormerYears(@Param("fileType") String fileType, @Param("fileSchool") String fileSchool);
+    /*相应学校的热门资料（按下载次数排序）*/
+    List<File> findTop9SchoolFile(@Param("fileSchool") String fileSchool);
 }
