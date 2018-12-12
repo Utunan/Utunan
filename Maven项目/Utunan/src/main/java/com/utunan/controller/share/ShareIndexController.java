@@ -108,6 +108,14 @@ public class ShareIndexController {
 
 	@RequestMapping("/share1")
 	public String shareInex(HttpServletRequest request){
+
+		//学校地区
+		List<String> provinceList = this.shareIndexService.listSchoolProvince();
+		//学校
+		List<School> schoolList = this.shareIndexService.listSchool();
+
+		request.setAttribute("provinceList", provinceList);
+		request.setAttribute("schoolList", schoolList);
 		return "share/upload";
 	}
 
