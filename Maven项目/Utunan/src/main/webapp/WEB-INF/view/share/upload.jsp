@@ -22,12 +22,12 @@
         </ul>
         <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
           <div class="layui-tab-item layui-show">
-            <form action="" method="post">
+            <form class="layui-form" action="upload" method="post">
               <div class="layui-row layui-col-space15 layui-form-item">
                 <div class="layui-col-md3">
                   <label class="layui-form-label">资源类型</label>
                   <div class="layui-input-block">
-                    <select lay-verify="required" name="class" lay-filter="column" onchange="func()">
+                    <select lay-verify="required" name="sourcetype" lay-filter="column" onchange="func()">
                       <option value="0">招生简章</option> 
                       <option value="0">招生专业目录</option> 
                       <option value="11">考研真题</option> 
@@ -49,7 +49,7 @@
                 <div class="layui-col-md3">
                   <label class="layui-form-label">所属年份</label>
                   <div class="layui-input-block">
-                    <select name="project">
+                    <select name="year">
                       <option value="2019">2019</option>
                       <option value="2018">2018</option>
                       <option value="2017">2017</option>
@@ -72,7 +72,7 @@
                 <div class="layui-inline">
                   <label class="layui-form-label">悬赏积分</label>
                   <div class="layui-input-block">
-                    <input type="text"  name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text"  name="integral" required lay-verify="required" autocomplete="off" class="layui-input">
                     <!-- <input type="hidden" name="id" value="{{d.edit.id}}"> -->
                   </div>
                   <div class="layui-form-mid layui-word-aux">发表后无法更改积分</div>
@@ -81,7 +81,7 @@
               <div class="layui-col-md3">
                 <label class="layui-form-label">文件类型</label>
                 <div class="layui-input-block">
-                  <select lay-verify="required" name="class" lay-filter="column">
+                  <select lay-verify="required" name="filetype" lay-filter="column">
                     <option value="pic">图片</option> 
                     <option value="txt">txt文件</option>
                     <option value="doc">doc文件</option>
@@ -114,7 +114,7 @@
                 </div>
               </div>
               <div class="layui-form-item">
-                <button class="layui-btn" lay-filter="*" lay-submit>立即发布</button>
+                <button class="layui-btn" lay-filter="*" lay-submit id="submit">立即发布</button>
               </div>
             </form>
           </div>
@@ -142,7 +142,7 @@ layui.config({
   fly: 'index'
 }).use('fly');
 
-layui.use('upload', function(){
+/*layui.use('upload', function(){
   var $ = layui.jquery
   ,upload = layui.upload;
   
@@ -167,7 +167,38 @@ layui.use('upload', function(){
     }
   });
     
+});*/
+layui.use('upload', function(){
+  var $ = layui.jquery
+          ,upload = layui.upload;
+var uploadInst = upload.render({
+  elem: '#test10'
+  , url: '/upload'    //服务器地址
+  , accept: 'file' //允许所有类型文件上传
+  , auto: false     //不允许文件自动上传
+  , bindAction: '#submit'   //指向按钮触发上传
+  , size: 200000    //设置最大上传大小为200MB
+  , drag: true       //接受拖拽文件上传
+  , before: function (obj) {
+    //预读本地文件示例，不支持ie8
+    obj.preview(function (index, file, result) {
+      $('#test10').attr('src', result);      //得到文件base64编码，
+    });
+  }
+  , error: function () {
+    //演示失败状态，并实现重传
+    var demoText = $('#demoText');
+    demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
+    demoText.find('.demo-reload').on('click', function () {
+      //实现重传
+      uploadInst.upload();
+    })
+    }
+  })
 });
+
+
+
 //tx瞎写的js，可以删
 function func(){
  //获取被选中的option标签
