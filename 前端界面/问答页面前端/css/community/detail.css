@@ -1,0 +1,25 @@
+.detail h1 {
+    font-size: 24px;
+    line-height: 36px;
+    padding-top: 10px;
+}
+.detail-body p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-indent:0.5cm;
+    margin-right: 5px;
+    line-height: 2;
+}
+.toobar{
+    height:20px;
+}
+.fly-list-nums{
+    float:left;
+}
+.jieda-reply{
+    float:left;
+    padding-left: 30px;
+}
+.re{
+    width:20px;
+}
