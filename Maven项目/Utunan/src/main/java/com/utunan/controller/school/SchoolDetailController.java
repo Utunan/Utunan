@@ -65,6 +65,8 @@ public class SchoolDetailController {
         String fileType2 = "招生专业目录";
         List<File> EGfile = this.schoolDetailFileService.findEGThisYear(fileType1,schoolName);
         List<File> AGfile = this.schoolDetailFileService.findEGThisYear(fileType2,schoolName);
+        //查找该学校下载量最多的前九的文件
+        List<File> top9file = this.schoolDetailFileService.findTop9SchoolFile(schoolName);
 
         //返回数据
         request.setAttribute("publishDirection", publishDirection);
@@ -73,6 +75,7 @@ public class SchoolDetailController {
         request.setAttribute("EGfile", EGfile);
         request.setAttribute("AGfile", AGfile);
         request.setAttribute("year", year);
+        request.setAttribute("top9file", top9file);
         return "/school/schooldetail";
     }
 
