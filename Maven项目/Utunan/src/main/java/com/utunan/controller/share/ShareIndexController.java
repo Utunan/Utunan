@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -56,10 +57,12 @@ public class ShareIndexController {
 	public String searchFile(HttpServletRequest request){
 		//文件类型
 		String[] fileType = request.getParameterValues("fileType");
+
 		List<String> fileTypes=new ArrayList<>(fileType.length);
 		Collections.addAll(fileTypes,fileType);
 		//文件所属学校
 		String fileSchool = request.getParameter("school");
+		//当前页码
 		String pageNum=request.getParameter("pageNum");
 		//判断当前页
 		int num=0;
@@ -70,14 +73,14 @@ public class ShareIndexController {
 		}
 		//搜索的关键字
 		String keyWord=request.getParameter("keyWord");
+		Analyzer analyzer=new Analyzer();
+		//过滤关键词
+		keyWord=analyzer.filter(keyWord);
 		List<String> keyWords= new ArrayList<>();
 		if(keyWord.equals("") || keyWord==null){
 			keyWords.add(".");
 		}else{
 			//对搜索条件进行分词
-			Analyzer analyzer=new Analyzer();
-			keyWord=analyzer.filter(keyWord);
-			System.out.println(keyWord);
 			try {
 				keyWords = analyzer.Analyzer(keyWord);
 			} catch (Exception e) {
@@ -86,14 +89,26 @@ public class ShareIndexController {
 		}
 		//文件列表
 		List<File> fileList = this.shareIndexService.selectFile(fileTypes, fileSchool, keyWords, num, 10);
+		//热门文件
+		List<File> hotFileList = this.shareIndexService.listHotFile();
+		//学校地区
+		List<String> provinceList = this.shareIndexService.listSchoolProvince();
+		//学校
+		List<School> schoolList = this.shareIndexService.listSchool();
+		request.setAttribute("provinceList", provinceList);
+		request.setAttribute("schoolList", schoolList);
 		request.setAttribute("fileList", fileList);
+		request.setAttribute("hotFileList", hotFileList);
 		request.setAttribute("url", "searchfile");
+		request.setAttribute("fileType", String.join(",", fileType));
+		request.setAttribute("school", fileSchool);
+		request.setAttribute("keyWord", keyWord);
 		request.setAttribute("PageInfo",new PageInfo(fileList,5));
 		return "share/share";
 	}
 
 	@RequestMapping("/share1")
-	public String shareIndex(){
+	public String shareInex(HttpServletRequest request){
 		return "share/upload";
 	}
 }
