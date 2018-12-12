@@ -70,18 +70,18 @@
                             <div class="options">
                                 <span class="optionName">院校特性 ></span>
                                 <div class="option" id="kind">
-                                    <input class="kind-all" type="checkbox" value=""  id="院校特性全部" checked="true"><label for="院校特性全部">全部</label>
-                                    <input class="kind-part" type="checkbox" value="985" id="985院校"><label for="985院校">985院校</label>
-                                    <input class="kind-part" type="checkbox" value="211" id="211院校"><label for="211院校">211院校</label>
-                                    <input class="kind-part" type="checkbox" value="自划线" id="自划线"><label for="自划线">自主划线</label>
+                                    <input class="kind-all" name="schoolType" type="checkbox" value=""  id="院校特性全部" checked="true"><label for="院校特性全部">全部</label>
+                                    <input class="kind-part" name="schoolType" type="checkbox" value="985" id="985院校"><label for="985院校">985院校</label>
+                                    <input class="kind-part" name="schoolType" type="checkbox" value="211" id="211院校"><label for="211院校">211院校</label>
+                                    <input class="kind-part" name="schoolType" type="checkbox" value="自划线" id="自划线"><label for="自划线">自主划线</label>
                                 </div>
                             </div>
                             <div class="options">
                                 <span class="optionName">学位类型 ></span>
                                 <div class="option" id="degree">
-                                    <input class="degree-all" type="checkbox" value="" id="学位全部" checked="true"><label for="学位全部">全部</label>
-                                    <input class="degree-part" type="checkbox" value="学硕" id="学硕"><label for="学硕">学硕</label>
-                                    <input class="degree-part" type="checkbox" value="专硕" id="专硕"><label for="专硕">专硕</label>
+                                    <input class="degree-all" name="degreeType" type="checkbox" value="" id="学位全部" checked="true"><label for="学位全部">全部</label>
+                                    <input class="degree-part" name="degreeType" type="checkbox" value="学硕" id="学硕"><label for="学硕">学硕</label>
+                                    <input class="degree-part" name="degreeType" type="checkbox" value="专硕" id="专硕"><label for="专硕">专硕</label>
                                 </div>
                             </div>
                             <div class="options">
@@ -138,7 +138,7 @@
                             <td class="type">&nbsp;&nbsp;${direction.degreeType}</td>
                             <td>${direction.majorlName}</td>
                             <td>${direction.directionName}</td>
-                            <td><a href="/school/displayDirectionDetail?directionId=${direction.directionId}">详情</a></td>
+                            <td><a href="/school/displayDirectionDetail?directionId=${direction.directionId}&schoolName=${direction.schoolName}">详情</a></td>
                             <%--判断是否是用户所收藏的院校，是显示红心，不是显示灰心--%>
                             <c:choose>
                                 <c:when test="${ya:judge(directionIds,direction.directionId)}">
