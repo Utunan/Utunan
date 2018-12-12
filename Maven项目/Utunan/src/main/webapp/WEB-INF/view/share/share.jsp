@@ -43,7 +43,10 @@
     </script>
 </head>
 <body>
-    <div>
+    <div STYLE="float: right; width: 100px">
+        <a href="/share1"><h2>上传文件</h2></a>
+    </div>
+    <div STYLE="width: 1000px">
         <form name="form1" action="/searchfile" method="post">
             <br>
             <input type="checkbox" name="fileType" value="." id="全部" checked="checked">全部
