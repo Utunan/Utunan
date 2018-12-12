@@ -27,10 +27,4 @@
       where q.quizId=#{quizId}
     </select>
 
-    <select id="selectQuizTag" resultType="com.utunan.pojo.base.community.Tag">
-        select t.*
-        from tag t,quiz_tag qt
-        where qt.quizId=#{quizId} and t.tagId=qt.tagId
-    </select>
-
 </mapper>

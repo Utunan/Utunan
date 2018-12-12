@@ -93,7 +93,7 @@
                 <a href="/quiz1">优问答</a>
             </li>
             <li>
-                <a href="/share">优共享</a>
+                <a href="/share1">优共享</a>
             </li>
         </nav>
 

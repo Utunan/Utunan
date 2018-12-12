@@ -28,17 +28,16 @@
             <nav id="publishreply" class="publishreply">
                 <c:forEach items="${Answers}" var="A">
                     <li>
-                        <div class="replytop">
-                            <div class="replytype">${A.quiz.tags[0].tagName==null?"Utunan":A.quiz.tags[0].tagName}</div>
-                            <div class="replytitle"><a href="">${A.quiz.quizTitle}</a></div>
-                            <div class="replydetails"><a href="">>>详情</a></div>
+                        <img src="/images/user/pans.svg"/>
+                        <div class="posttop">
+                            <span class="posttitle"><a href="">${A.quiz.quizTitle }</a></span>
                         </div>
-                        <div class="replycontent">
-                            <div class="replypraise">赞(${A.quiz.praiseCount})</div>
-                            <div class="newreply">
-                                <a href="">${A.answerContent}</a>
-                            </div>
-                            <div class="replytime"><fmt:formatDate value="${A.answerTime }" type="date" pattern="yyyy-MM-dd HH:mm:ss"/></div>
+                        <div class="postreply">
+                            <span>您回复了 : <a href="">${A.answerContent}</a></span></div>
+                        <div class="postbottom">
+                            <span>回复于 : <fmt:formatDate value="${A.answerTime }" type="date" pattern="yyyy-MM-dd HH:mm:ss"/></span>
+                            ·<span>点赞数 : ${A.praiseCount}</span>
+                            <span><a href="">删除</a></span>
                         </div>
                     </li>
                 </c:forEach>

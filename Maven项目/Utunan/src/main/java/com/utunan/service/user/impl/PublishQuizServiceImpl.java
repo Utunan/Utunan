@@ -22,13 +22,6 @@ public class PublishQuizServiceImpl implements PublishQuizService {
     public List<Quiz> getUserPublishQuiz(User user, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<Quiz> quizzes = publishQuizMapper.selectPublishQuiz(user);
-        for (Quiz quiz : quizzes) {
-            quiz.setQuizContent(StringUtil.delHTMLTag(quiz.getQuizContent()));
-            if(quiz.getQuizTitle().length()>23)
-                quiz.setQuizTitle(quiz.getQuizTitle().substring(0,23));
-            quiz.setTags(publishQuizMapper.selectQuizTag(quiz));
-
-        }
         return quizzes;
     }
 }

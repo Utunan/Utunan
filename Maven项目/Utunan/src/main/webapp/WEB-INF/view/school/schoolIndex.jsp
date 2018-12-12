@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>优图南-院校库</title>
-    <link rel="stylesheet" href="/css/school/layui.css">
-    <link rel="stylesheet" href="/css/school/global.css">
+    <link rel="stylesheet" href="/layui/wyd/layui.css">
+    <link rel="stylesheet" href="/layui/wyd/global.css">
     <link rel="stylesheet" href="layui.js">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/school/new.css">
@@ -21,6 +21,8 @@
         var pagenum="${PageInfo.pageNum}"
     </script>
 </head>
+<script src="/js/community/jquery-1.10.2.js"></script>
+<script src="/js/community/tag.js"></script>
 <body>
 <%@include file="../common/header.jsp"%>
 
@@ -82,6 +84,10 @@
                                     <input class="degree-all" name="degreeType" type="checkbox" value="" id="学位全部" checked="true"><label for="学位全部">全部</label>
                                     <input class="degree-part" name="degreeType" type="checkbox" value="学硕" id="学硕"><label for="学硕">学硕</label>
                                     <input class="degree-part" name="degreeType" type="checkbox" value="专硕" id="专硕"><label for="专硕">专硕</label>
+
+                                    <input name="degreeType" class="degree-all" type="checkbox" value="" id="学位全部" checked="true"><label for="学位全部">全部</label>
+                                    <input name="degreeType" class="degree-part" type="checkbox" value="学硕" id="学硕"><label for="学硕">学硕</label>
+                                    <input name="degreeType" class="degree-part" type="checkbox" value="专硕" id="专硕"><label for="专硕">专硕</label>
                                 </div>
                             </div>
                             <div class="options">
@@ -89,13 +95,13 @@
                                 <div class="subjectoption">
                                     <div class="option" id="math">
                                         <input class="math-all" name="math" type="checkbox" value="" id="数学全部" checked="true"><label for="数学全部">全部</label>
-                                        <input class="math-part" name="math" type="checkbox" value="one" id="数学(一)"><label for="数学(一)">数学(一)</label>
-                                        <input class="math-part" name="math" type="checkbox" value="two" id="数学(二)"><label for="数学(二)">数学(二)</label>
+                                        <input class="math-part" name="math" type="checkbox" value="一" id="数学(一)"><label for="数学(一)">数学(一)</label>
+                                        <input class="math-part" name="math" type="checkbox" value="二" id="数学(二)"><label for="数学(二)">数学(二)</label>
                                     </div>
                                     <div class="option" id="english">
                                         <input class="english-all" name="english" type="checkbox" value="" id="英语全部" checked="true"><label for="英语全部">全部</label>
-                                        <input class="english-part" name="english" type="checkbox" value="one" id="英语(一)"><label for="英语(一)">英语(一)</label>
-                                        <input class="english-part" name="english" type="checkbox" value="two" id="英语(二)"><label for="英语(二)">英语(二)</label>
+                                        <input class="english-part" name="english" type="checkbox" value="一" id="英语(一)"><label for="英语(一)">英语(一)</label>
+                                        <input class="english-part" name="english" type="checkbox" value="二" id="英语(二)"><label for="英语(二)">英语(二)</label>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +109,7 @@
                         <div class="option-search">
                             <div class="options">
                                 <span class="optionName">研究方向 ></span>
-                                <input name="directionName" type="text" id="direction"  placeholder="（选填）如：大数据"  class="layui-input">
+                                <input name="directionName" type="text" id="direction"  value="" placeholder="（选填）如：大数据"  class="layui-input">
                                 <input type="submit" value="搜索" id="search" class="layui-btn layui-btn-normal"/>
                             </div>
                         </div>
@@ -174,8 +180,6 @@
 </nav>
 <%@include file="../common/footer.jsp"%>
 </body>
-<script src="../layui/layui.js"></script>
-<script src="../js/jquery-2.2.3.min.js"></script>
 <script>
     //地区
     $(".part").click(function(){

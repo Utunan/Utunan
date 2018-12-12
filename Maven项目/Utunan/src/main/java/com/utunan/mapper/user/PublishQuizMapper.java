@@ -13,5 +13,4 @@ import java.util.List;
 @Repository
 public interface PublishQuizMapper {
     List<Quiz> selectPublishQuiz(User user);
-    List<Tag> selectQuizTag(Quiz quiz);
 }

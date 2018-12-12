@@ -96,13 +96,13 @@ $(function () {
                     window.location.href = "/user/myspace"
                 }else{
                     $modal.modal('close');
-                    set_alert_info("更改头像失败！");
+                    set_alert_info("优秀的程程程！");
                     $modal_alert.modal();
                 }
             },
             error: function () {
                 $modal.modal('close');
-                set_alert_info("更改头像失败！");
+                set_alert_info("上传图片请保持图片大小在1M以下！");
                 $modal_alert.modal();
             }
         });

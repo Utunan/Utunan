@@ -24,7 +24,6 @@ public class PublishAnswerServiceImlp implements PublishAnswerService {
         for(Answer answer :answers){
             answer.setAnswerContent(StringUtil.delHTMLTag(answer.getAnswerContent()));
             answer.setQuiz(publishAnswerMapper.selectQuizByQuizId(answer.getQuiz()));
-            answer.getQuiz().setTags(publishAnswerMapper.selectQuizTag(answer.getQuiz()));
         }
         return answers;
     }
