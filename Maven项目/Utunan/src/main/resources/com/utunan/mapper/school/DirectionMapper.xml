@@ -2,25 +2,41 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.utunan.mapper.school.DirectionMapper">
-    <resultMap id="directionResultMap" type="com.utunan.pojo.school.Direction">
-        <id column="directionId" property="directionId"/>
-        <result property="schoolName" column="schoolName"/>
-        <result property="collegeName" column="collegeName"/>
-        <result property="majorlName" column="majorlName"/>
-        <result property="directionName" column="directionName"/>
-        <result property="degreeType" column="degreeType"/>
-        <result property="politics" column="politics"/>
-        <result property="english" column="english"/>
-        <result property="math" column="math"/>
-        <result property="majorBasics" column="majorBasics"/>
-    </resultMap>
 
     <!--王碧云 查询所有的研究方向-->
-    <select id="findAllDirection" resultMap="directionResultMap">
+    <select id="findAllDirection" resultType="com.utunan.pojo.base.school.Direction">
         select *
         from direction
     </select>
-    
+    <!--王碧云 查找研究方向通过Id-->
+    <select id="findDirectionByDirectionId" resultType="com.utunan.pojo.base.school.Direction">
+        select *
+        from direction
+        where directionId=#{directionId}
+    </select>
+    <!--王碧云 修改网页浏览次数-->
+    <update id="updateviewCount" parameterType="com.utunan.pojo.base.school.Direction">
+        update direction
+        set viewCount = viewCount+1
+        where directionId=#{directionId}
+    </update>
 
+    <!--<set>
+        <choose>
+            <when test="viewCount!=null">viewCount = viewCount+1</when>
+            <otherwise>viewCount=1</otherwise>
+        </choose>
+    </set>-->
+    <!--王碧云 设置初始访问量-->
+    <update id="setFirstViewCount" parameterType="com.utunan.pojo.base.school.Direction">
+        update direction
+        set viewCount=1
+        where directionId=#{directionId}
+    </update>
+
+   <!-- <set>
+        <if test="viewCount==null">viewCount=1</if>
+        <if test="viewCount!=null">viewCount = viewCount+1</if>
+    </set>-->
 
 </mapper>

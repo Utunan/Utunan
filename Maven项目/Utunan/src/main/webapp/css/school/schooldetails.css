@@ -1,0 +1,222 @@
+.title{
+    font-size: 22px;
+    text-align: center;
+    color:black;
+    margin-left: 35%;
+}
+.collector{
+    margin-left: 2%;
+    font-size:13px;
+}
+.schoolheader{
+    display: block;
+    line-height: 40px;
+    width: 100%;
+    height: 40px;
+    float: left;
+    font-weight: bold;
+    border-bottom: 3px solid #2a82e4;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.main{
+    width:960px;
+    margin:auto;
+    font-size:14px;
+}
+.direction{
+    width:960px;
+    height:370px;
+}
+.left{
+    margin-top: 10px;
+    margin-left: 30px;
+    width:300px;
+    float: left;
+}
+.pic{
+    width:300px;
+}
+.heart{
+    width:20px;
+}
+.left span{
+    font-size: 13px;
+}
+.collect{
+    margin-left: 75px;
+}
+.blank{
+    height:10px;
+}
+.right{
+    width:400px;
+    float: left;
+    margin-left: 40px;
+    font-size: 14px;
+}
+.zsml-summary{
+    font-weight: bold;
+}
+td{
+    height:55px;
+    white-space: nowrap;
+}
+.ssss{
+    width: 148px;
+}
+.diractiontitle{
+    color:#2a82e4;
+    font-weight: bold;
+    font-size: 19px;
+    margin-bottom: 15px;
+}
+
+.zsml-result{padding:10px 0 0;margin-top:10px;border-top:1px solid #e5e5e5}
+.zsml-res-items{background-color:#fafafa; text-align: center;}
+.zsml-res-items td{padding:15px 10px;vertical-align:top}
+.zsml-res-items .sub-msg{display:block;font-size:12px;color:#999}
+.zsml-res-divider{text-align:center;color:#999}
+.zsml-res-divider td{padding:0;height:35px;line-height:0}
+.zsml-res-divider span{display:inline-block;margin-top:-12px;padding:0 3px;background:#fff;height:28px;line-height:28px}
+.zsml-res-divider .zsml-line{margin:0;padding:0;margin-top:-14px;border-style:none;border-bottom:1px solid #e5e5e5}
+.zsml-side{padding:20px;border:1px solid #d6d6d6}
+
+.zsml-result{
+    margin-top:30px;
+    width:960px;
+}
+.resulttitle{
+    color:#2a82e4;
+    font-weight: bold;
+    font-size: 19px;
+    margin-bottom: 15px;
+    padding-left:20px;
+    padding-bottom: 10px;
+}
+.commenttitle{
+    color:#2a82e4;
+    font-weight: bold;
+    font-size: 19px;
+    padding-left: 50%;
+    padding-top:20px;
+    border-top:1px solid #e5e5e5;
+    margin-top:20px;
+}
+
+
+.comments-number{
+    background-color: #f9fcff;
+}
+
+.close{
+    float: left;
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    color: rgba(80, 80, 80, 1);
+    font-size: 14px;
+    margin-right: 25px;
+}
+.comments-content{
+    height: 35px;
+    width: 1000px;
+    border-style: dashed; 
+	border-width:0px 0px 1px 0px; 
+    border-color:#e5e5e5;
+    margin-top: 10px;
+}
+.time{
+    margin-left: 25px;
+    float: left;
+    width: 150px;
+    line-height: 35px;
+    color: rgba(80, 80, 80, 1);
+	font-size: 14px;
+}
+.nickname{
+    float: left;
+    width:200px;
+    line-height: 35px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #505050;
+}
+.comments-content-content{
+    float: left;
+    width: 400px;
+    line-height: 35px;
+    color: rgba(80, 80, 80, 1);
+	font-size: 14px; 
+}
+.b{
+    float: right;
+    margin-right: 30px;
+}
+.comments-content-praise{
+    line-height: 35px;  
+    font-weight: bolder;
+    color: #f2858e;
+    font-size: 14px;
+    float: left;
+}
+.comments-content img{
+    margin-top: 7px;
+    margin-left: 15px;
+    float: left;
+}
+.comments-content-give-praise{
+    color: #64a6a6a6;
+    line-height: 35px;
+    font-size: 14px;
+    margin-left: 7px;
+    float: left;
+    margin-right: 25px;
+}
+.comments-reply{
+    width: 1000px;
+    height: 40px;
+    border-style: solid; 
+	border-width:0px 0px 1px 0px; 
+    border-color:#e5e5e5;
+    margin-top: 10px;
+}
+.comments-reply-input{
+    width: 600px;
+    height: 20px;
+    margin-left: 50px;
+    float: left;
+    margin-top: 7px;
+}
+.comments-reply-report{
+    float: left;
+    margin-left: 45px;
+    line-height: 40px;
+    color: rgba(128, 128, 128, 1);
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.infobar{
+    background-color: #f9fcff;
+    width:960px;
+    height:40px;
+    margin-top: 10px;
+}
+.sort{
+    float:right;
+    height: 24px;
+    font-size: 14px;
+    color: #505050;
+    margin-top: 8px;
+    margin-right: 25px;
+    border: none;
+    background-color: #f9fcff
+}
+.num {
+    width: 100px;
+}
+.zsml-result {
+    margin-top: 60px;
+    width: 960px;
+}

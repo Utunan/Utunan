@@ -1,6 +1,6 @@
 package com.utunan.mapper.community;
 
-import com.utunan.pojo.community.Tag;
+import com.utunan.pojo.base.community.Tag;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -31,8 +31,7 @@ public interface TagMapper {
 	 */
 	List<Tag> getRemainTag(@Param("tagList3") List<Tag> tagList3);
 
-	//根据搜索条件查询标签列表
-	List<Tag> findTagListBySearch(@Param("searchValue") String searchValue);
-	//根据搜索条件统计标签数量
-	Long countTagBySearch(@Param("searchValue") String searchValue);
+	//获取用户输入的标签
+	List<Long> getTags(@Param("listtag") List<String> listtag);
+
 }

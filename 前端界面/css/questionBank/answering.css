@@ -1,0 +1,150 @@
+*{
+	letter-spacing:0.5px;
+  font-family:"SimHei",黑体；
+}
+body{
+    background-color: #fafafa;
+}
+.content{
+    width: 850px;
+    margin: 0 auto;
+    margin-top: 25px;
+    border: rgba(42, 130, 228, 1) solid 2px;
+    background-color: #ffffff;
+}
+.content-top{
+    width: 850px;
+    height: 40px;
+    background-color: rgba(42, 130, 228, 1);
+    color: #ffffff;
+    line-height: 40px;
+    text-align: center;
+    font-size: 17px;
+}
+.progress{
+    width: 270px;
+    float: left;
+    margin-left: 20px;
+    text-align: left;
+}
+.subject{
+    float: left;
+    width: 270px;
+    margin: 0 auto;
+    height: 40px;
+    text-align: center;
+}
+.time{
+    width: 100px;
+    float: right;
+    margin-right: 20px;
+    text-align: right;
+}
+.img{
+    margin: 5px;
+    float: left;
+}
+.content-top-time{
+    float: left;
+}
+.type{
+    width: 850px;
+    height: 40px;
+    border-style: dashed;
+    border-width: 0px 0px 1px 0px;
+    border-color: #e6e6e6;
+    background-color: #ffffff;
+    line-height: 40px;
+}
+.type img{
+    margin: 5px 15px;
+    float: left;
+}
+.question-content{
+    width :810px;
+    background-color: #ffffff;
+    padding: 20px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #505050;
+}
+.question-content-top{
+    width: 810px;
+    height: 40px;
+}
+.question-content-title{
+    width: 650px;
+    float: left;
+}
+.question-back{
+    float: right;
+    background-color: #2a82e4;
+    border-radius: 16px;
+    padding:0px 5px;
+}
+.question-back a{
+    color: #ffffff;
+    text-decoration: none;
+}
+.question-content-option{
+    width: 810px;
+}
+.question-content-option>div{
+    width: 600px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #a6a6a6;
+    margin: 10px;
+    margin-bottom: 15px;
+    padding: 5px;
+    border-radius: 10px;
+}
+.bottom{
+    width: 810px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #ffffff;
+}
+.right{
+    float:right;
+}
+.right img{
+    float: left;
+    margin: 22px 0px;
+}
+.collection{
+    float: left;
+    margin: 10px 10px 10px 0px;
+
+}
+.previous{
+    float: left;
+    margin: 10px;
+    margin-left: 20px;
+}
+.next{
+    float: left;
+    margin: 10px;
+    margin-left: 20px;
+}
+.collection a{
+    text-decoration: none;
+    font-size: 14px;
+    color:#505050;
+     
+}
+.right>div>a{
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 8px;
+}
+.previous a{
+    background-color: #2a82e4;
+    border-radius: 16px;
+    color: #ffffff; 
+}
+.next a{
+    background-color: #2a82e4;
+    border-radius: 16px;
+    color: #ffffff; 
+}

@@ -1,0 +1,22 @@
+.table{
+    width: 100%;
+    border-collapse: collapse;  /*表格边框折叠，大部分表格都是这样*/
+    border-spacing: 0;  
+    margin: 0 auto;
+}
+
+.table > tbody > tr:nth-child(2n+1) > td, 
+.table > tbody > tr:nth-child(2n+1) > th {
+    background-color: rgba(244, 249, 255, 1);
+ }
+ .table>thead>tr{
+    background-color: #f6f6f6;
+}
+.table>thead>tr>th{
+    padding:10px;
+    border: 1px solid #e5e5e5;
+}
+.table>tbody>tr>td{
+    text-align: center;
+    border: 1px solid #e5e5e5;
+}

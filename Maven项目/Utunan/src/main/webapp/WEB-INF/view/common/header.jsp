@@ -3,7 +3,7 @@
 <div class="header">
     <header>
         <div class="logo">
-            <img src="/images/favicon.ico" alt="" srcset="">
+            <img src="/images/common/favicon.ico" alt="" srcset="">
         </div>
         <a class="loginname" href="/homepage">优图南</a>
 
@@ -18,29 +18,29 @@
                 <div class="login after">
                 <span>
                     <a href="/login">
-                        <img src="/images/information.svg">
+                        <img src="/images/common/information.svg">
                     </a>
-                    <a href="/information" style="margin-left: 5px;">消息</a>
+                    <a href="/user/information" style="margin-left: 5px;">消息</a>
                 </span>
                     <span>
                     <a id="userheadimg" href="/register">
 
-                        <img src="/images/userheadimg//default.png" alt="" srcset="">
+                        <img src="${User.userHeadImg}" alt="" srcset="">
                     </a>
                     <div id="userheadop" class="userheadop">
                         <div id="optop" class="optop">
-                            <span>徐思涵天下第一美</span>
+                            <span>${User.userNickName}</span>
                             <span><a href="/user">个人主页</a></span>
                         </div>
                         <div class="opmiddle">
                             <div class="opimg">
-                                <a href="/user/statistics"><img src="/images/statistics.svg" alt="" srcset=""></a>
+                                <a href="/user/statistics"><img src="/images/common/statistics.svg" alt="" srcset=""></a>
                             </div>
                             <div class="opimg" style="margin: 0 5px;">
-                                <a href="/user/publishquiz"><img src="/images/record.svg" alt="" srcset=""></a>
+                                <a href="/user/publishquiz"><img src="/images/common/record.svg" alt="" srcset=""></a>
                             </div>
                             <div class="opimg">
-                                <a href="/user/myspace"><img src="/images/collection.svg" alt="" srcset=""></a>
+                                <a href="/user/myspace"><img src="/images/common/myspace.svg" alt="" srcset=""></a>
                             </div>
                             <div id="oplistone" class="oplist">
                                 <a href="/user/statistics">题库统计</a>
@@ -48,13 +48,13 @@
                                 <a href="/user/myspace">个人资料</a>
                             </div>
                             <div class="opimg">
-                                <a href="/user/directioncollector"><img src="/images/statistics.svg" alt="" srcset=""></a>
+                                <a href="/user/directioncollector"><img src="/images/common/school.svg" alt="" srcset=""></a>
+                            </div>
+                            <div class="opimg" style="margin: 0 5px;">
+                                <a href="/user/quizcollector"><img src="/images/common/quiz.svg" alt="" srcset=""></a>
                             </div>
                             <div class="opimg">
-                                <a href="/user/quizcollector"><img src="/images/statistics.svg" alt="" srcset=""></a>
-                            </div>
-                            <div class="opimg">
-                                <a href="/user/questioncollector"><img src="/images/statistics.svg" alt="" srcset=""></a>
+                                <a href="/user/questioncollector"><img src="/images/common/question.svg" alt="" srcset=""></a>
                             </div>
                             <div id="oplisttwo" class="oplist">
                                 <a href="/user/directioncollector">院系收藏</a>
@@ -63,8 +63,8 @@
                             </div>
                         </div>
                         <div class="opbottom" id="opbottom">
-                            <span><img src="/images/setting.svg"/><a href="/settings">用户设置</a></span>
-                            <span><img src="/images/out.svg"/><a href="/loginout">退出登陆</a></span>
+                            <span><img src="/images/common/setting.svg"/><a href="/user/settings">用户设置</a></span>
+                            <span><img src="/images/common/out.svg"/><a href="/loginout">退出登陆</a></span>
                         </div>
                     </div>
                 </span>
@@ -73,10 +73,10 @@
         </c:choose>
 
         <div class="search">
-            <form action="/search" method="get" onsubmit="return true">
+            <form action="/searchUser" method="post" onsubmit="return true">
                 <div class="text">
-                    <input type="text" name="keyword" placeholder="请输入内容"/>
-                    <button style="" type="submit" ><img src="/images/search.png"/></button>
+                    <input type="text" name="keyWord" placeholder="请输入内容"/>
+                    <button style="" type="submit" ><img src="/images/common/search.png"/></button>
                 </div>
 
             </form>
@@ -84,13 +84,16 @@
 
         <nav class="banner">
             <li>
-                <a href="/questionbank">题库</a>
+                <a href="/school/displaySchool">院校库</a>
             </li>
             <li>
-                <a href="/school">院校库</a>
+                <a href="/questionbank">优题库</a>
             </li>
             <li>
-                <a href="/community">优问答</a>
+                <a href="/quiz1">优问答</a>
+            </li>
+            <li>
+                <a href="/share">优共享</a>
             </li>
         </nav>
 

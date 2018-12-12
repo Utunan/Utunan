@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.utunan.mapper.questionbank.PublishDirectionCommentMapper">
+
+    <resultMap id="PublishDirectionCommentMap" type="com.utunan.pojo.inherit.questionbank.PublishDirectionComment">
+        <id property="directionCommentId" column="directionCommentId"/>
+        <result property="userId" column="userId"/>
+        <result property="directionId" column="directionId"/>
+        <result property="directionCommentContent" column="directionCommentContent"/>
+        <result property="directionCommentTime" column="directionCommentTime"/>
+        <result property="directionCommentPraiseCount" column="directionCommentPraiseCount"/>
+        <association property="user" javaType="com.utunan.pojo.base.user.User">
+            <id property="userId" column="userId"/>
+            <result property="userEmail" column="userEmail"/>
+            <result property="userTelephone" column="userTelephone"/>
+            <result property="userPassword" column="userPassword"/>
+            <result property="userIdentity" column="userIdentity"/>
+            <result property="examTime" column="examTime"/>
+            <result property="registerTime" column="registerTime"/>
+            <result property="userHeadImg" column="userHeadImg"/>
+            <result property="userNickName" column="userNickName"/>
+            <result property="userSchool" column="userSchool"/>
+            <result property="dreamSchool" column="dreamSchool"/>
+            <result property="userIntegral" column="userIntegral"/>
+        </association>
+    </resultMap>
+
+    <!--王碧云 修改点赞数-->
+    <update id="updateDirectionCommentPraiseCount" parameterType="java.lang.Long">
+        update direction_comment
+        set directionCommentPraiseCount=directionCommentPraiseCount+1
+        where directionCommentId=#{directionCommentId}
+    </update>
+    <!--王碧云 插入评论-->
+    <insert id="directionCommentContent" parameterType="com.utunan.pojo.base.questionbank.DirectionComment">
+        insert
+        into direction_comment(userId,directionId,directionCommentContent,directionCommentTime,directionCommentPraiseCount)
+        values (#{userId},#{directionId},#{directionCommentContent},#{directionCommentTime},#{directionCommentPraiseCount})
+    </insert>
+
+</mapper>

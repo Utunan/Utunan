@@ -49,10 +49,16 @@ http://www.springframework.org/schema/task/spring-task.xsd">
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/user/**"/>
-            <mvc:mapping path="/comment"/>
-            <mvc:mapping path="/comment1"/>
+            <mvc:mapping path="/answer"/>
+            <mvc:mapping path="/answer1"/>
+            <mvc:mapping path="/addDirectionCollector"/>
             <bean class="com.utunan.interceptor.user.UserSessionInterceptor">
             </bean>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/**"/>
+            <mvc:exclude-mapping path="/admin/login"/>
+            <bean class="com.utunan.interceptor.admin.AdminInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
 
@@ -71,8 +77,9 @@ http://www.springframework.org/schema/task/spring-task.xsd">
 	 <!--SpringMVC上传文件时，需要配置MultipartResolver处理器-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="UTF-8"/>
-        <!-- 指定所上传文件的总大小不能超过200KB。注意maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和 -->
-        <property name="maxUploadSize" value="200000"/>
+        <!-- 指定所上传文件的总大小不能超过400M。注意maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和 -->
+        <property name="maxUploadSize" value="400000000"/>
+        <property name="resolveLazily" value="true" />
     </bean>
-	
+
 </beans>

@@ -20,7 +20,7 @@
         <td>内容</td>
         <td>点赞数</td>
     </tr>
-    <c:forEach items="${childCommentList}" var="childcomment" >
+    <c:forEach items="${childAnswerList}" var="childcomment" >
         <tr>
             <td>${childcomment.commentTime}</td>
             <td>${childcomment.user.userNickName}</td>

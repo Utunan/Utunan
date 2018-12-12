@@ -14,11 +14,12 @@
     </style>
 </head>
 <body>
-    <div id="info">请等待3秒钟,谢谢~</div>
+<div id="info">请等待1秒钟,谢谢~</div>
 </body>
+
 <script>
     info = document.getElementById("info")
-    timer = 2;
+    timer = 1;
     setInterval(function () {
         info.innerHTML = "请等待" + timer + "秒钟,谢谢~";
         timer--;
@@ -27,6 +28,7 @@
     }, 1000)
     setTimeout(function () {
         window.location.href = "/homepage"
-    }, 3000);
+    }, 1000);
 </script>
+
 </html>

@@ -6,7 +6,6 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>欢迎来到Utunan</title>
     <link rel="stylesheet" href="css/common.css">
@@ -18,8 +17,8 @@
 <%@include file="common/header.jsp"%>
 <div class="container">
     <div class="imgsign">
-        徐思涵天下第一美<br/>
-        欧耶!
+        又回到最初的起点<br/>
+        记忆中你青涩的脸<br>
     </div>
     <div class="homepageimg">
         <img src="/images/homepage/homebanner.jpg" alt="" srcset="">
@@ -186,7 +185,7 @@
             </div>
             <p>漫漫考研路，这里有和你一样的志同道合者！考研经验交流、题目解惑、院校答疑，尽在此处。来这里与大家畅快交流！</p>
             <div class="commoncon">
-                <div class="comment">
+                <div class="answer">
                     <p style="margin-top:30px;">13:15 网友“杀鲨鱼”提问：</p>
                     <p style="font-size: 15px;">《C语言中双向队列链表应该如何遍历？》</p>
                     <p>标签 【数据结构】 【 链表】 </p>
@@ -214,5 +213,5 @@
 </div>
 <%@include file="common/footer.jsp"%>
 </body>
-<script src="/js/common.js"></script>
+<script src="/js/common/common.js"></script>
 </html>

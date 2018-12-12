@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.utunan.mapper.admin.AdminQuestionMapper">
+    <select id="selectAllDS" resultType="com.utunan.pojo.base.questionbank.Question">
+        select *
+        from question
+        where subjectId=1
+    </select>
+
+    <select id="selectAllC" resultType="com.utunan.pojo.base.questionbank.Question">
+        select *
+        from question
+        where subjectId=2
+    </select>
+
+    <select id="selectAllOS" resultType="com.utunan.pojo.base.questionbank.Question">
+        select *
+        from  question
+        where subjectId=3
+    </select>
+    <select id="selectAllConstitute" resultType="com.utunan.pojo.base.questionbank.Question">
+        select *
+        from  question
+        where subjectId=4
+    </select>
+    <select id="selectAllNetwork" resultType="com.utunan.pojo.base.questionbank.Question">
+        select *
+        from  question
+        where subjectId=5
+    </select>
+    <select id="selectAllSE" resultType="com.utunan.pojo.base.questionbank.Question">
+        select *
+        from  question
+        where subjectId=6
+    </select>
+
+    <select id="selectQuestionByKeyword" resultType="com.utunan.pojo.base.questionbank.Question">
+        select *
+        from question
+    </select>
+</mapper>

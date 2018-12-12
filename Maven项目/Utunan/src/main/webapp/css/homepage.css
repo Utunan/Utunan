@@ -3,12 +3,29 @@
     position: absolute;
 }
 header{
-    background: rgba(0,0,0,0.7);
+    background: rgba(57,61,73,1);
+
+    color: #fff;
+}
+header a{
+    color:#fff;
+}
+.header .banner a:link, .header .banner a:hover, .header .banner a:visited {
+    color: #fff;
+}
+.header .login a:link, .header .login a:hover, .header .login a:visited{
+    color:#fff;
+}
+.loginname{
+    color: #fff;
 }
 .homepageimg{
     width: 100%;
+    float: left;
+
 }
 .homepageimg>img{
+    float:left;
     width: 100%;
 }
 .propaganda{
@@ -40,7 +57,7 @@ header{
     text-align: center;
     float: left;
     text-decoration: none;
-    color:#000;
+    color: #000000;
     font-weight: bold;
     font-size: 20px;
 }
@@ -77,14 +94,22 @@ header{
 
 .imgsign{
     font-weight: bold;
-    font-size: 35px;
+    font-size: 30px;
     position: absolute;
-    left: 100px;
-    line-height: 60px;
+    left: 400px;
+    line-height: 45px;
     text-align: center;
-    top:180px;
+    top:200px;
+    color:#fff;
 }
-
+.imgsign>span{
+    font-size: 35px;
+    color:#fff;
+    margin:0 10px 0 20px ;
+    font-weight: 600;
+    padding:5px;
+    background-color:rgba(0,0,0,0.6);
+}
 .questionbank{
     clear: both;
     width: 100%;
@@ -329,4 +354,30 @@ header{
     width: 150px;
     left:670px;
     position: relative;
+}
+
+.answer{
+    width: 300px;
+    background-color:  rgba(67, 126, 170, 1);
+    color: #fff;
+    text-indent: 1em;
+    font-weight: bold;
+    padding-top:10px;
+    height: 170px;
+    border-radius: 20px;
+    float: left;
+}
+
+.qbmiddle>p {
+        font-size: 15px;
+        line-height: 2;
+}
+.schoolsearch h2 {
+    color: white;
+}
+.schoolsearch form>span {
+    color: white;
+    font-size: 16px;
+    width: 200px;
+    padding-right: 20px;
 }

@@ -1,21 +1,21 @@
 *{
-	letter-spacing:0.5px;
-	font-family:"SimHei",黑体；
+    letter-spacing:0.5px;
+    font-family:"SimHei",黑体；
 }
 body{
-	background-color: #fafafa;
+    background-color: #fafafa;
 }
 .content{
-	margin: 0 auto;
-	width: 1000px;
+    margin: 0 auto;
+    width: 1000px;
     padding-top: 80px;
 }
 .question{
     width: 1000px;
     background-color: #ffffff;
-    border-style:solid; 
-	border-width:2px; 
-	border-color:#e5e5e5;
+    border-style:solid;
+    border-width:2px;
+    border-color:#e5e5e5;
 }
 .post-top{
     height: 40px;
@@ -37,10 +37,10 @@ body{
     color: #505050;
 }
 .post-information img{
-    border-radius: 17px; 
+    border-radius: 17px;
     margin-top: 2px;
     float: left;
-}  
+}
 .post-information a{
     color: #383838;
     font-size: 15px;
@@ -57,16 +57,17 @@ body{
     width: 950px;
     height: 30px;
     margin: 0 auto;
+    margin-top: 20px;
 }
 .post-tags a{
-	float: left;
-	margin-right: 20px;
-	color: #a6a6a6;
-	border-radius: 12px;
-	border-style:solid; 
-	border-width:1px; 
-	border-color:#a6a6a6;
-	text-align: center;
+    float: left;
+    margin-right: 20px;
+    color: #a6a6a6;
+    border-radius: 12px;
+    border-style:solid;
+    border-width:1px;
+    border-color:#a6a6a6;
+    text-align: center;
     display:table;
     text-decoration: none;
     padding-bottom: 2px;
@@ -88,8 +89,8 @@ body{
     margin-top: 20px;
 }
 .praise{
-    line-height: 35px;  
-    float: left; 
+    line-height: 35px;
+    float: left;
     font-weight: bolder;
     color: #f2858e;
     font-size: 14px;
@@ -102,21 +103,21 @@ body{
     color: #64a6a6a6;
     line-height: 35px;
     font-size: 14px;
-    float: left; 
+    float: left;
     margin-left: 7px;
 }
 .collection{
     color: #64a6a6a6;
     line-height: 35px;
     font-size: 14px;
-    float: left; 
+    float: left;
     margin-left: 7px;
 }
 .write-reply{
     color: #64a6a6a6;
     line-height: 35px;
     font-size: 14px;
-    float: left; 
+    float: left;
     margin-left: 7px;
 }
 .answers{
@@ -124,9 +125,9 @@ body{
     width: 1000px;
     height: 40px;
     background-color: #ffffff;
-    border-style:solid; 
-	border-width:2px; 
-	border-color:#e5e5e5;
+    border-style:solid;
+    border-width:2px;
+    border-color:#e5e5e5;
 }
 .answers-num{
     float: left;
@@ -150,13 +151,13 @@ body{
     margin-top: 20px;
     width: 1000px;
     background-color: #ffffff;
-    border-style:solid; 
-	border-width:2px; 
-	border-color:#e5e5e5;
+    border-style:solid;
+    border-width:2px;
+    border-color:#e5e5e5;
 }
 .reply{
     width: 1000px;
-    border-style:solid; 
+    border-style:solid;
     border-width:0px 0px 1px 0px;
     border-color:#e5e5e5;
 }
@@ -177,12 +178,12 @@ body{
     float: left;
 }
 .reply-top-center a{
-   line-height: 25px;
-   margin-left: 10px;
-   color: #383838;
-   font-weight: bold;
-   text-decoration: none;
-   
+    line-height: 25px;
+    margin-left: 10px;
+    color: #383838;
+    font-weight: bold;
+    text-decoration: none;
+
 }
 .description{
     height: 30px;
@@ -216,8 +217,8 @@ body{
 }
 .reply-content p{
     color: rgba(0, 0, 0, 1);
-	font-size: 14px;
-	line-height: 200%;
+    font-size: 14px;
+    line-height: 200%;
 }
 .reply-evaluation{
     width: 950px;
@@ -230,7 +231,7 @@ body{
     float: right;
 }
 .reply-praise{
-    line-height: 35px;  
+    line-height: 35px;
     font-weight: bolder;
     color: #f2858e;
     font-size: 14px;
@@ -263,7 +264,7 @@ body{
 }
 .page a{
     padding: 5px;
-	border: rgba(9, 198, 217, 1) solid 1px;
+    border: rgba(9, 198, 217, 1) solid 1px;
     text-align: center;
     font-size: 14px;
     text-decoration: none;
@@ -272,8 +273,8 @@ body{
 .write-answer{
     width: 1000px;
     height: 280px;background-color: #ffffff;
-    border-style:solid; 
-	border-width:2px; 
+    border-style:solid;
+    border-width:2px;
     border-color:#e5e5e5;
     margin-top: 25px;
 }
@@ -289,7 +290,7 @@ body{
 .write-answer-top-word{
     float: left;
     font-size: 14px;
-	line-height: 150%;
+    line-height: 150%;
     font-weight: bold;
     color: #0cc8d9;
     margin-left: 5px;
@@ -303,7 +304,7 @@ body{
 .toolbar{
     width: 950px;
     height: 40px;
-    border-style:solid; 
+    border-style:solid;
     border-width:0px 0px 1px 0px;
     border-color:#e5e5e5;
 }

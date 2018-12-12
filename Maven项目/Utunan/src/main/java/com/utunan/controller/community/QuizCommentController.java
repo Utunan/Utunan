@@ -1,19 +1,24 @@
 package com.utunan.controller.community;
 
-import com.utunan.pojo.community.Comment;
-import com.utunan.pojo.community.Quiz;
-import com.utunan.pojo.community.QuizTag;
-import com.utunan.pojo.util.BigQuiz;
+import com.github.pagehelper.PageInfo;
+import com.utunan.pojo.base.community.*;
+
+import com.utunan.pojo.base.user.User;
+import com.utunan.pojo.inherit.community.PublishQuiz;
+
+import com.utunan.pojo.inherit.community.BigQuiz;
+
 import com.utunan.pojo.util.Page;
-import com.utunan.service.community.CommentService;
-import com.utunan.service.community.QuizService;
-import com.utunan.service.community.QuizTagService;
+import com.utunan.service.community.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 王碧云
@@ -28,7 +33,11 @@ public class QuizCommentController {
     @Autowired
     private QuizTagService quizTagService;
     @Autowired
-    private CommentService commentService;
+    private AnswerService answerService;
+    @Autowired
+    private PublishQuizService publishQuizService;
+    @Autowired
+    private AnswerGreatService answerGreatService;
     /*
      * @author  王碧云
      * @description 返回对应QuizId对应的问题页面的值(默认按照时间排序)(分页)
@@ -37,22 +46,10 @@ public class QuizCommentController {
      * @return  java.lang.String
      */
     @RequestMapping("/displayQuizByQuizId")
-    public String displayQuizByQuizId(HttpServletRequest request){
+    public String displayQuizByQuizId(HttpServletRequest request, HttpSession session){
         String url = "displayQuizByQuizId";
-        String quizId = request.getParameter("quizId");
-        //根据quizId返回quiz
-        Quiz quiz = this.quizService.findQuizById(Long.parseLong(quizId));
-        //根据quizId返回标签
-        List<QuizTag> quizTagList =this.quizTagService.findQuizTagByQuizId(Long.parseLong(quizId));
-        //根据quizId返回评论数量
-        Long commentCountByQuizId = this.quizService.countCommentByQuizId(Long.parseLong(quizId));
-        //根据quizId返回评论列表(根据时间排序)
-        List<Comment> commentListByQuizId = this.commentService.findCommentListByQuizId(Long.parseLong(quizId));
-
         //获取页数
         String pageNum=request.getParameter("pageNum");
-        //提问评论的数量(quizId父级为null的评论数)
-        Long quizNumber = this.quizService.countCommentByQuizId(Long.parseLong(quizId));
         //判断当前页
         int num=0;
         if(pageNum==null || pageNum.equals("")){
@@ -60,19 +57,47 @@ public class QuizCommentController {
         }else{
             num=Integer.parseInt(pageNum);
         }
-        //封装分页
-        Page<BigQuiz> p = new Page<>(num, 6);
-        p.setTotalCount(quizNumber);
+
+        String quizId = request.getParameter("quizId");
+        //根据quizId返回quiz
+        Quiz quiz = this.quizService.findQuizById(Long.parseLong(quizId));
+        //根据quizId返回标签
+        List<QuizTag> quizTagList =this.quizTagService.findQuizTagByQuizId(Long.parseLong(quizId));
+        //根据quizId返回评论数量
+        Long answerCountByQuizId = this.publishQuizService.countAnswerByQuizId(Long.parseLong(quizId));
+        //根据quizId返回评论列表(根据时间排序)
+        List<Answer> answers=answerService.findAnswerListByQuizId(num,6,Long.parseLong(quizId));
+        Map<Answer,List<Answer>> map=new HashMap<>();
+        Map<Answer,Long>map0=new HashMap<>();
+
+        Answer[] a=new Answer[answers.size()];
+        answers.toArray(a);
+        for (int i=0;i<a.length;i++){
+            //根据answerId返回子评论按时间查询
+            List<Answer> childAnswerList = this.answerService.findChildAnswerListByAnswerId(a[i].getAnswerId());
+            //根据answerId返回子评论数量
+            Long childAnswerCount=this.answerService.findchildAnswerCount(a[i].getAnswerId());
+            map.put(a[i],childAnswerList);
+            map0.put(a[i],childAnswerCount);
+        }
+
+
+
+        //List<Answer> childAnswerList = this.answerService.findChildAnswerListByAnswerId(Long.parseLong(answerId));
+
         request.setAttribute("quizTagList", quizTagList);
-        request.setAttribute("quiz", quiz);
-        request.setAttribute("commentCountByQuizId", commentCountByQuizId);
-        request.setAttribute("commentListByQuizId", commentListByQuizId);
+        session.setAttribute("quiz", quiz);
+        request.setAttribute("answerCountByQuizId", answerCountByQuizId);
         request.setAttribute("url", url);
         request.setAttribute("timeselect","selected=\"selected\"");
-
+        request.setAttribute("answer",answers);
+        request.setAttribute("map",map);
+        request.setAttribute("map0",map0);
+        request.setAttribute("PageInfo",new PageInfo(answers,5));
+        //request.setAttribute("childAnswerList", childAnswerList);
         return "community/quizcommentpage";
     }
-
+    
     /*
      * @author  王碧云
      * @description 跳转返回子评论
@@ -80,14 +105,14 @@ public class QuizCommentController {
      * @param  [request]
      * @return  java.lang.String
      */
-    @RequestMapping("/displayChildComment")
+    @RequestMapping("/displayChildAnswer")
     public String displayChildComment(HttpServletRequest request){
-        String commentId = request.getParameter("commentId");
+        String answerId = request.getParameter("answerId");
         //根据commentId返回子评论
-        List<Comment> childCommentList = this.commentService.findChildCommentListByCommentId(Long.parseLong(commentId));
+        List<Answer> childAnswerList = this.answerService.findChildAnswerListByAnswerId(Long.parseLong(answerId));
     
-        request.setAttribute("childCommentList", childCommentList);
-        System.out.println("[childComment]"+childCommentList);
+        request.setAttribute("childAnswerList", childAnswerList);
+        System.out.println("[childAnswer]"+ childAnswerList);
     
         return "community/childcomment";
     }
@@ -100,23 +125,77 @@ public class QuizCommentController {
      * @return  java.lang.String
      */
     @RequestMapping("/displayCommentByPraiseCount")
-    public String displayCommentByPraiseCount(HttpServletRequest request){
+    public String displayCommentByPraiseCount(HttpServletRequest request,HttpSession session){
+        //获取页数
+        String pageNum=request.getParameter("pageNum");
+        //判断当前页
+        int num=0;
+        if(pageNum==null || pageNum.equals("")){
+            num=1;
+        }else{
+            num=Integer.parseInt(pageNum);
+        }
         String quizId = request.getParameter("quizId");
         //根据quizId返回quiz
         Quiz quiz = this.quizService.findQuizById(Long.parseLong(quizId));
         //根据quizId返回标签
         List<QuizTag> quizTagList =this.quizTagService.findQuizTagByQuizId(Long.parseLong(quizId));
         //根据quizId返回评论数量
-        Long commentCountByQuizId = this.quizService.countCommentByQuizId(Long.parseLong(quizId));
+        Long answerCountByQuizId = this.publishQuizService.countAnswerByQuizId(Long.parseLong(quizId));
         //根据quizId返回评论列表(根据热度排序)
-        List<Comment> commentListByQuizId = this.commentService.findCommentListByPraiseCount(Long.parseLong(quizId));
+        List<Answer> answers = this.answerService.findAnswerListByPraiseCount(num,6,Long.parseLong(quizId));
+
+        Map<Answer,List<Answer>> map=new HashMap<>();
+        Map<Answer,Long>map0=new HashMap<>();
+
+        Answer[] a=new Answer[answers.size()];
+        answers.toArray(a);
+        for (int i=0;i<a.length;i++){
+            //根据answerId返回子评论按热度查询
+            List<Answer> childAnswerList = this.answerService.findChildAnswerListByCount(a[i].getAnswerId());
+            //根据answerId返回子评论数量
+            Long childAnswerCount=this.answerService.findchildAnswerCount(a[i].getAnswerId());
+            map.put(a[i],childAnswerList);
+            map0.put(a[i],childAnswerCount);
+        }
+
     
         request.setAttribute("quizTagList", quizTagList);
-        request.setAttribute("quiz", quiz);
-        request.setAttribute("commentCountByQuizId", commentCountByQuizId);
-        request.setAttribute("commentListByQuizId", commentListByQuizId);
+        session.setAttribute("quiz", quiz);
+        request.setAttribute("answerCountByQuizId", answerCountByQuizId);
         request.setAttribute("praiseselect","selected=\"selected\"");
+        request.setAttribute("answer",answers);
+        request.setAttribute("map",map);
+        request.setAttribute("map0",map0);
+        request.setAttribute("PageInfo",new PageInfo(answers,5));
     
         return "community/quizcommentpage";
+    }
+
+
+    /*
+     * @author  张正扬
+     * @description 给回答点赞
+     * @date  21:26 2018/11/27
+     * @param  request
+     * @return  String
+     */
+    @RequestMapping(value = "/aprise")
+    public String praiseQuiz(HttpServletRequest request,HttpSession session){
+        String answerId=request.getParameter("answerId");
+        Quiz quiz=(Quiz)session.getAttribute("quiz");
+        User user=(User)session.getAttribute("User");
+        //到回答评论点赞表进行查询是否有记录
+        AnswerGreat answerGreat =answerGreatService.getAnswerGreat(Long.parseLong(answerId),user.getUserId());
+        if(answerGreat==null){
+            answerGreatService.addAnswerGreat(Long.parseLong(answerId),user.getUserId());
+            this.answerService.praiseAnswer(Long.parseLong(answerId));
+        }
+        else {
+            answerGreatService.delAnswerGreat(Long.parseLong(answerId),user.getUserId());
+            this.answerService.delPraiseAnswer(Long.parseLong(answerId));
+        }
+
+        return "redirect:/displayQuizByQuizId?quizId="+quiz.getQuizId();
     }
 }
