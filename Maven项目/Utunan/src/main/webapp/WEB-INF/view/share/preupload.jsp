@@ -108,7 +108,7 @@
                   <i class="layui-icon"></i>
                   <p >点击上传，或将文件拖拽到此处</p>
                 </div>
-                <P id="demoText"></P>
+                <p id="demoText"></p>
               </div>
               <div class="layui-form-item">
                 <div class="layui-inline">
@@ -323,31 +323,7 @@ layui.use('upload', function(){
     }
   });*/
     //普通图片上传
-    var uploadInst = upload.render({
-      elem: '#test10'
-      , url: '/upload'    //服务器地址
-      , accept: 'file' //允许所有类型文件上传
-      , auto: false     //不允许文件自动上传
-      , bindAction: '#submit'   //指向按钮触发上传
-      , size: 200000    //设置最大上传大小为200MB
-      , drag: true       //接受拖拽文件上传
-      , before: function (obj) {
-        //预读本地文件示例，不支持ie8
-        obj.preview(function (index, file, result) {
-          $('#test10').attr('src', result);      //得到文件base64编码，
-        });
-      }
-      , error: function () {
-        //演示失败状态，并实现重传
-        var demoText = $('#demoText');
-        demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
-        demoText.find('.demo-reload').on('click', function () {
-          //实现重传
-          uploadInst.upload();
-        });
-      }
-    });
-  });
+
 </script>
 
 </body>

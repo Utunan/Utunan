@@ -17,6 +17,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 
+import static java.lang.System.out;
+
 /**
  * @author 张正扬
  * @description: TODO
@@ -31,16 +33,21 @@ public class ShareController {
     @ResponseBody
     public JSONObject uploadfile(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
 
-            String rootPath = request.getSession().getServletContext().getRealPath("/");
-            System.out.print(rootPath);
-            JSONObject resObj = new JSONObject();
-            resObj.put("msg", "ok");
-            try {
-                FileCopyUtils.copy(file.getBytes(), new File(rootPath, file.getOriginalFilename()));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        String sourcetype=request.getParameter("sourcetype");
+        System.out.println(sourcetype);
 
-            return resObj;
-        }
+
+        String rootPath = request.getSession().getServletContext().getRealPath("/");
+        System.out.print(rootPath);
+        JSONObject resObj = new JSONObject();
+        resObj.put("msg", "ok");
+//        try {
+//            FileCopyUtils.copy(file.getBytes(), new File(rootPath, file.getOriginalFilename()));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+        return resObj;
+    }
+
 }
