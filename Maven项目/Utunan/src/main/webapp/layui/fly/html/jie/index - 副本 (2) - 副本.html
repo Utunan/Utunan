@@ -1,0 +1,62 @@
+ 
+ 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>基于 layui 的极简社区页面模版</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="fly,layui,前端社区">
+  <meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
+  <link rel="stylesheet" href="../../res/layui/css/layui.css">
+  <link rel="stylesheet" href="../../res/css/global.css">
+  <link rel="stylesheet" href="../css/school/file.css">
+</head>
+<body>
+<div class="layui-container">
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-md8">
+      <div class="fly-panel" style="margin-bottom: 0;">
+      
+      </div><!--下边这-->
+    </div><!--左边这-->
+    <div class="layui-col-md4">
+      上传须知
+      • 如涉及侵权内容,您的资源将被移除
+      • 请勿上传小说、mp3、图片等与技术无关的内容.一旦发现将被删除
+      • 请勿在未经授权的情况下上传任何涉及著作权侵权的资源，除非该资源完全由您个人创作
+      • 点击上传资源即表示您确认该资源不违反资源分享的使用条款，并且您拥有该资源的所有版权或者上传资源的授权
+      • 您上传的资源如果因版权、使用、内容完整度 等原因被举报并通过官方审核，将扣除通过该资源获得的全部积分
+    </div><!--右边这-->
+  </div>
+</div>
+
+<div class="fly-footer">
+  <p><a href="http://fly.layui.com/" target="_blank">Fly社区</a> 2017 &copy; <a href="http://www.layui.com/" target="_blank">layui.com 出品</a></p>
+  <p>
+    <a href="http://fly.layui.com/jie/3147/" target="_blank">付费计划</a>
+    <a href="http://www.layui.com/template/fly/" target="_blank">获取Fly社区模版</a>
+    <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+  </p>
+</div>
+
+<script src="../../res/layui/layui.js"></script>
+<script>
+layui.cache.page = 'jie';
+layui.cache.user = {
+  username: '游客'
+  ,uid: -1
+  ,avatar: '../../res/images/avatar/00.jpg'
+  ,experience: 83
+  ,sex: '男'
+};
+layui.config({
+  version: "3.0.0"
+  ,base: '../../res/mods/'
+}).extend({
+  fly: 'index'
+}).use('fly');
+</script>
+
+</body>
+</html>
