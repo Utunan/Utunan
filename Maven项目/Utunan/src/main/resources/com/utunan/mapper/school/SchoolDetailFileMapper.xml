@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.utunan.mapper.share.ShareIndexMapper">
-    <resultMap id="fileResultMap" type="com.utunan.pojo.base.share.File">
+<mapper namespace="com.utunan.mapper.school.SchoolDetailFileMapper">
+
+    <resultMap id="schoolFileResultMap" type="com.utunan.pojo.base.share.File">
         <id property="fileId" column="fileId"/>
         <result property="quizTitle" column="quizTitle"/>
         <result property="userId" column="userId"/>
@@ -34,52 +35,25 @@
             <result property="imgUrl" column="imgUrl"/>
         </association>
     </resultMap>
-    <!--按上传时间查询文件-->
-    <select id="listFileByTime" resultMap="fileResultMap">
+
+    <!--查找今年的招生简章-->
+    <select id="findEGThisYear" resultMap="schoolFileResultMap">
         select *
         from file f
         join user u on f.userId=u.userId
         join suffix s on f.suffixId=s.suffixId
-        where f.isExamine=1
-        order by f.fileTime desc
+        where
+        fileType=#{fileType} and fileSchool=#{fileSchool} and fileTitle like CONCAT('%','${year}','%' )
     </select>
-    <!--按下载数量查询前15个文件-->
-    <select id="listHotFile" resultMap="fileResultMap">
+
+    <!--查找往年的招生简章-->
+    <select id="findEGFormerYears" resultMap="schoolFileResultMap">
         select *
         from file f
         join user u on f.userId=u.userId
         join suffix s on f.suffixId=s.suffixId
-        where f.isExamine=1
-        order by f.downloadNumber desc
-        limit 15
+        where
+        fileType=#{fileType} and fileSchool=#{fileSchool}
     </select>
-    <!--查询学校地区-->
-    <select id="listSchoolProvince" resultType="java.lang.String">
-        select schoolProvince
-        from school
-        group by schoolProvince
-    </select>
-    <!--查询学校-->
-    <select id="listSchool" resultType="com.utunan.pojo.base.school.School">
-        select *
-        from school
-    </select>
-    <!--根据条件筛选文件-->
-    <select id="selectFile" resultMap="fileResultMap">
-        select *
-        from file f
-        join user u on f.userId=u.userId
-        join suffix s on f.suffixId=s.suffixId
-        where f.fileSchool like #{fileSchool}
-        and f.fileTitle REGEXP #{keyWord}
-        and f.fileType in
-        <if test="fileType!=null">
-            <foreach collection="fileType" item="item" index="index" open="(" separator="," close=")">
-              #{item}
-            </foreach>
-        </if>
-        <if test="fileType==null">
-            ('招生简章','考研真题','招生专业目录','备考习题','参考书目','课件分享')
-        </if>
-    </select>
+
 </mapper>

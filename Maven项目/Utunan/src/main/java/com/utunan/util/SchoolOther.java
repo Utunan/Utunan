@@ -1,10 +1,12 @@
 package com.utunan.util;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * @author 王碧云
- * @description: 一些关于院校库会用到的方法
+ * @description: 一些关于院校库和详情页会用到的方法
  * @date 2018/12/6/006 17:40
  */
 public class SchoolOther {
@@ -59,4 +61,24 @@ public class SchoolOther {
         return list;
     }
 
+    /*
+     * @author  王碧云
+     * @description 设置招生简章的年份，如果当前月份大于9月，则年份为当前年份，如果月份小于9月，则年份-1
+     * @date  15:18 2018/12/12/012
+     * @param  []
+     * @return  java.lang.String
+     */
+    public String theYear(){
+        //确定当前的年份和月份
+        SimpleDateFormat sdfyear = new SimpleDateFormat("yyyy");
+        SimpleDateFormat sdfmonth = new SimpleDateFormat("MM");
+        Date date = new Date();
+        String year = sdfyear.format(date);
+        String month = sdfmonth.format(date);
+        //如果月份大于九月，显示今年的招生简章，如果小于九月，显示去年的招生简章
+        if(Integer.parseInt(month)<9){
+            year = String.valueOf(Integer.parseInt(year)-1);
+        }
+        return year;
+    }
 }

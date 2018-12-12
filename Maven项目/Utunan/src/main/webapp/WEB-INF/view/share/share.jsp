@@ -49,7 +49,7 @@
     <div STYLE="width: 1000px">
         <form name="form1" action="/searchfile" method="post">
             <br>
-            <input type="checkbox" name="fileType" value="." id="全部" checked="checked">全部
+            <input type="checkbox" name="fileType" value="全部" id="全部" checked="checked">全部
             <input type="checkbox" name="fileType" value="招生简章" id="招生简章">招生简章
             <input type="checkbox" name="fileType" value="招生专业目录" id="招生专业目录">招生专业目录
             <input type="checkbox" name="fileType" value="考研真题" id="考研真题">考研真题

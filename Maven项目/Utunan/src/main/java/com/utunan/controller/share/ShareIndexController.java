@@ -8,6 +8,7 @@ import com.utunan.service.share.ShareIndexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -54,14 +55,12 @@ public class ShareIndexController {
 	}
 
 	@RequestMapping("searchfile")
-	public String searchFile(HttpServletRequest request){
-		//文件类型
-		String[] fileType = request.getParameterValues("fileType");
-
-		List<String> fileTypes=new ArrayList<>(fileType.length);
-		Collections.addAll(fileTypes,fileType);
+	public String searchFile(HttpServletRequest request, @RequestParam(value = "fileType",required = false) String[] fileType){
 		//文件所属学校
 		String fileSchool = request.getParameter("school");
+		if(fileSchool==null || fileSchool.equals("")){
+			fileSchool = "%";
+		}
 		//当前页码
 		String pageNum=request.getParameter("pageNum");
 		//判断当前页
@@ -88,7 +87,7 @@ public class ShareIndexController {
 			}
 		}
 		//文件列表
-		List<File> fileList = this.shareIndexService.selectFile(fileTypes, fileSchool, keyWords, num, 10);
+		List<File> fileList = this.shareIndexService.selectFile(fileType, fileSchool, keyWords, num, 10);
 		//热门文件
 		List<File> hotFileList = this.shareIndexService.listHotFile();
 		//学校地区
@@ -119,4 +118,5 @@ public class ShareIndexController {
 		request.setAttribute("schoolList", schoolList);
 		return "share/upload";
 	}
+
 }

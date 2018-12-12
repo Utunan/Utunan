@@ -1,6 +1,5 @@
 /* 全局 */
 html,body{overflow-x: hidden;}
-html body{margin-top: 61px;}
 html{background-color: #F2F2F2;}
 i{font-style: normal;}
 
@@ -88,8 +87,9 @@ pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid 
 
 .layui-container{padding: 0;}
 .fly-main{width: 1079px; min-height: 600px; margin: 0 auto 15px;}
-.layui-badge{height: 20px; line-height: 20px; border-radius: 2px;}
-
+.layui-badge{height: 20px; line-height: 20px; border-style: solid;border-color: #dfdfdf;border-width: 1px;}
+.layui-badge a{color:darkgray;}
+.layui-badge a:hover{color: #FF5722;}
 .fly-link{color: #01AAED;}
 .fly-link:hover{color: #5FB878;}
 .fly-grey{color: #999;}
@@ -120,7 +120,7 @@ pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid 
 .fly-zanzhu:hover{opacity: 0.9; color: #fff;}
 
 
-.tag{ width:120px;display: block; background-color: #009688;color: #fff; margin:5px 15px; font-size: 14px;padding: 5px;float: left; border-radius: 18px;text-align: center;}
+.tag{ width:110px;display: block; background-color: #009688;color: #fff; margin: 5px 5px; font-size: 13px;padding: 5px;float: left; border-radius: 18px;text-align: center;}
 /* 图标 */
 .icon-touxiang{display: inline-block; font-size: 34px;}
 .icon-qq, .icon-weibo{font-size: 30px;}
@@ -169,9 +169,9 @@ pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid 
 .fly-union span a:hover{text-decoration: underline;}
 
 /* 面板 */
-.fly-panel{margin-bottom: 15px; border-radius: 2px; background-color: #fff; box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);}
-.fly-panel[pad20]{padding: 50px;}
-.fly-panel-title{position: relative; height: 50px; line-height: 50px; padding: 0 15px; border-bottom: 1px dotted #E9E9E9; color: #333; border-radius: 2px 2px 0 0; font-size: 14px;}
+.fly-panel{margin-bottom: 15px;margin-top: 10px; border-radius: 2px; background-color: #fff; box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);}
+.fly-panel[pad20]{padding: 20px;}
+.fly-panel-title{position: relative; height: 60px; line-height: 60px; padding: 0 15px; border-bottom: 1px dotted #E9E9E9; color: #333; border-radius: 2px 2px 0 0; font-size: 14px;}
 .fly-panel-main{padding: 10px 15px;}
 /* 专栏 */
 .fly-column{height: 50px; line-height: 50px;}
@@ -191,7 +191,7 @@ pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid 
 .fly-layer-search input{height: 75px; line-height: 75px; width: 500px; padding: 0 15px; font-size: 20px; border: none 0; background: none;}
 
 /* 筛选 */
-.fly-filter a{padding: 0 8px; color: #666;}
+.fly-filter a{padding: 0 8px;}
 .fly-filter a.layui-this{color: #5FB878;}
 .fly-filter .fly-mid{margin: 0 8px;}
 .fly-filter-right{position: absolute; right: 10px; top: 0;}
@@ -223,7 +223,7 @@ pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid 
 .fly-edit span:hover{color: #5DB276;}
 
 /* 列表 */
-.fly-list li{position: relative; height: auto; line-height: 22px; padding: 15px 15px 15px 75px; border-bottom: 1px dotted #e2e2e2;}
+.fly-list li{position: relative; height: auto; line-height: 22px;padding: 12px 15px 20px 75px; border-bottom: 1px dotted #e2e2e2;}
 .fly-list li:last-child{border-bottom: none;}
 .fly-list li h2,
 .fly-list li h2 a,
@@ -239,11 +239,10 @@ pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid 
 .fly-list-info .icon-renzheng{position: relative; top: 1px; margin-right: 3px;}
 .fly-list-info .fly-badge-vip{position: relative; margin-left: 2px;}
 .fly-list-kiss{color: #FF5722;}
-.fly-list-nums{position: absolute; right: 0; top: 0; padding-right: 0!important;}
-.fly-list-nums i{position: relative; padding: 0 3px 0 15px;}
+.fly-list-nums i{position: relative; padding: 0 3px;}
 
 .fly-list-badge{position: absolute; right: 15px; top: 15px; font-size: 0;}
-.fly-list-badge .layui-badge{margin-left: 5px; border-radius: 2px; font-size: 12px;}
+.fly-list-badge .layui-badge{margin-left: 8px;border-radius: 5px; font-size: 12px;}
 
 /* 单行列表 */
 .fly-list-one .fly-panel-title{margin-bottom: 5px;}
@@ -330,7 +329,7 @@ body .layui-edit-face  .layui-layer-content{padding:0; background-color:#fff; co
 .detail-hits .layui-btn{border-radius: 0;}
 .detail-hits .layui-btn+.layui-btn{margin-left: 5px;}
 .detail-hits .jie-admin{margin-right: 1px;}
-.detail-body{margin: 20px 0 0; min-height: 306px; line-height: 26px; font-size: 16px; color: #333; word-wrap: break-word;}
+.detail-body{margin: 20px 0 0; position: relative;min-height: 150px; line-height: 26px; font-size: 16px; color: #333; word-wrap: break-word;}
 .detail-body p{margin-bottom:15px;}
 .detail-body a{color:#4f99cf;}
 .detail-body img{max-width: 100%; cursor: crosshair;}

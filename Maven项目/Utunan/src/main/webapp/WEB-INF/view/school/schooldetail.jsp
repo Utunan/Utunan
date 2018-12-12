@@ -87,16 +87,29 @@
           <li class="layui-timeline-item">
             <i class="layui-icon layui-timeline-axis"></i>
             <div class="layui-timeline-content layui-text">
-              <div class="layui-timeline-title">《2018年北京大学硕士研究生招生简章》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a>查看往年招生简章</a></div>
-              <!--如果数据库里有这里改为
-                <div class="layui-timeline-title">&nbsp;&nbsp;<a>查看《2018年北京大学硕士研究生招生简章》</a></div>
-              -->
+              <%--判断是否有今年的招生简章--%>
+              <c:choose>
+                <c:when test="${not empty EGfile}">
+                  <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/school/displayEG?schoolName=${publishDirection.schoolName}&fileType=招生简章">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>
+                </c:when>
+                <c:otherwise>
+                  <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生简章》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/school/displayEGFormerYears?schoolName=${publishDirection.schoolName}&fileType=招生简章">查看往年招生简章</a></div>
+                </c:otherwise>
+              </c:choose>
             </div>
           </li>
           <li class="layui-timeline-item">
             <i class="layui-icon layui-timeline-axis"></i>
             <div class="layui-timeline-content layui-text">
-              <div class="layui-timeline-title">&nbsp;&nbsp;<a>查看《2018年北京大学硕士研究生招生目录》</a></div>
+              <%--判断是否有今年的招生目录--%>
+              <c:choose>
+                <c:when test="${not empty AGfile}">
+                  <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/school/displayEG?schoolName=${publishDirection.schoolName}&fileType=招生专业目录">查看《${year}年${publishDirection.schoolName}硕士研究生招生目录》</a></div>
+                </c:when>
+                <c:otherwise>
+                  <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生目录》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/school/displayEGFormerYears?schoolName=${publishDirection.schoolName}&fileType=招生专业目录">查看往年招生目录</a></div>
+                </c:otherwise>
+              </c:choose>
             </div>
           </li>
         </ul>
@@ -162,7 +175,7 @@
       <dl class="fly-panel fly-list-one">
         <dt class="fly-panel-title">[${publishDirection.schoolName}]热门资料</dt>
         <dd>
-          <a href="">王碧云傻</a>
+          <a href="">王碧云真优秀</a>
           <span><i class="iconfont icon-pinglun1"></i> 16</span>
         </dd>
         <dd>
@@ -174,7 +187,7 @@
           <span><i class="iconfont icon-pinglun1"></i> 16</span>
         </dd>
         <dd>
-          <a href="">唐溪天下第一</a>
+          <a href="">唐溪大傻子</a>
           <span><i class="iconfont icon-pinglun1"></i> 16</span>
         </dd>
         <dd>
