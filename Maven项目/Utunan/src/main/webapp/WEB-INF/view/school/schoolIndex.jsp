@@ -84,10 +84,6 @@
                                     <input class="degree-all" name="degreeType" type="checkbox" value="" id="学位全部" checked="true"><label for="学位全部">全部</label>
                                     <input class="degree-part" name="degreeType" type="checkbox" value="学硕" id="学硕"><label for="学硕">学硕</label>
                                     <input class="degree-part" name="degreeType" type="checkbox" value="专硕" id="专硕"><label for="专硕">专硕</label>
-
-                                    <input name="degreeType" class="degree-all" type="checkbox" value="" id="学位全部" checked="true"><label for="学位全部">全部</label>
-                                    <input name="degreeType" class="degree-part" type="checkbox" value="学硕" id="学硕"><label for="学硕">学硕</label>
-                                    <input name="degreeType" class="degree-part" type="checkbox" value="专硕" id="专硕"><label for="专硕">专硕</label>
                                 </div>
                             </div>
                             <div class="options">
