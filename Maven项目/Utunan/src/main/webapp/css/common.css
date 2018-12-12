@@ -177,7 +177,7 @@ header {
     border:1px solid #CCCCCC;
     right: 20px;
     padding:0 10px 10px 10px;
-    background: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,1);
     height: 210px;
     width:220px;
     z-index:5;

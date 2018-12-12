@@ -54,7 +54,7 @@ header {
     font-size: 16px;
     margin-top:30px;
     text-align: center;
-    color:#009688;
+    color:rgba(0,188,155,1);
 }
 .countdown h5>span {
     padding:0 5px;
@@ -165,17 +165,17 @@ header {
 .userfunction>li:hover{
     width: 198px;
     padding-left: 20px;
-    color:rgba(0,150,136,1);
-    background-color:rgba(0,150,136,0.1);
-    border-right:2px solid rgba(0,150,136,1);
+    color:rgba(0,188,155,1);
+    background-color:rgba(0,188,155,0.1);
+    border-right:2px solid rgba(0,188,155,1);
 }
 .userfunction>a>li:hover{
 
     width: 198px;
     padding-left: 20px;
-    color:rgba(0,150,136,1);
-    background-color:rgba(0,150,136,0.1);
-    border-right:2px solid rgba(0,150,136,1);
+    color:rgba(0,188,155,1);
+    background-color:rgba(0,188,155,0.1);
+    border-right:2px solid rgba(0,188,155,1);
 }
 .userfunction>nav{
     clear: both;
@@ -197,9 +197,9 @@ header {
 }
 .userfunction nav>a>li:hover{
     width: 158px;
-    color:rgba(0,150,136,1);
-    background-color:rgba(0,150,136,0.1);
-    border-right:2px solid rgba(0,150,136,1);
+    color:rgba(0,188,155,1);
+    background-color:rgba(0,188,155,0.1);
+    border-right:2px solid rgba(0,188,155,1);
 }
 
 .mintitle{
@@ -216,16 +216,15 @@ header {
     text-align: center;
     width: 100%;
     float: left;
-    padding:10px 0px;
+    padding:5px 0px;
     margin:0;
     font-size: 20px;
     font-weight: bold;
     border-radius: 0px 0px 50px 0px;
-    background-size:20px;
-    border-bottom: 5px solid rgba(200, 208, 215, 0.7);
-    color: #fff;
-    background-color: rgba(0, 150, 136, 0.7);
-    margin-bottom: 20px;
+    background-size:18px;
+    color: rgba(0,188,155,1);
+    border-bottom: 1px solid #adadad;
+    /*background-color:#393D49;*/
 }
 .title>span{
     padding:10px 20px;

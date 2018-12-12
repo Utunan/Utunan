@@ -5,152 +5,104 @@
 }
 
 .publishreply>li {
-    width: 680px;
+    width: 600px;
     float: left;
-    min-height: 120px;
-    max-height: 120px;
-    border-bottom: 1px dotted;
+    padding: 0 40px;
+    min-height: 80px;
+    max-height: 80px;
+    border-bottom: 1px solid rgba(205, 185, 185, 0.28);
 }
-
-
-.replytop {
-    margin-top: 10px;
-    height: 50px;
-    width: 560px;
-    padding: 0 60px;
-    background: rgba(49, 126, 212, 0.1);
+.publishreply>li>img:first-of-type{
+    height:30px;
+    margin:25px 40px 25px 20px;
+    float:left;
 }
-
-.replycontent {
-    clear: both;
-    margin: 0px;
-    width: 560px;
-    padding:0 60px;
-    height: 60px;
-}
-
-.replypraise{
-    line-height: 20px;
-    width: 80px;
-    font-size: 13px;
-    height:20px;
+.publishreply>li>span:first-of-type {
     float: left;
-    margin: 20px 0px;
-    text-align: center;
-}
-
-.publishtime {
-    color: #2f90b9;
-    height: 26px;
-    line-height: 26px;
-    width: 100px;
-    float: left;
-}
-
-.replytitle {
-    height: 26px;
-    line-height: 26px;
-    text-align: left;
-    text-indent: 2em;
-    margin: 12px 0;
-    font-size: 13px;
-    overflow: hidden;
-    width: 380px;
-    float: left;
-}
-.replytitle>a {
-    color: rgba(128, 128, 128, 1);
-    text-decoration: none;
-    float: left;
-}
-.replytype {
-    height: 26px;
-    line-height: 26px;
-    text-align: center;
-    margin: 12px 0;
-    padding: 0 5px;
-    float: left;
-    width: 80px;
-    font-size:12px;
-    color: rgba(242, 133, 142, 1);
-    background-color: rgba(242, 133, 142, 0.2);
-}
-.newreply{
-    padding-left: 27px;
-    padding-right: 20px;
-    font-size: 15px;
-    height:20px;
-    margin: 20px 0px;
-    overflow: hidden;
-    width: 300px;
-    float: left;
-}
-.newreply>a{
-   text-decoration: none;
-   color:#2b1216;
-}
-.replytime{
-    line-height: 20px;
-    float: right;
-    height:20px;
-    width: 130px;
-    text-align: right;
-    font-size: 13px;
-    margin: 20px 0px;
-}
-.replydetails {
-    float: right;
-    height: 26px;
-    line-height: 26px;
-    text-align: center;
-    margin: 12px 0;
-    padding: 0 5px;
+    color: rgba(49, 136, 136, 1);
     font-size: 14px;
 }
 
-.replydetails>a{
-    color:rgba(128, 128, 128, 1);
+.publishreply>li>span:first-of-type>a {
+    color: rgba(49, 136, 136, 1);
     text-decoration: none;
-
 }
 
-.page {
-    clear: both;
-    padding: 15px 0 10px 0;
-    height: 30px;
-    width: auto;
-    text-align: center;
+.publishreply>li>span:last-of-type {
+
+    font-size: 14px;
+    float: right;
 }
 
-.page>li {
-    text-align: center;
-    display: inline-flex;
-    margin: 0 auto;
-    width: 30px;
-    padding: 3px 5px;
-    text-align: center;
-    border: 1px solid rgba(12, 200, 217, 1);
+.publishreply>li>span:last-of-type>a {
+    color: rgba(12, 200, 217, 1);
+    text-decoration: none;
 }
 
-.page>li>a {
-    width: 100%;
+.publishreply>li>div:first-of-type {
     float: left;
-    color: rgba(9, 198, 217, 1);
+    padding: 5px 0;
+}
+.posttop{
+    width: 500px;
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+}
+
+.posttitle {
+    color: #b7b7b5;
+    height: 25px;
+    line-height: 25px;
+    text-align: left;
+    margin: 0 auto;
+    width: 400px;
+    font-weight: bold;
+    float: left;
+}
+.posttitle>a{
     text-decoration: none;
+    color:#000;
+}
+.posttitle>a:hover{
+    color:rgba(0,150,136,1);
+}
+.postreply{
+    float: left;
+    font-size: 12px;
+    color: #ADADAD;
+    padding-bottom:0px;
+}
+.postreply a{
+    font-weight: bold;
+    text-decoration: none;
+    color: #7a7a7a;
 }
 
-.page>.home {
-    width: 60px;
+.postreply a:hover{
+    text-decoration: none;
+    color: #5776ff;
 }
 
-.page>.prev {
-    width: 60px;
+.postbottom{
+    float: left;
+    font-size: 12px;
+    color: #ADADAD;
 }
 
-.page>.next {
-    width: 60px;
+.postbottom>span{
+    margin:0 5px 0 8px;
 }
-
-.page>.tail {
-    width: 60px;
+.postbottom>span:first-of-type{
+    margin-left:0px;
+}
+/*.postbottom>span:last-of-type{*/
+/*margin-left: 50px;*/
+/*}*/
+.postbottom>span:last-of-type>a{
+    text-decoration: none;
+    color:#ADADAD;
+}
+.postbottom>span:last-of-type>a:hover{
+    text-decoration: none;
+    font-weight: bold;
+    color: #ff3446;
 }

@@ -14,5 +14,4 @@ import java.util.List;
 public interface PublishAnswerMapper {
     List<Answer> selectPublishAnswer(User user);
     Quiz selectQuizByQuizId(Quiz quiz);
-    List<Tag> selectQuizTag(Quiz quiz);
 }
