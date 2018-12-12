@@ -148,7 +148,7 @@
           <!-- <li class="fly-none">消灭零回复</li> -->
         </ul>
         <div class="layui-form layui-form-pane">
-          <form action="/jie/reply/" method="post">
+          <form action="/school/insertDirectionComment?directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}" method="post">
             <div class="layui-form-item layui-form-text">
               <a name="comment"></a>
               <div class="layui-input-block">
