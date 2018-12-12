@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>优图南-院校库</title>
-    <link rel="stylesheet" href="/css/school/layui.css">
-    <link rel="stylesheet" href="/css/school/global.css">
+    <link rel="stylesheet" href="/layui/wyd/layui.css">
+    <link rel="stylesheet" href="/layui/wyd/global.css">
     <link rel="stylesheet" href="layui.js">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/school/new.css">
@@ -21,6 +21,8 @@
         var pagenum="${PageInfo.pageNum}"
     </script>
 </head>
+<script src="/js/community/jquery-1.10.2.js"></script>
+<script src="/js/community/tag.js"></script>
 <body>
 <%@include file="../common/header.jsp"%>
 
@@ -174,8 +176,6 @@
 </nav>
 <%@include file="../common/footer.jsp"%>
 </body>
-<script src="../layui/layui.js"></script>
-<script src="../js/jquery-2.2.3.min.js"></script>
 <script>
     //地区
     $(".part").click(function(){
