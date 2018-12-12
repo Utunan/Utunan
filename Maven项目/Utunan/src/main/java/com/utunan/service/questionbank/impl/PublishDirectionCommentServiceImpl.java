@@ -6,6 +6,9 @@ import com.utunan.service.questionbank.PublishDirectionCommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * @author 王碧云
  * @description: TODO
@@ -25,5 +28,21 @@ public class PublishDirectionCommentServiceImpl implements PublishDirectionComme
     @Override
     public Long updateDirectionCommentPraiseCount(Long directionCommentId) {
         return this.publishDirectionCommentMapper.updateDirectionCommentPraiseCount(directionCommentId);
+    }
+
+    /*
+     * @author  王碧云
+     * @description 插入评论
+     * @date  22:02 2018/12/12/012
+     * @param  [userId, directionId, directionCommentContent, directionCommentTime, directionCommentPraiseCount]
+     * @return  void
+     */
+    @Override
+    public void insertDirectionComment(Long userId, Long directionId, String directionCommentContent) {
+        Date time = new Date();
+       /* SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String directionCommentTime = sdf.format(time);*/
+        Long directionCommentPraiseCount = Long.parseLong("0");
+        this.publishDirectionCommentMapper.insertDirectionComment(userId, directionId, directionCommentContent, time, directionCommentPraiseCount);
     }
 }

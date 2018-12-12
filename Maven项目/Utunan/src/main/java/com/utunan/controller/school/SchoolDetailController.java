@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -135,30 +136,38 @@ public class SchoolDetailController {
 
     /*
      * @author  王碧云
-     * @description 将评论插入院校评论（未实现，请不要抱有希望）
+     * @description 将评论插入院校评论（正在实现）
      * @date  9:31 2018/12/6/006
      * @param  [directionId, request, session]
      * @return  void
      */
-    /*@RequestMapping("/insertDirectionCommentContent")
-    public void insertDirectionCommentContent(@RequestParam(value = "directionId",required = false) Long directionId,
-                                              @RequestParam(value = "directionCommentContent",required = false) String directionCommentContent,
-                                              HttpServletRequest request,
-                                              HttpSession session){
+    @RequestMapping("/insertDirectionComment")
+    public String insertDirectionComment(@RequestParam(value = "directionId",required = false) Long directionId,
+                                              @RequestParam(value = "content",required = false) String directionCommentContent,
+                                              @RequestParam("schoolName") String schoolName,
+                                              HttpSession session,
+                                              RedirectAttributes attr){
         //获取当前用户
-        Object obj = session.getAttribute("User");
+        User user = (User) session.getAttribute("User");
         Long userId = null;
-        if(obj != null){
+        if(user != null){
             //用户已登录
-            User user = (User)obj;
             userId = user.getUserId();
             //插入评论
         }else {
             //用户未登录
             System.out.println("用户没登录！！");
         }
+        //将评论插入评论表
+        this.publishDirectionCommentService.insertDirectionComment(userId, directionId, directionCommentContent);
 
-    }*/
+        //添加地址栏参数
+        attr.addAttribute("directionId", directionId);
+        attr.addAttribute("schoolName", schoolName);
+
+        //转去显示页面详情页
+        return "redirect:/school/displayDirectionDetail";
+    }
 
 
 

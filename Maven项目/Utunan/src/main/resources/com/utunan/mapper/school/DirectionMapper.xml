@@ -21,22 +21,11 @@
         where directionId=#{directionId}
     </update>
 
-    <!--<set>
-        <choose>
-            <when test="viewCount!=null">viewCount = viewCount+1</when>
-            <otherwise>viewCount=1</otherwise>
-        </choose>
-    </set>-->
     <!--王碧云 设置初始访问量-->
     <update id="setFirstViewCount" parameterType="com.utunan.pojo.base.school.Direction">
         update direction
         set viewCount=1
         where directionId=#{directionId}
     </update>
-
-   <!-- <set>
-        <if test="viewCount==null">viewCount=1</if>
-        <if test="viewCount!=null">viewCount = viewCount+1</if>
-    </set>-->
 
 </mapper>
