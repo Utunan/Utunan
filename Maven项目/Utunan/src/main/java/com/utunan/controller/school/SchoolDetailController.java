@@ -1,10 +1,14 @@
 package com.utunan.controller.school;
 
+import com.github.pagehelper.PageInfo;
+import com.utunan.pojo.base.share.File;
 import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.inherit.school.PublishDirection;
 import com.utunan.service.questionbank.PublishDirectionCommentService;
 import com.utunan.service.school.DirectionService;
 import com.utunan.service.school.PublishDirectionService;
+import com.utunan.service.school.SchoolDetailFileService;
+import com.utunan.util.SchoolOther;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @author 王碧云
@@ -28,6 +35,8 @@ public class SchoolDetailController {
     private PublishDirectionCommentService publishDirectionCommentService;
     @Autowired
     private DirectionService directionService;
+    @Autowired
+    private SchoolDetailFileService schoolDetailFileService;
 
     /*
      * @author  王碧云
@@ -39,7 +48,8 @@ public class SchoolDetailController {
     @RequestMapping("/displayDirectionDetail")
     public String displayDirectionDetail(HttpServletRequest request,
                                          @RequestParam(value = "directionId") String directionId,
-                                         @RequestParam(value = "sort",required = false) String sort){
+                                         @RequestParam(value = "sort",required = false) String sort,
+                                         @RequestParam("schoolName") String schoolName){
         //根据分页方式显示页面详情
         PublishDirection publishDirection = this.publishDirectionService.findDirectionByDirectionId(directionId,sort);
         //获取评论的长度
@@ -47,11 +57,22 @@ public class SchoolDetailController {
         //获取页面浏览次数
         this.directionService.updateviewCount(Long.parseLong(directionId));
         Long viewCount = this.directionService.findDirectionByDirectionId(Long.parseLong(directionId)).getViewCount();
+        //设置招生简章年份
+        SchoolOther so = new SchoolOther();
+        String year = so.theYear();
+        //搜索招生简章文件和招生专业目录
+        String fileType1 = "招生简章";
+        String fileType2 = "招生专业目录";
+        List<File> EGfile = this.schoolDetailFileService.findEGThisYear(fileType1,schoolName);
+        List<File> AGfile = this.schoolDetailFileService.findEGThisYear(fileType2,schoolName);
 
         //返回数据
         request.setAttribute("publishDirection", publishDirection);
         request.setAttribute("directionCommentCount", directionCommentCount);
         request.setAttribute("viewCount",viewCount);
+        request.setAttribute("EGfile", EGfile);
+        request.setAttribute("AGfile", AGfile);
+        request.setAttribute("year", year);
         return "/school/schooldetail";
     }
 
@@ -73,12 +94,50 @@ public class SchoolDetailController {
 
     /*
      * @author  王碧云
+     * @description 查看今年的招生简章
+     * @date  9:00 2018/12/12/012
+     * @param  []
+     * @return  java.lang.String
+     */
+    @RequestMapping("displayEG")
+    public String displayEG(@RequestParam("schoolName") String schoolName,
+                            @RequestParam("fileType") String fileType,
+                            HttpServletRequest request){
+        //搜索招生简章文件
+        List<File> fileList = this.schoolDetailFileService.findEGThisYear(fileType,schoolName);
+
+        //返回数据
+        request.setAttribute("fileList", fileList);
+        request.setAttribute("url", "searchfile");
+        return "share/share";
+    }
+    /*
+     * @author  王碧云
+     * @description 查看往年的招生简章
+     * @date  15:29 2018/12/12/012
+     * @param  []
+     * @return  java.lang.String
+     */
+    @RequestMapping("displayEGFormerYears")
+    public String displayEGFormerYears(@RequestParam("schoolName") String schoolName,
+                                       @RequestParam("fileType") String fileType,
+                                       HttpServletRequest request){
+        //搜索往年的招生简章
+        List<File> fileList = this.schoolDetailFileService.findEGFormerYears(fileType,schoolName);
+        //返回数据
+        request.setAttribute("fileList", fileList);
+        request.setAttribute("url", "searchfile");
+        return "share/share";
+    }
+
+    /*
+     * @author  王碧云
      * @description 将评论插入院校评论（未实现，请不要抱有希望）
      * @date  9:31 2018/12/6/006
      * @param  [directionId, request, session]
      * @return  void
      */
-    @RequestMapping("/insertDirectionCommentContent")
+    /*@RequestMapping("/insertDirectionCommentContent")
     public void insertDirectionCommentContent(@RequestParam(value = "directionId",required = false) Long directionId,
                                               @RequestParam(value = "directionCommentContent",required = false) String directionCommentContent,
                                               HttpServletRequest request,
@@ -96,6 +155,8 @@ public class SchoolDetailController {
             System.out.println("用户没登录！！");
         }
 
-    }
+    }*/
+
+
 
 }
