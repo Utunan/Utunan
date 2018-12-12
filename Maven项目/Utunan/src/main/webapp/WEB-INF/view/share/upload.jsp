@@ -22,18 +22,18 @@
         </ul>
         <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
           <div class="layui-tab-item layui-show">
-            <form class="layui-form" action="upload" method="post">
+            <form class="layui-form" action="/upload1" method="post">
               <div class="layui-row layui-col-space15 layui-form-item">
                 <div class="layui-col-md3">
                   <label class="layui-form-label">资源类型</label>
                   <div class="layui-input-block">
                     <select lay-verify="required" name="sourcetype" lay-filter="column" onchange="func()">
-                      <option value="0">招生简章</option> 
-                      <option value="0">招生专业目录</option> 
-                      <option value="11">考研真题</option> 
-                      <option value="12">备考习题</option> 
-                      <option value="13">课件分享</option> 
-                      <option value="14">参考书目</option> 
+                      <option value="0">招生简章</option>
+                      <option value="0">招生专业目录</option>
+                      <option value="11">考研真题</option>
+                      <option value="12">备考习题</option>
+                      <option value="13">课件分享</option>
+                      <option value="14">参考书目</option>
                     </select>
                   </div>
                 </div>

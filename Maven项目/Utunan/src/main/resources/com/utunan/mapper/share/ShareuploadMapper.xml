@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.utunan.mapper.share.ShareuploadMapper">
+    <insert id="insertfile" parameterType="com.utunan.pojo.base.share.File">
+        insert into file(userId,fileTime,fileTitle,fileUrl,fileType,fileSchool,fileCredit,suffixId)
+        values(#{userId},#{fileTime},#{fileTitle},#{fileUrl},#{fileType},#{fileSchool},#{fileCredit},#{suffixId})
+    </insert>
+    <select id="getSuffix" parameterType="Long" resultType="java.lang.Long">
+        select suffixId
+        from suffix
+        where suffixName=#{suffixName}
+    </select>
+</mapper>
