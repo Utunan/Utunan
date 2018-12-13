@@ -13,7 +13,7 @@
     <title>优图南-院校库</title>
     <link rel="stylesheet" href="/layui/wyd/layui.css">
     <link rel="stylesheet" href="/layui/wyd/global.css">
-    <link rel="stylesheet" href="layui.js">
+
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/school/new.css">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
@@ -236,5 +236,90 @@
     $(".english-all").click(function(){
         $(".english-part").attr("checked",false);
     })
+</script>
+<script>
+
+    var district=document.getElementById("district");
+    var inputs=district.getElementsByTagName("input");
+    console.log(${schoolProvince});
+
+    <c:if test="${schoolProvince!=null}">
+    for(var i=0;i<inputs.length;i++){
+        inputs[i].checked=false;
+    }
+    </c:if>
+    for(var j=0;j<inputs.length;j++){
+        <c:forEach items="${schoolProvince}" varStatus="status" var="schoolProvince">
+            if("${schoolProvince}"==inputs[j].value){
+                inputs[j].checked=true;
+            }
+        </c:forEach>
+
+    }
+
+
+    var kind=document.getElementById("kind");
+    var inputskind=kind.getElementsByTagName("input");
+
+    <c:if test="${schoolType!=null}">
+    for(var i=0;i<inputskind.length;i++){
+        inputskind[i].checked=false;
+    }
+    </c:if>
+    for(var j=0;j<inputskind.length;j++){
+        <c:forEach items="${schoolType}" varStatus="status" var="schoolType">
+        if("${schoolType}"==inputskind[j].value){
+            inputskind[j].checked=true;
+        }
+        </c:forEach>
+    }
+
+    var degree=document.getElementById("degree");
+    var inputsdegree=degree.getElementsByTagName("input");
+
+    <c:if test="${degreeType!=null}">
+    for(var i=0;i<inputsdegree.length;i++){
+        inputsdegree[i].checked=false;
+    }
+    </c:if>
+    for(var j=0;j<inputsdegree.length;j++){
+        <c:forEach items="${degreeType}" varStatus="status" var="degreeType">
+        if("${degreeType}"==inputsdegree[j].value){
+            inputsdegree[j].checked=true;
+        }
+        </c:forEach>
+    }
+
+    var math=document.getElementById("math");
+    var inputsmath=math.getElementsByTagName("input");
+
+    <c:if test="${math!=null}">
+    for(var i=0;i<inputsmath.length;i++){
+        inputsmath[i].checked=false;
+    }
+    </c:if>
+    for(var j=0;j<inputsmath.length;j++){
+        <c:forEach items="${math}" varStatus="status" var="math">
+        if("${math}"==inputsmath[j].value){
+            inputsmath[j].checked=true;
+        }
+        </c:forEach>
+    }
+
+    var english=document.getElementById("english");
+    var inputsenglish=english.getElementsByTagName("input");
+
+    <c:if test="${english!=null}">
+    for(var i=0;i<inputsenglish.length;i++){
+        inputsenglish[i].checked=false;
+    }
+    </c:if>
+    for(var j=0;j<inputsenglish.length;j++){
+        <c:forEach items="${english}" varStatus="status" var="english">
+        if("${english}"==inputsenglish[j].value){
+            inputsenglish[j].checked=true;
+        }
+        </c:forEach>
+    }
 </script>
 </html>
