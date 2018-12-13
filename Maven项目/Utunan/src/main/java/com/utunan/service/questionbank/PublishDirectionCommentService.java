@@ -15,4 +15,6 @@ public interface PublishDirectionCommentService {
     Long updateDirectionCommentPraiseCount(Long directionCommentId);
     /*插入评论*/
     void insertDirectionComment(Long userId,Long directionId, String directionCommentContent);
+    /*删除评论*/
+    void deleteDirectionComment(Long directionCommentId);
 }

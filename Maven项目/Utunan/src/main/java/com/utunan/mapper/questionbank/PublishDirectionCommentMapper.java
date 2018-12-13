@@ -20,4 +20,6 @@ public interface PublishDirectionCommentMapper {
     Long updateDirectionCommentPraiseCount(@Param("directionCommentId") Long directionCommentId);
     /*王碧云 插入评论*/
     void insertDirectionComment(@Param("userId") Long userId, @Param("directionId") Long directionId,@Param("directionCommentContent") String directionCommentContent,@Param("directionCommentTime") Date directionCommentTime,@Param("directionCommentPraiseCount") Long directionCommentPraiseCount);
+    /*删除评论*/
+    void deleteDirectionComment(@Param("directionCommentId") Long directionCommentId);
 }

@@ -40,9 +40,12 @@ public class PublishDirectionCommentServiceImpl implements PublishDirectionComme
     @Override
     public void insertDirectionComment(Long userId, Long directionId, String directionCommentContent) {
         Date time = new Date();
-       /* SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String directionCommentTime = sdf.format(time);*/
         Long directionCommentPraiseCount = Long.parseLong("0");
         this.publishDirectionCommentMapper.insertDirectionComment(userId, directionId, directionCommentContent, time, directionCommentPraiseCount);
+    }
+
+    @Override
+    public void deleteDirectionComment(Long directionCommentId) {
+        this.publishDirectionCommentMapper.deleteDirectionComment(directionCommentId);
     }
 }

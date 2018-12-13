@@ -93,7 +93,7 @@
                   <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/school/displayEG?schoolName=${publishDirection.schoolName}&fileType=招生简章">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>
                 </c:when>
                 <c:otherwise>
-                  <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生简章》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/school/displayEGFormerYears?schoolName=${publishDirection.schoolName}&fileType=招生简章">查看往年招生简章</a></div>
+                  <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生简章》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/searchfile?school=${publishDirection.schoolName}&fileType=招生简章&keyWord=">查看往年招生简章</a></div>
                 </c:otherwise>
               </c:choose>
             </div>
@@ -107,7 +107,7 @@
                   <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/school/displayEG?schoolName=${publishDirection.schoolName}&fileType=招生专业目录">查看《${year}年${publishDirection.schoolName}硕士研究生招生目录》</a></div>
                 </c:when>
                 <c:otherwise>
-                  <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生目录》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/school/displayEGFormerYears?schoolName=${publishDirection.schoolName}&fileType=招生专业目录">查看往年招生目录</a></div>
+                  <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生目录》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/searchfile?school=${publishDirection.schoolName}&fileType=招生专业目录&keyWord=">查看往年招生目录</a></div>
                 </c:otherwise>
               </c:choose>
             </div>
@@ -137,10 +137,12 @@
                 <i class="iconfont icon-zan"></i>
                 <em>${dcomment.directionCommentPraiseCount}</em>
               </span>
+              <c:if test="${userIdentity==1 || (userIdentity==3 && userId==dcomment.user.userId)}">
               <span type="reply">
                 <i class="iconfont icon-svgmoban53"></i>
-                回复
+                <a href="/school/deleteDirectionComment?directionCommentId=${dcomment.directionCommentId}&directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}"">删除</a>
               </span>
+              </c:if>
             </div>
           </li>
           </c:forEach>

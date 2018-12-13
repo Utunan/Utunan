@@ -42,16 +42,27 @@ public class SchoolDetailController {
     /*
      * @author  王碧云
      * @description 显示页面详情页
-     * @date  11:16 2018/12/5/005
-     * @param  [request, directionId, sort]
+     * @date  8:29 2018/12/13/013
+     * @param  [request, directionId, sort, schoolName]
      * @return  java.lang.String
      */
     @RequestMapping("/displayDirectionDetail")
     public String displayDirectionDetail(HttpServletRequest request,
                                          @RequestParam(value = "directionId") String directionId,
                                          @RequestParam(value = "sort",required = false) String sort,
-                                         @RequestParam("schoolName") String schoolName){
-        //根据分页方式显示页面详情
+                                         @RequestParam("schoolName") String schoolName,
+                                         HttpSession session){
+        //获取当前用户
+        User user = (User) session.getAttribute("User");
+        Long userId = null;
+        String userIdentity = null;
+        if(user != null){
+            //获取用户Id
+            userId = user.getUserId();
+            //获取用户身份标识（判断是管理员还是用户）
+            userIdentity = user.getUserIdentity();
+        }
+        //根据排序方式显示页面详情
         PublishDirection publishDirection = this.publishDirectionService.findDirectionByDirectionId(directionId,sort);
         //获取评论的长度
         int directionCommentCount =publishDirection.getDirectionComments().size();
@@ -77,6 +88,8 @@ public class SchoolDetailController {
         request.setAttribute("AGfile", AGfile);
         request.setAttribute("year", year);
         request.setAttribute("top9file", top9file);
+        request.setAttribute("userIdentity", userIdentity);
+        request.setAttribute("userId", userId);
         return "/school/schooldetail";
     }
 
@@ -98,9 +111,9 @@ public class SchoolDetailController {
 
     /*
      * @author  王碧云
-     * @description 查看今年的招生简章
-     * @date  9:00 2018/12/12/012
-     * @param  []
+     * @description 查看今年招生简章
+     * @date  8:29 2018/12/13/013
+     * @param  [schoolName, fileType, request]
      * @return  java.lang.String
      */
     @RequestMapping("displayEG")
@@ -115,38 +128,20 @@ public class SchoolDetailController {
         request.setAttribute("url", "searchfile");
         return "share/share";
     }
-    /*
-     * @author  王碧云
-     * @description 查看往年的招生简章
-     * @date  15:29 2018/12/12/012
-     * @param  []
-     * @return  java.lang.String
-     */
-    @RequestMapping("displayEGFormerYears")
-    public String displayEGFormerYears(@RequestParam("schoolName") String schoolName,
-                                       @RequestParam("fileType") String fileType,
-                                       HttpServletRequest request){
-        //搜索往年的招生简章
-        List<File> fileList = this.schoolDetailFileService.findEGFormerYears(fileType,schoolName);
-        //返回数据
-        request.setAttribute("fileList", fileList);
-        request.setAttribute("url", "searchfile");
-        return "share/share";
-    }
 
     /*
      * @author  王碧云
-     * @description 将评论插入院校评论（正在实现）
-     * @date  9:31 2018/12/6/006
-     * @param  [directionId, request, session]
-     * @return  void
+     * @description 插入评论
+     * @date  8:28 2018/12/13/013
+     * @param  [directionId, directionCommentContent, schoolName, session, attr]
+     * @return  java.lang.String
      */
     @RequestMapping("/insertDirectionComment")
     public String insertDirectionComment(@RequestParam(value = "directionId",required = false) Long directionId,
-                                              @RequestParam(value = "content",required = false) String directionCommentContent,
-                                              @RequestParam("schoolName") String schoolName,
-                                              HttpSession session,
-                                              RedirectAttributes attr){
+                                         @RequestParam(value = "content",required = false) String directionCommentContent,
+                                         @RequestParam("schoolName") String schoolName,
+                                         HttpSession session,
+                                         RedirectAttributes attr){
         //获取当前用户
         User user = (User) session.getAttribute("User");
         Long userId = null;
@@ -168,7 +163,28 @@ public class SchoolDetailController {
         //转去显示页面详情页
         return "redirect:/school/displayDirectionDetail";
     }
+    /*
+     * @author  王碧云
+     * @description 删除评论（管理员或者当前用户）
+     * @date  8:27 2018/12/13/013
+     * @param  []
+     * @return  java.lang.String
+     */
+    @RequestMapping("/deleteDirectionComment")
+    public String deleteDirectionComment(HttpServletRequest request,
+                                         @RequestParam("directionCommentId") String directionCommentId,
+                                         @RequestParam(value = "directionId",required = false) Long directionId,
+                                         @RequestParam("schoolName") String schoolName,
+                                         RedirectAttributes attr){
+        //删除评论
+        this.publishDirectionCommentService.deleteDirectionComment(Long.parseLong(directionCommentId));
 
+        //添加地址栏参数
+        attr.addAttribute("directionId", directionId);
+        attr.addAttribute("schoolName", schoolName);
 
+        //转去显示页面详情页
+        return "redirect:/school/displayDirectionDetail";
+    }
 
 }
