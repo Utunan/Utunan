@@ -138,10 +138,11 @@
                 <i class="iconfont icon-zan"></i>
                 <em>${dcomment.directionCommentPraiseCount}</em>
               </span>
-              <c:if test="${userIdentity==1 || (userIdentity==3 && userId==dcomment.user.userId)}">
+              <%--判断是否是管理员或者是用户本人--%>
+              <c:if test="${user.userIdentity==1 || (user.userIdentity==3 && user.userId==dcomment.user.userId)}">
               <span type="reply">
                 <i class="iconfont icon-svgmoban53"></i>
-                <a href="/school/deleteDirectionComment?directionCommentId=${dcomment.directionCommentId}&directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}"">删除</a>
+                <a href="/school/deleteDirectionComment?directionCommentId=${dcomment.directionCommentId}&directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}">删除</a>
               </span>
               </c:if>
             </div>
@@ -172,7 +173,7 @@
     <div class="layui-col-md4">
         <div class="fly-panel">
             <div class="fly-panel-main">
-              <a href="" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">搜索 [${publishDirection.schoolName}] 考研资料</a>
+              <a href="/searchfile?school=${publishDirection.schoolName}&fileType=全部&keyWord=" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">搜索 [${publishDirection.schoolName}] 考研资料</a>
             </div>
         </div>
       <dl class="fly-panel fly-list-one">

@@ -54,14 +54,7 @@ public class SchoolDetailController {
                                          HttpSession session){
         //获取当前用户
         User user = (User) session.getAttribute("User");
-        Long userId = null;
-        String userIdentity = null;
-        if(user != null){
-            //获取用户Id
-            userId = user.getUserId();
-            //获取用户身份标识（判断是管理员还是用户）
-            userIdentity = user.getUserIdentity();
-        }
+
         //根据排序方式显示页面详情
         PublishDirection publishDirection = this.publishDirectionService.findDirectionByDirectionId(directionId,sort);
         //获取评论的长度
@@ -88,8 +81,7 @@ public class SchoolDetailController {
         request.setAttribute("AGfile", AGfile);
         request.setAttribute("year", year);
         request.setAttribute("top9file", top9file);
-        request.setAttribute("userIdentity", userIdentity);
-        request.setAttribute("userId", userId);
+        request.setAttribute("user", user);
         return "/school/schooldetail";
     }
 
