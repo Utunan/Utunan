@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.inherit.school.PublishDirection;
 import com.utunan.pojo.inherit.school.PublishSchool;
+import com.utunan.pojo.util.Analyzer;
 import com.utunan.util.SchoolOther;
 import com.utunan.service.questionbank.PublishDirectionCommentService;
 import com.utunan.service.school.PublishDirectionService;
@@ -21,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.net.URLDecoder;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -88,6 +90,21 @@ public class SchoolSearchController {
                                         @RequestParam(value = "directionName",required = false) String directionName,
                                         @RequestParam(value = "pageNum",required = false) String pageNum,
                                         HttpSession session){
+        //对搜索框内容进行分词
+        Analyzer analyzer = new Analyzer();
+        directionName = analyzer.filter(directionName);
+        List<String> directionNameList = new ArrayList<>();
+        if(directionName.equals("") || directionName==null){
+            directionNameList.add(".");
+        }else{
+            //对搜索条件进行分词
+            try {
+                directionNameList = analyzer.Analyzer(directionName);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
         SchoolOther so = new SchoolOther();
         //判断搜索条件是否为空
         schoolProvinceList=so.ifListIsNull(schoolProvinceList);
@@ -108,9 +125,9 @@ public class SchoolSearchController {
         //搜索学校列表并分页
         List<PublishSchool> schoolList =null;
         if(pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0){
-            schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionName,1,15);
+            schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionNameList,1,15);
         }else{
-            schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionName,Integer.parseInt(pageNum),15);
+            schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionNameList,Integer.parseInt(pageNum),15);
         }
         //将String[]转为String
         String schoolProvince=so.listToString(schoolProvinceList);
@@ -153,7 +170,6 @@ public class SchoolSearchController {
                                         RedirectAttributes attr){
         //获取当前用户
         User user = (User) session.getAttribute("User");
-        Long userId = null;
         if (user != null) {
             //用户已登录,则加入收藏夹
             this.publishDirectionCollectorService.insertDirectionCollector(user.getUserId(), Long.parseLong(directionId));

@@ -123,6 +123,12 @@ public class SchoolDetailController {
         //搜索招生简章文件
         List<File> fileList = this.schoolDetailFileService.findEGThisYear(fileType,schoolName);
 
+        //获得招生简章的Id（等待下载页面的实现）
+       /* Long fileId = null;
+        for(File file:fileList){
+            fileId = file.getFileId();
+        }*/
+
         //返回数据
         request.setAttribute("fileList", fileList);
         request.setAttribute("url", "searchfile");
