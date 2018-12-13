@@ -38,5 +38,10 @@
         into direction_comment(userId,directionId,directionCommentContent,directionCommentTime,directionCommentPraiseCount)
         values (#{userId},#{directionId},#{directionCommentContent},#{directionCommentTime},#{directionCommentPraiseCount})
     </insert>
-
+    <!--删除评论-->
+    <delete id="deleteDirectionComment" parameterType="java.lang.Long">
+        delete
+        from direction_comment
+        where directionCommentId=#{directionCommentId}
+    </delete>
 </mapper>
