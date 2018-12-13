@@ -212,8 +212,8 @@ public class QuizController {
 
 			this.quizTagService.saveQuizTag(qid,tagss);
 		}
-		//限定用户登录并且title不为空并且title限定字数为7到50字
-		if (user!=null&&WordLimitUtil.isNull(title)&&WordLimitUtil.getLength(title)>=7&&WordLimitUtil.getLength(title)<=50) {
+		//限定用户登录并且title不为空并且title限定字数为5到20字
+		if (user!=null&&WordLimitUtil.isNull(title)&&WordLimitUtil.getLength(title)>=5&&WordLimitUtil.getLength(title)<=20) {
 			this.quizService.saveQuiz(qid,user, title, content);
 		}
 		return "redirect:/quiz";
