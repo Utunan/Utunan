@@ -65,11 +65,14 @@
                     direction.english like CONCAT('%','${englishList}','%' )
                 </foreach>
             </if>
-            <if test="directionName!=null and ''!=directionName">
-                and
-                direction.directionName like CONCAT('%','${directionName}','%' )
-            </if>
+            and
+            direction.directionName regexp #{directionName}
         </where>
     </select>
+
+   <!-- <if test="directionName!=null and ''!=directionName">
+        and
+        direction.directionName like CONCAT('%','${directionName}','%' )
+    </if>-->
 
 </mapper>

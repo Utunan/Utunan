@@ -3,37 +3,28 @@ package com.utunan.service.community;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.community.Tag;
 import com.utunan.pojo.base.user.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface QuizService {
 	/**
-​	 * @author  孙程程
-​	 * @description 根据发表时间分页查询问答列表
-​	 * @date  16:20 2018/11/19
-​	 * @param  pageNum
-​	 * @param  pageSize
-​	 * @return  java.util.List<com.utunan.pojo.base.community.Quiz>
-​	 */
-	List<Quiz> quizListByTime(int pageNum, int pageSize);
+	 * @author  孙程程
+	 * @description 查询问答列表
+	 * @date  10:49 2018/12/13
+	 * @param  orderBy, pageNum, pageSize
+	 * @return  java.util.List<com.utunan.pojo.base.community.Quiz>
+	 */
+	List<Quiz> listQuiz(String orderBy, int pageNum, int pageSize);
 
 	/**
 	 * @author  孙程程
-	 * @description 根据点赞数量分页查询问答列表
-	 * @date  17:15 2018/11/20
-	 * @param  pageNum
-	 * @param  pageSize
+	 * @description 查询某标签下问答列表
+	 * @date  10:49 2018/12/13
+	 * @param  orderBy, pageNum, pageSize
 	 * @return  java.util.List<com.utunan.pojo.base.community.Quiz>
 	 */
-	List<Quiz> quizListByPraise(int pageNum, int pageSize);
-	
-	/**
-	 * @author  孙程程
-	 * @description 所有问答数量
-	 * @date  20:16 2018/11/19
-	 * @return  java.lang.Long
-	 */
-	Long countAllQuiz();
+	List<Quiz> listQuizByTag(String orderBy, String tagName, int pageNum, int pageSize);
 	
 	/**
 	 * @author  张正扬
@@ -79,34 +70,7 @@ public interface QuizService {
 	 * @return  java.util.List<com.utunan.pojo.base.community.Tag>
 	 */
 	List<Tag> selectTagByQuizId(Long quizId);
-	
-	/**
-	 * @author  孙程程
-	 * @description 在某标签下根据发表时间分页查询问答列表
-	 * @date  8:46 2018/11/26
-	 * @param  tagName, pageNum, pageSize
-	 * @return  java.util.List<com.utunan.pojo.inherit.community.BigQuiz>
-	 */
-	List<Quiz> quizListByTimeWithTagName(String tagName, int pageNum, int pageSize);
-	
-	/**
-	 * @author  孙程程
-	 * @description 在某标签下根据点赞数量分页查询问答列表
-	 * @date  15:36 2018/11/26
-	 * @param  tagName, pageNum, pageSize
-	 * @return  java.util.List<com.utunan.pojo.inherit.community.BigQuiz>
-	 */
-	List<Quiz> quizListByPraiseWithTagName(String tagName, int pageNum, int pageSize);
-	
-	/**
-	 * @author  孙程程
-	 * @description 某标签下所有问答数量
-	 * @date  8:56 2018/11/26
-	 * @param  tagName
-	 * @return  java.lang.Long
-	 */
-	Long countQuizWithTagName(String tagName);
-	
+
 	 /** @author  唐溪
 	 * @description
 	 * @date   18:56 2018/11/25

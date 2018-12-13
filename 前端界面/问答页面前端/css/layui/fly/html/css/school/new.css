@@ -1,0 +1,141 @@
+.layui-table tbody tr:hover,
+.layui-table-click,
+.layui-table-header,
+.layui-table-hover,
+.layui-table-mend,
+.layui-table-patch,
+.layui-table-tool,
+.layui-table-total,
+.layui-table-total tr,
+.layui-table[lay-even] tr:nth-child(even)
+{
+    background-color:#f4f9ff;
+color:#2a82e4;
+}
+
+.layui-table[lay-skin=line] thead tr th{
+    color:white;
+    background-color: RGB(30,159,259);
+}
+.layui-table{
+    width:1100px;
+    margin:auto;
+    margin-top: 30px;
+}
+*{
+    font-size:14px;
+}
+.title{
+    font-size: 22px;
+    text-align: center;
+    color:black;
+    margin-left: 35%;
+}
+.collector{
+    margin-left: 2%;
+}
+.schoolheader{
+    display: block;
+    line-height: 40px;
+    width: 100%;
+    height: 40px;
+    float: left;
+    font-weight: bold;
+    border-bottom: 3px solid #2a82e4;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+label{
+    font-size: 14px;
+    font-weight: normal;
+    float:left;
+}
+
+.RadioStyle{
+    width:1100px;
+    margin:0 auto;
+}
+ .RadioStyle input {
+    display: none
+}
+.RadioStyle label {
+    border: 1px solid white;
+	color: #666;
+	padding: 2px 10px 2px 5px;
+	line-height: 18px;
+	min-width: 54px;
+	text-align: center;
+	float: left;
+	margin: 2px;
+	border-radius: 4px
+}
+.RadioStyle input:checked + label {
+	border: 1px solid #2a82e4;
+	background-size: 21px 21px;
+    color: white;
+    background-color: #2a82e4;
+}
+
+.optionName{
+    width: 95px;
+    float: left;
+    margin-top: 6px;
+    margin-left: 12px;
+}
+.option{
+    float:left;
+    width: 900px;
+    margin:4px;
+    margin-left: 14px;
+}
+.subjectoption{
+    float:left;
+    width: 900px;
+}
+.options{
+    margin: 10px;
+    overflow:hidden;
+}
+.bigwrapper{
+    border: 1px solid RGB(229,229,229);
+    width:1100px;
+    margin: 0 auto;
+    overflow: hidden;
+    height:340px;
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-top: 2px solid #2a82e4;
+}
+#search{
+    float:left;
+    margin-top: 6px;
+    margin-left: 15px;
+}
+#direction{
+    margin-top: 6px;
+    margin-left: 15px;
+    width:300px;
+    float:left;
+}
+#blank{
+    height:40px;
+}
+.show{
+    width: 960px;
+    margin:0 auto;
+    text-align: center;
+}
+.table>tbody>tr>td{
+    border:0px;
+}
+.table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border-bottom-width: 3px;
+    text-align: center;
+}
+.back{
+    overflow:hidden;
+    background-color: #ffffff;
+background-image: url("https://www.transparenttextures.com/patterns/clean-textile.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}

@@ -12,9 +12,9 @@ import java.util.List;
 @Mapper
 @Repository
 public interface QuizMapper {
-    List<Quiz> listQuizByTime();
-    List<Quiz> listQuizByPraise();
-    Long countAllQuiz();
+	List<Quiz> listQuiz(@Param("orderBy") String orderBy);
+	List<Quiz> listQuizByTag(@Param("quizId") List<Long> quizId, @Param("orderBy") String orderBy);
+
     User findUserByQuizId(@Param("quizId") Long quizId);
 	Long countAnswerByQuizId(@Param("quizId") Long quizId);
 	List<Tag> selectTagByQuizId(@Param("quizId") Long quizId);
@@ -23,9 +23,6 @@ public interface QuizMapper {
      /*王碧云 通过quizId查找问题*/
     Quiz findQuizById(@Param("quizId") Long quizId);
 
-	List<Quiz> listQuizByTimeWithTagName(@Param("quizId") List<Long> quizId);
-	List<Quiz> listQuizByPraiseWithTagName(@Param("quizId") List<Long> quizId);
-	Long countQuizWithTagName(@Param("tagName") String tagName);
 	List<Long> selectQuizIdByTagName(@Param("tagName") String tagName);
 
 	

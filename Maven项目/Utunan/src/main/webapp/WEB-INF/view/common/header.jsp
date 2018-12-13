@@ -90,7 +90,7 @@
                 <a href="/questionbank">优题库</a>
             </li>
             <li>
-                <a href="/quiz1">优问答</a>
+                <a href="/quiz">优问答</a>
             </li>
             <li>
                 <a href="/share">优共享</a>

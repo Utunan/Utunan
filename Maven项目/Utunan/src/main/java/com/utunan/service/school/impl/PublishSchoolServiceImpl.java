@@ -40,9 +40,7 @@ public class PublishSchoolServiceImpl implements PublishSchoolService {
      * @return  java.util.List<com.utunan.pojo.base.school.School>
      */
     @Override
-    public List<PublishSchool> findSchoolByAllParam(String[] schoolProvinceList, String[] schoolType, String[] degreeTypeList, String[] mathList, String[] englishList,String directionName, int pageNum, int pageSize) {
-        PageHelper.startPage(pageNum, pageSize);
-
+    public List<PublishSchool> findSchoolByAllParam(String[] schoolProvinceList, String[] schoolType, String[] degreeTypeList, String[] mathList, String[] englishList,List<String> directionNameList, int pageNum, int pageSize) {
         SchoolOther so = new SchoolOther();
         schoolProvinceList = so.clickAll(schoolProvinceList);
         schoolType = so.clickAll(schoolType);
@@ -50,6 +48,17 @@ public class PublishSchoolServiceImpl implements PublishSchoolService {
         mathList = so.clickAll(mathList);
         englishList = so.clickAll(englishList);
 
+        //将List的词变为匹配项
+        String directionName = "";
+        for(int i=0; i<directionNameList.size(); i++){
+            directionName += directionNameList.get(i);
+            if (i != (directionNameList.size()-1)){
+                directionName += "|";
+            }
+        }
+        //分页
+        PageHelper.startPage(pageNum, pageSize);
+        //搜索，返回列表
         List<PublishSchool> directionlist = this.publishSchoolMapper.findSchoolByAllParam(schoolProvinceList, schoolType,degreeTypeList,mathList,englishList,directionName);
         return directionlist;
     }
