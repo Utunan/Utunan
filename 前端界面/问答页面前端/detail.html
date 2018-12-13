@@ -34,42 +34,35 @@
             </div>
         <h1>这里的矩阵是怎么推出了的嘞？</h1>
         <div class="fly-detail-info">
-          <!-- <span class="layui-badge">审核中</span> -->
-          <!--<span class="layui-badge layui-bg-green fly-detail-column">数据结构</span>-->
-          <!--
-          <span class="layui-badge" style="background-color: #999;">C语言</span>
-          <span class="layui-badge" style="background-color: #999;">数据结构</span>
-          <span class="layui-badge" style="background-color: #999;">计算机组成原理</span>
-          <span class="layui-badge" style="background-color: #999;">操作系统</span>
-          -->
-          <!-- <span class="layui-badge" style="background-color: #5FB878;">已结</span> -->
-          <!--
-          <span class="layui-badge layui-bg-black">计算机组成原理</span>
-          <span class="layui-badge layui-bg-red">操作系统</span>
-          -->
           <span class="layui-badge layui-bg-red"><a href="">操作系统</a></span>
           <span class="layui-badge layui-bg-red"><a href="">C语言</a></span>
           <span class="layui-badge layui-bg-red"><a href="">数据库</a></span>
         
         </div>
-        
+        <div class="quizcontent">
         <div class="detail-body photos">
-          <p>
+          <p id="pcontent">
             绑定ip确实是解决了，重复多次都没再有那种情况发生，不过多提一句，Ubuntu18.04这个版本设置dns和之前不一样了，查的资是16.多的，还走了一些歪路。
           </p>
           <div class="toolbar">
 
-            <div class="jieda-reply">
+            <div class="jieda-reply" id="good">
               <span class="jieda-zan zanok" type="zan">
                 <i class="iconfont icon-zan"></i>
                 <em>66</em>
               </span>
             </div>
 
-            <div class="fly-list-nums"> 
-              <a href="#comment"><i class="iconfont"  class="re" title="回答">&#xe60c;</i>66</a>
+            <div class="re_num"> 
+                <img src="images/community/zan.svg" width="24px"height="34px">
+                <span class="write-reply">65</span>
+            </div>
+            <div class="collect"> 
+                <img src="images/questionBank/collection.svg" width="24px"height="34px">
+                <span class="collection">收藏此问题</span>
             </div>
           </div><!--toolbar-->
+          </div><!--quizcontent-->
         </div>
       </div>
 
@@ -89,13 +82,7 @@
                 <a href="" class="fly-link">
                   <cite>贤心</cite>          
                 </a>
-                
-                <span>(楼主)  发表于2017-11-30</span>
-                <!--
-                <span style="color:#5FB878">(管理员)</span>
-                <span style="color:#FF9E3F">（社区之光）</span>
-                <span style="color:#999">（该号已被封）</span>
-                -->
+                <span>发表于2017-11-30</span>
               </div>
 
               <div class="detail-hits">
@@ -115,44 +102,59 @@
                 回复
               </span>
               <div class="jieda-admin">
-                <span type="edit">查看评论要不要弹？</span>
+                <div class="view-comments">查看评论</div>
                 <!-- <span class="jieda-accept" type="accept">采纳</span> -->
               </div>
-            </div>
-          </li>
-          
-          <li data-id="111">
-            <a name="item-1111111111"></a>
-            <div class="detail-about detail-about-reply">
-              <a class="fly-avatar" href="">
-                <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" alt=" ">
-              </a>
-              <div class="fly-detail-user">
-                <a href="" class="fly-link">
-                  <cite>贤心</cite>       
-                </a>
-              </div>
-              <div class="detail-hits">
-                <span>2017-11-30</span>
-              </div>
-            </div>
-            <div class="detail-body jieda-body photos">
-              <p>蓝瘦那个香菇，这是一条没被采纳的回帖</p>
-            </div>
-            <div class="jieda-reply">
-              <span class="jieda-zan" type="zan">
-                <i class="iconfont icon-zan"></i>
-                <em>0</em>
-              </span>
-              <span type="reply">
-                <i class="iconfont icon-svgmoban53"></i>
-                回复
-              </span>
-              <div class="jieda-admin">
-                <span type="edit">编辑</span>
-                <span type="del">删除</span>
-                <span class="jieda-accept" type="accept">采纳</span>
-              </div>
+              <div class="comments" style="display:none">
+              <blockquote class="layui-elem-quote" id="haha" style="background-color:#fafafa">
+                <div class="comments-number">
+                    <div class="answers-num">一共有15条评论</div>
+                    <div class="right"> 
+                        <select class="comments-sequencing-principle"name=""> 
+                            <option value="0">按时间顺序</option> 
+                            <option value="1">按热度排序</option> 
+                        </select> 
+                        <div class="close">收起评论</div>
+                    </div>
+                </div>
+              </blockquote>
+                <ul class="commentlist" style="background-color:#fafafa">
+                    <li>
+                        <div class="fly-detail-user">
+                          <a href="" class="fly-link">
+                            <cite>贤心</cite>          
+                          </a>
+                           <span>发表于2017-11-30</span>
+                        </div>
+                        <div class="detail-body jieda-body photos">
+                          <p>香菇那个蓝瘦，这是一条被采纳的回帖</p>
+                        </div>
+                         <div class="jieda-reply">
+                          <span class="jieda-zan zanok" type="zan">
+                          <i class="iconfont icon-zan"></i>
+                          <em>66</em>
+                          </span>
+                        </div>
+                    </li>
+
+                     <li>
+                        <div class="fly-detail-user">
+                          <a href="" class="fly-link">
+                            <cite>贤心</cite>          
+                          </a>
+                           <span>发表于2017-11-30</span>
+                        </div>
+                        <div class="detail-body jieda-body photos">
+                          <p>香菇那个蓝瘦，这是一条被采纳的回帖</p>
+                        </div>
+                         <div class="jieda-reply">
+                          <span class="jieda-zan zanok" type="zan">
+                          <i class="iconfont icon-zan"></i>
+                          <em>66</em>
+                          </span>
+                        </div>
+                    </li>
+                </ul>
             </div>
           </li>
           
@@ -242,4 +244,26 @@
   </div>
 </div>
 </body>
+<script>
+    var viewComments=window.document.getElementsByClassName("view-comments");
+    var index;
+    for(var i=0;i<viewComments.length;i++){
+        viewComments[i].index=i;
+        viewComments[i].onclick = function(){
+            var j=this.index;
+            var comments=this.parentElement.parentElement.parentElement.parentElement.getElementsByClassName("comments");
+            comments[j].style.display="block"
+        }
+    }
+
+    var close=window.document.getElementsByClassName("close");
+    for(var i=0;i<close.length;i++){
+        close[i].index=i;
+        close[i].onclick = function(){
+            var j=this.index;
+            var comments=this.parentElement.parentElement.parentElement.parentElement.parentElement.getElementsByClassName("comments");
+            comments[j].style.display="none";
+        }
+    }
+</script>
 </html>
