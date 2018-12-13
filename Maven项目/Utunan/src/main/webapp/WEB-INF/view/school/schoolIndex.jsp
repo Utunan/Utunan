@@ -238,88 +238,87 @@
     })
 </script>
 <script>
-
+    //复选框状态保持
     var district=document.getElementById("district");
     var inputs=district.getElementsByTagName("input");
-    console.log(${schoolProvince});
 
-    <c:if test="${schoolProvince!=null}">
-    for(var i=0;i<inputs.length;i++){
-        inputs[i].checked=false;
+    if("${schoolProvince}"=="全部"||"${schoolProvince}"==""){
+        inputs[0].checked=true;
+    }else{
+        inputs[0].checked=false;
+        for(var j=1;j<inputs.length;j++){
+            <c:forEach items="${schoolProvince}" varStatus="status" var="schoolProvince">
+                if("${schoolProvince}"==inputs[j].value){
+                    inputs[j].checked=true;
+                }
+            </c:forEach>
+        }
     }
-    </c:if>
-    for(var j=0;j<inputs.length;j++){
-        <c:forEach items="${schoolProvince}" varStatus="status" var="schoolProvince">
-            if("${schoolProvince}"==inputs[j].value){
-                inputs[j].checked=true;
-            }
-        </c:forEach>
-
-    }
-
 
     var kind=document.getElementById("kind");
     var inputskind=kind.getElementsByTagName("input");
 
-    <c:if test="${schoolType!=null}">
-    for(var i=0;i<inputskind.length;i++){
-        inputskind[i].checked=false;
-    }
-    </c:if>
-    for(var j=0;j<inputskind.length;j++){
-        <c:forEach items="${schoolType}" varStatus="status" var="schoolType">
-        if("${schoolType}"==inputskind[j].value){
-            inputskind[j].checked=true;
+    if("${schoolType}"==""||"${schoolType}"=="全部"){
+        inputskind[0].checked = true;
+    }else{
+        inputskind[0].checked=false;
+        for(var j=1;j<inputskind.length;j++){
+            <c:forEach items="${schoolType}" varStatus="status" var="schoolType">
+            if("${schoolType}"==inputskind[j].value){
+                inputskind[j].checked=true;
+            }
+            </c:forEach>
         }
-        </c:forEach>
     }
-
     var degree=document.getElementById("degree");
     var inputsdegree=degree.getElementsByTagName("input");
 
-    <c:if test="${degreeType!=null}">
-    for(var i=0;i<inputsdegree.length;i++){
-        inputsdegree[i].checked=false;
-    }
-    </c:if>
-    for(var j=0;j<inputsdegree.length;j++){
-        <c:forEach items="${degreeType}" varStatus="status" var="degreeType">
-        if("${degreeType}"==inputsdegree[j].value){
-            inputsdegree[j].checked=true;
+    if("${degreeType}"==""||"${degreeType}"=="全部"){
+        inputsdegree[0].checked = true;
+    }else{
+        inputsdegree[0].checked = false;
+        for(var j=1;j<inputsdegree.length;j++){
+            <c:forEach items="${degreeType}" varStatus="status" var="degreeType">
+            if("${degreeType}"==inputsdegree[j].value){
+                inputsdegree[j].checked=true;
+            }
+            </c:forEach>
         }
-        </c:forEach>
     }
-
     var math=document.getElementById("math");
     var inputsmath=math.getElementsByTagName("input");
 
-    <c:if test="${math!=null}">
-    for(var i=0;i<inputsmath.length;i++){
-        inputsmath[i].checked=false;
-    }
-    </c:if>
-    for(var j=0;j<inputsmath.length;j++){
-        <c:forEach items="${math}" varStatus="status" var="math">
-        if("${math}"==inputsmath[j].value){
-            inputsmath[j].checked=true;
+    if("${math}"==""||"${math}"=="全部"){
+        inputsmath[0].checked = true;
+    }else{
+        inputsmath[0].checked = false;
+        for(var j=1;j<inputsmath.length;j++){
+            <c:forEach items="${math}" varStatus="status" var="math">
+            if("${math}"==inputsmath[j].value){
+                inputsmath[j].checked=true;
+            }
+            </c:forEach>
         }
-        </c:forEach>
     }
-
     var english=document.getElementById("english");
     var inputsenglish=english.getElementsByTagName("input");
 
-    <c:if test="${english!=null}">
-    for(var i=0;i<inputsenglish.length;i++){
-        inputsenglish[i].checked=false;
-    }
-    </c:if>
-    for(var j=0;j<inputsenglish.length;j++){
-        <c:forEach items="${english}" varStatus="status" var="english">
-        if("${english}"==inputsenglish[j].value){
-            inputsenglish[j].checked=true;
+    if("${english}"==""||"${english}"=="全部"){
+        inputsenglish[0].checked = true;
+    }else{
+        inputsenglish[0].checked = false;
+        for(var j=1;j<inputsenglish.length;j++){
+            <c:forEach items="${english}" varStatus="status" var="english">
+            if("${english}"==inputsenglish[j].value){
+                inputsenglish[j].checked=true;
+            }
+            </c:forEach>
         }
-        </c:forEach>
+    }
+    //搜索框文字保持
+    var direction=document.getElementById("direction");
+    if("${directionName}"!=""){
+        direction.value="${directionName}";
     }
 </script>
 </html>
