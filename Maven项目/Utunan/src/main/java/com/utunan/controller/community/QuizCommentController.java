@@ -186,15 +186,15 @@ public class QuizCommentController {
         Quiz quiz=(Quiz)session.getAttribute("quiz");
         User user=(User)session.getAttribute("User");
         //到回答评论点赞表进行查询是否有记录
-        AnswerGreat answerGreat =answerGreatService.getAnswerGreat(Long.parseLong(answerId),user.getUserId());
-        if(answerGreat==null){
-            answerGreatService.addAnswerGreat(Long.parseLong(answerId),user.getUserId());
-            this.answerService.praiseAnswer(Long.parseLong(answerId));
-        }
-        else {
-            answerGreatService.delAnswerGreat(Long.parseLong(answerId),user.getUserId());
-            this.answerService.delPraiseAnswer(Long.parseLong(answerId));
-        }
+//        AnswerGreat answerGreat =answerGreatService.getAnswerGreat(Long.parseLong(answerId),user.getUserId());
+//        if(answerGreat==null){
+//            answerGreatService.addAnswerGreat(Long.parseLong(answerId),user.getUserId());
+//            this.answerService.praiseAnswer(Long.parseLong(answerId));
+//        }
+//        else {
+//            answerGreatService.delAnswerGreat(Long.parseLong(answerId),user.getUserId());
+//            this.answerService.delPraiseAnswer(Long.parseLong(answerId));
+//        }
 
         return "redirect:/displayQuizByQuizId?quizId="+quiz.getQuizId();
     }

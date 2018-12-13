@@ -9,6 +9,37 @@
   <meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
   <link rel="stylesheet" href="..\layui\wyd\layui.css">
   <link rel="stylesheet" href="..\layui\wyd\global.css">
+  <script>
+    schools = new Object();
+    <c:forEach items="${provinceList}" var="province">
+      schools['${province}']=new Array(
+            <c:forEach items="${schoolList}" var="school" varStatus="status">
+            <c:if test="${(province==school.schoolProvince) && !status.last}">
+            '${school.schoolName}',
+            </c:if>
+            <c:if test="${(province==school.schoolProvince) && status.last}">
+            '${school.schoolName}'
+            </c:if>
+            </c:forEach> )
+    </c:forEach>
+    function set_school(province, school)
+    {
+      var pv, cv;
+      var i, ii;
+      pv=province.value;
+      cv=school.value;
+      school.length=1;
+      if(pv=='0') return;
+      if(typeof(schools[pv])=='undefined') return;
+      for(i=0; i<schools[pv].length; i++)
+      {
+        ii = i+1;
+        school.options[ii] = new Option();
+        school.options[ii].text = schools[pv][i];
+        school.options[ii].value = schools[pv][i];
+      }
+    }
+  </script>
 </head>
 <body>
 
@@ -94,15 +125,16 @@
               </div>
               <!--针对院校在jsp里弄得-->
               <div class="layui-col-md3">
-              <select lay-verify="" name="province" onChange="set_school(this, this.form.school);">
+                <!--lay-verify=""-->
+              <select  name="province" onChange="set_school(this, this.form.school);">
                 <option value="0">选择省份</option>
                 <c:forEach items="${provinceList}" var="province">
                   <option value="${province}">${province}</option>
                 </c:forEach>
               </select>
-              <select name="school" id="schools">
-                <option value="%">选择学校</option>0
-              </select>
+                <select name="school" id="schools">
+                  <option value="%">选择学校</option>
+                </select>
               </div>
               <div class="layui-form-item">
                 <label for="L_vercode" class="layui-form-label">人类验证</label>
@@ -204,8 +236,8 @@ function func(){
  //获取被选中的option标签
  var vs = $('select  option:selected').val();
 }
-schools = new Object();
-<c:forEach items="${provinceList}" var="province">
+/*schools = new Object();*/
+<%--<c:forEach items="${provinceList}" var="province">
 schools['${province}']=new Array(
     <c:forEach items="${schoolList}" var="school" varStatus="status">
     <c:if test="${(province==school.schoolProvince) && !status.last}">
@@ -232,7 +264,7 @@ schools['${province}']=new Array(
             school.options[ii].text = schools[pv][i];
             school.options[ii].value = schools[pv][i];
         }
-    }
+    }--%>
 </script>
 
 </body>

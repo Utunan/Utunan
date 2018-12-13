@@ -191,7 +191,9 @@
                                     <i class="layui-badge fly-badge-vip">VIP3</i>
                                     -->
                                 </a>
-                                <span>${obj.quiz.releaseTime}</span>
+                                <span>
+                                    <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
+                                </span>
 
                                 <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
                                 <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->

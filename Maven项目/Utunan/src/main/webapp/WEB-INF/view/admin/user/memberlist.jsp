@@ -162,12 +162,12 @@
         var data = tableCheck.getData();
         layer.confirm('确认要删除吗？' + data, function (index) {
             console.log(data)
-
             $.ajax({
-                url:"url",
+                url:"/delallmember",
                 type:"get",
                 dataType:"String",
-                data:data,
+                traditional:true,
+                data:{"d":data},
                 success:function(response){
 
                 },
