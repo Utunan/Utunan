@@ -119,4 +119,11 @@ public class ShareIndexController {
 		return "share/upload";
 	}
 
+	@RequestMapping("/download")
+	public String download(HttpServletRequest request){
+		String fileId = request.getParameter("fileId");
+		File file=this.shareIndexService.findFileById(Long.parseLong(fileId));
+		request.setAttribute("file", file);
+		return "share/download";
+	}
 }

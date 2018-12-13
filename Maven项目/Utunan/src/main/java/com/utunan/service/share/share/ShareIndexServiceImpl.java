@@ -94,4 +94,16 @@ public class ShareIndexServiceImpl implements ShareIndexService {
 		fileList = this.shareIndexMapper.selectFile(fileTypes, fileSchool, keyWord);
 		return fileList;
 	}
+
+	/**
+	 * @author  孙程程
+	 * @description 根据fileId查文件
+	 * @date  9:06 2018/12/13
+	 * @param  fileId
+	 * @return  com.utunan.pojo.base.share.File
+	 */
+	@Override
+	public File findFileById(Long fileId){
+		return this.shareIndexMapper.findFileById(fileId);
+	}
 }

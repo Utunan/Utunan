@@ -10,6 +10,8 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/common.css">
     <script>
         schools = new Object();
         <c:forEach items="${provinceList}" var="province">
@@ -43,6 +45,7 @@
     </script>
 </head>
 <body>
+<%@include file="../common/header.jsp"%>
     <div STYLE="float: right; width: 100px">
         <h2><a href="/share1">上传文件</a></h2>
     </div>
@@ -90,7 +93,7 @@
             <c:forEach items="${fileList}" var="file" varStatus="stat">
                 <tr>
                     <td><img src="${file.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px"></td>
-                    <td><a href="${file.fileUrl}" style="color: red">${file.fileTitle}</a></td>
+                    <td><a href="/download?fileId=${file.fileId}" style="color: red">${file.fileTitle}</a></td>
                     <td>${file.user.userNickName}</td>
                     <td>${file.fileType}</td>
                     <td>${file.fileSchool}</td>
@@ -135,7 +138,7 @@
             <c:forEach items="${fileList}" var="file">
                 <tr>
                     <td><img src="${file.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px"></td>
-                    <td><a href="${file.fileUrl}" style="color: red">${file.fileTitle}</a></td>
+                    <td><a href="/download?fileId=${file.fileId}" style="color: red">${file.fileTitle}</a></td>
                     <td>${file.user.userNickName}</td>
                     <td>${file.fileType}</td>
                     <td>${file.fileSchool}</td>
@@ -171,10 +174,11 @@
         </tr>
         <c:forEach items="${hotFileList}" var="hotFile">
             <tr>
-                <td><a href="${hotFile.fileUrl}" style="color: red">${hotFile.fileTitle}</a></td>
+                <td><a href="/download?fileId=${hotFile.fileId}" style="color: red">${hotFile.fileTitle}</a></td>
                 <td>${hotFile.downloadNumber}</td>
             </tr>
         </c:forEach>
     </table>
+<%@include file="../common/footer.jsp"%>
 </body>
 </html>

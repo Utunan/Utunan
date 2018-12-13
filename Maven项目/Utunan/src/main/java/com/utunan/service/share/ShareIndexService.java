@@ -47,4 +47,13 @@ public interface ShareIndexService {
 	 * @return  java.util.List<com.utunan.pojo.base.share.File>
 	 */
 	List<File> selectFile(String[] fileTypes, String fileSchool, List<String> keyWords, int pageNum, int pageSize);
+
+	/**
+	 * @author  孙程程
+	 * @description 根据fileId查文件
+	 * @date  9:06 2018/12/13
+	 * @param  fileId
+	 * @return  com.utunan.pojo.base.share.File
+	 */
+	File findFileById(Long fileId);
 }

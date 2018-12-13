@@ -68,13 +68,13 @@
 <div class="layui-container">
     <div class="layui-row layui-col-space15">
         <div class="layui-col-md8">
-        <c:if test="${url=='quiz1' || url=='quiz2'}">
+        <c:if test="${url=='quiz'}">
             <div class="fly-panel" style="margin-bottom: 0;">
 
                 <div class="fly-panel-title fly-filter">
-                    <a href="quiz1"class="${statelist[0]}">最新问题</a>
+                    <a href="quiz?by=releaseTime"class="${statelist[0]}">最新问题</a>
                     <span class="fly-mid"></span>
-                    <a href="quiz2"class="${statelist[1]}">热门问题</a>
+                    <a href="quiz?by=praiseCount"class="${statelist[1]}">热门问题</a>
                     <span class="fly-mid"></span>
                     <a href="">智能推荐</a>
                     <span class="fly-mid"></span>
@@ -117,51 +117,39 @@
                         </div>
                         <div class="fly-list-badge">
                             <c:forEach items="${obj.tagList}" var="taglist">
-                                <span class="layui-badge layui-bg-red"><a href="quiz3?tagName=${taglist.tagName}">${taglist.tagName}</a></span>
+                                <span class="layui-badge layui-bg-red"><a href="quiztag?by=releaseTime&tagName=${taglist.tagName}">${taglist.tagName}</a></span>
                             </c:forEach>
                         </div>
                     </li>
                     </c:forEach>
                 </ul>
-
-                <!-- <div class="fly-none">没有相关数据</div> -->
-
                 <div style="text-align: center">
                     <div class="laypage-main">
-                        <%--<span class="laypage-curr">1</span>
-                        <a href="/jie/page/2/">2</a>
-                        <a href="/jie/page/3/">3</a>
-                        <a href="/jie/page/4/">4</a>
-                        <a href="/jie/page/5/">5</a>
-
-                        <a href="/jie/page/148/" class="laypage-last" title="尾页">尾页</a>
-                        <a href="/jie/page/2/" class="laypage-next">下一页</a>--%>
-
-                        <a href="/${url }">首页</a>
-                        <a href="/${url }?pageNum=${PageInfo.prePage}"><<</a>
+                        <a href="/${url }?by=${orderBy}">首页</a>
+                        <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.prePage}"><<</a>
                         <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                            <a name="${i}" href="/${url }?pageNum=${i}">${i}</a>
+                            <a name="${i}" href="/${url }?by=${orderBy}&pageNum=${i}">${i}</a>
                         </c:forEach>
                         <c:choose>
                             <c:when test="${PageInfo.nextPage==0}">
-                                <a href="/${url }?pageNum=${PageInfo.pages}">>></a>
+                                <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.pages}">>></a>
                             </c:when>
                             <c:otherwise>
-                                <a href="/${url }?pageNum=${PageInfo.nextPage}">>></a>
+                                <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.nextPage}">>></a>
                             </c:otherwise>
                         </c:choose>
-                        <a href="/${url }?pageNum=${PageInfo.pages}">尾页</a>
+                        <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.pages}">尾页</a>
                     </div>
                 </div>
             </div>
         </c:if>
-        <c:if test="${url=='quiz3' || url=='quiz4'}">
+        <c:if test="${url=='quiztag'}">
             <div class="fly-panel" style="margin-bottom: 0;">
 
                 <div class="fly-panel-title fly-filter">
-                    <a href="quiz3?tagName=${tagName}"class="${statelist[0]}">最新问题</a>
+                    <a href="quiztag?by=releaseTime&tagName=${tagName}"class="${statelist[0]}">最新问题</a>
                     <span class="fly-mid"></span>
-                    <a href="quiz4?tagName=${tagName}"class="${statelist[1]}">热门问题</a>
+                    <a href="quiztag?by=praiseCount&tagName=${tagName}"class="${statelist[1]}">热门问题</a>
                     <span class="fly-mid"></span>
                     <a href="">智能推荐</a>
                     <span class="fly-mid"></span>
@@ -201,40 +189,37 @@
                             </div>
                             <div class="fly-list-badge">
                                 <c:forEach items="${obj.tagList}" var="taglist">
-                                    <span class="layui-badge layui-bg-red"><a href="quiz3?tagName=${taglist.tagName}">${taglist.tagName}</a></span>
+                                    <span class="layui-badge layui-bg-red">
+                                        <a href="quiztag?by=releaseTime&tagName=${taglist.tagName}">
+                                            <c:if test="${taglist.tagName == tagName}">
+                                                <p STYLE="color: orange">${taglist.tagName}</p>
+                                            </c:if>
+                                            <c:if test="${taglist.tagName != tagName}">
+                                                <p>${taglist.tagName}</p>
+                                            </c:if>
+                                        </a>
+                                    </span>
                                 </c:forEach>
                             </div>
                         </li>
                     </c:forEach>
                 </ul>
-
-                <!-- <div class="fly-none">没有相关数据</div> -->
-
                 <div style="text-align: center">
                     <div class="laypage-main">
-                            <%--<span class="laypage-curr">1</span>
-                            <a href="/jie/page/2/">2</a>
-                            <a href="/jie/page/3/">3</a>
-                            <a href="/jie/page/4/">4</a>
-                            <a href="/jie/page/5/">5</a>
-
-                            <a href="/jie/page/148/" class="laypage-last" title="尾页">尾页</a>
-                            <a href="/jie/page/2/" class="laypage-next">下一页</a>--%>
-
-                        <a href="/${url }?tagName=${tagName}">首页</a>
-                        <a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.prePage}"><<</a>
+                        <a href="/${url }?by=${orderBy}&tagName=${tagName}">首页</a>
+                        <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.prePage}"><<</a>
                         <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                            <a name="${i}" href="/${url }?tagName=${tagName}&pageNum=${i}">${i}</a>
+                            <a name="${i}" href="/${url }?by=${orderBy}&agName=${tagName}&pageNum=${i}">${i}</a>
                         </c:forEach>
                         <c:choose>
                             <c:when test="${PageInfo.nextPage==0}">
-                                <a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.pages}">>></a>
+                                <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.pages}">>></a>
                             </c:when>
                             <c:otherwise>
-                                <a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.nextPage}">>></a>
+                                <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.nextPage}">>></a>
                             </c:otherwise>
                         </c:choose>
-                        <a href="/${url }?tagName=${tagName}&pageNum=${PageInfo.pages}">尾页</a>
+                        <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.pages}">尾页</a>
                     </div>
                 </div>
             </div>
@@ -265,7 +250,7 @@
                 <h3 class="fly-panel-title">热门标签</h3>
                 <dl class="fly-panel-main">
                     <c:forEach items="${tag}" var="tags">
-                        <dd><a href="quiz3?tagName=${tags[0].tagName}" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
+                        <dd><a href="quiztag?by=releaseTime&tagName=${tags[0].tagName}" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
                     </c:forEach>
                 </dl>
             </div>

@@ -6,6 +6,7 @@ import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.community.Tag;
 import com.utunan.pojo.base.user.User;
 import com.utunan.service.community.QuizService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,47 +19,28 @@ public class QuizServiceImpl implements QuizService {
 	@Autowired
 	private QuizMapper quizMapper;
 
-	/**
-	 * @author  孙程程
-	 * @description 根据发表时间分页查询问答列表
-	 * @date  16:20 2018/11/19
-	 * @param  pageNum
-	 * @param  pageSize
-	 * @return  java.util.List<com.utunan.pojo.base.community.Quiz>
-	 */
 	@Override
-	public List<Quiz> quizListByTime(int pageNum, int pageSize){
+	public List<Quiz> listQuiz(String orderBy, int pageNum, int pageSize){
 		PageHelper.startPage(pageNum,pageSize);
 		//按发表时间的提问列表
- 		List<Quiz> quizList = quizMapper.listQuizByTime();
+		List<Quiz> quizList = quizMapper.listQuiz(orderBy);
 		//限制问题标题、内容展示字数
 		condenseQuiz(quizList);
 		return quizList;
 	}
-	
-	/**
-	 * @author  孙程程
-	 * @description 根据点赞数量分页查询问答列表
-	 * @date  17:15 2018/11/20
-	 * @param  pageNum
-	 * @param  pageSize
-	 * @return  java.util.List<com.utunan.pojo.base.community.Quiz>
-	 */
+
 	@Override
-	public List<Quiz> quizListByPraise(int pageNum, int pageSize){
+	public List<Quiz> listQuizByTag(String orderBy, String tagName, int pageNum, int pageSize){
+		//某标签的quizId
+		List<Long> quizId=quizMapper.selectQuizIdByTagName(tagName);
 		PageHelper.startPage(pageNum,pageSize);
 		//按发表时间的提问列表
-		List<Quiz> quizList = quizMapper.listQuizByPraise();
+		List<Quiz> quizList = quizMapper.listQuizByTag(quizId, orderBy);
 		//限制问题标题、内容展示字数
 		condenseQuiz(quizList);
 		return quizList;
 	}
-	
-	@Override
-	public Long countAllQuiz(){
-		return this.quizMapper.countAllQuiz();
-	}
-	
+
 	/*
 	 * @author  张正扬
 	 * @description 向quiz表插入问题
@@ -128,49 +110,7 @@ public class QuizServiceImpl implements QuizService {
 	public List<Tag> selectTagByQuizId(Long quizId){
 		return this.quizMapper.selectTagByQuizId(quizId);
 	}
-	
-	/**
-	 * @author  孙程程
-	 * @description 在某标签下根据发表时间分页查询问答列表
-	 * @date  8:46 2018/11/26
-	 * @param  tagName, pageNum, pageSize
-	 * @return  java.util.List<com.utunan.pojo.inherit.community.BigQuiz>
-	 */
-	@Override
-	public List<Quiz> quizListByTimeWithTagName(String tagName, int pageNum, int pageSize){
-		//某标签的quizId
-		List<Long> quizId=quizMapper.selectQuizIdByTagName(tagName);
-		PageHelper.startPage(pageNum,pageSize);
-		//按发表时间的提问列表
-		List<Quiz> quizList = quizMapper.listQuizByTimeWithTagName(quizId);
-		//限制问题标题、内容展示字数
-		condenseQuiz(quizList);
-		return quizList;
-	}
-	
-	/**
-	 * @author  孙程程
-	 * @description 在某标签下根据点赞数量分页查询问答列表
-	 * @date  15:36 2018/11/26
-	 * @param  tagName, pageNum, pageSize
-	 * @return  java.util.List<com.utunan.pojo.inherit.community.BigQuiz>
-	 */
-	@Override
-	public List<Quiz> quizListByPraiseWithTagName(String tagName, int pageNum, int pageSize){
-		//某标签的quizId
-		List<Long> quizId=quizMapper.selectQuizIdByTagName(tagName);
-		PageHelper.startPage(pageNum,pageSize);
-		//按点赞顺序的提问列表
-		List<Quiz> quizList = quizMapper.listQuizByPraiseWithTagName(quizId);
-		//限制问题标题、内容展示字数
-		condenseQuiz(quizList);
-		return quizList;
-	}
-	
-	@Override
-	public Long countQuizWithTagName(String tagName) {
-		return this.quizMapper.countQuizWithTagName(tagName);
-	}
+
 	/**
 	 * @author  唐溪
 	 * @description 限制问题标题、内容展示字数
@@ -217,9 +157,7 @@ public class QuizServiceImpl implements QuizService {
 	@Override
 	public Long getMaxQid(){
 		return this.quizMapper.getMax();
-
 	}
-
 
 	@Override
 	public void addAnswerCount(Long qid){
