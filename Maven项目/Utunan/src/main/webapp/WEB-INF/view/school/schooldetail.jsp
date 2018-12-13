@@ -90,6 +90,7 @@
               <%--判断是否有今年的招生简章--%>
               <c:choose>
                 <c:when test="${not empty EGfile}">
+                 <%-- <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/download?fileId=${EGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>--%>
                   <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/school/displayEG?schoolName=${publishDirection.schoolName}&fileType=招生简章">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>
                 </c:when>
                 <c:otherwise>
