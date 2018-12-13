@@ -44,9 +44,10 @@
 </head>
 <body>
     <div STYLE="float: right; width: 100px">
-        <a href="/share1"><h2>上传文件</h2></a>
+        <h2><a href="/share1">上传文件</a></h2>
     </div>
     <div STYLE="width: 1000px">
+        <h2>上传文件的入口在那个并不是很遥远的地方 向右看---------> </h2>
         <form name="form1" action="/searchfile" method="post">
             <br>
             <input type="checkbox" name="fileType" value="全部" id="全部" checked="checked">全部
@@ -86,16 +87,16 @@
                 <td>积分</td>
                 <td>下载次数</td>
             </tr>
-            <c:forEach items="${fileList}" var="file">
-            <tr>
-                <td><img src="${file.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px"></td>
-                <td><a href="${file.fileUrl}" style="color: red">${file.fileTitle}</a></td>
-                <td>${file.user.userNickName}</td>
-                <td>${file.fileType}</td>
-                <td>${file.fileSchool}</td>
-                <td>${file.fileCredit}</td>
-                <td>${file.downloadNumber}</td>
-            </tr>
+            <c:forEach items="${fileList}" var="file" varStatus="stat">
+                <tr>
+                    <td><img src="${file.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px"></td>
+                    <td><a href="${file.fileUrl}" style="color: red">${file.fileTitle}</a></td>
+                    <td>${file.user.userNickName}</td>
+                    <td>${file.fileType}</td>
+                    <td>${file.fileSchool}</td>
+                    <td>${file.fileCredit}</td>
+                    <td>${file.downloadNumber}</td>
+                </tr>
             </c:forEach>
         </table>
         <div style="text-align: center">
