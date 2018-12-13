@@ -321,4 +321,23 @@
         direction.value="${directionName}";
     }
 </script>
+<script>
+    //分页页码选中刷新后样式
+    var page=document.getElementById("page");
+    var pages=page.getElementsByTagName("li");
+    console.log(${PageInfo.pageNum});
+    console.log(pages);
+    if(${PageInfo.pageNum==Null}){
+        pages[0].style.backgroundColor="blue";
+    }else{
+        pages[0].style.backgroundColor="";
+        for(var i=0;i<pages.length;i++){
+            console.log(pages[i].getElementsByTagName("a")[0].innerHTML);
+            if(pages[i].getElementsByTagName("a")[0].innerHTML=="${PageInfo.pageNum}") {
+                pages[i].style.backgroundColor="#2a82e4";
+                pages[i].getElementsByTagName("a")[0].style.color="#ffffff";
+            }
+        }
+    }
+</script>
 </html>
