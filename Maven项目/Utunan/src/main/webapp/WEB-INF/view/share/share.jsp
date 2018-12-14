@@ -10,6 +10,8 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/common.css">
     <script>
         schools = new Object();
         <c:forEach items="${provinceList}" var="province">
@@ -43,13 +45,15 @@
     </script>
 </head>
 <body>
+<%@include file="../common/header.jsp"%>
     <div STYLE="float: right; width: 100px">
-        <a href="/share1"><h2>上传文件</h2></a>
+        <h2><a href="/share1">上传文件</a></h2>
     </div>
     <div STYLE="width: 1000px">
+        <h2>上传文件的入口在那个并不是很遥远的地方 向右看---------> </h2>
         <form name="form1" action="/searchfile" method="post">
             <br>
-            <input type="checkbox" name="fileType" value="." id="全部" checked="checked">全部
+            <input type="checkbox" name="fileType" value="全部" id="全部" checked="checked">全部
             <input type="checkbox" name="fileType" value="招生简章" id="招生简章">招生简章
             <input type="checkbox" name="fileType" value="招生专业目录" id="招生专业目录">招生专业目录
             <input type="checkbox" name="fileType" value="考研真题" id="考研真题">考研真题
@@ -86,16 +90,16 @@
                 <td>积分</td>
                 <td>下载次数</td>
             </tr>
-            <c:forEach items="${fileList}" var="file">
-            <tr>
-                <td><img src="${file.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px"></td>
-                <td><a href="${file.fileUrl}" style="color: red">${file.fileTitle}</a></td>
-                <td>${file.user.userNickName}</td>
-                <td>${file.fileType}</td>
-                <td>${file.fileSchool}</td>
-                <td>${file.fileCredit}</td>
-                <td>${file.downloadNumber}</td>
-            </tr>
+            <c:forEach items="${fileList}" var="file" varStatus="stat">
+                <tr>
+                    <td><img src="${file.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px"></td>
+                    <td><a href="/download?fileId=${file.fileId}" style="color: red">${file.fileTitle}</a></td>
+                    <td>${file.user.userNickName}</td>
+                    <td>${file.fileType}</td>
+                    <td>${file.fileSchool}</td>
+                    <td>${file.fileCredit}</td>
+                    <td>${file.downloadNumber}</td>
+                </tr>
             </c:forEach>
         </table>
         <div style="text-align: center">
@@ -134,7 +138,7 @@
             <c:forEach items="${fileList}" var="file">
                 <tr>
                     <td><img src="${file.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px"></td>
-                    <td><a href="${file.fileUrl}" style="color: red">${file.fileTitle}</a></td>
+                    <td><a href="/download?fileId=${file.fileId}" style="color: red">${file.fileTitle}</a></td>
                     <td>${file.user.userNickName}</td>
                     <td>${file.fileType}</td>
                     <td>${file.fileSchool}</td>
@@ -170,10 +174,11 @@
         </tr>
         <c:forEach items="${hotFileList}" var="hotFile">
             <tr>
-                <td><a href="${hotFile.fileUrl}" style="color: red">${hotFile.fileTitle}</a></td>
+                <td><a href="/download?fileId=${hotFile.fileId}" style="color: red">${hotFile.fileTitle}</a></td>
                 <td>${hotFile.downloadNumber}</td>
             </tr>
         </c:forEach>
     </table>
+<%@include file="../common/footer.jsp"%>
 </body>
 </html>

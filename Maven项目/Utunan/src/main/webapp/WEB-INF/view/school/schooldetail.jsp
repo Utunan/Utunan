@@ -90,10 +90,11 @@
               <%--判断是否有今年的招生简章--%>
               <c:choose>
                 <c:when test="${not empty EGfile}">
+                 <%-- <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/download?fileId=${EGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>--%>
                   <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/school/displayEG?schoolName=${publishDirection.schoolName}&fileType=招生简章">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>
                 </c:when>
                 <c:otherwise>
-                  <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生简章》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/school/displayEGFormerYears?schoolName=${publishDirection.schoolName}&fileType=招生简章">查看往年招生简章</a></div>
+                  <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生简章》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/searchfile?school=${publishDirection.schoolName}&fileType=招生简章&keyWord=">查看往年招生简章</a></div>
                 </c:otherwise>
               </c:choose>
             </div>
@@ -107,7 +108,7 @@
                   <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/school/displayEG?schoolName=${publishDirection.schoolName}&fileType=招生专业目录">查看《${year}年${publishDirection.schoolName}硕士研究生招生目录》</a></div>
                 </c:when>
                 <c:otherwise>
-                  <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生目录》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/school/displayEGFormerYears?schoolName=${publishDirection.schoolName}&fileType=招生专业目录">查看往年招生目录</a></div>
+                  <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生目录》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/searchfile?school=${publishDirection.schoolName}&fileType=招生专业目录&keyWord=">查看往年招生目录</a></div>
                 </c:otherwise>
               </c:choose>
             </div>
@@ -137,10 +138,13 @@
                 <i class="iconfont icon-zan"></i>
                 <em>${dcomment.directionCommentPraiseCount}</em>
               </span>
+              <%--判断是否是管理员或者是用户本人--%>
+              <c:if test="${user.userIdentity==1 || (user.userIdentity==3 && user.userId==dcomment.user.userId)}">
               <span type="reply">
                 <i class="iconfont icon-svgmoban53"></i>
-                回复
+                <a href="/school/deleteDirectionComment?directionCommentId=${dcomment.directionCommentId}&directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}">删除</a>
               </span>
+              </c:if>
             </div>
           </li>
           </c:forEach>
@@ -148,7 +152,7 @@
           <!-- <li class="fly-none">消灭零回复</li> -->
         </ul>
         <div class="layui-form layui-form-pane">
-          <form action="/jie/reply/" method="post">
+          <form action="/school/insertDirectionComment?directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}" method="post">
             <div class="layui-form-item layui-form-text">
               <a name="comment"></a>
               <div class="layui-input-block">
@@ -169,47 +173,17 @@
     <div class="layui-col-md4">
         <div class="fly-panel">
             <div class="fly-panel-main">
-              <a href="" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">搜索 [${publishDirection.schoolName}] 考研资料</a>
+              <a href="/searchfile?school=${publishDirection.schoolName}&fileType=全部&keyWord=" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">搜索 [${publishDirection.schoolName}] 考研资料</a>
             </div>
         </div>
       <dl class="fly-panel fly-list-one">
         <dt class="fly-panel-title">[${publishDirection.schoolName}]热门资料</dt>
+        <c:forEach items="${top9file}" var="file">
         <dd>
-          <a href="">王碧云真优秀</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
+          <a href="">${file.fileTitle}</a>
+          <span><i class="iconfont icon-pinglun1"></i>${file.downloadNumber}</span>
         </dd>
-        <dd>
-          <a href="">说得好</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">我同意</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">唐溪大傻子</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">说得好</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">我同意</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-            <a href="">基于 layui 的极简社区页面模版</a>
-            <span><i class="iconfont icon-pinglun1"></i> 16</span>
-          </dd>
-          <dd>
-            <a href="">基于 layui 的极简社区页面模版</a>
-            <span><i class="iconfont icon-pinglun1"></i> 16</span>
-          </dd>
-          <dd>
-            <a href="">基于 layui 的极简社区页面模版</a>
-            <span><i class="iconfont icon-pinglun1"></i> 16</span>
-          </dd>
+        </c:forEach>
       </dl>
     </div>
   </div>

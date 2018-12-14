@@ -3,6 +3,7 @@ package com.utunan.service.share;
 import com.utunan.pojo.base.school.Direction;
 import com.utunan.pojo.base.school.School;
 import com.utunan.pojo.base.share.File;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -31,7 +32,6 @@ public interface ShareIndexService {
      * @return  java.util.List<java.lang.String>
      */
 	List<String> listSchoolProvince();
-
 	/**
 	 * @author  孙程程
 	 * @description 学校
@@ -46,5 +46,14 @@ public interface ShareIndexService {
 	 * @date  16:27 2018/12/11
 	 * @return  java.util.List<com.utunan.pojo.base.share.File>
 	 */
-	List<File> selectFile(List<String> fileTypes, String fileSchool, List<String> keyWords, int pageNum, int pageSize);
+	List<File> selectFile(String[] fileTypes, String fileSchool, List<String> keyWords, int pageNum, int pageSize);
+
+	/**
+	 * @author  孙程程
+	 * @description 根据fileId查文件
+	 * @date  9:06 2018/12/13
+	 * @param  fileId
+	 * @return  com.utunan.pojo.base.share.File
+	 */
+	File findFileById(Long fileId);
 }

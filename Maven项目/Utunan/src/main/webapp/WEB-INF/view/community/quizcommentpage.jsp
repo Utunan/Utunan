@@ -23,9 +23,9 @@
     <script>
         function praise(quizId){
             $.ajax({
-            url:'praise?quizId=${quiz.quizId}',//处理数据的地址
+            url:'praise?quizId='+quizId,//处理数据的地址
             type:'post',//数据提交形式
-            data:{'id':1,'user':123},//需要提交的数据
+            data:{'id':quizId,'user':123},//需要提交的数据
             success:function(data){//数据返回成功的执行放大
             if(data==1){//成功
             alert('执行成功');
@@ -122,9 +122,9 @@
         <div class="post-bottom">
             <!--数据库获取-->
             <div class="praise">赞（${quiz.praiseCount}）</div>
-            <a href="praise?quizId=${quiz.quizId}"><img src="/images/community/jia1.svg" width="34px" height="34px"></a>
+            <a href="#" onclick="praise(${quiz.quizId})")><img src="/images/community/jia1.svg" width="34px" height="34px"></a>
             <div class="give-praise"><a href="praise?quizId=${quiz.quizId}">点赞</a></div>
-            <a href="quizCollector?quizId=${quiz.quizId}"><img src="/images/community/shoucang.svg" width="34px"
+            <a href="javascript:void(0)" onclick=""><img src="/images/community/shoucang.svg" width="34px"
                                                                height="34px"></a>
             <div class="collection">收藏此问题</div>
             <img src="/images/community/zan.svg" width="34px" height="34px">

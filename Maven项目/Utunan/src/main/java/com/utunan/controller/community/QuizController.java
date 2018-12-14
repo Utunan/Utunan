@@ -36,17 +36,8 @@ public class QuizController {
 	@Autowired
 	private QuizGreatService quizGreatService;
 
-
-	
-	/**
-	 * @author  孙程程
-	 * @description 根据发表时间展示问答列表
-	 * @date  17:52 2018/11/20
-	 * @param  request
-	 * @return  java.lang.String
-	 */
-	@RequestMapping(value="/quiz1")
-	public String displayQuizByTime(HttpServletRequest request){
+	@RequestMapping(value="/quiz")
+	public String displayQuiz(HttpServletRequest request){
 		String pageNum=request.getParameter("pageNum");
 		//判断当前页
 		int num=0;
@@ -55,9 +46,13 @@ public class QuizController {
 		}else{
 			num=Integer.parseInt(pageNum);
 		}
+		//排序方式
+		String orderBy = request.getParameter("by");
+		if (orderBy==null || orderBy.equals("")){
+			orderBy="releaseTime";
+		}
 		//提问列表
-		List<Quiz> quizList=quizService.quizListByTime(num,10);
-
+		List<Quiz> quizList=quizService.listQuiz(orderBy, num,10);
 		//查询前10个评论数量的问题
 		List<Quiz> quizListTop10=quizService.quizListTop10();
 		//封装BigQuiz
@@ -90,11 +85,18 @@ public class QuizController {
 		List<Tag> getAllTag=this.tagService.getRemianTags(tagList3);
 		//返回排序的选中状态
 		List<String> stateList=new ArrayList<String>();
-		stateList.add("active");
-		stateList.add("option");
+		if (orderBy=="releaseTime"){
+			stateList.add("active");
+			stateList.add("option");
+		}
+		if (orderBy=="raiseCount"){
+			stateList.add("option");
+			stateList.add("active");
+		}
 		//返回数据
 		request.setAttribute("object",bigQuiz);
-		request.setAttribute("url","quiz1");
+		request.setAttribute("url","quiz");
+		request.setAttribute("orderBy", orderBy);
 		request.setAttribute("tag",hotTagList);
 		request.setAttribute("tags",tagList3);
 		request.setAttribute("alltag",getAllTag);
@@ -103,16 +105,17 @@ public class QuizController {
 		request.setAttribute("quizListTop10",quizListTop10);
 		return "community/quiz";
 	}
-	
+
 	/**
 	 * @author  孙程程
-	 * @description 根据点赞数量展示问答列表
-	 * @date  17:52 2018/11/20
+	 * @description 在某标签下分页查询问答列表
+	 * @date  15:39 2018/11/26
 	 * @param  request
 	 * @return  java.lang.String
 	 */
-	@RequestMapping(value="/quiz2")
-	public String displayQuizByPraise(HttpServletRequest request){
+	@RequestMapping(value="/quiztag")
+	public String displayQuizByTag(HttpServletRequest request){
+		String tagName=request.getParameter("tagName");
 		String pageNum=request.getParameter("pageNum");
 		//判断当前页
 		int num=0;
@@ -121,12 +124,10 @@ public class QuizController {
 		}else{
 			num=Integer.parseInt(pageNum);
 		}
+		//排序方式
+		String orderBy = request.getParameter("by");
 		//提问列表
-		List<Quiz> quizList=quizService.quizListByPraise(num,10);
-
-
-        //查询前10个评论数量的问题
-        List<Quiz> quizListTop10=quizService.quizListTop10();
+		List<Quiz> quizList=this.quizService.listQuizByTag(orderBy, tagName, num, 10);
 		//封装BigQuiz
 		//*************以下代码会以同样的姿态在不同地方出现，正在努力封装************
 		//提取quizId列表
@@ -134,9 +135,12 @@ public class QuizController {
 		for(int i=0; i<quizList.size(); i++){
 			quizIdList.add(quizList.get(i).getQuizId());
 		}
+		//获取提问的用户信息
+		List<User> userList=new ArrayList<>();
 		//获取提问的标签列表
 		List<List<Tag>> quizTagList=new ArrayList<>();
 		for(int i=0; i<quizList.size(); i++){
+			userList.add(quizService.findUserByQuizId(quizIdList.get(i)));
 			quizTagList.add(quizService.selectTagByQuizId(quizIdList.get(i)));
 		}
 		//将提问、评论数量、标签封装
@@ -144,7 +148,7 @@ public class QuizController {
 		for (int i=0;i<quizList.size(); i++){
 			BigQuiz bq=new BigQuiz();
 			bq.setQuiz(quizList.get(i));
-			bq.setUser(quizList.get(i).getUser());
+			bq.setUser(userList.get(i));
 			bq.setTagList(quizTagList.get(i));
 			bigQuiz.add(bq);
 		}
@@ -157,21 +161,27 @@ public class QuizController {
 		List<Tag> getAllTag=this.tagService.getRemianTags(tagList3);
 		//返回排序的选中状态
 		List<String> stateList=new ArrayList<String>();
-		stateList.add("option");
-		stateList.add("active");
-	
+		if (orderBy=="releaseTime"){
+			stateList.add("active");
+			stateList.add("option");
+		}
+		if (orderBy=="raiseCount"){
+			stateList.add("option");
+			stateList.add("active");
+		}
 		//返回数据
 		request.setAttribute("object",bigQuiz);
-		request.setAttribute("url","quiz2");
+		request.setAttribute("url","quiztag");
+		request.setAttribute("orderBy", orderBy);
 		request.setAttribute("tag",hotTagList);
 		request.setAttribute("tags",tagList3);
 		request.setAttribute("alltag",getAllTag);
+		request.setAttribute("tagName",tagName);
 		request.setAttribute("statelist",stateList);
 		request.setAttribute("PageInfo",new PageInfo(quizList,5));
-        request.setAttribute("quizListTop10",quizListTop10);
 		return "community/quiz";
 	}
-	
+
 	/**
 	 * @author  张正扬
 	 * @description 向quiz表插入并取出插入内容
@@ -202,135 +212,13 @@ public class QuizController {
 
 			this.quizTagService.saveQuizTag(qid,tagss);
 		}
-		//限定用户登录并且title不为空并且title限定字数为7到50字
-		if (user!=null&&WordLimitUtil.isNull(title)&&WordLimitUtil.getLength(title)>=7&&WordLimitUtil.getLength(title)<=50) {
+		//限定用户登录并且title不为空并且title限定字数为5到20字
+		if (user!=null&&WordLimitUtil.isNull(title)&&WordLimitUtil.getLength(title)>=5&&WordLimitUtil.getLength(title)<=20) {
 			this.quizService.saveQuiz(qid,user, title, content);
 		}
-		return "redirect:/quiz1 ";
+		return "redirect:/quiz";
 	}
 
-	/**
-	 * @author  孙程程
-	 * @description 在某标签下根据发表时间分页查询问答列表
-	 * @date  15:39 2018/11/26
-	 * @param  request
-	 * @return  java.lang.String
-	 */
-	@RequestMapping(value="/quiz3")
-	public String displayQuizByTimeWithTagName(HttpServletRequest request){
-		String tagName=request.getParameter("tagName");
-		String pageNum=request.getParameter("pageNum");
-		//判断当前页
-		int num=0;
-		if(pageNum==null || pageNum.equals("")){
-			num=1;
-		}else{
-			num=Integer.parseInt(pageNum);
-		}
-		//提问列表
-		List<Quiz> quizList=this.quizService.quizListByTimeWithTagName(tagName, num,10);
-		//封装BigQuiz
-		//*************以下代码会以同样的姿态在不同地方出现，正在努力封装************
-		//提取quizId列表
-		List<Long> quizIdList=new ArrayList<>();
-		for(int i=0; i<quizList.size(); i++){
-			quizIdList.add(quizList.get(i).getQuizId());
-		}
-		//获取提问的用户信息
-		List<User> userList=new ArrayList<>();
-		//获取提问的标签列表
-		List<List<Tag>> quizTagList=new ArrayList<>();
-		for(int i=0; i<quizList.size(); i++){
-			userList.add(quizService.findUserByQuizId(quizIdList.get(i)));
-			quizTagList.add(quizService.selectTagByQuizId(quizIdList.get(i)));
-		}
-		//将提问、评论数量、标签封装
-		List<BigQuiz> bigQuiz=new ArrayList<>();
-		for (int i=0;i<quizList.size(); i++){
-			BigQuiz bq=new BigQuiz();
-			bq.setQuiz(quizList.get(i));
-			bq.setUser(userList.get(i));
-			bq.setTagList(quizTagList.get(i));
-			bigQuiz.add(bq);
-		}
-		//*************以上代码会以同样的姿态在不同地方出现，正在努力封装************
-		//热门标签
-		Object hotTagList=this.tagService.getTop10Tag();
-		//返回排序的选中状态
-		List<String> stateList=new ArrayList<String>();
-		stateList.add("active");
-		stateList.add("option");
-		//返回数据
-		request.setAttribute("object",bigQuiz);
-		request.setAttribute("url","quiz3");
-		request.setAttribute("tag",hotTagList);
-		request.setAttribute("tagName",tagName);
-		request.setAttribute("statelist",stateList);
-		request.setAttribute("PageInfo",new PageInfo(quizList,5));
-		return "community/quiz";
-	}
-	
-	/**
-	 * @author  孙程程
-	 * @description 在某标签下根据点赞数量分页查询问答列表
-	 * @date  15:39 2018/11/26
-	 * @param  request
-	 * @return  java.lang.String
-	 */
-	@RequestMapping(value="/quiz4")
-	public String displayQuizByPraiseWithTagName(HttpServletRequest request){
-		String tagName=request.getParameter("tagName");
-		String pageNum=request.getParameter("pageNum");
-		//判断当前页
-		int num=0;
-		if(pageNum==null || pageNum.equals("")){
-			num=1;
-		}else{
-			num=Integer.parseInt(pageNum);
-		}
-		//提问列表
-		List<Quiz> quizList=this.quizService.quizListByPraiseWithTagName(tagName, num,10);
-		//封装BigQuiz
-		//*************以下代码会以同样的姿态在不同地方出现，正在努力封装************
-		//提取quizId列表
-		List<Long> quizIdList=new ArrayList<>();
-		for(int i=0; i<quizList.size(); i++){
-			quizIdList.add(quizList.get(i).getQuizId());
-		}
-		//获取提问的用户信息
-		List<User> userList=new ArrayList<>();
-		//获取提问的标签列表
-		List<List<Tag>> quizTagList=new ArrayList<>();
-		for(int i=0; i<quizList.size(); i++){
-			userList.add(quizService.findUserByQuizId(quizIdList.get(i)));
-			quizTagList.add(quizService.selectTagByQuizId(quizIdList.get(i)));
-		}
-		//将提问、评论数量、标签封装
-		List<BigQuiz> bigQuiz=new ArrayList<>();
-		for (int i=0;i<quizList.size(); i++){
-			BigQuiz bq=new BigQuiz();
-			bq.setQuiz(quizList.get(i));
-			bq.setUser(userList.get(i));
-			bq.setTagList(quizTagList.get(i));
-			bigQuiz.add(bq);
-		}
-		//*************以上代码会以同样的姿态在不同地方出现，正在努力封装************
-		//热门标签
-		Object hotTagList=this.tagService.getTop10Tag();
-		//返回排序的选中状态
-		List<String> stateList=new ArrayList<String>();
-		stateList.add("option");
-		stateList.add("active");
-		//返回数据
-		request.setAttribute("object",bigQuiz);
-		request.setAttribute("url","quiz4");
-		request.setAttribute("tag",hotTagList);
-		request.setAttribute("tagName",tagName);
-		request.setAttribute("statelist",stateList);
-		request.setAttribute("PageInfo",new PageInfo(quizList,5));
-		return "community/quiz";
-	}
-	
 	/*
 	 * @author  张正扬
 	 * @description 给问题点赞
@@ -352,9 +240,6 @@ public class QuizController {
             quizGreatService.delQuizGreat(Long.parseLong(quizId),user.getUserId());
             this.quizService.delPraiseQuiz(Long.parseLong(quizId));
         }
-
-
-
-		return "redirect:/quiz1";
+		return "redirect:/quiz";
 	}
 }

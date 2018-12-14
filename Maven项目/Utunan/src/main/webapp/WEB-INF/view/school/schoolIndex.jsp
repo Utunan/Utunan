@@ -13,7 +13,7 @@
     <title>优图南-院校库</title>
     <link rel="stylesheet" href="/layui/wyd/layui.css">
     <link rel="stylesheet" href="/layui/wyd/global.css">
-    <link rel="stylesheet" href="layui.js">
+
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/school/new.css">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
@@ -236,5 +236,108 @@
     $(".english-all").click(function(){
         $(".english-part").attr("checked",false);
     })
+</script>
+<script>
+    //复选框状态保持
+    var district=document.getElementById("district");
+    var inputs=district.getElementsByTagName("input");
+
+    if("${schoolProvince}"=="全部"||"${schoolProvince}"==""){
+        inputs[0].checked=true;
+    }else{
+        inputs[0].checked=false;
+        for(var j=1;j<inputs.length;j++){
+            <c:forEach items="${schoolProvince}" varStatus="status" var="schoolProvince">
+                if("${schoolProvince}"==inputs[j].value){
+                    inputs[j].checked=true;
+                }
+            </c:forEach>
+        }
+    }
+
+    var kind=document.getElementById("kind");
+    var inputskind=kind.getElementsByTagName("input");
+
+    if("${schoolType}"==""||"${schoolType}"=="全部"){
+        inputskind[0].checked = true;
+    }else{
+        inputskind[0].checked=false;
+        for(var j=1;j<inputskind.length;j++){
+            <c:forEach items="${schoolType}" varStatus="status" var="schoolType">
+            if("${schoolType}"==inputskind[j].value){
+                inputskind[j].checked=true;
+            }
+            </c:forEach>
+        }
+    }
+    var degree=document.getElementById("degree");
+    var inputsdegree=degree.getElementsByTagName("input");
+
+    if("${degreeType}"==""||"${degreeType}"=="全部"){
+        inputsdegree[0].checked = true;
+    }else{
+        inputsdegree[0].checked = false;
+        for(var j=1;j<inputsdegree.length;j++){
+            <c:forEach items="${degreeType}" varStatus="status" var="degreeType">
+            if("${degreeType}"==inputsdegree[j].value){
+                inputsdegree[j].checked=true;
+            }
+            </c:forEach>
+        }
+    }
+    var math=document.getElementById("math");
+    var inputsmath=math.getElementsByTagName("input");
+
+    if("${math}"==""||"${math}"=="全部"){
+        inputsmath[0].checked = true;
+    }else{
+        inputsmath[0].checked = false;
+        for(var j=1;j<inputsmath.length;j++){
+            <c:forEach items="${math}" varStatus="status" var="math">
+            if("${math}"==inputsmath[j].value){
+                inputsmath[j].checked=true;
+            }
+            </c:forEach>
+        }
+    }
+    var english=document.getElementById("english");
+    var inputsenglish=english.getElementsByTagName("input");
+
+    if("${english}"==""||"${english}"=="全部"){
+        inputsenglish[0].checked = true;
+    }else{
+        inputsenglish[0].checked = false;
+        for(var j=1;j<inputsenglish.length;j++){
+            <c:forEach items="${english}" varStatus="status" var="english">
+            if("${english}"==inputsenglish[j].value){
+                inputsenglish[j].checked=true;
+            }
+            </c:forEach>
+        }
+    }
+    //搜索框文字保持
+    var direction=document.getElementById("direction");
+    if("${directionName}"!=""){
+        direction.value="${directionName}";
+    }
+</script>
+<script>
+    //分页页码选中刷新后样式
+    var page=document.getElementById("page");
+    var pages=page.getElementsByTagName("li");
+    console.log(${PageInfo.pageNum});
+    console.log(pages);
+    if(${PageInfo.pageNum==Null}){
+        pages[0].style.backgroundColor="blue";
+    }else{
+        pages[0].style.backgroundColor="";
+        for(var i=0;i<pages.length;i++){
+            console.log(pages[i].getElementsByTagName("a")[0].innerHTML);
+            if(pages[i].getElementsByTagName("a")[0].innerHTML=="${PageInfo.pageNum}") {
+                pages[i].style.backgroundColor="#2a82e4";
+                pages[i].getElementsByTagName("a")[0].style.color="#ffffff";
+            }
+        }
+    }
 </script>
 </html>

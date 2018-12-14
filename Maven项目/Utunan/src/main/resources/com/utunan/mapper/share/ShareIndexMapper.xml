@@ -67,9 +67,28 @@
     <!--根据条件筛选文件-->
     <select id="selectFile" resultMap="fileResultMap">
         select *
-        from file
-        where fileType REGEXP #{fileType}
-        and fileSchool like #{fileSchool}
-        and fileTitle REGEXP #{keyWord}
+        from file f
+        join user u on f.userId=u.userId
+        join suffix s on f.suffixId=s.suffixId
+        where f.fileSchool like #{fileSchool}
+        and f.fileTitle REGEXP #{keyWord}
+        and f.isExamine=1
+        and f.fileType in
+        <if test="fileType!=null">
+            <foreach collection="fileType" item="item" index="index" open="(" separator="," close=")">
+              #{item}
+            </foreach>
+        </if>
+        <if test="fileType==null">
+            ('招生简章','考研真题','招生专业目录','备考习题','参考书目','课件分享')
+        </if>
+    </select>
+    <!--根据Id查文件-->
+    <select id="findFileById" resultMap="fileResultMap">
+        select *
+        from file f
+        join user u on f.userId=u.userId
+        join suffix s on f.suffixId=s.suffixId
+        where f.fileId=#{fileId}
     </select>
 </mapper>

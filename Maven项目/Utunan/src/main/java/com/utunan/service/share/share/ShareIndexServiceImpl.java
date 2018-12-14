@@ -8,6 +8,8 @@ import com.utunan.pojo.base.school.School;
 import com.utunan.pojo.base.share.File;
 import com.utunan.service.admin.AdminDirectionService;
 import com.utunan.service.share.ShareIndexService;
+import com.utunan.util.SchoolOther;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -77,7 +79,7 @@ public class ShareIndexServiceImpl implements ShareIndexService {
 	 * @return  java.util.List<com.utunan.pojo.base.share.File>
 	 */
 	@Override
-	public List<File> selectFile(List<String> fileTypes, String fileSchool, List<String> keyWords, int pageNum, int pageSize){
+	public List<File> selectFile(String[] fileTypes, String fileSchool, List<String> keyWords, int pageNum, int pageSize){
 		String keyWord="";
 		for(int i=0; i<keyWords.size(); i++){
 			keyWord += keyWords.get(i);
@@ -85,15 +87,23 @@ public class ShareIndexServiceImpl implements ShareIndexService {
 				keyWord += "|";
 			}
 		}
-		String fileType = "";
-		for(int i=0; i<fileTypes.size(); i++){
-			fileType += fileTypes.get(i);
-			if (i != (fileTypes.size()-1)){
-				fileType += "|";
-			}
-		}
+		SchoolOther so = new SchoolOther();
+		fileTypes = so.clickAll(fileTypes);
+		List<File> fileList;
 		PageHelper.startPage(pageNum,pageSize);
-		List<File> fileList=this.shareIndexMapper.selectFile(fileType, fileSchool, keyWord);
+		fileList = this.shareIndexMapper.selectFile(fileTypes, fileSchool, keyWord);
 		return fileList;
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 根据fileId查文件
+	 * @date  9:06 2018/12/13
+	 * @param  fileId
+	 * @return  com.utunan.pojo.base.share.File
+	 */
+	@Override
+	public File findFileById(Long fileId){
+		return this.shareIndexMapper.findFileById(fileId);
 	}
 }

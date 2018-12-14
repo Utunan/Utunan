@@ -33,10 +33,15 @@
         where directionCommentId=#{directionCommentId}
     </update>
     <!--王碧云 插入评论-->
-    <insert id="directionCommentContent" parameterType="com.utunan.pojo.base.questionbank.DirectionComment">
+    <insert id="insertDirectionComment" parameterType="com.utunan.pojo.base.questionbank.DirectionComment">
         insert
         into direction_comment(userId,directionId,directionCommentContent,directionCommentTime,directionCommentPraiseCount)
         values (#{userId},#{directionId},#{directionCommentContent},#{directionCommentTime},#{directionCommentPraiseCount})
     </insert>
-
+    <!--删除评论-->
+    <delete id="deleteDirectionComment" parameterType="java.lang.Long">
+        delete
+        from direction_comment
+        where directionCommentId=#{directionCommentId}
+    </delete>
 </mapper>

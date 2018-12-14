@@ -7,38 +7,375 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e3f237c-9b9f-4624-8faa-9802337bf1f7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/utunan/controller/common/MemberController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/member.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/share/upload.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/share/uploadbg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/user/ans.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/controller/common/homeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/controller/common/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/homepage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/homepage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/school/schoolIndex1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/school/schoolIndex1.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/utunan/controller/admin/DelMemberController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/admin/DelMemberMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/share/ShareuploadMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/admin/DelMemberService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/admin/Impl/DelMemberServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/share/ShareupFileService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/share/share/ShareupFileServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/admin/DelMemberMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/share/ShareuploadMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/community/detail.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/community/right.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/share/download.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/community/detail.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/css/layui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/css/layui.mobile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/css/modules/code.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/css/modules/laydate/default/laydate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/css/modules/layer/default/icon-ext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/css/modules/layer/default/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/css/modules/layer/default/layer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/css/modules/layer/default/loading-0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/css/modules/layer/default/loading-1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/css/modules/layer/default/loading-2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/case/case.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/catalog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/common/column.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/common/filter.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/common/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/common/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/common/link.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/common/user-nav.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/css/common.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/css/layui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/css/layui.mobile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/css/modules/code.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/css/modules/laydate/default/laydate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/css/modules/layer/default/icon-ext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/css/modules/layer/default/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/css/modules/layer/default/layer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/css/modules/layer/default/loading-0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/css/modules/layer/default/loading-1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/css/modules/layer/default/loading-2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/css/school/detail.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/css/school/file.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/css/school/new.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/css/school/schooldetails.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/jie/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/jie/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/jie/index - 副本 (2) - 副本.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/jie/index - 副本 (2).html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/jie/index - 副本.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/jie/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/other/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/other/notice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/other/tips.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/user/activate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/user/forget.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/user/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/user/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/user/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/user/message.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/user/reg.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/html/user/set.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/json/signin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/css/full.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/css/global.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/css/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/css/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/css/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/css/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/avatar/0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/avatar/00.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/avatar/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/avatar/10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/avatar/11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/avatar/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/avatar/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/avatar/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/avatar/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/avatar/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/avatar/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/avatar/8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/avatar/9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/avatar/default.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/case.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/fly.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/logo-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/other/1437100018023.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/other/study-a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/images/weixin.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/css/layui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/css/layui.mobile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/css/modules/code.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/css/modules/laydate/default/laydate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/css/modules/layer/default/icon-ext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/css/modules/layer/default/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/css/modules/layer/default/layer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/css/modules/layer/default/loading-0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/css/modules/layer/default/loading-1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/css/modules/layer/default/loading-2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/font/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/font/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/font/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/font/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/10.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/11.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/12.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/13.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/14.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/15.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/16.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/17.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/18.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/19.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/20.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/21.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/22.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/23.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/24.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/25.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/26.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/27.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/28.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/29.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/30.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/31.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/32.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/33.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/34.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/35.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/36.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/37.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/38.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/39.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/4.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/40.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/41.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/42.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/43.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/44.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/45.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/46.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/47.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/48.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/49.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/5.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/50.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/51.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/52.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/53.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/54.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/55.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/56.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/57.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/58.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/59.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/6.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/60.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/61.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/62.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/63.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/64.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/65.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/66.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/67.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/68.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/69.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/7.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/70.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/71.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/8.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/images/face/9.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/lay/modules/carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/lay/modules/code.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/lay/modules/element.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/lay/modules/flow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/lay/modules/form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/lay/modules/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/lay/modules/laydate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/lay/modules/layedit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/lay/modules/layer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/lay/modules/laypage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/lay/modules/laytpl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/lay/modules/mobile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/lay/modules/table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/lay/modules/tree.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/lay/modules/upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/lay/modules/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/layui.all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/layui/layui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/mods/case.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/mods/face.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/mods/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/mods/jie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/res/mods/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/case/case.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/common/column.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/common/filter.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/common/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/common/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/common/link.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/common/list-hot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/common/list-static.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/common/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/common/tips.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/common/user-nav.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/jie/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/jie/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/jie/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/temp/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/user/activate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/user/forget.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/user/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/user/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/user/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/user/message.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/user/reg.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/fly/views/user/set.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/font/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/font/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/font/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/font/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/10.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/11.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/12.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/13.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/14.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/15.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/16.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/17.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/18.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/19.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/20.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/21.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/22.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/23.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/24.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/25.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/26.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/27.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/28.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/29.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/30.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/31.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/32.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/33.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/34.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/35.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/36.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/37.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/38.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/39.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/4.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/40.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/41.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/42.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/43.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/44.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/45.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/46.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/47.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/48.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/49.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/5.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/50.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/51.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/52.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/53.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/54.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/55.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/56.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/57.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/58.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/59.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/6.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/60.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/61.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/62.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/63.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/64.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/65.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/66.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/67.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/68.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/69.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/7.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/70.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/71.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/8.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/images/face/9.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/code.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/colorpicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/element.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/flow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/laydate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/layedit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/layer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/laypage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/laytpl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/mobile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/rate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/slider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/tree.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/lay/modules/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/layui.all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/layui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/wyd/global.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/layui/wyd/layui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/controller/admin/MemberDeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/controller/admin/MemberDeleteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/controller/community/QuizCommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/controller/community/QuizCommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/controller/community/QuizController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/controller/community/QuizController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/controller/school/SchoolDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/controller/school/SchoolDetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/controller/school/SchoolSearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/controller/school/SchoolSearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/controller/share/ShareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/controller/share/ShareController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/controller/share/ShareIndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/controller/share/ShareIndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/community/QuizMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/community/QuizMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/questionbank/PublishDirectionCommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/questionbank/PublishDirectionCommentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/SchoolDetailFileMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/school/SchoolDetailFileMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/share/ShareIndexMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/mapper/share/ShareIndexMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/service/community/QuizService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/community/QuizService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/QuizServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/community/impl/QuizServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/service/questionbank/PublishDirectionCommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/questionbank/PublishDirectionCommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/service/questionbank/impl/PublishDirectionCommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/questionbank/impl/PublishDirectionCommentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/service/school/PublishSchoolService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/school/PublishSchoolService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/service/school/SchoolDetailFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/school/SchoolDetailFileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/service/school/impl/PublishSchoolServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/school/impl/PublishSchoolServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/service/school/impl/SchoolDetailFileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/school/impl/SchoolDetailFileServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/service/share/ShareIndexService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/share/ShareIndexService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utunan/service/share/share/ShareIndexServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utunan/service/share/share/ShareIndexServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/community/QuizMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/community/QuizMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/questionbank/PublishDirectionCommentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/questionbank/PublishDirectionCommentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/school/DirectionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/school/DirectionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/school/PublishSchoolMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/school/PublishSchoolMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/school/SchoolDetailFileMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/school/SchoolDetailFileMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/share/ShareIndexMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/utunan/mapper/share/ShareIndexMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/user/memberlist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/user/memberlist.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/common/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/common/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/community/quiz.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/community/quiz.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/community/quizcommentpage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/community/quizcommentpage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/school/schoolIndex.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/school/schoolIndex.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/school/schooldetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/school/schooldetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/share/share.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/share/share.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/share/upload.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/share/upload.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/common/page.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/common/page.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/directioncollector.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/directioncollector.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/follow.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/follow.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/information.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/information.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/myspace.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/myspace.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/publishanswer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/publishanswer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/publishquiz.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/publishquiz.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/questioncollector.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/questioncollector.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/quizcollector.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/quizcollector.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/settings.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/settings.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/statistics.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/statistics.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/homepage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/user/publishanswer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/user/publishanswer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/user/questioncollector.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/user/questioncollector.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/user/usercommon.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/user/usercommon.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/user/userhome.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/user/userhome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/common/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/common/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/layui/lay/modules/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/layui/lay/modules/form.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/layui/lay/modules/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/layui/lay/modules/upload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/layui/wyd/layui.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/layui/wyd/layui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/community/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/community/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/community/layui.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/community/layui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/community/detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/css/community/detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../前端界面/问答页面前端/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../前端界面/问答页面前端/detail.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -109,7 +446,7 @@
           <entry key="CSS" value="380" />
           <entry key="HTML" value="3" />
           <entry key="JAVA" value="2380" />
-          <entry key="JSP" value="3092" />
+          <entry key="JSP" value="3093" />
           <entry key="JavaScript" value="4" />
           <entry key="PLAIN_TEXT" value="9" />
           <entry key="SQL" value="17" />
@@ -168,10 +505,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/share/upload.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="308" column="4" selection-start-line="308" selection-start-column="4" selection-end-line="308" selection-end-column="4" />
+            <state relative-caret-position="241">
+              <caret line="422" column="19" selection-start-line="422" selection-start-column="19" selection-end-line="422" selection-end-column="19" />
               <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#6;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#1;n#div#6;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -345,57 +690,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="layui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="layui" type="462c0819:PsiDirectoryNode" />
-              <item name="lay" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="layui" type="462c0819:PsiDirectoryNode" />
-              <item name="lay" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Utunan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Utunan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -405,7 +699,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544756277283" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544769810474" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
@@ -547,12 +841,12 @@
       <workItem from="1544696753492" duration="599000" />
       <workItem from="1544752719118" duration="1779000" />
       <workItem from="1544759771178" duration="4090000" />
-      <workItem from="1544768728914" duration="803000" />
+      <workItem from="1544768728914" duration="1062000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75759000" />
+    <option name="totallyTimeSpent" value="76018000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -567,7 +861,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.611898" visible="true" weight="0.1997319" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.611898" visible="true" weight="0.1997319" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -578,7 +872,7 @@
       <window_info id="Learn" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32719547" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.32152975" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.32152975" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -957,10 +1251,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/share/upload.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="308" column="4" selection-start-line="308" selection-start-column="4" selection-end-line="308" selection-end-column="4" />
+        <state relative-caret-position="241">
+          <caret line="422" column="19" selection-start-line="422" selection-start-column="19" selection-end-line="422" selection-end-column="19" />
           <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#6;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#6;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
           </folding>
         </state>

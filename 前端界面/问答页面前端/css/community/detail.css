@@ -6,20 +6,75 @@
 .detail-body p {
     margin-bottom: 15px;
     font-size: 14px;
-    text-indent:0.5cm;
     margin-right: 5px;
     line-height: 2;
 }
 .toobar{
     height:20px;
+    float:left;
 }
 .fly-list-nums{
     float:left;
 }
-.jieda-reply{
-    float:left;
-    padding-left: 30px;
-}
 .re{
     width:20px;
+}
+.re_num{
+    float:left;
+}
+.collect{
+    float:left;
+    padding-left: 17px;
+}
+#good{
+    float:left;
+    font-size:13px;
+    padding-left: 4px;
+}
+.detail-body {
+    margin: 20px 0 0;
+    position: relative;
+    line-height: 26px;
+    font-size: 16px;
+    color: #333;
+    word-wrap: break-word;
+}
+.detail-body{
+    min-height: 70px;
+}
+.collection{
+    font-size: 13px;
+}
+.write-reply{
+    font-size: 13px;
+}
+.detail-body {
+    min-height: 30px;
+}
+.detail-box {
+    overflow: hidden;
+}
+.commentlist{
+    padding-left:10px;
+}
+.comments{
+    padding-top: 10px;
+}
+#haha{
+    margin-bottom: 0px;
+}
+.comments-number .answers-num{
+    float:left;
+}
+
+.right{
+    float:right;
+    font-size: 13px;
+}
+.right option{
+    font-size: 13px;
+}
+.close{
+    float:left;
+    padding-right: 20px;
 }
