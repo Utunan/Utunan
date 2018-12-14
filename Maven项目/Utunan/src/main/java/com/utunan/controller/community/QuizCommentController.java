@@ -95,7 +95,7 @@ public class QuizCommentController {
         request.setAttribute("map0",map0);
         request.setAttribute("PageInfo",new PageInfo(answers,5));
         //request.setAttribute("childAnswerList", childAnswerList);
-        return "community/quizcommentpage";
+        return "community/detail";
     }
     
     /*
@@ -169,7 +169,7 @@ public class QuizCommentController {
         request.setAttribute("map0",map0);
         request.setAttribute("PageInfo",new PageInfo(answers,5));
     
-        return "community/quizcommentpage";
+        return "community/detail";
     }
 
 
