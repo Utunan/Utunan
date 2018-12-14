@@ -21,7 +21,7 @@
 <div class="container" style="margin-top: 30px;">
     <div class="wrapper background">
         <%@include file="common/userfunction.jsp"%>
-        <div class="content">
+        <div class="content" id="content">
             <div class="title">
                 <span>发表的回复</span>
             </div>
@@ -37,7 +37,7 @@
                         <div class="postbottom">
                             <span>回复于 : <fmt:formatDate value="${A.answerTime }" type="date" pattern="yyyy-MM-dd HH:mm:ss"/></span>
                             ·<span>点赞数 : ${A.praiseCount}</span>
-                            <span><a href="">删除</a></span>
+                            <%--<span><a href="">删除</a></span>--%>
                         </div>
                     </li>
                 </c:forEach>

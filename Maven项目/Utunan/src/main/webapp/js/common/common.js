@@ -5,7 +5,7 @@ if(currentpageli!=null) {
     pagenums = document.getElementsByClassName("pagenum");
     for(var i=0;i<pagenums.length;i++){
         if(currentpage==pagenums[i].firstChild.name){
-            pagenums[i].style.backgroundColor= "rgba(49, 126, 212, 0.2)";
+            pagenums[i].style.backgroundColor= "rgba(0,188,155,0.2)";
             pagenums[i].firstChild.style.color = "#fff"
         }
     }

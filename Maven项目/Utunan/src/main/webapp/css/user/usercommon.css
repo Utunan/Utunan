@@ -159,7 +159,6 @@ header {
     border: 1px solid #C0C0C0;
     float: right;
     width: 680px;
-    min-height: 500px;
     background: #fff;
 }
 .userfunction>li:hover{

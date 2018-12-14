@@ -1,26 +1,29 @@
-.changeheadimg{
+.changeheadimg {
     float: right;
-    width:120px;
+    width: 120px;
     position: relative;
     right: 80px;
-    top:50px;
+    top: 50px;
 }
-.changeheadimg>img{
+
+.changeheadimg > img {
     border-radius: 100px;
     height: 120px;
     width: 120px;
 }
-.changeheadimg>h4{
-    margin:0;
-    padding-top:5px;
+
+.changeheadimg > h4 {
+    margin: 0;
+    padding-top: 5px;
     text-align: center;
 }
-.changeheadimg>h4 a{
-    color:#000;
+
+.changeheadimg > h4 a {
+    color: #000;
     text-decoration: none;
 }
 
-.userinfoform{
+.userinfoform {
     padding-top: 30px;
     list-style-type: none;
     width: 460px;
@@ -29,68 +32,98 @@
     float: left;
 }
 
-.userinfoform nav{
-    display:table-cell;
+.userinfoform nav {
+    display: table-cell;
     list-style-type: none;
 }
 
-.userinfoform nav a{
+.userinfoform nav a {
     float: left;
     height: 30px;
     width: 30px;
 }
 
-.userinfoform nav img{
-    margin:5px;
+.userinfoform nav img {
+    margin: 5px;
     height: 20px;
     width: 20px;
 }
 
-.userinfoform nav>li{
-    margin:5px 0  5px 0;
+.userinfoform nav > li {
+    margin: 5px 0 5px 0;
     float: left;
     clear: both;
 }
-.userinfoform nav>li>label{
+
+.userinfoform nav > li > label {
     font-size: 14px;
     float: left;
     padding: 5px 0 4px 0;
-    padding-right:25px;
+    padding-right: 25px;
 }
 
-.userinfoform nav>li>input{
+.userinfoform nav > li > input {
     outline: none;
-    height:25px;
+    height: 25px;
     float: left;
-    border:1px solid #fff;
+    border: 1px solid #fff;
     font-size: 14px;
 }
-.userinfoform nav>li>span{
-    height:30px;
+
+.userinfoform nav > li > span {
+    height: 30px;
     float: left;
     line-height: 28px;
     font-size: 14px;
 }
 
-.userinfoform nav>li>input:hover{
+#examTime {
+    /*很关键：将默认的select选择框样式清除*/
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+    /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+    font-size: 14px;
+    margin: 5px;
+    margin-left: 0px;
+    border: 0px;
     outline: none;
-    border:1px solid #e0e0e0;
+    width:40px;
 }
 
-.userop{
-    padding-top:0px;
+#examTime::-ms-expand {
+    display: none;
+}
+
+#examTime > option {
+    border: 0px;
+}
+
+.userinfoform nav > li > input:hover {
+    outline: none;
+    border: 1px solid #e0e0e0;
+}
+
+.content {
+    min-height: 480px;
+}
+
+.userop {
+    padding-top: 0px;
     padding-left: 30px;
     height: 40px;
     width: 370px;
 }
-.userop>button{
+
+.userop > button {
     border-radius: 5px;
     outline: none;
-    border:1px solid #e0e0e0;
+    border: 1px solid #e0e0e0;
     height: 30px;
-    margin:5px;
+    margin: 5px;
     width: 60px;
-    color:#fff;
-    font-size:14px;
-    background-color:rgba(0,188,155,1);
+    color: #fff;
+    font-size: 14px;
+    background-color: rgba(0, 188, 155, 1);
 }
