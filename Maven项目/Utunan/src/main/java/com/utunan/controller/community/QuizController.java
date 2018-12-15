@@ -152,6 +152,11 @@ public class QuizController {
 			bq.setTagList(quizTagList.get(i));
 			bigQuiz.add(bq);
 		}
+
+		//查询前10个评论数量的问题
+		List<Quiz> quizListTop10=quizService.quizListTop10();
+
+
 		//*************以上代码会以同样的姿态在不同地方出现，正在努力封装************
 		//热门标签
 		Object hotTagList=this.tagService.getTop10Tag();
@@ -179,6 +184,8 @@ public class QuizController {
 		request.setAttribute("tagName",tagName);
 		request.setAttribute("statelist",stateList);
 		request.setAttribute("PageInfo",new PageInfo(quizList,5));
+
+		request.setAttribute("quizListTop10",quizListTop10);
 		return "community/quiz";
 	}
 

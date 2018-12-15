@@ -38,6 +38,9 @@ public class QuizCommentController {
     private PublishQuizService publishQuizService;
     @Autowired
     private AnswerGreatService answerGreatService;
+
+    @Autowired
+    private TagService tagService;
     /*
      * @author  王碧云
      * @description 返回对应QuizId对应的问题页面的值(默认按照时间排序)(分页)
@@ -58,6 +61,8 @@ public class QuizCommentController {
             num=Integer.parseInt(pageNum);
         }
 
+
+
         String quizId = request.getParameter("quizId");
         //根据quizId返回quiz
         Quiz quiz = this.quizService.findQuizById(Long.parseLong(quizId));
@@ -69,6 +74,12 @@ public class QuizCommentController {
         List<Answer> answers=answerService.findAnswerListByQuizId(num,6,Long.parseLong(quizId));
         Map<Answer,List<Answer>> map=new HashMap<>();
         Map<Answer,Long>map0=new HashMap<>();
+
+
+        //查询前10个评论数量的问题
+        List<Quiz> quizListTop10=quizService.quizListTop10();
+        //热门标签
+        Object hotTagList=this.tagService.getTop10Tag();
 
         Answer[] a=new Answer[answers.size()];
         answers.toArray(a);
@@ -95,6 +106,8 @@ public class QuizCommentController {
         request.setAttribute("map0",map0);
         request.setAttribute("PageInfo",new PageInfo(answers,5));
         //request.setAttribute("childAnswerList", childAnswerList);
+        request.setAttribute("quizListTop10",quizListTop10);
+        request.setAttribute("tag",hotTagList);
         return "community/detail";
     }
     
@@ -148,6 +161,12 @@ public class QuizCommentController {
         Map<Answer,List<Answer>> map=new HashMap<>();
         Map<Answer,Long>map0=new HashMap<>();
 
+
+        //查询前10个评论数量的问题
+        List<Quiz> quizListTop10=quizService.quizListTop10();
+        //热门标签
+        Object hotTagList=this.tagService.getTop10Tag();
+
         Answer[] a=new Answer[answers.size()];
         answers.toArray(a);
         for (int i=0;i<a.length;i++){
@@ -168,6 +187,8 @@ public class QuizCommentController {
         request.setAttribute("map",map);
         request.setAttribute("map0",map0);
         request.setAttribute("PageInfo",new PageInfo(answers,5));
+        request.setAttribute("quizListTop10",quizListTop10);
+        request.setAttribute("tag",hotTagList);
     
         return "community/detail";
     }

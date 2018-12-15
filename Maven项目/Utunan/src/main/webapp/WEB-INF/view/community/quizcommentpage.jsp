@@ -99,7 +99,9 @@
             <div class="post-information">
                 <img src="${quiz.user.userHeadImg}" width="35px" height="35px">
                 <a href="#">${quiz.user.userNickName}</a>
-                <div class="informationwords">发表于&nbsp;2${quiz.releaseTime}</div>
+                <div class="informationwords">发表于&nbsp;
+                    <fmt:formatDate value="${quiz.releaseTime}" type="both"/>
+                </div>
             </div>
         </div>
         <div class="question-content">

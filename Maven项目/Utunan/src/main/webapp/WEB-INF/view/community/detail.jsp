@@ -49,7 +49,9 @@
                 <a href="../user/home.html" class="fly-link">
                   <cite>${quiz.user.userNickName}</cite>
                 </a>
-                <span>发表于&nbsp;2${quiz.releaseTime}</span>
+                <span>发表于&nbsp;
+                    <fmt:formatDate value="${quiz.releaseTime}" type="both"/>
+                </span>
               </div>
               <div class="detail-hits" id="LAY_jieAdmin" data-id="123">
                 <span style="padding-right: 10px; color: #FF7200">考研年份：${quiz.user.examTime}</span>
@@ -108,7 +110,9 @@
                 <a href="" class="fly-link">
                   <cite>${answer.user.userNickName}</cite>
                 </a>
-                <span>发表于${answer.answerTime}</span>
+                <span>发表于
+                    <fmt:formatDate value="${answer.answerTime}" type="both"/>
+                </span>
               </div>
 
               <div class="detail-hits">

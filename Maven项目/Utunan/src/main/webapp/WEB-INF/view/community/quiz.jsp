@@ -211,7 +211,7 @@
                         <a href="/${url }?by=${orderBy}&tagName=${tagName}">首页</a>
                         <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.prePage}"><<</a>
                         <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                            <a name="${i}" href="/${url }?by=${orderBy}&agName=${tagName}&pageNum=${i}">${i}</a>
+                            <a name="${i}" href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${i}">${i}</a>
                         </c:forEach>
                         <c:choose>
                             <c:when test="${PageInfo.nextPage==0}">
@@ -239,7 +239,7 @@
                 <dt class="fly-panel-title">本周热议</dt>
                 <c:forEach items="${quizListTop10}" var="q">
                     <dd>
-                        <a href="">${q.quizTitle }</a>
+                        <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}">${q.quizTitle }</a>
                         <span><i class="iconfont icon-pinglun1"></i>${q.answerCount }</span>
                     </dd>
                 </c:forEach>
