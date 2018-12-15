@@ -62,7 +62,7 @@
         <h1>${quiz.quizTitle}</h1>
         <div class="fly-detail-info">
             <c:forEach items="${quizTagList}" var="quiztag">
-          <span class="layui-badge layui-bg-red"><a href="quiz3?tagName=${quiztag.tag.tagName}">&nbsp;${quiztag.tag.tagName} &nbsp</a></span>
+          <span class="layui-badge layui-bg-red"><a href="/quiztag?tagName=${quiztag.tag.tagName}">&nbsp;${quiztag.tag.tagName} &nbsp</a></span>
             </c:forEach>
         </div>
         <div class="quizcontent">

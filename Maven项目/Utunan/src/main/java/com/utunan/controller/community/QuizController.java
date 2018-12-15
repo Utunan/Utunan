@@ -126,6 +126,9 @@ public class QuizController {
 		}
 		//排序方式
 		String orderBy = request.getParameter("by");
+		if (orderBy==null || orderBy.equals("")){
+			orderBy="releaseTime";
+		}
 		//提问列表
 		List<Quiz> quizList=this.quizService.listQuizByTag(orderBy, tagName, num, 10);
 		//封装BigQuiz

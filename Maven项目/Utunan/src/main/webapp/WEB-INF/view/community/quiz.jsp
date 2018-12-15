@@ -90,7 +90,7 @@
                     <c:forEach items="${object}" var="obj">
                     <li>
                         <a href="user/home.html" class="fly-avatar">
-
+    
                            <img src="${obj.user.userHeadImg}" alt="昵称">
                         </a>
                         <h2>
@@ -108,7 +108,7 @@
                             <span>
                                 <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
                             </span>
-
+    
                             <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
                             <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
                             <span class="fly-list-nums">
@@ -145,7 +145,7 @@
         </c:if>
         <c:if test="${url=='quiztag'}">
             <div class="fly-panel" style="margin-bottom: 0;">
-
+    
                 <div class="fly-panel-title fly-filter">
                     <a href="quiztag?by=releaseTime&tagName=${tagName}"class="${statelist[0]}">最新问题</a>
                     <span class="fly-mid"></span>
@@ -182,7 +182,7 @@
                                 <span>
                                     <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
                                 </span>
-
+    
                                 <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
                                 <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
                                 <span class="fly-list-nums">
@@ -233,13 +233,13 @@
                     <a href="" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">发表提问</a>
                 </div>
             </div>
-
+    
             <dl class="fly-panel fly-list-one">
                 <!--选出10个评论数最高的问题-->
                 <dt class="fly-panel-title">本周热议</dt>
                 <c:forEach items="${quizListTop10}" var="q">
                     <dd>
-                        <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}">${q.quizTitle }</a>
+                        <a href="displayQuizByQuizId?quizId=${q.quizId}">${q.quizTitle }</a>
                         <span><i class="iconfont icon-pinglun1"></i>${q.answerCount }</span>
                     </dd>
                 </c:forEach>
@@ -252,7 +252,7 @@
                 <h3 class="fly-panel-title">热门标签</h3>
                 <dl class="fly-panel-main">
                     <c:forEach items="${tag}" var="tags">
-                        <dd><a href="quiztag?by=releaseTime&tagName=${tags[0].tagName}" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
+                        <dd><a href="quiztag?tagName=${tags[0].tagName}" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
                     </c:forEach>
                 </dl>
             </div>

@@ -22,7 +22,7 @@
     <span>${file.fileCredit}</span>
     <span>${file.downloadNumber}</span>
     <br>
-    <span><a href="" download="${file.fileTitle}">点击下载</a></span>
+    <span><a href="${file.fileUrl}" download="${file.fileTitle}">点击下载</a></span>
 <%@include file="../common/footer.jsp"%>
 </body>
 </html>
