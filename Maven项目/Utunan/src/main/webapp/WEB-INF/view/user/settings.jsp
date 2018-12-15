@@ -26,7 +26,7 @@
 <div class="container" style="margin-top: 30px;">
     <div class="wrapper background">
         <%@include file="common/userfunction.jsp"%>
-        <div class="content">
+        <div class="content" id="content">
             <div class="title">用户设置</div>
             <div class="changeinfo">
                 <div id><span>修改手机号</span></div>

@@ -16,11 +16,11 @@
 
 <body>
 <%@include file="../common/header.jsp" %>
-<%@include file="common/usercard.jsp"%>
+<%@include file="common/usercard.jsp" %>
 <div class="container" style="margin-top: 30px;">
     <div class="wrapper background">
-        <%@include file="common/userfunction.jsp"%>
-        <div class="content">
+        <%@include file="common/userfunction.jsp" %>
+        <div class="content" id="content">
             <div class="title">
                 <span>题目收藏</span>
             </div>
@@ -28,23 +28,22 @@
                 <c:forEach items="${Questions }" var="Q">
                     <li>
                         <div class="questiontop">
-                            <span><a href="">${Q.subject.subjectName}</a></span>--><span>${Q.chapterName}</span>
-                        </div>
-                        <p class="questioncontent">
-                            ${Q.questionContent}
-                        </p>
-                        <div class="questionbottom">
-                            <span><a href="/user/questioncollector/${Q.questionId}"><img src="/images/user/qzcdelete.svg"/></a><a href="/user/questioncollector/${Q.questionId}">取消收藏</a></span>
-                            <span><a href="">查看详情</a></span>
+                        <span>
+                            <img src="/images/user/ans.svg"/>
+                            <a href="">${Q.questionContent }</a>
+                        </span>
+                            </span>
+                            <span class="delete"><a href="/user/questioncollector/${Q.questionId}"><img
+                                    src="/images/user/qzcdelete.svg"/></a></span>
                         </div>
                     </li>
                 </c:forEach>
             </nav>
-            <%@include file="common/page.jsp"%>
+            <%@include file="common/page.jsp" %>
         </div>
     </div>
 </div>
-<%@include file="../common/footer.jsp"%>
+<%@include file="../common/footer.jsp" %>
 </body>
 <script src="/js/user/usercommon.js"></script>
 <script src="/js/common/common.js"></script>

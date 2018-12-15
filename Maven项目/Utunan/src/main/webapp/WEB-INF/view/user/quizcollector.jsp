@@ -20,7 +20,7 @@
 <div class="container" style="margin-top: 30px;">
     <div class="wrapper background">
         <%@include file="common/userfunction.jsp" %>
-        <div class="content">
+        <div class="content" id="content">
             <div class="title"><span>问答收藏</span></div>
             <nav class="postlist">
                 <c:forEach items="${Quizzes }" var="Q">

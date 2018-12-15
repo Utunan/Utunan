@@ -23,9 +23,13 @@
                     </div>
                 </c:otherwise>
             </c:choose>
-
+            <script>
+                content=document.getElementById("content")
+                content.style.minHeight='510px';
+            </script>
         </c:when>
         <c:otherwise>
+
             <input id="currentpage" type="hidden" value="${PageInfo.pageNum}">
             <li class="home"><a href="/user/${plate}#userfunction">首页</a></li>
             <li class="next"><a href="?pageNum=${PageInfo.prePage}#userfunction">上一页</a></li>
@@ -41,7 +45,6 @@
                 </c:otherwise>
             </c:choose>
             <li class="tail"><a href="?pageNum=${PageInfo.pages}#userfunction">尾页</a></li>
-
         </c:otherwise>
     </c:choose>
 </nav>
