@@ -239,7 +239,7 @@
                 <dt class="fly-panel-title">本周热议</dt>
                 <c:forEach items="${quizListTop10}" var="q">
                     <dd>
-                        <a href="">${q.quizTitle }</a>
+                        <a href="displayQuizByQuizId?quizId=${q.quizId}">${q.quizTitle }</a>
                         <span><i class="iconfont icon-pinglun1"></i>${q.answerCount }</span>
                     </dd>
                 </c:forEach>
@@ -252,7 +252,7 @@
                 <h3 class="fly-panel-title">热门标签</h3>
                 <dl class="fly-panel-main">
                     <c:forEach items="${tag}" var="tags">
-                        <dd><a href="quiztag?by=releaseTime&tagName=${tags[0].tagName}" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
+                        <dd><a href="quiztag?tagName=${tags[0].tagName}" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
                     </c:forEach>
                 </dl>
             </div>

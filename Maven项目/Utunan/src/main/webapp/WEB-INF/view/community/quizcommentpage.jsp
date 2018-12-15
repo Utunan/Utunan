@@ -116,7 +116,7 @@
         </div>
         <div class="post-tags">
             <c:forEach items="${quizTagList}" var="quiztag">
-                <a href="quiz3?tagName=${quiztag.tag.tagName}">&nbsp;${quiztag.tag.tagName} &nbsp</a>
+                <a href="/quiztag?tagName=${quiztag.tag.tagName}">&nbsp;${quiztag.tag.tagName} &nbsp</a>
             </c:forEach>
         </div>
         <div class="post-bottom">
