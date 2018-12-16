@@ -175,6 +175,13 @@ public class QuizServiceImpl implements QuizService {
 		condenseQuiz(quizs);
 		return quizs;
 	}
+
+	//获取点赞数
+
+	@Override
+	public Long getCountPrise(Long quizId) {
+		return this.quizMapper.getCountPrise(quizId);
+	}
 }
 
 

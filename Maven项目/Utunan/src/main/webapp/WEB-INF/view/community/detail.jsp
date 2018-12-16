@@ -20,20 +20,46 @@
     <script>
         function praise(quizId){
             $.ajax({
-                url:'praise?quizId=${quiz.quizId}',//处理数据的地址
+                url:'praise',//处理数据的地址
                 type:'post',//数据提交形式
-                data:{'id':1,'user':123},//需要提交的数据
+                data:{'quizId':quizId},//需要提交的数据
                 success:function(data){//数据返回成功的执行放大
-                    if(data==1){//成功
-                        alert('执行成功');
+                    if(data=='ok'){//成功
+                        //alert('点赞成功');
+                        document.getElementById("i5").innerHTML=${quiz.praiseCount}+1;
                     }
-                    if(data==2){//失败
-                        alert('执行失败');
+                    if(data=='no'){//失败
+                        //alert('取消点赞');
+                       document.getElementById("i5").innerHTML=${quiz.praiseCount};
                     }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    bootbox.alert("无法连接服务器:" + textStatus);
                 }
             });
         }
     </script>
+
+    <script>
+        function apraise(answerId,praiseCount){
+            $.ajax({
+                url:'/aprise',//处理数据的地址
+                type:'post',//数据提交形式
+                data:{'answerId':answerId},//需要提交的数据
+                success:function(d){//数据返回成功的执行放大
+                    if(d=='ok'){//成功
+                        //alert('点赞成功');
+                        document.getElementById("answer"+answerId).innerHTML=praiseCount+1;
+                    }
+                    if(d=='no'){//失败
+                        //alert('取消点赞');
+                        document.getElementById("answer"+answerId).innerHTML=praiseCount;
+                    }
+                },
+            });
+        }
+    </script>
+
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
@@ -72,8 +98,8 @@
 
             <div class="jieda-reply" id="good">
               <span class="jieda-zan zanok" type="zan">
-                <i class="iconfont icon-zan"></i>
-                <em>${quiz.praiseCount}</em>
+                  <a href="javascript:void(0)" onclick="praise(${quiz.quizId})"><i class="iconfont icon-zan"></i></a>
+                <em id="i5">${quiz.praiseCount}</em>
               </span>
             </div>
 
@@ -82,7 +108,7 @@
                 <span class="write-reply">${answerCountByQuizId}</span>
             </div>
             <div class="collect"> 
-                <img src="images/questionBank/collection.svg" width="24px"height="34px">
+                <img src="/images/questionBank/collection.svg" width="24px"height="34px">
                 <span class="collection">收藏此问题</span>
             </div>
           </div><!--toolbar-->
@@ -124,8 +150,8 @@
             </div>
             <div class="jieda-reply">
               <span class="jieda-zan zanok" type="zan">
-                <i class="iconfont icon-zan"></i>
-                <em>${answer.praiseCount}</em>
+                  <a href="javascript:void(0)" onclick="apraise(${answer.answerId},${answer.praiseCount})"><i class="iconfont icon-zan"></i></a>
+                <em id="answer${answer.answerId}">${answer.praiseCount}</em>
               </span>
               <span type="reply">
                 <i class="iconfont icon-svgmoban53"></i>
@@ -148,7 +174,7 @@
                         <div class="close">收起评论</div>
                   <c:if test="${commentNum==0}">
                       <div class="slogen">啊嘞！还没有评论~</div>
-                </c:if>
+                  </c:if>
               </blockquote>
 
                  <c:if test="${commentNum!=0}">
@@ -161,7 +187,9 @@
                           <a href="" class="fly-link">
                             <cite>${m2.user.userNickName}</cite>
                           </a>
-                           <span>发表于<fmt:formatDate value="${m2.getAnswerTime() }" pattern="yyyy-MM-dd "/></span>
+                           <span>发表于
+                               <fmt:formatDate value="${m2.getAnswerTime() }" pattern="yyyy-MM-dd "/>
+                           </span>
                         </div>
                         <div class="detail-body jieda-body photos">
                           <p>${m2.answerContent}</p>

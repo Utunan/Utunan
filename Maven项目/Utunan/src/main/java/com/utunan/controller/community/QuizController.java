@@ -11,7 +11,6 @@ import com.utunan.service.community.QuizService;
 import com.utunan.service.community.QuizTagService;
 import com.utunan.service.community.TagService;
 import com.utunan.util.WordLimitUtil;
-import org.apache.commons.lang.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +22,9 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import net.sf.json.*;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class QuizController {
@@ -200,7 +202,7 @@ public class QuizController {
 	 * @return
 	 */
 	@RequestMapping(value = "/uiz3",method = RequestMethod.POST)
-	public String insertQuiz(HttpServletRequest request , HttpSession session) throws UnsupportedEncodingException {
+	public String  insertQuiz(HttpServletRequest request , HttpSession session) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("UTF-8");
 		//int num=Integer.parseInt(request.getParameter("j1"));
 		String title=request.getParameter("title");
@@ -236,20 +238,32 @@ public class QuizController {
 	 * @param  request
 	 * @return  String
 	 */
+	@ResponseBody
 	@RequestMapping(value = "/praise")
 	public String praiseQuiz(HttpServletRequest request,HttpSession session){
 		String quizId=request.getParameter("quizId");
 		User user=(User)session.getAttribute("User");
+
+
 		//到问题点赞表进行查询是否有记录
 		QuizGreat quizGreat=quizGreatService.getQuizGreat(Long.parseLong(quizId),user.getUserId());
 		if(quizGreat==null){
+			//未进行点赞
             quizGreatService.addQuizGreat(Long.parseLong(quizId),user.getUserId());
             this.quizService.praiseQuiz(Long.parseLong(quizId));
+            return "ok";
+
         }
 		else {
+			//已点过赞
             quizGreatService.delQuizGreat(Long.parseLong(quizId),user.getUserId());
             this.quizService.delPraiseQuiz(Long.parseLong(quizId));
+            return "no";
+
         }
-		return "redirect:/quiz";
+
+		//return "redirect:/quiz";
 	}
+
+
 }
