@@ -38,13 +38,7 @@ public class ShareController {
     @RequestMapping(value = "/upload")
     @ResponseBody
     public JSONObject uploadfile(@RequestParam("file") MultipartFile file, HttpServletRequest request,HttpSession session) {
-
-        String sourcetype=request.getParameter("sourcetype");
-        System.out.println(sourcetype);
-
-
         String rootPath = request.getSession().getServletContext().getRealPath("/");
-        System.out.print(rootPath);
         JSONObject resObj = new JSONObject();
         resObj.put("msg", "ok");
 //        try {
@@ -54,16 +48,39 @@ public class ShareController {
 //        }
 
         String path=rootPath+file.getOriginalFilename();
-        session.setAttribute("path",path);
+        System.out.print(path+"\n");
+        session.setAttribute("realPath",path);
         return resObj;
     }
 
-
-    @RequestMapping(value = "/upload1",method = RequestMethod.POST)
     @ResponseBody
+    @RequestMapping(value = "/upload1",method = RequestMethod.POST)
     public void upload(HttpServletRequest request,HttpSession session){
         //获取资源类型
         String sourcetype=request.getParameter("sourcetype");
+        int a=Integer.parseInt(sourcetype);
+
+        switch(a)
+        {
+            case 0:
+                sourcetype="招生简章";
+                break;
+            case 1:
+               sourcetype="招生专业目录";
+                break;
+            case 11:
+                sourcetype="考研真题";
+                break;
+            case 12:
+                sourcetype="备考习题";
+                break;
+            case 13:
+                sourcetype="课件分享";
+                break;
+            default:
+                sourcetype="参考书目";
+                break;
+        }
         //获取标题
         String title=request.getParameter("title");
         //获取年份
@@ -72,29 +89,26 @@ public class ShareController {
         String integral=request.getParameter("integral");
         //获取文件类型后缀
         String filetype=request.getParameter("filetype");
-        //获取省份
-        String province=request.getParameter("province");
         //获取学校
         String school=request.getParameter("school");
 
 
         //获取文件路径
-        String path=(String)session.getAttribute("path");
+        String path=(String)session.getAttribute("realPath");
+        System.out.print(path+"\n");
+
         //获取登录用户
         User user=(User)session.getAttribute("User");
 
-//        if(sourcetype==){
-//
-//        }
+        if(sourcetype=="招生简章"||sourcetype=="招生专业目录"){
+            title=school+year+sourcetype;
+        }
 
         //查询对应标签ID
         Long suffixId=this.shareupFileService.getSuffix(filetype);
 
         this.shareupFileService.insertfile(sourcetype,title,school,user.getUserId(),path,suffixId,Long.parseLong(integral));
 
-
-
-        System.out.println(sourcetype);
     }
 
 }
