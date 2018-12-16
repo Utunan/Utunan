@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <%@ page import="java.util.List,com.utunan.pojo.*" %>
- 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,20 +20,46 @@
     <script>
         function praise(quizId){
             $.ajax({
-                url:'praise?quizId=${quiz.quizId}',//处理数据的地址
+                url:'praise',//处理数据的地址
                 type:'post',//数据提交形式
-                data:{'id':1,'user':123},//需要提交的数据
+                data:{'quizId':quizId},//需要提交的数据
                 success:function(data){//数据返回成功的执行放大
-                    if(data==1){//成功
-                        alert('执行成功');
+                    if(data=='ok'){//成功
+                        //alert('点赞成功');
+                        document.getElementById("i5").innerHTML=${quiz.praiseCount}+1;
                     }
-                    if(data==2){//失败
-                        alert('执行失败');
+                    if(data=='no'){//失败
+                        //alert('取消点赞');
+                       document.getElementById("i5").innerHTML=${quiz.praiseCount};
                     }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    bootbox.alert("无法连接服务器:" + textStatus);
                 }
             });
         }
     </script>
+
+    <script>
+        function apraise(answerId,praiseCount){
+            $.ajax({
+                url:'/aprise',//处理数据的地址
+                type:'post',//数据提交形式
+                data:{'answerId':answerId},//需要提交的数据
+                success:function(d){//数据返回成功的执行放大
+                    if(d=='ok'){//成功
+                        //alert('点赞成功');
+                        document.getElementById("answer"+answerId).innerHTML=praiseCount+1;
+                    }
+                    if(d=='no'){//失败
+                        //alert('取消点赞');
+                        document.getElementById("answer"+answerId).innerHTML=praiseCount;
+                    }
+                },
+            });
+        }
+    </script>
+
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
@@ -72,11 +98,11 @@
 
             <div class="jieda-reply" id="good">
               <span class="jieda-zan zanok" type="zan">
-                <i class="iconfont icon-zan"></i>
-                <em>${quiz.praiseCount}</em>
+                  <a href="javascript:void(0)" onclick="praise(${quiz.quizId})"><i class="iconfont icon-zan"></i></a>
+                <em id="i5">${quiz.praiseCount}</em>
               </span>
             </div>
-
+    
             <div class="re_num"> 
                 <img src="images/community/zan.svg" width="24px"height="34px">
                 <span class="write-reply">${answerCountByQuizId}</span>
@@ -115,7 +141,7 @@
                     <fmt:formatDate value="${answer.answerTime}" type="both"/>
                 </span>
               </div>
-
+    
               <div class="detail-hits">
                 <span>所在院校：${answer.user.userSchool}目标院校：${answer.user.dreamSchool}</span>
               </div>
@@ -125,8 +151,8 @@
             </div>
             <div class="jieda-reply">
               <span class="jieda-zan zanok" type="zan">
-                <i class="iconfont icon-zan"></i>
-                <em>${answer.praiseCount}</em>
+                  <a href="javascript:void(0)" onclick="apraise(${answer.answerId},${answer.praiseCount})"><i class="iconfont icon-zan"></i></a>
+                <em id="answer${answer.answerId}">${answer.praiseCount}</em>
               </span>
               <span type="reply">
                 <i class="iconfont icon-svgmoban53"></i>
@@ -149,9 +175,9 @@
                         <div class="close">收起评论</div>
                   <c:if test="${commentNum==0}">
                       <div class="slogen">啊嘞！还没有评论~</div>
-                </c:if>
+                  </c:if>
               </blockquote>
-
+    
                  <c:if test="${commentNum!=0}">
                 <ul class="commentlist" style="background-color:#fafafa">
                     <c:forEach items="${map.keySet()}" var="m1">
@@ -162,7 +188,9 @@
                           <a href="" class="fly-link">
                             <cite>${m2.user.userNickName}</cite>
                           </a>
-                           <span>发表于<fmt:formatDate value="${m2.getAnswerTime() }" pattern="yyyy-MM-dd "/></span>
+                           <span>发表于
+                               <fmt:formatDate value="${m2.getAnswerTime() }" pattern="yyyy-MM-dd "/>
+                           </span>
                         </div>
                         <div class="detail-body jieda-body photos">
                           <p>${m2.answerContent}</p>
@@ -184,7 +212,7 @@
                 <!--a answer-->
             </c:forEach>
         </ul>
-
+    
             <div class="write-answer" class="layui-form layui-form-pane">
                 <div class="write-answer-top">
                     <img src="/images/community/write.svg" width="25px" height="25px">
@@ -193,11 +221,11 @@
                 <!--富文本编辑器-->
                 <form action="answer?quizId=${quiz.quizId}" method="post">
                     <div class="text">
-
+    
                         <div id="div1" class="toolbar" style="height: 35px"></div>
                         <div id="div2" style="height: 130px"></div>
                         <textarea id="text1" style="display: none" name="textarea"></textarea>
-
+    
                     </div>
                     <div class="write-answer-bottom">
                         <div class="write-answer-bottom-content">

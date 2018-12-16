@@ -140,4 +140,9 @@
         order by answerCount desc ,releaseTime desc
         limit 10
     </select>
+    <select id="getCountPrise" parameterType="Long" resultType="java.lang.Long">
+        select praiseCount
+        from quiz
+        where quizId=#{quizId}
+    </select>
 </mapper>

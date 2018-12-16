@@ -122,4 +122,7 @@ public interface QuizService {
 
     //获取前10个评论数最高的问题
     List<Quiz> quizListTop10();
+
+    //获取点赞数
+	Long getCountPrise(Long quizId);
 }

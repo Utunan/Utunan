@@ -13,6 +13,8 @@ import com.utunan.service.community.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -201,22 +203,27 @@ public class QuizCommentController {
      * @param  request
      * @return  String
      */
-    @RequestMapping(value = "/aprise")
+    @ResponseBody
+    @RequestMapping("/aprise")
     public String praiseQuiz(HttpServletRequest request,HttpSession session){
         String answerId=request.getParameter("answerId");
-        Quiz quiz=(Quiz)session.getAttribute("quiz");
+        //Quiz quiz=(Quiz)session.getAttribute("quiz");
         User user=(User)session.getAttribute("User");
         //到回答评论点赞表进行查询是否有记录
-//        AnswerGreat answerGreat =answerGreatService.getAnswerGreat(Long.parseLong(answerId),user.getUserId());
-//        if(answerGreat==null){
-//            answerGreatService.addAnswerGreat(Long.parseLong(answerId),user.getUserId());
-//            this.answerService.praiseAnswer(Long.parseLong(answerId));
-//        }
-//        else {
-//            answerGreatService.delAnswerGreat(Long.parseLong(answerId),user.getUserId());
-//            this.answerService.delPraiseAnswer(Long.parseLong(answerId));
-//        }
+        AnswerGreat answerGreat =answerGreatService.getAnswerGreat(Long.parseLong(answerId),user.getUserId());
+        if(answerGreat==null){
+            //可以点赞
+            answerGreatService.addAnswerGreat(Long.parseLong(answerId),user.getUserId());
+            this.answerService.praiseAnswer(Long.parseLong(answerId));
+            return "ok";
+        }
+        else {
+            //取消点赞
+            answerGreatService.delAnswerGreat(Long.parseLong(answerId),user.getUserId());
+            this.answerService.delPraiseAnswer(Long.parseLong(answerId));
+            return "no";
+        }
 
-        return "redirect:/displayQuizByQuizId?quizId="+quiz.getQuizId();
+        //return "redirect:/displayQuizByQuizId?quizId="+quiz.getQuizId();
     }
 }

@@ -59,4 +59,7 @@ public interface QuizMapper {
 
     //查询评论数前10的问题
     List<Quiz> quizListTop10();
+
+    //查询问题的点赞数
+    Long getCountPrise(@Param("quizId") Long quizId);
 }
