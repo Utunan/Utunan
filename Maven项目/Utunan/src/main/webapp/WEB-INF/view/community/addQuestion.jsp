@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/css/community/layui.css">
     <link rel="stylesheet" href="/css/community/global.css">
     <link rel="stylesheet" href="/css/community/add.css">
+    <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
     <script src="/js/community/jquery-1.10.2.js"></script>
     <script src="/js/community/tag.js"></script>
 </head>
@@ -57,34 +58,45 @@
                 <ul class="layui-tab-title">
                     <li class="layui-this">发表提问</li>
                 </ul>
+                <form action="uiz3" method="post">
                 <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
                     <div class="layui-tab-item layui-show">
-                        <form action="" method="post">
-                            <div class="layui-col-md9">
-                                <label for="L_title" class="layui-form-label">标题</label>
-                                <div class="layui-input-block">
-                                    <input type="text" id="L_title" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
-                                    <!-- <input type="hidden" name="id" value="{{d.edit.id}}"> -->
-                                </div>
-                            </div>
-                        </form>
+                        <div class="layui-col-md9">
+                        <label for="L_title" class="layui-form-label">标题</label>
+                        <div class="layui-input-block">
+                            <input type="text" id="L_title" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                            <!-- <input type="hidden" name="id" value="{{d.edit.id}}"> -->
+                        </div>
+                    </div>
                     </div>
 
                     <div class="layui-form-item layui-form-text">
                         <div class="text">
-                            <div class="toolbar" unselectable="on">
-                                <img src="images/community/text1.svg" width="20px"height="20px">
-                                <img src="images/community/text2.svg" width="20px"height="20px">
-                                <img src="images/community/text3.svg" width="20px"height="20px">
-                                <img src="images/community/text4.svg" width="20px"height="20px">
-                                <img src="images/community/text5.svg" width="20px"height="20px">
-                                <img src="images/community/text6.svg" width="20px"height="20px">
-                                <img src="images/community/text7.svg" width="20px"height="20px">
-                                <img src="images/community/text8.svg" width="20px"height="20px">
-                                <img src="images/community/text9.svg" width="20px"height="20px">
-                                <div class="more"><img src="images/community/text10.svg" width="20px"height="20px"></div>
+                            <div id="div1" class="toolbar" ></div>
+                            <div id="div2" style="height: 100px">
+                                <p>输入问题背景、条件等详细信息</p>
                             </div>
-                            <textarea class="question-content" required="" rows="1"  autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-haspopup="true" aria-owns="Popover58-content"  placeholder="输入问题背景、条件等详细信息（选填）"></textarea>
+                            <textarea id="text1" style="display: none" name="textarea"></textarea>
+                            <script type="text/javascript">
+                                var E = window.wangEditor;
+                                var editor1 = new E('#div1', '#div2');  // 两个参数也可以传入 elem 对象，class 选择器
+                                editor1.customConfig.menus = [
+                                    'list',  // 列表
+                                    'link',     //插入链接
+                                    'image',    //插入图片
+                                    'code'    //插入代码
+                                ];
+                                editor1.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
+                                editor1.customConfig.uploadImgMaxSize = 1 * 1024 * 1024   //每张图片最大上传大小
+                                editor1.customConfig.uploadImgMaxLength = 5              //每次最多上传5张
+                                var $text1 = $('#text1')
+                                editor1.customConfig.onchange = function (html) {
+                                    // 监控变化，同步更新到 textarea
+                                    $text1.val(html)
+                                }
+
+                                editor1.create();
+                            </script>
                         </div>
                     </div>
                     <div class="layui-form-item addtags">
@@ -102,7 +114,7 @@
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <button class="layui-btn" lay-filter="*" lay-submit>立即发布</button>
+                    <button type="submit" class="layui-btn" lay-filter="*" lay-submit>立即发布</button>
                 </div>
                 </form>
             </div>
