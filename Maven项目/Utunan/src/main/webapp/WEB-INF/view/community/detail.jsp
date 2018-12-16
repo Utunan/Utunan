@@ -108,7 +108,7 @@
                 <span class="write-reply">${answerCountByQuizId}</span>
             </div>
             <div class="collect">
-                <a href="javascript:void(0)" onclick=""><img src="/images/community/shoucang.svg" width="28px"
+                <a href="javascript:void(0)" onclick="window.location.href='/quizCollector?quizId=${quiz.quizId}'"><img src="/images/community/shoucang.svg" width="28px"
                                                              height="34px"></a>
                 <span class="collection">收藏此问题</span>
             </div>
