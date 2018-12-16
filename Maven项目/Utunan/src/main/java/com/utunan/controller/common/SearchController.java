@@ -9,6 +9,7 @@ import com.utunan.pojo.inherit.community.BigQuiz;
 import com.utunan.pojo.util.Analyzer;
 import com.utunan.service.common.SearchService;
 import com.utunan.service.community.QuizService;
+import com.utunan.service.community.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,8 @@ public class SearchController {
 	private SearchService searchService;
 	@Autowired
 	private QuizService quizService;
+	@Autowired
+	private TagService tagService;
 
 
 	/**
@@ -86,7 +89,6 @@ public class SearchController {
 		Analyzer analyzer=new Analyzer();
 		//过滤关键词
 		keyWord=analyzer.filter(keyWord);
-		System.out.println(keyWord);
 		List<String> keyWords= new ArrayList<>();
 		if(keyWord.equals("") || keyWord==null){
 			keyWords.add(".");
@@ -98,7 +100,6 @@ public class SearchController {
 				e.printStackTrace();
 			}
 		}
-		System.out.println(keyWords);
 		//返回提问列表
 		List<Quiz> quizList = this.searchService.findQuiz(keyWords, num, 10);
 		//封装BigQuiz
@@ -122,13 +123,19 @@ public class SearchController {
 			bigQuiz.add(bq);
 		}
 		//*************以上代码会以同样的姿态在不同地方出现，正在努力封装************
+		//热门标签
+		Object hotTagList=this.tagService.getTop10Tag();
+		//查询前10个评论数量的问题
+		List<Quiz> quizListTop10=quizService.quizListTop10();
 		//返回数据
+		request.setAttribute("quizListTop10",quizListTop10);
+		request.setAttribute("tag",hotTagList);
 		request.setAttribute("object",bigQuiz);
 		request.setAttribute("url","searchQuiz");
 		request.setAttribute("keyWord", keyWord);
 		request.setAttribute("keyWords", keyWords);
 		request.setAttribute("PageInfo",new PageInfo(quizList,5));
-		return "common/searchresult";
+		return "common/searchquiz";
 	}
 
 	/**
@@ -149,24 +156,34 @@ public class SearchController {
 			num=Integer.parseInt(pageNum);
 		}
 		String keyWord=request.getParameter("keyWord");
-		//对搜索条件进行分词
 		Analyzer analyzer=new Analyzer();
+		//过滤关键词
 		keyWord=analyzer.filter(keyWord);
-		List<String> keyWords= null;
-		try {
-			keyWords = analyzer.Analyzer(keyWord);
-		} catch (Exception e) {
-			e.printStackTrace();
+		List<String> keyWords= new ArrayList<>();
+		if(keyWord.equals("") || keyWord==null){
+			keyWords.add(".");
+		}else{
+			//对搜索条件进行分词
+			try {
+				keyWords = analyzer.Analyzer(keyWord);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		//回答列表
 		List<Answer> answerList =this.searchService.findAnswer(keyWords, num, 10);
-
+		//热门标签
+		Object hotTagList=this.tagService.getTop10Tag();
+		//查询前10个评论数量的问题
+		List<Quiz> quizListTop10=quizService.quizListTop10();
 		//返回数据
+		request.setAttribute("quizListTop10",quizListTop10);
+		request.setAttribute("tag",hotTagList);
 		request.setAttribute("object", answerList);
 		request.setAttribute("url","searchAnswer");
 		request.setAttribute("keyWord", keyWord);
 		request.setAttribute("keyWords", keyWords);
 		request.setAttribute("PageInfo",new PageInfo(answerList,5));
-		return "common/searchresult";
+		return "common/searchquiz";
 	}
 }
