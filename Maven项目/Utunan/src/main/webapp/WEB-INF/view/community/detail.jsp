@@ -121,9 +121,9 @@
         <fieldset class="layui-elem-field layui-field-title" style="text-align: center;">
           <legend>回答</legend>
         </fieldset>
-          <select lay-verify="" class="sequencing-principle" name="" onchange="self.location.href=options[selectedIndex].value">
-              <option value="/displayQuizByQuizId?quizId=${quiz.quizId}" ${timeselect}>查看最新回答</option>
-              <option value="/displayCommentByPraiseCount?quizId=${quiz.quizId}"  ${praiseselect}>查看最热回答</option>
+          <select class="sequencing-principle" name="" onchange="self.location.href=options[selectedIndex].value">
+              <option value="/displayQuizByQuizId?quizId=${quiz.quizId}" ${timeselect}>按时间顺序</option>
+              <option value="/displayCommentByPraiseCount?quizId=${quiz.quizId}"  ${praiseselect}>按热度排序</option>
           </select>
         <ul class="jieda" id="jieda">
             <c:forEach items="${answer}" var="answer" varStatus="cou">
@@ -143,7 +143,7 @@
               </div>
     
               <div class="detail-hits">
-                <span>所在院校：${answer.user.userSchool}目标院校：${answer.user.dreamSchool}</span>
+                <span>所在院校：${answer.user.userSchool}&nbsp;&nbsp;&nbsp;目标院校：${answer.user.dreamSchool}</span>
               </div>
             </div>
             <div class="detail-body jieda-body photos">
