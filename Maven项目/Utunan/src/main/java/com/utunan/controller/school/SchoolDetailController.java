@@ -68,8 +68,8 @@ public class SchoolDetailController {
         //搜索招生简章文件和招生专业目录
         String fileType1 = "招生简章";
         String fileType2 = "招生专业目录";
-        List<File> EGfile = this.schoolDetailFileService.findEGThisYear(fileType1,schoolName);
-        List<File> AGfile = this.schoolDetailFileService.findEGThisYear(fileType2,schoolName);
+        File EGfile = this.schoolDetailFileService.findEGThisYear(fileType1,schoolName);
+        File AGfile = this.schoolDetailFileService.findEGThisYear(fileType2,schoolName);
         //查找该学校下载量最多的前九的文件
         List<File> top9file = this.schoolDetailFileService.findTop9SchoolFile(schoolName);
 
@@ -99,32 +99,6 @@ public class SchoolDetailController {
         Long praiseCount = this.publishDirectionCommentService.updateDirectionCommentPraiseCount(Long.parseLong(directionCommentId));
 
         return "redirect:/school/displayDirectionDetail?directionId="+directionId;
-    }
-
-    /*
-     * @author  王碧云
-     * @description 查看今年招生简章
-     * @date  8:29 2018/12/13/013
-     * @param  [schoolName, fileType, request]
-     * @return  java.lang.String
-     */
-    @RequestMapping("displayEG")
-    public String displayEG(@RequestParam("schoolName") String schoolName,
-                            @RequestParam("fileType") String fileType,
-                            HttpServletRequest request){
-        //搜索招生简章文件
-        List<File> fileList = this.schoolDetailFileService.findEGThisYear(fileType,schoolName);
-
-        //获得招生简章的Id（等待下载页面的实现）
-       /* Long fileId = null;
-        for(File file:fileList){
-            fileId = file.getFileId();
-        }*/
-
-        //返回数据
-        request.setAttribute("fileList", fileList);
-        request.setAttribute("url", "searchfile");
-        return "share/share";
     }
 
     /*
