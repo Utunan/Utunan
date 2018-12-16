@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <%@ page import="java.util.List,com.utunan.pojo.*" %>
- 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -102,13 +102,14 @@
                 <em id="i5">${quiz.praiseCount}</em>
               </span>
             </div>
-
+    
             <div class="re_num"> 
                 <img src="images/community/zan.svg" width="24px"height="34px">
                 <span class="write-reply">${answerCountByQuizId}</span>
             </div>
-            <div class="collect"> 
-                <img src="/images/questionBank/collection.svg" width="24px"height="34px">
+            <div class="collect">
+                <a href="javascript:void(0)" onclick=""><img src="/images/community/shoucang.svg" width="28px"
+                                                             height="34px"></a>
                 <span class="collection">收藏此问题</span>
             </div>
           </div><!--toolbar-->
@@ -140,7 +141,7 @@
                     <fmt:formatDate value="${answer.answerTime}" type="both"/>
                 </span>
               </div>
-
+    
               <div class="detail-hits">
                 <span>所在院校：${answer.user.userSchool}目标院校：${answer.user.dreamSchool}</span>
               </div>
@@ -176,7 +177,7 @@
                       <div class="slogen">啊嘞！还没有评论~</div>
                   </c:if>
               </blockquote>
-
+    
                  <c:if test="${commentNum!=0}">
                 <ul class="commentlist" style="background-color:#fafafa">
                     <c:forEach items="${map.keySet()}" var="m1">
@@ -211,7 +212,7 @@
                 <!--a answer-->
             </c:forEach>
         </ul>
-
+    
             <div class="write-answer" class="layui-form layui-form-pane">
                 <div class="write-answer-top">
                     <img src="/images/community/write.svg" width="25px" height="25px">
@@ -220,11 +221,11 @@
                 <!--富文本编辑器-->
                 <form action="answer?quizId=${quiz.quizId}" method="post">
                     <div class="text">
-
+    
                         <div id="div1" class="toolbar" style="height: 35px"></div>
                         <div id="div2" style="height: 130px"></div>
                         <textarea id="text1" style="display: none" name="textarea"></textarea>
-
+    
                     </div>
                     <div class="write-answer-bottom">
                         <div class="write-answer-bottom-content">

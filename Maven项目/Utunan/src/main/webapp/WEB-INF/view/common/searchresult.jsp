@@ -9,132 +9,87 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
-    <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>搜索结果</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" type="text/css" href="/css/community/questionIndex.css"/>
+    <link rel="stylesheet" href="/css/community/layui.css">
+    <link rel="stylesheet" href="/css/community/global.css">
     <script> var pagenum="${PageInfo.pageNum}"</script>
+    <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
+    <!--<script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>-->
+    <script src="/js/community/jquery-1.10.2.js"></script>
+    <script src="/js/community/tag.js"></script>
 </head>
 <body>
 <%@include file="header.jsp"%>
-<div>
-    <h2>搜索条件：${keyWord}</h2>
-    <h2>分词结果：<c:forEach items="${keyWords}" var="word">${word}&nbsp;</c:forEach></h2>
-    <h2><a href="/searchUser?keyWord=${keyWord}">搜索用户</a>&nbsp;&nbsp;&nbsp;
-        <a href="/searchQuiz?keyWord=${keyWord}">搜索提问</a>&nbsp;&nbsp;&nbsp;
-        <a href="/searchAnswer?keyWord=${keyWord}">搜索回答</a>
-    </h2>
-</div>
-<div id="content">
-<c:if test="${url=='searchUser'}">
-    <table>
-        <tr>
-            <td>用户</td>
-            <td>学校</td>
-            <td>目标</td>
-            <td>积分</td>
-        </tr>
-        <c:forEach items="${object}" var="user">
-            <tr>
-                <td>${user.userNickName}</td>
-                <td>${user.userSchool}</td>
-                <td>${user.dreamSchool}</td>
-                <td>${user.userIntegral}</td>
-            </tr>
-        </c:forEach>
-    </table>
-</c:if>
-<c:if test="${url=='searchQuiz'}">
-    <div>
-        <table>
-            <tr>
-                <td>序号</td>
-                <td>用户</td>
-                <td>标题</td>
-                <td>内容</td>
-                <td>时间</td>
-                <td>点赞</td>
-                <td>回答</td>
-                <td>标签</td>
-            </tr>
-            <c:forEach items="${object}" var="obj">
-            <tr>
-                <td>${obj.quiz.quizId}</td>
-                <td>${obj.quiz.user.userNickName}</td>
-                <td>${obj.quiz.quizTitle}</td>
-                <td>${obj.quiz.quizContent}</td>
-                <td>${obj.quiz.releaseTime}</td>
-                <td>${obj.quiz.praiseCount}</td>
-                <td>${obj.quiz.answerCount}</td>
-                <td>
-                    <c:forEach items="${obj.tagList}" var="taglist">
-                        ${taglist.tagName}&nbsp;&nbsp;&nbsp;
+    <!--内容-->
+    <div class="layui-container">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md8">
+                <div class="fly-panel" style="margin-bottom: 0;">
+                    <div class="fly-panel-title fly-filter">
+                        <a href="/searchUser?keyWord=${keyWord}"class="${statelist[0]}">搜索用户</a>
+                        <span class="fly-mid"></span>
+                        <a href="/searchQuiz?keyWord=${keyWord}"class="${statelist[1]}">搜索提问</a>
+                        <span class="fly-mid"></span>
+                        <a href="/searchAnswer?keyWord=${keyWord}"class="${statelist[1]}">搜索回答</a>
+                        <span class="fly-mid"></span>
+                    </div>
+                    <ul class="list">
+                        <c:forEach items="${object}" var="user">
+                        <li>
+                        <div class="detail-about">
+                            <a class="fly-avatar" href="../user/home.html">
+                                <img src="${user.userHeadImg}" width="35px" height="35px">
+                            </a>
+                            <div class="fly-detail-user">
+                                <a href="../user/home.html" class="fly-link">
+                                    <cite>${user.userNickName}</cite>
+                                </a>
+                                <span>积分&nbsp;
+                                    ${user.userIntegral}
+                                </span>
+                            </div>
+                            <div class="detail-hits" id="LAY_jieAdmin" data-id="123">
+                                <span style="padding-right: 10px; color: #FF7200">考研年份：${user.examTime}</span>
+                                <span style="padding-right: 10px; color: #FF7200">所在院校：${user.userSchool}</span>
+                                <span style="padding-right: 10px; color: #FF7200">目标院校：${user.dreamSchool}</span>
+                            </div>
+                        </div>
+                        </li>
+                        </c:forEach>
+                    </ul>
+                 </div>
+            </div>
+            <div class="layui-col-md4">
+                <div class="fly-panel">
+                    <div class="fly-panel-main">
+                        <a href="/quiz" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">发表提问</a>
+                    </div>
+                </div>
+                <dl class="fly-panel fly-list-one">
+                    <!--选出10个评论数最高的问题-->
+                    <dt class="fly-panel-title">本周热议</dt>
+                    <c:forEach items="${quizListTop10}" var="q">
+                        <dd>
+                            <a href="displayQuizByQuizId?quizId=${q.quizId}">${q.quizTitle }</a>
+                            <span><i class="iconfont icon-pinglun1"></i>${q.answerCount }</span>
+                        </dd>
                     </c:forEach>
-                </td>
-            </tr>
-            </c:forEach>
-            <table/>
-            <nav id="page" class="page">
-                <li class="home"><a href="/${url }?keyWord=${keyWord}">首页</a></li>
-                <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.prePage}"><<</a></li>
-                <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                    <li class="pagenum"><a name="${i}" href="/${url }?keyWord=${keyWord}&pageNum=${i}">${i}</a></li>
-                </c:forEach>
-                <c:choose>
-                    <c:when test="${PageInfo.nextPage==0}">
-                        <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">>></a></li>
-                    </c:when>
-                    <c:otherwise>
-                        <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.nextPage}">>></a></li>
-                    </c:otherwise>
-                </c:choose>
-                <li class="tail"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">尾页</a></li>
-            </nav>
+                </dl>
+                <div class="fly-panel fly-link">
+                    <h3 class="fly-panel-title">热门标签</h3>
+                    <dl class="fly-panel-main">
+                        <c:forEach items="${tag}" var="tags">
+                            <dd><a href="quiztag?tagName=${tags[0].tagName}" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
+                        </c:forEach>
+                    </dl>
+                </div>
+            </div>
+        </div>
     </div>
-</c:if>
-<c:if test="${url=='searchAnswer'}">
-    <div>
-        <table>
-            <tr>
-                <td>序号</td>
-                <td>问题Id</td>
-                <td>问题名称</td>
-                <td>回答</td>
-                <td>时间</td>
-                <td>点赞</td>
-                <td>上级评论</td>
-            </tr>
-            <c:forEach items="${object}" var="answer">
-            <tr>
-                <td>${answer.answerId}</td>
-                <td>${answer.quiz.quizId}</td>
-                <td>回复：${answer.quiz.quizTitle}</td>
-                <td>${answer.answerContent}</td>
-                <td>${answer.answerTime}</td>
-                <td>${answer.praiseCount}</td>
-                <td>${answer.parentAnswer}</td>
-            </tr>
-            </c:forEach>
-            <table/>
-            <nav id="page" class="page">
-                <li class="home"><a href="/${url }?keyWord=${keyWord}">首页</a></li>
-                <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.prePage}"><<</a></li>
-                <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                    <li class="pagenum"><a name="${i}" href="/${url }?keyWord=${keyWord}&pageNum=${i}">${i}</a></li>
-                </c:forEach>
-                <c:choose>
-                    <c:when test="${PageInfo.nextPage==0}">
-                        <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">>></a></li>
-                    </c:when>
-                    <c:otherwise>
-                        <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.nextPage}">>></a></li>
-                    </c:otherwise>
-                </c:choose>
-                <li class="tail"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">尾页</a></li>
-            </nav>
-    </div>
-</c:if>
-</div>
 <%@include file="footer.jsp"%>
 </body>
 </html>

@@ -35,7 +35,6 @@
         from quiz q
         join user u on q.userId = u.userId
         where q.quizTitle regexp #{keyWord}
-          or q.quizContent regexp #{keyWord}
     </select>
     <resultMap id="answerResultMap" type="com.utunan.pojo.base.community.Answer">
         <id property="answerId" column="answerId"/>

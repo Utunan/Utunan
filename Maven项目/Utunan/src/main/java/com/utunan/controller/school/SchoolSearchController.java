@@ -41,8 +41,8 @@ public class SchoolSearchController {
     /*
      * @author  王碧云
      * @description 显示院校库初始页面
-     * @date  23:21 2018/11/27/027
-     * @param  [request]
+     * @date  15:51 2018/12/16/016
+     * @param  [request, pageNum, session]
      * @return  java.lang.String
      */
     @RequestMapping("/displaySchool")
@@ -75,9 +75,9 @@ public class SchoolSearchController {
 
     /*
      * @author  王碧云
-     * @description 根据搜索条件返回结果
-     * @date  21:36 2018/11/27/027
-     * @param  []
+     * @description 根据搜索返回结果页面
+     * @date  15:52 2018/12/16/016
+     * @param  [request, schoolProvinceList, schoolTypeList, degreeTypeList, mathList, englishList, directionName, pageNum, session]
      * @return  java.lang.String
      */
     @RequestMapping("/displaySchoolBySearch")
@@ -153,9 +153,9 @@ public class SchoolSearchController {
     /*
      * @author  王碧云
      * @description 将院校加入收藏夹
-     * @date  14:03 2018/12/5/005
-     * @param  [directionId, session, request, response]
-     * @return  void
+     * @date  16:01 2018/12/16/016
+     * @param  [directionId, schoolProvinceList, schoolTypeList, degreeTypeList, mathList, englishList, directionName, pageNum, session, attr]
+     * @return  java.lang.String
      */
     @RequestMapping("/addDirectionCollector")
     public String addDirectionCollector(@RequestParam(value = "directionId") String directionId,
@@ -187,16 +187,18 @@ public class SchoolSearchController {
         attr.addAttribute("degreeType", degreeType);
         attr.addAttribute("math", math);
         attr.addAttribute("english", english);
+        attr.addAttribute("directionName", directionName);
         attr.addAttribute("pageNum", pageNum);
+
 
         return "redirect:/school/displaySchoolBySearch";
     }
     /*
      * @author  王碧云
-     * @description 将院校在收藏夹中删除
-     * @date  14:06 2018/12/5/005
-     * @param  []
-     * @return  void
+     * @description 取消院校收藏
+     * @date  16:09 2018/12/16/016
+     * @param  [directionId, schoolProvinceList, schoolTypeList, degreeTypeList, mathList, englishList, directionName, pageNum, session, attr]
+     * @return  java.lang.String
      */
     @RequestMapping("/deleteDirectionCollector")
     public String deleteDirectionCollector(@RequestParam(value = "directionId") String directionId,
@@ -228,6 +230,7 @@ public class SchoolSearchController {
         attr.addAttribute("degreeType", degreeType);
         attr.addAttribute("math", math);
         attr.addAttribute("english", english);
+        attr.addAttribute("directionName", directionName);
         attr.addAttribute("pageNum", pageNum);
 
         //返回数据
