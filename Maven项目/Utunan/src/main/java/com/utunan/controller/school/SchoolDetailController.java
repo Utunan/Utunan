@@ -42,8 +42,8 @@ public class SchoolDetailController {
     /*
      * @author  王碧云
      * @description 显示页面详情页
-     * @date  8:29 2018/12/13/013
-     * @param  [request, directionId, sort, schoolName]
+     * @date  16:26 2018/12/16/016
+     * @param  [request, directionId, sort, schoolName, session]
      * @return  java.lang.String
      */
     @RequestMapping("/displayDirectionDetail")
@@ -88,9 +88,9 @@ public class SchoolDetailController {
     /*
      * @author  王碧云
      * @description 修改点赞数
-     * @date  9:11 2018/12/6/006
-     * @param  [directionCommentId, directionId, request, response]
-     * @return  void
+     * @date  16:26 2018/12/16/016
+     * @param  [directionCommentId, directionId]
+     * @return  java.lang.String
      */
     @RequestMapping("/updateDirectionCommentPraiseCount")
     public String updateDirectionCommentPraiseCount(@RequestParam(value = "directionCommentId") String directionCommentId,
@@ -163,9 +163,9 @@ public class SchoolDetailController {
     }
     /*
      * @author  王碧云
-     * @description 删除评论（管理员或者当前用户）
-     * @date  8:27 2018/12/13/013
-     * @param  []
+     * @description 删除评论（管理员或用户本人）
+     * @date  16:27 2018/12/16/016
+     * @param  [request, directionCommentId, directionId, schoolName, attr]
      * @return  java.lang.String
      */
     @RequestMapping("/deleteDirectionComment")
