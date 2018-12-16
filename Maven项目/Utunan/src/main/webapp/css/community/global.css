@@ -223,14 +223,22 @@ pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid 
 .fly-edit span:hover{color: #5DB276;}
 
 /* 列表 */
+.list li{position: relative; height: auto; line-height: 22px;padding: 12px 15px 20px 20px; border-bottom: 1px dotted #e2e2e2;}
 .fly-list li{position: relative; height: auto; line-height: 22px;padding: 12px 15px 20px 75px; border-bottom: 1px dotted #e2e2e2;}
 .fly-list li:last-child{border-bottom: none;}
+.list li:last-child{border-bottom: none;}
 .fly-list li h2,
 .fly-list li h2 a,
 .fly-list-info{white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 .fly-list li h2{height: 26px; font-size: 0;}
 .fly-list li h2 a{display: inline-block; max-width: 80%; padding-right: 10px; font-size: 16px;}
 .fly-list li h2 .layui-badge{top: -2px; height: 16px; line-height: 16px; padding: 0 5px; margin-right: 10px; font-size: 12px; border: 1px solid #5FB878; background: none; color: #5FB878;}
+.list li h2,
+.list li h2 a,
+.list-info{white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.list li h2{height: 26px; font-size: 0;}
+.list li h2 a{display: inline-block; max-width: 80%; padding-right: 10px; font-size: 16px;}
+.list li h2 .layui-badge{top: -2px; height: 16px; line-height: 16px; padding: 0 5px; margin-right: 10px; font-size: 12px; border: 1px solid #5FB878; background: none; color: #5FB878;}
 
 .fly-list-info{position: relative; font-size: 13px; color: #999; margin-top: 5px;}
 .fly-list-info>*{padding-right: 15px;}
