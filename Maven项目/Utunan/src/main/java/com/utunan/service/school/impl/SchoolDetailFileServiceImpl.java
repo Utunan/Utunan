@@ -24,12 +24,12 @@ public class SchoolDetailFileServiceImpl implements SchoolDetailFileService {
     private SchoolDetailFileMapper schoolDetailFileMapper;
 
     @Override
-    public List<File> findEGThisYear(String fileType,String fileSchool) {
+    public File findEGThisYear(String fileType,String fileSchool) {
         //确定文件年份
         SchoolOther so = new SchoolOther();
         String year = so.theYear();
         //查找文件
-        List<File> EGfile = this.schoolDetailFileMapper.findEGThisYear(fileType, fileSchool, year);
+        File EGfile = this.schoolDetailFileMapper.findEGThisYear(fileType, fileSchool, year);
         return EGfile;
     }
 
