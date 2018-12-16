@@ -93,7 +93,7 @@ public class UserController {
             request.setAttribute("passwordreply", "新密码不能和原密码相同~");
             return "/user/settings";
         }
-        if (!StringUtil.checkPasswordFormat(newpassword)) {
+        if (!StringUtil.isPassword(newpassword)) {
             request.setAttribute("passwordreply", "密码格式错误,请重新填写更改信息~");
             return "/user/settings";
         }

@@ -71,9 +71,9 @@ header {
 
 .nickname {
     padding-left: 40px;
-    margin-top: 5%;
+    margin-top: 25px;
     font-size: 20px;
-    color:rgba(105,184,246,1);
+    color: rgb(87, 118, 255);
 }
 
 .schoolinfo {
@@ -160,6 +160,7 @@ header {
     float: right;
     width: 680px;
     background: #fff;
+    border-radius: 5px;
 }
 .userfunction>li:hover{
     width: 198px;

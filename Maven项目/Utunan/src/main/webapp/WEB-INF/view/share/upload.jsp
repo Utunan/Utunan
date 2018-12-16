@@ -160,7 +160,7 @@
                                 }
                                 layui.use('form', function () {
                                     var form = layui.form;
-                                    form.render();
+                                     form.render();
                                     form.on('select(provinces)', function (data) {
                                         value = data.value;
                                         html = ''

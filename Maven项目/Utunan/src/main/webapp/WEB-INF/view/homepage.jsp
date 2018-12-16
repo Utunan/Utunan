@@ -16,12 +16,12 @@
 <body>
 <%@include file="common/header.jsp"%>
 <div class="container">
-    <div class="imgsign">
-        又回到最初的起点<br/>
-        记忆中你青涩的脸<br>
-    </div>
+
     <div class="homepageimg">
-        <img src="/images/homepage/homebanner.jpg" alt="" srcset="">
+        <div class="imgsign">
+            又回到最初的起点<br/>
+            记忆中你青涩的脸<br>
+        </div>
     </div>
 </div>
 
