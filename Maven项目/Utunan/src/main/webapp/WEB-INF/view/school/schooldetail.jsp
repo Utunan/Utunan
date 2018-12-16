@@ -7,8 +7,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>院校详情</title>
-  <link rel="stylesheet" href="/layui/wyd/layui.css">
-  <link rel="stylesheet" href="/layui/wyd/global.css">
+  <link rel="stylesheet" href="../css/common.css">
+ <!-- <link rel="stylesheet" href="/layui/css/layui.css">
+  <link rel="stylesheet" href="/layui/wyd/global.css">-->
+    <link rel="stylesheet" href="/css/community/layui.css">
+    <link rel="stylesheet" href="/css/community/global.css">
   <link rel="stylesheet" href="/css/school/detail.css">
 </head>
 <script src="/js/community/jquery-1.10.2.js"></script>
@@ -20,7 +23,7 @@
   }
 </style>
 <!--提醒tx加上 1.加入院校收藏夹 2.浏览次数3.评论总数4.评论点赞5.写评论-->
-
+<%@include file="../common/header.jsp"%>
 <div class="layui-container">
   <div class="layui-row layui-col-space15">
     <div class="layui-col-md8">

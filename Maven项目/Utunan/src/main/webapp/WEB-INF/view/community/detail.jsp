@@ -81,8 +81,9 @@
                 <img src="images/community/zan.svg" width="24px"height="34px">
                 <span class="write-reply">${answerCountByQuizId}</span>
             </div>
-            <div class="collect"> 
-                <img src="images/questionBank/collection.svg" width="24px"height="34px">
+            <div class="collect">
+                <a href="javascript:void(0)" onclick=""><img src="/images/community/shoucang.svg" width="28px"
+                                                             height="34px"></a>
                 <span class="collection">收藏此问题</span>
             </div>
           </div><!--toolbar-->
