@@ -41,7 +41,6 @@
         }
     </script>
 </head>
-<body style="overflow:scroll;overflow-y:hidden" >
 <body>
 <%@include file="../common/header.jsp"%>
 <div class="layui-container">
@@ -83,30 +82,23 @@
         </form>
       </div>
       <div class="fly-panel" style="margin-bottom: 0; margin-top:20px">
+
           <c:if test="${url=='share'}">
               <div>
-                  <table>
-                      <tr>
-                          <td>图标</td>
-                          <td>文件</td>
-                          <td>用户</td>
-                          <td>类型</td>
-                          <td>学校</td>
-                          <td>积分</td>
-                          <td>下载次数</td>
-                      </tr>
-                      <c:forEach items="${fileList}" var="file" varStatus="stat">
-                          <tr>
-                              <td><img src="${file.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px"></td>
-                              <td><a href="/download?fileId=${file.fileId}" style="color: red">${file.fileTitle}</a></td>
-                              <td>${file.user.userNickName}</td>
-                              <td>${file.fileType}</td>
-                              <td>${file.fileSchool}</td>
-                              <td>${file.fileCredit}</td>
-                              <td>${file.downloadNumber}</td>
-                          </tr>
-                      </c:forEach>
-                  </table>
+                  <ul class="list">
+                  <c:forEach items="${fileList}" var="file" varStatus="stat">
+                      <li>
+                          <img src="${file.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px">
+                          <a href="/download?fileId=${file.fileId}" style="color: red">${file.fileTitle}</a>
+                              ${file.user.userNickName}
+                              ${file.fileType}
+                              ${file.fileSchool}
+                          积分：${file.fileCredit}
+                          下载量：${file.downloadNumber}
+                      </li>
+                  </c:forEach>
+              </ul>
+              </div>.
                   <div style="text-align: center">
                       <div class="laypage-main">
                           <a href="/${url }">首页</a>
@@ -128,28 +120,21 @@
               </div>
           </c:if>
           <c:if test="${url=='searchfile'}">
-              <h3>筛选结果</h3>
-              <table>
-                  <tr>
-                      <td>图标</td>
-                      <td>文件</td>
-                      <td>用户</td>
-                      <td>类型</td>
-                      <td>学校</td>
-                      <td>积分</td>
-                      <td>下载次数</td>
-                  </tr>
-                  <c:forEach items="${fileList}" var="file">
-                      <tr>
-                          <td><img src="${file.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px"></td>
-                          <td><a href="/download?fileId=${file.fileId}" style="color: red">${file.fileTitle}</a></td>
-                          <td>${file.user.userNickName}</td>
-                          <td>${file.fileType}</td>
-                          <td>${file.fileSchool}</td>
-                          <td>${file.fileCredit}</td>
-                          <td>${file.downloadNumber}</td>
-                      </tr>
-                  </c:forEach>
+              <div>
+                  <ul class="list">
+                      <c:forEach items="${fileList}" var="file" varStatus="stat">
+                          <li>
+                              <img src="${file.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px">
+                              <a href="/download?fileId=${file.fileId}" style="color: red">${file.fileTitle}</a>
+                                  ${file.user.userNickName}
+                                  ${file.fileType}
+                                  ${file.fileSchool}
+                              积分：${file.fileCredit}
+                              下载量：${file.downloadNumber}
+                          </li>
+                      </c:forEach>
+                  </ul>
+              </div>
               </table>
               <div style="text-align: center">
                   <div class="laypage-main">
@@ -170,8 +155,7 @@
                   </div>
               </div>
           </c:if>
-    </div>
-  </div><!--上边这-->
+    </div><!--上边这-->
   <!--左边这-->
   <div class="layui-col-md4">
     <div class="fly-panel">
