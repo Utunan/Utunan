@@ -49,7 +49,10 @@
 
 </script>
 <body>
+<!--header-->
+<%@include file="../common/header.jsp"%>
 
+<!--content-->
 <div class="layui-container fly-marginTop">
     <div class="fly-panel" pad20 style="padding-top: 5px;">
         <!--<div class="fly-none">没有权限</div>-->
@@ -121,6 +124,9 @@
         </div>
     </div>
 </div>
+<!--//content-->
+
+<%@include file="../common/footer.jsp"%>
 </body>
 <script >
     //添加标签
