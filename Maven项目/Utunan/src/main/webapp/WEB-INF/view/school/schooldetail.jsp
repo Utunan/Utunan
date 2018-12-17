@@ -8,11 +8,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>院校详情</title>
   <link rel="stylesheet" href="../css/common.css">
- <!-- <link rel="stylesheet" href="/layui/css/layui.css">
-  <link rel="stylesheet" href="/layui/wyd/global.css">-->
-    <link rel="stylesheet" href="/css/community/layui.css">
-    <link rel="stylesheet" href="/css/community/global.css">
+  <link rel="stylesheet" href="/layui/css/layui.css">
+  <link rel="stylesheet" href="/layui/wyd/global.css">
+  <%--<link rel="stylesheet" href="/css/community/layui.css">
+  <link rel="stylesheet" href="/css/community/global.css">--%>
   <link rel="stylesheet" href="/css/school/detail.css">
+  <link rel="stylesheet" href="/css/community/detail.css">
+  <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
 </head>
 <script src="/js/community/jquery-1.10.2.js"></script>
 <script src="/js/jquery-1.8.3.min.js"></script>
@@ -27,7 +29,7 @@
 <div class="layui-container">
   <div class="layui-row layui-col-space15">
     <div class="layui-col-md8">
-      <div class="fly-panel" style="margin-bottom: 0;">
+      <div class="fly-panel detail-box" style="margin-bottom: 0;">
         <div class="blank"></div>
         <fieldset class="layui-elem-field">
           <legend>${publishDirection.schoolName} - ${publishDirection.majorlName}</legend>
@@ -100,11 +102,11 @@
               <%--判断是否有今年的招生简章--%>
               <c:choose>
                 <c:when test="${not empty EGfile}">
-                 <%-- <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/download?fileId=${EGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>--%>
-                  <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/school/displayEG?schoolName=${publishDirection.schoolName}&fileType=招生简章">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>
+                  <%--<div class="layui-timeline-title">&nbsp;&nbsp;<a href="/school/displayEG?schoolName=${publishDirection.schoolName}&fileType=招生简章">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>--%>
+                  <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/download?fileId=${EGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>
                 </c:when>
                 <c:otherwise>
-                  <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生简章》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/searchfile?school=${publishDirection.schoolName}&fileType=招生简章&keyWord=">查看往年招生简章</a></div>
+                  <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生简章》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/share1">我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/searchfile?school=${publishDirection.schoolName}&fileType=招生简章&keyWord=">查看往年招生简章</a></div>
                 </c:otherwise>
               </c:choose>
             </div>
@@ -115,10 +117,10 @@
               <%--判断是否有今年的招生目录--%>
               <c:choose>
                 <c:when test="${not empty AGfile}">
-                  <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/school/displayEG?schoolName=${publishDirection.schoolName}&fileType=招生专业目录">查看《${year}年${publishDirection.schoolName}硕士研究生招生目录》</a></div>
+                  <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/download?fileId=${AGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生目录》</a></div>
                 </c:when>
                 <c:otherwise>
-                  <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生目录》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/searchfile?school=${publishDirection.schoolName}&fileType=招生专业目录&keyWord=">查看往年招生目录</a></div>
+                  <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生目录》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/share1">我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/searchfile?school=${publishDirection.schoolName}&fileType=招生专业目录&keyWord=">查看往年招生目录</a></div>
                 </c:otherwise>
               </c:choose>
             </div>
@@ -161,23 +163,27 @@
           <!-- 无数据时 -->
           <!-- <li class="fly-none">消灭零回复</li> -->
         </ul>
-        <div class="layui-form layui-form-pane">
-          <form action="/school/insertDirectionComment?directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}" method="post">
-            <div class="layui-form-item layui-form-text">
-              <a name="comment"></a>
-              <div class="layui-input-block">
-                <textarea id="L_content" name="content" required lay-verify="required" placeholder="请输入内容"  class="layui-textarea fly-editor" style="height: 150px;"></textarea>
-              </div>
-            </div>
-            <div class="layui-form-item">
-              <input type="hidden" name="jid" value="123"/>
-              <button data-method="notice" class="layui-btn" lay-filter="*" lay-submit onclick="addlesson()">提交回复</button>
-            </div>
-          </form>
-
-          <div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;">
+          <div class="write-answer" class="layui-form layui-form-pane">
+             <div class="write-answer-top">
+               <img src="/images/community/write.svg" width="25px" height="25px">
+               <div class="write-answer-top">&nbsp;&nbsp;&nbsp;&nbsp;写回答</div>
+             </div>
+             <!--富文本编辑器-->
+             <form action="/school/insertDirectionComment?directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}" method="post">
+               <div class="text">
+                 <div id="div1" class="toolbar" style="height: 35px"></div>
+                 <div id="div2" style="height: 130px"></div>
+                 <textarea id="text1" style="display: none" name="content"></textarea>
+               </div>
+               <div class="write-answer-bottom">
+                 <div class="write-answer-bottom-content">
+                   <button  type="submit" class="layui-btn layui-btn-fluid" width="50px">提交回答</button>
+                 </div>
+               </div>
+             </form>
+          <%--<div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;">
             <button data-method="notice" class="layui-btn" lay-filter="*" lay-submit onclick="addlesson()">测试</button>
-            <%--<button data-method="setTop" class="layui-btn">多窗口模式，层叠置顶</button>
+            <button data-method="setTop" class="layui-btn">多窗口模式，层叠置顶</button>
             <button data-method="confirmTrans" class="layui-btn">配置一个透明的询问框</button>
             <button data-method="notice" class="layui-btn">示范一个公告层</button>
             <button data-method="offset" data-type="t" class="layui-btn layui-btn-normal">上弹出</button>
@@ -188,8 +194,8 @@
             <button data-method="offset" data-type="lb" class="layui-btn layui-btn-normal">左下弹出</button>
             <button data-method="offset" data-type="rt" class="layui-btn layui-btn-normal">右上弹出</button>
             <button data-method="offset" data-type="rb" class="layui-btn layui-btn-normal">右下弹出</button>
-            <button data-method="offset" data-type="auto" class="layui-btn layui-btn-normal">居中弹出</button>--%>
-          </div>
+            <button data-method="offset" data-type="auto" class="layui-btn layui-btn-normal">居中弹出</button>
+          </div>--%>
         </div>
       </div><!--zsml-result-->
         
@@ -243,9 +249,41 @@ layui.config({
 }).use('fly');
 </script>
 </body>
+<script type="text/javascript">
+    var E = window.wangEditor
+    var editor = new E('#div1', '#div2')
+    editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
+    editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024   //每张图片最大上传大小
+    editor.customConfig.uploadImgMaxLength = 5              //每次最多上传5张
+    var $text1 = $('#text1')
+    editor.customConfig.onchange = function (html) {
+        // 监控变化，同步更新到 textarea
+        $text1.val(html)
+    }
+    //自定义菜单
+    editor.customConfig.menus = [
+        'head',  // 标题
+        'bold',  // 粗体
+        'fontSize',  // 字号
+        'fontName',  // 字体
+        'italic',  // 斜体
+        'underline',  // 下划线
+        'strikeThrough',  // 删除线
+        'foreColor',  // 文字颜色
+        'backColor',  // 背景颜色
+        'link',  // 插入链接
+        'list',  // 列表
+        'quote',  // 引用
+        'emoticon',  // 表情
+        'image',  // 插入图片
+        'table',  // 表格
+        'code'  // 插入代码
+    ]
+    editor.create()
+</script>
 <script src="/js/school/layer/layer.js"></script>
 <script>
-    function addlesson(){
+    /*function addlesson(){
         layui.use('layer', function() { //独立版的layer无需执行这一句
             var layer = layui.layer; //独立版的layer无需执行这一句$ = layui.jquery,
               layer.open({
@@ -268,7 +306,7 @@ layui.config({
                   }
               })
         })
-    }
+    }*/
 
     /*layui.use('layer', function(){ //独立版的layer无需执行这一句
         var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句

@@ -1,0 +1,135 @@
+ 
+ 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>基于 layui 的极简社区页面模版</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="fly,layui,前端社区">
+  <meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
+  <link rel="stylesheet" href="../layui/css/layui.css">
+  <link rel="stylesheet" href="../layui/fly/res/css/global.css">
+  <link rel="stylesheet" href="../css/file/file.css">
+</head>
+<body>
+<div class="layui-container">
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-md8">
+      <div class="fly-panel" style="margin-bottom: 0;">
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+              <label class="layui-form-label">资料类型 >></label>
+              <div class="layui-input-block">
+                  <input type="checkbox" name="like[write]" title="全部">
+                <input type="checkbox" name="like[write]" title="招生简章">
+                <input type="checkbox" name="like[read]" title="招生专业目录">
+                <input type="checkbox" name="like[dai]" title="考研真题">
+                <input type="checkbox" name="like[dai]" title="备考习题">
+                <input type="checkbox" name="like[dai]" title="课件分享">
+                <input type="checkbox" name="like[dai]" title="参考书目">
+              </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">针对院校 >></label>
+                <div class="layui-input-block">                    
+                    <select name="city" lay-verify="required">
+                      <option value=""></option>
+                      <option value="0">北京</option>
+                      <option value="1">上海</option>
+                      <option value="2">广州</option>
+                      <option value="3">江苏</option>
+                      <option value="4">河北</option>
+                    </select>
+                    <select name="city" lay-verify="required">
+                        <option value=""></option>
+                        <option value="0">北京邮电大学</option>
+                        <option value="1">上海大学</option>
+                        <option value="2">广州大学</option>
+                        <option value="3">江苏大学</option>
+                        <option value="4">河北大学</option>
+                      </select>
+                </div>
+            </div>
+            <div class="options">
+                <span class="optionName">搜索 >></span>
+                <input type="text" id="direction" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+                <input type="button" value="搜索" id="search" class="layui-btn layui-btn-normal"/>
+            </div>
+        </form>
+      </div>
+    </div><!--上边这-->
+    <div class="layui-col-md8">
+      <div class="fly-panel" style="margin-bottom: 0;">
+        最新上传<br/>tensorflow构建图像多标签分类器入门文件
+        上传者： 小媛在努力  上传时间：2018-12-10 积分/C币： 3
+        <!-- <div class="fly-none">没有相关数据</div> -->
+        <div style="text-align: center">
+          <div class="laypage-main"><span class="laypage-curr">1</span><a href="/jie/page/2/">2</a><a href="/jie/page/3/">3</a><a href="/jie/page/4/">4</a><a href="/jie/page/5/">5</a><span>…</span><a href="/jie/page/148/" class="laypage-last" title="尾页">尾页</a><a href="/jie/page/2/" class="laypage-next">下一页</a></div>
+        </div>
+      </div><!--下边这-->
+    </div><!--左边这-->
+    <div class="layui-col-md4">
+        <div class="fly-panel">
+            <div class="fly-panel-main">
+              <a href="" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">我要上传</a>
+            </div>
+        </div>
+
+      <dl class="fly-panel fly-list-one">
+        <dt class="fly-panel-title">热门资源</dt>
+        <dd>
+          <a href="">基于 layui 的极简社区页面模版</a>
+          <span><i class="iconfont icon-pinglun1"></i> 下载次数16</span>
+        </dd>
+        <dd>
+          <a href="">基于 layui 的极简社区页面模版</a>
+          <span><i class="iconfont icon-pinglun1"></i> 16</span>
+        </dd>
+        <dd>
+          <a href="">基于 layui 的极简社区页面模版</a>
+          <span><i class="iconfont icon-pinglun1"></i> 16</span>
+        </dd>
+        <dd>
+          <a href="">基于 layui 的极简社区页面模版</a>
+          <span><i class="iconfont icon-pinglun1"></i> 16</span>
+        </dd>
+        <dd>
+          <a href="">基于 layui 的极简社区页面模版</a>
+          <span><i class="iconfont icon-pinglun1"></i> 16</span>
+        </dd>
+        <dd>
+          <a href="">基于 layui 的极简社区页面模版</a>
+          <span><i class="iconfont icon-pinglun1"></i> 16</span>
+        </dd>
+        <dd>
+            <a href="">基于 layui 的极简社区页面模版</a>
+            <span><i class="iconfont icon-pinglun1"></i> 16</span>
+          </dd>
+          <dd>
+            <a href="">基于 layui 的极简社区页面模版</a>
+            <span><i class="iconfont icon-pinglun1"></i> 16</span>
+          </dd>
+          <dd>
+            <a href="">基于 layui 的极简社区页面模版</a>
+            <span><i class="iconfont icon-pinglun1"></i> 16</span>
+          </dd>
+      </dl>
+
+    </div>
+  </div>
+</div>
+
+<script src="../layui/layui.js"></script>
+<script>
+layui.cache.page = 'jie';
+layui.config({
+  version: "3.0.0"
+  ,base: '../layui/fly/res/mods/'
+}).extend({
+  fly: 'index'
+}).use('fly');
+</script>
+
+</body>
+</html>

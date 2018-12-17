@@ -230,7 +230,7 @@
         <div class="layui-col-md4">
             <div class="fly-panel">
                 <div class="fly-panel-main">
-                    <a href="" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">发表提问</a>
+                    <a href="/toAddQuestion" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">发表提问</a>
                 </div>
             </div>
     

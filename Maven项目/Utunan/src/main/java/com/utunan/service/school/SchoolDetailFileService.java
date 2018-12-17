@@ -19,7 +19,7 @@ public interface SchoolDetailFileService {
      * @param  [fileSchool]
      * @return  com.utunan.pojo.base.share.File
      */
-    List<File> findEGThisYear(String fileType,String fileSchool);
+    File findEGThisYear(String fileType,String fileSchool);
 
     /*
      * @author  王碧云

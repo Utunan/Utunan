@@ -265,5 +265,16 @@ public class QuizController {
 		//return "redirect:/quiz";
 	}
 
+	/*
+	 * @author  王碧云
+	 * @description （点击“发表提问”）从问答列表页跳转到提问页
+	 * @date  21:54 2018/12/16/016
+	 * @param  []
+	 * @return  java.lang.String
+	 */
+	@RequestMapping(value = "/toAddQuestion")
+	public String toAddQuestion(){
+		return "/community/addQuestion";
+	}
 
 }
