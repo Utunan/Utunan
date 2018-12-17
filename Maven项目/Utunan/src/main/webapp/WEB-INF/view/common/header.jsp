@@ -17,7 +17,7 @@
             <c:otherwise>
                 <div class="login after">
                 <span>
-                    <a href="/login">
+                    <a href="/user/information">
                         <img src="/images/common/information.svg">
                     </a>
                     <a href="/user/information" style="margin-left: 5px;">消息</a>
