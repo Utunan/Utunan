@@ -217,7 +217,8 @@ public class QuizController {
 			String regex = ",|，|\\s+";    //以中英文逗号、空格（一个或多个）分割字符串
 			String[] tags=t.split(regex);
 			//将数组转化为list集合
-			List<String> listtag= Arrays.asList(tags);
+            List<String> listtag= Arrays.asList(tags);
+
 
 			//获得用户输入的标签的id
 			List<Long> tagss=this.tagService.getTags(listtag);
