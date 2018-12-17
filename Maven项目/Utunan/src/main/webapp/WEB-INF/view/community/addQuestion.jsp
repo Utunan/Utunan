@@ -101,7 +101,7 @@
                     </div>
                     <div class="layui-form-item addtags">
                         <div class="addtags-description">添加标签：</div>
-                        <input type="text" id="tagValue" placeholder="">
+                        <input type="text" id="tagValue" placeholder="" name="tags">
                     </div>
                 </div>
                 <div class="layui-form-item">

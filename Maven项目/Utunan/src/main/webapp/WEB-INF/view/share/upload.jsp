@@ -28,7 +28,7 @@
                 </ul>
                 <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
                     <div class="layui-tab-item layui-show">
-                        <form class="layui-form" action="/upload" method="post">
+                        <form class="layui-form" action="/upload1" method="post">
                             <div class="layui-row layui-col-space12 layui-form-item">
                                 <div class="layui-col-md3">
                                     <label class="layui-form-label">资源类型</label>
@@ -199,33 +199,6 @@
 
 <script>
 
-
-    /*layui.use('upload', function(){
-      var $ = layui.jquery
-      ,upload = layui.upload;
-
-
-      //设定文件大小限制
-      upload.render({
-        elem: '#test7'
-        ,url: '/upload/'
-        ,size: 60 //限制文件大小，单位 KB
-        ,done: function(res){
-          console.log(res)
-        }
-      });
-
-
-      //拖拽上传
-      upload.render({
-        elem: '#test10'
-        ,url: '/upload/'
-        ,done: function(res){
-          console.log(res)
-        }
-      });
-
-    });*/
     layui.use('upload', function () {
         var $ = layui.jquery
             , upload = layui.upload;
