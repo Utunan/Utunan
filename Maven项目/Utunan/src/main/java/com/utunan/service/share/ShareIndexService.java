@@ -56,4 +56,13 @@ public interface ShareIndexService {
 	 * @return  com.utunan.pojo.base.share.File
 	 */
 	File findFileById(Long fileId);
+
+	/**
+	 * @author  孙程程
+	 * @description 以文件标题为搜索条件，搜索相关文件
+	 * @date  8:58 2018/12/17
+	 * @param  keyWords
+	 * @return  java.util.List<com.utunan.pojo.base.share.File>
+	 */
+	List<File> selectFileByTitle(List<String> keyWords);
 }

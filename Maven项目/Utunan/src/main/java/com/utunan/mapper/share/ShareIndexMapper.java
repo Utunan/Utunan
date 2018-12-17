@@ -16,4 +16,5 @@ public interface ShareIndexMapper {
     List<School> listSchool();
     List<File> selectFile(@Param("fileType") String[] fileType, @Param("fileSchool") String fileSchool, @Param("keyWord") String keyWord);
     File findFileById(@Param("fileId") Long fileId);
+    List<File> selectFileByTitle(@Param("fileTitle") String fileTitle);
 }

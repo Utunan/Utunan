@@ -1,11 +1,13 @@
 package com.utunan.service.user;
 
+import com.utunan.pojo.base.user.Member;
 import com.utunan.pojo.base.user.User;
 
 import java.util.List;
 
 public interface UserService {
     User getUser(User user);
+    Member getUserById(String userId);
     void saveUser(User user);
     boolean isExist(User user);
     boolean changeInfo(User user);

@@ -61,6 +61,7 @@
     </script>
 
 </head>
+<body style="overflow:scroll;overflow-y:hidden" >
 <body>
 <%@include file="../common/header.jsp" %>
 <div class="layui-container">

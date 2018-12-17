@@ -135,11 +135,11 @@ body {
     padding:20px 0;
 }
 
-nav>li:first-of-type{
-    padding-top: 60px;
+.content nav>li:first-of-type{
+    padding-top: 75px;
 }
-nav>li:last-of-type{
-    padding-top: 60px;
+.content nav>li:last-of-type{
+    padding-top: 75px;
 }
 .mintitle{
     width: 300px;
@@ -152,14 +152,14 @@ nav>li:last-of-type{
 }
 
 
-nav>li>ul{
+.content nav>li>ul{
     clear: both;
     float: left;
     width: 240px;
     padding:0 30px;
     list-style-type: none;
 }
-nav>li>ul>li{
+.content nav>li>ul>li{
     width: 240px;
     float: left;
     clear: both;

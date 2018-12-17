@@ -21,18 +21,18 @@
     <div class="wrapper">
         <div class="usercard" id="usercard">
             <div class="userheadimg">
-                <img src="${User.userHeadImg}" alt="" srcset="">
+                <img src="${Member.user.userHeadImg}" alt="" srcset="">
             </div>
             <div class="countdown">
                 <h4>2018年11月13日</h4>
-                <h5>考研年份<span style="color:#ff5f2c;font-size: 25px;">2019</span>年</h5>
+                <h5>考研年份<span style="color:#ff5f2c;font-size: 25px;">${Member.user.examTime}</span>年</h5>
             </div>
             <div class="userinfo">
-                <div class="nickname">${User.userNickName}</div>
+                <div class="nickname">${Member.user.userNickName}</div>
                 <div class="isfollow"><a href="">未关注</a></div>
                 <div class="schoolinfo">
-                    <span>本科院校 : <span>${User.userSchool}</span></span>
-                    <span>目标院校 : <span>${User.dreamSchool}</span></span>
+                    <span>本科院校 : <span>${Member.user.userSchool}</span></span>
+                    <span>目标院校 : <span>${Member.user.dreamSchool}</span></span>
                 </div>
             </div>
         </div>
@@ -45,46 +45,22 @@
                 <li>
                     <div class="mintitle">TA的问答</div>
                     <ul class="userquiz">
-                        <li class="quiz">
-                            <a href="">身为一名程序员,你竟连翻墙都</a>
-                        </li>
-                        <li class="quiz">
-                            <a href="">身为一名程序员,你竟连翻墙都</a>
-                        </li>
-                        <li class="quiz">
-                            <a href="">身为一名程序员,你竟连翻墙都</a>
-                        </li>
-                        <li class="quiz">
-                            <a href="">身为一名程序员,你竟连翻墙都</a>
-                        </li>
-                        <li class="quiz">
-                            <a href="">身为一名程序员,你竟连翻墙都</a>
-                        </li>
+                        <c:forEach items="${Member.quizzes}" var="quiz">
+                            <li class="quiz">
+                                <a href="">${quiz.quizTitle}</a>
+                            </li>
+                        </c:forEach>
                     </ul>
                 </li>
                 <li>
                     <div class="mintitle" style="color: rgb(255, 155, 38);">TA的关注</div>
                     <ul class="userlist">
-                        <li class="user">
-                            <a href="" ><img src="/images/userheadimg/default.png"></a>
-                            <a href=""><span>徐思涵天下第一美</span></a>
-                        </li>
-                        <li class="user">
-                            <a href="" ><img src="/images/userheadimg/default.png"></a>
-                            <a href=""><span>徐思涵天下第一美</span></a>
-                        </li>
-                        <li class="user">
-                            <a href="" ><img src="/images/userheadimg/default.png"></a>
-                            <a href=""><span>徐思涵天下第一美</span></a>
-                        </li>
-                        <li class="user">
-                            <a href="" ><img src="/images/userheadimg/default.png"></a>
-                            <a href=""><span>徐思涵天下第一美</span></a>
-                        </li>
-                        <li class="user">
-                            <a href="" ><img src="/images/userheadimg/default.png"></a>
-                            <a href=""><span>徐思涵天下第一美</span></a>
-                        </li>
+                        <c:forEach items="${Member.users}" var="user">
+                            <li class="user">
+                                <a href=""><img src="${user.userHeadImg}"></a>
+                                <a href=""><span>${user.userNickName}</span></a>
+                            </li>
+                        </c:forEach>
                         <li class="usernotice">
                             仅能查看五个呦~
                         </li>
@@ -93,21 +69,11 @@
                 <li>
                     <div class="mintitle">TA的题目</div>
                     <ul class="userquestion">
-                        <li class="question">
-                            <a href="">身为一名程序员,你竟连翻墙都</a>
-                        </li>
-                        <li class="question">
-                            <a href="">身为一名程序员,你竟连翻墙都</a>
-                        </li>
-                        <li class="question">
-                            <a href="">身为一名程序员,你竟连翻墙都</a>
-                        </li>
-                        <li class="question">
-                            <a href="">身为一名程序员,你竟连翻墙都</a>
-                        </li>
-                        <li class="question">
-                            <a href="">身为一名程序员,你竟连翻墙都</a>
-                        </li>
+                        <c:forEach items="${Member.questions }" var="question">
+                            <li class="question">
+                                <a href="">${question.questionContent}</a>
+                            </li>
+                        </c:forEach>
                     </ul>
                 </li>
             </nav>

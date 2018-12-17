@@ -19,12 +19,12 @@
 }
 .publishpost>li>span:first-of-type {
     float: left;
-    color: rgba(49, 136, 136, 1);
+    color: rgba(0,188,155,1);
     font-size: 14px;
 }
 
 .publishpost>li>span:first-of-type>a {
-    color: rgba(49, 136, 136, 1);
+    color: rgba(0,188,155,1);
     text-decoration: none;
 }
 
@@ -34,10 +34,6 @@
     float: right;
 }
 
-.publishpost>li>span:last-of-type>a {
-    color: rgba(12, 200, 217, 1);
-    text-decoration: none;
-}
 
 .publishpost>li>div {
     float: left;
@@ -76,7 +72,7 @@
     color:#000;
 }
 .posttitle>a:hover{
-    color:rgba(0,150,136,1);
+    color:rgba(0,188,155,1);
 }
 .title img {
     height: 30px;

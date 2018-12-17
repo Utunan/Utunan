@@ -17,7 +17,7 @@
             <c:otherwise>
                 <div class="login after">
                 <span>
-                    <a href="/login">
+                    <a href="/user/information">
                         <img src="/images/common/information.svg">
                     </a>
                     <a href="/user/information" style="margin-left: 5px;">消息</a>
@@ -84,7 +84,7 @@
 
         <nav class="banner">
             <li>
-                <a href="/school/displaySchool">院校库</a>
+                <a href="/school/displaySchool">优院校</a>
             </li>
             <li>
                 <a href="/questionbank">优题库</a>
