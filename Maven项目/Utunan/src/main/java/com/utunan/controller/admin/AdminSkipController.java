@@ -4,7 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.questionbank.Question;
-import com.utunan.pojo.base.school.Direction;
+import com.utunan.pojo.base.school.SchoolComment;
 import com.utunan.pojo.base.user.User;
 import com.utunan.service.admin.AdminDirectionService;
 import com.utunan.service.admin.AdminQuestionService;
@@ -80,14 +80,17 @@ public class AdminSkipController {
 
     @RequestMapping("directioncommentlist")
     public String directionlist(HttpServletRequest request, HttpSession session) {
-        List<Direction> directions = null;
+        List<SchoolComment> schoolcomments = null;
         String pageNum = request.getParameter("pageNum");
-        if (pageNum == null || pageNum == "" || Integer.parseInt(pageNum) <= 0)
-            directions = adminDirectionService.getAllDirection(1, 20);
-        else
-            directions = adminDirectionService.getAllDirection(Integer.parseInt(pageNum), 20);
-        request.setAttribute("PageInfo", new PageInfo(directions, 5));
-        session.setAttribute("Directions", directions);
+        if (pageNum == null || pageNum == "" || Integer.parseInt(pageNum) <= 0) {
+            schoolcomments = adminDirectionService.getAllSchoolComment(1, 20);
+        }
+
+        else {
+            schoolcomments = adminDirectionService.getAllSchoolComment(Integer.parseInt(pageNum), 20);
+        }
+        request.setAttribute("PageInfo", new PageInfo(schoolcomments, 5));
+        session.setAttribute("Schoolcomments", schoolcomments);
 
         return "admin/direction/directioncommentlist";
     }

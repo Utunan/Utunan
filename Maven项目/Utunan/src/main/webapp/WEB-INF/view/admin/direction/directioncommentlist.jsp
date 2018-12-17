@@ -39,22 +39,24 @@
             </th>
             <th>学校名称</th>
             <th>研究方向</th>
+            <th>评论者</th>
             <th>评价</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${Directions}" var="D">
+        <c:forEach items="${Schoolcomments}" var="S">
         <tr>
             <td>
-                <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${D.directionId}'><i
+                <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${S.schoolcommentId }'><i
                         class="layui-icon">&#xe605;</i></div>
             </td>
-            <td>${D.schoolName}</td>
-            <td>${D.directionName}</td>
-            <td>${D.directionName}</td>
+            <td>${S.direction.schoolName }</td>
+            <td>${S.direction.directionName }</td>
+            <td>${S.user.userNickName }</td>
+            <td>${S.schoolcommentcontent }</td>
             <td class="td-manage">
-                <a title="删除" onclick="member_del(this,'${D.directionId}')" href="javascript:;">
+                <a title="删除" onclick="member_del(this,'${S.schoolcommentId }')" href="javascript:;">
                     <i class="layui-icon">&#xe640;</i>
                 </a>
             </td>
@@ -120,6 +122,19 @@
     function delAll(argument) {
         var data = tableCheck.getData();
         layer.confirm('确认要删除吗？' + data, function (index) {
+            console.log(data)
+            $.ajax({
+                url:"/delallschoolcomment",
+                type:"get",
+                dataType:"String",
+                traditional:true,
+                data:{"d":data},
+                success:function(response){
+
+                },
+                error:function() {
+                }
+            });
             //捉到所有被选中的，发异步进行删除
             layer.msg('删除成功', {icon: 1});
             $(".layui-form-checked").not('.header').parents('tr').remove();

@@ -10,4 +10,8 @@
         from suffix
         where suffixName=#{suffixName}
     </select>
+    <select id="getMaxfileId" resultType="java.lang.Long">
+        select max(fileId)
+        from file
+    </select>
 </mapper>

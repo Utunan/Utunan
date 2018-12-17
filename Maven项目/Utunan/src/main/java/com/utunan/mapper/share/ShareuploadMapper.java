@@ -10,4 +10,7 @@ public interface ShareuploadMapper {
     void insertfile(File file);
 
     Long getSuffix(@Param("suffixName") String suffixName);
+
+    //获取最大fileId
+    Long getMaxfileId();
 }
