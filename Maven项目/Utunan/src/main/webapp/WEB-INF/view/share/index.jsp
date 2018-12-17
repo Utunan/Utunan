@@ -51,13 +51,13 @@
             <div class="layui-form-item">
               <label class="layui-form-label">资料类型 >></label>
               <div class="layui-input-block">
-                <input type="checkbox" name="all" title="全部"checked="checked" value="全部">
-                <input type="checkbox" name="zsjz" title="招生简章" value="招生简章">
-                <input type="checkbox" name="zszyml" title="招生专业目录" value="招生专业目录">
-                <input type="checkbox" name="kyzt" title="考研真题" value="考研真题">
-                <input type="checkbox" name="bkxt" title="备考习题" value="备考习题">
-                <input type="checkbox" name="kjfx" title="课件分享" value="课件分享">
-                <input type="checkbox" name="cksm" title="参考书目" value="参考书目">
+                <input type="checkbox" name="fileType" title="全部"checked="checked" value="全部">
+                <input type="checkbox" name="fileType" title="招生简章" value="招生简章">
+                <input type="checkbox" name="fileType" title="招生专业目录" value="招生专业目录">
+                <input type="checkbox" name="fileType" title="考研真题" value="考研真题">
+                <input type="checkbox" name="fileType" title="备考习题" value="备考习题">
+                <input type="checkbox" name="fileType" title="课件分享" value="课件分享">
+                <input type="checkbox" name="fileType" title="参考书目" value="参考书目">
               </div>
             </div>
             <div class="layui-form-item">
