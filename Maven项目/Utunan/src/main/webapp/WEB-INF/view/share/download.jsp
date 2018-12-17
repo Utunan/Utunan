@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: 孙程程
@@ -11,6 +12,20 @@
     <title>下载</title>
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
+    <script type="text/javascript">
+
+        function check(form) {
+            if (form.operate.value=="notLogin") {
+                alert("请先登录！")
+                return false;
+            }
+            if (form.operate.value=="lackOfIntegral") {
+                alert("您的积分不足，快去发帖、评论赚积分吧！")
+                return false;
+            }
+            document.form1.submit();
+        }
+    </script>
 </head>
 <body>
 <%@include file="../common/header.jsp"%>
@@ -28,7 +43,10 @@
         <span>${file.user.userSchool}</span>
         <span>${file.user.dreamSchool}</span>
         <br>
-        <span><a href="${file.fileUrl}" download="${file.fileTitle}">点击下载</a></span>
+        <form name="form1" action="/downloadfile" method="post" onsubmit="return check(this)" >
+            <input type="hidden" name="operate" value="${operate}">
+            <input type="submit" value="点击下载"/>
+        </form>
     </div>
     <div>
         <h3>相关文件</h3>

@@ -1,6 +1,7 @@
 package com.utunan.controller.share;
 
 import com.utunan.pojo.base.share.File;
+import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.util.Analyzer;
 import com.utunan.service.share.ShareIndexService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class ShareDownloadController {
 	public String download(HttpServletRequest request){
 		String fileId = request.getParameter("fileId");
 		File file=this.shareIndexService.findFileById(Long.parseLong(fileId));
-
+		//以文件标题作为关键字搜索相关文件
 		String keyWord=file.getFileTitle();
 		Analyzer analyzer=new Analyzer();
 		//过滤关键词
@@ -45,10 +46,35 @@ public class ShareDownloadController {
 		List<File> relatedFileList=this.shareIndexService.selectFileByTitle(keyWords);
 		//热门文件
 		List<File> hotFileList = this.shareIndexService.listHotFile();
-
+		//获取用户信息
+		User user = (User)request.getSession().getAttribute("User");
+		//下载文件所需积分
+		Long fileIntegral = file.getFileCredit();
+		//设置操作命令
+		String operate = "";
+		if(user==null){
+			operate="notLogin"; //没有登录
+		}else{
+			Long userIntegral = user.getUserIntegral();
+			if(userIntegral < fileIntegral){
+				operate = "lackOfIntegral"; //积分不足
+			}else {
+				operate = "canDownload"; //可以下载
+			}
+		}
+		//返回数据
+		request.setAttribute("operate", operate);
 		request.setAttribute("hotFileList", hotFileList);
 		request.setAttribute("relatedFileList", relatedFileList);
 		request.setAttribute("file", file);
 		return "share/download";
+	}
+
+	@RequestMapping("downloadfile")
+	public String downloadFile(HttpServletRequest request){
+		String operate = request.getParameter("operate");
+
+		request.setAttribute("messageValue", operate);
+		return "share/downloadresult";
 	}
 }

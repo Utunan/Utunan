@@ -34,7 +34,7 @@ public class User {
     //用户梦想院校
     private String dreamSchool;
     //用户积分
-    private Integer userIntegral;
+    private Long userIntegral;
 
 
     public Long getUserId() {
@@ -125,11 +125,11 @@ public class User {
         this.dreamSchool = dreamSchool;
     }
 
-    public Integer getUserIntegral() {
+    public Long getUserIntegral() {
         return userIntegral;
     }
 
-    public void setUserIntegral(Integer userIntegral) {
+    public void setUserIntegral(Long userIntegral) {
         this.userIntegral = userIntegral;
     }
 
