@@ -31,11 +31,14 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(HttpSession session) {
+    public String login(HttpSession session, HttpServletRequest request) {
+        String referer = request.getHeader("referer");
         Object obj = session.getAttribute("User");
         //用户未登录，转到用户登录界面
-        if (obj == null)
+        session.setAttribute("PageSource", referer);
+        if (obj == null) {
             return "login";
+        }
         //用户已登录，转到用户个人中心
         return "redirect:/user";
 
@@ -50,7 +53,13 @@ public class LoginController {
         if (user != null) {
             request.removeAttribute("reply");
             session.setAttribute("User", user);
-            return "redirect:/user";
+            String pageSource = (String) session.getAttribute("PageSource");
+            if (pageSource == null)
+                return "redirect:/user";
+            else {
+                session.removeAttribute("PageSource");
+                return "redirect:" + pageSource;
+            }
         } else {
             request.setAttribute("reply", "通行证或密码错误");
             request.setAttribute("temppermit", permit);
@@ -59,9 +68,10 @@ public class LoginController {
     }
 
     @RequestMapping("loginout")
-    public String loginout(HttpSession session){
+    public String loginout(HttpSession session,HttpServletRequest request) {
         session.removeAttribute("User");
-        return "redirect:/homepage";
+        String referer = request.getHeader("referer");
+        return "redirect:"+referer;
     }
 
 }

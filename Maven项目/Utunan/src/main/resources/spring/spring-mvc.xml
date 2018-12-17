@@ -52,14 +52,17 @@ http://www.springframework.org/schema/task/spring-task.xsd">
             <mvc:mapping path="/answer"/>
             <mvc:mapping path="/answer1"/>
             <mvc:mapping path="/addDirectionCollector"/>
-            <bean class="com.utunan.interceptor.user.UserSessionInterceptor">
-            </bean>
+            <bean class="com.utunan.interceptor.user.UserSessionInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/admin/**"/>
             <mvc:exclude-mapping path="/admin/login"/>
-            <bean class="com.utunan.interceptor.admin.AdminInterceptor"></bean>
+            <bean class="com.utunan.interceptor.admin.AdminInterceptor"/>
         </mvc:interceptor>
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/member/**"/>-->
+            <!--<bean class="com.utunan.interceptor.user.MemberInterceptor"/>-->
+        <!--</mvc:interceptor>-->
     </mvc:interceptors>
 
     <!-- 解析器注册 -->

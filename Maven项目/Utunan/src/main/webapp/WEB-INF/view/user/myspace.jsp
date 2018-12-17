@@ -43,6 +43,9 @@
                 <form id="userinfoform" action="/user/changeInfo" method="post">
                     <nav>
                         <li>
+                            <a href="/member/">6666</a>
+                        </li>
+                        <li>
                             <label for="userNickName">昵&emsp;&emsp;称</label>
                             <input type="text" id="userNickName" name="userNickName" value="${User.userNickName}"
                                    placeholder="${User.userNickName}"/>
