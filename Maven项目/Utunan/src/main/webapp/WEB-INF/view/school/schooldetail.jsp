@@ -10,22 +10,39 @@
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="/layui/css/layui.css">
   <link rel="stylesheet" href="/layui/wyd/global.css">
-  <%--<link rel="stylesheet" href="/css/community/layui.css">
-  <link rel="stylesheet" href="/css/community/global.css">--%>
   <link rel="stylesheet" href="/css/school/detail.css">
   <link rel="stylesheet" href="/css/community/detail.css">
+  <link rel="stylesheet" href="/css/login.css">
   <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
 </head>
 <script src="/js/community/jquery-1.10.2.js"></script>
 <script src="/js/jquery-1.8.3.min.js"></script>
-<body>
 <style>
-  .layui-layer-page{
-    top:300px;
+  .mask{
+    display:none;
+    background:rgba(0,0,0,0.3);
+    width:100%;
+    height:100%;
+    position:fixed;
+    z-index: 10001;
+  }
+  .modalDialogcontent{
+    display:none;
+    background:white;
+    width:500px;
+    position:absolute;
+    left:50%;
+    margin-left:-200px;
+    margin-top:-500px;
+    z-index: 10001;
   }
 </style>
+<body>
 <!--提醒tx加上 1.加入院校收藏夹 2.浏览次数3.评论总数4.评论点赞5.写评论-->
 <%@include file="../common/header.jsp"%>
+<%--黑背景--%>
+<div class="mask"></div>
+
 <div class="layui-container">
   <div class="layui-row layui-col-space15">
     <div class="layui-col-md8">
@@ -177,25 +194,11 @@
                </div>
                <div class="write-answer-bottom">
                  <div class="write-answer-bottom-content">
-                   <button  type="submit" class="layui-btn layui-btn-fluid" width="50px">提交回答</button>
+                   <button  type="submit" class="layui-btn layui-btn-fluid" id="comsub" width="50px">提交回答</button>
                  </div>
                </div>
              </form>
-          <%--<div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;">
-            <button data-method="notice" class="layui-btn" lay-filter="*" lay-submit onclick="addlesson()">测试</button>
-            <button data-method="setTop" class="layui-btn">多窗口模式，层叠置顶</button>
-            <button data-method="confirmTrans" class="layui-btn">配置一个透明的询问框</button>
-            <button data-method="notice" class="layui-btn">示范一个公告层</button>
-            <button data-method="offset" data-type="t" class="layui-btn layui-btn-normal">上弹出</button>
-            <button data-method="offset" data-type="r" class="layui-btn layui-btn-normal">右弹出</button>
-            <button data-method="offset" data-type="b" class="layui-btn layui-btn-normal">下弹出</button>
-            <button data-method="offset" data-type="l" class="layui-btn layui-btn-normal">左弹出</button>
-            <button data-method="offset" data-type="lt" class="layui-btn layui-btn-normal">左上弹出</button>
-            <button data-method="offset" data-type="lb" class="layui-btn layui-btn-normal">左下弹出</button>
-            <button data-method="offset" data-type="rt" class="layui-btn layui-btn-normal">右上弹出</button>
-            <button data-method="offset" data-type="rb" class="layui-btn layui-btn-normal">右下弹出</button>
-            <button data-method="offset" data-type="auto" class="layui-btn layui-btn-normal">居中弹出</button>
-          </div>--%>
+            <button  type="submit" class="layui-btn layui-btn-fluid" id="try" width="50px">测试啦</button>
         </div>
       </div><!--zsml-result-->
         
@@ -228,6 +231,30 @@
     <a href="http://www.layui.com/template/fly/" target="_blank">获取Fly社区模版</a>
     <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
   </p>
+</div>
+
+<%--登录表单--%>
+<div class="modalDialogcontent">
+  <span class="close_modalDialogcontent">×</span>
+  <div class="textcase">
+    <div class="logintext">
+      <a href=""><img src="/images/common/logo.png" alt="" srcset=""></a>
+    </div>
+  </div>
+  <div  class="reply" id="reply"></div>
+  <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">
+    <div class="permit inputcase">
+      <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="您的手机/邮箱">
+    </div>
+    <div class="loginpassword inputcase">
+      <input type="password" name="userPassword" id="password" placeholder="请输入密码">
+    </div>
+    <div class="loginbtn">
+      <button id="submitbutton" type="submit">提交</button>
+    </div>
+    <span><a href="">忘记密码</a> </span>
+    <span><a href="/register">立即注册</a> </span>
+  </form>
 </div>
 
 <script src="/layui/layui.js"></script>
@@ -281,120 +308,51 @@ layui.config({
     ]
     editor.create()
 </script>
-<script src="/js/school/layer/layer.js"></script>
+
 <script>
-    /*function addlesson(){
-        layui.use('layer', function() { //独立版的layer无需执行这一句
-            var layer = layui.layer; //独立版的layer无需执行这一句$ = layui.jquery,
-              layer.open({
-                  type: 1
-                  , title: '用户登录'//不显示标题栏
-                  , closeBtn: false
-                  , area: '200px;'
-                  , shade: 0.8
-                  , id: 'LAY_layuipro' //设定一个id，防止重复弹出
-                  , btn: ['火速围观', '残忍拒绝']
-                  , btnAlign: 'c'
-                  , moveType: 1 //拖拽模式，0或者1
-                  , content: '出现吧，皮卡丘！！！'
-                  , success: function (layero) {
-                      var btn = layero.find('.layui-layer-btn');
-                      btn.find('.layui-layer-btn0').attr({
-                          href: 'http://www.layui.com/'
-                          , target: '_blank'
-                      });
-                  }
-              })
-        })
-    }*/
+    var layer = parent.layer === undefined ? layui.layer : parent.layer;
+    var ask=document.getElementById("try");
+    var mask=document.getElementsByClassName("mask")[0];
+    var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
+    /*获取提交按钮*/
+    var submit = document.getElementById("submitbutton");
 
-    /*layui.use('layer', function(){ //独立版的layer无需执行这一句
-        var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+    /*判断是否是用户，不是用户则弹出框*/
+    ask.onclick=function(){
+        if(${user==null}){
+            mask.style.display="block";
+            modalDialogcontent.style.display="block";
+        }else{
+            console.log("lllalalalallala");
+        }
+    };
+    /*点击小叉号然后关闭*/
+    var close_modalDialogcontent=document.getElementsByClassName("close_modalDialogcontent")[0];
+    close_modalDialogcontent.onclick=function(){
+        mask.style.display="none";
+        modalDialogcontent.style.display="none";
+    };
 
-        //触发事件
-        var active = {
-            setTop: function(){
-                var that = this;
-                //多窗口模式，层叠置顶
-                layer.open({
-                    type: 2 //此处以iframe举例
-                    ,title: '当你选择该窗体时，即会在最顶端'
-                    ,area: ['390px', '260px']
-                    ,shade: 0
-                    ,maxmin: true
-                    ,offset: [ //为了演示，随机坐标
-                        Math.random()*($(window).height()-300)
-                        ,Math.random()*($(window).width()-390)
-                    ]
-                    ,content: '//layer.layui.com/test/settop.html'
-                    ,btn: ['继续弹出', '全部关闭'] //只是为了演示
-                    ,yes: function(){
-                        $(that).click();
-                    }
-                    ,btn2: function(){
-                        layer.closeAll();
-                    }
 
-                    ,zIndex: layer.zIndex //重点1
-                    ,success: function(layero){
-                        layer.setTop(layero); //重点2
-                    }
-                });
+    //密码是否正确
+    submit.onclick=function(){
+        $.ajax({
+            //几个参数需要注意一下
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "/school/popsupLogin" ,//url
+            data: $('#loginform').serialize(),
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                window.location.href="/school/displayDirectionDetail?directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}";
+            },
+            error : function() {
+                document.getElementById("reply").innerHTML="通行证或密码错误";
             }
-            ,confirmTrans: function(){
-                //配置一个透明的询问框
-                layer.msg('大部分参数都是可以公用的<br>合理搭配，展示不一样的风格', {
-                    time: 20000, //20s后自动关闭
-                    btn: ['明白了', '知道了', '哦']
-                });
-            }
-            ,notice: function(){
-                //示范一个公告层
-                layer.open({
-                    type: 1
-                    ,title: false //不显示标题栏
-                    ,closeBtn: false
-                    ,area: '300px;'
-                    ,shade: 0.8
-                    ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
-                    ,btn: ['火速围观', '残忍拒绝']
-                    ,btnAlign: 'c'
-                    ,moveType: 1 //拖拽模式，0或者1
-                    ,content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">你知道吗？亲！<br>layer ≠ layui<br><br>layer只是作为Layui的一个弹层模块，由于其用户基数较大，所以常常会有人以为layui是layerui<br><br>layer虽然已被 Layui 收编为内置的弹层模块，但仍然会作为一个独立组件全力维护、升级。<br><br>我们此后的征途是星辰大海 ^_^</div>'
-                    ,success: function(layero){
-                        var btn = layero.find('.layui-layer-btn');
-                        btn.find('.layui-layer-btn0').attr({
-                            href: 'http://www.layui.com/'
-                            ,target: '_blank'
-                        });
-                    }
-                });
-            }
-            ,offset: function(othis){
-                var type = othis.data('type')
-                    ,text = othis.text();
-
-                layer.open({
-                    type: 1
-                    ,offset: type //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
-                    ,id: 'layerDemo'+type //防止重复弹出
-                    ,content: '<div style="padding: 20px 10px;">'+ text +'</div>'
-                    ,btn: '关闭全部'
-                    ,btnAlign: 'c' //按钮居中
-                    ,shade: 0 //不显示遮罩
-                    ,yes: function(){
-                        layer.closeAll();
-                    }
-                });
-            }
-        };
-
-        $('#layerDemo .layui-btn').on('click', function(){
-            var othis = $(this), method = othis.data('method');
-            active[method] ? active[method].call(this, othis) : '';
         });
+    };
 
-    });
-*/
+
 </script>
+<script src="/js/common/login.js"></script>
 </html>
