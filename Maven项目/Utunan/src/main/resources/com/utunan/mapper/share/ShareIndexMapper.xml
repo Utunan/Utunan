@@ -91,4 +91,14 @@
         join suffix s on f.suffixId=s.suffixId
         where f.fileId=#{fileId}
     </select>
+    <!--根据文件标题查找相关文件-->
+    <select id="selectFileByTitle" resultMap="fileResultMap">
+        select *
+        from file f
+        join user u on f.userId=u.userId
+        join suffix s on f.suffixId=s.suffixId
+        where f.fileTitle REGEXP #{fileTitle}
+        and f.isExamine=1
+        limit 20
+    </select>
 </mapper>
