@@ -21,6 +21,7 @@
         <div class="imgsign">
             又回到最初的起点<br/>
             记忆中你青涩的脸<br>
+            左面这个人好帅呀~
         </div>
     </div>
 </div>
