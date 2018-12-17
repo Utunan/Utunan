@@ -50,9 +50,8 @@
         <h2><a href="/share1">上传文件</a></h2>
     </div>
     <div STYLE="width: 1000px">
-        <h2>上传文件的入口在那个并不是很遥远的地方 向右看---------> </h2>
+        <h3>筛选条件</h3>
         <form name="form1" action="/searchfile" method="post">
-            <br>
             <input type="checkbox" name="fileType" value="全部" id="全部" checked="checked">全部
             <input type="checkbox" name="fileType" value="招生简章" id="招生简章">招生简章
             <input type="checkbox" name="fileType" value="招生专业目录" id="招生专业目录">招生专业目录
@@ -77,9 +76,9 @@
             <input type="submit" value="查找">
         </form>
     </div>
-    <br>
     <c:if test="${url=='share'}">
     <div>
+        <h3>最新文件</h3>
         <table>
             <tr>
                 <td>图标</td>
@@ -121,7 +120,6 @@
             </div>
         </div>
     </div>
-    <br>
     </c:if>
     <c:if test="${url=='searchfile'}">
         <h3>筛选结果</h3>
@@ -166,19 +164,21 @@
             </div>
         </div>
     </c:if>
-    <br>
-    <table>
-        <tr>
-            <td>文件</td>
-            <td>下载次数</td>
-        </tr>
-        <c:forEach items="${hotFileList}" var="hotFile">
+    <div>
+        <h3>热门文件</h3>
+        <table>
             <tr>
-                <td><a href="/download?fileId=${hotFile.fileId}" style="color: red">${hotFile.fileTitle}</a></td>
-                <td>${hotFile.downloadNumber}</td>
+                <td>文件</td>
+                <td>下载次数</td>
             </tr>
-        </c:forEach>
-    </table>
+            <c:forEach items="${hotFileList}" var="hotFile">
+                <tr>
+                    <td><a href="/download?fileId=${hotFile.fileId}" style="color: red">${hotFile.fileTitle}</a></td>
+                    <td>${hotFile.downloadNumber}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
 <%@include file="../common/footer.jsp"%>
 </body>
 </html>
