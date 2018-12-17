@@ -35,27 +35,37 @@ public class ShareController {
     private ShareupFileService shareupFileService;
 
 
-    @RequestMapping(value = "/upload")
-    @ResponseBody
-    public JSONObject uploadfile(@RequestParam("file") MultipartFile file, HttpServletRequest request,HttpSession session) {
-        String rootPath = request.getSession().getServletContext().getRealPath("/");
-        JSONObject resObj = new JSONObject();
-        resObj.put("msg", "ok");
-//        try {
-//            FileCopyUtils.copy(file.getBytes(), new File(rootPath, file.getOriginalFilename()));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-        String path=rootPath+file.getOriginalFilename();
-        System.out.print(path+"\n");
-        session.setAttribute("realPath",path);
-        return resObj;
-    }
+//    @RequestMapping(value = "/upload")
+//    @ResponseBody
+//    public JSONObject uploadfile(@RequestParam("file") MultipartFile file, HttpServletRequest request,HttpSession session) {
+//        String rootPath = request.getSession().getServletContext().getRealPath("/");
+//        JSONObject resObj = new JSONObject();
+//        resObj.put("msg", "ok");
+////        try {
+////            FileCopyUtils.copy(file.getBytes(), new File(rootPath, file.getOriginalFilename()));
+////        } catch (IOException e) {
+////            e.printStackTrace();
+////        }
+//
+//        String path=rootPath+file.getOriginalFilename();
+//        System.out.print(path+"\n");
+//        session.setAttribute("realPath",path);
+//        return resObj;
+//    }
 
     @ResponseBody
     @RequestMapping(value = "/upload1",method = RequestMethod.POST)
-    public void upload(HttpServletRequest request,HttpSession session){
+    public String upload(@RequestParam(value = "file",required = false) MultipartFile file,HttpServletRequest request,HttpSession session){
+        String rootPath = request.getSession().getServletContext().getRealPath("/");
+        String path=rootPath+file.getOriginalFilename();
+        System.out.print(path+"\n");
+        JSONObject resObj = new JSONObject();
+        resObj.put("msg", "ok");
+        try {
+            FileCopyUtils.copy(file.getBytes(), new File(rootPath, file.getOriginalFilename()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //获取资源类型
         String sourcetype=request.getParameter("sourcetype");
         int a=Integer.parseInt(sourcetype);
@@ -94,8 +104,8 @@ public class ShareController {
 
 
         //获取文件路径
-        String path=(String)session.getAttribute("realPath");
-        System.out.print(path+"\n");
+        String paths=(String)session.getAttribute("realPath");
+        System.out.print(paths+"\n");
 
         //获取登录用户
         User user=(User)session.getAttribute("User");
@@ -109,6 +119,7 @@ public class ShareController {
 
         this.shareupFileService.insertfile(sourcetype,title,school,user.getUserId(),path,suffixId,Long.parseLong(integral));
 
+        return "ok";
     }
 
 }
