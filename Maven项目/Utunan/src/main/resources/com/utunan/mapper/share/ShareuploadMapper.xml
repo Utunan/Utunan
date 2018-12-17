@@ -5,7 +5,7 @@
         insert into file(userId,fileTime,fileTitle,fileUrl,fileType,fileSchool,fileCredit,suffixId)
         values(#{userId},#{fileTime},#{fileTitle},#{fileUrl},#{fileType},#{fileSchool},#{fileCredit},#{suffixId})
     </insert>
-    <select id="getSuffix" parameterType="Long" resultType="java.lang.Long">
+    <select id="getSuffix" parameterType="String" resultType="java.lang.Long">
         select suffixId
         from suffix
         where suffixName=#{suffixName}

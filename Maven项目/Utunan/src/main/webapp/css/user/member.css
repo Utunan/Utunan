@@ -1,0 +1,220 @@
+body {
+    background-color: rgba(255, 255, 255, 0);
+
+}
+
+.background{
+    background-color: #fff;
+}
+.usercard {
+    height: 130px;
+    min-width: 798px;
+    margin: 0 auto;
+    margin-top: 30px;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #C0C0C0;
+}
+
+.userheadimg {
+    float: left;
+    height:100%;
+    margin-left: 3%;
+    width:130px;
+}
+
+.userheadimg img {
+    float:left;
+    border-radius: 100px;
+    height: 80%;
+    width: 100px;
+    margin: 10% 10%;
+}
+
+.countdown {
+    margin-right: 50px;
+    border-radius: 0 5px 0 0;
+    float: right;
+    width: 200px;
+    height: 100%;
+}
+
+.countdown h4 {
+    padding:10px 0;
+    margin:0;
+    background-color: #393D49;
+    font-size: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #fff;
+    border-radius: 0px 0px 10px 10px;
+}
+.countdown h5 {
+    font-size: 16px;
+    margin-top:30px;
+    text-align: center;
+    color:rgba(0,188,155,1);
+}
+.countdown h5>span {
+    padding:0 5px;
+    font-size: 20px;
+    margin-top:30px;
+    text-align: center;
+}
+
+.userinfo {
+    width: 500px;
+    float: left;
+    height: 100%;
+}
+
+.nickname {
+    padding-left: 40px;
+    margin-top: 25px;
+    font-size: 20px;
+    float: left;
+    width: 300px;
+    color: rgb(87, 118, 255);
+}
+.isfollow{
+    cursor: pointer;
+    width:60px;
+    margin-top:25px;
+    padding:4px;
+    text-align: center;
+    background-color:rgba(0,188,155,1);
+    color:#fff;
+    font-size: 15px;
+    border-radius: 8px;
+    float: left;
+}
+
+.isfollow>a{
+    text-decoration: none;
+    color:#fff;
+}
+
+.schoolinfo {
+    padding-left: 40px;
+    margin-top: 38px;
+    font-size: 13px;
+    float: left;
+    font-weight: bold;
+    width: 500px;
+}
+.schoolinfo>span{
+    color: rgba(0, 0, 0, 0.55);
+}
+.schoolinfo span:first-child {
+    padding-right: 5%;
+}
+.schoolinfo>span>span{
+    font-family: "Lucida Grande", Lucida Sans Unicode, Hiragino Sans GB, WenQuanYi Micro Hei, Verdana, Aril, sans-serif;
+    color:#1a1a1a;
+}
+
+.content{
+    position: relative;
+    border: 1px solid #C0C0C0;
+    float: right;
+    width: 960px;
+    background: #fff;
+}
+
+.content>nav{
+    width: 960px;
+    float: left;
+}
+.content>nav>li{
+    width: 300px;
+    margin:0 10px;
+    display: inline;
+    float: left;
+    min-height:300px;
+    background-color: #fff;
+    padding:20px 0;
+}
+
+.content nav>li:first-of-type{
+    padding-top: 75px;
+}
+.content nav>li:last-of-type{
+    padding-top: 75px;
+}
+.mintitle{
+    width: 300px;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+
+.content nav>li>ul{
+    clear: both;
+    float: left;
+    width: 240px;
+    padding:0 30px;
+    list-style-type: none;
+}
+.content nav>li>ul>li{
+    width: 240px;
+    float: left;
+    clear: both;
+    overflow: hidden;
+    margin:0 0 20px 0;
+    font-size: 17px;
+    font-weight: bold;
+}
+.user{
+    border-radius: 50px;
+    background-color:rgba(0, 0, 0, 0.05);
+}
+nav>li>ul>li>a{
+    float: left;
+    text-decoration: none;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.7);
+}
+nav>li>ul>li>a>img{
+    height: 40px;
+    margin:5px;
+    border-radius: 25px;
+    float: left;
+}
+
+nav>li>ul>li>a>span{
+    height: 50px;
+    padding-left: 20px;
+    line-height: 50px;
+}
+.usernotice{
+    text-align: center;
+    color: rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+}
+
+.quiz{
+    height: 48px;
+    line-height: 48px;
+    border-bottom:2px solid rgb(219, 219, 219);
+}
+.quiz>a{
+    color:rgba(0,188,155,1);
+}
+.quiz>a:hover{
+    color: rgb(255, 155, 38);
+}
+.question{
+    height: 48px;
+    line-height: 48px;
+    border-bottom:2px solid rgb(219, 219, 219);
+}
+.question>a{
+    color:rgba(0,188,155,1);
+}
+.question>a:hover{
+    color: rgb(255, 155, 38);
+}

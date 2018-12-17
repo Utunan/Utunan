@@ -25,11 +25,12 @@
     </div>
     <ul class="layui-nav left fast-add" lay-filter="">
         <li class="layui-nav-item">
-            <a href="javascript:;">+新增</a>
+            <a href="javascript:;">功能区</a>
             <dl class="layui-nav-child"> <!-- 二级菜单 -->
-                <dd><a onclick="x_admin_show('资讯','http://www.baidu.com')"><i class="iconfont">&#xe6a2;</i>资讯</a></dd>
-                <dd><a onclick="x_admin_show('图片','http://www.baidu.com')"><i class="iconfont">&#xe6a8;</i>图片</a></dd>
-                <dd><a onclick="x_admin_show('用户','http://www.baidu.com')"><i class="iconfont">&#xe6b8;</i>用户</a></dd>
+                <dd><a onclick="x_admin_show('院校','school/displaySchool')"><i class="iconfont">&#xe6b8;</i>院校</a></dd>
+                <dd><a onclick="x_admin_show('题库','questionbank')"><i class="iconfont">&#xe6a2;</i>题库</a></dd>
+                <dd><a onclick="x_admin_show('问答','quiz')"><i class="iconfont">&#xe6a8;</i>问答</a></dd>
+                <dd><a onclick="x_admin_show('分享','share')"><i class="iconfont">&#xe6b8;</i>分享</a></dd>
             </dl>
         </li>
     </ul>

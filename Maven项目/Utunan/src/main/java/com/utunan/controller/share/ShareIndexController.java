@@ -51,7 +51,7 @@ public class ShareIndexController {
 		request.setAttribute("fileList", fileList);
 		request.setAttribute("hotFileList", hotFileList);
 		request.setAttribute("PageInfo",new PageInfo(fileList,5));
-		return "share/share";
+		return "share/index";
 	}
 
 	@RequestMapping("searchfile")
@@ -103,7 +103,7 @@ public class ShareIndexController {
 		request.setAttribute("school", fileSchool);
 		request.setAttribute("keyWord", keyWord);
 		request.setAttribute("PageInfo",new PageInfo(fileList,5));
-		return "share/share";
+		return "share/index";
 	}
 
 	@RequestMapping("/share1")

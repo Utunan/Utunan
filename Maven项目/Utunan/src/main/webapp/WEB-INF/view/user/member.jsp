@@ -12,81 +12,75 @@
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/user/userhome.css">
+    <link rel="stylesheet" href="/css/user/member.css">
 </head>
 
 <body>
 <%@include file="../common/header.jsp" %>
-<%@include file="common/usercard.jsp" %>
+<div class="container" id="anchor">
+    <div class="wrapper">
+        <div class="usercard" id="usercard">
+            <div class="userheadimg">
+                <img src="${Member.user.userHeadImg}" alt="" srcset="">
+            </div>
+            <div class="countdown">
+                <h4>2018年11月13日</h4>
+                <h5>考研年份<span style="color:#ff5f2c;font-size: 25px;">${Member.user.examTime}</span>年</h5>
+            </div>
+            <div class="userinfo">
+                <div class="nickname">${Member.user.userNickName}</div>
+                <div class="isfollow"><a href="">未关注</a></div>
+                <div class="schoolinfo">
+                    <span>本科院校 : <span>${Member.user.userSchool}</span></span>
+                    <span>目标院校 : <span>${Member.user.dreamSchool}</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container" style="margin-top: 30px;">
     <div class="wrapper background">
         <div class="content" id="content">
-            <div class="title">
-                <span>个人资料</span>
-            </div>
-            <div class="userinfoform">
-                <form id="userinfoform" action="/user/changeInfo" method="post">
-                    <nav>
-                        <li>
-                            <label for="userNickName">昵&emsp;&emsp;称</label>
-                            <input type="text" id="userNickName" name="userNickName" value="${User.userNickName}"
-                                   placeholder="${User.userNickName}"/>
+            <nav>
+                <li>
+                    <div class="mintitle">TA的问答</div>
+                    <ul class="userquiz">
+                        <c:forEach items="${Member.quizzes}" var="quiz">
+                            <li class="quiz">
+                                <a href="">${quiz.quizTitle}</a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </li>
+                <li>
+                    <div class="mintitle" style="color: rgb(255, 155, 38);">TA的关注</div>
+                    <ul class="userlist">
+                        <c:forEach items="${Member.users}" var="user">
+                            <li class="user">
+                                <a href=""><img src="${user.userHeadImg}"></a>
+                                <a href=""><span>${user.userNickName}</span></a>
+                            </li>
+                        </c:forEach>
+                        <li class="usernotice">
+                            仅能查看五个呦~
                         </li>
-                        <li>
-                            <label for="dreamSchool">目标院校</label>
-                            <input type="text" id="dreamSchool" name="dreamSchool" value="${User.dreamSchool}"
-                                   placeholder="${User.dreamSchool}"/>
-                        </li>
-                        <li>
-                            <label for="userSchool">本科院校</label>
-                            <input type="text" id="userSchool" name="userSchool" value="${User.userSchool}"
-                                   placeholder="${User.userSchool}"/>
-                        </li>
-                        <li>
-                            <label for="userTelephone">绑定手机</label>
-                            <input type="hidden" id="userTelephone" name="userTelephone" value="${User.userTelephone}"/>
-                            <span style="line-height: 32px;">${User.userTelephone}</span>
-                            <span><a href="/user/settings#userfunction"><img src="/images/user/edit.svg"></a></span>
-                        </li>
-                        <li>
-                            <label for="userEmail">绑定邮箱</label>
-
-                            <input type="hidden" id="userEmail" name="userEmail" value="${User.userEmail}"
-                                   placeholder="${User.userEmail}"/>
-                            <span style="line-height: 32px;">${User.userEmail==null?"用户未设置邮箱":User.userEmail}</span>
-                            <span><a href="/user/settings#changeemail"><img src="/images/user/edit.svg"></a></span>
-                        </li>
-                        <li>
-                            <label for="examTime">考研年份</label>
-                            <select name="examTime" id="examTime" autofocus="autofocus">
-                                <c:forEach begin="2019" end="2024" var="i">
-                                    <c:choose>
-                                        <c:when test="${User.examTime==i}">
-                                            <option value="${i}" selected="true">${i}</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="${i}">${i}</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </c:forEach>
-                            </select>
-                        </li>
-                        <li>
-                            <label>注册时间</label>
-                            <span style="line-height: 32px;"><fmt:formatDate value="${User.registerTime }" type="date"
-                                                                             pattern="yyyy-MM-dd HH:mm:ss"/></span>
-                        </li>
-                        <li class="userop">
-                            <button type="submit">提交</button>
-                            <button type="reset">撤销</button>
-                        </li>
-
-                    </nav>
-                </form>
-            </div>
-            /div>
+                    </ul>
+                </li>
+                <li>
+                    <div class="mintitle">TA的题目</div>
+                    <ul class="userquestion">
+                        <c:forEach items="${Member.questions }" var="question">
+                            <li class="question">
+                                <a href="">${question.questionContent}</a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </li>
+            </nav>
         </div>
     </div>
-    <%@include file="../common/footer.jsp" %>
+</div>
+<%@include file="../common/footer.jsp" %>
 </body>
 <script src="/js/user/usercommon.js"></script>
 <script src="/js/common/common.js"></script>

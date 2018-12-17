@@ -6,6 +6,7 @@ import com.utunan.mapper.share.ShareIndexMapper;
 import com.utunan.pojo.base.school.Direction;
 import com.utunan.pojo.base.school.School;
 import com.utunan.pojo.base.share.File;
+import com.utunan.pojo.base.user.User;
 import com.utunan.service.admin.AdminDirectionService;
 import com.utunan.service.share.ShareIndexService;
 import com.utunan.util.SchoolOther;
@@ -105,5 +106,33 @@ public class ShareIndexServiceImpl implements ShareIndexService {
 	@Override
 	public File findFileById(Long fileId){
 		return this.shareIndexMapper.findFileById(fileId);
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 以文件标题为搜索条件，搜索相关文件
+	 * @date  8:58 2018/12/17
+	 * @param  keyWords
+	 * @return  java.util.List<com.utunan.pojo.base.share.File>
+	 */
+	@Override
+	public List<File> selectFileByTitle(List<String> keyWords){
+		String keyWord="";
+		for(int i=0; i<keyWords.size(); i++){
+			keyWord += keyWords.get(i);
+			if (i != (keyWords.size()-1)){
+				keyWord += "|";
+			}
+		}
+		List<File> fileList = this.shareIndexMapper.selectFileByTitle(keyWord);
+		for(int i=0; i<fileList.size(); i++){
+			File f = fileList.get(i);
+			for(int j=0; j<keyWords.size(); j++){
+				if(keyWords.get(j)!="."){
+					f.setFileTitle(f.getFileTitle().replaceAll(keyWords.get(j),"<span style='color:red'>"+keyWords.get(j)+"</span>"));
+				}
+			}
+		}
+		return fileList;
 	}
 }

@@ -15,6 +15,40 @@
     <script src="/js/jquery-1.8.3.min.js" charset="utf-8"></script>
 
 
+    <script>
+
+        layui.use(['form','upload'], function () {
+            var $ = layui.jquery
+                , form=layui.form
+                , upload = layui.upload;
+            var uploadInst = upload.render({
+                elem: '#test10'
+                , url: '/upload1'    //服务器地址
+                , accept: 'file' //允许所有类型文件上传
+                , auto: false     //不允许文件自动上传
+                , bindAction: '#submit'   //指向按钮触发上传
+                , size: 200000    //设置最大上传大小为200MB
+                , drag: true       //接受拖拽文件上传
+                , before: function (obj) {
+                    //预读本地文件示例，不支持ie8
+                    obj.preview(function (index, file, result) {
+                        $('#test10').attr('src', result);      //得到文件base64编码，
+                    });
+                }
+                , error: function () {
+                    //演示失败状态，并实现重传
+                    var demoText = $('#demoText');
+                    demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
+                    demoText.find('.demo-reload').on('click', function () {
+                        //实现重传
+                        uploadInst.upload();
+                    })
+                }
+            })
+        });
+    </script>
+
+
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
@@ -28,7 +62,7 @@
                 </ul>
                 <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
                     <div class="layui-tab-item layui-show">
-                        <form class="layui-form" action="/upload" method="post">
+                        <form class="layui-form" action="/upload1" method="post" enctype="multipart/form-data">
                             <div class="layui-row layui-col-space12 layui-form-item">
                                 <div class="layui-col-md3">
                                     <label class="layui-form-label">资源类型</label>
@@ -160,7 +194,7 @@
                                 }
                                 layui.use('form', function () {
                                     var form = layui.form;
-                                    form.render();
+                                     form.render();
                                     form.on('select(provinces)', function (data) {
                                         value = data.value;
                                         html = ''
@@ -197,65 +231,9 @@
 </div>
 
 
+
+
 <script>
-
-
-    /*layui.use('upload', function(){
-      var $ = layui.jquery
-      ,upload = layui.upload;
-
-
-      //设定文件大小限制
-      upload.render({
-        elem: '#test7'
-        ,url: '/upload/'
-        ,size: 60 //限制文件大小，单位 KB
-        ,done: function(res){
-          console.log(res)
-        }
-      });
-
-
-      //拖拽上传
-      upload.render({
-        elem: '#test10'
-        ,url: '/upload/'
-        ,done: function(res){
-          console.log(res)
-        }
-      });
-
-    });*/
-    layui.use('upload', function () {
-        var $ = layui.jquery
-            , upload = layui.upload;
-        var uploadInst = upload.render({
-            elem: '#test10'
-            , url: '/upload'    //服务器地址
-            , accept: 'file' //允许所有类型文件上传
-            , auto: false     //不允许文件自动上传
-            , bindAction: '#submit'   //指向按钮触发上传
-            , size: 200000    //设置最大上传大小为200MB
-            , drag: true       //接受拖拽文件上传
-            , before: function (obj) {
-                //预读本地文件示例，不支持ie8
-                obj.preview(function (index, file, result) {
-                    $('#test10').attr('src', result);      //得到文件base64编码，
-                });
-            }
-            , error: function () {
-                //演示失败状态，并实现重传
-                var demoText = $('#demoText');
-                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
-                demoText.find('.demo-reload').on('click', function () {
-                    //实现重传
-                    uploadInst.upload();
-                })
-            }
-        })
-    });
-
-
     //tx瞎写的js，可以删
     function func() {
         //获取被选中的option标签
