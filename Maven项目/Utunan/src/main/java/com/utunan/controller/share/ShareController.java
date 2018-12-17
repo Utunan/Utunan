@@ -104,8 +104,8 @@ public class ShareController {
 
 
         //获取文件路径
-        String paths=(String)session.getAttribute("realPath");
-        System.out.print(paths+"\n");
+//        String paths=(String)session.getAttribute("realPath");
+//        System.out.print(paths+"\n");
 
         //获取登录用户
         User user=(User)session.getAttribute("User");
@@ -117,7 +117,11 @@ public class ShareController {
         //查询对应标签ID
         Long suffixId=this.shareupFileService.getSuffix(filetype);
 
-        this.shareupFileService.insertfile(sourcetype,title,school,user.getUserId(),path,suffixId,Long.parseLong(integral));
+        //获取最大的fileId
+        Long fileId=this.shareupFileService.getMaxfileId();
+        fileId+=1;
+
+        this.shareupFileService.insertfile(fileId,sourcetype,title,school,user.getUserId(),path,suffixId,Long.parseLong(integral));
 
         return "ok";
     }

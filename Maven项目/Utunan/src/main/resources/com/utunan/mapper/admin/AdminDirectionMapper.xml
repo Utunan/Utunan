@@ -1,8 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.utunan.mapper.admin.AdminDirectionMapper">
-    <select id="selectAllDirection" resultType="com.utunan.pojo.base.school.Direction">
+    <resultMap id="schoolcommentResultMap" type="com.utunan.pojo.base.school.SchoolComment">
+        <id property="schoolcommentId" column="schoolcommentId"/>
+        <result property="directionId" column="directionId"/>
+        <result property="userId" column="userId"/>
+        <result property="schoolcommentcontent" column="schoolcommentcontent"/>
+        <association property="user" javaType="com.utunan.pojo.base.user.User">
+            <id property="userId" column="userId"></id>
+            <result property="userEmail" column="userEmail"/>
+            <result property="userTelephone" column="userTelephone"/>
+            <result property="userPassword" column="userPassword"/>
+            <result property="userIdentity" column="userIdentity"/>
+            <result property="examTime" column="examTime"/>
+            <result property="registerTime" column="registerTime"/>
+            <result property="userHeadImg" column="userHeadImg"/>
+            <result property="userNickName" column="userNickName"/>
+            <result property="userSchool" column="userSchool"/>
+            <result property="dreamSchool" column="dreamSchool"/>
+            <result property="userIntegral" column="userIntegral"/>
+        </association>
+        <association property="direction" javaType="com.utunan.pojo.base.school.Direction">
+            <id property="directionId" column="directionId"/>
+            <result property="schoolName" column="schoolName"/>
+            <result property="collegeName" column="collegeName"/>
+            <result property="majorlName" column="majorlName"/>
+            <result property="directionName" column="directionName"/>
+            <result property="degreeType" column="degreeType"/>
+            <result property="politics" column="politics"/>
+            <result property="english" column="english"/>
+            <result property="math" column="math"/>
+            <result property="majorBasics" column="majorBasics"/>
+            <result property="viewCount" column="viewCount"/>
+        </association>
+    </resultMap>
+    <select id="getAllSchoolComment" resultMap="schoolcommentResultMap">
         select *
-        from direction
+        from schoolcomment
+        left join user on schoolcomment.userId=user.userId
+        left join direction on direction.directionId=schoolcomment.directionId
     </select>
 </mapper>

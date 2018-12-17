@@ -19,9 +19,11 @@ public class ShareupFileServiceImpl implements ShareupFileService {
         return shareuploadMapper.getSuffix(filetype);
     }
 
+    //将信息插入file表
     @Override
-    public void insertfile(String sourcetype, String title, String school, Long userId, String path, Long suffixId, Long integral) {
+    public void insertfile(Long fileId, String sourcetype, String title, String school, Long userId, String path, Long suffixId, Long integral) {
         File file=new File();
+        file.setFileId(fileId);
         file.setFileSchool(school);
         file.setFileTime(new Date());
         file.setFileTitle(title);
@@ -32,5 +34,12 @@ public class ShareupFileServiceImpl implements ShareupFileService {
         file.setUserId(userId);
         this.shareuploadMapper.insertfile(file);
 
+    }
+
+
+    //获取最大fileId
+    @Override
+    public Long getMaxfileId() {
+        return this.shareuploadMapper.getMaxfileId();
     }
 }
