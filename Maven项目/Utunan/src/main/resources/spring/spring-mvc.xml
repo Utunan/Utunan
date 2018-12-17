@@ -49,9 +49,6 @@ http://www.springframework.org/schema/task/spring-task.xsd">
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/user/**"/>
-            <mvc:mapping path="/answer"/>
-            <mvc:mapping path="/answer1"/>
-            <mvc:mapping path="/addDirectionCollector"/>
             <bean class="com.utunan.interceptor.user.UserSessionInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>
