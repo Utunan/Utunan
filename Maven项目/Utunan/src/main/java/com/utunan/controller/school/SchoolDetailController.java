@@ -8,15 +8,20 @@ import com.utunan.service.questionbank.PublishDirectionCommentService;
 import com.utunan.service.school.DirectionService;
 import com.utunan.service.school.PublishDirectionService;
 import com.utunan.service.school.SchoolDetailFileService;
+import com.utunan.service.user.UserService;
 import com.utunan.util.SchoolOther;
+import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -38,6 +43,8 @@ public class SchoolDetailController {
     private DirectionService directionService;
     @Autowired
     private SchoolDetailFileService schoolDetailFileService;
+    @Autowired
+    private UserService userService;
 
     /*
      * @author  王碧云
@@ -157,6 +164,34 @@ public class SchoolDetailController {
 
         //转去显示页面详情页
         return "redirect:/school/displayDirectionDetail";
+    }
+
+    /*
+     * @author  王碧云
+     * @description 登录注册模拟政委测试
+     * @date  15:42 2018/12/17/017
+     * @param  [request, account, session]
+     * @return  java.lang.String
+     */
+    @RequestMapping(value = "/popsupLogin", method = RequestMethod.POST)
+    public void popsupLogin(HttpServletRequest request, User account, HttpSession session, HttpServletResponse response) throws IOException {
+        String permit = request.getParameter("permit");
+        account.setUserEmail(permit);
+        account.setUserTelephone(permit);
+        User user = userService.getUser(account);
+        if (user != null) {
+            request.removeAttribute("reply");
+            session.setAttribute("User", user);
+
+           System.out.println("[controller]true");
+           /*response.sendRedirect();*/
+           response.getWriter().print("true");
+        } else {
+            System.out.println("false");
+            /*request.setAttribute("reply", "通行证或密码错误");
+            request.setAttribute("temppermit", permit);*/
+            response.getWriter().print("[controller]false");
+        }
     }
 
 }
