@@ -125,4 +125,10 @@
         from user
         where userId=#{userId}
     </select>
+    <!--更新文件下载次数-->
+    <update id="updateFileDownloadNumber">
+        UPDATE file
+        set downloadNumber=#{downloadNumber}
+        where fileId=#{fileId}
+    </update>
 </mapper>

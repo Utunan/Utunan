@@ -30,15 +30,26 @@ public class Analyzer {
 	}
 
 	public String filter(String keyWord){
-		String[] symbol={"~","`","!","@","#","$","%","^","&","*","(",")","-","_","=","+","[","]","{","}","|",
-						 ":",";","'","\"","/","\\","<",">",",",".","?","*","·","！","￥","……","（","）",
-						 "—","【","】","、","“","”","：","；","？","》","《","，","。","滚"};
+		String[] symbol={"~","`","!","@","#","$","%","&","-","_","=","}",
+						 ":",";","'","\"","/","\\","<",">",",","·","！","￥","……","（","）",
+						 "—","【","】","、","“","”","’","‘","：","；","？","》","《","，","。","滚"};
 		for(int i=0; i<symbol.length; i++){
 			String s=symbol[i];
 			if(keyWord.contains(s)){
 				keyWord = keyWord.replaceAll(Matcher.quoteReplacement(s),"");
 			}
 		}
+		keyWord=keyWord.replaceAll("[?]", "");
+		keyWord=keyWord.replaceAll("[*]", "");
+		keyWord=keyWord.replaceAll("[+]", "");
+		keyWord=keyWord.replaceAll("\\^", "");
+		keyWord=keyWord.replaceAll("[(]", "");
+		keyWord=keyWord.replaceAll("[)]", "");
+		keyWord=keyWord.replaceAll("\\[", "");
+		keyWord=keyWord.replaceAll("\\]", "");
+		keyWord=keyWord.replaceAll("[|]", "");
+		keyWord=keyWord.replaceAll("[{]", "");
+		keyWord=keyWord.replaceAll("[.]", "");
 		return keyWord;
 	}
 }

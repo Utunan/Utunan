@@ -184,4 +184,16 @@ public class ShareIndexServiceImpl implements ShareIndexService {
 	public User findUserById(Long userId){
 		return this.shareIndexMapper.findUserById(userId);
 	}
+
+	/**
+	 * @author  孙程程
+	 * @description 更新文件下载次数
+	 * @date  20:59 2018/12/18
+	 * @param  fileId
+	 * @return  void
+	 */
+	@Override
+	public void updateFileDownloadNumber(Long fileId, Long downloadNumber){
+		this.shareIndexMapper.updateFileDownloadNumber(fileId, downloadNumber);
+	}
 }

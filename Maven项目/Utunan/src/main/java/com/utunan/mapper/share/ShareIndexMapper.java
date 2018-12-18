@@ -23,4 +23,5 @@ public interface ShareIndexMapper {
     void insertUserDownload(@Param("userId") Long userId, @Param("fileId") Long fileId);
     UserDownload findUserDownload(@Param("userId") Long userId, @Param("fileId") Long fileId);
     User findUserById(@Param("userId") Long userId);
+    void updateFileDownloadNumber(@Param("fileId") Long fileId, @Param("downloadNumber") Long downloadNumber);
 }

@@ -131,6 +131,8 @@ public class ShareDownloadController {
 				e.printStackTrace();
 			}
 		}
+		//更新文件的下载次数
+		this.shareIndexService.updateFileDownloadNumber(file.getFileId(), file.getDownloadNumber()+1);
 		//判断用户是否下载过该文件
 		UserDownload userDownload=this.shareIndexService.findUserDownload(user.getUserId(), file.getFileId());
 		if(userDownload==null){

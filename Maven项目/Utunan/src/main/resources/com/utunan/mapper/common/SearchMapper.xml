@@ -6,6 +6,7 @@
         select *
         from user
         where userNickName  regexp #{keyWord}
+        limit 100
     </select>
     <resultMap id="quizBaseMap" type="com.utunan.pojo.base.community.Quiz">
         <id property="quizId" column="quizId"/>
