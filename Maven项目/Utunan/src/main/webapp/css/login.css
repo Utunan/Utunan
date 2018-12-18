@@ -26,7 +26,9 @@ body {
     line-height: 30px;
 }
 
-
+#permitreply>a{
+    font-size: 15px;
+}
 .loginform {
     width: 360px;
     margin: 0px auto 0;

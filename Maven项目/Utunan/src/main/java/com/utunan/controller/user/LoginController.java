@@ -20,14 +20,11 @@ public class LoginController {
     @RequestMapping("/checkpermit")
     @ResponseBody
     public String checkpermit(User user, HttpServletRequest request) {
-        String permit = request.getParameter("permit");
-        user.setUserEmail(permit);
-        user.setUserTelephone(permit);
         boolean bool = userService.isExist(user);
         if (bool) {
-            return "successful";
+            return "200";
         }
-        return "unsuccessful";
+        return "404";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)

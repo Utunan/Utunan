@@ -53,81 +53,208 @@
 </body>
 
 <script>
+
     function checkvcode(value) {
-        reg = /^\d{6}$/;
+
+        reg = /^\d{6}$/
+
         if (reg.test(value))
-            return true;
+            return true
+
         return false;
     }
 
     function checkpassword(value) {
-        var regu = "^[0-9a-zA-Z]{8,16}$";
+
+        var regu = "^[0-9a-zA-Z]{8,16}$"
         var re = new RegExp(regu);
-        if (re.test(value)) {
-            return true;
-        } else {
-            return false;
-        }
+
+        if (re.test(value))
+            return true
+        else
+            return false
     }
 
     function checkpermit(value) {
-        var re = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
+
+        var re = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/
         return re.test(value);
+
     }
 
-    function checkForm() {
-        return false;
-    }
 
     $('#userTelephone').focus(function () {
-        if (!checkpermit($(this).val())) {
+
+        if (!checkpermit($(this).val()))
             $(this).val("")
-        }
-    })
-    $('#password').focus(function () {
-        if (!checkpassword($(this).val())) {
-            $(this).val("")
-        }
-    })
-    $('#code').focus(function () {
-        if (!checkvcode($(this).val())) {
-            $(this).val("")
-        }
+
     })
 
-    $('#userTelephone').blur(function(){
-        var state = true;
+    $('#password').focus(function () {
+
+        if (!checkpassword($(this).val()))
+            $(this).val("")
+
+    })
+
+    $('#code').focus(function () {
+
+        if (!checkvcode($(this).val()))
+            $(this).val("")
+
+    })
+
+    function checktel() {
+        var state = true
         var reply = ""
-        if(!checkpermit($(this).val())){
-            $(this).css('backgroundColor','rgba(255,192,203,1)');
-            reply="手机号格式错误"
-            state=false
-        }else{
-            $(this).css('backgroundColor','white');
-            reply=""
-            state=false
+        if (!checkpermit($('#userTelephone').val())) {
+            $('#userTelephone').css('backgroundColor', 'rgba(255,192,203,1)');
+            if ($('#userTelephone').val() == "")
+                reply = "手机号不能为空"
+            else
+                reply = "手机号格式错误"
+            state = false
+        } else {
+            $.ajax({
+                type: "post",
+                url: "/checkpermit",
+                data: {
+                    userTelephone: $("#userTelephone").val()
+                },
+                async: false,
+                dataType: "json",
+                success: function (data) {
+                    if (data == '200') {
+                        reply="手机号已存在,请<a href='/login'>登陆</a>"
+                        $('#userTelephone').css('backgroundColor', 'rgba(255,192,203,1)');
+                        state=false
+                    }else{
+                        reply=""
+                        $('#userTelephone').css('backgroundColor', 'rgba(255,255,255,1)');
+                    }
+                },error:function(){
+                    reply="网站可能崩了,请您先等会儿~"
+                }
+            });
         }
         $('#telereply').html(reply)
+        return state;
+    }
+
+    $('#userTelephone').blur(checktel)
+
+    function checkpass() {
+        var state = true
+        var reply = ""
+        if (!checkpassword($('#password').val())) {
+            $('#password').css('backgroundColor', 'rgba(255,192,203,1)');
+            if ($('#password').val() == "") {
+                reply="密码不能为空"
+            }
+            else {
+                reply = "密码格式错误"
+            }
+            state = false
+        } else {
+            $('#password').css('backgroundColor', 'white')
+            reply = ""
+        }
+        $('#passreply').html(reply)
+        return state
+    }
+
+    $('#password').blur(checkpass)
+
+    function checkrpass() {
+        var state = true
+        var reply = ""
+        if ($('#repassword').val() != $('#password').val()) {
+            $('#repassword').css('backgroundColor', 'rgba(255,192,203,1)');
+            reply = "两次输入的密码不一样"
+            state = false
+        } else {
+            $('#repassword').css('backgroundColor', 'white')
+            reply = ""
+        }
+        $('#repassreply').html(reply)
+        return state;
+    }
+
+    $('#rpassword').blur(checkrpass)
+
+    //是否获取验证码
+    var have_code = false
+
+    $('#code').blur(function () {
+        var state = true
+        var reply = ""
+        if (!checkvcode($(this).val())) {
+            $(this).css('backgroundColor', 'rgba(255,192,203,1)')
+            reply = "验证码格式错误"
+            state = false
+
+        } else {
+            $(this).css('backgroundColor', 'white')
+            reply = ""
+        }
+        if (!have_code) {
+            reply = "请先获取验证码"
+            $(this).css('backgroundColor', 'rgba(255,192,203,1)')
+            state = false
+        } else {
+            $(this).css('backgroundColor', 'white')
+            reply = ""
+        }
+        $("#codereply").html(reply)
         return state;
     })
 
 
-    $('#password').blur(function(){
-        
-    })
-    $('#repassword').blur(function () {
+    var time = 60;
 
-    })
-    $('#code').blur(function(){
+    $('#getcode').click(
+        function () {
+            if (checkpermit($('#userTelephone').val())) {
+                $.ajax({
+                    type: "post",
+                    url: "/checkpermit",
+                    data: {
+                        userTelephone: $("#userTelephone").val()
+                    },
+                    async: false,
+                    dataType: "json",
+                    success: function (data) {
+                        if (data == '200') {
+                            $('#telereply').html("手机号已存在,请<a href='/login'>登陆</a>")
+                        }
+                    },error:function(){
+                        $('#telereply').html("网站可能崩了,请您先等会儿~")
+                    }
+                });
+            } else {
+                $('#telereply').html("请输入正确的手机号")
+                $('#userTelephone').css('backgroundColor', 'rgba(255,192,203,1)')
+            }
+        }
+    )
 
-    })
-    //是否获取验证码
-    var register_state=true
-
-    //是否获取验证码
-    var have_code=false
-
-
-
+    function checkForm() {
+        state = true;
+        if (!checktel())
+            state = false;
+        if (checktel())
+            if (!have_code) {
+                $("#code").css('backgroundColor', 'rgba(255,192,203,1)')
+                $('#codereply').html("请填写验证码")
+                state = false
+            }
+        if (!checkvcode())
+            state = false;
+        if (!checkpass())
+            state = false;
+        if (!checkpass())
+            state = false;
+        return state
+    }
 </script>
 </html>
