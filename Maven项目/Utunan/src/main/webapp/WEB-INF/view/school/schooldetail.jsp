@@ -17,34 +17,6 @@
 </head>
 <script src="/js/community/jquery-1.10.2.js"></script>
 <script src="/js/jquery-1.8.3.min.js"></script>
-<style>
-  .mask{
-    display:none;
-    background:rgba(0,0,0,0.3);
-    width:100%;
-    height:100%;
-    position:fixed;
-    z-index: 10001;
-  }
-  .modalDialogcontent{
-    display:none;
-    background:white;
-    width:500px;
-    position:absolute;
-    left:50%;
-    margin-left:-200px;
-    margin-top:-500px;
-    z-index: 10001;
-  }
-  .close_modalDialogcontent{
-    position:absolute;
-    font-size:20px;
-    right: 0px;
-    width:20px;
-    height:20px;
-    cursor:pointer;
-  }
-</style>
 <body>
 <!--提醒tx加上 1.加入院校收藏夹 2.浏览次数3.评论总数4.评论点赞5.写评论-->
 <%@include file="../common/header.jsp"%>
@@ -357,7 +329,11 @@ layui.config({
             data: $('#loginform').serialize(),
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
-                window.location.href="/school/displayDirectionDetail?directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}";
+                if(result==true){
+                    window.location.href="/school/displayDirectionDetail?directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}";
+                }else{
+                    document.getElementById("reply").innerHTML="通行证或密码错误";
+                }
             },
             error : function() {
                 document.getElementById("reply").innerHTML="通行证或密码错误";
