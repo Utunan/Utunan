@@ -183,14 +183,9 @@ public class SchoolDetailController {
             request.removeAttribute("reply");
             session.setAttribute("User", user);
 
-           System.out.println("[controller]true");
-           /*response.sendRedirect();*/
            response.getWriter().print("true");
         } else {
-            System.out.println("false");
-            /*request.setAttribute("reply", "通行证或密码错误");
-            request.setAttribute("temppermit", permit);*/
-            response.getWriter().print("[controller]false");
+            response.getWriter().print("false");
         }
     }
 

@@ -29,9 +29,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUser(User user) {
         User u = null;
-        if (StringUtil.isEmail(user.getUserEmail())) {
-            u = userMapper.selectByPermit(user);
-        } else {
+        if (user.getUserEmail() != null) {
+            if (StringUtil.isEmail(user.getUserEmail())) {
+                u = userMapper.selectByPermit(user);
+            }else{
+                u = userMapper.selectByP(user);
+            }
+        }else {
             u = userMapper.selectByP(user);
         }
         return u;

@@ -93,9 +93,10 @@ public class UserSkipController {
 
         if(answers==null)
             return "/user/publishquiz";
+
         request.setAttribute("PageInfo",new PageInfo(answers,5));
         request.setAttribute("Answers", answers);
-        System.out.println(answers);
+
         return "user/publishanswer";
     }
 
@@ -131,7 +132,7 @@ public class UserSkipController {
 
         request.setAttribute("PageInfo",new PageInfo(questions,5));
         request.setAttribute("Questions", questions);
-        System.out.println(questions);
+
         return "/user/questioncollector";
     }
 
@@ -150,8 +151,10 @@ public class UserSkipController {
 
         if(quizzes==null)
             return "/user/quizcollector";
+
         request.setAttribute("PageInfo",new PageInfo(quizzes,5));
         request.setAttribute("Quizzes", quizzes);
+
         return "/user/quizcollector";
     }
 

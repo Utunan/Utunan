@@ -50,6 +50,12 @@ public class LoginController {
         account.setUserEmail(permit);
         account.setUserTelephone(permit);
         User user = userService.getUser(account);
+        boolean bool = userService.isExist(account);
+        if (!bool) {
+            request.setAttribute("reply", "手机号未注册,请先注册");
+            request.setAttribute("temppermit", permit);
+            return "/register";
+        }
         if (user != null) {
             request.removeAttribute("reply");
             session.setAttribute("User", user);

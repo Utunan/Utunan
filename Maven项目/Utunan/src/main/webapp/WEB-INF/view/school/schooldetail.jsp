@@ -12,31 +12,11 @@
   <link rel="stylesheet" href="/layui/wyd/global.css">
   <link rel="stylesheet" href="/css/school/detail.css">
   <link rel="stylesheet" href="/css/community/detail.css">
-  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/school/login.css">
   <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
 </head>
 <script src="/js/community/jquery-1.10.2.js"></script>
 <script src="/js/jquery-1.8.3.min.js"></script>
-<style>
-  .mask{
-    display:none;
-    background:rgba(0,0,0,0.3);
-    width:100%;
-    height:100%;
-    position:fixed;
-    z-index: 10001;
-  }
-  .modalDialogcontent{
-    display:none;
-    background:white;
-    width:500px;
-    position:absolute;
-    left:50%;
-    margin-left:-200px;
-    margin-top:-500px;
-    z-index: 10001;
-  }
-</style>
 <body>
 <!--提醒tx加上 1.加入院校收藏夹 2.浏览次数3.评论总数4.评论点赞5.写评论-->
 <%@include file="../common/header.jsp"%>
@@ -186,7 +166,7 @@
                <div class="write-answer-top">&nbsp;&nbsp;&nbsp;&nbsp;写回答</div>
              </div>
              <!--富文本编辑器-->
-             <form action="/school/insertDirectionComment?directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}" method="post">
+             <form name="fuform" onsubmit="return false" action="/school/insertDirectionComment?directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}" method="post">
                <div class="text">
                  <div id="div1" class="toolbar" style="height: 35px"></div>
                  <div id="div2" style="height: 130px"></div>
@@ -198,7 +178,6 @@
                  </div>
                </div>
              </form>
-            <button  type="submit" class="layui-btn layui-btn-fluid" id="try" width="50px">测试啦</button>
         </div>
       </div><!--zsml-result-->
         
@@ -233,12 +212,12 @@
   </p>
 </div>
 
-<%--登录表单--%>
+<%--弹窗登录表单--%>
 <div class="modalDialogcontent">
   <span class="close_modalDialogcontent">×</span>
   <div class="textcase">
     <div class="logintext">
-      <a href=""><img src="/images/common/logo.png" alt="" srcset=""></a>
+      <a href="">登录吧您！</a> <%--<img src="/images/common/logo.png" alt="" srcset="">--%>
     </div>
   </div>
   <div  class="reply" id="reply"></div>
@@ -250,9 +229,10 @@
       <input type="password" name="userPassword" id="password" placeholder="请输入密码">
     </div>
     <div class="loginbtn">
-      <button id="submitbutton" type="submit">提交</button>
+      <button id="submitbutton" type="submit">登录</button>
+      <button id="closeAll">我不要</button>
     </div>
-    <span><a href="">忘记密码</a> </span>
+    <span><a href="/forgetpasework">忘记密码</a> </span> <%--还未实现该页面--%>
     <span><a href="/register">立即注册</a> </span>
   </form>
 </div>
@@ -311,11 +291,13 @@ layui.config({
 
 <script>
     var layer = parent.layer === undefined ? layui.layer : parent.layer;
-    var ask=document.getElementById("try");
+    var ask=document.getElementById("comsub");
     var mask=document.getElementsByClassName("mask")[0];
     var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
     /*获取提交按钮*/
     var submit = document.getElementById("submitbutton");
+    /*获取关闭按钮*/
+    var closeAll = document.getElementById("closeAll");
 
     /*判断是否是用户，不是用户则弹出框*/
     ask.onclick=function(){
@@ -323,7 +305,7 @@ layui.config({
             mask.style.display="block";
             modalDialogcontent.style.display="block";
         }else{
-            console.log("lllalalalallala");
+            document.fuform.submit();
         }
     };
     /*点击小叉号然后关闭*/
@@ -332,9 +314,12 @@ layui.config({
         mask.style.display="none";
         modalDialogcontent.style.display="none";
     };
+    closeAll.onclick=function(){
+        mask.style.display="none";
+        modalDialogcontent.style.display="none";
+    };
 
-
-    //密码是否正确
+    //判断用户名和密码
     submit.onclick=function(){
         $.ajax({
             //几个参数需要注意一下
@@ -344,7 +329,11 @@ layui.config({
             data: $('#loginform').serialize(),
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
-                window.location.href="/school/displayDirectionDetail?directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}";
+                if(result==true){
+                    window.location.href="/school/displayDirectionDetail?directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}";
+                }else{
+                    document.getElementById("reply").innerHTML="通行证或密码错误";
+                }
             },
             error : function() {
                 document.getElementById("reply").innerHTML="通行证或密码错误";

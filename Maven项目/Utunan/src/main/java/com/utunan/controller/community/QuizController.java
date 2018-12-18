@@ -86,12 +86,14 @@ public class QuizController {
 		//提问区获取余下标签
 		List<Tag> getAllTag=this.tagService.getRemianTags(tagList3);
 		//返回排序的选中状态
+		if(null!=request.getParameter("stateList")){
+			request.setAttribute("stateList",null);
+		}
 		List<String> stateList=new ArrayList<String>();
-		if (orderBy=="releaseTime"){
+		if (orderBy.equals("releaseTime")){
 			stateList.add("active");
 			stateList.add("option");
-		}
-		if (orderBy=="raiseCount"){
+		}else{
 			stateList.add("option");
 			stateList.add("active");
 		}
@@ -102,7 +104,7 @@ public class QuizController {
 		request.setAttribute("tag",hotTagList);
 		request.setAttribute("tags",tagList3);
 		request.setAttribute("alltag",getAllTag);
-		request.setAttribute("statelist",stateList);
+		request.setAttribute("stateList",stateList);
 		request.setAttribute("PageInfo",new PageInfo(quizList,5));
 		request.setAttribute("quizListTop10",quizListTop10);
 		return "community/quiz";

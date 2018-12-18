@@ -231,15 +231,7 @@
 </div>
 
 
-
-
 <script>
-    //tx瞎写的js，可以删
-    function func() {
-        //获取被选中的option标签
-        var vs = $('select  option:selected').val();
-    }
-
     schools = new Object();
     <c:forEach items="${provinceList}" var="province">
     schools['${province}'] = new Array(
@@ -268,6 +260,7 @@
             school.options[ii].value = schools[pv][i];
         }
     }
+
 </script>
 <script>
     lq = document.getElementById("LAY_quiz");

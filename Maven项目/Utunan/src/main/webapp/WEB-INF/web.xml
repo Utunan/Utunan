@@ -10,8 +10,6 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath*:spring/applicationContext.xml</param-value>
     </context-param>
-
-
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -65,5 +63,34 @@
         </taglib>
     </jsp-config>
 
+    <!-- error页面处理 -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/view/error/404.html</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/view/error/404.html</location>
+    </error-page>
+    <error-page>
+        <error-code>501</error-code>
+        <location>/WEB-INF/view/error/404.html</location>
+    </error-page>
+    <error-page>
+        <error-code>502</error-code>
+        <location>/WEB-INF/view/error/404.html</location>
+    </error-page>
+    <error-page>
+        <error-code>503</error-code>
+        <location>/WEB-INF/view/error/404.html</location>
+    </error-page>
+    <error-page>
+        <error-code>504</error-code>
+        <location>/WEB-INF/view/error/404.html</location>
+    </error-page>
+    <error-page>
+        <error-code>505</error-code>
+        <location>/WEB-INF/view/error/404.html</location>
+    </error-page>
 
 </web-app>
