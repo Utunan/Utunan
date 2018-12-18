@@ -185,8 +185,6 @@ public class SchoolDetailController {
 
            response.getWriter().print("true");
         } else {
-            /*request.setAttribute("reply", "通行证或密码错误");
-            request.setAttribute("temppermit", permit);*/
             response.getWriter().print("false");
         }
     }

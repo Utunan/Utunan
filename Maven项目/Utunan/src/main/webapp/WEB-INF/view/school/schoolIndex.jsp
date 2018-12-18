@@ -177,6 +177,9 @@
 <%@include file="../common/footer.jsp"%>
 </body>
 <script>
+    /*弹窗登录功能*/
+</script>
+<script>
     //地区
     $(".part").click(function(){
         if($(".all").is(":checked")){//如果点击的时候，当前为选中状态
