@@ -290,6 +290,7 @@ layui.config({
 </script>
 
 <script>
+    /*弹窗登录功能*/
     var layer = parent.layer === undefined ? layui.layer : parent.layer;
     var ask=document.getElementById("comsub");
     var mask=document.getElementsByClassName("mask")[0];
