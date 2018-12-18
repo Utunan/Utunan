@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>院校详情</title>
   <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="/layui/css/layui.css">
+  <link rel="stylesheet" href="/layui/wyd/layui.css">
   <link rel="stylesheet" href="/layui/wyd/global.css">
   <link rel="stylesheet" href="/css/school/detail.css">
   <link rel="stylesheet" href="/css/community/detail.css">

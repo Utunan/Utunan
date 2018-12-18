@@ -4,17 +4,6 @@ body {
     background-size: 100%;
 }
 
-header {
-    height: 60px;
-    width: 100%;
-    margin: 0 auto;
-    background: #6610f2;
-    float: left;
-    text-align: center;
-    line-height: 60px;
-    color:#fff;
-}
-
 nav {
     list-style: none;
 }
@@ -23,8 +12,6 @@ nav {
 .center {
     text-align: center;
 }
-
-
 
 .background {
     background: #fff;
@@ -201,10 +188,11 @@ footer p {
     display:none;
     background:white;
     width:500px;
-    position:absolute;
+    position:fixed;
     left:50%;
+    top:50%;
     margin-left:-200px;
-    margin-top:-500px;
+    margin-top:-150px;
     z-index: 10001;
 }
 .close_modalDialogcontent{
