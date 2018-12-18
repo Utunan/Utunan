@@ -186,7 +186,7 @@
                <div class="write-answer-top">&nbsp;&nbsp;&nbsp;&nbsp;写回答</div>
              </div>
              <!--富文本编辑器-->
-             <form action="/school/insertDirectionComment?directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}" method="post">
+             <form name="fuform" onsubmit="return false" action="/school/insertDirectionComment?directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}" method="post">
                <div class="text">
                  <div id="div1" class="toolbar" style="height: 35px"></div>
                  <div id="div2" style="height: 130px"></div>
@@ -198,7 +198,6 @@
                  </div>
                </div>
              </form>
-            <button  type="submit" class="layui-btn layui-btn-fluid" id="try" width="50px">测试啦</button>
         </div>
       </div><!--zsml-result-->
         
@@ -311,7 +310,7 @@ layui.config({
 
 <script>
     var layer = parent.layer === undefined ? layui.layer : parent.layer;
-    var ask=document.getElementById("try");
+    var ask=document.getElementById("comsub");
     var mask=document.getElementsByClassName("mask")[0];
     var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
     /*获取提交按钮*/
@@ -323,7 +322,7 @@ layui.config({
             mask.style.display="block";
             modalDialogcontent.style.display="block";
         }else{
-            console.log("lllalalalallala");
+            document.fuform.submit();
         }
     };
     /*点击小叉号然后关闭*/
@@ -333,8 +332,7 @@ layui.config({
         modalDialogcontent.style.display="none";
     };
 
-
-    //密码是否正确
+    //判断用户名和密码
     submit.onclick=function(){
         $.ajax({
             //几个参数需要注意一下
