@@ -51,15 +51,16 @@
 
 </script>
 <script>
-    var options = document.getElementsByClassName("fly-panel-title fly-filter")[0].getElementsByTagName("a");
-    for (var i = 0; i < options.length; i++) {
-        options[i].onclick = function () {
-            for (var n = 0; n < options.length; n++) {
-                options[n].className ="option";
-            }
-            this.className ="active";
-        }
-    }
+    $('nav a').on('click', function(e) {
+        e.preventDefault(); // 阻止链接跳转
+        var url = this.href; // 保存点击的地址
+
+        $('nav a.current').removeClass('current');
+        $(this).addClass('current');
+
+        $('#container').remove();
+        $('#content').load(url + ' #container').fadeIn('slow'); // 加载新内容,url地址与该地址下的选择器之间要有空格,表示该url下的#container
+    });
 </script>
 <body>
 <%@include file="../common/header.jsp"%>
@@ -70,11 +71,10 @@
         <div class="layui-col-md8">
         <c:if test="${url=='quiz'}">
             <div class="fly-panel" style="margin-bottom: 0;">
-
                 <div class="fly-panel-title fly-filter">
-                    <a href="quiz?by=releaseTime"class="${statelist[0]}">最新问题</a>
+                    <a href="quiz?by=releaseTime" class="${stateList[0]}">最新问题</a>
                     <span class="fly-mid"></span>
-                    <a href="quiz?by=praiseCount"class="${statelist[1]}">热门问题</a>
+                    <a href="quiz?by=praiseCount" class="${stateList[1]}">热门问题</a>
                     <span class="fly-mid"></span>
                     <a href="">智能推荐</a>
                     <span class="fly-mid"></span>
@@ -90,7 +90,7 @@
                     <c:forEach items="${object}" var="obj">
                     <li>
                         <a href="user/home.html" class="fly-avatar">
-    
+
                            <img src="${obj.user.userHeadImg}" alt="昵称">
                         </a>
                         <h2>
@@ -108,7 +108,7 @@
                             <span>
                                 <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
                             </span>
-    
+
                             <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
                             <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
                             <span class="fly-list-nums">
@@ -263,7 +263,7 @@
 
 <%@include file="../common/footer.jsp"%>
 </body>
-<script src="/js/community/questionMain.js"></script>
+
 <script src="/js/common/common.js"></script>
 <script >
     //添加标签

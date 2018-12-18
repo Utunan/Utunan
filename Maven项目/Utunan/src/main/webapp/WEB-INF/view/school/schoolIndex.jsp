@@ -37,13 +37,13 @@
                                 <div class="option" id="district">
                                     <input class="all" name="schoolProvince" type="checkbox" value="全部" id="所在地全部" checked="true"><label for="所在地全部">全部</label>
                                     <input class="part" name="schoolProvince" type="checkbox" value="北京" id="北京"><label for="北京">北京</label>
-                                    <input class="part"name="schoolProvince" type="checkbox" value="天津" id="天津"><label for="天津">天津</label>
+                                    <input class="part" name="schoolProvince" type="checkbox" value="天津" id="天津"><label for="天津">天津</label>
                                     <input class="part" name="schoolProvince" type="checkbox" value="上海" id="上海"><label for="上海">上海</label>
                                     <input class="part" name="schoolProvince" type="checkbox" value="重庆" id="重庆"><label for="重庆">重庆</label>
                                     <input class="part" name="schoolProvince" type="checkbox" value="河北" id="河北"><label for="河北">河北</label>
                                     <input class="part" name="schoolProvince" type="checkbox" value="山西" id="山西"><label for="山西">山西</label>
                                     <input class="part" name="schoolProvince" type="checkbox" value="辽宁" id="辽宁"><label for="辽宁">辽宁</label>
-                                    <input class="part"name="schoolProvince" type="checkbox" value="吉林" id="吉林"><label for="吉林">吉林</label>
+                                    <input class="part" name="schoolProvince" type="checkbox" value="吉林" id="吉林"><label for="吉林">吉林</label>
                                     <input class="part" name="schoolProvince" type="checkbox" value="黑龙江" id="黑龙江"><label for="黑龙江">黑龙江</label>
                                     <input class="part" name="schoolProvince" type="checkbox" value="江苏" id="江苏"><label for="江苏">江苏</label>
                                     <input class="part" name="schoolProvince" type="checkbox" value="浙江" id="浙江"><label for="浙江">浙江</label>
