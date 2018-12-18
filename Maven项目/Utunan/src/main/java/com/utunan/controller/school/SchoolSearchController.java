@@ -69,6 +69,7 @@ public class SchoolSearchController {
         request.setAttribute("schoolList", schoolList);
         request.setAttribute("PageInfo",new PageInfo(schoolList,8));
         request.setAttribute("directionIds",directionIdList);
+        request.setAttribute("user", user);
 
         return "/school/schoolIndex";
     }
