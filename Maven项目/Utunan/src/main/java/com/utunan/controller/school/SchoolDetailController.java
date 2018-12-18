@@ -168,7 +168,7 @@ public class SchoolDetailController {
 
     /*
      * @author  王碧云
-     * @description 登录注册模拟政委测试
+     * @description 弹窗的登录（判断用户名密码）
      * @date  15:42 2018/12/17/017
      * @param  [request, account, session]
      * @return  java.lang.String

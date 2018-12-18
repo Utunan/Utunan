@@ -61,14 +61,18 @@ nav {
     margin-bottom: 30px;
 }
 
-.logintext {
+.logintext{
     background: #fff;
     height: 60px;
     width: 180px;
-    font-size: 30px;
-    font-family: "华文行楷","微软雅黑";
+    /*font-size: 30px;
+    font-family: "华文行楷","微软雅黑";*/
     margin: 0 auto;
     line-height: 60px;
+}
+.logintext a{
+    font-size: 30px;
+    font-family: "华文行楷","微软雅黑";
 }
 
 .logintext img {

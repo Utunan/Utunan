@@ -147,6 +147,7 @@ public class SchoolSearchController {
         request.setAttribute("directionName", directionName);
         request.setAttribute("PageInfo",new PageInfo(schoolList,8));
         request.setAttribute("directionIds",directionIdList);
+        request.setAttribute("user", user);
 
         return "/school/schoolIndex";
     }
