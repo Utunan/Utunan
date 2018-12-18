@@ -88,6 +88,7 @@
     margin: 5px;
     margin-left: 0px;
     border: 0px;
+    cursor: pointer;
     outline: none;
     width:40px;
 }
