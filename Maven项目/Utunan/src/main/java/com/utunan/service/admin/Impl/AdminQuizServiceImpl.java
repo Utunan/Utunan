@@ -5,9 +5,11 @@ import com.utunan.mapper.admin.AdminQuizMapper;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.service.admin.AdminQuizService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service("AdminQuizService")
 public class AdminQuizServiceImpl implements AdminQuizService {
 
     @Autowired

@@ -6,8 +6,10 @@ import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.questionbank.Question;
 import com.utunan.pojo.base.school.SchoolComment;
 import com.utunan.pojo.base.user.User;
+import com.utunan.service.admin.AdminAnswerService;
 import com.utunan.service.admin.AdminDirectionService;
 import com.utunan.service.admin.AdminQuestionService;
+import com.utunan.service.admin.AdminQuizService;
 import com.utunan.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +30,10 @@ public class AdminSkipController {
     private AdminDirectionService adminDirectionService;
     @Autowired
     private AdminQuestionService adminQuestionService;
+    @Autowired
+    private AdminQuizService adminQuizService;
+    @Autowired
+    private AdminAnswerService adminAnswerService;
 
     @RequestMapping("")
     public String admin(HttpServletRequest request) {
@@ -187,14 +193,30 @@ public class AdminSkipController {
     }
 
     @RequestMapping("quizlist")
-    public String quizlist(){
+    public String quizlist(HttpSession session,HttpServletRequest request){
         List<Quiz> quizzes=null;
+        String pageNum = request.getParameter("pageNum");
+        if (pageNum == null || pageNum == "" || Integer.parseInt(pageNum) <= 0)
+            quizzes = adminQuizService.getAllQuiz(1, 10);
+        else
+            quizzes = adminQuizService.getAllQuiz(Integer.parseInt(pageNum), 10);
+
+        request.setAttribute("PageInfo", new PageInfo(quizzes, 5));
+        session.setAttribute("quizlist", quizzes);
 
         return "admin/quiz/quizlist";
     }
     @RequestMapping("answerlist")
-    public String commentlist(){
+    public String commentlist(HttpSession session,HttpServletRequest request){
         List<Answer> answers=null;
+        String pageNum = request.getParameter("pageNum");
+        if (pageNum == null || pageNum == "" || Integer.parseInt(pageNum) <= 0)
+            answers = adminAnswerService.getAllAnswer(1, 10);
+        else
+            answers = adminAnswerService.getAllAnswer(Integer.parseInt(pageNum), 10);
+
+        request.setAttribute("PageInfo", new PageInfo(answers, 5));
+        session.setAttribute("answerlist", answers);
 
         return "admin/quiz/answerlist";
     }

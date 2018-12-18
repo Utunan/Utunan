@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.utunan.mapper.admin.AdminQuizMapper">
-    <resultMap id="quizResultMap" type="com.utunan.pojo.base.community.Quiz">
-        <id property="quizId" column="quizId"/>
-        <result property="quizTitle" column="quizTitle"/>
-        <result property="quizContent" column="quizContent"/>
-        <result property="releaseTime" column="releaseTime"/>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.utunan.mapper.admin.AdminAnswerMapper">
+    <resultMap id="answerResultMap" type="com.utunan.pojo.base.community.Answer">
+        <id property="answerId" column="answerId"/>
+        <result property="answerContent" column="answerContent"/>
         <association property="user" javaType="com.utunan.pojo.base.user.User">
             <id column="userId" property="userId"/>
             <result property="userEmail" column="userEmail"/>
@@ -21,9 +19,10 @@
             <result property="userIntegral" column="userIntegral"/>
         </association>
     </resultMap>
-    <select id="selectAllQuiz" resultMap="quizResultMap">
+    <!--获取所有回答评论-->
+    <select id="getAllAnswer" resultMap="answerResultMap">
         select *
-        from quiz
-        left join user on user.userId=quiz.quizId
+        from answer
+        left join user on user.userId=answer.userId
     </select>
 </mapper>
