@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/layui/wyd/global.css">
   <link rel="stylesheet" href="/css/school/detail.css">
   <link rel="stylesheet" href="/css/community/detail.css">
-  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/school/login.css">
   <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
 </head>
 <script src="/js/community/jquery-1.10.2.js"></script>
@@ -35,6 +35,14 @@
     margin-left:-200px;
     margin-top:-500px;
     z-index: 10001;
+  }
+  .close_modalDialogcontent{
+    position:absolute;
+    font-size:20px;
+    right: 0px;
+    width:20px;
+    height:20px;
+    cursor:pointer;
   }
 </style>
 <body>
@@ -232,12 +240,12 @@
   </p>
 </div>
 
-<%--登录表单--%>
+<%--弹窗登录表单--%>
 <div class="modalDialogcontent">
   <span class="close_modalDialogcontent">×</span>
   <div class="textcase">
     <div class="logintext">
-      <a href=""><img src="/images/common/logo.png" alt="" srcset=""></a>
+      <a href="">登录吧您！</a> <%--<img src="/images/common/logo.png" alt="" srcset="">--%>
     </div>
   </div>
   <div  class="reply" id="reply"></div>
@@ -249,9 +257,10 @@
       <input type="password" name="userPassword" id="password" placeholder="请输入密码">
     </div>
     <div class="loginbtn">
-      <button id="submitbutton" type="submit">提交</button>
+      <button id="submitbutton" type="submit">登录</button>
+      <button id="closeAll">我不要</button>
     </div>
-    <span><a href="">忘记密码</a> </span>
+    <span><a href="/forgetpasework">忘记密码</a> </span> <%--还未实现该页面--%>
     <span><a href="/register">立即注册</a> </span>
   </form>
 </div>
@@ -315,6 +324,8 @@ layui.config({
     var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
     /*获取提交按钮*/
     var submit = document.getElementById("submitbutton");
+    /*获取关闭按钮*/
+    var closeAll = document.getElementById("closeAll");
 
     /*判断是否是用户，不是用户则弹出框*/
     ask.onclick=function(){
@@ -328,6 +339,10 @@ layui.config({
     /*点击小叉号然后关闭*/
     var close_modalDialogcontent=document.getElementsByClassName("close_modalDialogcontent")[0];
     close_modalDialogcontent.onclick=function(){
+        mask.style.display="none";
+        modalDialogcontent.style.display="none";
+    };
+    closeAll.onclick=function(){
         mask.style.display="none";
         modalDialogcontent.style.display="none";
     };
