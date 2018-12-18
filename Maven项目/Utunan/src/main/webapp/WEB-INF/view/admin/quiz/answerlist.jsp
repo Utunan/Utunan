@@ -38,22 +38,19 @@
                         class="layui-icon">&#xe605;</i></div>
             </th>
             <th>发表用户</th>
-            <th>发表标题</th>
             <th>发表内容</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${CQuestions}" var="Q">
+        <c:forEach items="${answerlist}" var="a">
             <tr>
                 <td>
-                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id=''><i
+                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${a.answerId}'><i
                             class="layui-icon">&#xe605;</i></div>
                 </td>
-                <td>${Q.user.userId}</td>
-                <td>${Q.chapterName}</td>
-                <td>${Q.questionContent}</td>
-                <td>${Q.questionEnterTime}</td>
+                <td>${a.user.userNickName}</td>
+                <td>${a.answerContent}</td>
                 <td class="td-manage">
                     <a title="删除" onclick="member_del(this,'${A.userId}')" href="javascript:;">
                         <i class="layui-icon">&#xe640;</i>
@@ -122,6 +119,18 @@
     function delAll(argument) {
         var data = tableCheck.getData();
         layer.confirm('确认要删除吗？' + data, function (index) {
+            $.ajax({
+                url:"/delallanswer",
+                type:"get",
+                dataType:"String",
+                traditional:true,
+                data:{"d":data},
+                success:function(response){
+
+                },
+                error:function() {
+                }
+            });
             //捉到所有被选中的，发异步进行删除
             layer.msg('删除成功', {icon: 1});
             $(".layui-form-checked").not('.header').parents('tr').remove();

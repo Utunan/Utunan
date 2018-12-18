@@ -34,31 +34,13 @@ public class ShareController {
     @Autowired
     private ShareupFileService shareupFileService;
 
-
-//    @RequestMapping(value = "/upload")
-//    @ResponseBody
-//    public JSONObject uploadfile(@RequestParam("file") MultipartFile file, HttpServletRequest request,HttpSession session) {
-//        String rootPath = request.getSession().getServletContext().getRealPath("/");
-//        JSONObject resObj = new JSONObject();
-//        resObj.put("msg", "ok");
-////        try {
-////            FileCopyUtils.copy(file.getBytes(), new File(rootPath, file.getOriginalFilename()));
-////        } catch (IOException e) {
-////            e.printStackTrace();
-////        }
-//
-//        String path=rootPath+file.getOriginalFilename();
-//        System.out.print(path+"\n");
-//        session.setAttribute("realPath",path);
-//        return resObj;
-//    }
-
     @ResponseBody
     @RequestMapping(value = "/upload1",method = RequestMethod.POST)
     public String upload(@RequestParam(value = "file",required = false) MultipartFile file,HttpServletRequest request,HttpSession session){
         String rootPath = request.getSession().getServletContext().getRealPath("/");
-        String path=rootPath+file.getOriginalFilename();
-        System.out.print(path+"\n");
+        //String path=rootPath+file.getOriginalFilename();
+        String path=null;
+
         JSONObject resObj = new JSONObject();
         resObj.put("msg", "ok");
         try {
@@ -102,10 +84,6 @@ public class ShareController {
         //获取学校
         String school=request.getParameter("school");
 
-
-        //获取文件路径
-//        String paths=(String)session.getAttribute("realPath");
-//        System.out.print(paths+"\n");
 
         //获取登录用户
         User user=(User)session.getAttribute("User");
