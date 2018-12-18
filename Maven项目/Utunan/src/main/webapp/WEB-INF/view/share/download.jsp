@@ -44,6 +44,7 @@
         <span>${file.user.dreamSchool}</span>
         <br>
         <form name="form1" action="/downloadfile" method="post" onsubmit="return check(this)" >
+            <input type="hidden" name="fileId" value="${file.fileId}">
             <input type="hidden" name="operate" value="${operate}">
             <input type="submit" value="点击下载"/>
         </form>
