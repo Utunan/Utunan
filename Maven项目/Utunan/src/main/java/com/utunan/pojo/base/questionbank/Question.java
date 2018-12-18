@@ -5,14 +5,12 @@ import com.utunan.pojo.base.user.User;
 public class Question {
     //题库列表ID
     private Long questionId;
+    //科目
     private Subject subject;
-
-
-
     //章节
     private String chapterName;
     //录入人
-    private User User;
+    private User user;
     //题目类型
     private String questionType;
     //题干内容
@@ -36,19 +34,20 @@ public class Question {
     //错误数量
     private Long errorNum;
 
-    public Subject getSubject() {
-        return subject;
-    }
-
-    public void setSubject(Subject subject) {
-        this.subject = subject;
-    }
     public Long getQuestionId() {
         return questionId;
     }
 
     public void setQuestionId(Long questionId) {
         this.questionId = questionId;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 
     public String getChapterName() {
@@ -59,12 +58,12 @@ public class Question {
         this.chapterName = chapterName;
     }
 
-    public com.utunan.pojo.base.user.User getUser() {
-        return User;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser(com.utunan.pojo.base.user.User user) {
-        User = user;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getQuestionType() {
@@ -161,7 +160,7 @@ public class Question {
                 "questionId=" + questionId +
                 ", subject=" + subject +
                 ", chapterName='" + chapterName + '\'' +
-                ", User=" + User +
+                ", user=" + user +
                 ", questionType='" + questionType + '\'' +
                 ", questionContent='" + questionContent + '\'' +
                 ", optionA='" + optionA + '\'' +

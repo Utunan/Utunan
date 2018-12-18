@@ -58,7 +58,7 @@
         <c:forEach items="${NetworkQuestions}" var="Q">
             <tr>
                 <td>
-                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${A.userId}'><i
+                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${Q.questionId}'><i
                             class="layui-icon">&#xe605;</i></div>
                 </td>
                 <td>${Q.user.userId}</td>
@@ -139,6 +139,18 @@
     function delAll(argument) {
         var data = tableCheck.getData();
         layer.confirm('确认要删除吗？' + data, function (index) {
+            $.ajax({
+                url:"/delallnetwork",
+                type:"get",
+                dataType:"String",
+                traditional:true,
+                data:{"d":data},
+                success:function(response){
+
+                },
+                error:function() {
+                }
+            });
             //捉到所有被选中的，发异步进行删除
             layer.msg('删除成功', {icon: 1});
             $(".layui-form-checked").not('.header').parents('tr').remove();
