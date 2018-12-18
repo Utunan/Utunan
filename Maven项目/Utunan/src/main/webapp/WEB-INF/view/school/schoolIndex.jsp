@@ -13,8 +13,8 @@
     <title>优图南-院校库</title>
     <link rel="stylesheet" href="/layui/wyd/layui.css">
     <link rel="stylesheet" href="/layui/wyd/global.css">
-
     <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/school/login.css">
     <link rel="stylesheet" href="/css/school/new.css">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <script>
@@ -25,6 +25,8 @@
 <script src="/js/community/tag.js"></script>
 <body>
 <%@include file="../common/header.jsp"%>
+<%--黑背景--%>
+<div class="mask"></div>
 
 <div class="layui-container">
     <div class="layui-row layui-col-space15">
@@ -147,7 +149,8 @@
                                     <td><a href="/school/deleteDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}"><img src="../images/school/redheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
                                 </c:when>
                                 <c:otherwise>
-                                    <td><a href="/school/addDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}"><img src="../images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
+                                    <%--<td><div class="huilove"><img src="../images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset="" ></div></td>--%>
+                                    <td id="huilove"><div class="huilove"><a href="/school/addDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}"><img src="../images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></div></td>
                                 </c:otherwise>
                             </c:choose>
                         </tr>
@@ -156,6 +159,30 @@
                 </tbody>
             </table>
     </div>
+</div>
+<%--弹窗登录表单--%>
+<div class="modalDialogcontent">
+    <span class="close_modalDialogcontent">×</span>
+    <div class="textcase">
+        <div class="logintext">
+            <a href="">登录吧您！</a> <%--<img src="/images/common/logo.png" alt="" srcset="">--%>
+        </div>
+    </div>
+    <div  class="reply" id="reply"></div>
+    <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">
+        <div class="permit inputcase">
+            <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="您的手机/邮箱">
+        </div>
+        <div class="loginpassword inputcase">
+            <input type="password" name="userPassword" id="password" placeholder="请输入密码">
+        </div>
+        <div class="loginbtn">
+            <button id="submitbutton" type="submit">登录</button>
+            <button id="closeAll">我不要</button>
+        </div>
+        <span><a href="/forgetpasework">忘记密码</a> </span> <%--还未实现该页面--%>
+        <span><a href="/register">立即注册</a> </span>
+    </form>
 </div>
 <%--分页--%>
 <nav id="page" class="page">
@@ -178,7 +205,60 @@
 </body>
 <script>
     /*弹窗登录功能*/
+    var ask=document.getElementsByClassName("huilove");
+    var mask=document.getElementsByClassName("mask")[0];
+    var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
+    /*获取提交按钮*/
+    var submit = document.getElementById("submitbutton");
+    /*获取关闭按钮*/
+    var closeAll = document.getElementById("closeAll");
+
+    /*判断是否是用户，是用户则收藏，不是用户则弹出框*/
+    for (var i=0;i<ask.length;i++){
+        ask[i].onclick=function(){
+            if(${user==null}){
+                mask.style.display="block";
+                modalDialogcontent.style.display="block";
+                return false
+            }else{
+                return true;
+            }
+        }
+    }
+
+    /*点击小叉号然后关闭*/
+    var close_modalDialogcontent=document.getElementsByClassName("close_modalDialogcontent")[0];
+    close_modalDialogcontent.onclick=function(){
+        mask.style.display="none";
+        modalDialogcontent.style.display="none";
+    };
+    closeAll.onclick=function(){
+        mask.style.display="none";
+        modalDialogcontent.style.display="none";
+    };
+
+    //判断用户名和密码
+    submit.onclick=function(){
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "/school/popsupLogin" ,//url
+            data: $('#loginform').serialize(),
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if(result==true){
+                    window.location.href="/school/displaySchoolBySearch?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}";
+                }else{
+                    document.getElementById("reply").innerHTML="通行证或密码错误";
+                }
+            },
+            error : function() {
+                document.getElementById("reply").innerHTML="通行证或密码错误";
+            }
+        });
+    };
 </script>
+<script src="/js/common/login.js"></script>
 <script>
     //地区
     $(".part").click(function(){

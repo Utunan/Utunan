@@ -4,7 +4,9 @@ body {
     background: url(/images/common/loginbg.jpg);
     background-size: cover;
 }
-
+#telereply>a{
+    font-size: 15px;
+}
 .header > header {
     background: rgba(57, 61, 73, 0.6);
 }

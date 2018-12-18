@@ -6,6 +6,7 @@ import com.utunan.mapper.share.ShareIndexMapper;
 import com.utunan.pojo.base.school.Direction;
 import com.utunan.pojo.base.school.School;
 import com.utunan.pojo.base.share.File;
+import com.utunan.pojo.base.share.UserDownload;
 import com.utunan.pojo.base.user.User;
 import com.utunan.service.admin.AdminDirectionService;
 import com.utunan.service.share.ShareIndexService;
@@ -134,5 +135,65 @@ public class ShareIndexServiceImpl implements ShareIndexService {
 			}
 		}
 		return fileList;
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 更新用户积分
+	 * @date  15:34 2018/12/18
+	 * @param  userId, userIntegral
+	 * @return  void
+	 */
+	@Override
+	public void updateUserIntegral(Long userId, Long userIntegral){
+		this.shareIndexMapper.updateUserIntegral(userId,userIntegral);
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 向用户下载表插入数据
+	 * @date  15:34 2018/12/18
+	 * @param  userId, fileId
+	 * @return  void
+	 */
+	@Override
+	public void insertUserDownload(Long userId, Long fileId){
+		this.shareIndexMapper.insertUserDownload(userId, fileId);
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 判断用户是否下载过该文件
+	 * @date  15:44 2018/12/18
+	 * @param  userId, fileId
+	 * @return  com.utunan.pojo.base.share.UserDownload
+	 */
+	@Override
+	public UserDownload findUserDownload(Long userId, Long fileId){
+		return this.shareIndexMapper.findUserDownload(userId, fileId);
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 根据用户Id查找用户
+	 * @date  16:34 2018/12/18
+	 * @param  userId
+	 * @return  com.utunan.pojo.base.user.User
+	 */
+	@Override
+	public User findUserById(Long userId){
+		return this.shareIndexMapper.findUserById(userId);
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 更新文件下载次数
+	 * @date  20:59 2018/12/18
+	 * @param  fileId
+	 * @return  void
+	 */
+	@Override
+	public void updateFileDownloadNumber(Long fileId, Long downloadNumber){
+		this.shareIndexMapper.updateFileDownloadNumber(fileId, downloadNumber);
 	}
 }

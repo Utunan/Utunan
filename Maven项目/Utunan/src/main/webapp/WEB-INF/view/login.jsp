@@ -116,7 +116,49 @@
         }
     })
 
-    $('#permit').blur(permitcheck)
+    $('#permit').blur(function () {
+        $.ajax({
+            type: "post",
+            url: "/checkpermit",
+            data: {
+                userTelephone: $("#permit").val(),
+                userEmail: $("#permit").val()
+            },
+            dataType: "json",
+            success: function (data) {
+                if (data == '200') {
+                    $('#permitreply').html("")
+                    var state = true;
+                    var reply = ""
+
+                    if (checkpermit($('#permit').val())) {
+                        state = false;
+                        reply = "通行证格式错误"
+                    }
+                    if ($('#permit').val() == '') {
+                        state = false;
+                        reply = "通行证不能为空"
+                    }
+
+                    if (state) {
+                        $('#permit').css('backgroundColor', 'white')
+                        $('#permitreply').html("")
+                        return true
+                    }
+                    else {
+                        $('#permit').css('backgroundColor', 'rgba(255,192,203,1)')
+                        $('#permitreply').html(reply)
+                        return false
+                    }
+                } else {
+                    $('#permitreply').html("通行证不存在,请先<a href='/register'>注册</a>")
+                }
+            },error:function(){
+                $('#permitreply').html("网站可能崩了,请您先等会儿~")
+            }
+        });
+
+    })
 
     $('#password').focus(function () {
         if (!checkpassword($('#password').val())) {

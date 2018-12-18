@@ -66,31 +66,31 @@
     <!-- error页面处理 -->
     <error-page>
         <error-code>404</error-code>
-        <location>/WEB-INF/view/error/404.html</location>
+        <location>/WEB-INF/view/error/404.jsp</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
-        <location>/WEB-INF/view/error/404.html</location>
+        <location>/WEB-INF/view/error/500.jsp</location>
     </error-page>
     <error-page>
         <error-code>501</error-code>
-        <location>/WEB-INF/view/error/404.html</location>
+        <location>/WEB-INF/view/error/501.jsp</location>
     </error-page>
     <error-page>
         <error-code>502</error-code>
-        <location>/WEB-INF/view/error/404.html</location>
+        <location>/WEB-INF/view/error/502.jsp</location>
     </error-page>
     <error-page>
         <error-code>503</error-code>
-        <location>/WEB-INF/view/error/404.html</location>
+        <location>/WEB-INF/view/error/503.jsp</location>
     </error-page>
     <error-page>
         <error-code>504</error-code>
-        <location>/WEB-INF/view/error/404.html</location>
+        <location>/WEB-INF/view/error/504.jsp</location>
     </error-page>
     <error-page>
         <error-code>505</error-code>
-        <location>/WEB-INF/view/error/404.html</location>
+        <location>/WEB-INF/view/error/505.jsp</location>
     </error-page>
 
 </web-app>

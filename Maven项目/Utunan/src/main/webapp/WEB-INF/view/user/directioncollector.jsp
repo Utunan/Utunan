@@ -33,11 +33,10 @@
                     </c:when>
                     <c:otherwise>
                         <tr>
-                            <th style="width:120px;height: 50px;">招生单位</th>
-                            <th style="width:180px;">院系</th>
-                            <th style="width:40px;">学位</th>
-                            <th style="width:180px;">专业</th>
-                            <th style="width:40px">其他</th>
+                            <th style="width:160px;height: 50px;">招生单位</th>
+                            <th style="width:100px;">学位</th>
+                            <th style="width:250px;">专业</th>
+                            <th style="width:100px">其他</th>
                             <th style="width:30px;"></th>
                         </tr>
                     </c:otherwise>
@@ -46,7 +45,6 @@
                 <c:forEach items="${Directions}" var="D">
                     <tr>
                         <td style="height: 35px;">${D.schoolName}</td>
-                        <td>${D.collegeName}</td>
                         <td>${D.degreeType}</td>
                         <td>${D.directionName}</td>
                         <td><a href="">详情</a></td>

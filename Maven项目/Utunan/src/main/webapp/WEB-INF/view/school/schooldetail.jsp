@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>院校详情</title>
   <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="/layui/css/layui.css">
+  <link rel="stylesheet" href="/layui/wyd/layui.css">
   <link rel="stylesheet" href="/layui/wyd/global.css">
   <link rel="stylesheet" href="/css/school/detail.css">
   <link rel="stylesheet" href="/css/community/detail.css">
@@ -290,6 +290,7 @@ layui.config({
 </script>
 
 <script>
+    /*弹窗登录功能*/
     var layer = parent.layer === undefined ? layui.layer : parent.layer;
     var ask=document.getElementById("comsub");
     var mask=document.getElementsByClassName("mask")[0];

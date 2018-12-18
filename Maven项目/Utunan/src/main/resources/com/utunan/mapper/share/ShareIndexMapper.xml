@@ -101,4 +101,34 @@
         and f.isExamine=1
         limit 20
     </select>
+    <!--更新用户积分-->
+    <update id="updateUserIntegral">
+        UPDATE user
+        set userIntegral=#{userIntegral}
+        where userId=#{userId}
+    </update>
+    <!--更新用户下载表-->
+    <insert id="insertUserDownload">
+        insert into user_download (userId,fileId)
+        VALUES (#{userId},#{fileId})
+    </insert>
+    <!--查询用户下载表是否存在用户信息-->
+    <select id="findUserDownload" resultType="com.utunan.pojo.base.share.UserDownload">
+        select *
+        from user_download
+        where userId=#{userId}
+        and fileId=#{fileId}
+    </select>
+    <!--根据用户Id查用户-->
+    <select id="findUserById" resultType="com.utunan.pojo.base.user.User">
+        select *
+        from user
+        where userId=#{userId}
+    </select>
+    <!--更新文件下载次数-->
+    <update id="updateFileDownloadNumber">
+        UPDATE file
+        set downloadNumber=#{downloadNumber}
+        where fileId=#{fileId}
+    </update>
 </mapper>
