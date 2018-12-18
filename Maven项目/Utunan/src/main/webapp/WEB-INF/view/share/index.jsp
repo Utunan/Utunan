@@ -47,39 +47,30 @@
   <div class="layui-row layui-col-space15">
     <div class="layui-col-md8">
       <div class="fly-panel" style="margin-bottom: 0;">
-        <form class="layui-form"action="/searchfile" method="post">
-            <div class="layui-form-item">
-              <label class="layui-form-label">资料类型 >></label>
-              <div class="layui-input-block">
-                <input type="checkbox" name="fileType" title="全部"checked="checked" value="全部">
-                <input type="checkbox" name="fileType" title="招生简章" value="招生简章">
-                <input type="checkbox" name="fileType" title="招生专业目录" value="招生专业目录">
-                <input type="checkbox" name="fileType" title="考研真题" value="考研真题">
-                <input type="checkbox" name="fileType" title="备考习题" value="备考习题">
-                <input type="checkbox" name="fileType" title="课件分享" value="课件分享">
-                <input type="checkbox" name="fileType" title="参考书目" value="参考书目">
-              </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">针对院校 >></label>
-                <div class="layui-input-block" class="twoselect">
-                    <select name="province" onChange="set_school(this, this.form.school);">
-                        <option value="0">选择省份</option>
-                        <c:forEach items="${provinceList}" var="province">
-                            <option value="${province}">${province}</option>
-                        </c:forEach>
-                    </select>
-                    <select name="school" id="schools">
-                        <option value="%">选择学校</option>
-                    </select>
-                </div>
-            </div>
-            <div class="options">
-                <span class="optionName">搜索 >></span>
-                <input type="text" id="filesearch"   placeholder="" class="layui-input" name="keyWord">
-                <input type="submit" value="搜索" id="search" class="layui-btn layui-btn-normal"/>
-            </div>
-        </form>
+          <form name="form1" action="/searchfile" method="post">
+              <input type="checkbox" name="fileType" value="全部" id="全部" checked="checked">全部
+              <input type="checkbox" name="fileType" value="招生简章" id="招生简章">招生简章
+              <input type="checkbox" name="fileType" value="招生专业目录" id="招生专业目录">招生专业目录
+              <input type="checkbox" name="fileType" value="考研真题" id="考研真题">考研真题
+              <input type="checkbox" name="fileType" value="备考习题" id="备考习题">备考习题
+              <input type="checkbox" name="fileType" value="课件分享" id="课件分享">课件分享
+              <input type="checkbox" name="fileType" value="参考书目" id="参考书目">参考书目
+              <br>
+              <br>
+              <select name="province" onChange="set_school(this, this.form.school);">
+                  <option value="0">选择省份</option>
+                  <c:forEach items="${provinceList}" var="province">
+                      <option value="${province}">${province}</option>
+                  </c:forEach>
+              </select>
+              <select name="school" id="schools">
+                  <option value="%">选择学校</option>
+              </select>
+              <br>
+              <br>
+              <input type="text" name="keyWord" placeholder="请输入关键字">
+              <input type="submit" value="查找">
+          </form>
       </div>
       <div class="fly-panel" style="margin-bottom: 0; margin-top:20px">
 
@@ -88,13 +79,19 @@
                   <ul class="list">
                   <c:forEach items="${fileList}" var="file" varStatus="stat">
                       <li>
-                          <img src="${file.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px">
-                          <a href="/download?fileId=${file.fileId}" style="color: red">${file.fileTitle}</a>
-                              ${file.user.userNickName}
-                              ${file.fileType}
-                              ${file.fileSchool}
-                          积分：${file.fileCredit}
-                          下载量：${file.downloadNumber}
+                          <div>
+                          <img src="${file.suffix.imgUrl}" alt="文件类型" class="siffix">
+                          <span class="tn"><a href="/download?fileId=${file.fileId}" >${file.fileTitle}</a></span>
+                          <div class="topdetail">
+                              <span class="ft"> ${file.fileType}</span>
+                              <span class="fs">${file.fileSchool}</span>
+                          </div>
+                          <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
+                          <div class="rightdetail">
+                              <span class="fc"><img src="/images/share/credit.svg"  class="credit">${file.fileCredit}</span>
+                              <span class="dn"><img src="/images/share/downNum.svg"  class="downNum">${file.downloadNumber}</span>
+                          </div>
+                          </div>
                       </li>
                   </c:forEach>
               </ul>
@@ -124,13 +121,19 @@
                   <ul class="list">
                       <c:forEach items="${fileList}" var="file" varStatus="stat">
                           <li>
-                              <img src="${file.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px">
-                              <a href="/download?fileId=${file.fileId}" style="color: red">${file.fileTitle}</a>
-                                  ${file.user.userNickName}
-                                  ${file.fileType}
-                                  ${file.fileSchool}
-                              积分：${file.fileCredit}
-                              下载量：${file.downloadNumber}
+                              <div>
+                                  <img src="${file.suffix.imgUrl}" alt="文件类型" class="siffix">
+                                  <span class="tn"><a href="/download?fileId=${file.fileId}" >${file.fileTitle}</a></span>
+                                  <div class="topdetail">
+                                      <span class="ft"> ${file.fileType}</span>
+                                      <span class="fs">${file.fileSchool}</span>
+                                  </div>
+                                  <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
+                                  <div class="rightdetail">
+                                      <span class="fc"><img src="/images/share/credit.svg"  class="credit">${file.fileCredit}</span>
+                                      <span class="dn"><img src="/images/share/downNum.svg"  class="downNum">${file.downloadNumber}</span>
+                                  </div>
+                              </div>
                           </li>
                       </c:forEach>
                   </ul>
@@ -154,7 +157,7 @@
                       <a href="/${url }?fileType=${fileType}&school=${school}&keyWord=${keyWord}&pageNum=${PageInfo.pages}">尾页</a>
                   </div>
               </div>
-          </c:if>
+          </c:if></div>
     </div><!--上边这-->
   <!--左边这-->
   <div class="layui-col-md4">
@@ -168,8 +171,8 @@
         <dt class="fly-panel-title">热门资源</dt>
           <c:forEach items="${hotFileList}" var="hotFile">
         <dd>
-            <a href="/download?fileId=${hotFile.fileId}" style="color: red">${hotFile.fileTitle}</a>
-          <span><i class="iconfont icon-pinglun1"></i> ${hotFile.downloadNumber}</span>
+            <a href="/download?fileId=${hotFile.fileId}" >${hotFile.fileTitle}</a>
+            <span><span class="dn"><img src="/images/share/downNum2.svg"  class="downNum">${hotFile.downloadNumber}</span></span>
         </dd>
           </c:forEach>
       </dl>
@@ -178,7 +181,6 @@
   </div>
 </div>
 
-<script src="../layui/layui.js"></script>
 <script>
 layui.cache.page = 'jie';
 layui.config({
@@ -188,6 +190,6 @@ layui.config({
   fly: 'index'
 }).use('fly');
 </script>
-
+<script src="/js/common/common.js"></script>
 </body>
 </html>

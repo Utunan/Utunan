@@ -33,3 +33,69 @@
 .options{
     padding-bottom: 20px;
 }
+.tn{
+    float:left;
+    font-weight: bold;
+    padding-left: 20px;
+    font-size: 15px;
+}
+.un{
+    padding-left: 20px;
+    color: darkgray;
+}
+.ft{
+    color: darkgray;
+    border-style: solid;
+    border-color: #dfdfdf;
+    border-width: 1px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    padding: 3px;
+    margin: 10px;
+}
+.fs{
+    color: darkgray;
+    border-style: solid;
+    border-color: #dfdfdf;
+    border-width: 1px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    padding: 3px;
+}
+.siffix{
+    float:left;
+    width:40px;
+    padding-top: 5px;
+}
+.credit{
+    width:20px;
+    padding-right: 10px;
+    padding-bottom: 4px;
+}
+.downNum{
+    width:25px;
+    padding-right: 5px;
+    padding-bottom: 4px;
+}
+.rightdetail{
+    float:right;
+    font-size: 17px;
+    color: darkgoldenrod;
+}
+.list li {
+    height: 45px;
+}
+.topdetail{
+    padding-bottom: 10px;
+}
+.fc{
+    padding-right: 15px;
+}
+.dn{
+    padding-right: 15px;
+}
+.fly-list-one dd {
+    line-height: 40px;
+}
