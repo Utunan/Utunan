@@ -31,11 +31,38 @@
 <%@include file="../common/header.jsp"%>
     <div>
         <h3>文件信息</h3>
-        <span><img src="${file.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px"></span>
-        <span>${file.fileTitle}</span>
-        <span>${file.fileCredit}</span>
-        <span>${file.downloadNumber}</span>
-        <br>
+        <div>
+            <ul class="list">
+                <c:forEach items="${fileList}" var="file" varStatus="stat">
+                    <c:choose>
+                        <c:when test="${file.fileType == '招生简章' || file.fileType == '招生专业目录'}">
+                            <c:if test="${file.isExamine == 1}">
+                                <li>
+                                    <img src="${file.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px">
+                                    <a href="/download?fileId=${file.fileId}" style="color: red">${file.fileTitle}</a>
+                                        ${file.user.userNickName}
+                                    <a href="/searchfile?fileType=${file.fileType}&school=${file.fileSchool}&keyWord=">${file.fileType}</a>
+                                    <a href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a>
+                                    积分：${file.fileCredit}
+                                    下载量：${file.downloadNumber}
+                                </li>
+                            </c:if>
+                        </c:when>
+                        <c:otherwise>
+                            <li>
+                                <img src="${file.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px">
+                                <a href="/download?fileId=${file.fileId}" style="color: red">${file.fileTitle}</a>
+                                    ${file.user.userNickName}
+                                <a href="/searchfile?fileType=${file.fileType}&school=${file.fileSchool}&keyWord=">${file.fileType}</a>
+                                <a href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a>
+                                积分：${file.fileCredit}
+                                下载量：${file.downloadNumber}
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+            </ul>
+        </div>
         <span><a href="/searchfile?fileType=${file.fileType}&school=${file.fileSchool}&keyWord=">${file.fileType}</a></span>
         <span><a href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a></span>
         <br>
