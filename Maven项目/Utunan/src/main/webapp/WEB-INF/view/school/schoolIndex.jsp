@@ -13,10 +13,9 @@
     <title>优图南-院校库</title>
     <link rel="stylesheet" href="/layui/wyd/layui.css">
     <link rel="stylesheet" href="/layui/wyd/global.css">
-
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/school/new.css">
     <link rel="stylesheet" href="/css/school/login.css">
+    <link rel="stylesheet" href="/css/school/new.css">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <script>
         var pagenum="${PageInfo.pageNum}"
@@ -150,8 +149,8 @@
                                     <td><a href="/school/deleteDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}"><img src="../images/school/redheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
                                 </c:when>
                                 <c:otherwise>
-                                    <td><div class="huilove" onclick="letDivCenter('.modalDialogcontent')"><img src="../images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset="" ></div></td>
-                                    <%--<td id="huilove"><a href="/school/addDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}"><img src="../images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>--%>
+                                    <%--<td><div class="huilove"><img src="../images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset="" ></div></td>--%>
+                                    <td id="huilove"><div class="huilove"><a href="/school/addDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}"><img src="../images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></div></td>
                                 </c:otherwise>
                             </c:choose>
                         </tr>
@@ -206,7 +205,6 @@
 </body>
 <script>
     /*弹窗登录功能*/
-    /*var layer = parent.layer === undefined ? layui.layer : parent.layer;*/
     var ask=document.getElementsByClassName("huilove");
     var mask=document.getElementsByClassName("mask")[0];
     var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
@@ -221,21 +219,13 @@
             if(${user==null}){
                 mask.style.display="block";
                 modalDialogcontent.style.display="block";
+                return false
             }else{
-                /*document.fuform.submit();*/
-                window.location.href="/school/addDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}";
+                return true;
             }
         }
     }
-    /*ask.onclick=function(){
-        if({user==null}){
-            mask.style.display="block";
-            modalDialogcontent.style.display="block";
-        }else{
-            /!*document.fuform.submit();*!/
-            window.location.href="/school/addDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum};
-        }
-    };*/
+
     /*点击小叉号然后关闭*/
     var close_modalDialogcontent=document.getElementsByClassName("close_modalDialogcontent")[0];
     close_modalDialogcontent.onclick=function(){
@@ -250,7 +240,6 @@
     //判断用户名和密码
     submit.onclick=function(){
         $.ajax({
-            //几个参数需要注意一下
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
             url: "/school/popsupLogin" ,//url
@@ -258,7 +247,7 @@
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
                 if(result==true){
-                    window.location.href="/school/displayDirectionDetail?directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}";
+                    window.location.href="/school/displaySchoolBySearch?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}";
                 }else{
                     document.getElementById("reply").innerHTML="通行证或密码错误";
                 }
