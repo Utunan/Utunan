@@ -86,8 +86,11 @@ public class QuizController {
 		//提问区获取余下标签
 		List<Tag> getAllTag=this.tagService.getRemianTags(tagList3);
 		//返回排序的选中状态
+		if(null!=request.getParameter("stateList")){
+			request.setAttribute("stateList",null);
+		}
 		List<String> stateList=new ArrayList<String>();
-		if (orderBy=="releaseTime"){
+		if (orderBy.equals("releaseTime")){
 			stateList.add("active");
 			stateList.add("option");
 		}else{
