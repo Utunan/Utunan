@@ -8,6 +8,7 @@ import com.utunan.pojo.util.Analyzer;
 import com.utunan.service.share.ShareIndexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -38,9 +39,9 @@ public class ShareDownloadController {
 	 * @param  request
 	 * @return  java.lang.String
 	 */
-	@RequestMapping("/download")
-	public String download(HttpServletRequest request){
-		String fileId = request.getParameter("fileId");
+	@RequestMapping("/download/{fileId}")
+	public String download(HttpServletRequest request, @PathVariable String fileId){
+//		String fileId = request.getParameter("fileId");
 		File file=this.shareIndexService.findFileById(Long.parseLong(fileId));
 		//以文件标题作为关键字搜索相关文件
 		String keyWord=file.getFileTitle();
