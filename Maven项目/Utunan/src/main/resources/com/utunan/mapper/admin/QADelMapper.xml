@@ -17,4 +17,14 @@
             #{item}
         </foreach>
     </delete>
+    <!--单个删除提问-->
+    <delete id="delQuiz" parameterType="Long">
+        delete  from quiz
+        where quizId=#{quizId}
+    </delete>
+    <!--单个删除回答评论-->
+    <delete id="delAnswer" parameterType="Long">
+        delete from answer
+        where answerId=#{answerId}
+    </delete>
 </mapper>
