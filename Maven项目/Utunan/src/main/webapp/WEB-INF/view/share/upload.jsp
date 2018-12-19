@@ -27,7 +27,7 @@
                 , accept: 'file' //允许所有类型文件上传
                 , auto: false     //不允许文件自动上传
                 , bindAction: '#submit'   //指向按钮触发上传
-                , size: 200000    //设置最大上传大小为200MB
+                , size: 20000    //设置最大上传大小为20MB
                 , drag: true       //接受拖拽文件上传
                 , before: function (obj) {
                     //预读本地文件示例，不支持ie8
@@ -110,7 +110,7 @@
                                 <p>点击上传，或将文件拖拽到此处</p>
                             </div>
                             <div class="layui-form-item layui-form-text">
-                                <label class="layui-form-label">资源简捷</label>
+                                <label class="layui-form-label">资源简介</label>
                                 <div class="layui-input-block">
                                     <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
                                 </div>

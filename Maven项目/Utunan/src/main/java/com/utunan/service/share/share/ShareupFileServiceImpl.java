@@ -21,7 +21,7 @@ public class ShareupFileServiceImpl implements ShareupFileService {
 
     //将信息插入file表
     @Override
-    public void insertfile(Long fileId, String sourcetype, String title, String school, Long userId, String path, Long suffixId, Long integral,Long isExamine) {
+    public void insertfile(Long fileId, String sourcetype, String title, String school, Long userId, String path, Long suffixId, Long integral,Long isExamine,String fileDiscription) {
         File file=new File();
         file.setFileId(fileId);
         file.setFileSchool(school);
@@ -33,6 +33,7 @@ public class ShareupFileServiceImpl implements ShareupFileService {
         file.setFileType(sourcetype);
         file.setUserId(userId);
         file.setIsExamine(isExamine);
+        file.setFileDiscription(fileDiscription);
         this.shareuploadMapper.insertfile(file);
 
     }
