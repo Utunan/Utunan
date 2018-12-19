@@ -342,11 +342,36 @@ layui.config({
             }
         });
     };
+
+    function apraise(directionCommentId,praiseCount){
+        if(${user==null}){
+            mask.style.display="block";
+            modalDialogcontent.style.display="block";
+        }else{
+            $.ajax({
+                url:'/school/updateDCPraiseCount',//处理数据的地址
+                type:'post',//数据提交形式
+                data:{'directionCommentId':directionCommentId},//需要提交的数据
+                dataType: "json",
+                success:function(d){//数据返回成功的执行放大
+                    var res = d.res;
+                    var praiseCount = d.praiseCount;
+                    if(res=='ok'){//成功
+                        document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
+                        document.getElementById("zan"+directionCommentId).style.color="#ff5722";
+                    }
+                    if(res=='no'){//失败
+                        document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
+                        document.getElementById("zan"+directionCommentId).style.color="#333";
+                    }
+                },
+            });
+        }
+    }
 </script>
 <script src="/js/common/login.js"></script>
-<script>
+<%--<script>
     function apraise(directionCommentId,praiseCount){
-        /*var praiseCount = document.getElementById("directionComment"+directionCommentId);*/
         $.ajax({
             url:'/school/updateDCPraiseCount',//处理数据的地址
             type:'post',//数据提交形式
@@ -366,5 +391,6 @@ layui.config({
             },
         });
     }
-</script>
+
+</script>--%>
 </html>
