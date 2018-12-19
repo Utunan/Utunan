@@ -203,22 +203,22 @@ public class SchoolDetailController {
             this.publishDirectionCommentService.addDCPraiseCount(Long.parseLong(directionCommentId));
             //查找当前点赞数
             Long praiseCount = this.publishDirectionCommentService.findPDC(Long.parseLong(directionCommentId)).getDirectionCommentPraiseCount();
+            //加入json
             obj.put("res", "ok");
             obj.put("praiseCount", praiseCount);
-            System.out.println("[赞]"+praiseCount);
+            //返回数据
             response.getWriter().append(obj.toString());
-            /*return "ok";*/
         }else {
             //不能点赞
             this.directionCommentGreatService.deleteDCGreat(Long.parseLong(directionCommentId),user.getUserId());
             this.publishDirectionCommentService.delDCPraiseCount(Long.parseLong(directionCommentId));
             //查找当前点赞数
             Long praiseCount = this.publishDirectionCommentService.findPDC(Long.parseLong(directionCommentId)).getDirectionCommentPraiseCount();
+            //加入json
             obj.put("res", "no");
             obj.put("praiseCount", praiseCount);
-            System.out.println("[赞]"+praiseCount);
+            //返回数据
             response.getWriter().append(obj.toString());
-            /*return "no";*/
         }
     }
 

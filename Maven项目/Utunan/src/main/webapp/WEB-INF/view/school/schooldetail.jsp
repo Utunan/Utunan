@@ -351,19 +351,10 @@ layui.config({
             url:'/school/updateDCPraiseCount',//处理数据的地址
             type:'post',//数据提交形式
             data:{'directionCommentId':directionCommentId},//需要提交的数据
+            dataType: "json",
             success:function(d){//数据返回成功的执行放大
-                /*if(d=='ok'){//成功
-                    document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount+1;
-                    document.getElementById("zan"+directionCommentId).style.color="#ff5722";
-                }
-                if(d=='no'){//失败
-                    document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
-                    document.getElementById("zan"+directionCommentId).style.color="#333";
-                }*/
                 var res = d.res;
                 var praiseCount = d.praiseCount;
-                console.log(res);
-                console.log(praiseCount);
                 if(res=='ok'){//成功
                     document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
                     document.getElementById("zan"+directionCommentId).style.color="#ff5722";
