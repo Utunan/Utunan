@@ -46,7 +46,13 @@
                     </c:choose>
                 </c:forEach>
                 <script>
-                    $('')
+                    alla=$('#message a')
+                    console.log(alla)
+                    alla.click(function(){
+                        id=$(this).parent().attr('id')
+                        $()
+                        url=$(this).attr('_href')
+                    })
                 </script>
             </nav>
             <%@ include file="common/page.jsp"%>

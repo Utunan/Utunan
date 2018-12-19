@@ -36,6 +36,7 @@
 }
 #message>li>span>a{
     cursor: pointer;
+    color:#80a0ff;
     text-decoration: none;
 }
 .system{
