@@ -119,23 +119,22 @@
                   </c:forEach>
               </ul>
               </div>
-                  <div style="text-align: center">
-                      <div class="laypage-main">
-                          <a href="/${url }">首页</a>
-                          <a href="/${url }?pageNum=${PageInfo.prePage}"><<</a>
-                          <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                              <a name="${i}" href="/${url }?pageNum=${i}">${i}</a>
-                          </c:forEach>
-                          <c:choose>
-                              <c:when test="${PageInfo.nextPage==0}">
-                                  <a href="/${url }?pageNum=${PageInfo.pages}">>></a>
-                              </c:when>
-                              <c:otherwise>
-                                  <a href="/${url }?pageNum=${PageInfo.nextPage}">>></a>
-                              </c:otherwise>
-                          </c:choose>
-                          <a href="/${url }?pageNum=${PageInfo.pages}">尾页</a>
-                      </div>
+              <div style="text-align: center">
+                  <div class="laypage-main">
+                      <a href="/${url }">首页</a>
+                      <a href="/${url }?pageNum=${PageInfo.prePage}"><<</a>
+                      <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                          <a name="${i}" href="/${url }?pageNum=${i}">${i}</a>
+                      </c:forEach>
+                      <c:choose>
+                          <c:when test="${PageInfo.nextPage==0}">
+                              <a href="/${url }?pageNum=${PageInfo.pages}">>></a>
+                          </c:when>
+                          <c:otherwise>
+                              <a href="/${url }?pageNum=${PageInfo.nextPage}">>></a>
+                          </c:otherwise>
+                      </c:choose>
+                      <a href="/${url }?pageNum=${PageInfo.pages}">尾页</a>
                   </div>
               </div>
           </c:if>
@@ -203,15 +202,16 @@
                       <a href="/${url }?fileType=${fileType}&school=${school}&keyWord=${keyWord}&pageNum=${PageInfo.pages}">尾页</a>
                   </div>
               </div>
-          </c:if></div>
+          </c:if>
+        </div>
     </div><!--上边这-->
   <!--左边这-->
   <div class="layui-col-md4">
     <div class="fly-panel">
-            <div class="fly-panel-main">
-              <a href="/share1" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">我要上传</a>
-            </div>
+        <div class="fly-panel-main">
+          <a href="/share1" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">我要上传</a>
         </div>
+    </div>
 
       <dl class="fly-panel fly-list-one">
         <dt class="fly-panel-title">热门资源</dt>
