@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/community/layui.css">
     <link rel="stylesheet" href="/css/community/global.css">
-  <link rel="stylesheet" href="../css/share/file.css">
+  <link rel="stylesheet" href="/css/share/file.css">
     <script>
         schools = new Object();
         <c:forEach items="${provinceList}" var="province">

@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>院校详情</title>
-  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="/css/common.css">
   <link rel="stylesheet" href="/css/community/layui.css">
   <link rel="stylesheet" href="/css/community/global.css">
   <link rel="stylesheet" href="/css/school/detail.css">
