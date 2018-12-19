@@ -58,7 +58,7 @@ public class ShareController {
                 sourcetype="招生简章";
                 break;
             case 1:
-               sourcetype="招生专业目录";
+                sourcetype="招生专业目录";
                 break;
             case 11:
                 sourcetype="考研真题";
@@ -87,25 +87,37 @@ public class ShareController {
 
         //获取登录用户
         User user=(User)session.getAttribute("User");
-
-        if(sourcetype=="招生简章"||sourcetype=="招生专业目录"){
-            title=school+year+sourcetype;
-        }
-
         //查询对应标签ID
         Long suffixId=this.shareupFileService.getSuffix(filetype);
 
         //获取最大的fileId
         Long fileId=this.shareupFileService.getMaxfileId();
         fileId+=1;
-        if(file.getOriginalFilename()!=null&&user!=null&&Long.parseLong(integral)>=0) {
 
-             this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral));
-             return "上传成功";
+        if(sourcetype.equals("招生简章")||sourcetype.equals("招生专业目录")){
+            title=school+year+sourcetype;
+            if(file.getOriginalFilename()!=null&&user!=null&&Long.parseLong(integral)>=0) {
+
+                this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral),Long.parseLong("0"));
+                return "上传成功";
+            }
+            else{
+                return "上传不成功,请重新上传";
+            }
         }
         else{
-           return "上传不成功,请重新上传";
+            if(file.getOriginalFilename()!=null&&user!=null&&Long.parseLong(integral)>=0) {
+
+                this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral),Long.parseLong("1"));
+                return "上传成功";
+            }
+            else{
+                return "上传不成功,请重新上传";
+            }
         }
+
+
+
 
 
     }
