@@ -1,4 +1,4 @@
-package com.utunan.pojo.base.questionbank;
+package com.utunan.pojo.base.school;
 
 import com.utunan.pojo.base.user.User;
 import org.springframework.format.annotation.DateTimeFormat;

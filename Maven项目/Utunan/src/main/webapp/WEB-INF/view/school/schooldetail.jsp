@@ -2,6 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="/intel" prefix="ya" %>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -145,8 +146,16 @@
             <div class="jieda-reply">
               <%--点赞--%>
               <span class="jieda-zan zanok" type="zan">
-                <a id="zan${dcomment.directionCommentId}" href="javascript:void(0)" onclick="apraise(${dcomment.directionCommentId},${dcomment.directionCommentPraiseCount})"><i class="iconfont icon-zan"></i></a>
-                <em id="directionComment${dcomment.directionCommentId}">${dcomment.directionCommentPraiseCount}</em>
+                <c:choose>
+                  <c:when test="${ya:judge(directionCommentGreatList,dcomment.directionCommentId)}">
+                    <a style="color: #ff5722;" id="zan${dcomment.directionCommentId}" href="javascript:void(0)" onclick="apraise(${dcomment.directionCommentId},${dcomment.directionCommentPraiseCount})"><i class="iconfont icon-zan"></i></a>
+                    <em id="directionComment${dcomment.directionCommentId}">${dcomment.directionCommentPraiseCount}</em>
+                  </c:when>
+                  <c:otherwise>
+                    <a style="color: #333;" id="zan${dcomment.directionCommentId}" href="javascript:void(0)" onclick="apraise(${dcomment.directionCommentId},${dcomment.directionCommentPraiseCount})"><i class="iconfont icon-zan"></i></a>
+                    <em id="directionComment${dcomment.directionCommentId}">${dcomment.directionCommentPraiseCount}</em>
+                  </c:otherwise>
+                </c:choose>
               </span>
               <%--判断是否是管理员或者是用户本人--%>
               <c:if test="${user.userIdentity==1 || (user.userIdentity==3 && user.userId==dcomment.user.userId)}">
@@ -337,16 +346,27 @@ layui.config({
 <script src="/js/common/login.js"></script>
 <script>
     function apraise(directionCommentId,praiseCount){
+        /*var praiseCount = document.getElementById("directionComment"+directionCommentId);*/
         $.ajax({
             url:'/school/updateDCPraiseCount',//处理数据的地址
             type:'post',//数据提交形式
             data:{'directionCommentId':directionCommentId},//需要提交的数据
             success:function(d){//数据返回成功的执行放大
-                if(d=='ok'){//成功
+                /*if(d=='ok'){//成功
                     document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount+1;
                     document.getElementById("zan"+directionCommentId).style.color="#ff5722";
                 }
                 if(d=='no'){//失败
+                    document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
+                    document.getElementById("zan"+directionCommentId).style.color="#333";
+                }*/
+                var res = d.res;
+                var praiseCount = d.praiseCount;
+                if(res=='ok'){//成功
+                    document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
+                    document.getElementById("zan"+directionCommentId).style.color="#ff5722";
+                }
+                if(res=='no'){//失败
                     document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
                     document.getElementById("zan"+directionCommentId).style.color="#333";
                 }
