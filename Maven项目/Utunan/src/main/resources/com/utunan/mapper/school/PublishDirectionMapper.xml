@@ -21,7 +21,7 @@
             <result property="schoolType" column="schoolType"/>
             <result property="schoolSubjection" column="schoolSubjection"/>
         </association>
-        <collection property="directionComments" javaType="java.util.List" ofType="com.utunan.pojo.base.questionbank.DirectionComment">
+        <collection property="directionComments" javaType="java.util.List" ofType="com.utunan.pojo.base.school.DirectionComment">
             <id property="directionCommentId" column="directionCommentId"/>
             <result property="directionCommentContent" column="directionCommentContent"/>
             <result property="directionCommentTime" column="directionCommentTime"/>

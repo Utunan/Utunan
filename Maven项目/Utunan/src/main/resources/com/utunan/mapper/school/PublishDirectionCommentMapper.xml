@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.utunan.mapper.questionbank.PublishDirectionCommentMapper">
+<mapper namespace="com.utunan.mapper.school.PublishDirectionCommentMapper">
 
-    <resultMap id="PublishDirectionCommentMap" type="com.utunan.pojo.inherit.questionbank.PublishDirectionComment">
+    <resultMap id="PublishDirectionCommentMap" type="com.utunan.pojo.inherit.school.PublishDirectionComment">
         <id property="directionCommentId" column="directionCommentId"/>
         <result property="userId" column="userId"/>
         <result property="directionId" column="directionId"/>
@@ -26,6 +26,13 @@
         </association>
     </resultMap>
 
+   <!-- 查找评论-->
+    <select id="findPDC" parameterMap="PublishDirectionCommentMap">
+        select *
+        from direction_comment
+        where directionCommentId=#{directionCommentId}
+    </select>
+
     <!--王碧云 增加点赞数-->
     <update id="addDCPraiseCount" parameterType="java.lang.Long">
         update direction_comment
@@ -39,7 +46,7 @@
         where directionCommentId=#{directionCommentId}
     </update>
     <!--王碧云 插入评论-->
-    <insert id="insertDirectionComment" parameterType="com.utunan.pojo.base.questionbank.DirectionComment">
+    <insert id="insertDirectionComment" parameterType="com.utunan.pojo.base.school.DirectionComment">
         insert
         into direction_comment(userId,directionId,directionCommentContent,directionCommentTime,directionCommentPraiseCount)
         values (#{userId},#{directionId},#{directionCommentContent},#{directionCommentTime},#{directionCommentPraiseCount})

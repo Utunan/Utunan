@@ -1,7 +1,9 @@
-package com.utunan.service.questionbank;
+package com.utunan.service.school;
 
-import com.utunan.pojo.base.questionbank.DirectionCommentGreat;
+import com.utunan.pojo.base.school.DirectionCommentGreat;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @author 王碧云
@@ -16,5 +18,6 @@ public interface DirectionCommentGreatService {
     void insertDCGreat(Long directionCommentId, Long userId);
     /*删除用户点赞记录*/
     void deleteDCGreat(Long directionCommentId, Long userId);
-
+    /*查询该用户在某院校下的点赞列表*/
+    List<Long> findfindDCGreatList(Long userId);
 }

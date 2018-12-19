@@ -1,12 +1,11 @@
-package com.utunan.service.questionbank.impl;
+package com.utunan.service.school.impl;
 
-import com.utunan.mapper.questionbank.PublishDirectionCommentMapper;
-import com.utunan.pojo.inherit.questionbank.PublishDirectionComment;
-import com.utunan.service.questionbank.PublishDirectionCommentService;
+import com.utunan.mapper.school.PublishDirectionCommentMapper;
+import com.utunan.pojo.inherit.school.PublishDirectionComment;
+import com.utunan.service.school.PublishDirectionCommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -18,6 +17,11 @@ import java.util.Date;
 public class PublishDirectionCommentServiceImpl implements PublishDirectionCommentService {
     @Autowired
     private PublishDirectionCommentMapper publishDirectionCommentMapper;
+
+    @Override
+    public PublishDirectionComment findPDC(Long directionCommentId) {
+        return this.publishDirectionCommentMapper.findPDC(directionCommentId);
+    }
 
     @Override
     public Long addDCPraiseCount(Long directionCommentId) {
