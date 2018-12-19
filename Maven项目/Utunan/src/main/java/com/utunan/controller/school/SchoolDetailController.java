@@ -83,8 +83,12 @@ public class SchoolDetailController {
         List<File> top9file = this.schoolDetailFileService.findTop9SchoolFile(schoolName);
 
         //获取用户的点赞评论列表
-        List<Long> directionCommentGreatList = this.directionCommentGreatService.findfindDCGreatList(user.getUserId());
-        System.out.println("[directionCommentGreatList]"+directionCommentGreatList);
+        Long userId = null;
+        if(user!=null){
+            userId=user.getUserId();
+        }
+        List<Long> directionCommentGreatList = this.directionCommentGreatService.findfindDCGreatList(userId);
+    
         //返回数据
         request.setAttribute("publishDirection", publishDirection);
         request.setAttribute("directionCommentCount", directionCommentCount);
@@ -183,9 +187,9 @@ public class SchoolDetailController {
     /*
      * @author  王碧云
      * @description 修改点赞数
-     * @date  16:20 2018/12/19/019
-     * @param  [session, request]
-     * @return  java.lang.String
+     * @date  21:14 2018/12/19/019
+     * @param  [session, request, response]
+     * @return  void
      */
     @ResponseBody
     @RequestMapping("/updateDCPraiseCount")
