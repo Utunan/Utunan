@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.utunan.mapper.user.UserMapper">
+
+    <select id="selectAllUser" resultType="com.utunan.pojo.base.user.User">
+        select *
+        from user
+    </select>
+    <select id="selectAllMember" resultType="com.utunan.pojo.base.user.User">
+        select *
+        from  user
+        where userIdentity!='1'
+    </select>
+    <select id="selectAllAdmin" resultType="com.utunan.pojo.base.user.User">
+        select *
+        from  user
+        where userIdentity!='3'
+        order by userIdentity asc
+    </select>
+
+    <select id="selectByPermit" resultType="com.utunan.pojo.base.user.User">
+        select *
+        from user
+        where (
+        userTelephone=#{userTelephone}
+        or
+        userEmail=#{userEmail}
+        )
+        and
+        userPassword=#{userPassword}
+    </select>
+    <select id="selectByP" resultType="com.utunan.pojo.base.user.User">
+        select *
+        from  user
+        where userTelephone=#{userTelephone}
+              and userPassword=#{userPassword}
+    </select>
+
+    <select id="selectByPorE" resultType="com.utunan.pojo.base.user.User">
+        select *
+        from user
+        where
+        userTelephone=#{userTelephone}
+        or
+        userEmail=#{userEmail}
+    </select>
+
+    <select id="selectByUserId" resultType="com.utunan.pojo.base.user.User">
+        select *
+        from  user
+        where userId=#{userId}
+    </select>
+
+    <select id="selectFollowUser" resultType="com.utunan.pojo.base.user.User">
+        select u.userId, u.userHeadImg,u.userNickName
+        from user u left join follow f on u.userId=f.followedUserId
+        where followUserId=#{userId}
+    </select>
+
+    <select id="selectUserMessage" resultType="java.lang.Integer">
+        select count(*)
+        from message
+        where receiveUserId=#{userId} and isView="0"
+    </select>
+
+    <resultMap id="MessageResult" type="com.utunan.pojo.base.user.Message">
+        <id column="messageId" property="messageId"/>
+        <result column="messageContent" property="messageContent"/>
+        <result column="messageType" property="messageType"/>
+        <result column="messageTime" property="messageTime"/>
+        <result column="isView" property="isView"/>
+        <association property="sendUser" javaType="com.utunan.pojo.base.user.User">
+            <id column="sendUserId" property="userId"/>
+        </association>
+        <association property="receiveUser" javaType="com.utunan.pojo.base.user.User">
+            <id column="receiveUserId" property="userId"/>
+        </association>
+    </resultMap>
+
+    <select id="selectUserAllReadInfo" resultMap="MessageResult">
+        select *
+        from message
+        where receiveUserId=#{userId} and isView="1"
+    </select>
+
+    <select id="selectUserAllNoReadInfo" resultMap="MessageResult">
+        select *
+        from message
+        where receiveUserId=#{userId} and isView="0"
+    </select>
+
+    <insert id="insert">
+        insert into user(userTelephone,userPassword,userNickName,registerTime)
+        values(#{userTelephone},#{userPassword},#{userNickName},#{registerTime})
+    </insert>
+
+    <update id="updateUser" parameterType="com.utunan.pojo.base.user.User">
+        update user
+        set userNickName=#{userNickName},examTime=#{examTime},userSchool=#{userSchool},dreamSchool=#{dreamSchool}
+        where userTelephone=#{userTelephone}
+    </update>
+
+    <update id="updateUserPassword" parameterType="com.utunan.pojo.base.user.User">
+        update user
+        set userPassword=#{userPassword}
+        where userId=#{userId}
+    </update>
+
+    <update id="updateUserHeadImg" parameterType="com.utunan.pojo.base.user.User">
+        update user
+        set userHeadImg=#{userHeadImg}
+        where userId=#{userId}
+    </update>
+
+    <update id="updateUserTelephone" parameterType="com.utunan.pojo.base.user.User">
+        update user
+        set userTelephone=#{userTelephone}
+        where userId=#{userId}
+    </update>
+
+    <update id="updateUserEmail" parameterType="com.utunan.pojo.base.user.User">
+        update user
+        set userEmail=#{userEmail}
+        where userId=#{userId}
+    </update>
+
+</mapper>

@@ -3,7 +3,6 @@ body {
     margin: 0;
     background-image: url("/images/common/loginbg.jpg");
     background-size: cover;
-    background-position: center center;
 }
 #telereply>a{
     font-size: 15px;

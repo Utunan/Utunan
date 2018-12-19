@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.utunan.mapper.admin.QADelMapper">
+    <!--批量删除提问-->
+    <delete id="delAllQuiz" parameterType="arraylist">
+        delete from quiz
+        where quizId in
+        <foreach collection="b" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+    <!--批量删除回答评论-->
+    <delete id="delAllAnswer" parameterType="arraylist">
+        delete from answer
+        where answerId in
+        <foreach collection="b" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+    <!--单个删除提问-->
+    <delete id="delQuiz" parameterType="Long">
+        delete  from quiz
+        where quizId=#{quizId}
+    </delete>
+    <!--单个删除回答评论-->
+    <delete id="delAnswer" parameterType="Long">
+        delete from answer
+        where answerId=#{answerId}
+    </delete>
+</mapper>

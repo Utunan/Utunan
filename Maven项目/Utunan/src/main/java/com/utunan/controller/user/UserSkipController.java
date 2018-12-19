@@ -60,7 +60,7 @@ public class UserSkipController {
     public String information() {
         return "redirect:/user/message/noread";
     }
-
+    
     @RequestMapping("message/noread")
     public String infoRead(HttpSession session, HttpServletRequest request) {
         User user = (User) session.getAttribute("User");

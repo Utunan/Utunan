@@ -9,9 +9,16 @@
                 <c:when test="${plate==\"publishquiz\"||plate==\"publishanswer\"}">
                     <div class="noresult">
                         <h2 style="text-align:left;padding-top:50px;font-size:30px;padding-left: 100px;color:#2e317c;">少侠~</h2>
-                        <h2 style="text-align:left;padding-top:0px;padding-left:70px;color:rgb(247, 184, 102);">你的社区记录为空</h2>
+                        <h2 style="text-align:left;padding-top:0px;padding-left:70px;color:rgb(247, 184, 102);">你的记录为空</h2>
                         <h2 style="text-align:left;padding-top:0px;padding-left:120px;color:rgb(247, 184, 102);">请来参加</h2>
                         <h1 style="text-align:left;padding-left: 180px; color:rgb(243, 149, 149);">U问答?</h1>
+                    </div>
+                </c:when>
+                <c:when test="${plate==\"message/read\"||plate==\"message/noread\"}">
+                    <div class="mnoresult">
+                        <h2 style="text-align:left;padding-top:50px;font-size:30px;padding-left: 100px;color:#2e317c;">少侠~</h2>
+                        <h2 style="text-align:left;padding-top:0px;padding-left:70px;color:rgb(247, 184, 102);">你的消息为空</h2>
+                        <h2 style="text-align:left;padding-top:0px;padding-left:120px;color:rgb(247, 184, 102);">欢迎多次来访呦</h2>
                     </div>
                 </c:when>
                 <c:otherwise>

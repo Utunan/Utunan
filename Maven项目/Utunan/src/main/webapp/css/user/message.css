@@ -1,0 +1,58 @@
+.infotype{
+    width: 100%;
+    height:40px;
+    float: left;
+    line-height: 40px;
+    font-size: 15px;
+    text-align: center;
+}
+.infotype>span{
+
+}
+
+.infotype>span>a{
+    text-decoration: none;
+    color: #818181;
+}
+#infoactive>a{
+    color:#0C0C0C;    font-weight: bold;
+}
+
+#message{
+ list-style-type: none;
+}
+#message>li{
+    width: 84%;
+    padding:10px 8%;
+    margin:5px 0;
+    float: left;
+    border-bottom: 1px solid #dbdbdb;
+    border-top: 1px solid #dbdbdb;
+}
+#message>li>span:first-of-type{
+    font-weight: bold;
+    color: rgba(0,188,155,0.6);
+    margin-right:30px;
+}
+#message>li>span>a{
+    cursor: pointer;
+    text-decoration: none;
+}
+.system{
+    color: #7a7a7a;
+}
+.newreply{
+    color: #80a0ff;
+}
+#message>li>span>a:hover{
+    color: #ff9b26;
+}
+.mnoresult{
+    clear: both;
+    width: 100%;
+    height: 393px;
+    background: url(/images/user/notfound.jpg);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: right;
+}

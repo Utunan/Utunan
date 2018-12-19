@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.utunan.mapper.community.QuizMapper">
+    <resultMap id="quizBaseMap" type="com.utunan.pojo.base.community.Quiz">
+        <id property="quizId" column="quizId"/>
+        <result property="quizTitle" column="quizTitle"/>
+        <result property="quizContent" column="quizContent"/>
+        <result property="releaseTime" column="releaseTime"/>
+        <result property="praiseCount" column="praiseCount"/>
+        <result property="answerCount" column="answerCount"/>
+        <association property="user" javaType="com.utunan.pojo.base.user.User">
+            <id property="userId" column="userId"></id>
+            <result property="userEmail" column="userEmail"/>
+            <result property="userTelephone" column="userTelephone"/>
+            <result property="userPassword" column="userPassword"/>
+            <result property="userIdentity" column="userIdentity"/>
+            <result property="examTime" column="examTime"/>
+            <result property="registerTime" column="registerTime"/>
+            <result property="userHeadImg" column="userHeadImg"/>
+            <result property="userNickName" column="userNickName"/>
+            <result property="userSchool" column="userSchool"/>
+            <result property="dreamSchool" column="dreamSchool"/>
+            <result property="userIntegral" column="userIntegral"/>
+        </association>
+        <collection property="tags" ofType="com.utunan.pojo.base.community.Tag">
+            <id column="tagId" property="tagId"/>
+            <result property="tagName" column="tagName"/>
+        </collection>
+    </resultMap>
+    <!--查询问答列表-->
+    <select id="listQuiz" resultMap="quizBaseMap">
+        SELECT *
+        from quiz q
+        join user u on q.userId = u.userId
+        order by ${orderBy} desc
+    </select>
+
+    <!--根据quizId查用户-->
+    <select id="findUserByQuizId" resultType="com.utunan.pojo.base.user.User">
+        select u.*
+        from user u
+        join quiz q on q.userId = u.userId
+        where quizId = #{quizId}
+    </select>
+    
+    <!--根据quizId查评论数量-->
+    <select id="countAnswerByQuizId" resultType="java.lang.Long">
+        select count(answerId)
+        from answer
+        where quizId=#{quizId}
+    </select>
+    <!--根据quizId查标签列表-->
+    <select id="selectTagByQuizId" resultType="com.utunan.pojo.base.community.Tag">
+        select t.tagName
+        from tag t
+        join quiz_tag qt on t.tagId = qt.tagId
+        where qt.quizId = #{quizId}
+    </select>
+
+    <!-- 向quiz表插入数据 -->
+    <insert id="toInsert" parameterType="com.utunan.pojo.base.community.Quiz">
+        insert into quiz(quizId, userId, quizTitle, quizContent, releaseTime, praiseCount, answerCount)
+        values (#{quizId}, #{user.userId}, #{quizTitle}, #{quizContent}, #{releaseTime}, #{praiseCount}, #{answerCount})
+    </insert>
+    
+    <!--根据回答quizId最大查询，每次只查一条-->
+    <select id="getQuiz1" resultType="com.utunan.pojo.base.community.Quiz">
+        select *
+        from quiz
+        where quizId = (select max(quizId) from quiz)
+    </select>
+    
+    <!--更新quiz表点赞数-->
+    <update id="updatePraiseCount" parameterType="java.lang.Long">
+        update quiz
+        set praiseCount=praiseCount + 1
+        where quizId = #{quizId}
+    </update>
+    
+    <!--@author 王碧云 根据QuizId查找Quiz-->
+    <select id="findQuizById" resultMap="quizBaseMap">
+        select *
+        from quiz
+        join user on quiz.userId = user.userId
+        where
+        quizId = #{quizId}
+    </select>
+
+    <!--在某标签下分页查询-->
+    <select id="listQuizByTag" resultType="com.utunan.pojo.base.community.Quiz">
+        select *
+        from quiz
+        where quizId in
+        <foreach collection="quizId" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        order by ${orderBy} desc
+    </select>
+    
+    <!--根据tagName查quizId-->
+    <select id="selectQuizIdByTagName" resultType="java.lang.Long">
+        select qt.quizId
+        from quiz_tag qt
+        join tag t on qt.tagId = t.tagId
+        where t.tagName = #{tagName}
+        group by qt.quizId
+    </select>
+
+    <!--根据UserId 查询 Quiz-->
+    <select id="selectQuizByUserId" resultMap="quizBaseMap">
+        select *
+        from quiz
+        where userId = #{userId}
+    
+    </select>
+    
+    <!--张正扬，查询最大quizId-->
+    <select id="getMax" resultType="java.lang.Long">
+        select max(quizId)
+        from quiz
+    </select>
+
+    <!--张正扬， 增加问题回答数-->
+    <update id="addAnswerCount" parameterType="java.lang.Long">
+        update quiz
+        set answerCount=answerCount+1
+        where quizId=#{quizId}
+    </update>
+    <!--删除问题点赞-->
+    <update id="delPraiseQuiz" parameterType="java.lang.Long">
+        update quiz
+        set praiseCount=praiseCount-1
+        where quizId=#{quizId}
+    </update>
+
+    <select id="quizListTop10" parameterType="int" resultMap="quizBaseMap">
+        select *
+        from quiz
+        order by answerCount desc ,releaseTime desc
+        limit 10
+    </select>
+    <select id="getCountPrise" parameterType="Long" resultType="java.lang.Long">
+        select praiseCount
+        from quiz
+        where quizId=#{quizId}
+    </select>
+</mapper>

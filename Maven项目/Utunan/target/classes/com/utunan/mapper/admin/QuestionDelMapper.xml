@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.utunan.mapper.admin.QuestionDelMapper">
+    <!--批量删除数据结构题目-->
+    <delete id="delAllDsQuestion" parameterType="arraylist">
+        delete from question
+        where questionId in
+        <foreach collection="b" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <!--批量删除C语言题目-->
+    <delete id="delAllCQuestion" parameterType="arraylist">
+        delete from question
+        where questionId in
+        <foreach collection="b" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+
+    <!--批量删除操作系统题目-->
+    <delete id="delAllOsQuestion" parameterType="arraylist">
+        delete from question
+        where questionId in
+        <foreach collection="b" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+    <!--批量删除组成原理题目-->
+    <delete id="delAllConstitute" parameterType="arraylist">
+        delete from question
+        where questionId in
+        <foreach collection="b" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <!--批量删除网络原理题目-->
+    <delete id="delAllNetwork" parameterType="arraylist">
+        delete from question
+        where questionId in
+        <foreach collection="b" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <!--批量删除软件工程题目-->
+    <delete id="delAllSeQuestion" parameterType="arraylist">
+        delete from question
+        where questionId in
+        <foreach collection="b" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+</mapper>

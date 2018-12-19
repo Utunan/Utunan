@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.utunan.mapper.admin.AdminQuestionMapper">
+    <resultMap id="questionResultMap" type="com.utunan.pojo.base.questionbank.Question">
+        <id property="questionId" column="questionId"/>
+        <result property="chapterName" column="chapterName"/>
+        <result property="questionType" column="questionType"/>
+        <result property="questionContent" column="questionContent"/>
+        <result property="questionEnterTime" column="questionEnterTime"/>
+        <result property="rightNum" column="rightNum"/>
+        <result property="errorNum" column="errorNum"/>
+        <association property="user" javaType="com.utunan.pojo.base.user.User">
+            <id column="userId" property="userId"/>
+            <result property="userEmail" column="userEmail"/>
+            <result property="userTelephone" column="userTelephone"/>
+            <result property="userPassword" column="userPassword"/>
+            <result property="userIdentity" column="userIdentity"/>
+            <result property="examTime" column="examTime"/>
+            <result property="registerTime" column="registerTime"/>
+            <result property="userHeadImg" column="userHeadImg"/>
+            <result property="userNickName" column="userNickName"/>
+            <result property="userSchool" column="userSchool"/>
+            <result property="dreamSchool" column="dreamSchool"/>
+            <result property="userIntegral" column="userIntegral"/>
+        </association>
+        <association property="subject" javaType="com.utunan.pojo.base.questionbank.Subject">
+            <id property="subjectId" column="subjectId"/>
+            <result property="subjectName" column="subjectId"/>
+        </association>
+    </resultMap>
+    <select id="selectAllDS" resultMap="questionResultMap">
+        select *
+        from question
+        left join user on question.userId=user.userId
+        where subjectId=1
+    </select>
+
+    <select id="selectAllC" resultMap="questionResultMap">
+        select *
+        from question
+        left join user on question.userId=user.userId
+        where subjectId=2
+    </select>
+
+    <select id="selectAllOS" resultMap="questionResultMap">
+        select *
+        from  question
+        left join user on question.userId=user.userId
+        where subjectId=3
+    </select>
+    <select id="selectAllConstitute" resultMap="questionResultMap">
+        select *
+        from  question
+        left join user on question.userId=user.userId
+        where subjectId=4
+    </select>
+    <select id="selectAllNetwork" resultMap="questionResultMap">
+        select *
+        from  question
+        left join user on question.userId=user.userId
+        where subjectId=5
+    </select>
+    <select id="selectAllSE" resultMap="questionResultMap">
+        select *
+        from  question
+        left join user on question.userId=user.userId
+        where subjectId=6
+    </select>
+
+    <select id="selectQuestionByKeyword" resultType="com.utunan.pojo.base.questionbank.Question">
+        select *
+        from question
+    </select>
+</mapper>

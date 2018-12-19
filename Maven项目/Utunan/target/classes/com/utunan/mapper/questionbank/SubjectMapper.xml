@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.utunan.mapper.questionbank.SubjectMapper">
+    <!--所有科目-->
+    <select id="listSubject" resultType="com.utunan.pojo.base.questionbank.Subject">
+        select *
+        from subject
+    </select>
+    <!--科目下所有题目数量-->
+    <select id="countQuestionBySubject" resultType="java.lang.Long">
+        select count(*)
+        from question
+        where subjectId=#{subjectId}
+    </select>
+    <!--科目下已做题目数量-->
+    <select id="countResolveQuestionBySubject" resultType="java.lang.Long">
+        select count(uqb.questionId)
+        from user_question_bank uqb
+        join question q on uqb.questionId=q.questionId
+        where q.subjectId=#{subjectId} and uqb.userId=#{userId}
+    </select>
+    <!--科目下所有题目-->
+    <select id="listQuestionBySubject" resultType="com.utunan.pojo.base.questionbank.Question">
+        select *
+        from question q
+        join subject s on q.subjectId=s.subjectId
+        where s.subjectName=#{subjectName}
+    </select>
+    <!--科目名称查科目ID-->
+    <select id="findSubjectIdByName" resultType="java.lang.Long">
+        select subjectId
+        from subject
+        where subjectName=#{subjectName}
+    </select>
+</mapper>
