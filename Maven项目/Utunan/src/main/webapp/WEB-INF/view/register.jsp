@@ -16,7 +16,7 @@
 <%@ include file="common/header.jsp" %>
 <div class="container background">
     <div class="center">
-
+        <div class="platename">注册</div>
         <form id="registerform" class="registerform" action="/register" method="post" onsubmit="return checkForm()">
             <div class="reply" id="telereply">${reply}</div>
             <!--    手机号  -->
@@ -60,7 +60,6 @@
 
         if (reg.test(value))
             return true
-
         return false;
     }
 
@@ -125,15 +124,15 @@
                 dataType: "json",
                 success: function (data) {
                     if (data == '200') {
-                        reply="手机号已存在,请<a href='/login'>登陆</a>"
+                        reply = "手机号已存在,请<a href='/login'>登陆</a>"
                         $('#userTelephone').css('backgroundColor', 'rgba(255,192,203,1)');
-                        state=false
-                    }else{
-                        reply=""
+                        state = false
+                    } else {
+                        reply = ""
                         $('#userTelephone').css('backgroundColor', 'rgba(255,255,255,1)');
                     }
-                },error:function(){
-                    reply="网站可能崩了,请您先等会儿~"
+                }, error: function () {
+                    reply = "网站可能崩了,请您先等会儿~"
                 }
             });
         }
@@ -149,7 +148,7 @@
         if (!checkpassword($('#password').val())) {
             $('#password').css('backgroundColor', 'rgba(255,192,203,1)');
             if ($('#password').val() == "") {
-                reply="密码不能为空"
+                reply = "密码不能为空"
             }
             else {
                 reply = "密码格式错误"
@@ -168,12 +167,12 @@
     function checkrpass() {
         var state = true
         var reply = ""
-        if ($('#repassword').val() != $('#password').val()) {
-            $('#repassword').css('backgroundColor', 'rgba(255,192,203,1)');
+        if ($('#rpassword').val() != $('#password').val()) {
+            $('#rpassword').css('backgroundColor', 'rgba(255,192,203,1)');
             reply = "两次输入的密码不一样"
             state = false
         } else {
-            $('#repassword').css('backgroundColor', 'white')
+            $('#rpassword').css('backgroundColor', 'white')
             reply = ""
         }
         $('#repassreply').html(reply)
@@ -210,11 +209,13 @@
     })
 
 
-    var time = 60;
-
+    var time = 59;
+    var isgetcode = false;
+    var codestate = false;
     $('#getcode').click(
         function () {
             if (checkpermit($('#userTelephone').val())) {
+
                 $.ajax({
                     type: "post",
                     url: "/checkpermit",
@@ -222,15 +223,66 @@
                         userTelephone: $("#userTelephone").val()
                     },
                     async: false,
-                    dataType: "json",
                     success: function (data) {
                         if (data == '200') {
                             $('#telereply').html("手机号已存在,请<a href='/login'>登陆</a>")
+                        } else {
+                            isgetcode = true;
+                            have_code = true
+                            $('#telereply').html("")
+                            if (codestate == false) {
+                                time = 59
+                                $.ajax(
+                                    {
+                                        type: "post",
+                                        url: "/code",
+                                        data: {
+                                            userTelephone: $("#userTelephone").val()
+                                        },
+                                        success: function (data) {
+                                            response = data
+                                            codestate = true
+                                            $('#getcode').html("60s后重新发送")
+                                            if (response == 'success') {
+                                                SI = setInterval(function () {
+                                                    html = time + "s后重新发送"
+                                                    $('#getcode').html(html)
+                                                    time--;
+                                                    if (time == 0) {
+                                                        $('#getcode').html("获取验证码")
+                                                        clearInterval(SI);
+                                                        codestate = false;
+                                                    }
+                                                }, 1000)
+                                            }
+                                        },
+                                        error: function (data) {
+                                            response = data.responseText
+                                            codestate = true
+                                            $('#getcode').html("60s后重新发送")
+                                            if (response == 'success') {
+                                                SI = setInterval(function () {
+                                                    html = time + "s后重新发送"
+                                                    $('#getcode').html(html)
+                                                    time--;
+                                                    if (time == 0) {
+                                                        $('#getcode').html("获取验证码")
+                                                        clearInterval(SI);
+                                                        codestate = false;
+                                                    }
+                                                }, 1000)
+                                            }
+                                        }
+                                    }
+                                );
+                            }
                         }
-                    },error:function(){
+                    }, error: function () {
                         $('#telereply').html("网站可能崩了,请您先等会儿~")
                     }
                 });
+
+
             } else {
                 $('#telereply').html("请输入正确的手机号")
                 $('#userTelephone').css('backgroundColor', 'rgba(255,192,203,1)')
@@ -240,20 +292,29 @@
 
     function checkForm() {
         state = true;
-        if (!checktel())
+        if (!checktel()) {
             state = false;
+            console.log(1)
+        }
         if (checktel())
             if (!have_code) {
                 $("#code").css('backgroundColor', 'rgba(255,192,203,1)')
                 $('#codereply').html("请填写验证码")
                 state = false
+                console.log(2)
             }
-        if (!checkvcode())
+        if (!checkvcode($('#code').val())) {
             state = false;
-        if (!checkpass())
+            console.log(3)
+        }
+        if (!checkpass()) {
             state = false;
-        if (!checkpass())
+            console.log(4)
+        }
+        if (!checkpass()) {
             state = false;
+            console.log(5)
+        }
         return state
     }
 </script>

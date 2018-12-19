@@ -29,7 +29,7 @@ public class UserVerificationController {
 
     @RequestMapping("/code")
     @ResponseBody
-    public void code(HttpServletRequest request, HttpServletResponse response){
+    public String code(HttpServletRequest request, HttpServletResponse response){
         String userTelephone=request.getParameter("userTelephone");
         response.setCharacterEncoding("UTF-8");
 
@@ -46,7 +46,9 @@ public class UserVerificationController {
             smsDemo.sendSms(userTelephone,code);
         } catch (ClientException e) {
             e.printStackTrace();
+            return "unsuccess";
         }
+        return "success";
     }
 
     @RequestMapping("/telecode")

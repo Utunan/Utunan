@@ -78,41 +78,63 @@
               <div>
                   <ul class="list">
                   <c:forEach items="${fileList}" var="file" varStatus="stat">
-                      <li>
-                          <div>
-                          <img src="${file.suffix.imgUrl}" alt="文件类型" class="siffix">
-                          <span class="tn"><a href="/download?fileId=${file.fileId}" >${file.fileTitle}</a></span>
-                          <div class="topdetail">
-                              <span class="ft"> ${file.fileType}</span>
-                              <span class="fs">${file.fileSchool}</span>
-                          </div>
-                          <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
-                          <div class="rightdetail">
-                              <span class="fc"><img src="/images/share/credit.svg"  class="credit">${file.fileCredit}</span>
-                              <span class="dn"><img src="/images/share/downNum.svg"  class="downNum">${file.downloadNumber}</span>
-                          </div>
-                          </div>
-                      </li>
+                      <c:choose>
+                          <c:when test="${file.fileType == '招生简章' || file.fileType == '招生专业目录'}">
+                              <c:if test="${file.isExamine == 1}">
+                                  <li>
+                                      <div>
+                                          <img src="${file.suffix.imgUrl}" alt="文件类型" class="siffix">
+                                          <span class="tn"><a href="/download?fileId=${file.fileId}" >${file.fileTitle}</a></span>
+                                          <div class="topdetail">
+                                              <span class="ft"> ${file.fileType}</span>
+                                              <span class="fs">${file.fileSchool}</span>
+                                          </div>
+                                          <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
+                                          <div class="rightdetail">
+                                              <span class="fc"><img src="/images/share/credit.svg"  class="credit">${file.fileCredit}</span>
+                                              <span class="dn"><img src="/images/share/downNum.svg"  class="downNum">${file.downloadNumber}</span>
+                                          </div>
+                                      </div>
+                                  </li>
+                              </c:if>
+                          </c:when>
+                          <c:otherwise>
+                              <li>
+                                  <div>
+                                      <img src="${file.suffix.imgUrl}" alt="文件类型" class="siffix">
+                                      <span class="tn"><a href="/download?fileId=${file.fileId}" >${file.fileTitle}</a></span>
+                                      <div class="topdetail">
+                                          <span class="ft"><a href="/searchfile?fileType=${file.fileType}&school=${file.fileSchool}&keyWord=">${file.fileType}</a></span>
+                                          <span class="fs"><a href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a></span>
+                                      </div>
+                                      <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
+                                      <div class="rightdetail">
+                                          <span class="fc"><img src="/images/share/credit.svg"  class="credit">${file.fileCredit}</span>
+                                          <span class="dn"><img src="/images/share/downNum.svg"  class="downNum">${file.downloadNumber}</span>
+                                      </div>
+                                  </div>
+                              </li>
+                          </c:otherwise>
+                      </c:choose>
                   </c:forEach>
               </ul>
-              </div>.
-                  <div style="text-align: center">
-                      <div class="laypage-main">
-                          <a href="/${url }">首页</a>
-                          <a href="/${url }?pageNum=${PageInfo.prePage}"><<</a>
-                          <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                              <a name="${i}" href="/${url }?pageNum=${i}">${i}</a>
-                          </c:forEach>
-                          <c:choose>
-                              <c:when test="${PageInfo.nextPage==0}">
-                                  <a href="/${url }?pageNum=${PageInfo.pages}">>></a>
-                              </c:when>
-                              <c:otherwise>
-                                  <a href="/${url }?pageNum=${PageInfo.nextPage}">>></a>
-                              </c:otherwise>
-                          </c:choose>
-                          <a href="/${url }?pageNum=${PageInfo.pages}">尾页</a>
-                      </div>
+              </div>
+              <div style="text-align: center">
+                  <div class="laypage-main">
+                      <a href="/${url }">首页</a>
+                      <a href="/${url }?pageNum=${PageInfo.prePage}"><<</a>
+                      <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                          <a name="${i}" href="/${url }?pageNum=${i}">${i}</a>
+                      </c:forEach>
+                      <c:choose>
+                          <c:when test="${PageInfo.nextPage==0}">
+                              <a href="/${url }?pageNum=${PageInfo.pages}">>></a>
+                          </c:when>
+                          <c:otherwise>
+                              <a href="/${url }?pageNum=${PageInfo.nextPage}">>></a>
+                          </c:otherwise>
+                      </c:choose>
+                      <a href="/${url }?pageNum=${PageInfo.pages}">尾页</a>
                   </div>
               </div>
           </c:if>
@@ -120,21 +142,44 @@
               <div>
                   <ul class="list">
                       <c:forEach items="${fileList}" var="file" varStatus="stat">
-                          <li>
-                              <div>
-                                  <img src="${file.suffix.imgUrl}" alt="文件类型" class="siffix">
-                                  <span class="tn"><a href="/download?fileId=${file.fileId}" >${file.fileTitle}</a></span>
-                                  <div class="topdetail">
-                                      <span class="ft"> ${file.fileType}</span>
-                                      <span class="fs">${file.fileSchool}</span>
-                                  </div>
-                                  <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
-                                  <div class="rightdetail">
-                                      <span class="fc"><img src="/images/share/credit.svg"  class="credit">${file.fileCredit}</span>
-                                      <span class="dn"><img src="/images/share/downNum.svg"  class="downNum">${file.downloadNumber}</span>
-                                  </div>
-                              </div>
-                          </li>
+                          <c:choose>
+                              <c:when test="${file.fileType == '招生简章' || file.fileType == '招生专业目录'}">
+                                  <c:if test="${file.isExamine == 1}">
+                                      <li>
+                                          <div>
+                                              <img src="${file.suffix.imgUrl}" alt="文件类型" class="siffix">
+                                              <span class="tn"><a href="/download?fileId=${file.fileId}" >${file.fileTitle}</a></span>
+                                              <div class="topdetail">
+                                                  <span class="ft"> ${file.fileType}</span>
+                                                  <span class="fs">${file.fileSchool}</span>
+                                              </div>
+                                              <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
+                                              <div class="rightdetail">
+                                                  <span class="fc"><img src="/images/share/credit.svg"  class="credit">${file.fileCredit}</span>
+                                                  <span class="dn"><img src="/images/share/downNum.svg"  class="downNum">${file.downloadNumber}</span>
+                                              </div>
+                                          </div>
+                                      </li>
+                                  </c:if>
+                              </c:when>
+                              <c:otherwise>
+                                  <li>
+                                      <div>
+                                          <img src="${file.suffix.imgUrl}" alt="文件类型" class="siffix">
+                                          <span class="tn"><a href="/download?fileId=${file.fileId}" >${file.fileTitle}</a></span>
+                                          <div class="topdetail">
+                                              <span class="ft"> ${file.fileType}</span>
+                                              <span class="fs">${file.fileSchool}</span>
+                                          </div>
+                                          <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
+                                          <div class="rightdetail">
+                                              <span class="fc"><img src="/images/share/credit.svg"  class="credit">${file.fileCredit}</span>
+                                              <span class="dn"><img src="/images/share/downNum.svg"  class="downNum">${file.downloadNumber}</span>
+                                          </div>
+                                      </div>
+                                  </li>
+                              </c:otherwise>
+                          </c:choose>
                       </c:forEach>
                   </ul>
               </div>
@@ -157,26 +202,38 @@
                       <a href="/${url }?fileType=${fileType}&school=${school}&keyWord=${keyWord}&pageNum=${PageInfo.pages}">尾页</a>
                   </div>
               </div>
-          </c:if></div>
+          </c:if>
+        </div>
     </div><!--上边这-->
   <!--左边这-->
   <div class="layui-col-md4">
     <div class="fly-panel">
-            <div class="fly-panel-main">
-              <a href="/share1" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">我要上传</a>
-            </div>
+        <div class="fly-panel-main">
+          <a href="/share1" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">我要上传</a>
         </div>
+    </div>
 
       <dl class="fly-panel fly-list-one">
         <dt class="fly-panel-title">热门资源</dt>
           <c:forEach items="${hotFileList}" var="hotFile">
-        <dd>
-            <a href="/download?fileId=${hotFile.fileId}" >${hotFile.fileTitle}</a>
-            <span><span class="dn"><img src="/images/share/downNum2.svg"  class="downNum">${hotFile.downloadNumber}</span></span>
-        </dd>
+              <c:choose>
+                  <c:when test="${hotFile.fileType == '招生简章' || hotFile.fileType == '招生专业目录'}">
+                      <c:if test="${hotFile.isExamine == 1}">
+                          <dd>
+                              <a href="/download?fileId=${hotFile.fileId}" style="color: red">${hotFile.fileTitle}</a>
+                              <span><i class="iconfont icon-pinglun1"></i> ${hotFile.downloadNumber}</span>
+                          </dd>
+                      </c:if>
+                  </c:when>
+                  <c:otherwise>
+                      <dd>
+                          <a href="/download?fileId=${hotFile.fileId}" style="color: red">${hotFile.fileTitle}</a>
+                          <span><i class="iconfont icon-pinglun1"></i> ${hotFile.downloadNumber}</span>
+                      </dd>
+                  </c:otherwise>
+              </c:choose>
           </c:forEach>
       </dl>
-
     </div>
   </div>
 </div>

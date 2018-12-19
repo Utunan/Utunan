@@ -423,4 +423,6 @@
         }
     }
 </script>
+<script src="/js/common/login.js"></script>
+<script src="/js/common/common.js"></script>
 </html>

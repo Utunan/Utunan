@@ -40,7 +40,6 @@
         from file f
         join user u on f.userId=u.userId
         join suffix s on f.suffixId=s.suffixId
-        where f.isExamine=1
         order by f.fileTime desc
     </select>
     <!--按下载数量查询前15个文件-->
@@ -49,7 +48,6 @@
         from file f
         join user u on f.userId=u.userId
         join suffix s on f.suffixId=s.suffixId
-        where f.isExamine=1
         order by f.downloadNumber desc
         limit 15
     </select>
@@ -72,7 +70,6 @@
         join suffix s on f.suffixId=s.suffixId
         where f.fileSchool like #{fileSchool}
         and f.fileTitle REGEXP #{keyWord}
-        and f.isExamine=1
         and f.fileType in
         <if test="fileType!=null">
             <foreach collection="fileType" item="item" index="index" open="(" separator="," close=")">
@@ -98,7 +95,6 @@
         join user u on f.userId=u.userId
         join suffix s on f.suffixId=s.suffixId
         where f.fileTitle REGEXP #{fileTitle}
-        and f.isExamine=1
         limit 20
     </select>
     <!--更新用户积分-->
