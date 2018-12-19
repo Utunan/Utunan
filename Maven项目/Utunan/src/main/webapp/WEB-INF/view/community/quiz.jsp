@@ -72,7 +72,7 @@
         <c:if test="${url=='quiz'}">
             <div class="fly-panel" style="margin-bottom: 0;">
                 <div class="fly-panel-title fly-filter">
-                    <a href="quiz?by=releaseTime" class="${stateList[0]}">最新问题</a>
+                    <a href="quiz" class="${stateList[0]}">最新问题</a>
                     <span class="fly-mid"></span>
                     <a href="quiz?by=praiseCount" class="${stateList[1]}">热门问题</a>
                     <span class="fly-mid"></span>
@@ -89,8 +89,7 @@
                 <ul class="fly-list">
                     <c:forEach items="${object}" var="obj">
                     <li>
-                        <a href="user/home.html" class="fly-avatar">
-
+                        <a href="/member/${obj.user.userId}" class="fly-avatar">
                            <img src="${obj.user.userHeadImg}" alt="昵称">
                         </a>
                         <h2>
@@ -98,12 +97,8 @@
                         </h2>
                         <!--<span class="question-description">${obj.quiz.quizContent}</span>-->
                         <div class="fly-list-info">
-                            <a href="user/home.html" link>
+                            <a href="/member/${obj.user.userId}" link>
                                 ${obj.user.userNickName}
-                                <!--
-                                <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                                <i class="layui-badge fly-badge-vip">VIP3</i>
-                                -->
                             </a>
                             <span>
                                 <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
@@ -117,7 +112,11 @@
                         </div>
                         <div class="fly-list-badge">
                             <c:forEach items="${obj.tagList}" var="taglist">
-                                <span class="layui-badge layui-bg-red"><a href="quiztag?by=releaseTime&tagName=${taglist.tagName}">${taglist.tagName}</a></span>
+                                <span class="layui-badge layui-bg-red">
+                                    <a href="/quiztag/${taglist.tagName}">
+                                            ${taglist.tagName}
+                                    </a>
+                                </span>
                             </c:forEach>
                         </div>
                     </li>
@@ -154,9 +153,9 @@
             <div class="fly-panel" style="margin-bottom: 0;">
     
                 <div class="fly-panel-title fly-filter">
-                    <a href="quiztag?by=releaseTime&tagName=${tagName}"class="${statelist[0]}">最新问题</a>
+                    <a href="/quiztag/${tagName}" class="${statelist[0]}">最新问题</a>
                     <span class="fly-mid"></span>
-                    <a href="quiztag?by=praiseCount&tagName=${tagName}"class="${statelist[1]}">热门问题</a>
+                    <a href="/quiztag/${tagName}?by=praiseCount" class="${statelist[1]}">热门问题</a>
                     <span class="fly-mid"></span>
                     <a href="">智能推荐</a>
                     <span class="fly-mid"></span>
@@ -171,7 +170,7 @@
                 <ul class="fly-list">
                     <c:forEach items="${object}" var="obj">
                         <li>
-                            <a href="user/home.html" class="fly-avatar">
+                            <a href="/member/${obj.user.userId}" class="fly-avatar">
                                 <img src="${obj.user.userHeadImg}" alt="昵称">
                             </a>
                             <h2>
@@ -179,12 +178,8 @@
                             </h2>
                             <!--<span class="question-description">${obj.quiz.quizContent}</span>-->
                             <div class="fly-list-info">
-                                <a href="user/home.html" link>
-                                        ${obj.user.userNickName}
-                                    <!--
-                                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                                    <i class="layui-badge fly-badge-vip">VIP3</i>
-                                    -->
+                                <a href="/member/${obj.user.userId}" link>
+                                    ${obj.user.userNickName}
                                 </a>
                                 <span>
                                     <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
@@ -199,7 +194,7 @@
                             <div class="fly-list-badge">
                                 <c:forEach items="${obj.tagList}" var="taglist">
                                     <span class="layui-badge layui-bg-red">
-                                        <a href="quiztag?by=releaseTime&tagName=${taglist.tagName}">
+                                        <a href="/quiztag/${taglist.tagName}">
                                             <c:if test="${taglist.tagName == tagName}">
                                                 <p STYLE="color: orange">${taglist.tagName}</p>
                                             </c:if>
@@ -217,20 +212,20 @@
                     <c:choose>
                         <c:when test="${not empty object}">
                             <div class="laypage-main">
-                                <a href="/${url }?by=${orderBy}&tagName=${tagName}">首页</a>
-                                <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.prePage}"><<</a>
+                                <a href="/${url }/${tagName}?by=${orderBy}">首页</a>
+                                <a href="/${url }/${tagName}?by=${orderBy}&pageNum=${PageInfo.prePage}"><<</a>
                                 <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                                    <a name="${i}" href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${i}">${i}</a>
+                                    <a name="${i}" href="/${url }/${tagName}?by=${orderBy}&pageNum=${i}">${i}</a>
                                 </c:forEach>
                                 <c:choose>
                                     <c:when test="${PageInfo.nextPage==0}">
-                                        <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.pages}">>></a>
+                                        <a href="/${url }/${tagName}?by=${orderBy}&pageNum=${PageInfo.pages}">>></a>
                                     </c:when>
                                     <c:otherwise>
-                                        <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.nextPage}">>></a>
+                                        <a href="/${url }/${tagName}?by=${orderBy}&pageNum=${PageInfo.nextPage}">>></a>
                                     </c:otherwise>
                                 </c:choose>
-                                <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.pages}">尾页</a>
+                                <a href="/${url }/${tagName}?by=${orderBy}&pageNum=${PageInfo.pages}">尾页</a>
                             </div>
                         </c:when>
                         <c:otherwise>
@@ -266,7 +261,7 @@
                 <h3 class="fly-panel-title">热门标签</h3>
                 <dl class="fly-panel-main">
                     <c:forEach items="${tag}" var="tags">
-                        <dd><a href="quiztag?tagName=${tags[0].tagName}" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
+                        <dd><a href="/quiztag/${tags[0].tagName}" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
                     </c:forEach>
                 </dl>
             </div>
