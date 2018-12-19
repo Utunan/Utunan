@@ -220,7 +220,7 @@
                     <div class="write-answer-top">&nbsp;&nbsp;&nbsp;&nbsp;写回答</div>
                 </div>
                 <!--富文本编辑器-->
-                <form action="answer?quizId=${quiz.quizId}" method="post">
+                <form action="/answer?quizId=${quiz.quizId}" method="post">
                     <div class="text">
     
                         <div id="div1" class="toolbar" style="height: 35px"></div>
@@ -262,7 +262,6 @@
             comments[j].style.display="none";
         }
     }
-
 
     var E = window.wangEditor
     var editor = new E('#div1', '#div2')

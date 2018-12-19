@@ -1,6 +1,7 @@
 package com.utunan.mapper.user;
 
 import com.utunan.pojo.base.user.Message;
+import org.apache.ibatis.annotations.Param;
 
 public interface MessageMapper {
     //获得最大的messageId

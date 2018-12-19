@@ -4,7 +4,7 @@
     <!--向message表中存入信息-->
     <insert id="saveMessage" parameterType="com.utunan.pojo.base.user.Message">
         insert into message(messageId,receiveUserId,sendUserId,quizId,messageContent,messageType,messageTime,isView)
-        values (#{messageId},#{receiveUser.userId},#{sendUser.userId},#{quizId},#{messageContent},#{messageTime},#{isView})
+        values (#{messageId},#{receiveUser.userId},#{sendUser.userId},#{quizId},#{messageContent},#{messageType},#{messageTime},#{isView})
     </insert>
     <!--获取最大messageId-->
     <select id="getMaxMid" resultType="java.lang.Long">

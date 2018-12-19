@@ -42,11 +42,11 @@ public class AnswerController {
         request.setCharacterEncoding("UTF-8");
         Quiz quiz=(Quiz)session.getAttribute("quiz");
         Long quizId=Long.parseLong(request.getParameter("quizId"));
+        System.out.print(quizId);
         String content = request.getParameter("textarea");
         User user = (User)session.getAttribute("User");
-
         //封装message表中内容
-        String messageContent="<a _href='/quiz/'"+quizId+">"+quiz.getQuizTitle()+"</a>";
+        String messageContent="<a _href='/quiz/"+quizId+"'>"+quiz.getQuizTitle()+"</a>";
         Long mid=messageService.getMaxMid();
         mid+=1;
         this.quizService.addAnswerCount(quizId);
