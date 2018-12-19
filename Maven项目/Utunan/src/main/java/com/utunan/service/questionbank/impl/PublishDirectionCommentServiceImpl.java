@@ -18,32 +18,21 @@ import java.util.Date;
 public class PublishDirectionCommentServiceImpl implements PublishDirectionCommentService {
     @Autowired
     private PublishDirectionCommentMapper publishDirectionCommentMapper;
-    /*
-     * @author  王碧云
-     * @description 修改点赞的数量
-     * @date  17:32 2018/12/5/005
-     * @param  [directionCommentId]
-     * @return  java.lang.Long
-     */
-    @Override
-    public Long updateDirectionCommentPraiseCount(Long directionCommentId) {
-        return this.publishDirectionCommentMapper.updateDirectionCommentPraiseCount(directionCommentId);
-    }
 
-    /*
-     * @author  王碧云
-     * @description 插入评论
-     * @date  22:02 2018/12/12/012
-     * @param  [userId, directionId, directionCommentContent, directionCommentTime, directionCommentPraiseCount]
-     * @return  void
-     */
+    @Override
+    public Long addDCPraiseCount(Long directionCommentId) {
+        return this.publishDirectionCommentMapper.addDCPraiseCount(directionCommentId);
+    }
+    @Override
+    public Long delDCPraiseCount(Long directionCommentId) {
+        return this.publishDirectionCommentMapper.delDCPraiseCount(directionCommentId);
+    }
     @Override
     public void insertDirectionComment(Long userId, Long directionId, String directionCommentContent) {
         Date time = new Date();
         Long directionCommentPraiseCount = Long.parseLong("0");
         this.publishDirectionCommentMapper.insertDirectionComment(userId, directionId, directionCommentContent, time, directionCommentPraiseCount);
     }
-
     @Override
     public void deleteDirectionComment(Long directionCommentId) {
         this.publishDirectionCommentMapper.deleteDirectionComment(directionCommentId);

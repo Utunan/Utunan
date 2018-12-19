@@ -1,9 +1,11 @@
 package com.utunan.controller.school;
 
 import com.github.pagehelper.PageInfo;
+import com.utunan.pojo.base.questionbank.DirectionCommentGreat;
 import com.utunan.pojo.base.share.File;
 import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.inherit.school.PublishDirection;
+import com.utunan.service.questionbank.DirectionCommentGreatService;
 import com.utunan.service.questionbank.PublishDirectionCommentService;
 import com.utunan.service.school.DirectionService;
 import com.utunan.service.school.PublishDirectionService;
@@ -16,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
@@ -45,6 +48,8 @@ public class SchoolDetailController {
     private SchoolDetailFileService schoolDetailFileService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private DirectionCommentGreatService directionCommentGreatService;
 
     /*
      * @author  王碧云
@@ -91,23 +96,6 @@ public class SchoolDetailController {
         request.setAttribute("user", user);
         return "/school/schooldetail";
     }
-
-    /*
-     * @author  王碧云
-     * @description 修改点赞数
-     * @date  16:26 2018/12/16/016
-     * @param  [directionCommentId, directionId]
-     * @return  java.lang.String
-     */
-    @RequestMapping("/updateDirectionCommentPraiseCount")
-    public String updateDirectionCommentPraiseCount(@RequestParam(value = "directionCommentId") String directionCommentId,
-                                                    @RequestParam(value = "directionId",required = false) Long directionId){
-        //修改点赞数量
-        Long praiseCount = this.publishDirectionCommentService.updateDirectionCommentPraiseCount(Long.parseLong(directionCommentId));
-
-        return "redirect:/school/displayDirectionDetail?directionId="+directionId;
-    }
-
     /*
      * @author  王碧云
      * @description 插入评论
@@ -187,6 +175,40 @@ public class SchoolDetailController {
         } else {
             response.getWriter().print("false");
         }
+    }
+
+
+    /*
+     * @author  王碧云
+     * @description 修改点赞数
+     * @date  16:26 2018/12/16/016
+     * @param  [directionCommentId, directionId]
+     * @return  java.lang.String
+     */
+    @ResponseBody
+    @RequestMapping("/updateDCPraiseCount")
+    public String updateDirectionCommentPraiseCount(HttpSession session,HttpServletRequest request){
+        String directionCommentId = request.getParameter("directionCommentId");
+        User user = (User) session.getAttribute("User");
+        System.out.println("[directionCommentId]"+directionCommentId);
+        System.out.println("[user]"+user);
+        //到院校评论点赞表进行查询是否有记录
+        DirectionCommentGreat directionCommentGreat = this.directionCommentGreatService.findDCGreat(Long.parseLong(directionCommentId),user.getUserId());
+        if(directionCommentGreat==null){
+            //可以点赞
+            this.directionCommentGreatService.insertDCGreat(Long.parseLong(directionCommentId),user.getUserId());
+            this.publishDirectionCommentService.addDCPraiseCount(Long.parseLong(directionCommentId));
+            System.out.println("点赞啦");
+            return "ok";
+        }else {
+            //不能点赞
+            this.directionCommentGreatService.deleteDCGreat(Long.parseLong(directionCommentId),user.getUserId());
+            this.publishDirectionCommentService.delDCPraiseCount(Long.parseLong(directionCommentId));
+            System.out.println("取消赞！！！");
+            return "no";
+        }
+        /*
+        return "redirect:/school/displayDirectionDetail?directionId="+directionId;*/
     }
 
 }
