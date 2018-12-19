@@ -36,54 +36,61 @@
                             <span class="fly-mid"></span>
                         </div>
                         <c:if test="${url=='searchQuiz'}">
-                        <ul class="fly-list">
-                            <c:forEach items="${object}" var="obj">
-                                <li>
-                                    <a href="user/home.html" class="fly-avatar">
-                                        <img src="${obj.quiz.user.userHeadImg}" alt="昵称">
-                                    </a>
-                                    <h2>
-                                        <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
-                                    </h2>
-                                    <!--<span class="question-description">${obj.quiz.quizContent}</span>-->
-                                    <div class="fly-list-info">
-                                        <a href="user/home.html" link>
-                                                ${obj.quiz.user.userNickName}
+                            <ul class="fly-list">
+                                <c:forEach items="${object}" var="obj">
+                                    <li>
+                                        <a href="user/home.html" class="fly-avatar">
+                                            <img src="${obj.quiz.user.userHeadImg}" alt="昵称">
                                         </a>
-                                        <span>
-                                            <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
-                                        </span>
+                                        <h2>
+                                            <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
+                                        </h2>
+                                        <!--<span class="question-description">${obj.quiz.quizContent}</span>-->
+                                        <div class="fly-list-info">
+                                            <a href="user/home.html" link>
+                                                    ${obj.quiz.user.userNickName}
+                                            </a>
+                                            <span>
+                                                <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
+                                            </span>
 
-                                        <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
-                                        <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
-                                        <span class="fly-list-nums">
-                                            <i class="iconfont icon-pinglun1" title="回答"></i> ${obj.quiz.answerCount}
-                                        </span>
-                                    </div>
-                                    <div class="fly-list-badge">
-                                        <c:forEach items="${obj.tagList}" var="taglist">
-                                            <span class="layui-badge layui-bg-red"><a href="quiztag?by=releaseTime&tagName=${taglist.tagName}">${taglist.tagName}</a></span>
-                                        </c:forEach>
-                                    </div>
-                                </li>
-                            </c:forEach>
-                        </ul>
-                        <nav id="page" class="page">
-                            <li class="home"><a href="/${url }?keyWord=${keyWord}">首页</a></li>
-                            <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.prePage}"><<</a></li>
-                            <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                                <li class="pagenum"><a name="${i}" href="/${url }?keyWord=${keyWord}&pageNum=${i}">${i}</a></li>
-                            </c:forEach>
+                                            <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
+                                            <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
+                                            <span class="fly-list-nums">
+                                                <i class="iconfont icon-pinglun1" title="回答"></i> ${obj.quiz.answerCount}
+                                            </span>
+                                        </div>
+                                        <div class="fly-list-badge">
+                                            <c:forEach items="${obj.tagList}" var="taglist">
+                                                <span class="layui-badge layui-bg-red"><a href="quiztag?by=releaseTime&tagName=${taglist.tagName}">${taglist.tagName}</a></span>
+                                            </c:forEach>
+                                        </div>
+                                    </li>
+                                </c:forEach>
+                            </ul>
                             <c:choose>
-                                <c:when test="${PageInfo.nextPage==0}">
-                                    <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">>></a></li>
+                                <c:when test="${not empty object}">
+                                    <nav id="page" class="page">
+                                        <li class="home"><a href="/${url }?keyWord=${keyWord}">首页</a></li>
+                                        <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.prePage}"><<</a></li>
+                                        <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                                            <li class="pagenum"><a name="${i}" href="/${url }?keyWord=${keyWord}&pageNum=${i}">${i}</a></li>
+                                        </c:forEach>
+                                        <c:choose>
+                                            <c:when test="${PageInfo.nextPage==0}">
+                                                <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">>></a></li>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.nextPage}">>></a></li>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <li class="tail"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">尾页</a></li>
+                                    </nav>
                                 </c:when>
                                 <c:otherwise>
-                                    <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.nextPage}">>></a></li>
+                                    <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
                                 </c:otherwise>
                             </c:choose>
-                            <li class="tail"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">尾页</a></li>
-                        </nav>
                         </c:if>
                         <c:if test="${url=='searchAnswer'}">
                             <div>
@@ -108,7 +115,9 @@
                                         <td>${answer.parentAnswer}</td>
                                     </tr>
                                     </c:forEach>
-                                    <table/>
+                                <table/>
+                                <c:choose>
+                                    <c:when test="${not empty object}">
                                     <nav id="page" class="page">
                                         <li class="home"><a href="/${url }?keyWord=${keyWord}">首页</a></li>
                                         <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.prePage}"><<</a></li>
@@ -125,6 +134,11 @@
                                         </c:choose>
                                         <li class="tail"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">尾页</a></li>
                                     </nav>
+                                    </c:when>
+                                    <c:otherwise>
+                                    <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                         </c:if>
 

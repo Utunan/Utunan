@@ -139,14 +139,14 @@
                   <c:when test="${hotFile.fileType == '招生简章' || hotFile.fileType == '招生专业目录'}">
                       <c:if test="${hotFile.isExamine == 1}">
                           <dd>
-                              <a href="/download/${hotFile.fileId}">${hotFile.fileTitle}</a>
+                              <a href="/file/${hotFile.fileId}">${hotFile.fileTitle}</a>
                               <span> <img src="/images/share/downNum2.svg" class="downNum">${hotFile.downloadNumber}</span>
                           </dd>
                       </c:if>
                   </c:when>
                   <c:otherwise>
                       <dd>
-                          <a href="/download/${hotFile.fileId}" >${hotFile.fileTitle}</a>
+                          <a href="/file/${hotFile.fileId}" >${hotFile.fileTitle}</a>
                           <span><img src="/images/share/downNum2.svg" class="downNum" > ${hotFile.downloadNumber}</span>
                       </dd>
                   </c:otherwise>

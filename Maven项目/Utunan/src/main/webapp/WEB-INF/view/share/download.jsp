@@ -73,7 +73,7 @@
                             <c:if test="${f.isExamine == 1}">
                                 <tr>
                                     <td><img src="${f.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px"></td>
-                                    <td><a href="/download/${f.fileId}" style="color: black">${f.fileTitle}</a></td>
+                                    <td><a href="/file/${f.fileId}" style="color: black">${f.fileTitle}</a></td>
                                     <td>${f.user.userNickName}</td>
                                     <td>${f.fileType}</td>
                                     <td>${f.fileSchool}</td>
@@ -85,7 +85,7 @@
                         <c:otherwise>
                             <tr>
                                 <td><img src="${f.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px"></td>
-                                <td><a href="/download/${f.fileId}" style="color: black">${f.fileTitle}</a></td>
+                                <td><a href="/file/${f.fileId}" style="color: black">${f.fileTitle}</a></td>
                                 <td>${f.user.userNickName}</td>
                                 <td>${f.fileType}</td>
                                 <td>${f.fileSchool}</td>
@@ -105,14 +105,14 @@
             <c:when test="${hotFile.fileType == '招生简章' || hotFile.fileType == '招生专业目录'}">
                 <c:if test="${hotFile.isExamine == 1}">
                     <dd>
-                        <a href="/download/${hotFile.fileId}">${hotFile.fileTitle}</a>
+                        <a href="/file/${hotFile.fileId}">${hotFile.fileTitle}</a>
                         <span>下载 &nbsp;${hotFile.downloadNumber}</span>
                     </dd>
                 </c:if>
             </c:when>
             <c:otherwise>
                 <dd>
-                    <a href="/download/${hotFile.fileId}" >${hotFile.fileTitle}</a>
+                    <a href="/file/${hotFile.fileId}" >${hotFile.fileTitle}</a>
                     <span>下载 &nbsp;${hotFile.downloadNumber}</span>
                 </dd>
             </c:otherwise>

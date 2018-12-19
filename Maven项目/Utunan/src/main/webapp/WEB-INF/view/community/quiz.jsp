@@ -124,22 +124,29 @@
                     </c:forEach>
                 </ul>
                 <div style="text-align: center">
-                    <div class="laypage-main">
-                        <a href="/${url }?by=${orderBy}">首页</a>
-                        <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.prePage}"><<</a>
-                        <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                            <a name="${i}" href="/${url }?by=${orderBy}&pageNum=${i}">${i}</a>
-                        </c:forEach>
-                        <c:choose>
-                            <c:when test="${PageInfo.nextPage==0}">
-                                <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.pages}">>></a>
-                            </c:when>
-                            <c:otherwise>
-                                <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.nextPage}">>></a>
-                            </c:otherwise>
-                        </c:choose>
-                        <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.pages}">尾页</a>
-                    </div>
+                    <c:choose>
+                        <c:when test="${not empty object}">
+                            <div class="laypage-main">
+                                <a href="/${url }?by=${orderBy}">首页</a>
+                                <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.prePage}"><<</a>
+                                <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                                    <a name="${i}" href="/${url }?by=${orderBy}&pageNum=${i}">${i}</a>
+                                </c:forEach>
+                                <c:choose>
+                                    <c:when test="${PageInfo.nextPage==0}">
+                                        <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.pages}">>></a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.nextPage}">>></a>
+                                    </c:otherwise>
+                                </c:choose>
+                                <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.pages}">尾页</a>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </c:if>
@@ -168,7 +175,7 @@
                                 <img src="${obj.user.userHeadImg}" alt="昵称">
                             </a>
                             <h2>
-                                <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
+                                <a href="/quiz/${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
                             </h2>
                             <!--<span class="question-description">${obj.quiz.quizContent}</span>-->
                             <div class="fly-list-info">
@@ -207,22 +214,29 @@
                     </c:forEach>
                 </ul>
                 <div style="text-align: center">
-                    <div class="laypage-main">
-                        <a href="/${url }?by=${orderBy}&tagName=${tagName}">首页</a>
-                        <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.prePage}"><<</a>
-                        <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                            <a name="${i}" href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${i}">${i}</a>
-                        </c:forEach>
-                        <c:choose>
-                            <c:when test="${PageInfo.nextPage==0}">
-                                <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.pages}">>></a>
-                            </c:when>
-                            <c:otherwise>
-                                <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.nextPage}">>></a>
-                            </c:otherwise>
-                        </c:choose>
-                        <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.pages}">尾页</a>
-                    </div>
+                    <c:choose>
+                        <c:when test="${not empty object}">
+                            <div class="laypage-main">
+                                <a href="/${url }?by=${orderBy}&tagName=${tagName}">首页</a>
+                                <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.prePage}"><<</a>
+                                <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                                    <a name="${i}" href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${i}">${i}</a>
+                                </c:forEach>
+                                <c:choose>
+                                    <c:when test="${PageInfo.nextPage==0}">
+                                        <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.pages}">>></a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.nextPage}">>></a>
+                                    </c:otherwise>
+                                </c:choose>
+                                <a href="/${url }?by=${orderBy}&tagName=${tagName}&pageNum=${PageInfo.pages}">尾页</a>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </c:if>
@@ -239,7 +253,7 @@
                 <dt class="fly-panel-title">本周热议</dt>
                 <c:forEach items="${quizListTop10}" var="q">
                     <dd>
-                        <a href="displayQuizByQuizId?quizId=${q.quizId}">${q.quizTitle }</a>
+                        <a href="/quiz/${q.quizId}">${q.quizTitle }</a>
                         <span><i class="iconfont icon-pinglun1"></i>${q.answerCount }</span>
                     </dd>
                 </c:forEach>

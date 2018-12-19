@@ -39,7 +39,7 @@ public class ShareDownloadController {
 	 * @param  request
 	 * @return  java.lang.String
 	 */
-	@RequestMapping("/download/{fileId}")
+	@RequestMapping("/file/{fileId}")
 	public String download(HttpServletRequest request, @PathVariable String fileId){
 //		String fileId = request.getParameter("fileId");
 		File file=this.shareIndexService.findFileById(Long.parseLong(fileId));
