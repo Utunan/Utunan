@@ -12,10 +12,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
+    <title>好题尽在优图南</title>
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
-    <script> var pagenum="${PageInfo.pageNum}"</script>
 </head>
 <body>
 <%@include file="../common/header.jsp"%>
@@ -50,7 +49,19 @@
                     <td>${question.questionId}</td>
                     <td>${question.chapterName}</td>
                     <td>${question.questionContent}</td>
-                    <td>${question.questionType}</td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${question.questionType=='1'}">
+                                选择题
+                            </c:when>
+                            <c:when test="${question.questionType=='2'}">
+                                填空题
+                            </c:when>
+                            <c:otherwise>
+                                程序题
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
                     <td>
                         <c:choose>
                             <c:when test="${((question.rightNum)+(question.errorNum))==0}">

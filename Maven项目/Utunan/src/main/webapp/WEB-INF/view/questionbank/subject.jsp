@@ -11,12 +11,21 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
+    <title>好题尽在优图南</title>
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
 </head>
 <body>
 <%@include file="../common/header.jsp"%>
+<div>
+    <span>&nbsp;</span>
+    <span>&nbsp;</span>
+    <form action="/searchresult" method="post">
+        <input type="text" name="keyWord" placeholder="在${totleQuestion}道题目中搜索">
+        <input type="submit" value="好题尽在优图南">
+    </form>
+</div>
+<div>
     <table>
         <tr>
             <td>科目</td>
@@ -33,6 +42,7 @@
         </tr>
         </c:forEach>
     </table>
+</div>
 <%@include file="../common/footer.jsp"%>
 </body>
 </html>

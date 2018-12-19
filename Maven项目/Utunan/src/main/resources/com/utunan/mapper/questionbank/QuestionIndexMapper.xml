@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.utunan.mapper.questionbank.SubjectMapper">
+<mapper namespace="com.utunan.mapper.questionbank.QuestionIndexMapper">
     <!--所有科目-->
     <select id="listSubject" resultType="com.utunan.pojo.base.questionbank.Subject">
         select *
@@ -32,5 +32,17 @@
         select subjectId
         from subject
         where subjectName=#{subjectName}
+    </select>
+    <!--根据搜索条件查找题目-->
+    <select id="selectQuestionBySearchValue" resultType="com.utunan.pojo.base.questionbank.Question">
+        select *
+        from question
+        where chapterName regexp #{keyWord}
+            or questionContent regexp #{keyWord}
+    </select>
+    <!--统计所有题目数量-->
+    <select id="countAllQuestion" resultType="java.lang.Long">
+        select count(*)
+        from question
     </select>
 </mapper>
