@@ -1,9 +1,8 @@
 package com.utunan.pojo.inherit.school;
 
-import com.utunan.pojo.base.questionbank.DirectionComment;
+import com.utunan.pojo.base.school.DirectionComment;
 import com.utunan.pojo.base.school.Direction;
 import com.utunan.pojo.base.school.School;
-import com.utunan.pojo.inherit.questionbank.PublishDirectionComment;
 
 import java.util.List;
 

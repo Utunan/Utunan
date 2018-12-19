@@ -1,10 +1,12 @@
-package com.utunan.service.questionbank.impl;
+package com.utunan.service.school.impl;
 
-import com.utunan.mapper.questionbank.DirectionCommentGreatMapper;
-import com.utunan.pojo.base.questionbank.DirectionCommentGreat;
-import com.utunan.service.questionbank.DirectionCommentGreatService;
+import com.utunan.mapper.school.DirectionCommentGreatMapper;
+import com.utunan.pojo.base.school.DirectionCommentGreat;
+import com.utunan.service.school.DirectionCommentGreatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author 王碧云
@@ -29,5 +31,10 @@ public class DirectionCommentGreatServiceImpl implements DirectionCommentGreatSe
     @Override
     public void deleteDCGreat(Long directionCommentId, Long userId) {
         this.directionCommentGreatMapper.deleteDCGreat(directionCommentId, userId);
+    }
+
+    @Override
+    public List<Long> findfindDCGreatList(Long userId) {
+        return this.directionCommentGreatMapper.findfindDCGreatList(userId);
     }
 }

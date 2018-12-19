@@ -1,9 +1,7 @@
-package com.utunan.service.questionbank;
+package com.utunan.service.school;
 
-import com.utunan.pojo.inherit.questionbank.PublishDirectionComment;
+import com.utunan.pojo.inherit.school.PublishDirectionComment;
 import org.apache.ibatis.annotations.Param;
-
-import java.util.Date;
 
 /**
  * @author 王碧云
@@ -11,6 +9,8 @@ import java.util.Date;
  * @date 2018/12/5/005 17:29
  */
 public interface PublishDirectionCommentService {
+    /*查找评论*/
+    PublishDirectionComment findPDC(Long directionCommentId);
     /*王碧云 增加点赞数量*/
     Long addDCPraiseCount(Long directionCommentId);
     /*王碧云 减少点赞数量*/

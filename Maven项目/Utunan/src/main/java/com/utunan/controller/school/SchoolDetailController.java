@@ -1,18 +1,17 @@
 package com.utunan.controller.school;
 
-import com.github.pagehelper.PageInfo;
-import com.utunan.pojo.base.questionbank.DirectionCommentGreat;
+import com.utunan.pojo.base.school.DirectionCommentGreat;
 import com.utunan.pojo.base.share.File;
 import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.inherit.school.PublishDirection;
-import com.utunan.service.questionbank.DirectionCommentGreatService;
-import com.utunan.service.questionbank.PublishDirectionCommentService;
+import com.utunan.service.school.DirectionCommentGreatService;
+import com.utunan.service.school.PublishDirectionCommentService;
 import com.utunan.service.school.DirectionService;
 import com.utunan.service.school.PublishDirectionService;
 import com.utunan.service.school.SchoolDetailFileService;
 import com.utunan.service.user.UserService;
 import com.utunan.util.SchoolOther;
-import org.apache.http.HttpResponse;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,8 +24,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -85,6 +82,9 @@ public class SchoolDetailController {
         //查找该学校下载量最多的前九的文件
         List<File> top9file = this.schoolDetailFileService.findTop9SchoolFile(schoolName);
 
+        //获取用户的点赞评论列表
+        List<Long> directionCommentGreatList = this.directionCommentGreatService.findfindDCGreatList(user.getUserId());
+        System.out.println("[directionCommentGreatList]"+directionCommentGreatList);
         //返回数据
         request.setAttribute("publishDirection", publishDirection);
         request.setAttribute("directionCommentCount", directionCommentCount);
@@ -94,6 +94,8 @@ public class SchoolDetailController {
         request.setAttribute("year", year);
         request.setAttribute("top9file", top9file);
         request.setAttribute("user", user);
+        request.setAttribute("directionCommentGreatList", directionCommentGreatList);
+
         return "/school/schooldetail";
     }
     /*
@@ -187,21 +189,36 @@ public class SchoolDetailController {
      */
     @ResponseBody
     @RequestMapping("/updateDCPraiseCount")
-    public String updateDirectionCommentPraiseCount(HttpSession session,HttpServletRequest request){
+    public void updateDirectionCommentPraiseCount(HttpSession session,HttpServletRequest request,HttpServletResponse response) throws IOException {
         String directionCommentId = request.getParameter("directionCommentId");
         User user = (User) session.getAttribute("User");
         //到院校评论点赞表进行查询是否有记录
         DirectionCommentGreat directionCommentGreat = this.directionCommentGreatService.findDCGreat(Long.parseLong(directionCommentId),user.getUserId());
+        //创建JSON
+        JSONObject obj=new JSONObject();
+        //判断是否有记录
         if(directionCommentGreat==null){
             //可以点赞
             this.directionCommentGreatService.insertDCGreat(Long.parseLong(directionCommentId),user.getUserId());
             this.publishDirectionCommentService.addDCPraiseCount(Long.parseLong(directionCommentId));
-            return "ok";
+            //查找当前点赞数
+            Long praiseCount = this.publishDirectionCommentService.findPDC(Long.parseLong(directionCommentId)).getDirectionCommentPraiseCount();
+            obj.put("res", "ok");
+            obj.put("praiseCount", praiseCount);
+            System.out.println("[赞]"+praiseCount);
+            response.getWriter().append(obj.toString());
+            /*return "ok";*/
         }else {
             //不能点赞
             this.directionCommentGreatService.deleteDCGreat(Long.parseLong(directionCommentId),user.getUserId());
             this.publishDirectionCommentService.delDCPraiseCount(Long.parseLong(directionCommentId));
-            return "no";
+            //查找当前点赞数
+            Long praiseCount = this.publishDirectionCommentService.findPDC(Long.parseLong(directionCommentId)).getDirectionCommentPraiseCount();
+            obj.put("res", "no");
+            obj.put("praiseCount", praiseCount);
+            System.out.println("[赞]"+praiseCount);
+            response.getWriter().append(obj.toString());
+            /*return "no";*/
         }
     }
 
