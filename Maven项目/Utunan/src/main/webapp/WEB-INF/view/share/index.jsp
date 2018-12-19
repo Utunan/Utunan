@@ -48,28 +48,37 @@
     <div class="layui-col-md8">
       <div class="fly-panel" style="margin-bottom: 0;">
           <form name="form1" action="/searchfile" method="post">
-              <input type="checkbox" name="fileType" value="全部" id="全部" checked="checked">全部
-              <input type="checkbox" name="fileType" value="招生简章" id="招生简章">招生简章
-              <input type="checkbox" name="fileType" value="招生专业目录" id="招生专业目录">招生专业目录
-              <input type="checkbox" name="fileType" value="考研真题" id="考研真题">考研真题
-              <input type="checkbox" name="fileType" value="备考习题" id="备考习题">备考习题
-              <input type="checkbox" name="fileType" value="课件分享" id="课件分享">课件分享
-              <input type="checkbox" name="fileType" value="参考书目" id="参考书目">参考书目
-              <br>
-              <br>
-              <select name="province" onChange="set_school(this, this.form.school);">
-                  <option value="0">选择省份</option>
-                  <c:forEach items="${provinceList}" var="province">
-                      <option value="${province}">${province}</option>
-                  </c:forEach>
-              </select>
-              <select name="school" id="schools">
-                  <option value="">选择学校</option>
-              </select>
-              <br>
-              <br>
-              <input type="text" name="keyWord" placeholder="请输入关键字">
-              <input type="submit" value="查找">
+              <div class="threeops">
+                <div class="op">
+                    <span class="st">资源类型 >></span>
+                    <div class="RadioStyle"><div class="Block PaddingL">
+                        <input type="checkbox" name="fileType" value="全部" id="全部" checked="checked"><label for="全部">全部</label>
+                        <input type="checkbox" name="fileType" value="招生简章" id="招生简章"><label for="招生简章">招生简章</label>
+                        <input type="checkbox" name="fileType" value="招生专业目录" id="招生专业目录"><label for="招生专业目录">招生专业目录</label>
+                        <input type="checkbox" name="fileType" value="考研真题" id="考研真题"><label for="考研真题">考研真题</label>
+                        <input type="checkbox" name="fileType" value="备考习题" id="备考习题"><label for="备考习题">备考习题</label>
+                        <input type="checkbox" name="fileType" value="课件分享" id="课件分享"><label for="课件分享">课件分享</label>
+                        <input type="checkbox" name="fileType" value="参考书目" id="参考书目"><label for="参考书目">参考书目</label>
+                    </div></div>
+                </div>
+                <div class="op">
+                    <span class="st">针对院校 >></span>
+                    <select name="province" onChange="set_school(this, this.form.school);" class="tc">
+                        <option value="0">选择省份</option>
+                        <c:forEach items="${provinceList}" var="province">
+                            <option value="${province}">${province}</option>
+                        </c:forEach>
+                    </select>
+                    <select name="school" id="schools"class="tc">
+                            <option value="%">选择学校</option>
+                    </select>
+                </div>
+                <div class="op">
+                    <span   class="st">关键词搜索 >></span>
+                    <input name="directionName" type="text" id="direction"  value="" placeholder="（选填）如：大数据"  class="layui-input">
+                    <input type="submit" value="搜索" id="search" class="layui-btn layui-btn-normal"/>
+                </div>
+              </div>
           </form>
       </div>
       <div class="fly-panel" style="margin-bottom: 0; margin-top:20px">
@@ -111,7 +120,7 @@
                   </ul>
               </div>
               </table>
-              <%@include file="page1.jsp"%>
+              <%@include file="page.jsp"%>
           </c:if>
         </div>
     </div><!--上边这-->
@@ -148,7 +157,7 @@
   </div>
 </div>
 
-<script>
+<!--<script>
 layui.cache.page = 'jie';
 layui.config({
   version: "3.0.0"
@@ -156,7 +165,7 @@ layui.config({
 }).extend({
   fly: 'index'
 }).use('fly');
-</script>
+</script>-->
 <script src="/js/common/common.js"></script>
 </body>
 </html>
