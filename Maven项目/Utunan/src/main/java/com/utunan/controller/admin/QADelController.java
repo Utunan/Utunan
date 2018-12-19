@@ -15,6 +15,12 @@ public class QADelController {
     @Autowired
     private QADelService qaDelService;
 
+    //删除单个提问
+    @RequestMapping(value = "/delquiz",method = RequestMethod.GET)
+    @ResponseBody
+    public void delquiz(@Param("n") String n,HttpServletRequest request){
+        this.qaDelService.delQuiz(Long.parseLong(n));
+    }
     //批量删除提问
     @RequestMapping(value = "/delallquiz",method = RequestMethod.GET)
     @ResponseBody
@@ -27,6 +33,12 @@ public class QADelController {
         this.qaDelService.delAllQuiz(b);
     }
 
+    //删除单个回答
+    @RequestMapping(value = "/delanswer",method = RequestMethod.GET)
+    @ResponseBody
+    public void delanswer(@Param("n") String n,HttpServletRequest request){
+        this.qaDelService.delAnswer(Long.parseLong(n));
+    }
     //批量删除回答评论
     @RequestMapping(value = "/delallanswer",method = RequestMethod.GET)
     @ResponseBody

@@ -1,12 +1,17 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: zh
+  Date: 2018/12/19
+  Time: 9:37
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<html lang="zh-cn">
-
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>admin</title>
+    <title>资源审核</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
@@ -23,12 +28,11 @@
     <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-
 <body class="layui-anim layui-anim-up">
 <div class="x-body">
     <xblock>
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-        <span class="x-right" style="line-height:40px">共有数据：88 条</span>
+        <span class="x-right" style="line-height:40px">共有数据：<span>88</span>条</span>
     </xblock>
     <table class="layui-table">
         <thead>
@@ -37,29 +41,34 @@
                 <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i
                         class="layui-icon">&#xe605;</i></div>
             </th>
-            <th>发表用户</th>
-            <th>发表标题</th>
-            <th>发表内容</th>
+            <th>昵称</th>
+            <th>资源类型</th>
+            <th>上传时间</th>
+            <th>审核状态</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${quizlist}" var="q">
-            <tr>
-                <td>
-                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${q.quizId}'><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>${q.user.userNickName}</td>
-                <td>${q.quizTitle}</td>
-                <td>${q.quizContent}</td>
-                <td class="td-manage">
-                    <a title="删除" onclick="member_del(this,'${q.quizId}')" href="javascript:;">
-                        <i class="layui-icon">&#xe640;</i>
-                    </a>
-                </td>
+        <c:forEach items="${Schoolcomments}" var="S">
+        <tr>
+            <td>
+                <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${S.schoolcommentId }'><i
+                        class="layui-icon">&#xe605;</i></div>
+            </td>
+            <td>${S.direction.schoolName }</td>
+            <td>${S.direction.directionName }</td>
+            <td>${S.user.userNickName }</td>
+            <td>${S.schoolcommentcontent }</td>
+            <td class="td-manage">
+                <a title="编辑" onclick="x_admin_show('编辑','/admin/memberedit',600,400)" href="javascript:;">
+                    <i class="layui-icon">&#xe642;</i>
+                </a>
+                <a title="删除" onclick="member_del(this,'${S.schoolcommentId }')" href="javascript:;">
+                    <i class="layui-icon">&#xe640;</i>
+                </a>
+            </td>
 
-            </tr>
-        </c:forEach>
+            </c:forEach>
         </tbody>
     </table>
     <div class="page">
@@ -69,7 +78,7 @@
 
                 </c:when>
                 <c:otherwise>
-                    <a class="num" href="/admin/adminlist">首页</a>
+                    <a class="num" href="/admin/directionlist">首页</a>
                     <a class="prev" href="?pageNum=${PageInfo.prePage}">&lt;&lt;</a>
                     <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
                         <c:if test="${i==PageInfo.pageNum}">
@@ -93,65 +102,5 @@
     </div>
 
 </div>
-<script>
-    layui.use('laydate', function () {
-        var laydate = layui.laydate;
-
-        //执行一个laydate实例
-        laydate.render({
-            elem: '#start' //指定元素
-        });
-
-        //执行一个laydate实例
-        laydate.render({
-            elem: '#end' //指定元素
-        });
-    });
-
-    /*用户-删除*/
-    function member_del(obj, id) {
-        layer.confirm('确认要删除吗？', function (index) {
-            layer.confirm('确认要删除吗？'+id, function (index) {
-                $.ajax({
-                    url:"/delquiz",
-                    type:"get",
-                    traditional:true,
-                    data:{"n":id},
-                    success:function(response){
-
-                    },
-                    error:function() {
-                    }
-                });
-            //发异步删除数据
-            $(obj).parents("tr").remove();
-            layer.msg('已删除!', {icon: 1, time: 1000});
-        });
-    }
-
-    function delAll(argument) {
-        var data = tableCheck.getData();
-        layer.confirm('确认要删除吗？' + data, function (index) {
-            $.ajax({
-                url:"/delallquiz",
-                type:"get",
-                dataType:"String",
-                traditional:true,
-                data:{"d":data},
-                success:function(response){
-
-                },
-                error:function() {
-                }
-            });
-            //捉到所有被选中的，发异步进行删除
-            layer.msg('删除成功', {icon: 1});
-            $(".layui-form-checked").not('.header').parents('tr').remove();
-        });
-    }
-
-</script>
-
 </body>
-
 </html>

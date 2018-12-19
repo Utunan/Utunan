@@ -18,9 +18,20 @@ public class AdminDelServiceImpl implements AdminDelService {
 
 
     //批量删除院系评论
-
     @Override
     public void delAllSchoolComment(Long[] b) {
         this.adminDelMapper.delAllSchoolComment(b);
+    }
+
+    //单个删除用户
+    @Override
+    public void delMember(Long userId) {
+        this.adminDelMapper.delMember(userId);
+    }
+
+    //单个删除学校评论
+    @Override
+    public void delSchoolComment(Long schoolcommentId) {
+        this.adminDelMapper.delSchoolComment(schoolcommentId);
     }
 }

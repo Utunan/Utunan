@@ -151,7 +151,18 @@
 
     /*用户-删除*/
     function member_del(obj, id) {
-        layer.confirm('确认要删除吗？', function (index) {
+        layer.confirm('确认要删除吗？'+id, function (index) {
+            $.ajax({
+                url:"/delmember",
+                type:"get",
+                traditional:true,
+                data:{"n":id},
+                success:function(response){
+
+                },
+                error:function() {
+                }
+            });
             //发异步删除数据
             $(obj).parents("tr").remove();
             layer.msg('已删除!', {icon: 1, time: 1000});

@@ -98,10 +98,16 @@ public class ShareController {
         //获取最大的fileId
         Long fileId=this.shareupFileService.getMaxfileId();
         fileId+=1;
+        if(file.getOriginalFilename()!=null&&user!=null&&Long.parseLong(integral)>=0) {
 
-        this.shareupFileService.insertfile(fileId,sourcetype,title,school,user.getUserId(),path,suffixId,Long.parseLong(integral));
+             this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral));
+             return "上传成功";
+        }
+        else{
+           return "上传不成功,请重新上传";
+        }
 
-        return "ok";
+
     }
 
 }

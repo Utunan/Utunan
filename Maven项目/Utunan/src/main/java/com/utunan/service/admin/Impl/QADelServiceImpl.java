@@ -20,4 +20,16 @@ public class QADelServiceImpl implements QADelService {
     public void delAllAnswer(Long[] b) {
         qaDelMapper.delAllAnswer(b);
     }
+
+    //单个删除提问
+    @Override
+    public void delQuiz(Long quizId) {
+        qaDelMapper.delQuiz(quizId);
+    }
+
+    //单个删除回答评论
+    @Override
+    public void delAnswer(Long answerId) {
+        qaDelMapper.delAnswer(answerId);
+    }
 }
