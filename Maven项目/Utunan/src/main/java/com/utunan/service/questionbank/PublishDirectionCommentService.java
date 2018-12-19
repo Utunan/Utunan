@@ -11,8 +11,10 @@ import java.util.Date;
  * @date 2018/12/5/005 17:29
  */
 public interface PublishDirectionCommentService {
-    /*王碧云 修改点赞数量*/
-    Long updateDirectionCommentPraiseCount(Long directionCommentId);
+    /*王碧云 增加点赞数量*/
+    Long addDCPraiseCount(Long directionCommentId);
+    /*王碧云 减少点赞数量*/
+    Long delDCPraiseCount(Long directionCommentId);
     /*插入评论*/
     void insertDirectionComment(Long userId,Long directionId, String directionCommentContent);
     /*删除评论*/

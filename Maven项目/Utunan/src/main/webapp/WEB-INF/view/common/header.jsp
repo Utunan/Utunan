@@ -113,7 +113,7 @@
                 <a href="/school/displaySchool">优院校</a>
             </li>
             <li>
-                <a href="/questionbank">优题库</a>
+                <a href="/subjects">优题库</a>
             </li>
             <li>
                 <a href="/quiz">优问答</a>

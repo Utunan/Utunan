@@ -26,10 +26,16 @@
         </association>
     </resultMap>
 
-    <!--王碧云 修改点赞数-->
-    <update id="updateDirectionCommentPraiseCount" parameterType="java.lang.Long">
+    <!--王碧云 增加点赞数-->
+    <update id="addDCPraiseCount" parameterType="java.lang.Long">
         update direction_comment
         set directionCommentPraiseCount=directionCommentPraiseCount+1
+        where directionCommentId=#{directionCommentId}
+    </update>
+    <!--取消点赞数-->
+    <update id="delDCPraiseCount" parameterType="java.lang.Long">
+        update direction_comment
+        set directionCommentPraiseCount=directionCommentPraiseCount-1
         where directionCommentId=#{directionCommentId}
     </update>
     <!--王碧云 插入评论-->

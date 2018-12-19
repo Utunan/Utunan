@@ -9,9 +9,9 @@
   <meta charset="utf-8">
   <title>帖子详情</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="stylesheet" href="css/community/layui.css">
-  <link rel="stylesheet" href="css/community/global.css">
-  <link rel="stylesheet" href="css/community/detail.css">
+  <link rel="stylesheet" href="/css/community/layui.css">
+  <link rel="stylesheet" href="/css/community/global.css">
+  <link rel="stylesheet" href="/css/community/detail.css">
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
     <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
