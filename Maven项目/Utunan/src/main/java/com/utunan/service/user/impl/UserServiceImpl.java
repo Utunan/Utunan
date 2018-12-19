@@ -61,6 +61,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Integer getUserMessageCount(User user) {
+        Integer messageCount=userMapper.selectUserMessage(user);
+        return messageCount;
+    }
+
+    @Override
     public void saveUser(User user) {
         Date date = new Date();
         int x = (int) (Math.random() * 100);

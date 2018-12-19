@@ -8,6 +8,7 @@ import java.util.List;
 public interface UserService {
     User getUser(User user);
     Member getUserById(String userId);
+    Integer getUserMessageCount(User user);
     void saveUser(User user);
     boolean isExist(User user);
     boolean changeInfo(User user);

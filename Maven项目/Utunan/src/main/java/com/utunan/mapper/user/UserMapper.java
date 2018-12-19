@@ -23,10 +23,12 @@ public interface UserMapper {
     User selectByPermit(User user);
     User selectByPorE(User user);
     User selectByP(User user);
+    int selectUserMessage(User user);
     int updateUser(User user);
     int updateUserPassword(User user);
     int updateUserHeadImg(@Param("userId")Long userId, @Param("userHeadImg")String userHeadImg);
     int updateUserTelephone(User user);
     int updateUserEmail(User user);
+
 }
 

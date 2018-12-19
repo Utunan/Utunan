@@ -58,6 +58,12 @@
         where followUserId=#{userId}
     </select>
 
+    <select id="selectUserMessage" resultType="java.lang.Integer">
+        select count(*)
+        from message
+        where receiveUserId=#{userId} and isView="0"
+    </select>
+
     <insert id="insert">
         insert into user(userTelephone,userPassword,userNickName,registerTime)
         values(#{userTelephone},#{userPassword},#{userNickName},#{registerTime})

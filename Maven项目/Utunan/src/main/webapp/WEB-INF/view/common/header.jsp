@@ -16,26 +16,32 @@
             <c:otherwise>
                 <div class="login after">
                 <span>
-                    <a href="/user/information">
+                    <a id="usermessage" href="/user/information">
                         <img src="/images/common/information.svg">
+                        <div id="messagecount">${messagecount }</div>
                     </a>
                     <a href="/user/information" style="margin-left: 5px;">消息</a>
                     <script src="/js/jquery-3.3.1.min.js"></script>
                     <script>
+                        if($('#messagecount').html()==""||$('#messagecount').html()=="0"){
+                            $('#messagecount').css('display',"none");
+                        }
                         setInterval(function () {
                             $.ajax({
                                 type: "post",
-                                url: "/checkpermit",
-                                data: {
-                                    userTelephone: $("#permit").val(),
-                                },
+                                url: "/user/usermessage",
+                                data:{"request":"messagecount"},
                                 success: function (data) {
-
-                                },error:function(){
-                                    $('#permitreply').html("网站可能崩了,请您先等会儿~")
+                                    if(data=="0"){
+                                        $('#messagecount').css('display',"none");
+                                        $('#messagecount').html(0);
+                                    }else{
+                                        $('#messagecount').css('display',"block");
+                                        $('#messagecount').html(data)
+                                    }
                                 }
                             });
-                        }, 5000)
+                        }, 3000)
                     </script>
                 </span>
 
