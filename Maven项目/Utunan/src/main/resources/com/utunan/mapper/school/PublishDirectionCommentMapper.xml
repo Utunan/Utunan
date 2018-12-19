@@ -27,7 +27,7 @@
     </resultMap>
 
    <!-- 查找评论-->
-    <select id="findPDC" parameterMap="PublishDirectionCommentMap">
+    <select id="findPDC" resultMap="PublishDirectionCommentMap">
         select *
         from direction_comment
         where directionCommentId=#{directionCommentId}
