@@ -32,6 +32,7 @@ public interface UserMapper {
     int updateUserHeadImg(@Param("userId")Long userId, @Param("userHeadImg")String userHeadImg);
     int updateUserTelephone(User user);
     int updateUserEmail(User user);
+    int updateMessage(@Param("messageId")Long messageId);
 
 }
 

@@ -28,9 +28,8 @@ public class UserController {
         User user=(User)session.getAttribute("User");
         Integer messageCount=userService.getUserMessageCount(user);
         session.setAttribute("messagecount",messageCount.toString());
-        if(messageCount!=null){
+        if(messageCount!=null)
             return  messageCount.toString();
-        }
         return "0";
     }
 

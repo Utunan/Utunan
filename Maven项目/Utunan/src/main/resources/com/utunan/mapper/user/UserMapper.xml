@@ -119,6 +119,12 @@
         where userId=#{userId}
     </update>
 
+    <update id="updateMessage" parameterType="com.utunan.pojo.base.user.Message">
+        update message
+        set isView='1'
+        where messageId=#{messageId}
+    </update>
+
     <update id="updateUserEmail" parameterType="com.utunan.pojo.base.user.User">
         update user
         set userEmail=#{userEmail}

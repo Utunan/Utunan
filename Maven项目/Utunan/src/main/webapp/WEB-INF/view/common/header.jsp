@@ -23,7 +23,7 @@
                     <a href="/user/message" style="margin-left: 5px;">消息</a>
                     <script src="/js/jquery-3.3.1.min.js"></script>
                     <script>
-                        if($('#messagecount').html()==""||$('#messagecount').html()=="0"){
+                        if($('#messagecount').html()==""||$('#messagecount').html()<="0"){
                             $('#messagecount').css('display',"none");
                         }
                         setInterval(function () {
@@ -41,12 +41,12 @@
                                     }
                                 }
                             });
-                        }, 3000)
+                        }, 500)
                     </script>
                 </span>
 
                     <span>
-                    <a id="userheadimg" href="/register">
+                    <a id="userheadimg" href="/user/myspace">
 
                         <img src="${User.userHeadImg}" alt="" srcset="">
                     </a>

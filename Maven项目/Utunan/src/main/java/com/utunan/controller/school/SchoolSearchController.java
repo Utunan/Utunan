@@ -2,12 +2,9 @@ package com.utunan.controller.school;
 
 import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.base.user.User;
-import com.utunan.pojo.inherit.school.PublishDirection;
 import com.utunan.pojo.inherit.school.PublishSchool;
 import com.utunan.pojo.util.Analyzer;
 import com.utunan.util.SchoolOther;
-import com.utunan.service.questionbank.PublishDirectionCommentService;
-import com.utunan.service.school.PublishDirectionService;
 import com.utunan.service.school.PublishSchoolService;
 import com.utunan.service.user.PublishDirectionCollectorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 

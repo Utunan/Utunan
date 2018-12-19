@@ -1,6 +1,6 @@
-package com.utunan.pojo.inherit.questionbank;
+package com.utunan.pojo.inherit.school;
 
-import com.utunan.pojo.base.questionbank.DirectionComment;
+import com.utunan.pojo.base.school.DirectionComment;
 import com.utunan.pojo.base.user.User;
 
 /**

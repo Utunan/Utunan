@@ -133,6 +133,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public boolean changeMessageIsView(String messageId) {
+        userMapper.updateMessage(Long.parseLong(messageId));
+        return true;
+    }
+
+    @Override
     public List<User> getAllUser(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<User> users = userMapper.selectAllUser();

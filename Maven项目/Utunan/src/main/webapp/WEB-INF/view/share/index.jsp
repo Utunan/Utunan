@@ -75,7 +75,7 @@
                 </div>
                 <div class="op">
                     <span   class="st">关键词搜索 >></span>
-                    <input name="directionName" type="text" id="direction"  value="" placeholder="（选填）如：大数据"  class="layui-input">
+                    <input name="keyWord" type="text" id="direction" placeholder="（选填）如：一心跟着组长走"  class="layui-input">
                     <input type="submit" value="搜索" id="search" class="layui-btn layui-btn-normal"/>
                 </div>
               </div>
@@ -120,7 +120,7 @@
                   </ul>
               </div>
               </table>
-              <%@include file="page.jsp"%>
+              <%@include file="page1.jsp"%>
           </c:if>
         </div>
     </div><!--上边这-->
@@ -139,14 +139,14 @@
                   <c:when test="${hotFile.fileType == '招生简章' || hotFile.fileType == '招生专业目录'}">
                       <c:if test="${hotFile.isExamine == 1}">
                           <dd>
-                              <a href="/download?fileId=${hotFile.fileId}">${hotFile.fileTitle}</a>
+                              <a href="/download/${hotFile.fileId}">${hotFile.fileTitle}</a>
                               <span> <img src="/images/share/downNum2.svg" class="downNum">${hotFile.downloadNumber}</span>
                           </dd>
                       </c:if>
                   </c:when>
                   <c:otherwise>
                       <dd>
-                          <a href="/download?fileId=${hotFile.fileId}" >${hotFile.fileTitle}</a>
+                          <a href="/download/${hotFile.fileId}" >${hotFile.fileTitle}</a>
                           <span><img src="/images/share/downNum2.svg" class="downNum" > ${hotFile.downloadNumber}</span>
                       </dd>
                   </c:otherwise>

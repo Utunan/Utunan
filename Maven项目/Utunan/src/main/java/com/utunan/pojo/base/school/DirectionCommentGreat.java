@@ -1,4 +1,4 @@
-package com.utunan.pojo.base.questionbank;
+package com.utunan.pojo.base.school;
 
 /**
  * @author 王碧云

@@ -1,10 +1,9 @@
-package com.utunan.mapper.questionbank;
+package com.utunan.mapper.school;
 
-import com.utunan.pojo.inherit.questionbank.PublishDirectionComment;
+import com.utunan.pojo.inherit.school.PublishDirectionComment;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 
@@ -16,6 +15,8 @@ import java.util.Date;
 @Mapper
 @Repository
 public interface PublishDirectionCommentMapper {
+    /*查找评论*/
+    PublishDirectionComment findPDC(@Param("directionCommentId") Long directionCommentId);
     /*王碧云 增加点赞数量*/
     Long addDCPraiseCount(@Param("directionCommentId") Long directionCommentId);
     /*王碧云 减少点赞数量*/
