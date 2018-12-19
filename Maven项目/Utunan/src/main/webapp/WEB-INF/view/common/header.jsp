@@ -16,11 +16,11 @@
             <c:otherwise>
                 <div class="login after">
                 <span>
-                    <a id="usermessage" href="/user/information">
+                    <a id="usermessage" href="/user/message">
                         <img src="/images/common/information.svg">
                         <div id="messagecount">${messagecount }</div>
                     </a>
-                    <a href="/user/information" style="margin-left: 5px;">消息</a>
+                    <a href="/user/message" style="margin-left: 5px;">消息</a>
                     <script src="/js/jquery-3.3.1.min.js"></script>
                     <script>
                         if($('#messagecount').html()==""||$('#messagecount').html()=="0"){

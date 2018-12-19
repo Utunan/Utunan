@@ -64,6 +64,32 @@
         where receiveUserId=#{userId} and isView="0"
     </select>
 
+    <resultMap id="MessageResult" type="com.utunan.pojo.base.user.Message">
+        <id column="messageId" property="messageId"/>
+        <result column="messageContent" property="messageContent"/>
+        <result column="messageType" property="messageType"/>
+        <result column="messageTime" property="messageTime"/>
+        <result column="isView" property="isView"/>
+        <association property="sendUser" javaType="com.utunan.pojo.base.user.User">
+            <id column="sendUserId" property="userId"/>
+        </association>
+        <association property="receiveUser" javaType="com.utunan.pojo.base.user.User">
+            <id column="receiveUserId" property="userId"/>
+        </association>
+    </resultMap>
+
+    <select id="selectUserAllReadInfo" resultMap="MessageResult">
+        select *
+        from message
+        where receiveUserId=#{userId} and isView="1"
+    </select>
+
+    <select id="selectUserAllNoReadInfo" resultMap="MessageResult">
+        select *
+        from message
+        where receiveUserId=#{userId} and isView="0"
+    </select>
+
     <insert id="insert">
         insert into user(userTelephone,userPassword,userNickName,registerTime)
         values(#{userTelephone},#{userPassword},#{userNickName},#{registerTime})

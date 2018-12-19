@@ -1,6 +1,7 @@
 package com.utunan.service.user;
 
 import com.utunan.pojo.base.user.Member;
+import com.utunan.pojo.base.user.Message;
 import com.utunan.pojo.base.user.User;
 
 import java.util.List;
@@ -13,6 +14,8 @@ public interface UserService {
     boolean isExist(User user);
     boolean changeInfo(User user);
     User changeUserPassword(User user);
+    List<Message> getUserReadInfo(User user,int pageNum,int pageSize);
+    List<Message> getUserNoReadInfo(User user,int pageNum,int pageSize);
     boolean changeUserHeadImg(User user,String img);
     boolean changeUserTelephone(User user);
     boolean changeUserEmail(User user);

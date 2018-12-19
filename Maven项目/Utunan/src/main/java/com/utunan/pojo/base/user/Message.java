@@ -1,13 +1,44 @@
-package com.utunan.pojo.base.common;
+package com.utunan.pojo.base.user;
 
-import com.utunan.pojo.base.user.User;
+import java.util.Date;
 
 public class Message {
     private Long messageId;
+    private User receiveUser;
     private User sendUser;
     private String messageType;
-    private User receiveUser;
     private String messageContent;
+    private Date messageTime;
+    private String isView;
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "messageId=" + messageId +
+                ", receiveUser=" + receiveUser +
+                ", sendUser=" + sendUser +
+                ", messageType='" + messageType + '\'' +
+                ", messageContent='" + messageContent + '\'' +
+                ", messageTime=" + messageTime +
+                ", isView='" + isView + '\'' +
+                '}';
+    }
+
+    public Date getMessageTime() {
+        return messageTime;
+    }
+
+    public void setMessageTime(Date messageTime) {
+        this.messageTime = messageTime;
+    }
+
+    public String getIsView() {
+        return isView;
+    }
+
+    public void setIsView(String isView) {
+        this.isView = isView;
+    }
 
     public Long getMessageId() {
         return messageId;
@@ -49,14 +80,4 @@ public class Message {
         this.messageContent = messageContent;
     }
 
-    @Override
-    public String toString() {
-        return "Message{" +
-                "messageId=" + messageId +
-                ", sendUser=" + sendUser +
-                ", messageType='" + messageType + '\'' +
-                ", receiveUser=" + receiveUser +
-                ", messageContent='" + messageContent + '\'' +
-                '}';
-    }
 }

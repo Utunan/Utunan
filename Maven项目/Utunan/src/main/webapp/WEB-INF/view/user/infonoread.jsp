@@ -21,6 +21,9 @@
     <div class="wrapper background">
         <%@include file="common/userfunction.jsp"%>
         <div class="content" id="content">
+            <div class="title">
+                <span>个人资料</span>
+            </div>
         </div>
     </div>
 </div>

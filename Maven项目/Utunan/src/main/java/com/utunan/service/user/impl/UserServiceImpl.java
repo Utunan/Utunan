@@ -7,6 +7,7 @@ import com.utunan.mapper.user.UserMapper;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.questionbank.Question;
 import com.utunan.pojo.base.user.Member;
+import com.utunan.pojo.base.user.Message;
 import com.utunan.pojo.base.user.User;
 import com.utunan.service.user.UserService;
 import com.utunan.util.StringUtil;
@@ -96,6 +97,20 @@ public class UserServiceImpl implements UserService {
         userMapper.updateUserPassword(user);
         User updateUser = userMapper.selectByPermit(user);
         return updateUser;
+    }
+
+    @Override
+    public List<Message> getUserReadInfo(User user,int pageNum,int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<Message> messages=userMapper.selectUserAllReadInfo(user);
+        return  messages;
+    }
+
+    @Override
+    public List<Message> getUserNoReadInfo(User user,int pageNum,int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<Message> messages=userMapper.selectUserAllNoReadInfo(user);
+        return  messages;
     }
 
     @Override
