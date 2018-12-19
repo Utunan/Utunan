@@ -362,6 +362,8 @@ layui.config({
                 }*/
                 var res = d.res;
                 var praiseCount = d.praiseCount;
+                console.log(res);
+                console.log(praiseCount);
                 if(res=='ok'){//成功
                     document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
                     document.getElementById("zan"+directionCommentId).style.color="#ff5722";
