@@ -145,7 +145,7 @@
             <div class="jieda-reply">
               <%--点赞--%>
               <span class="jieda-zan zanok" type="zan">
-                <a href="javascript:void(0)" onclick="apraise(${dcomment.directionCommentId},${dcomment.directionCommentPraiseCount})"><i class="iconfont icon-zan"></i></a>
+                <a id="zan${dcomment.directionCommentId}" href="javascript:void(0)" onclick="apraise(${dcomment.directionCommentId},${dcomment.directionCommentPraiseCount})"><i class="iconfont icon-zan"></i></a>
                 <em id="directionComment${dcomment.directionCommentId}">${dcomment.directionCommentPraiseCount}</em>
               </span>
               <%--判断是否是管理员或者是用户本人--%>
@@ -343,12 +343,12 @@ layui.config({
             data:{'directionCommentId':directionCommentId},//需要提交的数据
             success:function(d){//数据返回成功的执行放大
                 if(d=='ok'){//成功
-                    //alert('点赞成功');
                     document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount+1;
+                    document.getElementById("zan"+directionCommentId).style.color="#ff5722";
                 }
                 if(d=='no'){//失败
-                    //alert('取消点赞');
                     document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
+                    document.getElementById("zan"+directionCommentId).style.color="#333";
                 }
             },
         });
