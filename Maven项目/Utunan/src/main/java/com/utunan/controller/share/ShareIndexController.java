@@ -58,8 +58,11 @@ public class ShareIndexController {
 	public String searchFile(HttpServletRequest request, @RequestParam(value = "fileType",required = false) String[] fileType){
 		//文件所属学校
 		String fileSchool = request.getParameter("school");
+		String fs = "";
 		if(fileSchool==null || fileSchool.equals("")){
-			fileSchool = "%";
+			fs = "%%";
+		}else {
+			fs = fileSchool;
 		}
 		//当前页码
 		String pageNum=request.getParameter("pageNum");
@@ -87,7 +90,7 @@ public class ShareIndexController {
 			}
 		}
 		//文件列表
-		List<File> fileList = this.shareIndexService.selectFile(fileType, fileSchool, keyWords, num, 10);
+		List<File> fileList = this.shareIndexService.selectFile(fileType, fs, keyWords, num, 10);
 		//热门文件
 		List<File> hotFileList = this.shareIndexService.listHotFile();
 		//学校地区

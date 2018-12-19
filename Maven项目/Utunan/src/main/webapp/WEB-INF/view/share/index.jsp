@@ -64,7 +64,7 @@
                   </c:forEach>
               </select>
               <select name="school" id="schools">
-                  <option value="%">选择学校</option>
+                  <option value="">选择学校</option>
               </select>
               <br>
               <br>
@@ -111,7 +111,7 @@
                   </ul>
               </div>
               </table>
-              <%@include file="page.jsp"%>
+              <%@include file="page1.jsp"%>
           </c:if>
         </div>
     </div><!--上边这-->

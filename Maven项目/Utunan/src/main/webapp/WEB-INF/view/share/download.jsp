@@ -68,34 +68,57 @@
             </tr>
             <c:forEach items="${relatedFileList}" var="f">
                 <c:if test="${file.fileId != f.fileId}">
-                <tr>
-                    <td><img src="${f.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px"></td>
-                    <td><a href="/download?fileId=${f.fileId}" style="color: black">${f.fileTitle}</a></td>
-                    <td>${f.user.userNickName}</td>
-                    <td>${f.fileType}</td>
-                    <td>${f.fileSchool}</td>
-                    <td>${f.fileCredit}</td>
-                    <td>${f.downloadNumber}</td>
-                </tr>
+                    <c:choose>
+                        <c:when test="${f.fileType == '招生简章' || f.fileType == '招生专业目录'}">
+                            <c:if test="${f.isExamine == 1}">
+                                <tr>
+                                    <td><img src="${f.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px"></td>
+                                    <td><a href="/download?fileId=${f.fileId}" style="color: black">${f.fileTitle}</a></td>
+                                    <td>${f.user.userNickName}</td>
+                                    <td>${f.fileType}</td>
+                                    <td>${f.fileSchool}</td>
+                                    <td>${f.fileCredit}</td>
+                                    <td>${f.downloadNumber}</td>
+                                </tr>
+                            </c:if>
+                        </c:when>
+                        <c:otherwise>
+                            <tr>
+                                <td><img src="${f.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px"></td>
+                                <td><a href="/download?fileId=${f.fileId}" style="color: black">${f.fileTitle}</a></td>
+                                <td>${f.user.userNickName}</td>
+                                <td>${f.fileType}</td>
+                                <td>${f.fileSchool}</td>
+                                <td>${f.fileCredit}</td>
+                                <td>${f.downloadNumber}</td>
+                            </tr>
+                        </c:otherwise>
+                    </c:choose>
                 </c:if>
             </c:forEach>
         </table>
     </div>
-    <div>
-        <h3>热门文件</h3>
-        <table>
-            <tr>
-                <td>文件</td>
-                <td>下载次数</td>
-            </tr>
-            <c:forEach items="${hotFileList}" var="hotFile">
-                <tr>
-                    <td><a href="/download?fileId=${hotFile.fileId}">${hotFile.fileTitle}</a></td>
-                    <td>${hotFile.downloadNumber}</td>
-                </tr>
-            </c:forEach>
-        </table>
-    </div>
+<dl class="fly-panel fly-list-one">
+    <dt class="fly-panel-title">热门资源</dt>
+    <c:forEach items="${hotFileList}" var="hotFile">
+        <c:choose>
+            <c:when test="${hotFile.fileType == '招生简章' || hotFile.fileType == '招生专业目录'}">
+                <c:if test="${hotFile.isExamine == 1}">
+                    <dd>
+                        <a href="/download?fileId=${hotFile.fileId}">${hotFile.fileTitle}</a>
+                        <span>下载 &nbsp;${hotFile.downloadNumber}</span>
+                    </dd>
+                </c:if>
+            </c:when>
+            <c:otherwise>
+                <dd>
+                    <a href="/download?fileId=${hotFile.fileId}" >${hotFile.fileTitle}</a>
+                    <span>下载 &nbsp;${hotFile.downloadNumber}</span>
+                </dd>
+            </c:otherwise>
+        </c:choose>
+    </c:forEach>
+</dl>
 <%@include file="../common/footer.jsp"%>
 </body>
 </html>
