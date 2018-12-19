@@ -223,7 +223,6 @@
                         userTelephone: $("#userTelephone").val()
                     },
                     async: false,
-                    dataType: "json",
                     success: function (data) {
                         if (data == '200') {
                             $('#telereply').html("手机号已存在,请<a href='/login'>登陆</a>")
@@ -232,7 +231,7 @@
                             have_code = true
                             $('#telereply').html("")
                             if (codestate == false) {
-                                time=59
+                                time = 59
                                 $.ajax(
                                     {
                                         type: "post",
@@ -240,26 +239,38 @@
                                         data: {
                                             userTelephone: $("#userTelephone").val()
                                         },
-                                        dataType: "string",
                                         success: function (data) {
-                                            console.log(data.responseText);
-                                            codestate=true;
+                                            response = data
+                                            codestate = true
+                                            $('#getcode').html("60s后重新发送")
+                                            if (response == 'success') {
+                                                SI = setInterval(function () {
+                                                    html = time + "s后重新发送"
+                                                    $('#getcode').html(html)
+                                                    time--;
+                                                    if (time == 0) {
+                                                        $('#getcode').html("获取验证码")
+                                                        clearInterval(SI);
+                                                        codestate = false;
+                                                    }
+                                                }, 1000)
+                                            }
                                         },
                                         error: function (data) {
                                             response = data.responseText
-                                            codestate=true
+                                            codestate = true
                                             $('#getcode').html("60s后重新发送")
                                             if (response == 'success') {
-                                                SI=setInterval(function(){
-                                                    html =time+ "s后重新发送"
+                                                SI = setInterval(function () {
+                                                    html = time + "s后重新发送"
                                                     $('#getcode').html(html)
                                                     time--;
-                                                    if(time==0){
+                                                    if (time == 0) {
                                                         $('#getcode').html("获取验证码")
                                                         clearInterval(SI);
-                                                        codestate=false;
+                                                        codestate = false;
                                                     }
-                                                },1000)
+                                                }, 1000)
                                             }
                                         }
                                     }

@@ -1,11 +1,13 @@
 body {
     min-height: 100%;
     margin: 0;
-    background: url(/images/common/loginbg.jpg);
+    background: #7a7a7a;
     background-size: cover;
+    background-image: url("/images/common/loginbg.jpg");
+    background-position: center center;
 }
 .header>header{
- background: rgba(57,61,73,0.6);
+ background: rgba(57,61,73,1);
 }
 .center{
     max-width: 960px;

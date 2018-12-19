@@ -7,7 +7,6 @@
         </div>
         <a class="loginname" href="/homepage">优图南</a>
 
-
         <c:choose>
             <c:when test="${User==null}">
                 <div class="login before">
@@ -21,7 +20,25 @@
                         <img src="/images/common/information.svg">
                     </a>
                     <a href="/user/information" style="margin-left: 5px;">消息</a>
+                    <script src="/js/jquery-3.3.1.min.js"></script>
+                    <script>
+                        setInterval(function () {
+                            $.ajax({
+                                type: "post",
+                                url: "/checkpermit",
+                                data: {
+                                    userTelephone: $("#permit").val(),
+                                },
+                                success: function (data) {
+
+                                },error:function(){
+                                    $('#permitreply').html("网站可能崩了,请您先等会儿~")
+                                }
+                            });
+                        }, 5000)
+                    </script>
                 </span>
+
                     <span>
                     <a id="userheadimg" href="/register">
 
@@ -34,7 +51,8 @@
                         </div>
                         <div class="opmiddle">
                             <div class="opimg">
-                                <a href="/user/statistics"><img src="/images/common/statistics.svg" alt="" srcset=""></a>
+                                <a href="/user/statistics"><img src="/images/common/statistics.svg" alt=""
+                                                                srcset=""></a>
                             </div>
                             <div class="opimg" style="margin: 0 5px;">
                                 <a href="/user/publishquiz"><img src="/images/common/record.svg" alt="" srcset=""></a>
@@ -48,13 +66,15 @@
                                 <a href="/user/myspace">个人资料</a>
                             </div>
                             <div class="opimg">
-                                <a href="/user/directioncollector"><img src="/images/common/school.svg" alt="" srcset=""></a>
+                                <a href="/user/directioncollector"><img src="/images/common/school.svg" alt=""
+                                                                        srcset=""></a>
                             </div>
                             <div class="opimg" style="margin: 0 5px;">
                                 <a href="/user/quizcollector"><img src="/images/common/quiz.svg" alt="" srcset=""></a>
                             </div>
                             <div class="opimg">
-                                <a href="/user/questioncollector"><img src="/images/common/question.svg" alt="" srcset=""></a>
+                                <a href="/user/questioncollector"><img src="/images/common/question.svg" alt=""
+                                                                       srcset=""></a>
                             </div>
                             <div id="oplisttwo" class="oplist">
                                 <a href="/user/directioncollector">院系收藏</a>
@@ -76,7 +96,7 @@
             <form action="/searchUser" method="post" onsubmit="return true">
                 <div class="text">
                     <input type="text" name="keyWord" placeholder="请输入内容"/>
-                    <button style="" type="submit" ><img src="/images/common/search.png"/></button>
+                    <button style="" type="submit"><img src="/images/common/search.png"/></button>
                 </div>
 
             </form>
