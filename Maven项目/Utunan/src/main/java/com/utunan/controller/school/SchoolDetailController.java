@@ -181,8 +181,8 @@ public class SchoolDetailController {
     /*
      * @author  王碧云
      * @description 修改点赞数
-     * @date  16:26 2018/12/16/016
-     * @param  [directionCommentId, directionId]
+     * @date  16:20 2018/12/19/019
+     * @param  [session, request]
      * @return  java.lang.String
      */
     @ResponseBody
@@ -190,25 +190,19 @@ public class SchoolDetailController {
     public String updateDirectionCommentPraiseCount(HttpSession session,HttpServletRequest request){
         String directionCommentId = request.getParameter("directionCommentId");
         User user = (User) session.getAttribute("User");
-        System.out.println("[directionCommentId]"+directionCommentId);
-        System.out.println("[user]"+user);
         //到院校评论点赞表进行查询是否有记录
         DirectionCommentGreat directionCommentGreat = this.directionCommentGreatService.findDCGreat(Long.parseLong(directionCommentId),user.getUserId());
         if(directionCommentGreat==null){
             //可以点赞
             this.directionCommentGreatService.insertDCGreat(Long.parseLong(directionCommentId),user.getUserId());
             this.publishDirectionCommentService.addDCPraiseCount(Long.parseLong(directionCommentId));
-            System.out.println("点赞啦");
             return "ok";
         }else {
             //不能点赞
             this.directionCommentGreatService.deleteDCGreat(Long.parseLong(directionCommentId),user.getUserId());
             this.publishDirectionCommentService.delDCPraiseCount(Long.parseLong(directionCommentId));
-            System.out.println("取消赞！！！");
             return "no";
         }
-        /*
-        return "redirect:/school/displayDirectionDetail?directionId="+directionId;*/
     }
 
 }
