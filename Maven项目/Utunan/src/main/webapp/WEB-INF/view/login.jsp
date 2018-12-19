@@ -16,6 +16,7 @@
 <%@include file="common/header.jsp" %>
 <div class="container background">
     <div class="center" id="center">
+        <div class="platename">登录</div>
         <form class="loginform" id="loginform" action="/login" method="post" onsubmit="return checkForm()">
             <div class="reply" id="permitreply">${reply}</div>
             <div class="permit inputcase">
