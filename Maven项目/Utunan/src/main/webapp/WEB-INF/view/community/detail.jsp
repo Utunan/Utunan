@@ -123,7 +123,7 @@
           <legend>回答</legend>
         </fieldset>
           <select class="sequencing-principle" name="" onchange="self.location.href=options[selectedIndex].value">
-              <option value="/displayQuizByQuizId?quizId=${quiz.quizId}" ${timeselect}>按时间顺序</option>
+              <option value="/quiz/${quiz.quizId}" ${timeselect}>按时间顺序</option>
               <option value="/displayCommentByPraiseCount?quizId=${quiz.quizId}"  ${praiseselect}>按热度排序</option>
           </select>
         <ul class="jieda" id="jieda">
@@ -220,7 +220,7 @@
                     <div class="write-answer-top">&nbsp;&nbsp;&nbsp;&nbsp;写回答</div>
                 </div>
                 <!--富文本编辑器-->
-                <form action="answer?quizId=${quiz.quizId}" method="post">
+                <form action="/answer?quizId=${quiz.quizId}" method="post">
                     <div class="text">
     
                         <div id="div1" class="toolbar" style="height: 35px"></div>
@@ -263,7 +263,6 @@
         }
     }
 
-
     var E = window.wangEditor
     var editor = new E('#div1', '#div2')
     editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
@@ -297,4 +296,5 @@
 </script>
 <script src="/js/common/login.js"></script>
 <script src="/js/common/common.js"></script>
+</body>
 </html>

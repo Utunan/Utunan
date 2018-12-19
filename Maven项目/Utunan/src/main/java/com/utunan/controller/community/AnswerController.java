@@ -4,6 +4,7 @@ import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.user.User;
 import com.utunan.service.community.AnswerService;
 import com.utunan.service.community.QuizService;
+import com.utunan.service.user.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,8 @@ public class AnswerController {
 
     @Autowired
     private QuizService quizService;
+    @Autowired
+    private MessageService messageService;
 
 
     /*
@@ -38,18 +41,24 @@ public class AnswerController {
     public String insertComment(HttpServletRequest request, HttpSession session) throws UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");
         Quiz quiz=(Quiz)session.getAttribute("quiz");
-        String quizId=request.getParameter("quizId");
+        Long quizId=Long.parseLong(request.getParameter("quizId"));
+        System.out.print(quizId);
         String content = request.getParameter("textarea");
-        Object ob = session.getAttribute("User");
-        this.quizService.addAnswerCount(Long.parseLong(quizId));
+        User user = (User)session.getAttribute("User");
+        //封装message表中内容
+        String messageContent="<a _href='/quiz/"+quizId+"'>"+quiz.getQuizTitle()+"</a>";
+        Long mid=messageService.getMaxMid();
+        mid+=1;
+        this.quizService.addAnswerCount(quizId);
         Long aid = this.answerService.getMaxAid();
         aid += 1;
-        if (ob != null) {
-            User user = (User) ob;
+        if (user != null) {
+
             this.answerService.saveAnswer(aid, quiz, content, user);
+            this.messageService.saveMessage(mid,quiz.getUser(),user,quizId,"2",messageContent,"0");
 
         }
-        return "redirect:/displayQuizByQuizId?quizId=" + quizId;
+        return "redirect:/quiz/"+quizId;
     }
 
 

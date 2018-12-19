@@ -81,10 +81,6 @@ public class QuizController {
 		//*************以上代码会以同样的姿态在不同地方出现，正在努力封装************
 		//热门标签
 		Object hotTagList=this.tagService.getTop10Tag();
-		//提问区获取问题数量查询前3个热门标签
-		List<Tag> tagList3=this.tagService.getTop3Tag();
-		//提问区获取余下标签
-		List<Tag> getAllTag=this.tagService.getRemianTags(tagList3);
 		//返回排序的选中状态
 		if(null!=request.getParameter("stateList")){
 			request.setAttribute("stateList",null);
@@ -102,8 +98,6 @@ public class QuizController {
 		request.setAttribute("url","quiz");
 		request.setAttribute("orderBy", orderBy);
 		request.setAttribute("tag",hotTagList);
-		request.setAttribute("tags",tagList3);
-		request.setAttribute("alltag",getAllTag);
 		request.setAttribute("stateList",stateList);
 		request.setAttribute("PageInfo",new PageInfo(quizList,5));
 		request.setAttribute("quizListTop10",quizListTop10);
@@ -198,7 +192,7 @@ public class QuizController {
 
 	/**
 	 * @author  张正扬
-	 * @description 向quiz表插入并取出插入内容
+	 * @description 向quiz表插入
 	 * @date  19:58 2018/11/21
 	 * @param
 	 * @return
