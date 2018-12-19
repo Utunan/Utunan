@@ -49,11 +49,11 @@ http://www.springframework.org/schema/task/spring-task.xsd">
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/user/**"/>
+            <mvc:exclude-mapping path="/user/usermessage"/>
             <bean class="com.utunan.interceptor.user.UserSessionInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/admin/**"/>
-            <mvc:exclude-mapping path="/admin/login"/>
             <bean class="com.utunan.interceptor.admin.AdminInterceptor"/>
         </mvc:interceptor>
         <!--<mvc:interceptor>-->
