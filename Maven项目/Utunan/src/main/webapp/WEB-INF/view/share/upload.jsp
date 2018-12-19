@@ -109,6 +109,12 @@
                                 <i class="layui-icon"></i>
                                 <p>点击上传，或将文件拖拽到此处</p>
                             </div>
+                            <div class="layui-form-item layui-form-text">
+                                <label class="layui-form-label">资源简捷</label>
+                                <div class="layui-input-block">
+                                    <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+                                </div>
+                            </div>
                             <div class="layui-form-item">
                                 <div class="layui-inline">
                                     <label class="layui-form-label">悬赏积分</label>

@@ -14,6 +14,9 @@
         <result property="fileCredit" column="fileCredit"/>
         <result property="suffixId" column="suffixId"/>
         <result property="isExamine" column="isExamine"/>
+        <result property="fileDiscription" column="fileDiscription"/>
+        <result property="upNumber" column="upNumber"/>
+        <result property="downNumber" column="downNumber"/>
         <association property="user" javaType="com.utunan.pojo.base.user.User">
             <id property="userId" column="userId"></id>
             <result property="userEmail" column="userEmail"/>
@@ -125,6 +128,38 @@
     <update id="updateFileDownloadNumber">
         UPDATE file
         set downloadNumber=#{downloadNumber}
+        where fileId=#{fileId}
+    </update>
+    <!--查询file_great表相关信息-->
+    <select id="findFileGreat" resultType="com.utunan.pojo.base.share.FileGreat">
+        select *
+        from file_great
+        where fileId=#{fileId}
+        and userId=#{userId}
+        and operate=#{operate}
+    </select>
+    <!--向file_great表插入信息-->
+    <insert id="insertFileGreat">
+        insert into file_great(fileId,userId,operate)
+        values (#{fileId},#{userId},#{operate})
+    </insert>
+    <!--从file_great表删除信息-->
+    <delete id="deleteFileGreat">
+        delete from file_great
+        where userId=#{userId}
+        and fileId=#{fileId}
+        and operate=#{operate}
+    </delete>
+    <!--更新文件点赞的数量-->
+    <update id="updateFileUpNumber">
+        update file
+        set upNumber=#{upNumber}
+        where fileId=#{fileId}
+    </update>
+    <!--更新文件踩的数量-->
+    <update id="updateFileDownNumber">
+        update file
+        set downNumber=#{downNumber}
         where fileId=#{fileId}
     </update>
 </mapper>

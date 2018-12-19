@@ -6,6 +6,7 @@ import com.utunan.mapper.share.ShareIndexMapper;
 import com.utunan.pojo.base.school.Direction;
 import com.utunan.pojo.base.school.School;
 import com.utunan.pojo.base.share.File;
+import com.utunan.pojo.base.share.FileGreat;
 import com.utunan.pojo.base.share.UserDownload;
 import com.utunan.pojo.base.user.User;
 import com.utunan.service.admin.AdminDirectionService;
@@ -195,5 +196,65 @@ public class ShareIndexServiceImpl implements ShareIndexService {
 	@Override
 	public void updateFileDownloadNumber(Long fileId, Long downloadNumber){
 		this.shareIndexMapper.updateFileDownloadNumber(fileId, downloadNumber);
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 查询用户点赞表是否存在相关信息
+	 * @date  8:26 2018/12/19
+	 * @param  userId, fileId, type
+	 * @return  com.utunan.pojo.base.share.FileGreat
+	 */
+	@Override
+	public FileGreat findFileGreat(Long userId, Long fileId, Long operate){
+		return this.shareIndexMapper.findFileGreat(userId, fileId, operate);
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 向用户点赞表插入数据
+	 * @date  8:51 2018/12/19
+	 * @param  userId, fileId, type
+	 * @return  void
+	 */
+	@Override
+	public void insertFileGreat(Long userId, Long fileId, Long operate){
+		this.shareIndexMapper.insertFileGreat(userId, fileId, operate);
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 从用户点赞表删除信息
+	 * @date  9:07 2018/12/19
+	 * @param  userId, fileId, type
+	 * @return  void
+	 */
+	@Override
+	public void deleteFileGreat(Long userId, Long fileId, Long operate){
+		this.shareIndexMapper.deleteFileGreat(userId, fileId, operate);
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 更新文件点赞数量
+	 * @date  8:45 2018/12/19
+	 * @param  fileId, upNumber
+	 * @return  void
+	 */
+	@Override
+	public void updateFileUpNumber(Long fileId, Long upNumber){
+		this.shareIndexMapper.updateFileUpNumber(fileId, upNumber);
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 更新文件踩数量
+	 * @date  8:44 2018/12/19
+	 * @param  fileId, downNumber
+	 * @return  void
+	 */
+	@Override
+	public void updateFileDownNumber(Long fileId, Long downNumber){
+		this.shareIndexMapper.updateFileDownNumber(fileId, downNumber);
 	}
 }

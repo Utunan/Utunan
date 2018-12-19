@@ -81,62 +81,17 @@
                       <c:choose>
                           <c:when test="${file.fileType == '招生简章' || file.fileType == '招生专业目录'}">
                               <c:if test="${file.isExamine == 1}">
-                                  <li>
-                                      <div>
-                                          <img src="${file.suffix.imgUrl}" alt="文件类型" class="siffix">
-                                          <span class="tn"><a href="/download?fileId=${file.fileId}" >${file.fileTitle}</a></span>
-                                          <div class="topdetail">
-                                              <span class="ft"> ${file.fileType}</span>
-                                              <span class="fs">${file.fileSchool}</span>
-                                          </div>
-                                          <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
-                                          <div class="rightdetail">
-                                              <span class="fc"><img src="/images/share/credit.svg"  class="credit">${file.fileCredit}</span>
-                                              <span class="dn"><img src="/images/share/downNum.svg"  class="downNum">${file.downloadNumber}</span>
-                                          </div>
-                                      </div>
-                                  </li>
+                                  <%@include file="filelist.jsp"%>
                               </c:if>
                           </c:when>
                           <c:otherwise>
-                              <li>
-                                  <div>
-                                      <img src="${file.suffix.imgUrl}" alt="文件类型" class="siffix">
-                                      <span class="tn"><a href="/download?fileId=${file.fileId}" >${file.fileTitle}</a></span>
-                                      <div class="topdetail">
-                                          <span class="ft"><a href="/searchfile?fileType=${file.fileType}&school=${file.fileSchool}&keyWord=">${file.fileType}</a></span>
-                                          <span class="fs"><a href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a></span>
-                                      </div>
-                                      <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
-                                      <div class="rightdetail">
-                                          <span class="fc"><img src="/images/share/credit.svg"  class="credit">${file.fileCredit}</span>
-                                          <span class="dn"><img src="/images/share/downNum.svg"  class="downNum">${file.downloadNumber}</span>
-                                      </div>
-                                  </div>
-                              </li>
+                              <%@include file="filelist.jsp"%>
                           </c:otherwise>
                       </c:choose>
                   </c:forEach>
               </ul>
               </div>
-              <div style="text-align: center">
-                  <div class="laypage-main">
-                      <a href="/${url }">首页</a>
-                      <a href="/${url }?pageNum=${PageInfo.prePage}"><<</a>
-                      <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                          <a name="${i}" href="/${url }?pageNum=${i}">${i}</a>
-                      </c:forEach>
-                      <c:choose>
-                          <c:when test="${PageInfo.nextPage==0}">
-                              <a href="/${url }?pageNum=${PageInfo.pages}">>></a>
-                          </c:when>
-                          <c:otherwise>
-                              <a href="/${url }?pageNum=${PageInfo.nextPage}">>></a>
-                          </c:otherwise>
-                      </c:choose>
-                      <a href="/${url }?pageNum=${PageInfo.pages}">尾页</a>
-                  </div>
-              </div>
+              <%@include file="page.jsp"%>
           </c:if>
           <c:if test="${url=='searchfile'}">
               <div>
@@ -145,63 +100,18 @@
                           <c:choose>
                               <c:when test="${file.fileType == '招生简章' || file.fileType == '招生专业目录'}">
                                   <c:if test="${file.isExamine == 1}">
-                                      <li>
-                                          <div>
-                                              <img src="${file.suffix.imgUrl}" alt="文件类型" class="siffix">
-                                              <span class="tn"><a href="/download?fileId=${file.fileId}" >${file.fileTitle}</a></span>
-                                              <div class="topdetail">
-                                                  <span class="ft"> ${file.fileType}</span>
-                                                  <span class="fs">${file.fileSchool}</span>
-                                              </div>
-                                              <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
-                                              <div class="rightdetail">
-                                                  <span class="fc"><img src="/images/share/credit.svg"  class="credit">${file.fileCredit}</span>
-                                                  <span class="dn"><img src="/images/share/downNum.svg"  class="downNum">${file.downloadNumber}</span>
-                                              </div>
-                                          </div>
-                                      </li>
+                                      <%@include file="filelist.jsp"%>
                                   </c:if>
                               </c:when>
                               <c:otherwise>
-                                  <li>
-                                      <div>
-                                          <img src="${file.suffix.imgUrl}" alt="文件类型" class="siffix">
-                                          <span class="tn"><a href="/download?fileId=${file.fileId}" >${file.fileTitle}</a></span>
-                                          <div class="topdetail">
-                                              <span class="ft"> ${file.fileType}</span>
-                                              <span class="fs">${file.fileSchool}</span>
-                                          </div>
-                                          <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
-                                          <div class="rightdetail">
-                                              <span class="fc"><img src="/images/share/credit.svg"  class="credit">${file.fileCredit}</span>
-                                              <span class="dn"><img src="/images/share/downNum.svg"  class="downNum">${file.downloadNumber}</span>
-                                          </div>
-                                      </div>
-                                  </li>
+                                  <%@include file="filelist.jsp"%>
                               </c:otherwise>
                           </c:choose>
                       </c:forEach>
                   </ul>
               </div>
               </table>
-              <div style="text-align: center">
-                  <div class="laypage-main">
-                      <a href="/${url }?fileType=${fileType}&school=${school}&keyWord=${keyWord}">首页</a>
-                      <a href="/${url }?fileType=${fileType}&school=${school}&keyWord=${keyWord}&pageNum=${PageInfo.prePage}"><<</a>
-                      <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                          <a name="${i}" href="/${url }?fileType=${fileType}school=${school}&keyWord=${keyWord}&pageNum=${i}">${i}</a>
-                      </c:forEach>
-                      <c:choose>
-                          <c:when test="${PageInfo.nextPage==0}">
-                              <a href="/${url }?fileType=${fileType}&school=${school}&keyWord=${keyWord}&pageNum=${PageInfo.pages}">>></a>
-                          </c:when>
-                          <c:otherwise>
-                              <a href="/${url }?fileType=${fileType}&school=${school}&keyWord=${keyWord}&pageNum=${PageInfo.nextPage}">>></a>
-                          </c:otherwise>
-                      </c:choose>
-                      <a href="/${url }?fileType=${fileType}&school=${school}&keyWord=${keyWord}&pageNum=${PageInfo.pages}">尾页</a>
-                  </div>
-              </div>
+              <%@include file="page.jsp"%>
           </c:if>
         </div>
     </div><!--上边这-->
@@ -220,15 +130,15 @@
                   <c:when test="${hotFile.fileType == '招生简章' || hotFile.fileType == '招生专业目录'}">
                       <c:if test="${hotFile.isExamine == 1}">
                           <dd>
-                              <a href="/download?fileId=${hotFile.fileId}" style="color: red">${hotFile.fileTitle}</a>
-                              <span><i class="iconfont icon-pinglun1"></i> ${hotFile.downloadNumber}</span>
+                              <a href="/download?fileId=${hotFile.fileId}">${hotFile.fileTitle}</a>
+                              <span> <img src="/images/share/downNum2.svg" class="downNum">${hotFile.downloadNumber}</span>
                           </dd>
                       </c:if>
                   </c:when>
                   <c:otherwise>
                       <dd>
-                          <a href="/download?fileId=${hotFile.fileId}" style="color: red">${hotFile.fileTitle}</a>
-                          <span><i class="iconfont icon-pinglun1"></i> ${hotFile.downloadNumber}</span>
+                          <a href="/download?fileId=${hotFile.fileId}" >${hotFile.fileTitle}</a>
+                          <span><img src="/images/share/downNum2.svg" class="downNum" > ${hotFile.downloadNumber}</span>
                       </dd>
                   </c:otherwise>
               </c:choose>

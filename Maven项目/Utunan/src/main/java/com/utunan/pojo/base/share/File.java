@@ -23,6 +23,9 @@ public class File {
 	private Long isExamine;
 	private User user;
 	private Suffix suffix;
+	private String fileDiscription;
+	private Long upNumber;
+	private Long downNumber;
 
 	public Long getFileId() {
 		return fileId;
@@ -128,6 +131,30 @@ public class File {
 		this.suffix = suffix;
 	}
 
+	public String getFileDiscription() {
+		return fileDiscription;
+	}
+
+	public void setFileDiscription(String fileDiscription) {
+		this.fileDiscription = fileDiscription;
+	}
+
+	public Long getUpNumber() {
+		return upNumber;
+	}
+
+	public void setUpNumber(Long upNumber) {
+		this.upNumber = upNumber;
+	}
+
+	public Long getDownNumber() {
+		return downNumber;
+	}
+
+	public void setDownNumber(Long downNumber) {
+		this.downNumber = downNumber;
+	}
+
 	@Override
 	public String toString() {
 		return "File{" +
@@ -143,7 +170,10 @@ public class File {
 				", suffixId=" + suffixId +
 				", isExamine=" + isExamine +
 				", user=" + user +
-				", Suffix=" + suffix +
+				", suffix=" + suffix +
+				", fileDiscription='" + fileDiscription + '\'' +
+				", upNumber=" + upNumber +
+				", downNumber=" + downNumber +
 				'}';
 	}
 }

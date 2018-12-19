@@ -99,3 +99,15 @@
 .fly-list-one dd {
     line-height: 40px;
 }
+.fs a:link {
+    color: darkgray;
+}
+.ft a:link {
+    color: darkgray;
+}
+.fs a:hover {
+    color: RGB(255,87,34);
+}
+.ft a:hover {
+    color: RGB(255,87,34);
+}
