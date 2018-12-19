@@ -33,18 +33,28 @@
                     <c:choose>
                         <c:when test="${message.messageType==\"1\"}">
                             <li>
-                                <span>系统消息:</span>
-                                <span><a href="/user/message/read/${message.messageId}">${message.messageContent}</a></span>
+                                <span class="system"> 系统消息 : </span>
+                                <span id="message${message.messageId}"><a _href="/user/message/read/${message.messageId}">${message.messageContent}</a></span>
                             </li>
                         </c:when>
                         <c:otherwise>
                             <li>
-                                <span>新的回复:</span>
-                                <span>您的问答 : ${message.messageContent}</span>
+                                <span class="newreply"> 新的回复 : </span>
+                                <span id="message${message.messageId}">您的问答 : ${message.messageContent} 有了新的回复 </span>
                             </li>
                         </c:otherwise>
                     </c:choose>
                 </c:forEach>
+                <script>
+                    alla=$('#message a')
+                    console.log(alla)
+                    alla.click(function(){
+                        id=$(this).parent().attr('id')
+                        $()
+                        url=$(this).attr('_href')
+                        window.location.href=url;
+                    })
+                </script>
             </nav>
             <%@ include file="common/page.jsp"%>
         </div>

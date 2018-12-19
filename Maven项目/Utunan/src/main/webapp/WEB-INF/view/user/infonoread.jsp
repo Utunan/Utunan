@@ -16,10 +16,10 @@
 
 <body>
 <%@include file="../common/header.jsp" %>
-<%@include file="common/usercard.jsp"%>
+<%@include file="common/usercard.jsp" %>
 <div class="container" style="margin-top: 30px;">
     <div class="wrapper background">
-        <%@include file="common/userfunction.jsp"%>
+        <%@include file="common/userfunction.jsp" %>
         <div class="content" id="content">
             <div class="title">
                 <span>消息通知</span>
@@ -34,32 +34,53 @@
                         <c:when test="${message.messageType==\"1\"}">
                             <li>
                                 <span class="system"> 系统消息 : </span>
-                                <span id="message${message.messageId}"><a _href="/user/message/read/${message.messageId}">${message.messageContent}</a></span>
+                                <span id="${message.messageId}"><a
+                                        _href="/user/message/${message.messageId}">${message.messageContent}</a></span>
                             </li>
                         </c:when>
                         <c:otherwise>
                             <li>
                                 <span class="newreply"> 新的回复 : </span>
-                                <span id="message${message.messageId}">您的问答 : ${message.messageContent} 有了新的回复 </span>
+                                <span id="${message.messageId}">您的问答 : ${message.messageContent} 有了新的回复 </span>
                             </li>
                         </c:otherwise>
                     </c:choose>
                 </c:forEach>
                 <script>
-                    alla=$('#message a')
-                    console.log(alla)
-                    alla.click(function(){
-                        id=$(this).parent().attr('id')
-                        $()
-                        url=$(this).attr('_href')
+                    $('#message a').click(function () {
+                        li = $(this).parent().parent();
+                        id = $(this).parent().attr('id')
+                        url = $(this).attr('_href')
+                        $.ajax({
+                            type: "get",
+                            url: "/user/message/update",
+                            data: {"messageId": id},
+                            dataType: "json",
+                            success: function (data) {
+                                if (data['state'] == "success") {
+                                    li.remove();
+                                    data = $('#messagecount').html()
+                                    if (data != "" && parseInt(data) - 1 >= 0) {
+                                        $('#messagecount').html(parseInt(data) - 1)
+                                    } else {
+                                        $('#messagecount').css('display', "none");
+                                        $('#messagecount').html(0);
+                                    }
+                                    window.open(url, "_blank");
+                                }
+                            },
+                            error: function () {
+                                alert("网站可能崩了")
+                            }
+                        })
                     })
                 </script>
             </nav>
-            <%@ include file="common/page.jsp"%>
+            <%@ include file="common/page.jsp" %>
         </div>
     </div>
 </div>
-<%@include file="../common/footer.jsp"%>
+<%@include file="../common/footer.jsp" %>
 </body>
 <script src="/js/user/usercommon.js"></script>
 <script src="/js/common/common.js"></script>

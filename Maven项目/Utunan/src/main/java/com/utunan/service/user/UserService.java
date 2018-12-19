@@ -19,6 +19,7 @@ public interface UserService {
     boolean changeUserHeadImg(User user,String img);
     boolean changeUserTelephone(User user);
     boolean changeUserEmail(User user);
+    boolean changeMessageIsView(String messageId);
     List<User> getAllUser(int pageNum,int pageSize);
     List<User> getAllMember(int pageNum,int pageSize);
     List<User> getAllAdmin(int pageNum,int pageSize);
