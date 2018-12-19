@@ -8,8 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>院校详情</title>
   <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="/layui/wyd/layui.css">
-  <link rel="stylesheet" href="/layui/wyd/global.css">
+  <link rel="stylesheet" href="/css/community/layui.css">
+  <link rel="stylesheet" href="/css/community/global.css">
   <link rel="stylesheet" href="/css/school/detail.css">
   <link rel="stylesheet" href="/css/community/detail.css">
   <link rel="stylesheet" href="/css/school/login.css">
@@ -203,15 +203,6 @@
   </div>
 </div>
 
-<div class="fly-footer">
-  <p><a href="http://fly.layui.com/" target="_blank">Fly社区</a> 2017 &copy; <a href="http://www.layui.com/" target="_blank">layui.com 出品</a></p>
-  <p>
-    <a href="http://fly.layui.com/jie/3147/" target="_blank">付费计划</a>
-    <a href="http://www.layui.com/template/fly/" target="_blank">获取Fly社区模版</a>
-    <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
-  </p>
-</div>
-
 <%--弹窗登录表单--%>
 <div class="modalDialogcontent">
   <span class="close_modalDialogcontent">×</span>
@@ -345,5 +336,4 @@ layui.config({
 
 </script>
 <script src="/js/common/login.js"></script>
-<script src="/js/common/common.js"></script>
 </html>
