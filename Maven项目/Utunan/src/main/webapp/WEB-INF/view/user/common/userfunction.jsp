@@ -7,7 +7,7 @@
             <span>个人资料</span>
         </li>
     </a>
-    <a href="/user/information#anchor">
+    <a href="/user/message#anchor">
         <li>
             <img src="/images/user/information.svg" alt="" srcset="">
             <span>消息通知</span>

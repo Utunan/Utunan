@@ -386,7 +386,21 @@ footer>nav>li>a{
     width: 100%;
     text-align: center;
 }
-
+#messagecount{
+    position: absolute;
+    top:0px;
+    z-index: 100;
+    width: 16px;
+    height: 16px;
+    margin-left:20px;
+    margin-top:8px;
+    border-radius: 10px;
+    line-height: 16px;
+    text-align: center;
+    background-color: tomato;
+    font-size: 12px;
+    color: #ffffff;;
+}
 .page>li {
     text-align: center;
     display:inline-flex;

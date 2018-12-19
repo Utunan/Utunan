@@ -71,8 +71,8 @@
         from file f
         join user u on f.userId=u.userId
         join suffix s on f.suffixId=s.suffixId
-        where f.fileSchool like #{fileSchool}
-        and f.fileTitle REGEXP #{keyWord}
+        where f.fileTitle REGEXP #{keyWord}
+        and f.fileSchool like #{fileSchool}
         and f.fileType in
         <if test="fileType!=null">
             <foreach collection="fileType" item="item" index="index" open="(" separator="," close=")">

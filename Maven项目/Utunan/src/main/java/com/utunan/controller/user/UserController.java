@@ -22,6 +22,17 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping("/usermessage")
+    @ResponseBody
+    public String usermessage(HttpSession session){
+        User user=(User)session.getAttribute("User");
+        Integer messageCount=userService.getUserMessageCount(user);
+        session.setAttribute("messagecount",messageCount.toString());
+        if(messageCount!=null){
+            return  messageCount.toString();
+        }
+        return "0";
+    }
 
     @RequestMapping("/changeInfo")
     public String changeInfo(User user) {

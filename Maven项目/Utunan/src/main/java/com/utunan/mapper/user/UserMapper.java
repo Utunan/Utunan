@@ -2,6 +2,7 @@ package com.utunan.mapper.user;
 
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.questionbank.Question;
+import com.utunan.pojo.base.user.Message;
 import com.utunan.pojo.base.user.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -23,10 +24,14 @@ public interface UserMapper {
     User selectByPermit(User user);
     User selectByPorE(User user);
     User selectByP(User user);
+    List<Message> selectUserAllReadInfo(User user);
+    List<Message> selectUserAllNoReadInfo(User user);
+    int selectUserMessage(User user);
     int updateUser(User user);
     int updateUserPassword(User user);
     int updateUserHeadImg(@Param("userId")Long userId, @Param("userHeadImg")String userHeadImg);
     int updateUserTelephone(User user);
     int updateUserEmail(User user);
+
 }
 

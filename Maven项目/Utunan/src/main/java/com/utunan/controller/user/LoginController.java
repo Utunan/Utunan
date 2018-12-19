@@ -57,8 +57,11 @@ public class LoginController {
             request.removeAttribute("reply");
             session.setAttribute("User", user);
             String pageSource = (String) session.getAttribute("PageSource");
-            if (pageSource == null)
+            Integer messageCount=userService.getUserMessageCount(user);
+            session.setAttribute("messagecount",messageCount.toString());
+            if (pageSource == null){
                 return "redirect:/user";
+            }
             else {
                 session.removeAttribute("PageSource");
                 return "redirect:" + pageSource;
