@@ -35,12 +35,10 @@ public class ShareController {
     private ShareupFileService shareupFileService;
 
     @ResponseBody
-    @RequestMapping(value = "/upload1",method = RequestMethod.POST)
-    public String upload(@RequestParam(value = "file",required = false) MultipartFile file,HttpServletRequest request,HttpSession session){
+    @RequestMapping(value = "/upload1", method = RequestMethod.POST)
+    public String upload(@RequestParam(value = "file", required = false) MultipartFile file, HttpServletRequest request, HttpSession session) {
         String rootPath = request.getSession().getServletContext().getRealPath("/");
-        //String path=rootPath+file.getOriginalFilename();
-        String path=null;
-
+        String path = rootPath + file.getOriginalFilename();
         JSONObject resObj = new JSONObject();
         resObj.put("msg", "ok");
         try {
@@ -49,77 +47,74 @@ public class ShareController {
             e.printStackTrace();
         }
         //获取资源类型
-        String sourcetype=request.getParameter("sourcetype");
-        int a=Integer.parseInt(sourcetype);
+        String sourcetype = request.getParameter("sourcetype");
+        System.out.print(sourcetype + "\n");
 
-        switch(a)
-        {
+
+        int a = new Integer(sourcetype).intValue();
+        System.out.print(a + "\n");
+        switch (a) {
             case 0:
-                sourcetype="招生简章";
+                sourcetype = "招生简章";
                 break;
             case 1:
-                sourcetype="招生专业目录";
+                sourcetype = "招生专业目录";
                 break;
             case 11:
-                sourcetype="考研真题";
+                sourcetype = "考研真题";
                 break;
             case 12:
-                sourcetype="备考习题";
+                sourcetype = "备考习题";
                 break;
             case 13:
-                sourcetype="课件分享";
+                sourcetype = "课件分享";
                 break;
             default:
-                sourcetype="参考书目";
+                sourcetype = "参考书目";
                 break;
+
         }
-        //获取标题
-        String title=request.getParameter("title");
-        //获取年份
-        String year=request.getParameter("year");
-        //获取积分
-        String integral=request.getParameter("integral");
-        //获取文件类型后缀
-        String filetype=request.getParameter("filetype");
-        //获取学校
-        String school=request.getParameter("school");
+            //获取标题
+            String title = request.getParameter("title");
+            //获取年份
+            String year = request.getParameter("year");
+            //获取积分
+            String integral = request.getParameter("integral");
+            //获取文件类型后缀
+            String filetype = request.getParameter("filetype");
+            //获取学校
+            String school = request.getParameter("school");
+            //获取资源简介
+            String desc = request.getParameter("desc");
+            System.out.print(desc);
 
+            //获取登录用户
+            User user = (User) session.getAttribute("User");
+            //查询对应标签ID
+            Long suffixId = this.shareupFileService.getSuffix(filetype);
 
-        //获取登录用户
-        User user=(User)session.getAttribute("User");
-        //查询对应标签ID
-        Long suffixId=this.shareupFileService.getSuffix(filetype);
+            //获取最大的fileId
+            Long fileId = this.shareupFileService.getMaxfileId();
+            fileId += 1;
 
-        //获取最大的fileId
-        Long fileId=this.shareupFileService.getMaxfileId();
-        fileId+=1;
+            if (sourcetype.equals("招生简章") || sourcetype.equals("招生专业目录")) {
+                title = school + year + sourcetype;
+                if (file.getOriginalFilename() != null && user != null && Long.parseLong(integral) >= 0) {
 
-        if(sourcetype.equals("招生简章")||sourcetype.equals("招生专业目录")){
-            title=school+year+sourcetype;
-            if(file.getOriginalFilename()!=null&&user!=null&&Long.parseLong(integral)>=0) {
+                    this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral), Long.parseLong("0"), desc);
+                    return "上传成功";
+                } else {
+                    return "上传不成功,请重新上传";
+                }
+            } else {
+                if (file.getOriginalFilename() != null && user != null && Long.parseLong(integral) >= 0) {
 
-                this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral),Long.parseLong("0"));
-                return "上传成功";
-            }
-            else{
-                return "上传不成功,请重新上传";
+                    this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral), Long.parseLong("1"), desc);
+                    return "上传成功";
+                } else {
+                    return "上传不成功,请重新上传";
+                }
             }
         }
-        else{
-            if(file.getOriginalFilename()!=null&&user!=null&&Long.parseLong(integral)>=0) {
-
-                this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral),Long.parseLong("1"));
-                return "上传成功";
-            }
-            else{
-                return "上传不成功,请重新上传";
-            }
-        }
-
-
-
-
 
     }
-
-}
