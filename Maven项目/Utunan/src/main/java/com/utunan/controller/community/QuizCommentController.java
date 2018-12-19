@@ -12,6 +12,7 @@ import com.utunan.pojo.util.Page;
 import com.utunan.service.community.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -50,9 +51,9 @@ public class QuizCommentController {
      * @param  [request]
      * @return  java.lang.String
      */
-    @RequestMapping("/displayQuizByQuizId")
-    public String displayQuizByQuizId(HttpServletRequest request, HttpSession session){
-        String url = "displayQuizByQuizId";
+    @RequestMapping("/quiz/{quizId}")
+    public String displayQuizByQuizId(@PathVariable String quizId, HttpServletRequest request, HttpSession session){
+        String url = "quiz/{quizId}";
         //获取页数
         String pageNum=request.getParameter("pageNum");
         //判断当前页
@@ -62,10 +63,6 @@ public class QuizCommentController {
         }else{
             num=Integer.parseInt(pageNum);
         }
-
-
-
-        String quizId = request.getParameter("quizId");
         //根据quizId返回quiz
         Quiz quiz = this.quizService.findQuizById(Long.parseLong(quizId));
         //根据quizId返回标签

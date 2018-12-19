@@ -10,6 +10,7 @@ public class Message {
     private String messageContent;
     private Date messageTime;
     private String isView;
+    private Long quizId;
 
     @Override
     public String toString() {
@@ -21,6 +22,7 @@ public class Message {
                 ", messageContent='" + messageContent + '\'' +
                 ", messageTime=" + messageTime +
                 ", isView='" + isView + '\'' +
+                ", quizId=" + quizId +
                 '}';
     }
 
@@ -80,4 +82,11 @@ public class Message {
         this.messageContent = messageContent;
     }
 
+    public Long getQuizId() {
+        return quizId;
+    }
+
+    public void setQuizId(Long quizId) {
+        this.quizId = quizId;
+    }
 }

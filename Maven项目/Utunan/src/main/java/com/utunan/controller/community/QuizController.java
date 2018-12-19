@@ -198,7 +198,7 @@ public class QuizController {
 
 	/**
 	 * @author  张正扬
-	 * @description 向quiz表插入并取出插入内容
+	 * @description 向quiz表插入
 	 * @date  19:58 2018/11/21
 	 * @param
 	 * @return

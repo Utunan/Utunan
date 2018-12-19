@@ -94,7 +94,7 @@
                            <img src="${obj.user.userHeadImg}" alt="昵称">
                         </a>
                         <h2>
-                            <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
+                            <a href="/quiz/${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
                         </h2>
                         <!--<span class="question-description">${obj.quiz.quizContent}</span>-->
                         <div class="fly-list-info">

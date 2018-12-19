@@ -123,7 +123,7 @@
           <legend>回答</legend>
         </fieldset>
           <select class="sequencing-principle" name="" onchange="self.location.href=options[selectedIndex].value">
-              <option value="/displayQuizByQuizId?quizId=${quiz.quizId}" ${timeselect}>按时间顺序</option>
+              <option value="/quiz/${quiz.quizId}" ${timeselect}>按时间顺序</option>
               <option value="/displayCommentByPraiseCount?quizId=${quiz.quizId}"  ${praiseselect}>按热度排序</option>
           </select>
         <ul class="jieda" id="jieda">
@@ -297,4 +297,5 @@
 </script>
 <script src="/js/common/login.js"></script>
 <script src="/js/common/common.js"></script>
+</body>
 </html>

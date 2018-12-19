@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.utunan.mapper.user.MessageMapper">
+    <!--向message表中存入信息-->
+    <insert id="saveMessage" parameterType="com.utunan.pojo.base.user.Message">
+        insert into message(messageId,receiveUserId,sendUserId,quizId,messageContent,messageType,messageTime,isView)
+        values (#{messageId},#{receiveUser.userId},#{sendUser.userId},#{quizId},#{messageContent},#{messageTime},#{isView})
+    </insert>
+    <!--获取最大messageId-->
+    <select id="getMaxMid" resultType="java.lang.Long">
+        select max(messageId)
+        from message
+    </select>
+</mapper>
