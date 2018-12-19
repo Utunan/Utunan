@@ -16,8 +16,10 @@ import java.util.Date;
 @Mapper
 @Repository
 public interface PublishDirectionCommentMapper {
-    /*王碧云 修改点赞数量*/
-    Long updateDirectionCommentPraiseCount(@Param("directionCommentId") Long directionCommentId);
+    /*王碧云 增加点赞数量*/
+    Long addDCPraiseCount(@Param("directionCommentId") Long directionCommentId);
+    /*王碧云 减少点赞数量*/
+    Long delDCPraiseCount(@Param("directionCommentId") Long directionCommentId);
     /*王碧云 插入评论*/
     void insertDirectionComment(@Param("userId") Long userId, @Param("directionId") Long directionId,@Param("directionCommentContent") String directionCommentContent,@Param("directionCommentTime") Date directionCommentTime,@Param("directionCommentPraiseCount") Long directionCommentPraiseCount);
     /*删除评论*/
