@@ -3,6 +3,7 @@ package com.utunan.service.share;
 import com.utunan.pojo.base.school.Direction;
 import com.utunan.pojo.base.school.School;
 import com.utunan.pojo.base.share.File;
+import com.utunan.pojo.base.share.FileGreat;
 import com.utunan.pojo.base.share.UserDownload;
 import com.utunan.pojo.base.user.User;
 import org.apache.ibatis.annotations.Param;
@@ -112,4 +113,50 @@ public interface ShareIndexService {
 	 * @return  void
 	 */
 	void updateFileDownloadNumber(Long fileId, Long downloadNumber);
+
+	/**
+	 * @author  孙程程
+	 * @description 查询用户点赞表是否存在相关信息
+	 * @date  8:26 2018/12/19
+	 * @param  userId, fileId, type
+	 * @return  com.utunan.pojo.base.share.FileGreat
+	 */
+	FileGreat findFileGreat(Long userId, Long fileId, Long operate);
+
+	/**
+	 * @author  孙程程
+	 * @description 向用户点赞表插入数据
+	 * @date  8:51 2018/12/19
+	 * @param  userId, fileId, type
+	 * @return  void
+	 */
+	void insertFileGreat(Long userId, Long fileId, Long operate);
+
+	/**
+	 * @author  孙程程
+	 * @description 从用户点赞表删除信息
+	 * @date  9:07 2018/12/19
+	 * @param  userId, fileId, type
+	 * @return  void
+	 */
+	void deleteFileGreat(Long userId, Long fileId, Long operate);
+
+	/**
+	 * @author  孙程程
+	 * @description 更新文件点赞数量
+	 * @date  8:45 2018/12/19
+	 * @param  fileId, upNumber
+	 * @return  void
+	 */
+	void updateFileUpNumber(Long fileId, Long upNumber);
+
+	/**
+	 * @author  孙程程
+	 * @description 更新文件踩数量
+	 * @date  8:44 2018/12/19
+	 * @param  fileId, downNumber
+	 * @return  void
+	 */
+	void updateFileDownNumber(Long fileId, Long downNumber);
+
 }

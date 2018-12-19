@@ -18,7 +18,13 @@ public class AdminDelController {
     private AdminDelService adminDelService;
 
 
-
+    //单个删除用户
+    @RequestMapping(value = "/delmember",method = RequestMethod.GET)
+    @ResponseBody
+    public void delmember(@Param("n") String n,HttpServletRequest request){
+        this.adminDelService.delMember(Long.parseLong(n));
+    }
+    //批量删除用户
     @RequestMapping(value = "/delallmember",method = RequestMethod.GET)
     @ResponseBody
     public void delallmember(@Param("d") String d,HttpServletRequest request){
@@ -30,6 +36,15 @@ public class AdminDelController {
         this.adminDelService.delAllMember(a);
     }
 
+
+    //删除单个学校评论
+    @RequestMapping(value = "/delschoolcomment",method = RequestMethod.GET)
+    @ResponseBody
+    public void delschoolcomment(@Param("n") String n,HttpServletRequest request){
+        this.adminDelService.delSchoolComment(Long.parseLong(n));
+    }
+
+    //批量删除学校评论
     @RequestMapping(value = "/delallschoolcomment",method = RequestMethod.GET)
     @ResponseBody
     public void delallschoolcomment(@Param("d") String d,HttpServletRequest request){

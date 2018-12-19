@@ -1,6 +1,7 @@
 package com.utunan.controller.share;
 
 import com.utunan.pojo.base.share.File;
+import com.utunan.pojo.base.share.FileGreat;
 import com.utunan.pojo.base.share.UserDownload;
 import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.util.Analyzer;
@@ -8,6 +9,7 @@ import com.utunan.service.share.ShareIndexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -29,6 +31,13 @@ public class ShareDownloadController {
 	@Autowired
 	ShareIndexService shareIndexService;
 
+	/**
+	 * @author  孙程程
+	 * @description 下载界面
+	 * @date  10:32 2018/12/19
+	 * @param  request
+	 * @return  java.lang.String
+	 */
 	@RequestMapping("/download")
 	public String download(HttpServletRequest request){
 		String fileId = request.getParameter("fileId");
@@ -75,7 +84,6 @@ public class ShareDownloadController {
 			}else {
 				operate = "canDownload"; //可以下载
 			}
-
 		}
 		//返回数据
 		request.setAttribute("operate", operate);
@@ -85,6 +93,13 @@ public class ShareDownloadController {
 		return "share/download";
 	}
 
+	/**
+	 * @author  孙程程
+	 * @description 下载功能
+	 * @date  10:32 2018/12/19
+	 * @param  request, response
+	 * @return  void
+	 */
 	@RequestMapping("downloadfile")
 	public void downloadFile(HttpServletRequest request, HttpServletResponse response) {
 		//获取文件信息
@@ -142,4 +157,81 @@ public class ShareDownloadController {
 			this.shareIndexService.updateUserIntegral(user.getUserId(),user1.getUserIntegral()-file.getFileCredit());
 		}
 	}
+
+	/**
+	 * @author  孙程程
+	 * @description 赞
+	 * @date  10:32 2018/12/19
+	 * @param  request
+	 * @return  java.lang.String
+	 */
+	@RequestMapping(value = "/fileUp", method = RequestMethod.GET)
+	public String fileUp(HttpServletRequest request){
+		String fileId = request.getParameter("fileId");
+		File file = this.shareIndexService.findFileById(Long.parseLong(fileId));
+		//获取用户信息
+		User user = (User)request.getSession().getAttribute("User");
+		if (user != null){
+			//查询用户是否赞过
+			FileGreat fileGreat1 = this.shareIndexService.findFileGreat(user.getUserId(),file.getFileId(),Long.parseLong("1"));
+			//查询用户是否踩过
+			FileGreat fileGreat2 = this.shareIndexService.findFileGreat(user.getUserId(),file.getFileId(),Long.parseLong("2"));
+			if (fileGreat2 == null){
+				//用户没有踩过，可以进行相关操作
+				if (fileGreat1 == null){
+					//用户没有赞过
+					//插入点赞信息
+					this.shareIndexService.insertFileGreat(user.getUserId(), file.getFileId(), Long.parseLong("1"));
+					//更新点赞数量
+					this.shareIndexService.updateFileUpNumber(file.getFileId(), file.getUpNumber()+1);
+				}else {
+					//用户已经赞过，取消赞
+					//删除点赞信息
+					this.shareIndexService.deleteFileGreat(user.getUserId(), file.getFileId(), Long.parseLong("1"));
+					//更新点赞数量
+					this.shareIndexService.updateFileUpNumber(file.getFileId(), file.getUpNumber()-1);
+				}
+			}
+		}
+		return "redirect:/download?fileId="+fileId;
+	}
+
+	/**
+	 * @author  孙程程
+	 * @description 踩
+	 * @date  10:32 2018/12/19
+	 * @param  request
+	 * @return  java.lang.String
+	 */
+	@RequestMapping(value = "/fileDown", method = RequestMethod.GET)
+	public String fileDown(HttpServletRequest request){
+		String fileId = request.getParameter("fileId");
+		File file = this.shareIndexService.findFileById(Long.parseLong(fileId));
+		//获取用户信息
+		User user = (User)request.getSession().getAttribute("User");
+		if (user != null){
+			//查询用户是否赞过
+			FileGreat fileGreat1 = this.shareIndexService.findFileGreat(user.getUserId(),file.getFileId(),Long.parseLong("1"));
+			//查询用户是否踩过
+			FileGreat fileGreat2 = this.shareIndexService.findFileGreat(user.getUserId(),file.getFileId(),Long.parseLong("2"));
+			if (fileGreat1 == null){
+				//用户没有赞过，可以进行相关操作
+				if (fileGreat2 == null){
+					//用户没有踩过
+					//插入踩的信息
+					this.shareIndexService.insertFileGreat(user.getUserId(), file.getFileId(), Long.parseLong("2"));
+					//更新踩的数量
+					this.shareIndexService.updateFileDownNumber(file.getFileId(), file.getDownNumber()+1);
+				}else {
+					//用户已经踩过，取消踩
+					//删除踩的信息
+					this.shareIndexService.deleteFileGreat(user.getUserId(), file.getFileId(), Long.parseLong("2"));
+					//更新踩的数量
+					this.shareIndexService.updateFileDownNumber(file.getFileId(), file.getDownNumber()-1);
+				}
+			}
+		}
+		return "redirect:/download?fileId="+fileId;
+	}
+
 }
