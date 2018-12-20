@@ -104,7 +104,7 @@
                                 <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
                             </span>
 
-                            <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
+                            <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="/images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
                             <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
                             <span class="fly-list-nums">
                                 <i class="iconfont icon-pinglun1" title="回答"></i> ${obj.quiz.answerCount}
@@ -184,7 +184,7 @@
                                 <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
                             </span>
 
-                            <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
+                            <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="/images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
                             <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
                             <span class="fly-list-nums">
                                 <i class="iconfont icon-pinglun1" title="回答"></i> ${obj.quiz.answerCount}
