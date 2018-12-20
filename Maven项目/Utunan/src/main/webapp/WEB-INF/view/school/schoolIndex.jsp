@@ -37,7 +37,7 @@
                             <div class="options">
                                 <span class="optionName">院校所在地 ></span>
                                 <div class="option" id="district">
-                                    <input class="all" name="schoolProvince" type="checkbox" value="全部" id="所在地全部" checked="true"><label for="所在地全部">全部</label>
+                                    <input class="all" name="schoolProvince" type="checkbox" value="全部" id="所在地全部"><label for="所在地全部">全部</label>
                                     <input class="part" name="schoolProvince" type="checkbox" value="北京" id="北京"><label for="北京">北京</label>
                                     <input class="part" name="schoolProvince" type="checkbox" value="天津" id="天津"><label for="天津">天津</label>
                                     <input class="part" name="schoolProvince" type="checkbox" value="上海" id="上海"><label for="上海">上海</label>
@@ -74,7 +74,7 @@
                             <div class="options">
                                 <span class="optionName">院校特性 ></span>
                                 <div class="option" id="kind">
-                                    <input class="kind-all" name="schoolType" type="checkbox" value=""  id="院校特性全部" checked="true"><label for="院校特性全部">全部</label>
+                                    <input class="kind-all" name="schoolType" type="checkbox" value=""  id="院校特性全部"><label for="院校特性全部">全部</label>
                                     <input class="kind-part" name="schoolType" type="checkbox" value="985" id="985院校"><label for="985院校">985院校</label>
                                     <input class="kind-part" name="schoolType" type="checkbox" value="211" id="211院校"><label for="211院校">211院校</label>
                                     <input class="kind-part" name="schoolType" type="checkbox" value="自划线" id="自划线"><label for="自划线">自主划线</label>
@@ -83,7 +83,7 @@
                             <div class="options">
                                 <span class="optionName">学位类型 ></span>
                                 <div class="option" id="degree">
-                                    <input class="degree-all" name="degreeType" type="checkbox" value="" id="学位全部" checked="true"><label for="学位全部">全部</label>
+                                    <input class="degree-all" name="degreeType" type="checkbox" value="" id="学位全部"><label for="学位全部">全部</label>
                                     <input class="degree-part" name="degreeType" type="checkbox" value="学硕" id="学硕"><label for="学硕">学硕</label>
                                     <input class="degree-part" name="degreeType" type="checkbox" value="专硕" id="专硕"><label for="专硕">专硕</label>
                                 </div>
@@ -92,12 +92,12 @@
                                 <span class="optionName">考试科目 ></span>
                                 <div class="subjectoption">
                                     <div class="option" id="math">
-                                        <input class="math-all" name="math" type="checkbox" value="" id="数学全部" checked="true"><label for="数学全部">全部</label>
+                                        <input class="math-all" name="math" type="checkbox" value="" id="数学全部"><label for="数学全部">全部</label>
                                         <input class="math-part" name="math" type="checkbox" value="一" id="数学(一)"><label for="数学(一)">数学(一)</label>
                                         <input class="math-part" name="math" type="checkbox" value="二" id="数学(二)"><label for="数学(二)">数学(二)</label>
                                     </div>
                                     <div class="option" id="english">
-                                        <input class="english-all" name="english" type="checkbox" value="" id="英语全部" checked="true"><label for="英语全部">全部</label>
+                                        <input class="english-all" name="english" type="checkbox" value="" id="英语全部"><label for="英语全部">全部</label>
                                         <input class="english-part" name="english" type="checkbox" value="一" id="英语(一)"><label for="英语(一)">英语(一)</label>
                                         <input class="english-part" name="english" type="checkbox" value="二" id="英语(二)"><label for="英语(二)">英语(二)</label>
                                     </div>
@@ -257,68 +257,6 @@
         });
     };
 </script>
-<script src="/js/common/login.js"></script>
-<script>
-    //地区
-    $(".part").click(function(){
-        if($(".all").is(":checked")){//如果点击的时候，当前为选中状态
-            $(".all").attr("checked",false);//那么就改为未选中
-        }else{
-            $(".all").attr("checked",true)//否则就改为选中
-        }
-    })
-    $(".all").click(function(){
-        $(".part").attr("checked",false);
-    })
-
-    //学校属性
-    $(".kind-part").click(function(){
-        if($(".kind-all").is(":checked")){//如果点击的时候，当前为选中状态
-            $(".kind-all").attr("checked",false);//那么就改为未选中
-        }else{
-            $(".kind-all").attr("checked",true)//否则就改为选中
-        }
-    })
-    $(".kind-all").click(function(){
-        $(".kind-part").attr("checked",false);
-    })
-
-    //学位类型
-    $(".degree-part").click(function(){
-        if($(".degree-all").is(":checked")){//如果点击的时候，当前为选中状态
-            $(".degree-all").attr("checked",false);//那么就改为未选中
-        }else{
-            $(".degree-all").attr("checked",true)//否则就改为选中
-        }
-    })
-    $(".degree-all").click(function(){
-        $(".degree-part").attr("checked",false);
-    })
-
-    //数学
-    $(".math-part").click(function(){
-        if($(".math-all").is(":checked")){//如果点击的时候，当前为选中状态
-            $(".math-all").attr("checked",false);//那么就改为未选中
-        }else{
-            $(".math-all").attr("checked",true)//否则就改为选中
-        }
-    })
-    $(".math-all").click(function(){
-        $(".math-part").attr("checked",false);
-    })
-
-    //英语
-    $(".english-part").click(function(){
-        if($(".english-all").is(":checked")){//如果点击的时候，当前为选中状态
-            $(".english-all").attr("checked",false);//那么就改为未选中
-        }else{
-            $(".english-all").attr("checked",true)//否则就改为选中
-        }
-    })
-    $(".english-all").click(function(){
-        $(".english-part").attr("checked",false);
-    })
-</script>
 <script>
     //复选框状态保持
     var district=document.getElementById("district");
@@ -330,9 +268,9 @@
         inputs[0].checked=false;
         for(var j=1;j<inputs.length;j++){
             <c:forEach items="${schoolProvince}" varStatus="status" var="schoolProvince">
-                if("${schoolProvince}"==inputs[j].value){
-                    inputs[j].checked=true;
-                }
+            if("${schoolProvince}"==inputs[j].value){
+                inputs[j].checked=true;
+            }
             </c:forEach>
         }
     }
@@ -402,6 +340,67 @@
     if("${directionName}"!=""){
         direction.value="${directionName}";
     }
+</script>
+<script>
+    //地区
+    $(".part").click(function(){
+        if($(".all").is(":checked")){//如果点击的时候，当前为选中状态
+            $(".all").attr("checked",false);//那么就改为未选中
+        }else{
+            $(".all").attr("checked",true)//否则就改为选中
+        }
+    })
+    $(".all").click(function(){
+        $(".part").attr("checked",false);
+    })
+
+    //学校属性
+    $(".kind-part").click(function(){
+        if($(".kind-all").is(":checked")){//如果点击的时候，当前为选中状态
+            $(".kind-all").attr("checked",false);//那么就改为未选中
+        }else{
+            $(".kind-all").attr("checked",true)//否则就改为选中
+        }
+    })
+    $(".kind-all").click(function(){
+        $(".kind-part").attr("checked",false);
+    })
+
+    //学位类型
+    $(".degree-part").click(function(){
+        if($(".degree-all").is(":checked")){//如果点击的时候，当前为选中状态
+            $(".degree-all").attr("checked",false);//那么就改为未选中
+        }else{
+            $(".degree-all").attr("checked",true)//否则就改为选中
+        }
+    })
+    $(".degree-all").click(function(){
+        $(".degree-part").attr("checked",false);
+    })
+
+    //数学
+    $(".math-part").click(function(){
+        if($(".math-all").is(":checked")){//如果点击的时候，当前为选中状态
+            $(".math-all").attr("checked",false);//那么就改为未选中
+        }else{
+            $(".math-all").attr("checked",true)//否则就改为选中
+        }
+    })
+    $(".math-all").click(function(){
+        $(".math-part").attr("checked",false);
+    })
+
+    //英语
+    $(".english-part").click(function(){
+        if($(".english-all").is(":checked")){//如果点击的时候，当前为选中状态
+            $(".english-all").attr("checked",false);//那么就改为未选中
+        }else{
+            $(".english-all").attr("checked",true)//否则就改为选中
+        }
+    })
+    $(".english-all").click(function(){
+        $(".english-part").attr("checked",false);
+    })
 </script>
 <script>
     //分页页码选中刷新后样式
