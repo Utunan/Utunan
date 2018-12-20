@@ -2,7 +2,7 @@
 <li>
     <div>
         <img src="${file.suffix.imgUrl}" alt="文件类型" class="siffix">
-        <span class="tn"><a href="/download/${file.fileId}" >${file.fileTitle}</a></span>
+        <span class="tn"><a href="/file/${file.fileId}" >${file.fileTitle}</a></span>
         <div class="topdetail">
             <c:if test="${not empty file.fileSchool}">
                 <span class="ft"><a href="/searchfile?fileType=${file.fileType}&school=${file.fileSchool}&keyWord=">${file.fileType}</a></span>
@@ -12,7 +12,7 @@
         <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
         <div class="rightdetail">
             <span class="fc"><img src="/images/share/credit.svg"  class="credit">${file.fileCredit}</span>
-            <span class="dn"><a href="/download/${file.fileId}" ><img src="/images/share/downNum.svg"  class="downNum"></a>${file.downloadNumber}</span>
+            <span class="dn"><a href="/file/${file.fileId}" ><img src="/images/share/downNum.svg"  class="downNum"></a>${file.downloadNumber}</span>
         </div>
     </div>
 </li>

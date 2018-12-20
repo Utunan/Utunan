@@ -40,7 +40,7 @@
                         </c:when>
                         <c:otherwise>
                             <li>
-                                <span class="newreply"> 新的回复 : </span>
+                                <span class="newreply"> 问答回复 : </span>
                                 <span id="${message.messageId}">您的问答 : ${message.messageContent} 有了新的回复 </span>
                             </li>
                         </c:otherwise>

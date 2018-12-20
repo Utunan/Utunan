@@ -116,7 +116,7 @@
                 <a href="/subjects">优题库</a>
             </li>
             <li>
-                <a href="/quiz">优问答</a>
+                <a href="/quizs/rt/1">优问答</a>
             </li>
             <li>
                 <a href="/share">优共享</a>

@@ -13,6 +13,7 @@ import com.utunan.service.community.TagService;
 import com.utunan.util.WordLimitUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpSession;
@@ -38,9 +39,9 @@ public class QuizController {
 	@Autowired
 	private QuizGreatService quizGreatService;
 
-	@RequestMapping(value="/quiz")
-	public String displayQuiz(HttpServletRequest request){
-		String pageNum=request.getParameter("pageNum");
+	@RequestMapping(value="/quizs/{orderBy}/{pageNum}")
+	public String displayQuiz(HttpServletRequest request, @PathVariable String orderBy, @PathVariable String pageNum){
+//		String pageNum=request.getParameter("pageNum");
 		//判断当前页
 		int num=0;
 		if(pageNum==null || pageNum.equals("")){
@@ -49,16 +50,21 @@ public class QuizController {
 			num=Integer.parseInt(pageNum);
 		}
 		//排序方式
-		String orderBy = request.getParameter("by");
+//		String orderBy = request.getParameter("by");
 		if (orderBy==null || orderBy.equals("")){
-			orderBy="releaseTime";
+			orderBy="rt";
+		}
+		String ob = "";
+		if (orderBy=="rt"){
+			ob = "releaseTime";
+		}else{
+			ob = "praiseCount";
 		}
 		//提问列表
-		List<Quiz> quizList=quizService.listQuiz(orderBy, num,10);
+		List<Quiz> quizList=quizService.listQuiz(ob, num,10);
 		//查询前10个评论数量的问题
 		List<Quiz> quizListTop10=quizService.quizListTop10();
 		//封装BigQuiz
-		//*************以下代码会以同样的姿态在不同地方出现，正在努力封装************
 		//提取quizId列表
 		List<Long> quizIdList=new ArrayList<>();
 		for(int i=0; i<quizList.size(); i++){
@@ -78,7 +84,6 @@ public class QuizController {
 			bq.setTagList(quizTagList.get(i));
 			bigQuiz.add(bq);
 		}
-		//*************以上代码会以同样的姿态在不同地方出现，正在努力封装************
 		//热门标签
 		Object hotTagList=this.tagService.getTop10Tag();
 		//返回排序的选中状态
@@ -86,7 +91,7 @@ public class QuizController {
 			request.setAttribute("stateList",null);
 		}
 		List<String> stateList=new ArrayList<String>();
-		if (orderBy.equals("releaseTime")){
+		if (orderBy.equals("rt")){
 			stateList.add("active");
 			stateList.add("option");
 		}else{
@@ -95,7 +100,7 @@ public class QuizController {
 		}
 		//返回数据
 		request.setAttribute("object",bigQuiz);
-		request.setAttribute("url","quiz");
+		request.setAttribute("url","quizs");
 		request.setAttribute("orderBy", orderBy);
 		request.setAttribute("tag",hotTagList);
 		request.setAttribute("stateList",stateList);
@@ -111,10 +116,12 @@ public class QuizController {
 	 * @param  request
 	 * @return  java.lang.String
 	 */
-	@RequestMapping(value="/quiztag")
-	public String displayQuizByTag(HttpServletRequest request){
-		String tagName=request.getParameter("tagName");
-		String pageNum=request.getParameter("pageNum");
+	@RequestMapping(value="/quiztag/{tagName}/{orderBy}/{pageNum}")
+	public String displayQuizByTag(HttpServletRequest request, @PathVariable String tagName,
+                                                               @PathVariable String orderBy,
+                                                               @PathVariable String pageNum){
+//		String tagName=request.getParameter("tagName");
+//		String pageNum=request.getParameter("pageNum");
 		//判断当前页
 		int num=0;
 		if(pageNum==null || pageNum.equals("")){
@@ -123,14 +130,19 @@ public class QuizController {
 			num=Integer.parseInt(pageNum);
 		}
 		//排序方式
-		String orderBy = request.getParameter("by");
+//		String orderBy = request.getParameter("by");
 		if (orderBy==null || orderBy.equals("")){
-			orderBy="releaseTime";
+			orderBy="rt";
+		}
+		String ob = "";
+		if (orderBy=="rt"){
+			ob = "releaseTime";
+		}else{
+			ob = "praiseCount";
 		}
 		//提问列表
-		List<Quiz> quizList=this.quizService.listQuizByTag(orderBy, tagName, num, 10);
+		List<Quiz> quizList=this.quizService.listQuizByTag(ob, tagName, num, 10);
 		//封装BigQuiz
-		//*************以下代码会以同样的姿态在不同地方出现，正在努力封装************
 		//提取quizId列表
 		List<Long> quizIdList=new ArrayList<>();
 		for(int i=0; i<quizList.size(); i++){
@@ -153,12 +165,8 @@ public class QuizController {
 			bq.setTagList(quizTagList.get(i));
 			bigQuiz.add(bq);
 		}
-
 		//查询前10个评论数量的问题
 		List<Quiz> quizListTop10=quizService.quizListTop10();
-
-
-		//*************以上代码会以同样的姿态在不同地方出现，正在努力封装************
 		//热门标签
 		Object hotTagList=this.tagService.getTop10Tag();
 		//提问区获取问题数量查询前3个热门标签
@@ -166,12 +174,14 @@ public class QuizController {
 		//提问区获取余下标签
 		List<Tag> getAllTag=this.tagService.getRemianTags(tagList3);
 		//返回排序的选中状态
+		if(null!=request.getParameter("stateList")){
+			request.setAttribute("stateList",null);
+		}
 		List<String> stateList=new ArrayList<String>();
-		if (orderBy=="releaseTime"){
+		if (orderBy.equals("rt")){
 			stateList.add("active");
 			stateList.add("option");
-		}
-		if (orderBy=="raiseCount"){
+		}else{
 			stateList.add("option");
 			stateList.add("active");
 		}
