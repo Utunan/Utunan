@@ -350,7 +350,7 @@ layui.config({
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
                 if(result==true){
-                    window.location.href="/school/displayDirectionDetail?directionId=${publishDirection.directionId}";
+                    window.location.href="/school/schooldetail/${publishDirection.directionId}";
                 }else{
                     document.getElementById("reply").innerHTML="通行证或密码错误";
                 }
@@ -389,27 +389,4 @@ layui.config({
 
 </script>
 <script src="/js/common/login.js"></script>
-<%--<script>
-    function apraise(directionCommentId,praiseCount){
-        $.ajax({
-            url:'/school/updateDCPraiseCount',//处理数据的地址
-            type:'post',//数据提交形式
-            data:{'directionCommentId':directionCommentId},//需要提交的数据
-            dataType: "json",
-            success:function(d){//数据返回成功的执行放大
-                var res = d.res;
-                var praiseCount = d.praiseCount;
-                if(res=='ok'){//成功
-                    document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
-                    document.getElementById("zan"+directionCommentId).style.color="#ff5722";
-                }
-                if(res=='no'){//失败
-                    document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
-                    document.getElementById("zan"+directionCommentId).style.color="#333";
-                }
-            },
-        });
-    }
-
-</script>--%>
 </html>
