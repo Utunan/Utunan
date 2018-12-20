@@ -151,7 +151,6 @@
         </c:if>
         <c:if test="${url=='quiztag'}">
             <div class="fly-panel" style="margin-bottom: 0;">
-    
                 <div class="fly-panel-title fly-filter">
                     <a href="/quiztag/${tagName}/rt/1" class="${statelist[0]}">最新问题</a>
                     <span class="fly-mid"></span>
@@ -166,75 +165,75 @@
                             <button class="layui-btn" type="submit">Go!</button>
                         </form>
                     </div>
-                    <ul class="fly-list">
-                        <c:forEach items="${object}" var="obj">
-                        <li>
-                            <a href="/member/${obj.user.userId}" class="fly-avatar">
-                               <img src="${obj.user.userHeadImg}" alt="昵称">
+                </div>
+                <ul class="fly-list">
+                    <c:forEach items="${object}" var="obj">
+                    <li>
+                        <a href="/member/${obj.user.userId}" class="fly-avatar">
+                           <img src="${obj.user.userHeadImg}" alt="昵称">
+                        </a>
+                        <h2>
+                            <a href="/quiz/${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
+                        </h2>
+                        <!--<span class="question-description">${obj.quiz.quizContent}</span>-->
+                        <div class="fly-list-info">
+                            <a href="/member/${obj.user.userId}" link>
+                                ${obj.user.userNickName}
                             </a>
-                            <h2>
-                                <a href="/quiz/${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
-                            </h2>
-                            <!--<span class="question-description">${obj.quiz.quizContent}</span>-->
-                            <div class="fly-list-info">
-                                <a href="/member/${obj.user.userId}" link>
-                                    ${obj.user.userNickName}
-                                </a>
-                                <span>
-                                    <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
-                                </span>
+                            <span>
+                                <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
+                            </span>
 
-                                <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
-                                <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
-                                <span class="fly-list-nums">
-                                    <i class="iconfont icon-pinglun1" title="回答"></i> ${obj.quiz.answerCount}
+                            <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
+                            <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
+                            <span class="fly-list-nums">
+                                <i class="iconfont icon-pinglun1" title="回答"></i> ${obj.quiz.answerCount}
+                            </span>
+                        </div>
+                        <div class="fly-list-badge">
+                            <c:forEach items="${obj.tagList}" var="taglist">
+                                <span class="layui-badge layui-bg-red">
+                                    <a href="/quiztag/${taglist.tagName}/rt/1">
+                                        <c:if test="${taglist.tagName == tagName}">
+                                            <p STYLE="color: orange">${taglist.tagName}</p>
+                                        </c:if>
+                                        <c:if test="${taglist.tagName != tagName}">
+                                            <p>${taglist.tagName}</p>
+                                        </c:if>
+                                    </a>
                                 </span>
-                            </div>
-                            <div class="fly-list-badge">
-                                <c:forEach items="${obj.tagList}" var="taglist">
-                                    <span class="layui-badge layui-bg-red">
-                                        <a href="/quiztag/${taglist.tagName}">
-                                                ${taglist.tagName}
-                                        <a href="/quiztag/${taglist.tagName}/rt/1">
-                                            <c:if test="${taglist.tagName == tagName}">
-                                                <p STYLE="color: orange">${taglist.tagName}</p>
-                                            </c:if>
-                                            <c:if test="${taglist.tagName != tagName}">
-                                                <p>${taglist.tagName}</p>
-                                            </c:if>
-                                        </a>
-                                    </span>
+                            </c:forEach>
+                        </div>
+                    </li>
+                    </c:forEach>
+                </ul>
+                <div style="text-align: center">
+                    <c:choose>
+                        <c:when test="${not empty object}">
+                            <div class="laypage-main" id="page">
+                                <a href="/quiztag/${tagName}/${orderBy}/1">首页</a>
+                                <a href="/quiztag/${tagName}/${orderBy}/${PageInfo.prePage}"><<</a>
+                                <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                                    <a name="${i}" href="/quiztag/${tagName}/${orderBy}/${i}">${i}</a>
                                 </c:forEach>
+                                <c:choose>
+                                    <c:when test="${PageInfo.nextPage==0}">
+                                        <a href="/quiztag/${tagName}/${orderBy}/${PageInfo.pages}">>></a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href="/quiztag/${tagName}/${orderBy}/${PageInfo.nextPage}">>></a>
+                                    </c:otherwise>
+                                </c:choose>
+                                <a href="/quiztag/${tagName}/${orderBy}/${PageInfo.pages}">尾页</a>
                             </div>
-                        </li>
-                        </c:forEach>
-                    </ul>
-                    <div style="text-align: center">
-                        <c:choose>
-                            <c:when test="${not empty object}">
-                                <div class="laypage-main" id="page">
-                                    <a href="/quiztag/${tagName}/${orderBy}/1">首页</a>
-                                    <a href="/quiztag/${tagName}/${orderBy}/${PageInfo.prePage}"><<</a>
-                                    <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                                        <a name="${i}" href="/quiztag/${tagName}/${orderBy}/${i}">${i}</a>
-                                    </c:forEach>
-                                    <c:choose>
-                                        <c:when test="${PageInfo.nextPage==0}">
-                                            <a href="/quiztag/${tagName}/${orderBy}/${PageInfo.pages}">>></a>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <a href="/quiztag/${tagName}/${orderBy}/${PageInfo.nextPage}">>></a>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <a href="/quiztag/${tagName}/${orderBy}/${PageInfo.pages}">尾页</a>
-                                </div>
-                            </c:when>
-                            <c:otherwise>
-                                <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
-                            </c:otherwise>
-                        </c:choose>
-                    </div>
-            </c:if>
+                        </c:when>
+                        <c:otherwise>
+                            <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+            </div>
+        </c:if>
         </div>
         <div class="layui-col-md4">
             <div class="fly-panel">
