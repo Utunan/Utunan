@@ -39,9 +39,9 @@ public class QuizController {
 	@Autowired
 	private QuizGreatService quizGreatService;
 
-	@RequestMapping(value="/quiz")
-	public String displayQuiz(HttpServletRequest request){
-		String pageNum=request.getParameter("pageNum");
+	@RequestMapping(value="/quizs/{orderBy}/{pageNum}")
+	public String displayQuiz(HttpServletRequest request, @PathVariable String orderBy, @PathVariable String pageNum){
+//		String pageNum=request.getParameter("pageNum");
 		//判断当前页
 		int num=0;
 		if(pageNum==null || pageNum.equals("")){
@@ -50,12 +50,18 @@ public class QuizController {
 			num=Integer.parseInt(pageNum);
 		}
 		//排序方式
-		String orderBy = request.getParameter("by");
+//		String orderBy = request.getParameter("by");
 		if (orderBy==null || orderBy.equals("")){
-			orderBy="releaseTime";
+			orderBy="rt";
+		}
+		String ob = "";
+		if (orderBy=="rt"){
+			ob = "releaseTime";
+		}else{
+			ob = "praiseCount";
 		}
 		//提问列表
-		List<Quiz> quizList=quizService.listQuiz(orderBy, num,10);
+		List<Quiz> quizList=quizService.listQuiz(ob, num,10);
 		//查询前10个评论数量的问题
 		List<Quiz> quizListTop10=quizService.quizListTop10();
 		//封装BigQuiz
@@ -85,7 +91,7 @@ public class QuizController {
 			request.setAttribute("stateList",null);
 		}
 		List<String> stateList=new ArrayList<String>();
-		if (orderBy.equals("releaseTime")){
+		if (orderBy.equals("rt")){
 			stateList.add("active");
 			stateList.add("option");
 		}else{
@@ -94,7 +100,7 @@ public class QuizController {
 		}
 		//返回数据
 		request.setAttribute("object",bigQuiz);
-		request.setAttribute("url","quiz");
+		request.setAttribute("url","quizs");
 		request.setAttribute("orderBy", orderBy);
 		request.setAttribute("tag",hotTagList);
 		request.setAttribute("stateList",stateList);
@@ -110,10 +116,12 @@ public class QuizController {
 	 * @param  request
 	 * @return  java.lang.String
 	 */
-	@RequestMapping(value="/quiztag/{tagName}")
-	public String displayQuizByTag(HttpServletRequest request, @PathVariable String tagName){
+	@RequestMapping(value="/quiztag/{tagName}/{orderBy}/{pageNum}")
+	public String displayQuizByTag(HttpServletRequest request, @PathVariable String tagName,
+                                                               @PathVariable String orderBy,
+                                                               @PathVariable String pageNum){
 //		String tagName=request.getParameter("tagName");
-		String pageNum=request.getParameter("pageNum");
+//		String pageNum=request.getParameter("pageNum");
 		//判断当前页
 		int num=0;
 		if(pageNum==null || pageNum.equals("")){
@@ -122,12 +130,18 @@ public class QuizController {
 			num=Integer.parseInt(pageNum);
 		}
 		//排序方式
-		String orderBy = request.getParameter("by");
+//		String orderBy = request.getParameter("by");
 		if (orderBy==null || orderBy.equals("")){
-			orderBy="releaseTime";
+			orderBy="rt";
+		}
+		String ob = "";
+		if (orderBy=="rt"){
+			ob = "releaseTime";
+		}else{
+			ob = "praiseCount";
 		}
 		//提问列表
-		List<Quiz> quizList=this.quizService.listQuizByTag(orderBy, tagName, num, 10);
+		List<Quiz> quizList=this.quizService.listQuizByTag(ob, tagName, num, 10);
 		//封装BigQuiz
 		//提取quizId列表
 		List<Long> quizIdList=new ArrayList<>();
@@ -164,7 +178,7 @@ public class QuizController {
 			request.setAttribute("stateList",null);
 		}
 		List<String> stateList=new ArrayList<String>();
-		if (orderBy.equals("releaseTime")){
+		if (orderBy.equals("rt")){
 			stateList.add("active");
 			stateList.add("option");
 		}else{

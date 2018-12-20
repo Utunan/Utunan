@@ -69,12 +69,12 @@
 <div class="layui-container">
     <div class="layui-row layui-col-space15">
         <div class="layui-col-md8">
-        <c:if test="${url=='quiz'}">
+        <c:if test="${url=='quizs'}">
             <div class="fly-panel" style="margin-bottom: 0;">
                 <div class="fly-panel-title fly-filter">
-                    <a href="quiz" class="${stateList[0]}">最新问题</a>
+                    <a href="/quizs/rt/1" class="${stateList[0]}">最新问题</a>
                     <span class="fly-mid"></span>
-                    <a href="quiz?by=praiseCount" class="${stateList[1]}">热门问题</a>
+                    <a href="/quizs/pc/1" class="${stateList[1]}">热门问题</a>
                     <span class="fly-mid"></span>
                     <a href="">智能推荐</a>
                     <span class="fly-mid"></span>
@@ -113,7 +113,7 @@
                         <div class="fly-list-badge">
                             <c:forEach items="${obj.tagList}" var="taglist">
                                 <span class="layui-badge layui-bg-red">
-                                    <a href="/quiztag/${taglist.tagName}">
+                                    <a href="/quiztag/${taglist.tagName}/rt/1">
                                             ${taglist.tagName}
                                     </a>
                                 </span>
@@ -126,20 +126,20 @@
                     <c:choose>
                         <c:when test="${not empty object}">
                             <div class="laypage-main">
-                                <a href="/${url }?by=${orderBy}">首页</a>
-                                <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.prePage}"><<</a>
+                                <a href="/quizs/${orderBy}/1">首页</a>
+                                <a href="/quizs/${orderBy}/${PageInfo.prePage}"><<</a>
                                 <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                                    <a name="${i}" href="/${url }?by=${orderBy}&pageNum=${i}">${i}</a>
+                                    <a name="${i}" href="/quizs/${orderBy}/${i}">${i}</a>
                                 </c:forEach>
                                 <c:choose>
                                     <c:when test="${PageInfo.nextPage==0}">
-                                        <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.pages}">>></a>
+                                        <a href="/quizs/${orderBy}/${PageInfo.pages}">>></a>
                                     </c:when>
                                     <c:otherwise>
-                                        <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.nextPage}">>></a>
+                                        <a href="/quizs/${orderBy}/${PageInfo.nextPage}">>></a>
                                     </c:otherwise>
                                 </c:choose>
-                                <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.pages}">尾页</a>
+                                <a href="/quizs/${orderBy}/${PageInfo.pages}">尾页</a>
                             </div>
                         </c:when>
                         <c:otherwise>
@@ -153,9 +153,9 @@
             <div class="fly-panel" style="margin-bottom: 0;">
     
                 <div class="fly-panel-title fly-filter">
-                    <a href="/quiztag/${tagName}" class="${statelist[0]}">最新问题</a>
+                    <a href="/quiztag/${tagName}/rt/1" class="${statelist[0]}">最新问题</a>
                     <span class="fly-mid"></span>
-                    <a href="/quiztag/${tagName}?by=praiseCount" class="${statelist[1]}">热门问题</a>
+                    <a href="/quiztag/${tagName}/pc/1" class="${statelist[1]}">热门问题</a>
                     <span class="fly-mid"></span>
                     <a href="">智能推荐</a>
                     <span class="fly-mid"></span>
@@ -194,7 +194,7 @@
                             <div class="fly-list-badge">
                                 <c:forEach items="${obj.tagList}" var="taglist">
                                     <span class="layui-badge layui-bg-red">
-                                        <a href="/quiztag/${taglist.tagName}">
+                                        <a href="/quiztag/${taglist.tagName}/rt/1">
                                             <c:if test="${taglist.tagName == tagName}">
                                                 <p STYLE="color: orange">${taglist.tagName}</p>
                                             </c:if>
@@ -212,20 +212,20 @@
                     <c:choose>
                         <c:when test="${not empty object}">
                             <div class="laypage-main">
-                                <a href="/${url }/${tagName}?by=${orderBy}">首页</a>
-                                <a href="/${url }/${tagName}?by=${orderBy}&pageNum=${PageInfo.prePage}"><<</a>
+                                <a href="/quiztag/${tagName}/${orderBy}/1">首页</a>
+                                <a href="/quiztag/${tagName}/${orderBy}/${PageInfo.prePage}"><<</a>
                                 <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                                    <a name="${i}" href="/${url }/${tagName}?by=${orderBy}&pageNum=${i}">${i}</a>
+                                    <a name="${i}" href="/quiztag/${tagName}/${orderBy}/${i}">${i}</a>
                                 </c:forEach>
                                 <c:choose>
                                     <c:when test="${PageInfo.nextPage==0}">
-                                        <a href="/${url }/${tagName}?by=${orderBy}&pageNum=${PageInfo.pages}">>></a>
+                                        <a href="/quiztag/${tagName}/${orderBy}/${PageInfo.pages}">>></a>
                                     </c:when>
                                     <c:otherwise>
-                                        <a href="/${url }/${tagName}?by=${orderBy}&pageNum=${PageInfo.nextPage}">>></a>
+                                        <a href="/quiztag/${tagName}/${orderBy}/${PageInfo.nextPage}">>></a>
                                     </c:otherwise>
                                 </c:choose>
-                                <a href="/${url }/${tagName}?by=${orderBy}&pageNum=${PageInfo.pages}">尾页</a>
+                                <a href="/quiztag/${tagName}/${orderBy}/${PageInfo.pages}">尾页</a>
                             </div>
                         </c:when>
                         <c:otherwise>
@@ -261,7 +261,7 @@
                 <h3 class="fly-panel-title">热门标签</h3>
                 <dl class="fly-panel-main">
                     <c:forEach items="${tag}" var="tags">
-                        <dd><a href="/quiztag/${tags[0].tagName}" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
+                        <dd><a href="/quiztag/${tags[0].tagName}/rt/1" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
                     </c:forEach>
                 </dl>
             </div>
