@@ -55,10 +55,10 @@ public class QuizController {
 			orderBy="rt";
 		}
 		String ob = "";
-		if (orderBy.equals("rt")){
-			ob = "releaseTime";
-		}else{
+		if (orderBy.equals("pc")){
 			ob = "praiseCount";
+		}else{
+			ob = "releaseTime";
 		}
 		//提问列表
 		List<Quiz> quizList=quizService.listQuiz(ob, num,10);
@@ -135,10 +135,10 @@ public class QuizController {
 			orderBy="rt";
 		}
 		String ob = "";
-		if (orderBy.equals("rt")){
-			ob = "releaseTime";
-		}else{
+		if (orderBy.equals("pc")){
 			ob = "praiseCount";
+		}else{
+			ob = "releaseTime";
 		}
 		//提问列表
 		List<Quiz> quizList=this.quizService.listQuizByTag(ob, tagName, num, 10);

@@ -69,11 +69,11 @@
         <div class="layui-col-md8 content detail">
             <div class="fly-panel detail-box">
                 <div class="detail-about">
-                    <a class="fly-avatar" href="../user/home.html">
+                    <a class="fly-avatar" href="/member/${quiz.user.userId}">
                         <img src="${quiz.user.userHeadImg}" width="35px" height="35px">
                     </a>
                     <div class="fly-detail-user">
-                        <a href="../user/home.html" class="fly-link">
+                        <a href="/member/${quiz.user.userId}" class="fly-link">
                             <cite>${quiz.user.userNickName}</cite>
                         </a>
                         <span>发表于&nbsp;
