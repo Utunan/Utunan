@@ -1,11 +1,13 @@
 package com.utunan.controller.user;
 
+import com.utunan.pojo.base.user.Message;
 import com.utunan.pojo.base.user.User;
 import com.utunan.service.user.UserService;
 import com.utunan.util.ImgUtil;
 import com.utunan.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -24,13 +26,30 @@ public class UserController {
 
     @RequestMapping("/usermessage")
     @ResponseBody
-    public String usermessage(HttpSession session){
-        User user=(User)session.getAttribute("User");
-        Integer messageCount=userService.getUserMessageCount(user);
-        session.setAttribute("messagecount",messageCount.toString());
-        if(messageCount!=null)
-            return  messageCount.toString();
+    public String usermessage(HttpSession session) {
+        User user = (User) session.getAttribute("User");
+        Integer messageCount = userService.getUserMessageCount(user);
+        session.setAttribute("messagecount", messageCount.toString());
+        if (messageCount != null)
+            return messageCount.toString();
         return "0";
+    }
+
+    @RequestMapping("/message/systeminfo/{messageId}")
+    public String readSystemMessage(HttpSession session,HttpServletRequest request, @PathVariable Integer messageId) {
+        Message message = userService.getMessage(messageId.toString());
+        System.out.println(message);
+        if (message != null) {
+            if (!message.getMessageType().equals("1")) {
+                return "redirect:/quiz/" + message.getQuizId();
+            } else {
+                request.setAttribute("Message",message);
+                return "/user/systeminfo";
+            }
+
+        } else {
+            return "redirect:/user/message";
+        }
     }
 
     @RequestMapping("/changeInfo")
@@ -40,26 +59,26 @@ public class UserController {
     }
 
     @RequestMapping("/changeemail")
-    public String  changeemail(HttpServletRequest request,HttpSession session){
-        String newemail=request.getParameter("newemail");
-        User user=(User)session.getAttribute("User");
-        String emailcode=request.getParameter("emailcode");
-        if(user.getUserPassword().equals(newemail)){
-            request.setAttribute("emailreply","新老邮箱不能相同");
+    public String changeemail(HttpServletRequest request, HttpSession session) {
+        String newemail = request.getParameter("newemail");
+        User user = (User) session.getAttribute("User");
+        String emailcode = request.getParameter("emailcode");
+        if (user.getUserPassword().equals(newemail)) {
+            request.setAttribute("emailreply", "新老邮箱不能相同");
             return "/user/settings";
         }
-        if(!StringUtil.isEmail(newemail)){
-            request.setAttribute("emailreply","邮箱格式错误");
+        if (!StringUtil.isEmail(newemail)) {
+            request.setAttribute("emailreply", "邮箱格式错误");
         }
         user.setUserEmail(newemail);
-        String checkemailcode= (String) session.getAttribute("emailcode");
-        if(checkemailcode.equals(emailcode)){
+        String checkemailcode = (String) session.getAttribute("emailcode");
+        if (checkemailcode.equals(emailcode)) {
             userService.changeUserEmail(user);
-            User newUser=userService.getUser(user);
-            session.setAttribute("User",newUser);
+            User newUser = userService.getUser(user);
+            session.setAttribute("User", newUser);
             return "redirect:/user/settings#changeemail";
-        }else{
-            request.setAttribute("emailreply","验证码错误");
+        } else {
+            request.setAttribute("emailreply", "验证码错误");
             return "/user/settings";
         }
     }

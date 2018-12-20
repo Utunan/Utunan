@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>欢迎来到Utunan</title>
+    <title>发表的问答</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/user/publishquiz.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">
@@ -30,7 +30,7 @@
                     <li>
                         <img src="/images/user/pqzq.svg"/>
                         <div class="posttop">
-                            <span class="posttitle"><a href="">${Q.quizTitle }</a></span>
+                            <span class="posttitle"><a href="/quiz/${Q.quizId }">${Q.quizTitle }</a></span>
                         </div>
                         <div class="postbottom">
                             <span>发表于 : <fmt:formatDate value="${Q.releaseTime }" type="date" pattern="yyyy-MM-dd HH:mm:ss"/></span>

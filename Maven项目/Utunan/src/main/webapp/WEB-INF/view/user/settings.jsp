@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>欢迎来到Utunan</title>
+    <title>个人设置</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/user/usersettings.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">

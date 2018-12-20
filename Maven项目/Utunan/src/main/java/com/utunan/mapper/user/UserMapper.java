@@ -26,6 +26,7 @@ public interface UserMapper {
     User selectByP(User user);
     List<Message> selectUserAllReadInfo(User user);
     List<Message> selectUserAllNoReadInfo(User user);
+    Message selectMessageById(String messageId);
     int selectUserMessage(User user);
     int updateUser(User user);
     int updateUserPassword(User user);

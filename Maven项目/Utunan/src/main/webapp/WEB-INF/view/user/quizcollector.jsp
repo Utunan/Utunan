@@ -29,7 +29,7 @@
 
                         <span>
                             <img src="/images/user/qzc.svg"/>
-                            <a href="">${Q.quizTitle }</a>
+                            <a href="/quiz/${Q.quizId }">${Q.quizTitle }</a>
                         </span>
                         </span>
                             <span class="delete"><a href="/user/quizcollector/${Q.quizId}"><img

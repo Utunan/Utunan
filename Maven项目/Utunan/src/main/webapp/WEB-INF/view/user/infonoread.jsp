@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>欢迎来到Utunan</title>
+    <title>未读消息</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/user/message.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">
@@ -35,7 +35,7 @@
                             <li>
                                 <span class="system"> 系统消息 : </span>
                                 <span id="${message.messageId}"><a
-                                        _href="/user/message/${message.messageId}">${message.messageContent}</a></span>
+                                        _href="/user/message/systeminfo/${message.messageId}">${message.messageTitle}</a></span>
                             </li>
                         </c:when>
                         <c:otherwise>
@@ -51,6 +51,13 @@
                         li = $(this).parent().parent();
                         id = $(this).parent().attr('id')
                         url = $(this).attr('_href')
+                        data = $('#messagecount').html()
+                        if (data != "" && parseInt(data) - 1 >= 0) {
+                            $('#messagecount').html(parseInt(data) - 1)
+                        } else {
+                            $('#messagecount').css('display', "none");
+                            $('#messagecount').html(0);
+                        }
                         $.ajax({
                             type: "get",
                             url: "/user/message/update",
@@ -59,14 +66,8 @@
                             success: function (data) {
                                 if (data['state'] == "success") {
                                     li.remove();
-                                    data = $('#messagecount').html()
-                                    if (data != "" && parseInt(data) - 1 >= 0) {
-                                        $('#messagecount').html(parseInt(data) - 1)
-                                    } else {
-                                        $('#messagecount').css('display', "none");
-                                        $('#messagecount').html(0);
-                                    }
-                                    window.open(url, "_blank");
+
+                                    window.location.href=url
                                 }
                             },
                             error: function () {

@@ -1,0 +1,49 @@
+.messagetitle>span{
+    margin-top:10px;
+    height: 40px;
+    text-align: center;
+    float: left;
+    width: 100%;
+    line-height: 40px;
+    color: #313131;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 5px;
+
+}
+#messagecontent{
+    border-radius: 5px;
+    border:1px solid #b9b9b9;
+    float: left;
+    width: 80%;
+    padding:2% 5%;
+    margin:0 5%;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+#messagecontent  p{
+    font-family: "Lucida Grande", Lucida Sans Unicode, Hiragino Sans GB, WenQuanYi Micro Hei, Verdana, Aril, sans-serif;
+    margin: 10px 0px;
+}
+#messagecontent a{
+    color: #7a7a7a;
+}
+#messagecontent a:hover{
+    color: #373737;
+}
+#messagecontent ol{
+    color:#0e93d7;
+    padding-left: 32px;
+    list-style-type: circle;
+}
+#messagecontent ol>li{
+    margin:10px 0;
+}
+#messagecontent ul{
+    padding-left: 32px;
+    list-style-type: circle;
+}
+#messagecontent ul>li{
+    margin:10px 0;
+}

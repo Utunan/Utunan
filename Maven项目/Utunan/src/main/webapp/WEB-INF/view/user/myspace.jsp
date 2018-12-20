@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>欢迎来到Utunan</title>
+    <title>个人中心</title>
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/user/userhome.css">

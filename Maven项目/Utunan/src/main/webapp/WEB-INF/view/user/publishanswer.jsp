@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>欢迎来到Utunan</title>
+    <title>发表的回复</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/user/publishanswer.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">
@@ -30,7 +30,7 @@
                     <li>
                         <img src="/images/user/pans.svg"/>
                         <div class="posttop">
-                            <span class="posttitle"><a href="">${A.quiz.quizTitle }</a></span>
+                            <span class="posttitle"><a href="/quiz/${A.quiz.quizId }">${A.quiz.quizTitle }</a></span>
                         </div>
                         <div class="postreply">
                             <span>您回复了 : <a href="">${A.answerContent}</a></span></div>

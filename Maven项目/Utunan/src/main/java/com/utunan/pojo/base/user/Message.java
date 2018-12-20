@@ -7,10 +7,7 @@ public class Message {
     private User receiveUser;
     private User sendUser;
     private String messageType;
-    private String messageContent;
-    private Date messageTime;
-    private String isView;
-    private Long quizId;
+    private String messageTitle;
 
     @Override
     public String toString() {
@@ -19,12 +16,26 @@ public class Message {
                 ", receiveUser=" + receiveUser +
                 ", sendUser=" + sendUser +
                 ", messageType='" + messageType + '\'' +
+                ", messageTitle='" + messageTitle + '\'' +
                 ", messageContent='" + messageContent + '\'' +
                 ", messageTime=" + messageTime +
                 ", isView='" + isView + '\'' +
                 ", quizId=" + quizId +
                 '}';
     }
+
+    public String getMessageTitle() {
+        return messageTitle;
+    }
+
+    public void setMessageTitle(String messageTitle) {
+        this.messageTitle = messageTitle;
+    }
+
+    private String messageContent;
+    private Date messageTime;
+    private String isView;
+    private Long quizId;
 
     public Date getMessageTime() {
         return messageTime;

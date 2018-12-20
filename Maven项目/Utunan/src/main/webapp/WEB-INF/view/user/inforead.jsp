@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>欢迎来到Utunan</title>
+    <title>已读消息</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/user/message.css">
     <link rel="stylesheet" href="/css/user/usercommon.css">
@@ -34,7 +34,7 @@
                         <c:when test="${message.messageType==\"1\"}">
                             <li>
                                 <span class="system"> 系统消息 : </span>
-                                <span id="message${message.messageId}"><a _href="/user/message/read/${message.messageId}">${message.messageContent}</a></span>
+                                <span id="message${message.messageId}"><a _href="/user/message/systeminfo/${message.messageId}">${message.messageTitle}</a></span>
                             </li>
                         </c:when>
                         <c:otherwise>

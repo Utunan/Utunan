@@ -100,6 +100,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Message getMessage(String messageId) {
+        Message message=userMapper.selectMessageById(messageId);
+        return message;
+    }
+
+    @Override
     public List<Message> getUserReadInfo(User user,int pageNum,int pageSize) {
         PageHelper.startPage(pageNum,pageSize);
         List<Message> messages=userMapper.selectUserAllReadInfo(user);

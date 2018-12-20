@@ -14,6 +14,7 @@ public interface UserService {
     boolean isExist(User user);
     boolean changeInfo(User user);
     User changeUserPassword(User user);
+    Message getMessage(String messageId);
     List<Message> getUserReadInfo(User user,int pageNum,int pageSize);
     List<Message> getUserNoReadInfo(User user,int pageNum,int pageSize);
     boolean changeUserHeadImg(User user,String img);

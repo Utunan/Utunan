@@ -66,6 +66,7 @@
 
     <resultMap id="MessageResult" type="com.utunan.pojo.base.user.Message">
         <id column="messageId" property="messageId"/>
+        <result column="messageTitle" property="messageTitle"/>
         <result column="messageContent" property="messageContent"/>
         <result column="messageType" property="messageType"/>
         <result column="messageTime" property="messageTime"/>
@@ -88,6 +89,12 @@
         select *
         from message
         where receiveUserId=#{userId} and isView="0"
+    </select>
+
+    <select id="selectMessageById" resultType="com.utunan.pojo.base.user.Message">
+        select *
+        from message
+        where messageId=#{messageId}
     </select>
 
     <insert id="insert">
