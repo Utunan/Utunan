@@ -55,7 +55,7 @@ public class QuizController {
 			orderBy="rt";
 		}
 		String ob = "";
-		if (orderBy=="rt"){
+		if (orderBy.equals("rt")){
 			ob = "releaseTime";
 		}else{
 			ob = "praiseCount";
@@ -135,7 +135,7 @@ public class QuizController {
 			orderBy="rt";
 		}
 		String ob = "";
-		if (orderBy=="rt"){
+		if (orderBy.equals("rt")){
 			ob = "releaseTime";
 		}else{
 			ob = "praiseCount";
