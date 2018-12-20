@@ -99,9 +99,9 @@
         </c:choose>
 
         <div class="search">
-            <form action="/searchUser" method="post" onsubmit="return true">
+            <form action="/search/user" method="post" onsubmit="return true">
                 <div class="text">
-                    <input type="text" name="keyWord" placeholder="请输入内容"/>
+                    <input type="text" name="wd" placeholder="请输入内容"/>
                     <button style="" type="submit"><img src="/images/common/search.png"/></button>
                 </div>
 

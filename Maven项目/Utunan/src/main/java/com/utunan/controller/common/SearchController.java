@@ -12,6 +12,7 @@ import com.utunan.service.community.QuizService;
 import com.utunan.service.community.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -40,9 +41,9 @@ public class SearchController {
 	 * @param  request
 	 * @return  java.lang.String
 	 */
-	@RequestMapping("searchUser")
+	@RequestMapping("/search/user")
 	public String searchUser(HttpServletRequest request){
-		String keyWord=request.getParameter("keyWord");
+		String keyWord=request.getParameter("wd");
 		Analyzer analyzer=new Analyzer();
 		//过滤关键词
 		keyWord=analyzer.filter(keyWord);
@@ -63,7 +64,6 @@ public class SearchController {
 		request.setAttribute("object", userList);
 		request.setAttribute("url","searchUser");
 		request.setAttribute("keyWord", keyWord);
-		request.setAttribute("keyWords", keyWords);
 		request.setAttribute("PageInfo",new PageInfo(userList,5));
 		return "common/searchresult";
 	}
@@ -75,9 +75,9 @@ public class SearchController {
 	 * @param  request
 	 * @return  java.lang.String
 	 */
-	@RequestMapping("/searchQuiz")
-	public String searchQuiz(HttpServletRequest request) {
-		String pageNum=request.getParameter("pageNum");
+	@RequestMapping("/search/quiz/{pageNum}")
+	public String searchQuiz(HttpServletRequest request, @PathVariable String pageNum) {
+//		String pageNum=request.getParameter("p");
 		//判断当前页
 		int num=0;
 		if(pageNum==null || pageNum.equals("")){
@@ -85,7 +85,7 @@ public class SearchController {
 		}else{
 			num=Integer.parseInt(pageNum);
 		}
-		String keyWord=request.getParameter("keyWord");
+		String keyWord=request.getParameter("wd");
 		Analyzer analyzer=new Analyzer();
 		//过滤关键词
 		keyWord=analyzer.filter(keyWord);
@@ -103,7 +103,6 @@ public class SearchController {
 		//返回提问列表
 		List<Quiz> quizList = this.searchService.findQuiz(keyWords, num, 10);
 		//封装BigQuiz
-		//*************以下代码会以同样的姿态在不同地方出现，正在努力封装************
 		//提取quizId列表
 		List<Long> quizIdList=new ArrayList<>();
 		for(int i=0; i<quizList.size(); i++){
@@ -122,7 +121,6 @@ public class SearchController {
 			bq.setTagList(quizTagList.get(i));
 			bigQuiz.add(bq);
 		}
-		//*************以上代码会以同样的姿态在不同地方出现，正在努力封装************
 		//热门标签
 		Object hotTagList=this.tagService.getTop10Tag();
 		//查询前10个评论数量的问题
@@ -133,7 +131,6 @@ public class SearchController {
 		request.setAttribute("object",bigQuiz);
 		request.setAttribute("url","searchQuiz");
 		request.setAttribute("keyWord", keyWord);
-		request.setAttribute("keyWords", keyWords);
 		request.setAttribute("PageInfo",new PageInfo(quizList,5));
 		return "common/searchquiz";
 	}
@@ -145,9 +142,9 @@ public class SearchController {
 	 * @param  request
 	 * @return  java.lang.String
 	 */
-	@RequestMapping("/searchAnswer")
-	public String searchAnswer(HttpServletRequest request){
-		String pageNum=request.getParameter("pageNum");
+	@RequestMapping("/search/answer/{pageNum}")
+	public String searchAnswer(HttpServletRequest request, @PathVariable String pageNum){
+//		String pageNum=request.getParameter("p");
 		//判断当前页
 		int num=0;
 		if(pageNum==null || pageNum.equals("")){
@@ -155,7 +152,7 @@ public class SearchController {
 		}else{
 			num=Integer.parseInt(pageNum);
 		}
-		String keyWord=request.getParameter("keyWord");
+		String keyWord=request.getParameter("wd");
 		Analyzer analyzer=new Analyzer();
 		//过滤关键词
 		keyWord=analyzer.filter(keyWord);
@@ -182,7 +179,6 @@ public class SearchController {
 		request.setAttribute("object", answerList);
 		request.setAttribute("url","searchAnswer");
 		request.setAttribute("keyWord", keyWord);
-		request.setAttribute("keyWords", keyWords);
 		request.setAttribute("PageInfo",new PageInfo(answerList,5));
 		return "common/searchquiz";
 	}

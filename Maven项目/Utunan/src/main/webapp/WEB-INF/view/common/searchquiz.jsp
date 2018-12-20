@@ -30,24 +30,24 @@
             <div class="layui-col-md8">
                     <div class="fly-panel" style="margin-bottom: 0;">
                         <div class="fly-panel-title fly-filter">
-                            <a href="/searchQuiz?keyWord=${keyWord}"class="${statelist[1]}">搜索提问</a>
+                            <a href="/search/quiz/1?wd=${keyWord}"class="${statelist[1]}">搜索提问</a>
                             <span class="fly-mid"></span>
-                            <a href="/searchAnswer?keyWord=${keyWord}"class="${statelist[1]}">搜索回答</a>
+                            <a href="/search/answer/1?wd=${keyWord}"class="${statelist[1]}">搜索回答</a>
                             <span class="fly-mid"></span>
                         </div>
                         <c:if test="${url=='searchQuiz'}">
                             <ul class="fly-list">
                                 <c:forEach items="${object}" var="obj">
                                     <li>
-                                        <a href="user/home.html" class="fly-avatar">
+                                        <a href="/member/${obj.quiz.user.userId}" class="fly-avatar">
                                             <img src="${obj.quiz.user.userHeadImg}" alt="昵称">
                                         </a>
                                         <h2>
-                                            <a href="displayQuizByQuizId?quizId=${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
+                                            <a href="/quiz/${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
                                         </h2>
                                         <!--<span class="question-description">${obj.quiz.quizContent}</span>-->
                                         <div class="fly-list-info">
-                                            <a href="user/home.html" link>
+                                            <a href="/member/${obj.quiz.user.userId}" link>
                                                     ${obj.quiz.user.userNickName}
                                             </a>
                                             <span>
@@ -62,35 +62,41 @@
                                         </div>
                                         <div class="fly-list-badge">
                                             <c:forEach items="${obj.tagList}" var="taglist">
-                                                <span class="layui-badge layui-bg-red"><a href="quiztag?by=releaseTime&tagName=${taglist.tagName}">${taglist.tagName}</a></span>
+                                                <span class="layui-badge layui-bg-red">
+                                                    <a href="/quiztag/${taglist.tagName}/rt/1">
+                                                            ${taglist.tagName}
+                                                    </a>
+                                                </span>
                                             </c:forEach>
                                         </div>
                                     </li>
                                 </c:forEach>
                             </ul>
+                            <div style="text-align: center">
                             <c:choose>
                                 <c:when test="${not empty object}">
                                     <nav id="page" class="page">
-                                        <li class="home"><a href="/${url }?keyWord=${keyWord}">首页</a></li>
-                                        <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.prePage}"><<</a></li>
+                                        <li class="home"><a href="/search/quiz/1?wd=${keyWord}">首页</a></li>
+                                        <li class="next"><a href="/search/quiz/${PageInfo.prePage}?wd=${keyWord}"><<</a></li>
                                         <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                                            <li class="pagenum"><a name="${i}" href="/${url }?keyWord=${keyWord}&pageNum=${i}">${i}</a></li>
+                                            <li class="pagenum"><a name="${i}" href="/search/quiz/${i}?wd=${keyWord}">${i}</a></li>
                                         </c:forEach>
                                         <c:choose>
                                             <c:when test="${PageInfo.nextPage==0}">
-                                                <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">>></a></li>
+                                                <li class="next"><a href="/search/quiz/${PageInfo.pages}?wd=${keyWord}">>></a></li>
                                             </c:when>
                                             <c:otherwise>
-                                                <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.nextPage}">>></a></li>
+                                                <li class="next"><a href="/search/quiz/${PageInfo.nextPage}?wd=${keyWord}">>></a></li>
                                             </c:otherwise>
                                         </c:choose>
-                                        <li class="tail"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">尾页</a></li>
+                                        <li class="tail"><a href="/search/quiz/${PageInfo.pages}?wd=${keyWord}">尾页</a></li>
                                     </nav>
                                 </c:when>
                                 <c:otherwise>
                                     <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
                                 </c:otherwise>
                             </c:choose>
+                            </div>
                         </c:if>
                         <c:if test="${url=='searchAnswer'}">
                             <div>
@@ -108,7 +114,7 @@
                                     <tr>
                                         <td>${answer.answerId}</td>
                                         <td>${answer.quiz.quizId}</td>
-                                        <td>回复：${answer.quiz.quizTitle}</td>
+                                        <td>回复：<a href="/quiz/${answer.quiz.quizId}" >${answer.quiz.quizTitle}</a></td>
                                         <td>${answer.answerContent}</td>
                                         <td>${answer.answerTime}</td>
                                         <td>${answer.praiseCount}</td>
@@ -119,20 +125,20 @@
                                 <c:choose>
                                     <c:when test="${not empty object}">
                                     <nav id="page" class="page">
-                                        <li class="home"><a href="/${url }?keyWord=${keyWord}">首页</a></li>
-                                        <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.prePage}"><<</a></li>
+                                        <li class="home"><a href="/search/answer/1?wd=${keyWord}">首页</a></li>
+                                        <li class="next"><a href="/search/answer/${PageInfo.prePage}?wd=${keyWord}"><<</a></li>
                                         <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                                            <li class="pagenum"><a name="${i}" href="/${url }?keyWord=${keyWord}&pageNum=${i}">${i}</a></li>
+                                            <li class="pagenum"><a name="${i}" href="/search/answer/${i}?wd=${keyWord}">${i}</a></li>
                                         </c:forEach>
                                         <c:choose>
                                             <c:when test="${PageInfo.nextPage==0}">
-                                                <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">>></a></li>
+                                                <li class="next"><a href="/search/answer/${PageInfo.pages}?wd=${keyWord}">>></a></li>
                                             </c:when>
                                             <c:otherwise>
-                                                <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.nextPage}">>></a></li>
+                                                <li class="next"><a href="/search/answer/${PageInfo.nextPage}?wd=${keyWord}">>></a></li>
                                             </c:otherwise>
                                         </c:choose>
-                                        <li class="tail"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">尾页</a></li>
+                                        <li class="tail"><a href="/search/answer/${PageInfo.pages}?wd=${keyWord}">尾页</a></li>
                                     </nav>
                                     </c:when>
                                     <c:otherwise>
@@ -155,7 +161,7 @@
                     <dt class="fly-panel-title">本周热议</dt>
                     <c:forEach items="${quizListTop10}" var="q">
                         <dd>
-                            <a href="displayQuizByQuizId?quizId=${q.quizId}">${q.quizTitle }</a>
+                            <a href="/quiz/${q.quizId}">${q.quizTitle }</a>
                             <span><i class="iconfont icon-pinglun1"></i>${q.answerCount }</span>
                         </dd>
                     </c:forEach>
@@ -164,7 +170,7 @@
                     <h3 class="fly-panel-title">热门标签</h3>
                     <dl class="fly-panel-main">
                         <c:forEach items="${tag}" var="tags">
-                            <dd><a href="quiztag?tagName=${tags[0].tagName}" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
+                            <dd><a href="/quiztag/${tags[0].tagName}/rt/1" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
                         </c:forEach>
                     </dl>
                 </div>

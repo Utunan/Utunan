@@ -30,22 +30,22 @@
             <div class="layui-col-md8">
                 <div class="fly-panel" style="margin-bottom: 0;">
                     <div class="fly-panel-title fly-filter">
-                        <a href="/searchUser?keyWord=${keyWord}"class="${statelist[0]}">搜索用户</a>
+                        <a href="/search/user?wd=${keyWord}"class="${statelist[0]}">搜索用户</a>
                         <span class="fly-mid"></span>
-                        <a href="/searchQuiz?keyWord=${keyWord}"class="${statelist[1]}">搜索提问</a>
+                        <a href="/search/quiz/1?wd=${keyWord}"class="${statelist[1]}">搜索提问</a>
                         <span class="fly-mid"></span>
-                        <a href="/searchAnswer?keyWord=${keyWord}"class="${statelist[1]}">搜索回答</a>
+                        <a href="/search/answer/1?wd=${keyWord}"class="${statelist[1]}">搜索回答</a>
                         <span class="fly-mid"></span>
                     </div>
                     <ul class="list">
                         <c:forEach items="${object}" var="user">
                         <li>
                         <div class="detail-about">
-                            <a class="fly-avatar" href="../user/home.html">
+                            <a class="fly-avatar" href="/member/${user.userId}">
                                 <img src="${user.userHeadImg}" width="35px" height="35px">
                             </a>
                             <div class="fly-detail-user">
-                                <a href="../user/home.html" class="fly-link">
+                                <a href="/member/${user.userId}" class="fly-link">
                                     <cite>${user.userNickName}</cite>
                                 </a>
                                 <span>积分&nbsp;
@@ -61,6 +61,9 @@
                         </li>
                         </c:forEach>
                     </ul>
+                    <div style="text-align: center">
+                        <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
+                    </div>
                  </div>
             </div>
             <div class="layui-col-md4">
@@ -74,7 +77,7 @@
                     <dt class="fly-panel-title">本周热议</dt>
                     <c:forEach items="${quizListTop10}" var="q">
                         <dd>
-                            <a href="displayQuizByQuizId?quizId=${q.quizId}">${q.quizTitle }</a>
+                            <a href="quiz/${q.quizId}">${q.quizTitle }</a>
                             <span><i class="iconfont icon-pinglun1"></i>${q.answerCount }</span>
                         </dd>
                     </c:forEach>
@@ -83,7 +86,7 @@
                     <h3 class="fly-panel-title">热门标签</h3>
                     <dl class="fly-panel-main">
                         <c:forEach items="${tag}" var="tags">
-                            <dd><a href="quiztag?tagName=${tags[0].tagName}" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
+                            <dd><a href="quiztag/${tags[0].tagName}/rt/1" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
                         </c:forEach>
                     </dl>
                 </div>
