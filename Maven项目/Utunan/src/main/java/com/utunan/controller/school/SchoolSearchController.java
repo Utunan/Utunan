@@ -10,6 +10,7 @@ import com.utunan.service.user.PublishDirectionCollectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -74,7 +75,7 @@ public class SchoolSearchController {
      * @param  [request, schoolProvinceList, schoolTypeList, degreeTypeList, mathList, englishList, directionName, pageNum, session]
      * @return  java.lang.String
      */
-    @RequestMapping("/displaySchoolBySearch")
+    @RequestMapping(value="/displaySchoolBySearch")
     public String displaySchoolBySearch(HttpServletRequest request,
                                         @RequestParam(value = "schoolProvince",required = false) String[] schoolProvinceList,
                                         @RequestParam(value = "schoolType",required = false) String[] schoolTypeList,

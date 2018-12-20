@@ -14,10 +14,7 @@ import com.utunan.util.SchoolOther;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
@@ -55,9 +52,9 @@ public class SchoolDetailController {
      * @param  [request, directionId, sort, schoolName, session]
      * @return  java.lang.String
      */
-    @RequestMapping("/displayDirectionDetail")
+    @RequestMapping("/schooldetail/{directionId}")
     public String displayDirectionDetail(HttpServletRequest request,
-                                         @RequestParam(value = "directionId") String directionId,
+                                         @PathVariable String directionId,
                                          @RequestParam(value = "sort",required = false) String sort,
                                          HttpSession session){
         //获取当前用户
@@ -113,9 +110,7 @@ public class SchoolDetailController {
     @RequestMapping("/insertDirectionComment")
     public String insertDirectionComment(@RequestParam(value = "directionId",required = false) Long directionId,
                                          @RequestParam(value = "content",required = false) String directionCommentContent,
-                                         HttpSession session,
-                                         RedirectAttributes attr){
-        /*@RequestParam("schoolName") String schoolName,*/
+                                         HttpSession session){
         //获取当前用户
         User user = (User) session.getAttribute("User");
         Long userId = null;
@@ -126,11 +121,8 @@ public class SchoolDetailController {
         //将评论插入评论表
         this.publishDirectionCommentService.insertDirectionComment(userId, directionId, directionCommentContent);
 
-        //添加地址栏参数
-        attr.addAttribute("directionId", directionId);
-
         //转去显示页面详情页
-        return "redirect:/school/displayDirectionDetail";
+        return "redirect:/school/schooldetail/"+directionId;
     }
     /*
      * @author  王碧云
@@ -142,16 +134,12 @@ public class SchoolDetailController {
     @RequestMapping("/deleteDirectionComment")
     public String deleteDirectionComment(HttpServletRequest request,
                                          @RequestParam("directionCommentId") String directionCommentId,
-                                         @RequestParam(value = "directionId",required = false) Long directionId,
-                                         RedirectAttributes attr){
+                                         @RequestParam(value = "directionId",required = false) Long directionId){
         //删除评论
         this.publishDirectionCommentService.deleteDirectionComment(Long.parseLong(directionCommentId));
 
-        //添加地址栏参数
-        attr.addAttribute("directionId", directionId);
-
         //转去显示页面详情页
-        return "redirect:/school/displayDirectionDetail";
+        return "redirect:/school/schooldetail/"+directionId;
     }
 
     /*

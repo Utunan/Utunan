@@ -142,7 +142,7 @@
                             <td class="type">&nbsp;&nbsp;${direction.degreeType}</td>
                             <td>${direction.majorlName}</td>
                             <td>${direction.directionName}</td>
-                            <td><a href="/school/displayDirectionDetail?directionId=${direction.directionId}">详情</a></td>
+                            <td><a href="/school/schooldetail/${direction.directionId}">详情</a></td>
                             <%--判断是否是用户所收藏的院校，是显示红心，不是显示灰心--%>
                             <c:choose>
                                 <c:when test="${ya:judge(directionIds,direction.directionId)}">
