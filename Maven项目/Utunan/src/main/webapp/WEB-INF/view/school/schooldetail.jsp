@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="/css/school/detail.css">
   <link rel="stylesheet" href="/css/community/detail.css">
   <link rel="stylesheet" href="/css/school/login.css">
+  <link rel="stylesheet" href="/css/school/animate.css">
+  <link rel="stylesheet" href="/css/school/dialog.css">
   <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
 </head>
 <script src="/js/community/jquery-1.10.2.js"></script>
@@ -321,7 +323,8 @@ layui.config({
                 //文本框为空
                 /*mask.style.display="block";
                 nullContent.style.display="block";*/
-                alert("不写东西就想交？怎么可能！！");
+                /*alert("不写东西就想交？怎么可能！！");*/
+                javascript:$('body').dialog({type:'success'});
             }else{
                 //满足条件，可以提交
                 document.fuform.submit();
@@ -388,5 +391,6 @@ layui.config({
     }
 
 </script>
+<script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
 <script src="/js/common/login.js"></script>
 </html>
