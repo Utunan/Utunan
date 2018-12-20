@@ -14,7 +14,7 @@
         <dt class="fly-panel-title">本周热议</dt>
         <c:forEach items="${quizListTop10}" var="q">
             <dd>
-                <a href="">${q.quizTitle }</a>
+                <a href="/quiz/${q.quizId}">${q.quizTitle }</a>
                 <span><i class="iconfont icon-pinglun1"></i>${q.answerCount }</span>
             </dd>
         </c:forEach>

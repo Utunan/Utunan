@@ -47,7 +47,8 @@
         <c:forEach items="${quizlist}" var="q">
             <tr>
                 <td>
-                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${q.quizId}'><i class="layui-icon">&#xe605;</i></div>
+                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${q.quizId}'><i
+                            class="layui-icon">&#xe605;</i></div>
                 </td>
                 <td>${q.user.userNickName}</td>
                 <td>${q.quizTitle}</td>
@@ -110,19 +111,18 @@
 
     /*用户-删除*/
     function member_del(obj, id) {
-        layer.confirm('确认要删除吗？', function (index) {
-            layer.confirm('确认要删除吗？'+id, function (index) {
-                $.ajax({
-                    url:"/delquiz",
-                    type:"get",
-                    traditional:true,
-                    data:{"n":id},
-                    success:function(response){
+        layer.confirm('确认要删除吗？' + id, function (index) {
+            $.ajax({
+                url: "/delquiz",
+                type: "get",
+                traditional: true,
+                data: {"n": id},
+                success: function (response) {
 
-                    },
-                    error:function() {
-                    }
-                });
+                },
+                error: function () {
+                }
+            });
             //发异步删除数据
             $(obj).parents("tr").remove();
             layer.msg('已删除!', {icon: 1, time: 1000});
@@ -133,15 +133,15 @@
         var data = tableCheck.getData();
         layer.confirm('确认要删除吗？' + data, function (index) {
             $.ajax({
-                url:"/delallquiz",
-                type:"get",
-                dataType:"String",
-                traditional:true,
-                data:{"d":data},
-                success:function(response){
+                url: "/delallquiz",
+                type: "get",
+                dataType: "String",
+                traditional: true,
+                data: {"d": data},
+                success: function (response) {
 
                 },
-                error:function() {
+                error: function () {
                 }
             });
             //捉到所有被选中的，发异步进行删除
