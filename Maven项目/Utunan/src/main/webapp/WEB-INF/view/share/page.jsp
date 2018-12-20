@@ -2,7 +2,7 @@
 <div style="text-align: center">
     <c:choose>
         <c:when test="${not empty fileList}">
-            <div class="laypage-main">
+            <div class="laypage-main" id="page">
                 <a href="/${url }">首页</a>
                 <a href="/${url }?pageNum=${PageInfo.prePage}"><<</a>
                 <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">

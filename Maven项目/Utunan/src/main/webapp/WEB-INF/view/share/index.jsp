@@ -168,4 +168,24 @@ layui.config({
 </script>-->
 <script src="/js/common/common.js"></script>
 </body>
+<script>
+    //分页页码选中刷新后样式
+    var page=document.getElementById("page");
+    var pages=page.getElementsByTagName("a");
+    console.log(${PageInfo.pageNum});
+    console.log(pages);
+    if(${PageInfo.pageNum==Null}){
+        pages[0].style.backgroundColor="#009E94";
+        pages[0].style.color="#ffffff";
+    }else{
+        pages[0].style.backgroundColor="";
+        for(var i=0;i<pages.length;i++){
+            console.log(pages[i].innerHTML);
+            if(pages[i].innerHTML=="${PageInfo.pageNum}") {
+                pages[i].style.backgroundColor="#009E94";
+                pages[i].style.color="#ffffff";
+            }
+        }
+    }
+</script>
 </html>

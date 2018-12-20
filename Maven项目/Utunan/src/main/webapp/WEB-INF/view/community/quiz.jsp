@@ -69,109 +69,28 @@
 <div class="layui-container">
     <div class="layui-row layui-col-space15">
         <div class="layui-col-md8">
-        <c:if test="${url=='quiz'}">
-            <div class="fly-panel" style="margin-bottom: 0;">
-                <div class="fly-panel-title fly-filter">
-                    <a href="quiz" class="${stateList[0]}">最新问题</a>
-                    <span class="fly-mid"></span>
-                    <a href="quiz?by=praiseCount" class="${stateList[1]}">热门问题</a>
-                    <span class="fly-mid"></span>
-                    <a href="">智能推荐</a>
-                    <span class="fly-mid"></span>
-                    <!--<span>TX：这里要加一个靠右的搜索框</span>-->
-                    <div class="searchindex">
-                        <form action="/searchQuiz" method="post">
-                            <input type="text" class="" placeholder="请输入搜索条件..." name="keyWord">
-                            <button class="layui-btn" type="submit">Go!</button>
-                        </form>
-                    </div>
-                </div>
-                <ul class="fly-list">
-                    <c:forEach items="${object}" var="obj">
-                    <li>
-                        <a href="/member/${obj.user.userId}" class="fly-avatar">
-                           <img src="${obj.user.userHeadImg}" alt="昵称">
-                        </a>
-                        <h2>
-                            <a href="/quiz/${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
-                        </h2>
-                        <!--<span class="question-description">${obj.quiz.quizContent}</span>-->
-                        <div class="fly-list-info">
-                            <a href="/member/${obj.user.userId}" link>
-                                ${obj.user.userNickName}
-                            </a>
-                            <span>
-                                <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
-                            </span>
-
-                            <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
-                            <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
-                            <span class="fly-list-nums">
-                                <i class="iconfont icon-pinglun1" title="回答"></i> ${obj.quiz.answerCount}
-                            </span>
+            <c:if test="${url=='quiz'}">
+                <div class="fly-panel" style="margin-bottom: 0;">
+                    <div class="fly-panel-title fly-filter">
+                        <a href="quiz" class="${stateList[0]}">最新问题</a>
+                        <span class="fly-mid"></span>
+                        <a href="quiz?by=praiseCount" class="${stateList[1]}">热门问题</a>
+                        <span class="fly-mid"></span>
+                        <a href="">智能推荐</a>
+                        <span class="fly-mid"></span>
+                        <!--<span>TX：这里要加一个靠右的搜索框</span>-->
+                        <div class="searchindex">
+                            <form action="/searchQuiz" method="post">
+                                <input type="text" class="" placeholder="请输入搜索条件..." name="keyWord">
+                                <button class="layui-btn" type="submit">Go!</button>
+                            </form>
                         </div>
-                        <div class="fly-list-badge">
-                            <c:forEach items="${obj.tagList}" var="taglist">
-                                <span class="layui-badge layui-bg-red">
-                                    <a href="/quiztag/${taglist.tagName}">
-                                            ${taglist.tagName}
-                                    </a>
-                                </span>
-                            </c:forEach>
-                        </div>
-                    </li>
-                    </c:forEach>
-                </ul>
-                <div style="text-align: center">
-                    <c:choose>
-                        <c:when test="${not empty object}">
-                            <div class="laypage-main">
-                                <a href="/${url }?by=${orderBy}">首页</a>
-                                <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.prePage}"><<</a>
-                                <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                                    <a name="${i}" href="/${url }?by=${orderBy}&pageNum=${i}">${i}</a>
-                                </c:forEach>
-                                <c:choose>
-                                    <c:when test="${PageInfo.nextPage==0}">
-                                        <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.pages}">>></a>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.nextPage}">>></a>
-                                    </c:otherwise>
-                                </c:choose>
-                                <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.pages}">尾页</a>
-                            </div>
-                        </c:when>
-                        <c:otherwise>
-                            <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
-                        </c:otherwise>
-                    </c:choose>
-                </div>
-            </div>
-        </c:if>
-        <c:if test="${url=='quiztag'}">
-            <div class="fly-panel" style="margin-bottom: 0;">
-    
-                <div class="fly-panel-title fly-filter">
-                    <a href="/quiztag/${tagName}" class="${statelist[0]}">最新问题</a>
-                    <span class="fly-mid"></span>
-                    <a href="/quiztag/${tagName}?by=praiseCount" class="${statelist[1]}">热门问题</a>
-                    <span class="fly-mid"></span>
-                    <a href="">智能推荐</a>
-                    <span class="fly-mid"></span>
-                    <!--<span>TX：这里要加一个靠右的搜索框</span>-->
-                    <div class="searchindex">
-                        <form action="/searchQuiz" method="post">
-                            <input type="text" class="" placeholder="请输入搜索条件..." name="keyWord">
-                            <button class="layui-btn" type="submit">Go!</button>
-                        </form>
                     </div>
-                </div>
-                <ul class="fly-list">
-                    <c:forEach items="${object}" var="obj">
+                    <ul class="fly-list">
+                        <c:forEach items="${object}" var="obj">
                         <li>
                             <a href="/member/${obj.user.userId}" class="fly-avatar">
-                                <img src="${obj.user.userHeadImg}" alt="昵称">
+                               <img src="${obj.user.userHeadImg}" alt="昵称">
                             </a>
                             <h2>
                                 <a href="/quiz/${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
@@ -184,57 +103,138 @@
                                 <span>
                                     <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
                                 </span>
-    
+
                                 <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
                                 <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
                                 <span class="fly-list-nums">
-                            <i class="iconfont icon-pinglun1" title="回答"></i> ${obj.quiz.answerCount}
-                        </span>
+                                    <i class="iconfont icon-pinglun1" title="回答"></i> ${obj.quiz.answerCount}
+                                </span>
                             </div>
                             <div class="fly-list-badge">
                                 <c:forEach items="${obj.tagList}" var="taglist">
                                     <span class="layui-badge layui-bg-red">
                                         <a href="/quiztag/${taglist.tagName}">
-                                            <c:if test="${taglist.tagName == tagName}">
-                                                <p STYLE="color: orange">${taglist.tagName}</p>
-                                            </c:if>
-                                            <c:if test="${taglist.tagName != tagName}">
-                                                <p>${taglist.tagName}</p>
-                                            </c:if>
+                                                ${taglist.tagName}
                                         </a>
                                     </span>
                                 </c:forEach>
                             </div>
                         </li>
-                    </c:forEach>
-                </ul>
-                <div style="text-align: center">
-                    <c:choose>
-                        <c:when test="${not empty object}">
-                            <div class="laypage-main">
-                                <a href="/${url }/${tagName}?by=${orderBy}">首页</a>
-                                <a href="/${url }/${tagName}?by=${orderBy}&pageNum=${PageInfo.prePage}"><<</a>
-                                <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                                    <a name="${i}" href="/${url }/${tagName}?by=${orderBy}&pageNum=${i}">${i}</a>
-                                </c:forEach>
-                                <c:choose>
-                                    <c:when test="${PageInfo.nextPage==0}">
-                                        <a href="/${url }/${tagName}?by=${orderBy}&pageNum=${PageInfo.pages}">>></a>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <a href="/${url }/${tagName}?by=${orderBy}&pageNum=${PageInfo.nextPage}">>></a>
-                                    </c:otherwise>
-                                </c:choose>
-                                <a href="/${url }/${tagName}?by=${orderBy}&pageNum=${PageInfo.pages}">尾页</a>
-                            </div>
-                        </c:when>
-                        <c:otherwise>
-                            <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
-                        </c:otherwise>
-                    </c:choose>
+                        </c:forEach>
+                    </ul>
+                    <div style="text-align: center">
+                        <c:choose>
+                            <c:when test="${not empty object}">
+                                <div class="laypage-main" id="page">
+                                    <a href="/${url }?by=${orderBy}">首页</a>
+                                    <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.prePage}"><<</a>
+                                    <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                                        <a name="${i}" href="/${url }?by=${orderBy}&pageNum=${i}">${i}</a>
+                                    </c:forEach>
+                                    <c:choose>
+                                        <c:when test="${PageInfo.nextPage==0}">
+                                            <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.pages}">>></a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.nextPage}">>></a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <a href="/${url }?by=${orderBy}&pageNum=${PageInfo.pages}">尾页</a>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
                 </div>
-            </div>
-        </c:if>
+            </c:if>
+            <c:if test="${url=='quiztag'}">
+                <div class="fly-panel" style="margin-bottom: 0;">
+
+                    <div class="fly-panel-title fly-filter">
+                        <a href="/quiztag/${tagName}" class="${statelist[0]}">最新问题</a>
+                        <span class="fly-mid"></span>
+                        <a href="/quiztag/${tagName}?by=praiseCount" class="${statelist[1]}">热门问题</a>
+                        <span class="fly-mid"></span>
+                        <a href="">智能推荐</a>
+                        <span class="fly-mid"></span>
+                        <!--<span>TX：这里要加一个靠右的搜索框</span>-->
+                        <div class="searchindex">
+                            <form action="/searchQuiz" method="post">
+                                <input type="text" class="" placeholder="请输入搜索条件..." name="keyWord">
+                                <button class="layui-btn" type="submit">Go!</button>
+                            </form>
+                        </div>
+                    </div>
+                    <ul class="fly-list">
+                        <c:forEach items="${object}" var="obj">
+                            <li>
+                                <a href="/member/${obj.user.userId}" class="fly-avatar">
+                                    <img src="${obj.user.userHeadImg}" alt="昵称">
+                                </a>
+                                <h2>
+                                    <a href="/quiz/${obj.quiz.quizId}">${obj.quiz.quizTitle}</a>
+                                </h2>
+                                <!--<span class="question-description">${obj.quiz.quizContent}</span>-->
+                                <div class="fly-list-info">
+                                    <a href="/member/${obj.user.userId}" link>
+                                        ${obj.user.userNickName}
+                                    </a>
+                                    <span>
+                                        <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
+                                    </span>
+
+                                    <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
+                                    <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
+                                    <span class="fly-list-nums">
+                                <i class="iconfont icon-pinglun1" title="回答"></i> ${obj.quiz.answerCount}
+                            </span>
+                                </div>
+                                <div class="fly-list-badge">
+                                    <c:forEach items="${obj.tagList}" var="taglist">
+                                        <span class="layui-badge layui-bg-red">
+                                            <a href="/quiztag/${taglist.tagName}">
+                                                <c:if test="${taglist.tagName == tagName}">
+                                                    <p STYLE="color: orange">${taglist.tagName}</p>
+                                                </c:if>
+                                                <c:if test="${taglist.tagName != tagName}">
+                                                    <p>${taglist.tagName}</p>
+                                                </c:if>
+                                            </a>
+                                        </span>
+                                    </c:forEach>
+                                </div>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                    <div style="text-align: center">
+                        <c:choose>
+                            <c:when test="${not empty object}">
+                                <div class="laypage-main" id="page">
+                                    <a href="/${url }/${tagName}?by=${orderBy}">首页</a>
+                                    <a href="/${url }/${tagName}?by=${orderBy}&pageNum=${PageInfo.prePage}"><<</a>
+                                    <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
+                                        <a name="${i}" href="/${url }/${tagName}?by=${orderBy}&pageNum=${i}">${i}</a>
+                                    </c:forEach>
+                                    <c:choose>
+                                        <c:when test="${PageInfo.nextPage==0}">
+                                            <a href="/${url }/${tagName}?by=${orderBy}&pageNum=${PageInfo.pages}">>></a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="/${url }/${tagName}?by=${orderBy}&pageNum=${PageInfo.nextPage}">>></a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <a href="/${url }/${tagName}?by=${orderBy}&pageNum=${PageInfo.pages}">尾页</a>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
+                </div>
+            </c:if>
         </div>
         <div class="layui-col-md4">
             <div class="fly-panel">
@@ -279,5 +279,24 @@
     var tag = new Tag("tagValue");
     tag.initView();
 </script>
-
+<script>
+    //分页页码选中刷新后样式
+    var page=document.getElementById("page");
+    var pages=page.getElementsByTagName("a");
+    console.log(${PageInfo.pageNum});
+    console.log(pages);
+    if(${PageInfo.pageNum==Null}){
+        pages[0].style.backgroundColor="#009E94";
+        pages[0].style.color="#ffffff";
+    }else{
+        pages[0].style.backgroundColor="";
+        for(var i=0;i<pages.length;i++){
+            console.log(pages[i].innerHTML);
+            if(pages[i].innerHTML=="${PageInfo.pageNum}") {
+                pages[i].style.backgroundColor="#009E94";
+                pages[i].style.color="#ffffff";
+            }
+        }
+    }
+</script>
 </html>
