@@ -1,5 +1,4 @@
-
-  .wrapper{ width: 30%; height: 280px;margin-top:50px;position: relative; }
+﻿  .wrapper{ margin-top:50px;position: relative; }
   .tagcloud a{ position: absolute;  top: 0; left: 0;  display: block; padding: 3px 15px; color: #333; font-size: 16px; border: 1px solid #e6e7e8; border-radius: 18px; background-color: #f2f4f8; text-decoration: none; white-space: nowrap;
     -o-box-shadow: 6px 4px 8px 0 rgba(151,142,136,.34);
     -ms-box-shadow: 6px 4px 8px 0 rgba(151,142,136,.34);
