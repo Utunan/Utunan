@@ -1,0 +1,82 @@
+
+.download-file-detail{
+    position: relative;
+    height: auto;
+    padding: 15px 15px 15px 85px;
+    line-height: 22px;
+}
+.download-file-detail img{
+    display: block;
+    width: 55px;
+    height: 55px;
+    margin: 0;
+    border-radius: 2px;
+}
+.top{
+    line-height: 40px;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 1px dotted #e2e2e2;
+}
+.download{
+    padding: 0px 15px 5px 85px;
+    height: 40px;
+}
+.none{
+    line-height: 40px;
+    font-size: 16px;
+    text-align: center;
+    display: none;
+    padding: 10px;
+}
+.input{
+    background-color: #ffffff;
+    border-style: solid;
+    border-color: red;
+    border-radius: 5px;
+    border-width: 1px;
+    color: red;
+    padding: 5px 10px 5px 10px;
+    font-weight: bold;
+}
+.detail-top{
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+}
+.fileType{
+    font-size: 12px;
+    border-width: 1px;
+    border-color: #dfdfdf;;
+    border-style: solid;
+    padding: 3px 5px;
+    border-radius: 3px;
+    font-weight: normal;
+    color: darkgray;
+    margin-left:10px;
+}
+.detail{
+    margin-top: 5px;
+    line-height: 22px;
+}
+.doenload-form{
+    float: left;
+}
+.fileSchool{
+    font-size: 12px;
+    border-width: 1px;
+    border-color: #dfdfdf;;
+    border-style: solid;
+    padding: 3px 5px;
+    border-radius: 3px;
+    font-weight: normal;
+    color: darkgray;
+    margin-left:10px;
+}
+.from{
+    line-height: 22px;
+    color: darkgray;
+}
+.from a{
+    color: darkgray;
+}
