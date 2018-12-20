@@ -101,7 +101,7 @@
               <c:choose>
                 <c:when test="${not empty EGfile}">
                   <%--<div class="layui-timeline-title">&nbsp;&nbsp;<a href="/school/displayEG?schoolName=${publishDirection.schoolName}&fileType=招生简章">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>--%>
-                  <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/download?fileId=${EGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>
+                  <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/file/${EGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>
                 </c:when>
                 <c:otherwise>
                   <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生简章》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/share1">我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/searchfile?school=${publishDirection.schoolName}&fileType=招生简章&keyWord=">查看往年招生简章</a></div>
@@ -115,7 +115,7 @@
               <%--判断是否有今年的招生目录--%>
               <c:choose>
                 <c:when test="${not empty AGfile}">
-                  <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/download?fileId=${AGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生目录》</a></div>
+                  <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/file/${AGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生目录》</a></div>
                 </c:when>
                 <c:otherwise>
                   <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生目录》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/share1">我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/searchfile?school=${publishDirection.schoolName}&fileType=招生专业目录&keyWord=">查看往年招生目录</a></div>
@@ -237,7 +237,12 @@
     <span><a href="/register">立即注册</a> </span>
   </form>
 </div>
-
+<%--空内容弹窗--%>
+<%--<div class="nullContent">
+    <span class="close_nullContent">×</span>
+    <div>不写东西就想交？怎么可能！！</div>
+    <button id="nullclose">我现在写</button>
+</div>--%>
 <script src="/layui/layui.js"></script>
 
 <script>
@@ -296,10 +301,13 @@ layui.config({
     var ask=document.getElementById("comsub");
     var mask=document.getElementsByClassName("mask")[0];
     var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
+    /*var nullContent=document.getElementsByClassName("nullContent")[0];*/
     /*获取提交按钮*/
     var submit = document.getElementById("submitbutton");
     /*获取关闭按钮*/
     var closeAll = document.getElementById("closeAll");
+    /*获取文本框*/
+    var text = document.getElementById("text1");
 
     /*判断是否是用户，不是用户则弹出框*/
     ask.onclick=function(){
@@ -307,7 +315,17 @@ layui.config({
             mask.style.display="block";
             modalDialogcontent.style.display="block";
         }else{
-            document.fuform.submit();
+            //判断文本框是否为空
+            var str = text.value.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+            if(str == '' || str == undefined || str == null){
+                //文本框为空
+                /*mask.style.display="block";
+                nullContent.style.display="block";*/
+                alert("不写东西就想交？怎么可能！！");
+            }else{
+                //满足条件，可以提交
+                document.fuform.submit();
+            }
         }
     };
     /*点击小叉号然后关闭*/
@@ -342,7 +360,7 @@ layui.config({
             }
         });
     };
-
+    /*是否点赞*/
     function apraise(directionCommentId,praiseCount){
         if(${user==null}){
             mask.style.display="block";
@@ -368,6 +386,7 @@ layui.config({
             });
         }
     }
+
 </script>
 <script src="/js/common/login.js"></script>
 <%--<script>

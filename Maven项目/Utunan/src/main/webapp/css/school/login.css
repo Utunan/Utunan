@@ -199,7 +199,28 @@ footer p {
     margin-top:-150px;
     z-index: 10001;
 }
+
 .close_modalDialogcontent{
+    position:absolute;
+    font-size:20px;
+    right: 0px;
+    width:20px;
+    height:20px;
+    cursor:pointer;
+}
+.nullContent{
+    display:none;
+    background:white;
+    width:500px;
+    position:fixed;
+    left:50%;
+    top:50%;
+    margin-left:-200px;
+    margin-top:-150px;
+    z-index: 10001;
+}
+
+.close_nullContent{
     position:absolute;
     font-size:20px;
     right: 0px;
