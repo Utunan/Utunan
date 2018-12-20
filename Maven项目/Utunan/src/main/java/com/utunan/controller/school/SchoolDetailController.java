@@ -59,13 +59,14 @@ public class SchoolDetailController {
     public String displayDirectionDetail(HttpServletRequest request,
                                          @RequestParam(value = "directionId") String directionId,
                                          @RequestParam(value = "sort",required = false) String sort,
-                                         @RequestParam("schoolName") String schoolName,
                                          HttpSession session){
         //获取当前用户
         User user = (User) session.getAttribute("User");
 
         //根据排序方式显示页面详情
         PublishDirection publishDirection = this.publishDirectionService.findDirectionByDirectionId(directionId,sort);
+        //查找当前学校
+        String schoolName = publishDirection.getSchoolName();
         //获取评论的长度
         int directionCommentCount =publishDirection.getDirectionComments().size();
         //获取页面浏览次数
@@ -112,26 +113,21 @@ public class SchoolDetailController {
     @RequestMapping("/insertDirectionComment")
     public String insertDirectionComment(@RequestParam(value = "directionId",required = false) Long directionId,
                                          @RequestParam(value = "content",required = false) String directionCommentContent,
-                                         @RequestParam("schoolName") String schoolName,
                                          HttpSession session,
                                          RedirectAttributes attr){
+        /*@RequestParam("schoolName") String schoolName,*/
         //获取当前用户
         User user = (User) session.getAttribute("User");
         Long userId = null;
         if(user != null){
             //用户已登录
             userId = user.getUserId();
-            //插入评论
-        }else {
-            //用户未登录
-            System.out.println("用户没登录！！");
         }
         //将评论插入评论表
         this.publishDirectionCommentService.insertDirectionComment(userId, directionId, directionCommentContent);
 
         //添加地址栏参数
         attr.addAttribute("directionId", directionId);
-        attr.addAttribute("schoolName", schoolName);
 
         //转去显示页面详情页
         return "redirect:/school/displayDirectionDetail";
@@ -147,14 +143,12 @@ public class SchoolDetailController {
     public String deleteDirectionComment(HttpServletRequest request,
                                          @RequestParam("directionCommentId") String directionCommentId,
                                          @RequestParam(value = "directionId",required = false) Long directionId,
-                                         @RequestParam("schoolName") String schoolName,
                                          RedirectAttributes attr){
         //删除评论
         this.publishDirectionCommentService.deleteDirectionComment(Long.parseLong(directionCommentId));
 
         //添加地址栏参数
         attr.addAttribute("directionId", directionId);
-        attr.addAttribute("schoolName", schoolName);
 
         //转去显示页面详情页
         return "redirect:/school/displayDirectionDetail";

@@ -161,7 +161,7 @@
               <c:if test="${user.userIdentity==1 || (user.userIdentity==3 && user.userId==dcomment.user.userId)}">
               <span type="reply">
                 <i class="iconfont icon-svgmoban53"></i>
-                <a href="/school/deleteDirectionComment?directionCommentId=${dcomment.directionCommentId}&directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}">删除</a>
+                <a href="/school/deleteDirectionComment?directionCommentId=${dcomment.directionCommentId}&directionId=${publishDirection.directionId}">删除</a>
               </span>
               </c:if>
             </div>
@@ -176,7 +176,7 @@
                <div class="write-answer-top">&nbsp;&nbsp;&nbsp;&nbsp;写回答</div>
              </div>
              <!--富文本编辑器-->
-             <form name="fuform" onsubmit="return false" action="/school/insertDirectionComment?directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}" method="post">
+             <form name="fuform" onsubmit="return false" action="/school/insertDirectionComment?directionId=${publishDirection.directionId}" method="post">
                <div class="text">
                  <div id="div1" class="toolbar" style="height: 35px"></div>
                  <div id="div2" style="height: 130px"></div>
@@ -218,7 +218,7 @@
   <span class="close_modalDialogcontent">×</span>
   <div class="textcase">
     <div class="logintext">
-      <a href="">登录吧您！</a> <%--<img src="/images/common/logo.png" alt="" srcset="">--%>
+      <a href="">没登录别想动</a> <%--<img src="/images/common/logo.png" alt="" srcset="">--%>
     </div>
   </div>
   <div  class="reply" id="reply"></div>
@@ -332,7 +332,7 @@ layui.config({
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
                 if(result==true){
-                    window.location.href="/school/displayDirectionDetail?directionId=${publishDirection.directionId}&schoolName=${publishDirection.schoolName}";
+                    window.location.href="/school/displayDirectionDetail?directionId=${publishDirection.directionId}";
                 }else{
                     document.getElementById("reply").innerHTML="通行证或密码错误";
                 }

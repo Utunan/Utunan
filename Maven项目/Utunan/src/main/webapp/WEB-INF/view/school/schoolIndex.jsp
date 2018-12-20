@@ -142,14 +142,13 @@
                             <td class="type">&nbsp;&nbsp;${direction.degreeType}</td>
                             <td>${direction.majorlName}</td>
                             <td>${direction.directionName}</td>
-                            <td><a href="/school/displayDirectionDetail?directionId=${direction.directionId}&schoolName=${direction.schoolName}">详情</a></td>
+                            <td><a href="/school/displayDirectionDetail?directionId=${direction.directionId}">详情</a></td>
                             <%--判断是否是用户所收藏的院校，是显示红心，不是显示灰心--%>
                             <c:choose>
                                 <c:when test="${ya:judge(directionIds,direction.directionId)}">
                                     <td><a href="/school/deleteDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}"><img src="../images/school/redheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
                                 </c:when>
                                 <c:otherwise>
-                                    <%--<td><div class="huilove"><img src="../images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset="" ></div></td>--%>
                                     <td id="huilove"><div class="huilove"><a href="/school/addDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}"><img src="../images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></div></td>
                                 </c:otherwise>
                             </c:choose>
@@ -165,7 +164,7 @@
     <span class="close_modalDialogcontent">×</span>
     <div class="textcase">
         <div class="logintext">
-            <a href="">登录吧您！</a> <%--<img src="/images/common/logo.png" alt="" srcset="">--%>
+            <a href="">没登录别想动</a>
         </div>
     </div>
     <div  class="reply" id="reply"></div>
