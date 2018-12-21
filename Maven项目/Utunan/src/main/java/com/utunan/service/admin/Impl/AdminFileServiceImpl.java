@@ -39,4 +39,25 @@ public class AdminFileServiceImpl implements AdminFileService {
     public void updateprefile(Long fileId) {
         this.adminFileMapper.updateprefile(fileId);
     }
+
+    //获取审核通过的文件
+    @Override
+    public List <File> getFiles(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<File> files=this.adminFileMapper.getFiles();
+        return files;
+    }
+
+    //删除单个已审核文件
+    @Override
+    public void delfile(Long fileId) {
+        this.adminFileMapper.delfile(fileId);
+    }
+
+
+    //批量删除已审核文件
+    @Override
+    public void delallfile(Long[] b) {
+        this.adminFileMapper.delallfile(b);
+    }
 }

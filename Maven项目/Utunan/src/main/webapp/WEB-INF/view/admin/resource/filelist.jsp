@@ -1,10 +1,17 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: zh
+  Date: 2018/12/21
+  Time: 22:39
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>资源审核</title>
+    <title>资源列表</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
@@ -21,8 +28,7 @@
     <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="layui-anim layui-anim-up">
-<div class="x-body">
+<body>
     <xblock>
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
         <span class="x-right" style="line-height:40px">共有数据：<span>88</span>条</span>
@@ -37,28 +43,24 @@
             <th>昵称</th>
             <th>资源类型</th>
             <th>上传时间</th>
-            <th>审核状态</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${pedfilelist}" var="p">
+        <c:forEach items="${files}" var="f">
         <tr>
             <td>
-                <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${p.fileId }'><i
+                <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${f.fileId }'><i
                         class="layui-icon">&#xe605;</i></div>
             </td>
-            <td>${p.user.userNickName }</td>
-            <td>${p.fileType }</td>
+            <td>${f.user.userNickName }</td>
+            <td>${f.fileType }</td>
             <td>
-                <fmt:formatDate value="${p.fileTime }" type="both"/>
+                <fmt:formatDate value="${f.fileTime }" type="both"/>
             </td>
             <td>未审核</td>
             <td class="td-manage">
-                <a title="编辑" onclick="edit_prefile(this,'${p.fileId }')" href="javascript:;">
-                    <i class="layui-icon">&#xe642;</i>
-                </a>
-                <a title="删除" onclick="member_del(this,'${p.fileId }')" href="javascript:;">
+                <a title="删除" onclick="member_del(this,'${f.fileId }')" href="javascript:;">
                     <i class="layui-icon">&#xe640;</i>
                 </a>
             </td>
@@ -95,83 +97,65 @@
             </c:choose>
         </div>
     </div>
-</div>
-<script>
-    layui.use('laydate', function () {
-        var laydate = layui.laydate;
+    </div>
+    <script>
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
 
-        //执行一个laydate实例
-        laydate.render({
-            elem: '#start' //指定元素
-        });
-
-        //执行一个laydate实例
-        laydate.render({
-            elem: '#end' //指定元素
-        });
-    });
-
-    /*用户-删除*/
-    function member_del(obj, id) {
-        layer.confirm('确认要删除吗？'+id, function (index) {
-            $.ajax({
-                url:"/delprefile",
-                type:"get",
-                traditional:true,
-                data:{"n":id},
-                success:function(response){
-
-                },
-                error:function() {
-                }
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#start' //指定元素
             });
-            //发异步删除数据
-            $(obj).parents("tr").remove();
-            layer.msg('已删除!', {icon: 1, time: 1000});
-        });
-    }
-    
-    function edit_prefile(obj, id) {
-        layer.confirm('确认允许审核通过吗？'+id, function (index) {
-            $.ajax({
-                url:"/editprefile",
-                type:"get",
-                traditional:true,
-                data:{"n":id},
-                success:function(response){
 
-                },
-                error:function() {
-                }
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#end' //指定元素
             });
-            //发异步删除数据
-            $(obj).parents("tr").remove();
-            layer.msg('审核通过', {icon: 1, time: 1000});
         });
-    }
 
-    function delAll(argument) {
-        var data = tableCheck.getData();
-        layer.confirm('确认要删除吗？' + data, function (index) {
-            console.log(data)
-            $.ajax({
-                url:"/delallprefile",
-                type:"get",
-                dataType:"String",
-                traditional:true,
-                data:{"d":data},
-                success:function(response){
+        /*用户-删除*/
+        function member_del(obj, id) {
+            layer.confirm('确认要删除吗？'+id, function (index) {
+                $.ajax({
+                    url:"/delfile",
+                    type:"get",
+                    traditional:true,
+                    data:{"n":id},
+                    success:function(response){
 
-                },
-                error:function() {
-                }
+                    },
+                    error:function() {
+                    }
+                });
+                //发异步删除数据
+                $(obj).parents("tr").remove();
+                layer.msg('已删除!', {icon: 1, time: 1000});
             });
-            //捉到所有被选中的，发异步进行删除
-            layer.msg('删除成功', {icon: 1});
-            $(".layui-form-checked").not('.header').parents('tr').remove();
-        });
-    }
+        }
 
-</script>
+
+        function delAll(argument) {
+            var data = tableCheck.getData();
+            layer.confirm('确认要删除吗？' + data, function (index) {
+                console.log(data)
+                $.ajax({
+                    url:"/delallfile",
+                    type:"get",
+                    dataType:"String",
+                    traditional:true,
+                    data:{"d":data},
+                    success:function(response){
+
+                    },
+                    error:function() {
+                    }
+                });
+                //捉到所有被选中的，发异步进行删除
+                layer.msg('删除成功', {icon: 1});
+                $(".layui-form-checked").not('.header').parents('tr').remove();
+            });
+        }
+
+    </script>
 </body>
 </html>

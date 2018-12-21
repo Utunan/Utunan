@@ -17,4 +17,13 @@ public interface AdminFileMapper {
 
     //审核文件通过
     void updateprefile(@Param("fileId") Long fileId);
+
+    //获取审核通过的文件
+    List<File> getFiles();
+
+    //删除单个已审核文件
+    void delfile(@Param("fileId") Long fileId);
+
+    //批量删除已审核文件
+    void delallfile(@Param("b") Long[] b);
 }

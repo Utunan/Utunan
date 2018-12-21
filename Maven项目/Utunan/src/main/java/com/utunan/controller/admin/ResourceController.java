@@ -40,4 +40,23 @@ public class ResourceController {
     public void editprefile(@Param("n") String n,HttpServletRequest request){
         this.adminFileService.updateprefile(Long.parseLong(n));
     }
+
+    //删除单个已审核文件
+    @RequestMapping(value = "/delfile",method = RequestMethod.GET)
+    @ResponseBody
+    public void delfile(@Param("n") String n, HttpServletRequest request){
+        this.adminFileService.delfile(Long.parseLong(n));
+    }
+
+    //批量删除已审核文件
+    @RequestMapping(value = "/delallfile",method = RequestMethod.GET)
+    @ResponseBody
+    public void delallfile(@Param("d") String d, HttpServletRequest request){
+        String[] data=d.split(",");
+        Long[] b=new Long[data.length];
+        for (int i = 0; i <data.length ; i++) {
+            b[i] = new Long(data[i]);
+        }
+        this.adminFileService.delallfile(b);
+    }
 }

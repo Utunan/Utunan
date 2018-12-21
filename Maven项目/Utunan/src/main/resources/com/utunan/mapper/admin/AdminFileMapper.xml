@@ -21,6 +21,20 @@
             <result property="userIntegral" column="userIntegral"/>
         </association>
     </resultMap>
+    <!--获取所有未审核的文件-->
+    <select id="getPedFiles" resultMap="fileResultMap">
+      select *
+      from file
+      left join user on user.userId=file.userId
+      where isExamine=0
+    </select>
+    <!--获取审核通过的文件-->
+    <select id="getFiles" resultMap="fileResultMap">
+        select *
+        from file
+        left join user on user.userId=file.userId
+        where isExamine=1
+    </select>
     <!--删除单个未审核资源-->
     <delete id="delprefile" parameterType="Long">
         delete from file
@@ -34,17 +48,24 @@
             #{item}
         </foreach>
     </delete>
-    <!--获取所有未审核的文件-->
-    <select id="getPedFiles" resultMap="fileResultMap">
-      select *
-      from file
-      left join user on user.userId=file.userId
-      where isExamine=0
-    </select>
-
     <!--审核文件通过-->
     <update id="updateprefile" parameterType="Long">
         update file set isExamine=1
         where fileId=#{fileId}
     </update>
+
+    <!--删除单个已审核文件-->
+    <delete id="delfile" parameterType="Long">
+        delete from file
+        where fileId=#{fileId}
+    </delete>
+
+    <!--批量删除已审核文件-->
+    <delete id="delallfile" parameterType="arraylist">
+        delete from file
+        where fileId in
+        <foreach collection="b" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
 </mapper>
