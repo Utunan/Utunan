@@ -74,7 +74,7 @@ window.tagcloud = (function(win, doc) { // ns
         self.update(self);    //初始更新
         self.box.style.visibility = "visible";
         self.box.style.minHeight = 1.8 * self.size + "px";
-        self.box.style.minWidth = 2.25 * self.size  + "px";
+        self.box.style.minWidth = 2.2 * self.size  + "px";
         for (var j = 0, len = self.items.length; j < len; j++) {
             self.items[j].element.style.zIndex = j + 1;
         }
