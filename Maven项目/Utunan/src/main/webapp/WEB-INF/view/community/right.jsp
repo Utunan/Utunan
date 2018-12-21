@@ -2,7 +2,7 @@
 此为quiz、detail里引用的右侧边栏
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div class="layui-col-md4">
+<div class="layui-col-md4" id="layui-col-md4">
     <div class="fly-panel">
         <div class="fly-panel-main">
             <a href="/toAddQuestion" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">发表提问</a>
@@ -21,10 +21,12 @@
     </dl>
     <div class="fly-panel fly-link">
         <h3 class="fly-panel-title">热门标签</h3>
-        <dl class="fly-panel-main">
-            <c:forEach items="${tag}" var="tags">
-                <dd><a href="quiztag/${tags[0].tagName}/rt/1" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
-            </c:forEach>
-        </dl>
+        <div class="wrapper1">
+            <div class="tagcloud fl">
+                <c:forEach items="${tag}" var="tags">
+                    <a href="/quiztag/${tags[0].tagName}/rt/1" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;${tags[1]}</a>
+                </c:forEach>
+            </div>
+        </div><!--wrapper-->
     </div>
 </div>
