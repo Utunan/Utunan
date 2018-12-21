@@ -16,4 +16,13 @@ public interface AdminFileService {
 
     //审核文件通过
     void updateprefile(Long fileId);
+
+    //获取通过审核的文件
+    List<File> getFiles(int pageNum, int pageSize);
+
+    //删除单个已审核文件
+    void delfile(Long fileId);
+
+    //批量删除已审核文件
+    void delallfile(Long[] b);
 }

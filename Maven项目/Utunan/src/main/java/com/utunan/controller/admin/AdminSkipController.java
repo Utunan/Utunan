@@ -239,4 +239,22 @@ public class AdminSkipController {
 
         return "admin/resource/review";
     }
+
+    @RequestMapping("files")
+    public String fileslist(HttpSession session,HttpServletRequest request){
+        List<File> files=null;
+        String pageNum = request.getParameter("pageNum");
+        //获取审核通过文件
+        if (pageNum == null || pageNum == "" || Integer.parseInt(pageNum) <= 0) {
+            files = adminFileService.getFiles(1, 10);
+        }
+        else {
+            files = adminFileService.getFiles(Integer.parseInt(pageNum), 10);
+        }
+
+        request.setAttribute("PageInfo", new PageInfo(files, 5));
+        session.setAttribute("files", files);
+
+        return "admin/resource/filelist";
+    }
 }
