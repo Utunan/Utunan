@@ -25,9 +25,15 @@ public class MemberController {
     @RequestMapping("/{userId}")
     public String User(HttpServletRequest request, @PathVariable String userId){
         Member member=userService.getUserById(userId);
-        if(member!=null)
-            request.setAttribute("Member",member);
-        System.out.println(member);
+        User user=(User)request.getSession().getAttribute("User");
+        System.out.println("member:"+member.getUser());
+        System.out.println(user);
+        if(member!=null) {
+         if(user!=null&&member.getUser().getUserId().equals(user.getUserId())) {
+            return "redirect:/user";
+         }
+            request.setAttribute("Member", member);
+        }
         return "/user/member";
     }
 
