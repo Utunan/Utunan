@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.utunan.mapper.admin.AdminFileMapper">
+    <resultMap id="fileResultMap" type="com.utunan.pojo.base.share.File">
+        <id property="fileId" column="fileId"/>
+        <result property="fileTime" column="fileTime"/>
+        <result property="fileType" column="fileType"/>
+        <result property="isExamine" column="isExamine"/>
+        <association property="user" javaType="com.utunan.pojo.base.user.User">
+            <id column="userId" property="userId"/>
+            <result property="userEmail" column="userEmail"/>
+            <result property="userTelephone" column="userTelephone"/>
+            <result property="userPassword" column="userPassword"/>
+            <result property="userIdentity" column="userIdentity"/>
+            <result property="examTime" column="examTime"/>
+            <result property="registerTime" column="registerTime"/>
+            <result property="userHeadImg" column="userHeadImg"/>
+            <result property="userNickName" column="userNickName"/>
+            <result property="userSchool" column="userSchool"/>
+            <result property="dreamSchool" column="dreamSchool"/>
+            <result property="userIntegral" column="userIntegral"/>
+        </association>
+    </resultMap>
+    <!--删除单个未审核资源-->
+    <delete id="delprefile" parameterType="Long">
+        delete from file
+        where fileId=#{fileId}
+    </delete>
+    <!--批量删除未审核资源-->
+    <delete id="delallprefile" parameterType="arraylist">
+        delete from file
+        where fileId in
+        <foreach collection="b" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+    <!--获取所有未审核的文件-->
+    <select id="getPedFiles" resultMap="fileResultMap">
+      select *
+      from file
+      left join user on user.userId=file.userId
+      where isExamine=0
+    </select>
+
+    <!--审核文件通过-->
+    <update id="updateprefile" parameterType="Long">
+        update file set isExamine=1
+        where fileId=#{fileId}
+    </update>
+</mapper>

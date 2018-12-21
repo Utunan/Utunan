@@ -5,11 +5,9 @@ import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.questionbank.Question;
 import com.utunan.pojo.base.school.SchoolComment;
+import com.utunan.pojo.base.share.File;
 import com.utunan.pojo.base.user.User;
-import com.utunan.service.admin.AdminAnswerService;
-import com.utunan.service.admin.AdminDirectionService;
-import com.utunan.service.admin.AdminQuestionService;
-import com.utunan.service.admin.AdminQuizService;
+import com.utunan.service.admin.*;
 import com.utunan.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +32,8 @@ public class AdminSkipController {
     private AdminQuizService adminQuizService;
     @Autowired
     private AdminAnswerService adminAnswerService;
+    @Autowired
+    private AdminFileService adminFileService;
 
     @RequestMapping("")
     public String admin(HttpServletRequest request) {
@@ -221,4 +221,22 @@ public class AdminSkipController {
         return "admin/quiz/answerlist";
     }
 
+
+    @RequestMapping("review")
+    public String reviewlist(HttpSession session,HttpServletRequest request){
+        List<File> pedfiles=null;
+        String pageNum = request.getParameter("pageNum");
+        //获取待审核文件
+        if (pageNum == null || pageNum == "" || Integer.parseInt(pageNum) <= 0) {
+            pedfiles = adminFileService.getPedFiles(1, 10);
+        }
+        else {
+            pedfiles = adminFileService.getPedFiles(Integer.parseInt(pageNum), 10);
+        }
+
+        request.setAttribute("PageInfo", new PageInfo(pedfiles, 5));
+        session.setAttribute("pedfilelist", pedfiles);
+
+        return "admin/resource/review";
+    }
 }
