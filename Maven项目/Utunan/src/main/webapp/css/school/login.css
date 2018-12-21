@@ -3,11 +3,9 @@ body {
     margin: 0;
     background-size: 100%;
 }
-
 nav {
     list-style: none;
 }
-
 
 .center {
     text-align: center;
@@ -42,7 +40,7 @@ nav {
     width: 360px;
     margin: 0px auto 0;
     padding-bottom: 20px;
-    background-color: #fff;
+    /*background-color: #fff;*/
     border-radius: 4px;
 }
 
@@ -50,19 +48,26 @@ nav {
 .loginform a:link,
 .loginform a:visited {
     text-decoration: none;
-    color: rgb(29, 154, 212);
+    color: #666;
     font-size: 12px;
     padding: 5px;
+}
+#register{
+    margin-left: 100px;
+}
+#forpasswork{
+    margin-left: 30px;
 }
 
 .textcase {
     height: 30px;
-    border-bottom: 1px solid#c4d7d6;
+    /*border-bottom: 1px solid#c4d7d6;*/
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .logintext{
-    background: #fff;
+    /*background: #fff;*/
     height: 60px;
     width: 180px;
     /*font-size: 30px;
@@ -83,7 +88,7 @@ nav {
 .logintext a:hover,
 .logintext a:visited {
     text-decoration: none;
-    color: #000;
+    color: #666;
 }
 
 
@@ -96,9 +101,11 @@ nav {
     border-radius: 5px;
     display: block;
     border: 1px solid LightSteelBlue;
+    background-color: white;
 }
 
 .inputcase>input {
+    /*background: rgba(255,255,255,.1);*/
     font-weight: 100;
     font-size: 15px;
     height: 40px;
@@ -131,7 +138,7 @@ nav {
     outline: 0;
 }
 #submitbutton{
-    background: #5DB276;
+    background: #8cb1cc;
 }
 
 .welcome {
@@ -142,8 +149,6 @@ nav {
 @media(min-width:1381px) {
     
 }
-
-
 
 footer {
     bottom: 0;
@@ -190,7 +195,11 @@ footer p {
 }
 .modalDialogcontent{
     display:none;
-    background:white;
+    /*background:white;*/
+   /* background: url("/images/common/loginbg.jpg");*/
+    background: url("/images/school/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     width:500px;
     position:fixed;
     left:50%;
@@ -198,6 +207,7 @@ footer p {
     margin-left:-200px;
     margin-top:-150px;
     z-index: 10001;
+    border-radius: 25px;
 }
 
 .close_modalDialogcontent{

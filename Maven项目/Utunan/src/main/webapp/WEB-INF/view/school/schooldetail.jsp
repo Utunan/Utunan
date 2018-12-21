@@ -220,7 +220,7 @@
   <span class="close_modalDialogcontent">×</span>
   <div class="textcase">
     <div class="logintext">
-      <a href="">没登录别想动</a> <%--<img src="/images/common/logo.png" alt="" srcset="">--%>
+      <a href="">登录</a> <%--<img src="/images/common/logo.png" alt="" srcset="">--%>
     </div>
   </div>
   <div  class="reply" id="reply"></div>
@@ -232,11 +232,11 @@
       <input type="password" name="userPassword" id="password" placeholder="请输入密码">
     </div>
     <div class="loginbtn">
+      <button id="closeAll">不了</button>
       <button id="submitbutton" type="submit">登录</button>
-      <button id="closeAll">我不要</button>
     </div>
-    <span><a href="/forgetpasework">忘记密码</a> </span> <%--还未实现该页面--%>
-    <span><a href="/register">立即注册</a> </span>
+    <span><a id="register" href="/register">立即注册</a> </span>
+    <span><a id="forpasswork" href="/forgetpasework">忘记密码</a> </span> <%--还未实现该页面--%>
   </form>
 </div>
 <%--空内容弹窗--%>
