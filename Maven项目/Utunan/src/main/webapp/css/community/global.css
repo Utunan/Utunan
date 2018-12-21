@@ -249,7 +249,7 @@ pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid 
 .fly-list-kiss{color: #FF5722;}
 .fly-list-nums i{position: relative; padding: 0 3px;}
 
-.fly-list-badge{position: absolute; right: 15px; top: 15px; font-size: 0;}
+.fly-list-badge{position: absolute; right: 15px; top: 10px; font-size: 0;}
 .fly-list-badge .layui-badge{margin-left: 8px;border-radius: 5px; font-size: 12px;}
 
 /* 单行列表 */

@@ -56,10 +56,6 @@ http://www.springframework.org/schema/task/spring-task.xsd">
             <mvc:mapping path="/admin/**"/>
             <bean class="com.utunan.interceptor.admin.AdminInterceptor"/>
         </mvc:interceptor>
-        <!--<mvc:interceptor>-->
-            <!--<mvc:mapping path="/member/**"/>-->
-            <!--<bean class="com.utunan.interceptor.user.MemberInterceptor"/>-->
-        <!--</mvc:interceptor>-->
     </mvc:interceptors>
 
     <!-- 解析器注册 -->

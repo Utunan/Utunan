@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="/css/school/detail.css">
   <link rel="stylesheet" href="/css/community/detail.css">
   <link rel="stylesheet" href="/css/school/login.css">
+  <link rel="stylesheet" href="/css/school/animate.css">
+  <link rel="stylesheet" href="/css/school/dialog.css">
   <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
 </head>
 <script src="/js/community/jquery-1.10.2.js"></script>
@@ -101,7 +103,7 @@
               <c:choose>
                 <c:when test="${not empty EGfile}">
                   <%--<div class="layui-timeline-title">&nbsp;&nbsp;<a href="/school/displayEG?schoolName=${publishDirection.schoolName}&fileType=招生简章">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>--%>
-                  <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/download?fileId=${EGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>
+                  <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/file/${EGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>
                 </c:when>
                 <c:otherwise>
                   <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生简章》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/share1">我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/searchfile?school=${publishDirection.schoolName}&fileType=招生简章&keyWord=">查看往年招生简章</a></div>
@@ -115,7 +117,7 @@
               <%--判断是否有今年的招生目录--%>
               <c:choose>
                 <c:when test="${not empty AGfile}">
-                  <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/download?fileId=${AGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生目录》</a></div>
+                  <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/file/${AGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生目录》</a></div>
                 </c:when>
                 <c:otherwise>
                   <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生目录》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/share1">我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/searchfile?school=${publishDirection.schoolName}&fileType=招生专业目录&keyWord=">查看往年招生目录</a></div>
@@ -237,7 +239,12 @@
     <span><a href="/register">立即注册</a> </span>
   </form>
 </div>
-
+<%--空内容弹窗--%>
+<%--<div class="nullContent">
+    <span class="close_nullContent">×</span>
+    <div>不写东西就想交？怎么可能！！</div>
+    <button id="nullclose">我现在写</button>
+</div>--%>
 <script src="/layui/layui.js"></script>
 
 <script>
@@ -296,10 +303,13 @@ layui.config({
     var ask=document.getElementById("comsub");
     var mask=document.getElementsByClassName("mask")[0];
     var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
+    /*var nullContent=document.getElementsByClassName("nullContent")[0];*/
     /*获取提交按钮*/
     var submit = document.getElementById("submitbutton");
     /*获取关闭按钮*/
     var closeAll = document.getElementById("closeAll");
+    /*获取文本框*/
+    var text = document.getElementById("text1");
 
     /*判断是否是用户，不是用户则弹出框*/
     ask.onclick=function(){
@@ -307,7 +317,18 @@ layui.config({
             mask.style.display="block";
             modalDialogcontent.style.display="block";
         }else{
-            document.fuform.submit();
+            //判断文本框是否为空
+            var str = text.value.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+            if(str == '' || str == undefined || str == null){
+                //文本框为空
+                /*mask.style.display="block";
+                nullContent.style.display="block";*/
+                /*alert("不写东西就想交？怎么可能！！");*/
+                javascript:$('body').dialog({type:'success'});
+            }else{
+                //满足条件，可以提交
+                document.fuform.submit();
+            }
         }
     };
     /*点击小叉号然后关闭*/
@@ -332,7 +353,7 @@ layui.config({
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
                 if(result==true){
-                    window.location.href="/school/displayDirectionDetail?directionId=${publishDirection.directionId}";
+                    window.location.href="/school/schooldetail/${publishDirection.directionId}";
                 }else{
                     document.getElementById("reply").innerHTML="通行证或密码错误";
                 }
@@ -342,7 +363,7 @@ layui.config({
             }
         });
     };
-
+    /*是否点赞*/
     function apraise(directionCommentId,praiseCount){
         if(${user==null}){
             mask.style.display="block";
@@ -368,29 +389,8 @@ layui.config({
             });
         }
     }
-</script>
-<script src="/js/common/login.js"></script>
-<%--<script>
-    function apraise(directionCommentId,praiseCount){
-        $.ajax({
-            url:'/school/updateDCPraiseCount',//处理数据的地址
-            type:'post',//数据提交形式
-            data:{'directionCommentId':directionCommentId},//需要提交的数据
-            dataType: "json",
-            success:function(d){//数据返回成功的执行放大
-                var res = d.res;
-                var praiseCount = d.praiseCount;
-                if(res=='ok'){//成功
-                    document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
-                    document.getElementById("zan"+directionCommentId).style.color="#ff5722";
-                }
-                if(res=='no'){//失败
-                    document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
-                    document.getElementById("zan"+directionCommentId).style.color="#333";
-                }
-            },
-        });
-    }
 
-</script>--%>
+</script>
+<script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
+<script src="/js/common/login.js"></script>
 </html>
