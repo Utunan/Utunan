@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="/css/community/detail.css">
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/community/tagCloud.css">
+    <script type="text/javascript" src="/js/community/tagcloud.js"></script>
     <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
     <script> var pagenum = "${PageInfo.pageNum}"</script>
@@ -106,7 +108,7 @@
                             </div>
 
                             <div class="re_num">
-                                <img src="images/community/zan.svg" width="24px" height="34px">
+                                <img src="/images/community/zan.svg" width="24px" height="34px">
                                 <span class="write-reply">${answerCountByQuizId}</span>
                             </div>
                             <div class="collect">
@@ -246,6 +248,20 @@
     </div>
 </div>
 </body>
+<script type="text/javascript">
+    /*3D标签云*/
+    var radius=document.getElementById("layui-col-md4").offsetWidth;
+    console.log(radius);
+    tagcloud({
+        selector: ".tagcloud",  //元素选择器
+        fontsize: 16,       //基本字体大小, 单位px
+        radius: radius*0.2,         //滚动半径, 单位px
+        mspeed: "normal",   //滚动最大速度, 取值: slow, normal(默认), fast
+        ispeed: "normal",   //滚动初速度, 取值: slow, normal(默认), fast
+        direction: 0,     //初始滚动方向, 取值角度(顺时针360): 0对应top, 90对应left, 135对应right-bottom(默认)...
+        keep: false          //鼠标移出组件后是否继续随鼠标滚动, 取值: false, true(默认) 对应 减速至初速度滚动, 随鼠标滚动
+    });
+</script>
 <script>
     var viewComments = window.document.getElementsByClassName("view-comments");
     var index;
