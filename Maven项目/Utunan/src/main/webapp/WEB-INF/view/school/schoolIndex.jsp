@@ -21,8 +21,6 @@
         var pagenum="${PageInfo.pageNum}"
     </script>
 </head>
-<script src="/js/community/jquery-1.10.2.js"></script>
-<script src="/js/community/tag.js"></script>
 <body>
 <%@include file="../common/header.jsp"%>
 <%--黑背景--%>
@@ -202,6 +200,8 @@
 </nav>
 <%@include file="../common/footer.jsp"%>
 </body>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="/js/community/tag.js"></script>
 <script>
     /*弹窗登录功能*/
     var ask=document.getElementsByClassName("huilove");
