@@ -62,5 +62,10 @@
         from direction_collector
         where userId=#{userId} and directionId=#{directionId}
     </delete>
-
+    <!--判断某用户是否收藏某院校-->
+    <select id="findDCollector" parameterType="java.lang.Long" resultMap="PublishDirectionCollectorMap">
+        select *
+        from direction_collector
+        where directionId=#{directionId} and userId=#{userId}
+    </select>
 </mapper>

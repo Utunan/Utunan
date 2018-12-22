@@ -24,4 +24,6 @@ public interface PublishDirectionCollectorMapper {
     void insertDirectionCollector(@Param("userId") Long userId,@Param("directionId") Long directionId);
     /*王碧云 在院校收藏夹中删除*/
     void deleteDirectionCollector(@Param("userId") Long userId,@Param("directionId") Long directionId);
+    /*判断某用户是否收藏某院校*/
+    PublishDirectionCollector findDCollector(@Param("directionId") Long directionId,@Param("userId") Long userId);
 }

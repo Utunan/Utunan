@@ -3,19 +3,24 @@ package com.utunan.controller.school;
 import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.inherit.school.PublishSchool;
+import com.utunan.pojo.inherit.user.PublishDirectionCollector;
 import com.utunan.pojo.util.Analyzer;
 import com.utunan.util.SchoolOther;
 import com.utunan.service.school.PublishSchoolService;
 import com.utunan.service.user.PublishDirectionCollectorService;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -145,93 +150,34 @@ public class SchoolSearchController {
 
         return "/school/schoolIndex";
     }
-
     /*
      * @author  王碧云
-     * @description 将院校加入收藏夹
-     * @date  16:01 2018/12/16/016
-     * @param  [directionId, schoolProvinceList, schoolTypeList, degreeTypeList, mathList, englishList, directionName, pageNum, session, attr]
-     * @return  java.lang.String
+     * @description 判断是否收藏
+     * @date  15:25 2018/12/22/022
+     * @param  [directionId, session, response]
+     * @return  void
      */
-    @RequestMapping("/addDirectionCollector")
-    public String addDirectionCollector(@RequestParam(value = "directionId") String directionId,
-                                        @RequestParam(value = "schoolProvince",required = false) String[] schoolProvinceList,
-                                        @RequestParam(value = "schoolType",required = false) String[] schoolTypeList,
-                                        @RequestParam(value = "degreeType",required = false) String[] degreeTypeList,
-                                        @RequestParam(value = "math",required = false) String[] mathList,
-                                        @RequestParam(value = "english",required = false) String[] englishList,
-                                        @RequestParam(value = "directionName",required = false) String directionName,
-                                        @RequestParam(value = "pageNum",required = false) String pageNum,
-                                        HttpSession session,
-                                        RedirectAttributes attr){
-        //获取当前用户
+    @ResponseBody
+    @RequestMapping("/updateDCollector")
+    public void updateDCollector(@RequestParam(value = "directionId") String directionId,
+                                 HttpSession session, HttpServletResponse response) throws IOException {
         User user = (User) session.getAttribute("User");
-        if (user != null) {
-            //用户已登录,则加入收藏夹
+        //创建JSON
+        JSONObject obj=new JSONObject();
+        //到院校收藏表里查看是否有记录
+        PublishDirectionCollector pdc = this.publishDirectionCollectorService.findDCollector(Long.parseLong(directionId),user.getUserId());
+        //判断是否有记录
+        if(pdc==null){
+            //没有记录，则添加收藏
             this.publishDirectionCollectorService.insertDirectionCollector(user.getUserId(), Long.parseLong(directionId));
+            obj.put("res", "ok");
+            response.getWriter().append(obj.toString());
+        }else {
+            //有记录，取消收藏
+            this.publishDirectionCollectorService.deleteDirectionCollector(user.getUserId(), Long.parseLong(directionId));
+            obj.put("res", "no");
+            response.getWriter().append(obj.toString());
         }
-        //将String[]转为String
-        SchoolOther so = new SchoolOther();
-        String schoolProvince = so.listToString(schoolProvinceList);
-        String schoolType = so.listToString(schoolTypeList);
-        String degreeType = so.listToString(degreeTypeList);
-        String math = so.listToString(mathList);
-        String english = so.listToString(englishList);
-        //添加地址栏参数
-        attr.addAttribute("schoolProvince", schoolProvince);
-        attr.addAttribute("schoolType", schoolType);
-        attr.addAttribute("degreeType", degreeType);
-        attr.addAttribute("math", math);
-        attr.addAttribute("english", english);
-        attr.addAttribute("directionName", directionName);
-        attr.addAttribute("pageNum", pageNum);
-
-
-        return "redirect:/school/displaySchoolBySearch";
     }
-    /*
-     * @author  王碧云
-     * @description 取消院校收藏
-     * @date  16:09 2018/12/16/016
-     * @param  [directionId, schoolProvinceList, schoolTypeList, degreeTypeList, mathList, englishList, directionName, pageNum, session, attr]
-     * @return  java.lang.String
-     */
-    @RequestMapping("/deleteDirectionCollector")
-    public String deleteDirectionCollector(@RequestParam(value = "directionId") String directionId,
-                                           @RequestParam(value = "schoolProvince",required = false) String[] schoolProvinceList,
-                                           @RequestParam(value = "schoolType",required = false) String[] schoolTypeList,
-                                           @RequestParam(value = "degreeType",required = false) String[] degreeTypeList,
-                                           @RequestParam(value = "math",required = false) String[] mathList,
-                                           @RequestParam(value = "english",required = false) String[] englishList,
-                                           @RequestParam(value = "directionName",required = false) String directionName,
-                                           @RequestParam(value = "pageNum",required = false) String pageNum,
-                                           HttpSession session,
-                                           RedirectAttributes attr){
-        //获取当前用户
-        User user =(User)session.getAttribute("User");
-        //获取当前用户的Id
-        Long userId = user.getUserId();
-        //根据用户Id和院校Id删除院校收藏
-        this.publishDirectionCollectorService.deleteDirectionCollector(userId, Long.parseLong(directionId));
-        //将String[]转为String
-        SchoolOther so = new SchoolOther();
-        String schoolProvince = so.listToString(schoolProvinceList);
-        String schoolType = so.listToString(schoolTypeList);
-        String degreeType = so.listToString(degreeTypeList);
-        String math = so.listToString(mathList);
-        String english = so.listToString(englishList);
-        //添加地址栏参数
-        attr.addAttribute("schoolProvince", schoolProvince);
-        attr.addAttribute("schoolType", schoolType);
-        attr.addAttribute("degreeType", degreeType);
-        attr.addAttribute("math", math);
-        attr.addAttribute("english", english);
-        attr.addAttribute("directionName", directionName);
-        attr.addAttribute("pageNum", pageNum);
-
-        //返回数据
-        return "redirect:/school/displaySchoolBySearch";
-    }
-
 }
 

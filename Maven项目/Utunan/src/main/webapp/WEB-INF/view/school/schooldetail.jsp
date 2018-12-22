@@ -18,8 +18,6 @@
   <link rel="stylesheet" href="/css/school/dialog.css">
   <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
 </head>
-<script src="/js/community/jquery-1.10.2.js"></script>
-<script src="/js/jquery-1.8.3.min.js"></script>
 <body>
 <!--提醒tx加上 1.加入院校收藏夹 2.浏览次数3.评论总数4.评论点赞5.写评论-->
 <%@include file="../common/header.jsp"%>
@@ -150,7 +148,7 @@
               <span class="jieda-zan zanok" type="zan">
                 <c:choose>
                   <c:when test="${ya:judge(directionCommentGreatList,dcomment.directionCommentId)}">
-                    <a style="color: #ff5722;" id="zan${dcomment.directionCommentId}" href="javascript:void(0)" onclick="apraise(${dcomment.directionCommentId},${dcomment.directionCommentPraiseCount})"><i class="iconfont icon-zan"></i></a>
+                    <a style="color: #ff5722;" id="zan${dcomment.directionCommentId}" href="javascript:void(0)" onclick="apraise(${dcomment.directionCommentId})"><i class="iconfont icon-zan"></i></a>
                     <em id="directionComment${dcomment.directionCommentId}">${dcomment.directionCommentPraiseCount}</em>
                   </c:when>
                   <c:otherwise>
@@ -239,14 +237,9 @@
     <span><a id="forpasswork" href="/forgetpasework">忘记密码</a> </span> <%--还未实现该页面--%>
   </form>
 </div>
-<%--空内容弹窗--%>
-<%--<div class="nullContent">
-    <span class="close_nullContent">×</span>
-    <div>不写东西就想交？怎么可能！！</div>
-    <button id="nullclose">我现在写</button>
-</div>--%>
 <script src="/layui/layui.js"></script>
-
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="/js/community/tag.js"></script>
 <script>
 layui.cache.page = 'jie';
 layui.cache.user = {
@@ -311,7 +304,7 @@ layui.config({
     /*获取文本框*/
     var text = document.getElementById("text1");
 
-    /*判断是否是用户，不是用户则弹出框*/
+    /*点击评论提交判断是否是用户，不是用户则弹出框*/
     ask.onclick=function(){
         if(${user==null}){
             mask.style.display="block";
@@ -356,12 +349,12 @@ layui.config({
                 }
             },
             error : function() {
-                document.getElementById("reply").innerHTML="通行证或密码错误";
+                document.getElementById("reply").innerHTML="网可能不太好，请您稍等一下~";
             }
         });
     };
     /*是否点赞*/
-    function apraise(directionCommentId,praiseCount){
+    function apraise(directionCommentId){
         if(${user==null}){
             mask.style.display="block";
             modalDialogcontent.style.display="block";

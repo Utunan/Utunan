@@ -63,4 +63,9 @@ public class PublishDirectionCollectorServiceImpl implements PublishDirectionCol
     public void deleteDirectionCollector(Long userId,Long directionId) {
         this.publishDirectionCollectorMapper.deleteDirectionCollector(userId,directionId);
     }
+
+    @Override
+    public PublishDirectionCollector findDCollector(Long directionId, Long userId) {
+        return this.publishDirectionCollectorMapper.findDCollector(directionId, userId);
+    }
 }

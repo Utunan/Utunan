@@ -141,15 +141,17 @@
                             <td>${direction.majorlName}</td>
                             <td>${direction.directionName}</td>
                             <td><a href="/school/schooldetail/${direction.directionId}">详情</a></td>
-                            <%--判断是否是用户所收藏的院校，是显示红心，不是显示灰心--%>
+                            <%--判断是否是用户所收藏的院校--%>
+                            <td>
                             <c:choose>
                                 <c:when test="${ya:judge(directionIds,direction.directionId)}">
-                                    <td><a href="/school/deleteDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}"><img src="../images/school/redheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></td>
+                                    <a href="javascript:void(0);" onclick="collector(${direction.directionId})"><img id="collect${direction.directionId}" src="/images/school/redheart.svg"  width="20px" height="20px" alt="" srcset=""></a>
                                 </c:when>
                                 <c:otherwise>
-                                    <td id="huilove"><div class="huilove"><a href="/school/addDirectionCollector?directionId=${direction.directionId}&schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}"><img src="../images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset="" ></a></div></td>
+                                    <a href="javascript:void(0);" onclick="collector(${direction.directionId})"><img id="collect${direction.directionId}" src="/images/school/whiteheart.svg"  width="20px" height="20px" alt="" srcset=""></a>
                                 </c:otherwise>
                             </c:choose>
+                            </td>
                         </tr>
                     </c:forEach>
                 </c:forEach>
@@ -204,7 +206,6 @@
 <script src="/js/community/tag.js"></script>
 <script>
     /*弹窗登录功能*/
-    var ask=document.getElementsByClassName("huilove");
     var mask=document.getElementsByClassName("mask")[0];
     var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
     /*获取提交按钮*/
@@ -213,28 +214,35 @@
     var closeAll = document.getElementById("closeAll");
 
     /*判断是否是用户，是用户则收藏，不是用户则弹出框*/
-    for (var i=0;i<ask.length;i++){
-        ask[i].onclick=function(){
-            if(${user==null}){
-                mask.style.display="block";
-                modalDialogcontent.style.display="block";
-                return false
-            }else{
-                return true;
-            }
+    function collector(directionId) {
+        if(${user==null}){
+            mask.style.display="block";
+            modalDialogcontent.style.display="block";
+        }else{
+            $.ajax({
+                url:'/school/updateDCollector',//处理数据的地址
+                type:'post',//数据提交形式
+                //data:{'directionId':directionId,'schoolProvince':schoolProvince,'schoolType':schoolType,'degreeType':degreeType,'math':math,'english':english,'directionName':directionName,'pageNum':pageNum},//需要提交的数据
+                data:{'directionId':directionId},
+                dataType: "json",
+                success:function(d){//数据返回成功的执行放大
+                    var res = d.res;
+                    if(res=='ok'){//添加收藏
+                        console.log("收藏成功！");
+                        document.getElementById("collect"+directionId).src="/images/school/redheart.svg";
+                    }
+                    if(res=='no'){//取消收藏
+                        console.log("取消收藏！");
+                        document.getElementById("collect"+directionId).src="/images/school/whiteheart.svg";
+                    }
+                },
+                error : function() {
+                    console.log("网可能不太好，请您稍等一会~");
+                }
+            });
         }
     }
 
-    /*点击小叉号然后关闭*/
-    var close_modalDialogcontent=document.getElementsByClassName("close_modalDialogcontent")[0];
-    close_modalDialogcontent.onclick=function(){
-        mask.style.display="none";
-        modalDialogcontent.style.display="none";
-    };
-    closeAll.onclick=function(){
-        mask.style.display="none";
-        modalDialogcontent.style.display="none";
-    };
 
     //判断用户名和密码
     submit.onclick=function(){
@@ -252,10 +260,24 @@
                 }
             },
             error : function() {
-                document.getElementById("reply").innerHTML="通行证或密码错误";
+                document.getElementById("reply").innerHTML="网可能不太好，请您稍等一会~";
             }
         });
     };
+
+    /*点击小叉号然后关闭*/
+    var close_modalDialogcontent=document.getElementsByClassName("close_modalDialogcontent")[0];
+    close_modalDialogcontent.onclick=function(){
+        mask.style.display="none";
+        modalDialogcontent.style.display="none";
+    };
+    closeAll.onclick=function(){
+        mask.style.display="none";
+        modalDialogcontent.style.display="none";
+    };
+
+
+
 </script>
 <script>
     //复选框状态保持
