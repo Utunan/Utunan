@@ -19,4 +19,6 @@ public interface PublishDirectionCollectorService {
     void insertDirectionCollector(Long userId,Long directionId);
     /*王碧云 在院校收藏夹中删除*/
     void deleteDirectionCollector(Long userId,Long directionId);
+    /*判断某用户是否收藏某院校*/
+    PublishDirectionCollector findDCollector(Long directionId,Long userId);
 }

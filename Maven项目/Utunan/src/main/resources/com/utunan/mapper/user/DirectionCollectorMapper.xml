@@ -39,4 +39,5 @@
         where userid=#{userId} and directionId=#{directionId}
     </delete>
 
+
 </mapper>
