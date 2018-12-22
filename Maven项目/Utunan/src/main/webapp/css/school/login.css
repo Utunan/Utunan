@@ -195,9 +195,9 @@ footer p {
 }
 .modalDialogcontent{
     display:none;
-    /*background:white;*/
+    background:white;
    /* background: url("/images/common/loginbg.jpg");*/
-    background: url("/images/school/bg.jpg");
+    /*background: url("/images/school/bg.jpg");*/
     background-repeat: no-repeat;
     background-size: cover;
     width:500px;
