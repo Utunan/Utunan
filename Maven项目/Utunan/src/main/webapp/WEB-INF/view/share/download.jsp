@@ -16,23 +16,15 @@
     <link rel="stylesheet" href="/css/community/global.css">
     <link rel="stylesheet" href="/css/share/download.css">
     <link rel="stylesheet" href="/css/share/file.css">
-    <script type="text/javascript">
-
-        function check(form) {
-            if (form.operate.value=="notLogin") {
-                alert("请先登录！")
-                return false;
-            }
-            if (form.operate.value=="lackOfIntegral") {
-                alert("您的积分不足，快去发帖、评论赚积分吧！")
-                return false;
-            }
-            document.form1.submit();
-        }
-    </script>
+    <link rel="stylesheet" href="/css/school/login.css">
+    <link rel="stylesheet" href="/css/school/animate.css">
+    <link rel="stylesheet" href="/css/school/dialog.css">
 </head>
+<script src="/js/community/jquery-1.10.2.js"></script>
 <body>
 <%@include file="../common/header.jsp"%>
+<%--黑背景--%>
+<div class="mask"></div>
 <div class="layui-container">
     <div class="layui-row layui-col-space15">
         <div class="layui-col-md8">
@@ -53,9 +45,9 @@
                     <div class="from"><span>来自<a href="">${file.user.userNickName}</a></span></div>
                 </div>
                 <div class="download">
-                    <form class="doenload-form" name="form1" action="/downloadfile" method="post" onsubmit="return check(this)" >
+                    <form class="doenload-form" name="form1" action="/downloadfile" method="post" onsubmit="return false" ><%--check(this)--%>
                         <input type="hidden" name="operate" value="${operate}">
-                        <input class="input" type="submit" value="点击下载"/>
+                        <input id="download" class="input" type="submit" value="点击下载"/>
                     </form>
                     <div class="rightdetail" style="margin-right: 15px">
                         <span ><img src="/images/share/credit.svg"  class="credit" width="20px" height="20px">${file.fileCredit}</span>
@@ -123,6 +115,30 @@
         </div>
     </div>
 </div>
+<%--弹窗登录表单--%>
+<div class="modalDialogcontent">
+    <span class="close_modalDialogcontent">×</span>
+    <div class="textcase">
+        <div class="logintext">
+            <a href="">登录</a>
+        </div>
+    </div>
+    <div  class="reply" id="reply"></div>
+    <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">
+        <div class="permit inputcase">
+            <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="您的手机/邮箱">
+        </div>
+        <div class="loginpassword inputcase">
+            <input type="password" name="userPassword" id="password" placeholder="请输入密码">
+        </div>
+        <div class="loginbtn">
+            <button id="closeAll">不了</button>
+            <button id="submitbutton" type="submit">登录</button>
+        </div>
+        <span><a id="register" href="/register">立即注册</a> </span>
+        <span><a id="forpasswork" href="/forgetpasswork">忘记密码</a> </span> <%--还未实现该页面--%>
+    </form>
+</div>
 <!--
 
     <div>
@@ -179,4 +195,79 @@
         none.style.display="block";
     }
 </script>
+<script type="text/javascript">
+
+    /*function check(form) {
+        if (form.operate.value=="notLogin") {
+            alert("请先登录！")
+            return false;
+        }
+        if (form.operate.value=="lackOfIntegral") {
+            alert("您的积分不足，快去发帖、评论赚积分吧！")
+            return false;
+        }
+        document.form1.submit();
+    }*/
+
+    /*弹窗登录功能*/
+    var ask=document.getElementById("download")
+    var mask=document.getElementsByClassName("mask")[0];
+    var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
+    /*获取提交按钮*/
+    var submit = document.getElementById("submitbutton");
+    /*获取关闭按钮*/
+    var closeAll = document.getElementById("closeAll");
+    /*判断是否是用户*/
+    ask.onclick=function(){
+        if (form1.operate.value=="notLogin") {
+            //没有登录
+            console.log("不是用户");
+            mask.style.display="block";
+            modalDialogcontent.style.display="block";
+        }else {
+            console.log("是用户");
+            if (form1.operate.value=="lackOfIntegral") {
+                //积分不足
+                javascript:$('body').dialog({type:'success'});
+            }else {
+                //满足条件，可以下载
+                console.log("可以下载");
+                document.form1.submit();
+            }
+        }
+
+    }
+    /*点击小叉号然后关闭*/
+    var close_modalDialogcontent=document.getElementsByClassName("close_modalDialogcontent")[0];
+    close_modalDialogcontent.onclick=function(){
+        mask.style.display="none";
+        modalDialogcontent.style.display="none";
+    };
+    closeAll.onclick=function(){
+        mask.style.display="none";
+        modalDialogcontent.style.display="none";
+    };
+    //判断用户名和密码
+    submit.onclick=function(){
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "/school/popsupLogin" ,//url
+            data: $('#loginform').serialize(),
+            success: function (result) {
+               if (result==true){
+                window.location.href="/file/${file.fileId}";
+                }else{
+                    document.getElementById("reply").innerHTML="通行证或密码错误";
+                }
+            },
+            error : function() {
+                document.getElementById("reply").innerHTML="网可能崩了，请您稍等一会~";
+            }
+        });
+    };
+
+</script>
+<script charset="UTF-8" type="text/javascript"  src="/js/share/dialog.js"></script>
+<script src="/js/common/login.js"></script>
 </html>

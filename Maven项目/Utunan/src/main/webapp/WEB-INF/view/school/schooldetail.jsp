@@ -321,9 +321,6 @@ layui.config({
             var str = text.value.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
             if(str == '' || str == undefined || str == null){
                 //文本框为空
-                /*mask.style.display="block";
-                nullContent.style.display="block";*/
-                /*alert("不写东西就想交？怎么可能！！");*/
                 javascript:$('body').dialog({type:'success'});
             }else{
                 //满足条件，可以提交
