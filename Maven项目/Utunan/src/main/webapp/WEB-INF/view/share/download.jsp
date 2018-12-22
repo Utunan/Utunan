@@ -45,7 +45,7 @@
                     <div class="from"><span>来自<a href="">${file.user.userNickName}</a></span></div>
                 </div>
                 <div class="download">
-                    <form class="doenload-form" name="form1" action="/downloadfile" method="post" onsubmit="return false" ><%--check(this)--%>
+                    <form class="doenload-form" name="form1" action="/downloadfile/${file.fileId}" method="post" onsubmit="return false" ><%--check(this)--%>
                         <input type="hidden" name="operate" value="${operate}">
                         <input id="download" class="input" type="submit" value="点击下载"/>
                     </form>
@@ -65,7 +65,7 @@
                             <li>
                                 <div>
                                     <img src="${f.suffix.imgUrl}" alt="文件类型" class="siffix">
-                                    <span class="tn"><a href="/download?fileId=${f.fileId}" style="color: black">${f.fileTitle}</a></span>
+                                    <span class="tn"><a href="/file/${f.fileId}" style="color: black">${f.fileTitle}</a></span>
                                     <div class="topdetail">
                                         <span class="ft"> ${f.fileType}</span>
                                         <span class="fs">${f.fileSchool}</span>
@@ -73,7 +73,7 @@
                                     <span class="un">${f.user.userNickName}&nbsp;于${f.fileTime}上传</span>
                                     <div class="rightdetail">
                                         <span class="fc"><img src="/images/share/credit.svg"  class="credit">${f.fileCredit}</span>
-                                        <span class="dn"><img src="/images/share/downNum.svg"  class="downNum">${f.downloadNumber}</span>
+                                        <span class="dn"><a href="/file/${f.fileId}" style="color: black"><img src="/images/share/downNum.svg"  class="downNum"></a>${f.downloadNumber}</span>
                                     </div>
                                 </div>
                             </li>
@@ -98,14 +98,14 @@
                         <c:when test="${hotFile.fileType == '招生简章' || hotFile.fileType == '招生专业目录'}">
                             <c:if test="${hotFile.isExamine == 1}">
                                 <dd>
-                                    <a href="/download?fileId=${hotFile.fileId}" style="color: red">${hotFile.fileTitle}</a>
+                                    <a href="/file/${hotFile.fileId}" style="color: red">${hotFile.fileTitle}</a>
                                     <span><i class="iconfont icon-pinglun1"></i> ${hotFile.downloadNumber}</span>
                                 </dd>
                             </c:if>
                         </c:when>
                         <c:otherwise>
                             <dd>
-                                <a href="/download?fileId=${hotFile.fileId}" style="color: red">${hotFile.fileTitle}</a>
+                                <a href="/file/${hotFile.fileId}" style="color: red">${hotFile.fileTitle}</a>
                                 <span><i class="iconfont icon-pinglun1"></i> ${hotFile.downloadNumber}</span>
                             </dd>
                         </c:otherwise>

@@ -101,10 +101,10 @@ public class ShareDownloadController {
 	 * @param  request, response
 	 * @return  void
 	 */
-	@RequestMapping("downloadfile")
-	public void downloadFile(HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping("/downloadfile/{fileId}")
+	public void downloadFile(HttpServletRequest request, HttpServletResponse response, @PathVariable String fileId) {
 		//获取文件信息
-		String fileId = request.getParameter("fileId");
+//		String fileId = request.getParameter("fileId");
 		File file=this.shareIndexService.findFileById(Long.parseLong(fileId));
 		//获取用户信息
 		User user = (User)request.getSession().getAttribute("User");
