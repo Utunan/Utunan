@@ -9,6 +9,8 @@ import com.utunan.service.user.QuizCollectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author 张正扬
  * @description: TODO
@@ -45,5 +47,11 @@ public class QuizCollectServiceImpl implements QuizCollectService {
     @Override
     public void delQuizCollector(Long quizId, Long userId) {
         this.quizCollectMapper.delQuizCollector(quizId,userId);
+    }
+
+//    获得用户收藏的quiz
+    @Override
+    public List <Long> getAllQuizId(Long userId) {
+        return this.quizCollectMapper.getAllQuizId(userId);
     }
 }

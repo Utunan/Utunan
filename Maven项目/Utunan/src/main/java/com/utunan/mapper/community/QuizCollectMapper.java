@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @author 张正扬
  * @description: TODO
@@ -24,4 +26,7 @@ public interface QuizCollectMapper {
 
     //删除用户收藏
     void delQuizCollector(@Param("quizId") Long quizId, @Param("userId") Long userId);
+
+//    获得用户收藏的quiz
+    List<Long> getAllQuizId(@Param("userId") Long userId);
 }

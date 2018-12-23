@@ -43,6 +43,11 @@
         from quiz_collector
         where quizId=#{quizId} and userId=#{userId}
     </select>
+    <select id="getAllQuizId" resultType="java.lang.Long">
+        select quizId
+        from quiz_collector
+        where userId=#{userId}
+    </select>
 
     <delete id="delQuizCollector" parameterType="Long">
         delete from quiz_collector
