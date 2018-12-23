@@ -235,8 +235,6 @@
         </div>
     </div>
 </div>
-
-
 <script>
     schools = new Object();
     <c:forEach items="${provinceList}" var="province">
