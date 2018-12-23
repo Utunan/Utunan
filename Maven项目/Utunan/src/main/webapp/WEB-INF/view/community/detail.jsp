@@ -31,11 +31,11 @@
                 success: function (data) {//数据返回成功的执行放大
                     if (data == 'ok') {//成功
                         //alert('点赞成功');
-                        document.getElementById("i5").innerHTML = ${quiz.praiseCount}+1;
+                        document.getElementById("i5").innerHTML = parseInt(document.getElementById("i5").innerHTML)+1;
                     }
                     if (data == 'no') {//失败
                         //alert('取消点赞');
-                        document.getElementById("i5").innerHTML =${quiz.praiseCount};
+                        document.getElementById("i5").innerHTML =parseInt(document.getElementById("i5").innerHTML)-1;
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -46,7 +46,7 @@
     </script>
 
     <script>
-        function apraise(answerId, praiseCount) {
+        function apraise(answerId) {
             $.ajax({
                 url: '/aprise',//处理数据的地址
                 type: 'post',//数据提交形式
@@ -54,11 +54,11 @@
                 success: function (d) {//数据返回成功的执行放大
                     if (d == 'ok') {//成功
                         //alert('点赞成功');
-                        document.getElementById("answer" + answerId).innerHTML = praiseCount + 1;
+                        document.getElementById("answer" + answerId).innerHTML = parseInt(document.getElementById("answer" + answerId).innerHTML) + 1;
                     }
                     if (d == 'no') {//失败
                         //alert('取消点赞');
-                        document.getElementById("answer" + answerId).innerHTML = praiseCount;
+                        document.getElementById("answer" + answerId).innerHTML = parseInt(document.getElementById("answer" + answerId).innerHTML) -1;
                     }
                 },
             });
@@ -108,7 +108,7 @@
                             <div class="jieda-reply" id="good">
               <span class="jieda-zan zanok" type="zan">
                   <a href="javascript:void(0)" onclick="praise(${quiz.quizId})"><i class="iconfont icon-zan"></i></a>
-                <em id="i5">${quiz.praiseCount}</em>
+                  <em ><span id="i5">${quiz.praiseCount}</span></em>
               </span>
                             </div>
 
@@ -170,7 +170,7 @@
                             </div>
                             <div class="jieda-reply">
               <span class="jieda-zan zanok" type="zan">
-                  <a href="javascript:void(0)" onclick="apraise(${answer.answerId},${answer.praiseCount})"><i
+                  <a href="javascript:void(0)" onclick="apraise(${answer.answerId})"><i
                           class="iconfont icon-zan"></i></a>
                 <em id="answer${answer.answerId}">${answer.praiseCount}</em>
               </span>
@@ -324,7 +324,7 @@
     var E = window.wangEditor
     var editor = new E('#div1', '#div2')
     editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
-    editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024   //每张图片最大上传大小
+    editor.customConfig.uploadImgMaxSize = 1 * 1024 * 1024   //每张图片最大上传大小
     editor.customConfig.uploadImgMaxLength = 5              //每次最多上传5张
     var $text1 = $('#text1')
     editor.customConfig.onchange = function (html) {
