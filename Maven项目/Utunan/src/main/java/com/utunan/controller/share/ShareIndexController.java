@@ -3,6 +3,7 @@ package com.utunan.controller.share;
 import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.base.school.School;
 import com.utunan.pojo.base.share.File;
+import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.util.Analyzer;
 import com.utunan.service.share.ShareIndexService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -28,7 +30,8 @@ public class ShareIndexController {
 	private ShareIndexService shareIndexService;
 
 	@RequestMapping("/share")
-	public String shareIndex(HttpServletRequest request){
+	public String shareIndex(HttpServletRequest request,HttpSession session){
+	    User user = (User) session.getAttribute("User");
 		String pageNum=request.getParameter("pageNum");
 		//判断当前页
 		int num=0;
@@ -51,6 +54,7 @@ public class ShareIndexController {
 		request.setAttribute("fileList", fileList);
 		request.setAttribute("hotFileList", hotFileList);
 		request.setAttribute("PageInfo",new PageInfo(fileList,5));
+		request.setAttribute("user", user);
 		return "share/index";
 	}
 
@@ -110,8 +114,7 @@ public class ShareIndexController {
 	}
 
 	@RequestMapping("/share1")
-	public String shareInex(HttpServletRequest request){
-
+	public String shareInex(HttpServletRequest request, HttpSession session){
 		//学校地区
 		List<String> provinceList = this.shareIndexService.listSchoolProvince();
 		//学校
