@@ -10,14 +10,12 @@
 .layui-table[lay-even] tr:nth-child(even)
 {
     background-color:#f4f9ff;
-color:#2a82e4;
+color:RGB(0,150,146);
 }
-body{
 
-}
 .layui-table[lay-skin=line] thead tr th{
     color:white;
-    background-color: RGB(30,159,259);
+    background-color: RGB(0,150,146);
 }
 .layui-table{
     width:100%;
@@ -136,4 +134,25 @@ label{
 .option-search{
     width: 100%;
     margin: 10px;
+}
+.RadioStyle input:checked + label {
+    border: 1px solid RGB(0,150,146);
+    background-color: RGB(0,150,146);
+}
+.layui-table[lay-skin=line] thead tr th {
+    color: white;
+    background-color: RGB(0,150,146);
+}
+#search {
+    background-color:#FC6111;
+    /*#FF5700;*/
+}
+.bigwrapper {
+    border-top: 2px solid RGB(0,150,146);
+}
+.page>li>a {
+    color: RGB(0,150,146);
+}
+.page>li {
+    border: 1px solid RGB(0,150,146);
 }
