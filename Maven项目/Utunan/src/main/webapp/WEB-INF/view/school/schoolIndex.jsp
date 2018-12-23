@@ -431,13 +431,13 @@
     console.log(${PageInfo.pageNum});
     console.log(pages);
     if(${PageInfo.pageNum==Null}){
-        pages[0].style.backgroundColor="blue";
+        pages[0].style.backgroundColor="RGB(0,150,146)";
     }else{
         pages[0].style.backgroundColor="";
         for(var i=0;i<pages.length;i++){
             console.log(pages[i].getElementsByTagName("a")[0].innerHTML);
             if(pages[i].getElementsByTagName("a")[0].innerHTML=="${PageInfo.pageNum}") {
-                pages[i].style.backgroundColor="#2a82e4";
+                pages[i].style.backgroundColor="RGB(0,150,146)";
                 pages[i].getElementsByTagName("a")[0].style.color="#ffffff";
             }
         }

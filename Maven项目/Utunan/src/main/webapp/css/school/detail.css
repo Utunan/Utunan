@@ -77,3 +77,20 @@ td{
     margin-top: 25px;
     margin-left: 70px;
 }
+.zsml-summary {
+    font-weight: bold;
+    color: darkslategrey;
+}
+.zsml-summary {
+    font-weight: bold;
+    color: darkslategrey;
+}
+.layui-elem-field {
+    width: 680px;
+}
+.layui-elem-quote {
+    width: 646px;
+}
+.layui-timeline {
+    margin-left: 30px;
+}
