@@ -98,6 +98,7 @@ public class QuizController {
 			stateList.add("option");
 			stateList.add("active");
 		}
+
 		//返回数据
 		request.setAttribute("object",bigQuiz);
 		request.setAttribute("url","quizs");
@@ -235,7 +236,7 @@ public class QuizController {
 		if (user!=null&&WordLimitUtil.isNull(title)&&WordLimitUtil.getLength(title)>=5&&WordLimitUtil.getLength(title)<=20) {
 			this.quizService.saveQuiz(qid,user, title, content);
 		}
-		return "redirect:/quiz";
+		return "redirect:/quizs/rt";
 	}
 
 	/*
@@ -266,10 +267,7 @@ public class QuizController {
             quizGreatService.delQuizGreat(Long.parseLong(quizId),user.getUserId());
             this.quizService.delPraiseQuiz(Long.parseLong(quizId));
             return "no";
-
         }
-
-		//return "redirect:/quiz";
 	}
 
 	/*

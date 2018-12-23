@@ -58,7 +58,6 @@
             <td>
                 <fmt:formatDate value="${f.fileTime }" type="both"/>
             </td>
-            <td>未审核</td>
             <td class="td-manage">
                 <a title="删除" onclick="member_del(this,'${f.fileId }')" href="javascript:;">
                     <i class="layui-icon">&#xe640;</i>

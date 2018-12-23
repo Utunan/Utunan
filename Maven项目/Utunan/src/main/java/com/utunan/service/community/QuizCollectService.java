@@ -5,6 +5,8 @@ import com.utunan.pojo.base.user.QuizCollector;
 import com.utunan.pojo.base.user.User;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author 张正扬
  * @description: TODO
@@ -23,4 +25,7 @@ public interface QuizCollectService {
 
     //删除用户收藏
     void delQuizCollector(Long quizId, Long userId);
+
+    //获得用户收藏的问题
+    List<Long> getAllQuizId(Long userId);
 }

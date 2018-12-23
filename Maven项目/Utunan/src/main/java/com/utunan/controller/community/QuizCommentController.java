@@ -44,6 +44,9 @@ public class QuizCommentController {
 
     @Autowired
     private TagService tagService;
+
+    @Autowired
+    private QuizCollectService quizCollectService;
     /*
      * @author  王碧云
      * @description 返回对应QuizId对应的问题页面的值(默认按照时间排序)(分页)
@@ -95,6 +98,17 @@ public class QuizCommentController {
 
         //List<Answer> childAnswerList = this.answerService.findChildAnswerListByAnswerId(Long.parseLong(answerId));
 
+
+        //获取用户
+        User user = (User) session.getAttribute("User");
+        Long userId = null;
+        if(user != null){
+            //用户已登录
+            userId = user.getUserId();
+        }
+
+        //查询收藏的quiz
+        List<Long> quizIds=this.quizCollectService.getAllQuizId(userId);
         request.setAttribute("quizTagList", quizTagList);
         session.setAttribute("quiz", quiz);
         request.setAttribute("answerCountByQuizId", answerCountByQuizId);
@@ -107,6 +121,8 @@ public class QuizCommentController {
         //request.setAttribute("childAnswerList", childAnswerList);
         request.setAttribute("quizListTop10",quizListTop10);
         request.setAttribute("tag",hotTagList);
+        request.setAttribute("quizIds",quizIds);
+        request.setAttribute("user", user);
         return "community/detail";
     }
     
@@ -220,7 +236,5 @@ public class QuizCommentController {
             this.answerService.delPraiseAnswer(Long.parseLong(answerId));
             return "no";
         }
-
-        //return "redirect:/displayQuizByQuizId?quizId="+quiz.getQuizId();
     }
 }

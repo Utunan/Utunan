@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
+<%@ taglib uri="/intel" prefix="ya" %>
 <%@ page import="java.util.List,com.utunan.pojo.*" %>
 
 <!DOCTYPE html>
@@ -14,10 +15,12 @@
     <link rel="stylesheet" href="/css/community/detail.css">
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/school/login.css">
+    <link rel="stylesheet" href="/css/school/new.css">
     <link rel="stylesheet" href="/css/community/tagCloud.css">
     <script type="text/javascript" src="/js/community/tagcloud.js"></script>
     <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+   <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
     <script> var pagenum = "${PageInfo.pageNum}"</script>
     <script>
         function praise(quizId) {
@@ -66,6 +69,8 @@
 <body style="overflow:scroll;overflow-y:hidden">
 <body>
 <%@include file="../common/header.jsp" %>
+<%--黑背景--%>
+<div class="mask"></div>
 <div class="layui-container">
     <div class="layui-row layui-col-space15">
         <div class="layui-col-md8 content detail">
@@ -112,10 +117,18 @@
                                 <span class="write-reply">${answerCountByQuizId}</span>
                             </div>
                             <div class="collect">
-                                <a href="javascript:void(0)"
-                                   onclick="window.location.href='/quizCollector?quizId=${quiz.quizId}'"><img
-                                        src="/images/community/shoucang.svg" width="28px"
-                                        height="34px"></a>
+                                <c:choose>
+                                    <c:when test="${ya:judge(quizIds,quiz.quizId)}">
+                                        <a href="javascript:void(0);" onclick="collector(${quiz.quizId})"><img
+                                                id="collect${quiz.quizId}" src="/images/school/redheart.svg"
+                                                width="20px" height="20px" alt="" srcset=""></a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href="javascript:void(0);" onclick="collector(${quiz.quizId})"><img
+                                                id="collect${quiz.quizId}" src="/images/school/whiteheart.svg"
+                                                width="20px" height="20px" alt="" srcset=""></a>
+                                    </c:otherwise>
+                                </c:choose>
                                 <span class="collection">收藏此问题</span>
                             </div>
                         </div><!--toolbar-->
@@ -247,15 +260,39 @@
         <%@include file="right.jsp" %>
     </div>
 </div>
+<%--弹窗登录表单--%>
+<div class="modalDialogcontent">
+    <span class="close_modalDialogcontent">×</span>
+    <div class="textcase">
+        <div class="logintext">
+            <a href="">登录</a>
+        </div>
+    </div>
+    <div class="reply" id="reply"></div>
+    <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">
+        <div class="permit inputcase">
+            <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="您的手机/邮箱">
+        </div>
+        <div class="loginpassword inputcase">
+            <input type="password" name="userPassword" id="password" placeholder="请输入密码">
+        </div>
+        <div class="loginbtn">
+            <button id="closeAll">不了</button>
+            <button id="submitbutton" type="submit">登录</button>
+        </div>
+        <span><a id="register" href="/register">立即注册</a> </span>
+        <span><a id="forpasswork" href="/forgetpasswork">忘记密码</a> </span> <%--还未实现该页面--%>
+    </form>
+</div>
 </body>
 <script type="text/javascript">
     /*3D标签云*/
-    var radius=document.getElementById("layui-col-md4").offsetWidth;
+    var radius = document.getElementById("layui-col-md4").offsetWidth;
     console.log(radius);
     tagcloud({
         selector: ".tagcloud",  //元素选择器
         fontsize: 16,       //基本字体大小, 单位px
-        radius: radius*0.2,         //滚动半径, 单位px
+        radius: radius * 0.2,         //滚动半径, 单位px
         mspeed: "normal",   //滚动最大速度, 取值: slow, normal(默认), fast
         ispeed: "normal",   //滚动初速度, 取值: slow, normal(默认), fast
         direction: 0,     //初始滚动方向, 取值角度(顺时针360): 0对应top, 90对应left, 135对应right-bottom(默认)...
@@ -317,5 +354,77 @@
 </script>
 <script src="/js/common/login.js"></script>
 <script src="/js/common/common.js"></script>
+<script src="/js/community/tag.js"></script>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script>
+    /*弹窗登录功能*/
+    var mask = document.getElementsByClassName("mask")[0];
+    var modalDialogcontent = document.getElementsByClassName("modalDialogcontent")[0];
+    /*获取提交按钮*/
+    var submit = document.getElementById("submitbutton");
+    /*获取关闭按钮*/
+    var closeAll = document.getElementById("closeAll");
+
+    /*判断是否是用户，是用户则收藏，不是用户则弹出框*/
+    function collector(quizId) {
+        if (${user==null}) {
+            mask.style.display= "block";
+            modalDialogcontent.style.display = "block";
+        } else {
+            $.ajax({
+                url: '/quizCollector',//处理数据的地址
+                type: 'post',//数据提交形式
+                data: {'quizId': quizId},
+                dataType: "json",
+                success: function (d) {//数据返回成功的执行放大
+                    var res = d.res;
+                    if (res == 'ok') {//添加收藏
+                        console.log("收藏成功！");
+                        document.getElementById("collect" + quizId).src = "/images/school/redheart.svg";
+                    }
+                    if (res == 'no') {//取消收藏
+                        console.log("取消收藏！");
+                        document.getElementById("collect" + quizId).src = "/images/school/whiteheart.svg";
+                    }
+                },
+                error: function () {
+                    console.log("网可能不太好，请您稍等一会~");
+                }
+            });
+        }
+    }
+
+    //判断用户名和密码
+    submit.onclick = function () {
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "/school/popsupLogin",//url
+            data: $('#loginform').serialize(),
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if (result == true) {
+                    window.location.href = "/quiz/${quiz.quizId}";
+                } else {
+                    document.getElementById("reply").innerHTML = "通行证或密码错误";
+                }
+            },
+            error: function () {
+                document.getElementById("reply").innerHTML = "网可能不太好，请您稍等一会~";
+            }
+        });
+    };
+
+    /*点击小叉号然后关闭*/
+    var close_modalDialogcontent = document.getElementsByClassName("close_modalDialogcontent")[0];
+    close_modalDialogcontent.onclick = function () {
+        mask.style.display = "none";
+        modalDialogcontent.style.display = "none";
+    };
+    closeAll.onclick = function () {
+        mask.style.display = "none";
+        modalDialogcontent.style.display = "none";
+    };
+</script>
 </body>
 </html>
