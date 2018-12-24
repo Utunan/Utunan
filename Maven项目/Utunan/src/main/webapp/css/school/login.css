@@ -215,12 +215,9 @@ footer p {
     margin-top: 20px;
 }
 
-.wenhou{
+.wenhou a{
     font-size: 20px;
     font-family: "华文行楷","微软雅黑";
-}
-
-.wenhou a{
     color: #8cb1cc;
 }
 #submitbutton{

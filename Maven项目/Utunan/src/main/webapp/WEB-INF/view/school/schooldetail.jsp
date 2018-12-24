@@ -219,7 +219,7 @@
   <span class="close_modalDialogcontent">×</span>
   <div class="textcase">
     <div class="logintext">
-      <img src="/images/common/logo.png" alt="" srcset=""><%--<img src="/images/common/logo.png" alt="" srcset="">--%>
+      <img src="/images/common/logo.png" alt="" srcset="">
     </div>
     <div class="wenhou">
       <a href="">登录优图南，开启你的考研之旅</a>
@@ -229,10 +229,10 @@
    <%--<div  class="reply" id="reply"></div>--%>
   <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">  <%--onsubmit="return checkForm()"--%>
     <div class="permit inputcase">
-      <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="您的手机/邮箱">
+      <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="手机号/邮箱">
     </div>
     <div class="loginpassword inputcase">
-      <input type="password" name="userPassword" id="password" placeholder="请输入密码"/>
+      <input type="password" name="userPassword" id="password" placeholder="密码（8-16位，由数字和字母组成）"/>
       <input type="text" id="login_showPwd" style="display: none"/>
     </div>
     <div class="loginbtn">
@@ -306,7 +306,7 @@ layui.config({
     /*获取提交按钮*/
     var submit = document.getElementById("submitbutton");
     /*获取关闭按钮*/
-    var closeAll = document.getElementById("closeAll");
+    /*var closeAll = document.getElementById("closeAll");*/
     /*获取文本框*/
     var text = document.getElementById("text1");
     /*获取密码框*/
