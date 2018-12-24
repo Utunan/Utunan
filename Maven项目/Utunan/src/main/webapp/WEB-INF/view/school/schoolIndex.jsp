@@ -25,7 +25,6 @@
 <%@include file="../common/header.jsp"%>
 <%--黑背景--%>
 <div class="mask"></div>
-
 <div class="layui-container">
     <div class="layui-row layui-col-space15">
         <div class="back">

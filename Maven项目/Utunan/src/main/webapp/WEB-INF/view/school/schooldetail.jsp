@@ -198,7 +198,7 @@
         <div class="fly-panel">
             <img src="/images/school/rabit.png" width="70px" id="cute"/>
             <div class="count">共&nbsp;<span class="timer count-title" id="count-number" data-to="${viewCount}" data-speed="7000" style="color:darkorange"></span>&nbsp;次浏览</div>
-            <div class="scollect"><a href="#">点此加入院校收藏夹！</a> </div>
+            <div class="scollect"><a href="javascript:void(0);" onclick="addCollector(${publishDirection.directionId})">点此加入院校收藏夹！</a> </div>
         </div>
         <div class="fly-panel">
             <div class="fly-panel-main">
@@ -307,7 +307,6 @@ layui.config({
     var ask=document.getElementById("comsub");
     var mask=document.getElementsByClassName("mask")[0];
     var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
-    /*var nullContent=document.getElementsByClassName("nullContent")[0];*/
     /*获取提交按钮*/
     var submit = document.getElementById("submitbutton");
     /*获取关闭按钮*/
@@ -399,6 +398,40 @@ layui.config({
         }
     }
 
+</script>
+<script>
+  /*加入院校收藏夹*/
+  function addCollector(directionId){
+      if(${user==null}){
+          mask.style.display="block";
+          modalDialogcontent.style.display="block";
+      }else{
+          $.ajax({
+              url:'/school/addDController',//处理数据的地址
+              type:'post',//数据提交形式
+              data:{'directionId':directionId},//需要提交的数据
+              dataType: "json",
+              success:function(d){//数据返回成功的执行放大
+                  var res = d.res;
+                  var praiseCount = d.praiseCount;
+                  if(res=='ok'){//成功加入收藏夹
+                      console.log("加入成功！")
+                      javascript:$('body').colector({type:'success'});
+                      /*document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
+                      document.getElementById("zan"+directionCommentId).style.color="#ff5722";*/
+
+                  }
+                  if(res=='already'){//已经加入了
+                      console.log("已经加了!")
+                      javascript:$('body').alreadycolector({type:'success'});
+                      /*document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
+                      document.getElementById("zan"+directionCommentId).style.color="#333";*/
+
+                  }
+              },
+          });
+      }
+  }
 </script>
 <script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
 <script src="/js/common/login.js"></script>

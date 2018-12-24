@@ -4,11 +4,13 @@ import com.utunan.pojo.base.school.DirectionCommentGreat;
 import com.utunan.pojo.base.share.File;
 import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.inherit.school.PublishDirection;
+import com.utunan.pojo.inherit.user.PublishDirectionCollector;
 import com.utunan.service.school.DirectionCommentGreatService;
 import com.utunan.service.school.PublishDirectionCommentService;
 import com.utunan.service.school.DirectionService;
 import com.utunan.service.school.PublishDirectionService;
 import com.utunan.service.school.SchoolDetailFileService;
+import com.utunan.service.user.PublishDirectionCollectorService;
 import com.utunan.service.user.UserService;
 import com.utunan.util.SchoolOther;
 import net.sf.json.JSONObject;
@@ -44,6 +46,8 @@ public class SchoolDetailController {
     private UserService userService;
     @Autowired
     private DirectionCommentGreatService directionCommentGreatService;
+    @Autowired
+    private PublishDirectionCollectorService publishDirectionCollectorService;
 
     /*
      * @author  王碧云
@@ -207,5 +211,31 @@ public class SchoolDetailController {
             response.getWriter().append(obj.toString());
         }
     }
-
+    /*
+     * @author  王碧云
+     * @description 加入院校收藏夹
+     * @date  15:47 2018/12/24/024
+     * @param  [directionId, session, response]
+     * @return  void
+     */
+    @RequestMapping("/addDController")
+    public void addDController(@RequestParam(value = "directionId") String directionId,
+                               HttpSession session, HttpServletResponse response) throws IOException {
+        User user = (User) session.getAttribute("User");
+        //到院校收藏表里查看是否有记录
+        PublishDirectionCollector pdc = this.publishDirectionCollectorService.findDCollector(Long.parseLong(directionId),user.getUserId());
+        //创建JSON
+        JSONObject obj=new JSONObject();
+        //判断是否有记录
+        if(pdc==null){
+            //没有记录，则添加收藏
+            this.publishDirectionCollectorService.insertDirectionCollector(user.getUserId(), Long.parseLong(directionId));
+            obj.put("res", "ok");
+            response.getWriter().append(obj.toString());
+        }else {
+            //有记录，返回已收藏
+            obj.put("res", "already");
+            response.getWriter().append(obj.toString());
+        }
+    }
 }
