@@ -32,13 +32,12 @@
             <div class="layui-col-md8">
                     <div class="fly-panel" style="margin-bottom: 0;">
                         <div class="fly-panel-title fly-filter">
-                            <a href="/search/quiz/1?wd=${keyWord}"class="${statelist[1]}">搜索提问</a>
+                            <a href="/searchquiz/1?wd=${keyWord}"class="${statelist[1]}">搜索提问</a>
                             <span class="fly-mid"></span>
-                            <a href="/search/answer/1?wd=${keyWord}"class="${statelist[1]}">搜索回答</a>
-                            <span class="fly-mid"></span>
+                            <a href="/searchanswer/1?wd=${keyWord}"class="${statelist[1]}">搜索回答</a>
                         </div>
 
-                        <c:if test="${url=='searchQuiz'}">
+                        <c:if test="${url=='/searchquiz'}">
                             <ul class="fly-list">
                                 <c:forEach items="${object}" var="obj">
                                     <li>
@@ -75,33 +74,10 @@
                                     </li>
                                 </c:forEach>
                             </ul>
-                            <div style="text-align: center">
-                            <c:choose>
-                                <c:when test="${not empty object}">
-                                    <nav id="page" class="page">
-                                        <li class="home"><a href="/search/quiz/1?wd=${keyWord}">首页</a></li>
-                                        <li class="next"><a href="/search/quiz/${PageInfo.prePage}?wd=${keyWord}"><<</a></li>
-                                        <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                                            <li class="pagenum"><a name="${i}" href="/search/quiz/${i}?wd=${keyWord}">${i}</a></li>
-                                        </c:forEach>
-                                        <c:choose>
-                                            <c:when test="${PageInfo.nextPage==0}">
-                                                <li class="next"><a href="/search/quiz/${PageInfo.pages}?wd=${keyWord}">>></a></li>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <li class="next"><a href="/search/quiz/${PageInfo.nextPage}?wd=${keyWord}">>></a></li>
-                                            </c:otherwise>
-                                        </c:choose>
-                                        <li class="tail"><a href="/search/quiz/${PageInfo.pages}?wd=${keyWord}">尾页</a></li>
-                                    </nav>
-                                </c:when>
-                                <c:otherwise>
-                                    <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
-                                </c:otherwise>
-                            </c:choose>
-                            </div>
+                            <!--分页-->
+                            <%@include file="page.jsp"%>
                         </c:if>
-                        <c:if test="${url=='searchAnswer'}">
+                        <c:if test="${url=='/searchanswer'}">
                             <div>
                                 <table>
                                     <tr>
@@ -123,34 +99,13 @@
                                         <td>${answer.answerTime}</td>
                                         <td>${answer.praiseCount}</td>
                                         <td>${answer.parentAnswer}</td>
-                                        <td>${answer.user}</td>
+                                        <td>${answer.user.userNickName}</td>
                                     </tr>
                                     </c:forEach>
                                 <table/>
-                                <c:choose>
-                                    <c:when test="${not empty object}">
-                                    <nav id="page" class="page">
-                                        <li class="home"><a href="/search/answer/1?wd=${keyWord}">首页</a></li>
-                                        <li class="next"><a href="/search/answer/${PageInfo.prePage}?wd=${keyWord}"><<</a></li>
-                                        <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                                            <li class="pagenum"><a name="${i}" href="/search/answer/${i}?wd=${keyWord}">${i}</a></li>
-                                        </c:forEach>
-                                        <c:choose>
-                                            <c:when test="${PageInfo.nextPage==0}">
-                                                <li class="next"><a href="/search/answer/${PageInfo.pages}?wd=${keyWord}">>></a></li>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <li class="next"><a href="/search/answer/${PageInfo.nextPage}?wd=${keyWord}">>></a></li>
-                                            </c:otherwise>
-                                        </c:choose>
-                                        <li class="tail"><a href="/search/answer/${PageInfo.pages}?wd=${keyWord}">尾页</a></li>
-                                    </nav>
-                                    </c:when>
-                                    <c:otherwise>
-                                    <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
-                                    </c:otherwise>
-                                </c:choose>
                             </div>
+                            <!--分页-->
+                            <%@include file="page.jsp"%>
                         </c:if>
 
                  </div>

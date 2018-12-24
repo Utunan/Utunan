@@ -70,9 +70,11 @@
                             </li>
                             </c:forEach>
                         </ul>
-                        <div style="text-align: center">
-                            <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
-                        </div>
+                        <c:if test="${empty object}">
+                            <div style="text-align: center">
+                                <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
+                            </div>
+                        </c:if>
                     </c:if>
                     <!--搜索用户到此止-->
                     <!--从这里开始是搜索提问结果-->
@@ -140,7 +142,7 @@
                                         <td>${answer.answerTime}</td>
                                         <td>${answer.praiseCount}</td>
                                         <td>${answer.parentAnswer}</td>
-                                        <td>${answer.user}</td>
+                                        <td>${answer.user.userNickName}</td>
                                     </tr>
                                 </c:forEach>
                             <table/>
