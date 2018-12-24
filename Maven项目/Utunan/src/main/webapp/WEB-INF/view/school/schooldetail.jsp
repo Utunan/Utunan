@@ -196,6 +196,11 @@
     </div>
     <div class="layui-col-md4">
         <div class="fly-panel">
+            <img src="/images/school/cat.png" width="60px" id="cute"/>
+            <div class="count">共&nbsp;<span class="timer count-title" id="count-number" data-to="${viewCount}" data-speed="7000" style="color:darkorange"></span>&nbsp;次浏览</div>
+            <div class="scollect"><a href="王碧云大傻子">加入院校收藏夹！</a> </div>
+        </div>
+        <div class="fly-panel">
             <div class="fly-panel-main">
               <a href="/searchfile?school=${publishDirection.schoolName}&fileType=全部&keyWord=" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">搜索 [${publishDirection.schoolName}] 考研资料</a>
             </div>
@@ -397,4 +402,5 @@ layui.config({
 </script>
 <script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
 <script src="/js/common/login.js"></script>
+<script src="/js/school/index.js"></script>
 </html>

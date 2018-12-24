@@ -94,3 +94,26 @@ td{
 .layui-timeline {
     margin-left: 30px;
 }
+.count{
+    margin: 30%;
+}
+.count {
+    margin-left: 90px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    letter-spacing: 2px;
+}
+#cute{
+    float:left;
+    padding: 10px;
+}
+.scollect{
+    padding-bottom: 20px;
+    letter-spacing: 2px;
+    margin-left: 90px;
+}
+element.style {
+    background-color: burlywood;
+}

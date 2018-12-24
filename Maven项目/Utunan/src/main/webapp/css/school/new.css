@@ -156,3 +156,10 @@ label{
 .page>li {
     border: 1px solid RGB(0,150,146);
 }
+#search {
+    background-color: #FC6111;
+    height: 35px;
+    width: 60px;
+    margin-top: 1px;
+    margin-left: 40px;
+}
