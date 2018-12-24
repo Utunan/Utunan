@@ -94,11 +94,6 @@ public class QuizCommentController {
             map0.put(a[i],childAnswerCount);
         }
 
-
-
-        //List<Answer> childAnswerList = this.answerService.findChildAnswerListByAnswerId(Long.parseLong(answerId));
-
-
         //获取用户
         User user = (User) session.getAttribute("User");
         Long userId = null;
@@ -193,6 +188,16 @@ public class QuizCommentController {
             map0.put(a[i],childAnswerCount);
         }
 
+        //获取用户
+        User user = (User) session.getAttribute("User");
+        Long userId = null;
+        if(user != null){
+            //用户已登录
+            userId = user.getUserId();
+        }
+
+        //查询收藏的quiz
+        List<Long> quizIds=this.quizCollectService.getAllQuizId(userId);
     
         request.setAttribute("quizTagList", quizTagList);
         session.setAttribute("quiz", quiz);
@@ -204,6 +209,8 @@ public class QuizCommentController {
         request.setAttribute("PageInfo",new PageInfo(answers,5));
         request.setAttribute("quizListTop10",quizListTop10);
         request.setAttribute("tag",hotTagList);
+        request.setAttribute("quizIds",quizIds);
+        request.setAttribute("user", user);
     
         return "community/detail";
     }

@@ -221,7 +221,8 @@ public class QuizController {
 		Long qid=this.quizService.getMaxQid();
 		qid+=1;
 		if (t!=null&&!t.equals("")){
-			String regex = ",|，|\\s+";    //以中英文逗号、空格（一个或多个）分割字符串
+            //以中英文逗号、空格（一个或多个）分割字符串
+			String regex = ",|，|\\s+";
 			String[] tags=t.split(regex);
 			//将数组转化为list集合
             List<String> listtag= Arrays.asList(tags);
