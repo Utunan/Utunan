@@ -3,6 +3,7 @@ package com.utunan.service.common;
 import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.community.Tag;
+import com.utunan.pojo.base.share.File;
 import com.utunan.pojo.base.user.User;
 import org.apache.ibatis.annotations.Param;
 
@@ -33,4 +34,13 @@ public interface SearchService {
 	 * @return  java.util.List<com.utunan.pojo.base.community.Answer>
 	 */
 	List<Answer> findAnswer(List<String> keyWords, int pageNum, int pageSize);
+
+	/**
+	 * @author  孙程程
+	 * @description 搜索文件
+	 * @date  17:09 2018/12/24
+	 * @param  keyWords, pageNum, pageSize
+	 * @return  java.util.List<com.utunan.pojo.base.share.File>
+	 */
+	List<File> findFile(List<String> keyWords, int pageNum, int pageSize);
 }

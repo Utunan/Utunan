@@ -25,7 +25,7 @@
     <script src="/js/community/tag.js"></script>
 </head>
 <body>
-<%@include file="header.jsp"%>
+<%@include file="../common/header.jsp"%>
     <!--内容-->
     <div class="layui-container">
         <div class="layui-row layui-col-space15">
@@ -37,6 +37,7 @@
                             <a href="/search/answer/1?wd=${keyWord}"class="${statelist[1]}">搜索回答</a>
                             <span class="fly-mid"></span>
                         </div>
+
                         <c:if test="${url=='searchQuiz'}">
                             <ul class="fly-list">
                                 <c:forEach items="${object}" var="obj">
@@ -56,7 +57,7 @@
                                                 <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
                                             </span>
 
-                                            <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="/images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
+                                            <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="/images/community/praise.png" width="25px" height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
                                             <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
                                             <span class="fly-list-nums">
                                                 <i class="iconfont icon-pinglun1" title="回答"></i> ${obj.quiz.answerCount}
@@ -186,7 +187,7 @@
         </div>
     </div>
 
-<%@include file="footer.jsp"%>
+<%@include file="../common/footer.jsp"%>
 </body>
 <script type="text/javascript">
     /*3D标签云*/
