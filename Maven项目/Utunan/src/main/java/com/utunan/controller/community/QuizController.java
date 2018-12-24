@@ -40,8 +40,10 @@ public class QuizController {
 	private QuizGreatService quizGreatService;
 
 	@RequestMapping(value="/quizs/{orderBy}/{pageNum}")
-	public String displayQuiz(HttpServletRequest request, @PathVariable String orderBy, @PathVariable String pageNum){
+	public String displayQuiz(HttpServletRequest request, @PathVariable String orderBy, @PathVariable String pageNum,HttpSession session){
 //		String pageNum=request.getParameter("pageNum");
+		//获取用户
+		User user = (User) session.getAttribute("User");
 		//判断当前页
 		int num=0;
 		if(pageNum==null || pageNum.equals("")){
@@ -107,6 +109,7 @@ public class QuizController {
 		request.setAttribute("stateList",stateList);
 		request.setAttribute("PageInfo",new PageInfo(quizList,5));
 		request.setAttribute("quizListTop10",quizListTop10);
+		request.setAttribute("user", user);
 		return "community/quiz";
 	}
 
@@ -120,9 +123,12 @@ public class QuizController {
 	@RequestMapping(value="/quiztag/{tagName}/{orderBy}/{pageNum}")
 	public String displayQuizByTag(HttpServletRequest request, @PathVariable String tagName,
                                                                @PathVariable String orderBy,
-                                                               @PathVariable String pageNum){
+                                                               @PathVariable String pageNum,
+								   								HttpSession session){
 //		String tagName=request.getParameter("tagName");
 //		String pageNum=request.getParameter("pageNum");
+		//获取用户
+		User user = (User) session.getAttribute("user");
 		//判断当前页
 		int num=0;
 		if(pageNum==null || pageNum.equals("")){
@@ -196,6 +202,7 @@ public class QuizController {
 		request.setAttribute("tagName",tagName);
 		request.setAttribute("statelist",stateList);
 		request.setAttribute("PageInfo",new PageInfo(quizList,5));
+		request.setAttribute("user",user);
 
 		request.setAttribute("quizListTop10",quizListTop10);
 		return "community/quiz";
