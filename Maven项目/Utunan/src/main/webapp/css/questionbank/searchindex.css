@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 body {
     width: 100%;
-    background:url(/images/questionbank/5.jpg)no-repeat;
+    background:url(/images/questionbank/1.jpg)no-repeat;
     background-position: center top;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -45,14 +45,15 @@ body {
     text-align: center;
     border-radius: 0px 5px 5px 0px;
     margin: 0px 0px 0px -4px;
-    background:#7ac209;
+    background:rgb(42,78,114);
     cursor:pointer;
     border: none;
     outline: none;
     padding-top: 0;
+    opacity: 0.8;
 }
 .s-bar input[type="submit"]:hover{
-	opacity: 0.8;
+	opacity: 0.9;
     filter: alpha(opacity=100);
     transition: all 0.3s ease;
     webkit-transition: all 0.3s ease;

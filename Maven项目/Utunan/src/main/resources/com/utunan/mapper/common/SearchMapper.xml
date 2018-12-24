@@ -50,7 +50,7 @@
             <result property="releaseTime" column="releaseTime"/>
             <result property="praiseCount" column="praiseCount"/>
         </association>
-        <association property="user" javaType="com.utunan.pojo.base.user.User">
+        <association property="user" column="userId" javaType="com.utunan.pojo.base.user.User">
             <id property="userId" column="userId"/>
             <result property="userEmail" column="userEmail"/>
             <result property="userTelephone" column="userTelephone"/>
@@ -70,6 +70,7 @@
         select *
         from answer c
         join quiz q on c.quizId=q.quizId
+        join user u on c.userId=u.userId
         where c.answerContent regexp #{keyWord}
     </select>
 </mapper>

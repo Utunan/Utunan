@@ -111,6 +111,7 @@
                                         <td>时间</td>
                                         <td>点赞</td>
                                         <td>上级评论</td>
+                                        <td>用户昵称</td>
                                     </tr>
                                     <c:forEach items="${object}" var="answer">
                                     <tr>
@@ -121,6 +122,7 @@
                                         <td>${answer.answerTime}</td>
                                         <td>${answer.praiseCount}</td>
                                         <td>${answer.parentAnswer}</td>
+                                        <td>${answer.user}</td>
                                     </tr>
                                     </c:forEach>
                                 <table/>
