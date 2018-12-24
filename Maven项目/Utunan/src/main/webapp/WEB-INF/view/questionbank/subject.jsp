@@ -18,12 +18,7 @@
 <body>
 <%@include file="../common/header.jsp"%>
 <div>
-    <span>&nbsp;</span>
-    <span>&nbsp;</span>
-    <form action="/searchresult" method="post">
-        <input type="text" name="keyWord" placeholder="在${totleQuestion}道题目中搜索">
-        <input type="submit" value="好题尽在优图南">
-    </form>
+    <h3><a href="/subjects">专项</a> &nbsp;&nbsp;&nbsp; <a href="/searchquestion">搜索</a></h3>
 </div>
 <div>
     <table>
@@ -35,7 +30,7 @@
         </tr>
         <c:forEach items="${subject}" var="sub">
         <tr>
-            <td><a href="/subject?subjectName=${sub.subject.subjectName}" >${sub.subject.subjectName}</a></td>
+            <td><a href="/subject/${sub.subject.subjectName}/1" >${sub.subject.subjectName}</a></td>
             <td>${sub.subject.discription}</td>
             <td>${sub.allQuestionNumber}</td>
             <td>${sub.resolveQuestionNumber}</td>

@@ -1,0 +1,62 @@
+/*--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+
+body {
+    width: 100%;
+    background:url(/images/questionbank/1.jpg)no-repeat;
+    background-position: center top;
+    background-size: 100%;
+    background-repeat: no-repeat;
+ }
+.search {
+    text-align: center;
+    height: 485px;
+}
+.search-logo {
+    padding-top: 130px;
+}
+.s-bar {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 70px;
+}
+.s-bar input[type="text"] {
+    height: 10%;
+    font-size: 1em;
+    font-weight: 600;
+    color: #fff;
+    padding: 1.3em 1em 1.3em 1.5em;
+    width: 75%;
+    border-radius: 5px 0px 0px 5px;
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    outline: none;
+}
+.s-bar input[type="submit"]{
+    height: 10%;
+    font-size: 1em;
+    font-weight: 600;
+    color: #fff;
+    width: 18%;
+    text-align: center;
+    border-radius: 0px 5px 5px 0px;
+    margin: 0px 0px 0px -4px;
+    background:rgb(42,78,114);
+    cursor:pointer;
+    border: none;
+    outline: none;
+    padding-top: 0;
+    opacity: 0.8;
+}
+.s-bar input[type="submit"]:hover{
+	opacity: 0.9;
+    filter: alpha(opacity=100);
+    transition: all 0.3s ease;
+    webkit-transition: all 0.3s ease;
+    moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}

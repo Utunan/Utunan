@@ -128,12 +128,12 @@ nav {
 }
 
 .loginbtn>button {
-    margin-left: 25px;
+    /*margin-left: 25px;*/
     font-size: 20px;
     cursor: pointer;
     border-radius: 5px;
     height: 100%;
-    width: 35%;
+    width: 100%;
     border: 0;
     outline: 0;
 }
@@ -200,16 +200,29 @@ footer p {
     /*background: url("/images/school/bg.jpg");*/
     background-repeat: no-repeat;
     background-size: cover;
-    width:500px;
+    width:420px;
+    height: 350px;
     position:fixed;
     left:50%;
-    top:50%;
+    top:40%;
     margin-left:-200px;
     margin-top:-150px;
     z-index: 10001;
-    border-radius: 25px;
+    /*border-radius: 25px;*/
 }
 
+.formcontent{
+    margin-top: 20px;
+}
+
+.wenhou a{
+    font-size: 20px;
+    font-family: "华文行楷","微软雅黑";
+    color: #8cb1cc;
+}
+#submitbutton{
+    color: white;
+}
 .close_modalDialogcontent{
     position:absolute;
     font-size:20px;

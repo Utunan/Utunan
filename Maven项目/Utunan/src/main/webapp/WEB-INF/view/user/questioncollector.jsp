@@ -30,7 +30,7 @@
                         <div class="questiontop">
                         <span>
                             <img src="/images/user/ans.svg"/>
-                            <a href="">${Q.questionContent }</a>
+                            <a href="/question/${Q.questionId}">${Q.questionContent }</a>
                         </span>
                             </span>
                             <span class="delete"><a href="/user/questioncollector/${Q.questionId}"><img

@@ -407,7 +407,7 @@ footer>nav>li>a{
     margin: 0 auto;
     width: 30px;
     padding:3px 5px;
-    border:1px solid rgba(49, 126, 212, 1);
+    border:1px solid rgba(0,188,155,1);;
     background-color: #ffffff;
     border-radius: 3px;
     margin-right: 2px;
@@ -416,7 +416,7 @@ footer>nav>li>a{
 .page>li>a {
     width: 100%;
     float: left;
-    color: rgba(49, 126, 212, 1);
+    color: rgba(0,188,155,1);;
     text-decoration: none;
 }
 

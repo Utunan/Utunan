@@ -94,3 +94,52 @@ td{
 .layui-timeline {
     margin-left: 30px;
 }
+.count{
+    margin: 30%;
+}
+.count {
+    margin-left: 90px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    letter-spacing: 2px;
+}
+#cute{
+    float:left;
+    padding: 10px;
+}
+.scollect{
+    padding-bottom: 20px;
+    letter-spacing: 2px;
+    margin-left: 90px;
+    text-decoration: underline;
+}
+.scollect a{
+    color:green;
+}
+.scollect a:hover{
+    color:darkorange;
+}
+element.style {
+    background-color: burlywood;
+}
+.til{
+    padding-bottom: 5px;
+}
+
+element.style {
+}
+.til {
+    float: right;
+    margin-top: 10px;
+    margin-right: 500px;
+    padding: 0 auto;
+    letter-spacing: 2px;
+}
+.zsml-res-items td {
+    font-size: 14px;
+}
+caption, th, td {
+    font-size: 15px;
+}

@@ -34,6 +34,7 @@ public interface UserMapper {
     int updateUserTelephone(User user);
     int updateUserEmail(User user);
     int updateMessage(@Param("messageId")Long messageId);
+    void deleteFollow(@Param("followedUserId")Long followedUserId,@Param("followUserId")Long followUserId);
 
 }
 
