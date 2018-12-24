@@ -4,10 +4,10 @@
         <img src="${file.suffix.imgUrl}" alt="文件类型" class="siffix">
         <span class="tn"><a href="/file/${file.fileId}" >${file.fileTitle}</a></span>
         <div class="topdetail">
+            <span class="ft"><a href="/searchfile?fileType=${file.fileType}&school=${file.fileSchool}&keyWord=">${file.fileType}</a></span>
             <c:if test="${not empty file.fileSchool}">
-                <span class="ft"><a href="/searchfile?fileType=${file.fileType}&school=${file.fileSchool}&keyWord=">${file.fileType}</a></span>
+                <span class="fs"><a href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a></span>
             </c:if>
-            <span class="fs"><a href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a></span>
         </div>
         <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
         <div class="rightdetail">
