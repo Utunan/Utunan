@@ -157,8 +157,8 @@
                                         <cite>${answer.user.userNickName}</cite>
                                     </a>
                                     <span>发表于
-                    <fmt:formatDate value="${answer.answerTime}" type="both"/>
-                </span>
+                                        <fmt:formatDate value="${answer.answerTime}" type="both"/>
+                                    </span>
                                 </div>
 
                                 <div class="detail-hits">
@@ -169,15 +169,15 @@
                                 <p>${answer.answerContent}</p>
                             </div>
                             <div class="jieda-reply">
-              <span class="jieda-zan zanok" type="zan">
-                  <a href="javascript:void(0)" onclick="apraise(${answer.answerId})"><i
-                          class="iconfont icon-zan"></i></a>
-                <em id="answer${answer.answerId}">${answer.praiseCount}</em>
-              </span>
-                                <span type="reply">
-                <i class="iconfont icon-svgmoban53"></i>
-                回复
-              </span>
+                                <span class="jieda-zan zanok" type="zan">
+                                    <a href="javascript:void(0)" onclick="apraise(${answer.answerId})"><i
+                                          class="iconfont icon-zan"></i></a>
+                                <em id="answer${answer.answerId}">${answer.praiseCount}</em>
+                                </span>
+                                <span type="reply" class="write-reply">
+                                    <i class="iconfont icon-svgmoban53"></i>
+                                    回复
+                                </span>
                                 <div class="jieda-admin">
                                     <c:forEach items="${map0.keySet()}" var="b">
                                         <c:if test="${b.answerId==answer.answerId}">
@@ -196,6 +196,12 @@
                                         <c:if test="${commentNum==0}">
                                             <div class="slogen">啊嘞！还没有评论~</div>
                                         </c:if>
+                                        <div class="reply" style="display: none;">
+                                            <form action="" method="post">
+                                                <input type="text" name="">
+                                                <button type="submit" name="">回复</button>
+                                            </form>
+                                        </div>
                                     </blockquote>
 
                                     <c:if test="${commentNum!=0}">
@@ -300,6 +306,7 @@
     });
 </script>
 <script>
+    //展开评论
     var viewComments = window.document.getElementsByClassName("view-comments");
     var index;
     for (var i = 0; i < viewComments.length; i++) {
@@ -311,6 +318,7 @@
         }
     }
 
+    //收起评论
     var close = window.document.getElementsByClassName("close");
     for (var i = 0; i < close.length; i++) {
         close[i].index = i;
@@ -318,9 +326,26 @@
             var j = this.index;
             var comments = this.parentElement.parentElement.parentElement.parentElement.parentElement.getElementsByClassName("comments");
             comments[j].style.display = "none";
+            var replyContent=comments[j].getElementsByClassName("reply")[0];
+            replyContent.style.display = "block";
+        }
+    }
+    //回复评论的评论
+    var reply=document.getElementsByClassName("write-reply");
+    for (var i = 0; i < reply.length; i++) {
+        reply[i].index = i;
+        reply[i].onclick = function () {
+            var j = this.index-1;
+            var comments = this.parentElement.parentElement.parentElement.getElementsByClassName("comments");
+            comments[j].style.display = "block";
+            var replyContent=comments[j].getElementsByClassName("reply")[0];
+            replyContent.style.display = "block";
+
         }
     }
 
+
+    //富文本
     var E = window.wangEditor
     var editor = new E('#div1', '#div2')
     editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
