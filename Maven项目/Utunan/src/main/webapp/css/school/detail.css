@@ -113,6 +113,13 @@ td{
     padding-bottom: 20px;
     letter-spacing: 2px;
     margin-left: 90px;
+    text-decoration: underline;
+}
+.scollect a{
+    color:green;
+}
+.scollect a:hover{
+    color:darkorange;
 }
 element.style {
     background-color: burlywood;

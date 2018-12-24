@@ -196,9 +196,9 @@
     </div>
     <div class="layui-col-md4">
         <div class="fly-panel">
-            <img src="/images/school/cat.png" width="60px" id="cute"/>
+            <img src="/images/school/rabit.png" width="70px" id="cute"/>
             <div class="count">共&nbsp;<span class="timer count-title" id="count-number" data-to="${viewCount}" data-speed="7000" style="color:darkorange"></span>&nbsp;次浏览</div>
-            <div class="scollect"><a href="王碧云大傻子">加入院校收藏夹！</a> </div>
+            <div class="scollect"><a href="#">点此加入院校收藏夹！</a> </div>
         </div>
         <div class="fly-panel">
             <div class="fly-panel-main">
