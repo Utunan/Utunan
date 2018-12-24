@@ -215,27 +215,34 @@
 
 <%--弹窗登录表单--%>
 <div class="modalDialogcontent">
+  <div class="formcontent">
   <span class="close_modalDialogcontent">×</span>
   <div class="textcase">
     <div class="logintext">
-      <a href="">登录</a> <%--<img src="/images/common/logo.png" alt="" srcset="">--%>
+      <img src="/images/common/logo.png" alt="" srcset=""><%--<img src="/images/common/logo.png" alt="" srcset="">--%>
+    </div>
+    <div class="wenhou">
+      <a href="">登录优图南，开启你的考研之旅</a>
     </div>
   </div>
-  <div  class="reply" id="reply"></div>
-  <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">
+    <div  class="reply"></div>
+   <%--<div  class="reply" id="reply"></div>--%>
+  <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">  <%--onsubmit="return checkForm()"--%>
     <div class="permit inputcase">
       <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="您的手机/邮箱">
     </div>
     <div class="loginpassword inputcase">
-      <input type="password" name="userPassword" id="password" placeholder="请输入密码">
+      <input type="password" name="userPassword" id="password" placeholder="请输入密码"/>
+      <input type="text" id="login_showPwd" style="display: none"/>
     </div>
     <div class="loginbtn">
-      <button id="closeAll">不了</button>
+      <%--<button id="closeAll">不了</button>--%>
       <button id="submitbutton" type="submit">登录</button>
     </div>
     <span><a id="register" href="/register">立即注册</a> </span>
     <span><a id="forpasswork" href="/forgetpasework">忘记密码</a> </span> <%--还未实现该页面--%>
   </form>
+  </div>
 </div>
 <script src="/layui/layui.js"></script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
@@ -302,6 +309,9 @@ layui.config({
     var closeAll = document.getElementById("closeAll");
     /*获取文本框*/
     var text = document.getElementById("text1");
+    /*获取密码框*/
+    password = document.getElementById('password');
+    textpassword=document.getElementById("login_showPwd");
 
     /*点击评论提交判断是否是用户，不是用户则弹出框*/
     ask.onclick=function(){
@@ -326,11 +336,10 @@ layui.config({
         mask.style.display="none";
         modalDialogcontent.style.display="none";
     };
-    closeAll.onclick=function(){
+   /* closeAll.onclick=function(){
         mask.style.display="none";
         modalDialogcontent.style.display="none";
-    };
-
+    };*/
     //判断用户名和密码
     submit.onclick=function(){
         $.ajax({
@@ -344,11 +353,17 @@ layui.config({
                 if(result==true){
                     window.location.href="/school/schooldetail/${publishDirection.directionId}";
                 }else{
-                    document.getElementById("reply").innerHTML="通行证或密码错误";
+                    /*document.getElementById("reply").innerHTML="通行证或密码错误";*/
+                    textpassword.style.display="block";
+                    password.style.display="none";
+                    textpassword.parentNode.style.border = '1px solid red';
+                    textpassword.style.color="red";
+                    textpassword.value="密码错误";
                 }
             },
             error : function() {
-                document.getElementById("reply").innerHTML="网可能不太好，请您稍等一下~";
+                /*document.getElementById("reply").innerHTML="网可能不太好，请您稍等一下~";*/
+                console.log("网崩了！")
             }
         });
     };
