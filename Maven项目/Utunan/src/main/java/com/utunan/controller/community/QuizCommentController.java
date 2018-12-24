@@ -113,7 +113,6 @@ public class QuizCommentController {
         request.setAttribute("map",map);
         request.setAttribute("map0",map0);
         request.setAttribute("PageInfo",new PageInfo(answers,5));
-        //request.setAttribute("childAnswerList", childAnswerList);
         request.setAttribute("quizListTop10",quizListTop10);
         request.setAttribute("tag",hotTagList);
         request.setAttribute("quizIds",quizIds);
