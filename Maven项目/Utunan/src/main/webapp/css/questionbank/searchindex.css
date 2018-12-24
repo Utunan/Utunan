@@ -49,6 +49,7 @@ body {
     cursor:pointer;
     border: none;
     outline: none;
+    padding-top: 0;
 }
 .s-bar input[type="submit"]:hover{
 	opacity: 0.8;
