@@ -69,7 +69,6 @@
 <%@include file="../common/header.jsp"%>
 <%--黑背景--%>
 <div class="mask"></div>
-<!--<div class="mask"></div>-->
 <!--内容-->
 <div class="layui-container">
     <div class="layui-row layui-col-space15">
