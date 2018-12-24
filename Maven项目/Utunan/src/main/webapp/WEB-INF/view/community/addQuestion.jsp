@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="/css/community/global.css">
     <link rel="stylesheet" href="/css/community/add.css">
     <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
-    <script src="/js/community/jquery-1.10.2.js"></script>
+    <script src="/js/jquery-1.10.2.js"></script>
     <script src="/js/community/tag.js"></script>
 </head>
 <script>

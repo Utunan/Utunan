@@ -16,7 +16,7 @@
     <a href="/user/follow">
         <li>
             <img src="/images/user/follow.svg" alt="" srcset="">
-            <span>关注用户</span>
+            <span>特别关注</span>
         </li>
     </a>
     <a href="/user/statistics">

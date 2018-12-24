@@ -1,0 +1,79 @@
+#followuser {
+    width: 80%;
+    padding: 0 10%;
+    margin: 30px 0;
+    list-style-type: none;
+    float: left;
+}
+
+#followuser > li {
+    display: inline;
+    width: 100%;
+    height: 70px;
+    float: left;
+    border-radius:100px;
+    background-color: rgba(255, 255, 170, 0.06);
+    padding: 5px 0;
+
+    margin:5px 0;
+}
+
+.headimg {
+    height: 60px;
+    width: 60px;
+    float: left;
+    margin: 5px 30px;
+    border-radius: 30px;
+}
+
+.headimg img {
+    height: 60px;
+    width: 60px;
+    float: left;
+    border-radius: 30px;
+}
+
+#followuser > li a {
+    float: left;
+    text-decoration: none;
+}
+
+.followinfo {
+    float: left;
+    width: 250px;
+    margin: 0 0 0 5px;
+    font-size: 12px;
+    height: 70px;
+}
+
+.followinfo > a:first-of-type {
+
+    font-weight: bold;
+    color: rgba(0,188,155,1);
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+.followinfo>span{
+    width: 100%;
+    float: left;
+    color: #636363;
+}
+.nofollow {
+    height: 100%;
+    margin-right: 30px;
+    float: right;
+}
+.nofollow>a{
+    cursor: pointer;
+    height: 36px;
+    width: 70px;
+    margin:17px 10px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 40px;
+    font-size: 13.5px;
+    color:#fff;
+    background-color: rgba(0,188,155,1);
+}

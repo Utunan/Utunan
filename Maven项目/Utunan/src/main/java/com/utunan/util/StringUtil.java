@@ -1,5 +1,9 @@
 package com.utunan.util;
 
+import org.apache.commons.lang.StringUtils;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -51,9 +55,9 @@ public class StringUtil {
     /**
      * 网页标签正则
      */
-    public static final String regEx_script="<script[^>]*?>[\\s\\S]*?<\\/script>"; //定义script的正则表达式
-    public static final String regEx_style="<style[^>]*?>[\\s\\S]*?<\\/style>"; //定义style的正则表达式
-    public static final String regEx_html="<[^>]+>"; //定义HTML标签的正则表达式
+    public static final String regEx_script = "<script[^>]*?>[\\s\\S]*?<\\/script>"; //定义script的正则表达式
+    public static final String regEx_style = "<style[^>]*?>[\\s\\S]*?<\\/style>"; //定义style的正则表达式
+    public static final String regEx_html = "<[^>]+>"; //定义HTML标签的正则表达式
 
     /**
      * 校验用户名
@@ -136,21 +140,57 @@ public class StringUtil {
     }
 
     //去除Html代码的标签
-    public static String delHTMLTag(String htmlStr){
+    public static String delHTMLTag(String htmlStr) {
 
-        Pattern p_script=Pattern.compile(regEx_script,Pattern.CASE_INSENSITIVE);
-        Matcher m_script=p_script.matcher(htmlStr);
-        htmlStr=m_script.replaceAll(""); //过滤script标签
+        Pattern p_script = Pattern.compile(regEx_script, Pattern.CASE_INSENSITIVE);
+        Matcher m_script = p_script.matcher(htmlStr);
+        htmlStr = m_script.replaceAll(""); //过滤script标签
 
-        Pattern p_style=Pattern.compile(regEx_style,Pattern.CASE_INSENSITIVE);
-        Matcher m_style=p_style.matcher(htmlStr);
-        htmlStr=m_style.replaceAll(""); //过滤style标签
+        Pattern p_style = Pattern.compile(regEx_style, Pattern.CASE_INSENSITIVE);
+        Matcher m_style = p_style.matcher(htmlStr);
+        htmlStr = m_style.replaceAll(""); //过滤style标签
 
-        Pattern p_html=Pattern.compile(regEx_html,Pattern.CASE_INSENSITIVE);
-        Matcher m_html=p_html.matcher(htmlStr);
-        htmlStr=m_html.replaceAll(""); //过滤html标签
+        Pattern p_html = Pattern.compile(regEx_html, Pattern.CASE_INSENSITIVE);
+        Matcher m_html = p_html.matcher(htmlStr);
+        htmlStr = m_html.replaceAll(""); //过滤html标签
 
         return htmlStr.trim(); //返回文本字符串
     }
+
+
+    /**
+     * 可以获取 ["后缀Id","后缀名字"] 的 String数组
+     * @param fileName
+     * @return
+     */
+    public static String[] getFileSuffix(String fileName) {
+        Map<String, String> suffixes = new HashMap<String, String>();
+        suffixes.put("doc", "1");
+        suffixes.put("pdf", "2");
+        suffixes.put("ppt", "3");
+        suffixes.put("tupian", "4");
+        suffixes.put("txt", "5");
+        suffixes.put("yasuo", "6");
+        suffixes.put("other", "7");
+        String[] fileds = StringUtils.split(fileName, ".");
+
+        String[] suffixIdandSuffixName = new String[2];
+        int length = fileds.length;
+        if (length <= 1) {
+            suffixIdandSuffixName[0] = suffixes.get("other");
+            suffixIdandSuffixName[1] = "other";
+        } else {
+            String suffixId = suffixes.get(fileds[length - 1]);
+            if (suffixId == null) {
+                suffixIdandSuffixName[0] = suffixes.get("other");
+                suffixIdandSuffixName[1] = "other";
+            } else {
+                suffixIdandSuffixName[0] = suffixes.get(fileds[length - 1]);
+                suffixIdandSuffixName[1] = fileds[length - 1];
+            }
+        }
+        return suffixIdandSuffixName;
+    }
+
 
 }

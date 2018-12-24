@@ -2,10 +2,20 @@
 <nav id="page" class="page">
     <c:choose>
         <c:when test="${PageInfo.pages==1}">
-
+            <script>
+                $('#page').attr("class","")
+            </script>
         </c:when>
         <c:when test="${PageInfo.pages==0}">
             <c:choose>
+                <c:when test="${plate==\"follow\"}">
+                    <div class="noresult">
+                        <h2 style="text-align:left;padding-top:50px;font-size:30px;padding-left: 100px;color:#2e317c;">少侠~</h2>
+                        <h2 style="text-align:left;padding-top:0px;padding-left:70px;color:rgb(247, 184, 102);">你的关注为空</h2>
+                        <h2 style="text-align:left;padding-top:0px;padding-left:120px;color:rgb(247, 184, 102);">请来寻找</h2>
+                        <h1 style="text-align:left;padding-left: 160px; color:rgb(243, 149, 149);">小伙伴吧~</h1>
+                    </div>
+                </c:when>
                 <c:when test="${plate==\"publishquiz\"||plate==\"publishanswer\"}">
                     <div class="noresult">
                         <h2 style="text-align:left;padding-top:50px;font-size:30px;padding-left: 100px;color:#2e317c;">少侠~</h2>

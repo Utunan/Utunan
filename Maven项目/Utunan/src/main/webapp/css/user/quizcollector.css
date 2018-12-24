@@ -37,6 +37,9 @@
 .posttop>span:first-of-type>a{
     color: #000;
 }
+.posttop>span:first-of-type>a:hover{
+    color: rgba(0,188,155,1);
+}
 .posttop>span:first-of-type>img{
     height:30px;
     margin: 5px 20px 5px 5px;
