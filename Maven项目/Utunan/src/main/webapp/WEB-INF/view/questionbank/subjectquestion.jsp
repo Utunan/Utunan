@@ -78,20 +78,20 @@
             </c:forEach>
         </table>
         <nav id="page" class="page">
-            <li class="home"><a href="/${url }?subjectName=${subjectName}">首页</a></li>
-            <li class="next"><a href="/${url }?subjectName=${subjectName}&pageNum=${PageInfo.prePage}">上一页</a></li>
+            <li class="home"><a href="/subject/${subjectName}/1">首页</a></li>
+            <li class="next"><a href="/subject/${subjectName}/${PageInfo.prePage}">上一页</a></li>
             <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                <li class="pagenum"><a name="${i}" href="/${url }?subjectName=${subjectName}&pageNum=${i}">${i}</a></li>
+                <li class="pagenum"><a name="${i}" href="/subject/${subjectName}/${i}">${i}</a></li>
             </c:forEach>
             <c:choose>
                 <c:when test="${PageInfo.nextPage==0}">
-                    <li class="next"><a href="/${url }?subjectName=${subjectName}&pageNum=${PageInfo.pages}">下一页</a></li>
+                    <li class="next"><a href="/subject/${subjectName}/${PageInfo.pages}">下一页</a></li>
                 </c:when>
                 <c:otherwise>
-                    <li class="next"><a href="/${url }?subjectName=${subjectName}&pageNum=${PageInfo.nextPage}">下一页</a></li>
+                    <li class="next"><a href="/subject/${subjectName}/${PageInfo.nextPage}">下一页</a></li>
                 </c:otherwise>
             </c:choose>
-            <li class="tail"><a href="/${url }?subjectName=${subjectName}&pageNum=${PageInfo.pages}">尾页</a></li>
+            <li class="tail"><a href="/subject/${subjectName}/${PageInfo.pages}">尾页</a></li>
         </nav>
     </div>
 <%@include file="../common/footer.jsp"%>

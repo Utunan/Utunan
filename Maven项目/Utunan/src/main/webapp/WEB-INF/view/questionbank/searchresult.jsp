@@ -47,20 +47,20 @@
         </c:forEach>
     </table>
     <nav id="page" class="page">
-        <li class="home"><a href="/${url }?keyWord=${keyWord}">首页</a></li>
-        <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.prePage}">上一页</a></li>
+        <li class="home"><a href="/search/question/1?wd=${keyWord}">首页</a></li>
+        <li class="next"><a href="/search/question/${PageInfo.prePage}?wd=${keyWord}">上一页</a></li>
         <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-            <li class="pagenum"><a name="${i}" href="/${url }?keyWord=${keyWord}&pageNum=${i}">${i}</a></li>
+            <li class="pagenum"><a name="${i}" href="/search/question/${i}?wd=${keyWord}">${i}</a></li>
         </c:forEach>
         <c:choose>
             <c:when test="${PageInfo.nextPage==0}">
-                <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">下一页</a></li>
+                <li class="next"><a href="/search/question/${PageInfo.pages}?wd=${keyWord}">下一页</a></li>
             </c:when>
             <c:otherwise>
-                <li class="next"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.nextPage}">下一页</a></li>
+                <li class="next"><a href="/search/question/${PageInfo.nextPage}?wd=${keyWord}">下一页</a></li>
             </c:otherwise>
         </c:choose>
-        <li class="tail"><a href="/${url }?keyWord=${keyWord}&pageNum=${PageInfo.pages}">尾页</a></li>
+        <li class="tail"><a href="/search/question/${PageInfo.pages}?wd=${keyWord}">尾页</a></li>
     </nav>
 </div>
 <%@include file="../common/footer.jsp"%>

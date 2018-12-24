@@ -9,6 +9,7 @@ import com.utunan.pojo.util.Analyzer;
 import com.utunan.service.questionbank.QuestionIndexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -67,10 +68,7 @@ public class QuestionIndexController {
 			sc.setResolveQuestionNumber(resolveQuestionNumber.get(i));
 			subjectCountList.add(sc);
 		}
-		Long totleQuestion=questionIndexService.countAllQuestion();
-
 		//返回数据
-		request.setAttribute("totleQuestion",totleQuestion);
 		request.setAttribute("subject",subjectCountList);
 		return "questionbank/subject";
 	}
@@ -82,9 +80,9 @@ public class QuestionIndexController {
 	 * @param  request
 	 * @return  java.lang.String
 	 */
-	@RequestMapping("subject")
-	public String subjectQuestion(HttpServletRequest request){
-		String pageNum=request.getParameter("pageNum");
+	@RequestMapping("subject/{subjectName}/{pageNum}")
+	public String subjectQuestion(HttpServletRequest request, @PathVariable String subjectName, @PathVariable String pageNum){
+//		String pageNum=request.getParameter("pageNum");
 		//判断当前页
 		int num=0;
 		if(pageNum==null || pageNum.equals("")){
@@ -101,7 +99,7 @@ public class QuestionIndexController {
 		else {
 			userId=user.getUserId().toString();
 		}
-		String subjectName=request.getParameter("subjectName");
+//		String subjectName=request.getParameter("subjectName");
 		//题目列表
 		List<Question> questionList= questionIndexService.listQuestionBySubject(subjectName, num, 12);
 		//科目ID
@@ -109,7 +107,6 @@ public class QuestionIndexController {
 		//已解答题目数量
 		Long resolveQuestionNumber= questionIndexService.countResolveQuestionBySubject(subjectId,Long.parseLong(userId));
 		//返回数据
-		request.setAttribute("url", "subject");
 		request.setAttribute("subjectName", subjectName);
 		request.setAttribute("questionList", questionList);
 		request.setAttribute("resolveQuestionNumber", resolveQuestionNumber);
@@ -124,9 +121,9 @@ public class QuestionIndexController {
 	 * @param  request
 	 * @return  java.lang.String
 	 */
-	@RequestMapping("/searchresult")
-	public String searchQuestionResult(HttpServletRequest request){
-		String pageNum=request.getParameter("pageNum");
+	@RequestMapping("/search/question/{pageNum}")
+	public String searchQuestionResult(HttpServletRequest request, @PathVariable String pageNum){
+//		String pageNum=request.getParameter("pageNum");
 		//判断当前页
 		int num=0;
 		if(pageNum==null || pageNum.equals("")){
@@ -135,7 +132,7 @@ public class QuestionIndexController {
 			num=Integer.parseInt(pageNum);
 		}
 		//搜索关键字
-		String keyWord=request.getParameter("keyWord");
+		String keyWord=request.getParameter("wd");
 		Analyzer analyzer=new Analyzer();
 		//过滤关键词
 		keyWord=analyzer.filter(keyWord);
@@ -154,9 +151,16 @@ public class QuestionIndexController {
 		List<Question> questionList=questionIndexService.selectQuestionBySearchValue(keyWords, num,20);
 		//返回数据
 		request.setAttribute("questionList", questionList);
-		request.setAttribute("url","searchresult");
 		request.setAttribute("keyWord", keyWord);
 		request.setAttribute("PageInfo", new PageInfo(questionList,5));
-		return "questionbank/searchquestion";
+		return "questionbank/searchresult";
+	}
+
+	@RequestMapping("/searchquestion")
+	public String searchQuestion(HttpServletRequest request){
+		Long totleQuestion=questionIndexService.countAllQuestion();
+		//返回数据
+		request.setAttribute("totleQuestion",totleQuestion);
+		return "questionbank/searchindex";
 	}
 }
