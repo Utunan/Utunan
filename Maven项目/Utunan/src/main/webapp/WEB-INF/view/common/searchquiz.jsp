@@ -16,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="/css/community/questionIndex.css"/>
     <link rel="stylesheet" href="/css/community/layui.css">
     <link rel="stylesheet" href="/css/community/global.css">
+    <link rel="stylesheet" href="/css/community/tagCloud.css">
+    <script type="text/javascript" src="/js/community/tagcloud.js"></script>
     <script> var pagenum="${PageInfo.pageNum}"</script>
     <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
     <!--<script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>-->
@@ -54,7 +56,7 @@
                                                 <fmt:formatDate value="${obj.quiz.releaseTime}" type="both"/>
                                             </span>
 
-                                            <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
+                                            <span class="fly-list-kiss layui-hide-xs" title="点赞"><img src="/images/community/praise.png"width="25px"height="20px" style="margin-top:-5px;">&nbsp;${obj.quiz.praiseCount}</span>
                                             <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
                                             <span class="fly-list-nums">
                                                 <i class="iconfont icon-pinglun1" title="回答"></i> ${obj.quiz.answerCount}
@@ -150,7 +152,7 @@
 
                  </div>
             </div>
-            <div class="layui-col-md4">
+            <div class="layui-col-md4" id="layui-col-md4">
                 <div class="fly-panel">
                     <div class="fly-panel-main">
                         <a href="/quiz" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">发表提问</a>
@@ -168,15 +170,34 @@
                 </dl>
                 <div class="fly-panel fly-link">
                     <h3 class="fly-panel-title">热门标签</h3>
-                    <dl class="fly-panel-main">
-                        <c:forEach items="${tag}" var="tags">
-                            <dd><a href="/quiztag/${tags[0].tagName}/rt/1" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
-                        </c:forEach>
-                    </dl>
+
+
+                    <div class="wrapper1">
+                        <div class="tagcloud fl">
+                            <c:forEach items="${tag}" var="tags">
+                                <a href="/quiztag/${tags[0].tagName}/rt/1" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;${tags[1]}</a>
+                            </c:forEach>
+                        </div>
+                    </div><!--wrapper-->
                 </div>
             </div>
         </div>
     </div>
+
 <%@include file="footer.jsp"%>
 </body>
+<script type="text/javascript">
+    /*3D标签云*/
+    var radius=document.getElementById("layui-col-md4").offsetWidth;
+    console.log(radius);
+    tagcloud({
+        selector: ".tagcloud",  //元素选择器
+        fontsize: 16,       //基本字体大小, 单位px
+        radius: radius*0.2,         //滚动半径, 单位px
+        mspeed: "normal",   //滚动最大速度, 取值: slow, normal(默认), fast
+        ispeed: "normal",   //滚动初速度, 取值: slow, normal(默认), fast
+        direction: 0,     //初始滚动方向, 取值角度(顺时针360): 0对应top, 90对应left, 135对应right-bottom(默认)...
+        keep: false          //鼠标移出组件后是否继续随鼠标滚动, 取值: false, true(默认) 对应 减速至初速度滚动, 随鼠标滚动
+    });
+</script>
 </html>
