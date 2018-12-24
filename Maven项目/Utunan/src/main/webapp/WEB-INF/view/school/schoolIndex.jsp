@@ -176,7 +176,7 @@
             <input type="password" name="userPassword" id="password" placeholder="请输入密码">
         </div>
         <div class="loginbtn">
-            <button id="closeAll">不了</button>
+            <%--<button id="closeAll">不了</button>--%>
             <button id="submitbutton" type="submit">登录</button>
         </div>
         <span><a id="register" href="/register">立即注册</a> </span>
