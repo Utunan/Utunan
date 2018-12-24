@@ -60,6 +60,11 @@ public class ShareIndexController {
 
 	@RequestMapping("searchfile")
 	public String searchFile(HttpServletRequest request, @RequestParam(value = "fileType",required = false) String[] fileType){
+		//文件类型判空
+		if(fileType==null){
+			fileType=new String[1];
+			fileType[0]="全部";
+		}
 		//文件所属学校
 		String fileSchool = request.getParameter("school");
 		String fs = "";
