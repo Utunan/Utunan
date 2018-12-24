@@ -206,6 +206,8 @@ public class AdminSkipController {
 
         return "admin/quiz/quizlist";
     }
+
+
     @RequestMapping("answerlist")
     public String commentlist(HttpSession session,HttpServletRequest request){
         List<Answer> answers=null;
@@ -234,11 +236,15 @@ public class AdminSkipController {
             pedfiles = adminFileService.getPedFiles(Integer.parseInt(pageNum), 10);
         }
 
+        //获取待审核文件数量
+        Long num=adminFileService.getpedfilenum();
         request.setAttribute("PageInfo", new PageInfo(pedfiles, 5));
+        request.setAttribute("num",num);
         session.setAttribute("pedfilelist", pedfiles);
 
         return "admin/resource/review";
     }
+
 
     @RequestMapping("files")
     public String fileslist(HttpSession session,HttpServletRequest request){
