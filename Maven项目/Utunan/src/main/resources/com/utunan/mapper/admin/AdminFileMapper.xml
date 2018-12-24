@@ -35,6 +35,12 @@
         left join user on user.userId=file.userId
         where isExamine=1
     </select>
+    <!--获取未审核文件数量-->
+    <select id="getpedfilenum" resultType="java.lang.Long">
+        select count(*)
+        from file
+        where isExamine=0
+    </select>
     <!--删除单个未审核资源-->
     <delete id="delprefile" parameterType="Long">
         delete from file

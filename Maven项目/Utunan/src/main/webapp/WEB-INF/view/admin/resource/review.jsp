@@ -25,7 +25,7 @@
 <div class="x-body">
     <xblock>
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-        <span class="x-right" style="line-height:40px">共有数据：<span>88</span>条</span>
+        <span class="x-right" style="line-height:40px">共有数据：<span id="num">${num }</span>条</span>
     </xblock>
     <table class="layui-table">
         <thead>
@@ -119,8 +119,12 @@
                 type:"get",
                 traditional:true,
                 data:{"n":id},
-                success:function(response){
-
+                datatype:"json",
+                success:function(d){
+                    var res=d.res;
+                    if(res=="ok"){
+                        document.getElementById("num").innerHTML=parseInt(document.getElementById("num").innerHTML)-1;
+                    }
                 },
                 error:function() {
                 }

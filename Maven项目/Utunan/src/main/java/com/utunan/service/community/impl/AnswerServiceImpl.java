@@ -140,4 +140,10 @@ public class AnswerServiceImpl implements AnswerService {
     public void delPraiseAnswer(Long answerId) {
        this.answerMapper.delPraiseAnswer(answerId);
     }
+
+    //查询刚插入的评论信息
+    @Override
+    public Answer getAnswer(Long aid) {
+        return this.answerMapper.getAnswer(aid);
+    }
 }
