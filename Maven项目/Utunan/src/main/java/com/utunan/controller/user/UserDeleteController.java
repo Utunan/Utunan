@@ -21,38 +21,43 @@ public class UserDeleteController {
     private UserService userService;
 
     @RequestMapping("/questioncollector/{questionId}")
-    public String deleteQuestionCollector(HttpServletRequest request, @PathVariable String questionId) {
-        User user = (User) request.getSession().getAttribute("User");
-
-        userCollectorDeleteService.deleteQuestionCollector(user.getUserId(), questionId);
-        return "redirect:/user/questioncollector";
-    }
-
-    @RequestMapping("/quizcollector/{quizId}")
-    public String deleteQuizCollector(HttpServletRequest request, @PathVariable String quizId) {
-        User user = (User) request.getSession().getAttribute("User");
-        userCollectorDeleteService.deleteQuizCollector(user.getUserId(), quizId);
-        return "redirect:/user/quizcollector";
-    }
-
-    @RequestMapping("/directioncollector/{directionId}")
-    public String deleteDirectionCollector(HttpServletRequest request, @PathVariable String directionId) {
-        User user = (User) request.getSession().getAttribute("User");
-        userCollectorDeleteService.deleteDirectionCollector(user.getUserId(), directionId);
-        return "redirect:/user/directioncollector";
-    }
-
-    @RequestMapping("/cancel")
     @ResponseBody
-    public String cancelFollow(HttpServletRequest request) {
+    public String deleteQuestionCollector(HttpServletRequest request, @PathVariable String questionId) {
         try {
-            String followedId = request.getParameter("followedId");
-            System.out.println(followedId);
             User user = (User) request.getSession().getAttribute("User");
-            userService.cancelFollow(Long.parseLong(followedId), user.getUserId());
+
+            userCollectorDeleteService.deleteQuestionCollector(user.getUserId(), questionId);
             return "{\"state\":\"success\"}";
-        }catch(Exception e){
+        } catch (Exception e) {
             return "{\"state\":\"unsuccess\"}";
         }
     }
+
+    @RequestMapping("/quizcollector/{quizId}")
+    @ResponseBody
+    public String deleteQuizCollector(HttpServletRequest request, @PathVariable String quizId) {
+        try {
+            User user = (User) request.getSession().getAttribute("User");
+            userCollectorDeleteService.deleteQuizCollector(user.getUserId(), quizId);
+            return "{\"state\":\"success\"}";
+        } catch (Exception e) {
+            return "{\"state\":\"unsuccess\"}";
+        }
+    }
+
+    @RequestMapping("/directioncollector/{directionId}")
+    @ResponseBody
+    public String deleteDirectionCollector(HttpServletRequest request, @PathVariable String directionId) {
+        try {
+            User user = (User) request.getSession().getAttribute("User");
+            userCollectorDeleteService.deleteDirectionCollector(user.getUserId(), directionId);
+            return "{\"state\":\"success\"}";
+        } catch (
+                Exception e) {
+            return "{\"state\":\"unsuccess\"}";
+        }
+
+    }
+
+
 }

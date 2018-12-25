@@ -30,31 +30,59 @@
             <div class="userinfo">
                 <div class="nickname">${Member.user.userNickName}</div>
                 <div class="isfollow" id="isfollow">
-                    <c:if test="${Member.isfollow==false}">
-                        <a _href="${Member.user.userId}" state="nofollow">未关注</a>
-                    </c:if>
-                    <c:if test="${Member.isfollow==true}">
-                        <a _href="${Member.user.userId}" state="follow">已关注</a>
-                    </c:if>
+                    <c:choose>
+                        <c:when test="${Member.isfollow==false}">
+                            <a _href="${Member.user.userId}" state="nofollow">未关注</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a _href="${Member.user.userId}" state="follow">已关注</a>
+                        </c:otherwise>
+                    </c:choose>
+
                 </div>
                 <script>
-                    $('#isfollow a').click(function(){
-                        console.log($(this).attr("_href"));
-
-                        console.log($(this).attr("state"));
-                        var followId=$(this).attr("_href")
-                        $.ajax({
-                            type: "get",
-                            url: "/user/cancel",
-                            data: {"followedId": followId},
-                            dataType: "json",
-                            success: function (data) {
-                                if(data['state']='success'){
-                                    followa.parent().parent().fadeOut()
+                    $('#isfollow a').click(function () {
+                        var state = $(this).attr("state")
+                        var followId = $(this).attr("_href")
+                        if (state == 'nofollow') {
+                            $.ajax({
+                                type: "get",
+                                url: "/member/followuser",
+                                data: {"followedId": followId},
+                                dataType: "json",
+                                success: function (data) {
+                                    if (data['userstate'] == "no") {
+                                        alert("请登陆")
+                                        window.location.href = "/login"
+                                    } else {
+                                        if (data['state'] = 'success') {
+                                            $('#isfollow a').attr("state", "follow")
+                                            $('#isfollow a').html("已关注")
+                                        }
+                                    }
+                                }
+                            })
+                        }
+                        if (state == 'follow') {
+                            $.ajax({
+                                type: "get",
+                                url: "/member/cancel",
+                                data: {"followedId": followId},
+                                dataType: "json",
+                                success: function (data) {
+                                    if (data['userstate'] == "no") {
+                                        alert("登陆失效,请重新登陆")
+                                        window.location.href = "/login"
+                                    } else {
+                                        if (data['state'] = 'success') {
+                                            $('#isfollow a').attr("state", "nofollow")
+                                            $('#isfollow a').html("未关注")
+                                        }
+                                    }
 
                                 }
-                            }
-                        })
+                            })
+                        }
                     })
                 </script>
                 <div class="schoolinfo">

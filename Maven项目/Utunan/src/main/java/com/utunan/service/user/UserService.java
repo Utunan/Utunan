@@ -11,6 +11,7 @@ public interface UserService {
     Member getUserById(String userId);
     Integer getUserMessageCount(User user);
     void saveUser(User user);
+    void saveFollow(Long followUserId,Long followedUserId);
     void cancelFollow(Long followedUserId,Long followUserId);
     boolean isExist(User user);
     boolean changeInfo(User user);

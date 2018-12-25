@@ -48,9 +48,26 @@
                         <td>${D.degreeType}</td>
                         <td>${D.directionName}</td>
                         <td><a href="/school/schooldetail/${D.directionId}">详情</a></td>
-                        <td><a href="/user/directioncollector/${D.directionId}"><img src="/images/user/qzcdelete.svg"></a></td>
+                        <td class="delete"><a _href="/user/directioncollector/${D.directionId}"><img src="/images/user/qzcdelete.svg"></a></td>
                     </tr>
                 </c:forEach>
+                <script>
+                    $('.delete a').click(function () {
+                        url=$(this).attr('_href')
+                        fadenode=$(this).parent().parent()
+                        console.log(url)
+                        $.ajax({
+                            type: "get",
+                            url: url,
+                            dataType: "json",
+                            success: function (data) {
+                                if(data['state']='success'){
+                                    fadenode.fadeOut();
+                                }
+                            }
+                        })
+                    })
+                </script>
             </table>
             <%@include file="common/page.jsp"%>
         </div>

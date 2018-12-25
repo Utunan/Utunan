@@ -52,7 +52,7 @@
                     console.log(followId)
                     $.ajax({
                         type: "get",
-                        url: "/user/cancel",
+                        url: "/member/cancel",
                         data: {"followedId": followId},
                         dataType: "json",
                         success: function (data) {

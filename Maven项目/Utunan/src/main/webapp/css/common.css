@@ -8,7 +8,9 @@ header {
     margin: 0 auto;
     background: #393D49;
 }
-
+a{
+    cursor: pointer;
+}
 .container {
     width: 100%;
     min-width: 1180px;

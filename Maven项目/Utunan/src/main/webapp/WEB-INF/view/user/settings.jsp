@@ -80,11 +80,11 @@
                     </div>
                     <div>
                         <label for="newpassword">新密码</label>
-                        <input name="newpassword" id="newpassword" type="text">
+                        <input type="password" name="newpassword" id="newpassword" type="text">
                     </div>
                     <div>
                         <label for="repassword">确认密码</label>
-                        <input name="repassword" id="repassword" type="text">
+                        <input type="password" name="repassword" id="repassword" type="text">
                     </div>
                     <input type="submit" value="保存">
                 </form>

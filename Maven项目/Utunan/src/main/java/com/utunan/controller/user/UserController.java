@@ -24,6 +24,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+
+
     @RequestMapping("/usermessage")
     @ResponseBody
     public String usermessage(HttpSession session) {
@@ -36,14 +38,14 @@ public class UserController {
     }
 
     @RequestMapping("/message/systeminfo/{messageId}")
-    public String readSystemMessage(HttpSession session,HttpServletRequest request, @PathVariable Integer messageId) {
+    public String readSystemMessage(HttpSession session, HttpServletRequest request, @PathVariable Integer messageId) {
         Message message = userService.getMessage(messageId.toString());
         System.out.println(message);
         if (message != null) {
             if (!message.getMessageType().equals("1")) {
                 return "redirect:/quiz/" + message.getQuizId();
             } else {
-                request.setAttribute("Message",message);
+                request.setAttribute("Message", message);
                 return "/user/systeminfo";
             }
 
@@ -114,6 +116,11 @@ public class UserController {
         String oldpassword = request.getParameter("oldpassword");
         String newpassword = request.getParameter("newpassword");
         String repassword = request.getParameter("repassword");
+        User user = (User) session.getAttribute("User");
+        if(!user.getUserPassword().equals(oldpassword)){
+            request.setAttribute("passwordreply", "原密码错误,请重新输入");
+            return "/user/settings";
+        }
         if (!newpassword.equals(repassword)) {
             request.setAttribute("passwordreply", "输入的密码不相同,请重新输入~");
             return "/user/settings";
@@ -126,7 +133,6 @@ public class UserController {
             request.setAttribute("passwordreply", "密码格式错误,请重新填写更改信息~");
             return "/user/settings";
         }
-        User user = (User) session.getAttribute("User");
         user.setUserPassword(newpassword);
         User updateUser = userService.changeUserPassword(user);
         session.setAttribute("User", updateUser);

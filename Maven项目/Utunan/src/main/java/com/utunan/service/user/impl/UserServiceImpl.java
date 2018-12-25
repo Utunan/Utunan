@@ -69,8 +69,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Integer isFollow(Long followedUserId, Long followUserId) {
-        Integer count = userMapper.selectIsFollow(followedUserId, followUserId);
-
+        Integer count = userMapper.selectIsFollow(followedUserId,followUserId);
         if (count > 0)
             return 1;
         return 0;
@@ -83,6 +82,11 @@ public class UserServiceImpl implements UserService {
         user.setUserNickName(userNickName);
         user.setRegisterTime(date);
         userMapper.insert(user);
+    }
+
+    @Override
+    public void saveFollow(Long followUserId, Long followedUserId) {
+        userMapper.insertFollow(followUserId,followedUserId);
     }
 
     @Override

@@ -74,7 +74,7 @@
                         <li>
                             <label for="examTime">考研年份</label>
                             <select name="examTime" id="examTime" autofocus="autofocus">
-                                <c:forEach begin="2019" end="2024" var="i">
+                                <c:forEach begin="2020" end="2024" var="i">
                                     <c:choose>
                                         <c:when test="${User.examTime==i}">
                                             <option value="${i}" selected="true">${i}</option>

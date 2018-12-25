@@ -107,7 +107,10 @@
         insert into user(userTelephone,userPassword,userNickName,registerTime)
         values(#{userTelephone},#{userPassword},#{userNickName},#{registerTime})
     </insert>
-
+    <insert id="insertFollow">
+        insert  into follow(followUserId, followedUserId)
+        values (#{followUserId},#{followedUserId})
+    </insert>
     <update id="updateUser" parameterType="com.utunan.pojo.base.user.User">
         update user
         set userNickName=#{userNickName},examTime=#{examTime},userSchool=#{userSchool},dreamSchool=#{dreamSchool}
