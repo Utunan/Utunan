@@ -18,6 +18,7 @@ public interface UserService {
     Message getMessage(String messageId);
     List<Message> getUserReadInfo(User user,int pageNum,int pageSize);
     List<Message> getUserNoReadInfo(User user,int pageNum,int pageSize);
+    Integer isFollow(Long followedUserId,Long followUserId);
     boolean changeUserHeadImg(User user,String img);
     boolean changeUserTelephone(User user);
     boolean changeUserEmail(User user);

@@ -88,12 +88,13 @@ body {
     border-radius: 8px;
     float: left;
 }
-
+.isfollow:hover{
+    background-color:rgba(0,188,155,0.8);
+}
 .isfollow>a{
     text-decoration: none;
     color:#fff;
 }
-
 .schoolinfo {
     padding-left: 40px;
     margin-top: 38px;

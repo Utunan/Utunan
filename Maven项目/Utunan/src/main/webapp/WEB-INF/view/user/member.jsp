@@ -29,7 +29,34 @@
             </div>
             <div class="userinfo">
                 <div class="nickname">${Member.user.userNickName}</div>
-                <div class="isfollow"><a href="">未关注</a></div>
+                <div class="isfollow" id="isfollow">
+                    <c:if test="${Member.isfollow==false}">
+                        <a _href="${Member.user.userId}" state="nofollow">未关注</a>
+                    </c:if>
+                    <c:if test="${Member.isfollow==true}">
+                        <a _href="${Member.user.userId}" state="follow">已关注</a>
+                    </c:if>
+                </div>
+                <script>
+                    $('#isfollow a').click(function(){
+                        console.log($(this).attr("_href"));
+
+                        console.log($(this).attr("state"));
+                        var followId=$(this).attr("_href")
+                        $.ajax({
+                            type: "get",
+                            url: "/user/cancel",
+                            data: {"followedId": followId},
+                            dataType: "json",
+                            success: function (data) {
+                                if(data['state']='success'){
+                                    followa.parent().parent().fadeOut()
+
+                                }
+                            }
+                        })
+                    })
+                </script>
                 <div class="schoolinfo">
                     <span>本科院校 : <span>${Member.user.userSchool}</span></span>
                     <span>目标院校 : <span>${Member.user.dreamSchool}</span></span>
@@ -82,9 +109,8 @@
 </div>
 <%@include file="../common/footer.jsp" %>
 </body>
-<script src="/js/user/usercommon.js"></script>
 <script src="/js/common/common.js"></script>
-<script src="/js/jquery-1.8.3.min.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
 <script src="/js/user/amazeui.min.js" charset="utf-8"></script>
 <script src="/js/user/cropper.min.js" charset="utf-8"></script>
 <script src="/js/user/custom_up_img.js" charset="utf-8"></script>

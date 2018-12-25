@@ -18,22 +18,30 @@ public class MemberController {
     private UserService userService;
 
     @RequestMapping("")
-    public String member(){
-        return "redirect:/user";
+    public String member(HttpServletRequest request) {
+        String referer = request.getHeader("referer");
+        return "redirect:" + referer;
     }
 
     @RequestMapping("/{userId}")
-    public String User(HttpServletRequest request, @PathVariable String userId){
-        Member member=userService.getUserById(userId);
-        User user=(User)request.getSession().getAttribute("User");
-        System.out.println("member:"+member.getUser());
-        System.out.println(member);
-        if(member!=null) {
-         if(user!=null&&member.getUser().getUserId().equals(user.getUserId())) {
+    public String User(HttpServletRequest request, @PathVariable String userId) {
+        Member member = userService.getUserById(userId);
+        User user = (User) request.getSession().getAttribute("User");
+
+        if (member == null) {
             return "redirect:/user";
-         }
-            request.setAttribute("Member", member);
         }
+
+        if (user == null) {
+            member.setIsfollow(false);
+        } else {
+            if (member.getUser().getUserId().equals(user.getUserId())) {
+                return "redirect:/user";
+            }
+            member.setIsfollow(userService.isFollow(Long.parseLong(userId), user.getUserId())==1?true:false);
+        }
+
+        request.setAttribute("Member", member);
         return "/user/member";
     }
 

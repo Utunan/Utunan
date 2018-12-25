@@ -58,6 +58,12 @@
         where followUserId=#{userId}
     </select>
 
+    <select id="selectIsFollow" resultType="java.lang.Integer">
+        select count(*)
+        from follow
+        where followedUserId=#{followedUserId} and followUserId=#{followUserId}
+    </select>
+
     <select id="selectUserMessage" resultType="java.lang.Integer">
         select count(*)
         from message

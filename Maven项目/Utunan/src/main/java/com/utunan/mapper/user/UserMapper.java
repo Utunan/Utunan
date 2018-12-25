@@ -26,6 +26,11 @@ public interface UserMapper {
     User selectByP(User user);
     List<Message> selectUserAllReadInfo(User user);
     List<Message> selectUserAllNoReadInfo(User user);
+
+    default int selectIsFollow(@Param("followedUserId") Long followedUserId, @Param("followUserId") Long followUserId) {
+        return 0;
+    }
+
     Message selectMessageById(String messageId);
     int selectUserMessage(User user);
     int updateUser(User user);
