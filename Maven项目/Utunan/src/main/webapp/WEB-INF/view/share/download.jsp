@@ -35,8 +35,10 @@
                     </div>
                     <div class="detail-top">
                         ${file.fileTitle}
-                        <span><a class="fileType" href="/searchfile?fileType=${file.fileType}&school=${file.fileSchool}&keyWord=">${file.fileType}</a></span>
-                        <span><a class="fileSchool" href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a></span>
+                        <span class="ft"><a href="/searchfile?fileType=${file.fileType}&school=${file.fileSchool}&keyWord=">${file.fileType}</a></span>
+                        <c:if test="${not empty file.fileSchool}">
+                            <span class="fs"><a href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a></span>
+                        </c:if>
                     </div>
                     <div class="detail">
                         所在院校：<span>${file.user.userSchool}</span>
