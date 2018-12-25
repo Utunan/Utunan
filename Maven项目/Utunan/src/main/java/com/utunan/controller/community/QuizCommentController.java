@@ -44,6 +44,8 @@ public class QuizCommentController {
 
     @Autowired
     private TagService tagService;
+    @Autowired
+    private QuizGreatService quizGreatService;
 
     @Autowired
     private QuizCollectService quizCollectService;
@@ -101,6 +103,8 @@ public class QuizCommentController {
             //用户已登录
             userId = user.getUserId();
         }
+        //判断用户是否点赞过该问题
+        QuizGreat qg = this.quizGreatService.getQuizGreat(Long.parseLong(quizId), userId);
 
         //查询收藏的quiz
         List<Long> quizIds=this.quizCollectService.getAllQuizId(userId);
@@ -117,6 +121,7 @@ public class QuizCommentController {
         request.setAttribute("tag",hotTagList);
         request.setAttribute("quizIds",quizIds);
         request.setAttribute("user", user);
+        request.setAttribute("quizGreat", qg);
         return "community/detail";
     }
     

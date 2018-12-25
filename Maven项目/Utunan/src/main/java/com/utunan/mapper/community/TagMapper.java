@@ -34,4 +34,7 @@ public interface TagMapper {
 	//获取用户输入的标签
 	List<Long> getTags(@Param("listtag") List<String> listtag);
 
+	//所有标签
+	List<Tag> listAllTag();
+
 }
