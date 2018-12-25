@@ -20,12 +20,19 @@
         <img src="/images/questionbank/logo.png"/>
     </div>
 	<div class="s-bar">
-	   <form action="/search/question/1" method="post">
+	   <form  method="post"><!--action="/search/question/1"-->
 		<input type="text" name="wd" placeholder="在${totleQuestion}道题目中搜索">
-		<input type="submit"  value="搜索"/>
+		<input type="submit"  value="搜索" id="btn"/>
 	  </form>
 	</div>
 </div>
 <%@include file="../common/footer.jsp"%>
 </body>
+<script type="text/javascript">
+    $(function(){
+        $('#btn').click(function(){
+            alert("优题库施工中————敬请期待！");
+        })
+    })
+</script>
 </html>
