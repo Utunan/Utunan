@@ -105,6 +105,10 @@
                             <div class="options">
                                 <span class="optionName">研究方向 ></span>
                                 <input name="directionName" type="text" id="direction"  value="" placeholder="（选填）如：大数据"  class="layui-input">
+                            </div>
+                            <div class="options">
+                                <span class="optionName">院校名称 ></span>
+                                <input name="schoolName" type="text" id="sname"  value="" placeholder="（选填）如：河北师范大学"  class="layui-input">
                                 <input type="submit" value="搜索" id="search" class="layui-btn layui-btn-normal"/>
                             </div>
                         </div>

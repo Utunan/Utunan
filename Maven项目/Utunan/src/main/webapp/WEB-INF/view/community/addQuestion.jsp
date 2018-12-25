@@ -19,8 +19,6 @@
     <link rel="stylesheet" href="/css/community/global.css">
     <link rel="stylesheet" href="/css/community/add.css">
     <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
-    <script src="/js/jquery-1.10.2.js"></script>
-    <script src="/js/community/tag.js"></script>
 </head>
 <script>
     //禁用Enter键表单自动提交
@@ -103,8 +101,19 @@
                         </div>
                     </div>
                     <div class="layui-form-item addtags">
-                        <div class="addtags-description">添加标签：</div>
-                        <input type="text" id="tagValue" placeholder="" name="tags">
+                        <div style="max-width: 70%;">
+                            <div class="addtag-description" style="float: left;">已添加标签</div>
+                            <div class="addtagItem"></div>
+                            <br>
+                        </div>
+                        <div style="max-width: 70%;">
+                            <div class="tags-description">请选择标签：</div>
+                            <div class="tags">
+                                <c:forEach items="${tagList}" var="tag">
+                                    <div class="tag" style="display: block;">${tag.tagName}</div>
+                                </c:forEach>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -128,9 +137,19 @@
 
 <%@include file="../common/footer.jsp"%>
 </body>
-<script >
-    //添加标签
-    var tag = new Tag("tagValue");
-    tag.initView();
+<script>
+    var tags=document.getElementsByClassName("tag");
+    console.log(tags);
+    var addtag=document.getElementsByClassName("addtagItem")[0];
+    for(var i=0;i<tags.length;i++){
+        tags[i].onclick=function () {
+            this.style.display="none";
+            var add=document.createElement("div");
+            add.innerHTML=this.innerHTML;
+            add.className="addtag";
+            add.style="display:block; width:auto;display: block; background-color: #009688;margin:0px 5px;color: #fff; font-size: 14px;padding: 4px 10px;float: left; border-radius: 18px;text-align: center;";
+            addtag.appendChild(add);
+        }
+    }
 </script>
 </html>

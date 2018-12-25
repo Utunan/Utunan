@@ -32,13 +32,32 @@
                             <img src="/images/user/ans.svg"/>
                             <a href="/question/${Q.questionId}">${Q.questionContent }</a>
                         </span>
-                            </span>
-                            <span class="delete"><a href="/user/questioncollector/${Q.questionId}"><img
-                                    src="/images/user/qzcdelete.svg"/></a></span>
+                        <span class="delete">
+                            <a _href="/user/questioncollector/${Q.questionId}">
+                                <img src="/images/user/qzcdelete.svg"/>
+                            </a>
+                        </span>
                         </div>
                     </li>
                 </c:forEach>
             </nav>
+            <script>
+                $('.delete a').click(function () {
+                    url=$(this).attr('_href')
+                    fadenode=$(this).parent().parent().parent()
+                    console.log(url)
+                    $.ajax({
+                        type: "get",
+                        url: url,
+                        dataType: "json",
+                        success: function (data) {
+                            if(data['state']='success'){
+                                fadenode.fadeOut();
+                            }
+                        }
+                    })
+                })
+            </script>
             <%@include file="common/page.jsp" %>
         </div>
     </div>

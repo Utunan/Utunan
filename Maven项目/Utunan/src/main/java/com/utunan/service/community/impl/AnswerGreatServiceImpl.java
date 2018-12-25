@@ -6,6 +6,8 @@ import com.utunan.service.community.AnswerGreatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author 张正扬
  * @description: TODO
@@ -28,5 +30,10 @@ public class AnswerGreatServiceImpl implements AnswerGreatService {
     @Override
     public void delAnswerGreat(Long answerId, Long userId) {
         answerGreatMapper.delAnswerGreat(answerId,userId);
+    }
+
+    @Override
+    public List<Long> getAGList(Long userId) {
+        return answerGreatMapper.getAGList(userId);
     }
 }

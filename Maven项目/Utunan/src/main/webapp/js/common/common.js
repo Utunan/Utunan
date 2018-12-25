@@ -34,24 +34,3 @@ for(var i=0;i<postcontents.length;i++){
     postcontents[i].innerHTML=(postcontents[i].innerHTML.substr(1,150)).replace(/[\r\n]/g,"")
 }
 
-
-
-if($('#messagecount').html()==""||$('#messagecount').html()<="0"){
-    $('#messagecount').css('display',"none");
-}
-setInterval(function () {
-    $.ajax({
-        type: "post",
-        url: "/user/usermessage",
-        data:{"request":"messagecount"},
-        success: function (data) {
-            if(data=="0"){
-                $('#messagecount').css('display',"none");
-                $('#messagecount').html(0);
-            }else{
-                $('#messagecount').css('display',"block");
-                $('#messagecount').html(data)
-            }
-        }
-    });
-}, 3000)

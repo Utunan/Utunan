@@ -33,10 +33,10 @@ public class UserServiceImpl implements UserService {
         if (user.getUserEmail() != null) {
             if (StringUtil.isEmail(user.getUserEmail())) {
                 u = userMapper.selectByPermit(user);
-            }else{
+            } else {
                 u = userMapper.selectByP(user);
             }
-        }else {
+        } else {
             u = userMapper.selectByP(user);
         }
         return u;
@@ -63,10 +63,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Integer getUserMessageCount(User user) {
-        Integer messageCount=userMapper.selectUserMessage(user);
+        Integer messageCount = userMapper.selectUserMessage(user);
         return messageCount;
     }
 
+    @Override
+    public Integer isFollow(Long followedUserId, Long followUserId) {
+        Integer count = userMapper.selectIsFollow(followedUserId,followUserId);
+        if (count > 0)
+            return 1;
+        return 0;
+    }
     @Override
     public void saveUser(User user) {
         Date date = new Date();
@@ -78,8 +85,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void saveFollow(Long followUserId, Long followedUserId) {
+        userMapper.insertFollow(followUserId,followedUserId);
+    }
+
+    @Override
     public void cancelFollow(Long followedUserId, Long followUserId) {
-        userMapper.deleteFollow(followedUserId,followUserId);
+        userMapper.deleteFollow(followedUserId, followUserId);
     }
 
     @Override
@@ -106,23 +118,25 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Message getMessage(String messageId) {
-        Message message=userMapper.selectMessageById(messageId);
+        Message message = userMapper.selectMessageById(messageId);
         return message;
     }
 
     @Override
-    public List<Message> getUserReadInfo(User user,int pageNum,int pageSize) {
-        PageHelper.startPage(pageNum,pageSize);
-        List<Message> messages=userMapper.selectUserAllReadInfo(user);
-        return  messages;
+    public List<Message> getUserReadInfo(User user, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Message> messages = userMapper.selectUserAllReadInfo(user);
+        return messages;
     }
 
     @Override
-    public List<Message> getUserNoReadInfo(User user,int pageNum,int pageSize) {
-        PageHelper.startPage(pageNum,pageSize);
-        List<Message> messages=userMapper.selectUserAllNoReadInfo(user);
-        return  messages;
+    public List<Message> getUserNoReadInfo(User user, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Message> messages = userMapper.selectUserAllNoReadInfo(user);
+        return messages;
     }
+
+
 
     @Override
     public boolean changeUserHeadImg(User user, String userHeadImg) {
@@ -171,9 +185,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getFollowByUser(User user,int pageNum, int pageSize) {
-        PageHelper.startPage(pageNum,pageSize);
-        List<User> users=userMapper.selectFollowUser(user);
-        return  users;
+    public List<User> getFollowByUser(User user, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<User> users = userMapper.selectFollowUser(user);
+        return users;
     }
 }

@@ -80,7 +80,6 @@ body {
     cursor: pointer;
     width:60px;
     margin-top:25px;
-    padding:4px;
     text-align: center;
     background-color:rgba(0,188,155,1);
     color:#fff;
@@ -88,12 +87,17 @@ body {
     border-radius: 8px;
     float: left;
 }
-
+.isfollow:hover{
+    background-color:rgba(0,188,155,0.8);
+}
 .isfollow>a{
+    float: left;
     text-decoration: none;
     color:#fff;
+    padding:4px 0;
+    text-align: center;
+    width: 60px;
 }
-
 .schoolinfo {
     padding-left: 40px;
     margin-top: 38px;

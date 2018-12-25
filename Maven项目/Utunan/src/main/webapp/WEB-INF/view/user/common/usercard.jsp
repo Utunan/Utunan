@@ -7,7 +7,7 @@
             </div>
             <div class="countdown">
                 <h4 id="date"></h4>
-                <h5>距离<span id="examyear">2019</span>年考研还有<br><span id="surplus" style="color:#ff5f2c;font-size: 20px;">363</span>天</h5>
+                <h5>距离<span id="examyear">2020</span>年考研还有<br><span id="surplus" style="color:#ff5f2c;font-size: 20px;">361</span>天</h5>
             </div>
             <script>
                 var date = new Date();

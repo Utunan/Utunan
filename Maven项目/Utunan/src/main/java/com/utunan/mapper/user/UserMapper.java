@@ -15,6 +15,7 @@ import java.util.List;
 public interface UserMapper {
     //插入用户
     int insert(User user);
+    int insertFollow(@Param("followUserId")Long followUserId,@Param("followedUserId")Long followedUserId);
     //通过
     List<User> selectAllUser();
     List<User> selectAllMember();
@@ -26,6 +27,7 @@ public interface UserMapper {
     User selectByP(User user);
     List<Message> selectUserAllReadInfo(User user);
     List<Message> selectUserAllNoReadInfo(User user);
+    int selectIsFollow(@Param("followedUserId")Long followedUserId,@Param("followUserId")Long followUserId);
     Message selectMessageById(String messageId);
     int selectUserMessage(User user);
     int updateUser(User user);

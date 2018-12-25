@@ -8,11 +8,16 @@
         where answerId=#{answerId} and userId=#{userId}
     </select>
     <insert id="addAnswerGreat" parameterType="java.lang.Long">
-        insert into answer_great
+        insert into answer_great(answerId,userId)
         values (#{answerId},#{userId})
     </insert>
     <delete id="delAnswerGreat" parameterType="java.lang.Long">
         delete from answer_great
         where answerId=#{answerId} and userId=#{userId}
     </delete>
+    <select id="getAGList" parameterType="java.lang.Long" resultType="java.lang.Long">
+        select distinct answerId
+        from answer_great
+        where userId=#{userId}
+    </select>
 </mapper>

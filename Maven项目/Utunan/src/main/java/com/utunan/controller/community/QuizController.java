@@ -11,14 +11,18 @@ import com.utunan.service.community.QuizService;
 import com.utunan.service.community.QuizTagService;
 import com.utunan.service.community.TagService;
 import com.utunan.util.WordLimitUtil;
+import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -192,6 +196,7 @@ public class QuizController {
 			stateList.add("option");
 			stateList.add("active");
 		}
+
 		//返回数据
 		request.setAttribute("object",bigQuiz);
 		request.setAttribute("url","quiztag");
@@ -256,10 +261,11 @@ public class QuizController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/praise")
-	public String praiseQuiz(HttpServletRequest request,HttpSession session){
+	public void praiseQuiz(HttpServletRequest request, HttpSession session, HttpServletResponse response) throws IOException {
 		String quizId=request.getParameter("quizId");
 		User user=(User)session.getAttribute("User");
-
+		//创建JSON
+		JSONObject obj=new JSONObject();
 
 		//到问题点赞表进行查询是否有记录
 		QuizGreat quizGreat=quizGreatService.getQuizGreat(Long.parseLong(quizId),user.getUserId());
@@ -267,14 +273,25 @@ public class QuizController {
 			//未进行点赞
             quizGreatService.addQuizGreat(Long.parseLong(quizId),user.getUserId());
             this.quizService.praiseQuiz(Long.parseLong(quizId));
-            return "ok";
-
+            //查找当前的点赞数
+			Long qPraise = this.quizService.getCountPrise(Long.parseLong(quizId));
+			//加入json
+			obj.put("res", "ok");
+			obj.put("qPraise", qPraise);
+			//返回数据
+			response.getWriter().append(obj.toString());
         }
 		else {
 			//已点过赞
             quizGreatService.delQuizGreat(Long.parseLong(quizId),user.getUserId());
             this.quizService.delPraiseQuiz(Long.parseLong(quizId));
-            return "no";
+			//查找当前的点赞数
+			Long qPraise = this.quizService.getCountPrise(Long.parseLong(quizId));
+			//加入json
+			obj.put("res", "no");
+			obj.put("qPraise", qPraise);
+			//返回数据
+			response.getWriter().append(obj.toString());
         }
 	}
 
@@ -286,7 +303,9 @@ public class QuizController {
 	 * @return  java.lang.String
 	 */
 	@RequestMapping(value = "/toAddQuestion")
-	public String toAddQuestion(){
+	public String toAddQuestion(HttpServletRequest request){
+		List<Tag> tagList = this.tagService.listAllTag();
+		request.setAttribute("tagList", tagList);
 		return "/community/addQuestion";
 	}
 

@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="/css/register.css">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
-    <script src="/js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 <%@ include file="common/header.jsp" %>

@@ -42,4 +42,11 @@ public interface TagService {
 
 	List<Long> getTags(List<String> listtag);
 
+	/**
+	 * @author  孙程程
+	 * @description 获取所有标签
+	 * @date  16:22 2018/12/25
+	 * @return  java.util.List<com.utunan.pojo.base.community.Tag>
+	 */
+	List<Tag> listAllTag();
 }

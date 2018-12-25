@@ -218,11 +218,11 @@
                                             <em id="answer${answer.answerId}">${answer.praiseCount}</em>
                                         </c:otherwise>
                                     </c:choose>
-    
+
                                 </span>
                                 <span type="reply" class="write-reply">
-                                    <i class="iconfont icon-svgmoban53"></i>
-                                    回复
+                                    <i class="iconfont icon-vgmoban53</i>
+                                                                回复
                                 </span>
                                 <%--判断是否是用户本人--%>
                                 <c:if test="${user.userIdentity==3 && user.userId==answer.user.userId}">
@@ -249,7 +249,7 @@
                                         <c:if test="${commentNum==0}">
                                             <div class="slogen" id="slogen${answer.answerId}">啊嘞！还没有评论~</div>
                                         </c:if>
-    
+
                                     <c:if test="${commentNum!=0}">
                                         <ul class="commentlist" style="background-color:#fafafa" id="can${answer.answerId}">
                                             <c:forEach items="${map.keySet()}" var="m1">
@@ -465,7 +465,7 @@
             }
         });
     };
-</script>
+
 <script src="/js/common/login.js"></script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 
@@ -520,11 +520,11 @@
                         document.getElementById("f1"+answerId).innerHTML=parseInt(document.getElementById("f1"+answerId).innerHTML)+1;
                     }
                 });
+
             }
-<<<<<<< HEAD
-​        });
-​    };
-​    
+        });
+    };
+    
     // 登录用户对回答进行删除
     function delanswer(answerId) {
         $.ajax({
@@ -556,10 +556,6 @@
             }
         });
     };
-=======
-​        }
-​    }
->>>>>>> master
 </script>
 <script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
 </body>

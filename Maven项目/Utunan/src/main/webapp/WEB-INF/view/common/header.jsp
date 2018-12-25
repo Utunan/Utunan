@@ -19,6 +19,7 @@
                         <img src="/images/common/information.svg">
                         <div id="messagecount">${messagecount }</div>
                     </a>
+
                     <a href="/user/message" style="margin-left: 5px;">消息</a>
                 </span>
                     <span>
@@ -76,7 +77,7 @@
         <div class="search">
             <form action="/search/user" method="post" onsubmit="return true">
                 <div class="text">
-                    <input type="text" name="wd" placeholder="请输入内容"/>
+                    <input  required  type="text" name="wd" placeholder="请输入内容"/>
                     <button style="" type="submit"><img src="/images/common/search.png"/></button>
                 </div>
 
@@ -87,7 +88,7 @@
                 <a href="/school/displaySchool">优院校</a>
             </li>
             <li>
-                <a href="/subjects">优题库</a>
+                <a href="/searchquestion">优题库</a>
             </li>
             <li>
                 <a href="/quizs/rt/1">优问答</a>
@@ -97,5 +98,29 @@
             </li>
         </nav>
         <script src="/js/jquery-3.3.1.min.js"></script>
+        <script>
+
+            if ($('#messagecount').html() == "" || $('#messagecount').html() <= "0") {
+                $('#messagecount').css('display', "none");
+            } else {
+                $('#messagecount').css('display', "block");
+            }
+            setInterval(function () {
+                $.ajax({
+                    type: "post",
+                    url: "/user/usermessage",
+                    data: {"request": "messagecount"},
+                    success: function (data) {
+                        if (data == "0") {
+                            $('#messagecount').html(0);
+                            $('#messagecount').css('display', "none");
+                        } else {
+                            $('#messagecount').css('display', "block");
+                            $('#messagecount').html(data)
+                        }
+                    }
+                });
+            }, 500)
+        </script>
     </header>
 </div>

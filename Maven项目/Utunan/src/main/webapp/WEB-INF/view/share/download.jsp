@@ -35,8 +35,10 @@
                     </div>
                     <div class="detail-top">
                         ${file.fileTitle}
-                        <span><a class="fileType" href="/searchfile?fileType=${file.fileType}&school=${file.fileSchool}&keyWord=">${file.fileType}</a></span>
-                        <span><a class="fileSchool" href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a></span>
+                        <span class="ft"><a href="/searchfile?fileType=${file.fileType}&school=${file.fileSchool}&keyWord=">${file.fileType}</a></span>
+                        <c:if test="${not empty file.fileSchool}">
+                            <span class="fs"><a href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a></span>
+                        </c:if>
                     </div>
                     <div class="detail">
                         所在院校：<span>${file.user.userSchool}</span>
@@ -49,6 +51,16 @@
                         <input type="hidden" name="operate" value="${operate}">
                         <input id="download" class="input" type="submit" value="点击下载"/>
                     </form>
+                    <div>
+                        &nbsp;
+                        <a href="javascript:void(0);" onclick="fileup(${file.fileId})">
+                            <img id="fileup${file.fileId}" src="/images/share/zan.png"  width="20px" height="20px" alt="" srcset="">
+                        </a><em id="upnumber${file.fileId}">${file.upNumber}</em>
+                        &nbsp;
+                        <a href="javascript:void(0);" onclick="filedown(${file.fileId})">
+                            <img id="filedown${file.fileId}" src="/images/share/cai.png"  width="20px" height="20px" alt="" srcset="">
+                        </a><em id="downnumber${file.fileId}">${file.downNumber}</em>
+                    </div>
                     <div class="rightdetail" style="margin-right: 15px">
                         <span ><img src="/images/share/credit.svg"  class="credit" width="20px" height="20px">${file.fileCredit}</span>
                         <span ><img src="/images/share/downNum.svg"  class="downNum" width="20px" height="20px">${file.downloadNumber}</span>
@@ -173,51 +185,6 @@
         </form>
     </div>
 </div>
-<!--
-
-    <div>
-        <h3>相关文件</h3>
-        <table>
-            <tr>
-                <td>图标</td>
-                <td>文件</td>
-                <td>用户</td>
-                <td>类型</td>
-                <td>学校</td>
-                <td>积分</td>
-                <td>下载次数</td>
-            </tr>
-            <c:forEach items="${relatedFileList}" var="f">
-                <c:if test="${file.fileId != f.fileId}">
-                <tr>
-                    <td><img src="${f.suffix.imgUrl}" alt="文件类型" style="width: 20px; height: 20px"></td>
-                    <td><a href="/download?fileId=${f.fileId}" style="color: black">${f.fileTitle}</a></td>
-                    <td>${f.user.userNickName}</td>
-                    <td>${f.fileType}</td>
-                    <td>${f.fileSchool}</td>
-                    <td>${f.fileCredit}</td>
-                    <td>${f.downloadNumber}</td>
-                </tr>
-                </c:if>
-            </c:forEach>
-        </table>
-    </div>
-    <div>
-        <h3>热门文件</h3>
-        <table>
-            <tr>
-                <td>文件</td>
-                <td>下载次数</td>
-            </tr>
-            <c:forEach items="${hotFileList}" var="hotFile">
-                <tr>
-                    <td><a href="/download?fileId=${hotFile.fileId}">${hotFile.fileTitle}</a></td>
-                    <td>${hotFile.downloadNumber}</td>
-                </tr>
-            </c:forEach>
-        </table>
-    </div>
-    -->
 <%@include file="../common/footer.jsp"%>
 </body>
 <script>
@@ -231,17 +198,64 @@
 </script>
 <script type="text/javascript">
 
-    /*function check(form) {
-        if (form.operate.value=="notLogin") {
-            alert("请先登录！")
-            return false;
+    <!--赞-->
+    function fileup(fileId) {
+        if(${operate =="notLogin"}){
+            mask.style.display="block";
+            modalDialogcontent.style.display="block";
+        }else{
+            $.ajax({
+                url:'/fileUp',//处理数据的地址
+                type:'post',//数据提交形式
+                data:{'fileId':fileId},
+                dataType: "json",
+                success:function(d){//数据返回成功的执行放大
+                    var res = d.res;
+                    var number = d.number;
+                    if(res=='ok'){//点赞
+                        document.getElementById("upnumber"+fileId).innerHTML=number;
+                        console.log("点赞成功！");
+                    }
+                    if(res=='no'){//取消点赞
+                        document.getElementById("upnumber"+fileId).innerHTML=number;
+                        console.log("取消点赞！");
+                    }
+                },
+                error : function() {
+                    console.log("网可能不太好，请您稍等一会~");
+                }
+            });
         }
-        if (form.operate.value=="lackOfIntegral") {
-            alert("您的积分不足，快去发帖、评论赚积分吧！")
-            return false;
+    }
+    <!--踩-->
+    function filedown(fileId) {
+        if(${operate =="notLogin"}){
+            mask.style.display="block";
+            modalDialogcontent.style.display="block";
+        }else{
+            $.ajax({
+                url:'/fileDown',//处理数据的地址
+                type:'post',//数据提交形式
+                data:{'fileId':fileId},
+                dataType: "json",
+                success:function(d){//数据返回成功的执行放大
+                    var res = d.res;
+                    var number = d.number;
+                    if(res=='ok'){//踩
+                        document.getElementById("downnumber"+fileId).innerHTML=number;
+                        console.log("点踩成功！");
+                    }
+                    if(res=='no'){//取消踩
+                        document.getElementById("downnumber"+fileId).innerHTML=number;
+                        console.log("取消点踩！");
+                    }
+                },
+                error : function() {
+                    console.log("网可能不太好，请您稍等一会~");
+                }
+            });
         }
-        document.form1.submit();
-    }*/
+    }
 
     /*弹窗登录功能*/
     var ask=document.getElementById("download")
@@ -306,4 +320,5 @@
 </script>
 <script charset="UTF-8" type="text/javascript"  src="/js/share/dialog.js"></script>
 <script src="/js/common/login.js"></script>
+<script src="/js/common/common.js"></script>
 </html>

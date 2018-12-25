@@ -33,7 +33,7 @@
                             <span class="posttitle"><a href="/quiz/${A.quiz.quizId }">${A.quiz.quizTitle }</a></span>
                         </div>
                         <div class="postreply">
-                            <span>您回复了 : <a href="">${A.answerContent}</a></span></div>
+                            <span>您回复了 : <a href="/quiz/${A.quiz.quizId }">${A.answerContent}</a></span></div>
                         <div class="postbottom">
                             <span>回复于 : <fmt:formatDate value="${A.answerTime }" type="date" pattern="yyyy-MM-dd HH:mm:ss"/></span>
                             ·<span>点赞数 : ${A.praiseCount}</span>

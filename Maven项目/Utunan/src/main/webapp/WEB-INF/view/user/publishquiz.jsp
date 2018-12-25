@@ -36,7 +36,6 @@
                             <span>发表于 : <fmt:formatDate value="${Q.releaseTime }" type="date" pattern="yyyy-MM-dd HH:mm:ss"/></span>
                             ·<span>评论数 : ${Q.answerCount}</span>
                             ·<span>点赞数 : ${Q.praiseCount}</span>
-                            <%--<span><a href="">删除</a></span>--%>
                         </div>
                     </li>
                 </c:forEach>

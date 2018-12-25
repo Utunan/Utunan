@@ -100,7 +100,6 @@
               <%--判断是否有今年的招生简章--%>
               <c:choose>
                 <c:when test="${not empty EGfile}">
-                  <%--<div class="layui-timeline-title">&nbsp;&nbsp;<a href="/school/displayEG?schoolName=${publishDirection.schoolName}&fileType=招生简章">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>--%>
                   <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/file/${EGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>
                 </c:when>
                 <c:otherwise>
@@ -198,7 +197,7 @@
         <div class="fly-panel">
             <img src="/images/school/rabit.png" width="70px" id="cute"/>
             <div class="count">共&nbsp;<span class="timer count-title" id="count-number" data-to="${viewCount}" data-speed="7000" style="color:darkorange"></span>&nbsp;次浏览</div>
-            <div class="scollect"><a href="#">点此加入院校收藏夹！</a> </div>
+            <div class="scollect"><a href="javascript:void(0);" onclick="addCollector(${publishDirection.directionId})">点此加入院校收藏夹！</a> </div>
         </div>
         <div class="fly-panel">
             <div class="fly-panel-main">
@@ -400,6 +399,36 @@ layui.config({
     }
 
 </script>
+
+<script>
+  /*加入院校收藏夹*/
+  function addCollector(directionId){
+      if(${user==null}){
+          mask.style.display="block";
+          modalDialogcontent.style.display="block";
+      }else{
+          $.ajax({
+              url:'/school/addDController',//处理数据的地址
+              type:'post',//数据提交形式
+              data:{'directionId':directionId},//需要提交的数据
+              dataType: "json",
+              success:function(d){//数据返回成功的执行放大
+                  var res = d.res;
+                  var praiseCount = d.praiseCount;
+                  if(res=='ok'){//成功加入收藏夹
+                      console.log("加入成功！")
+                      javascript:$('body').colector({type:'success'});
+                  }
+                  if(res=='already'){//已经加入了
+                      console.log("已经加了!")
+                      javascript:$('body').alreadycolector({type:'success'});
+                  }
+              },
+          });
+      }
+  }
+</script>
+
 <script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
 <script src="/js/common/login.js"></script>
 <script src="/js/school/index.js"></script>

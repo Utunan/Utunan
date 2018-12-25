@@ -112,6 +112,11 @@ label{
     width: 40%;
     float:left;
 }
+#sname{
+    margin-left: 5px;
+    width: 40%;
+    float:left;
+}
 #blank{
     height:40px;
 }

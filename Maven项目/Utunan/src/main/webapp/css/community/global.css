@@ -120,7 +120,16 @@ pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid 
 .fly-zanzhu:hover{opacity: 0.9; color: #fff;}
 
 
-.tag{ width:110px;display: block; background-color: #009688;color: #fff; margin: 5px 5px; font-size: 13px;padding: 5px;float: left; border-radius: 18px;text-align: center;}
+.tag{
+  background-color: #009688;
+  color: #fff;
+  margin: 5px 5px;
+  font-size: 14px;
+  padding: 4px 10px;
+  float: left;
+  border-radius: 18px;
+  text-align: center;
+}
 /* 图标 */
 .icon-touxiang{display: inline-block; font-size: 34px;}
 .icon-qq, .icon-weibo{font-size: 30px;}
@@ -340,7 +349,7 @@ body .layui-edit-face  .layui-layer-content{padding:0; background-color:#fff; co
 .detail-body{margin: 20px 0 0; position: relative;min-height: 150px; line-height: 26px; font-size: 16px; color: #333; word-wrap: break-word;}
 .detail-body p{margin-bottom:15px;}
 .detail-body a{color:#4f99cf;}
-.detail-body img{max-width: 100%; cursor: default;}
+.detail-body img{max-width: 100%; cursor: default;float: left;}
 .detail-body table{margin: 10px 0 15px;}
 .detail-body table thead{background-color:#f2f2f2;}
 .detail-body table th, 

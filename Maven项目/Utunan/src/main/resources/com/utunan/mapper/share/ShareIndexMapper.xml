@@ -82,6 +82,7 @@
         <if test="fileType==null">
             ('招生简章','考研真题','招生专业目录','备考习题','参考书目','课件分享')
         </if>
+        order by f.downloadNumber desc
     </select>
     <!--根据Id查文件-->
     <select id="findFileById" resultMap="fileResultMap">
