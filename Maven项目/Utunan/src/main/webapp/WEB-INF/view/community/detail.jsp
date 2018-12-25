@@ -4,7 +4,6 @@
 <%@ taglib uri="/intel" prefix="ya" %>
 <%@ page import="java.util.List,com.utunan.pojo.*" %>
 
-<%--<!DOCTYPE html>--%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -18,11 +17,14 @@
     <link rel="stylesheet" href="/css/school/login.css">
     <link rel="stylesheet" href="/css/school/new.css">
     <link rel="stylesheet" href="/css/community/tagCloud.css">
+    <link rel="stylesheet" href="/css/school/animate.css">
+    <link rel="stylesheet" href="/css/school/dialog.css">
     <script type="text/javascript" src="/js/community/tagcloud.js"></script>
     <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
    <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
     <script> var pagenum = "${PageInfo.pageNum}"</script>
     <script>
+        /*问题点赞*/
         function praise(quizId) {
             if(${user==null}){
                 mask.style.display="block";
@@ -56,25 +58,35 @@
     </script>
 
     <script>
+        /*评论点赞*/
         function apraise(answerId) {
-            $.ajax({
-                url: '/aprise',//处理数据的地址
-                type: 'post',//数据提交形式
-                data: {'answerId': answerId},//需要提交的数据
-                success: function (d) {//数据返回成功的执行放大
-                    if (d == 'ok') {//成功
-                        //alert('点赞成功');
-                        document.getElementById("answer" + answerId).innerHTML = parseInt(document.getElementById("answer" + answerId).innerHTML) + 1;
-                    }
-                    if (d == 'no') {//失败
-                        //alert('取消点赞');
-                        document.getElementById("answer" + answerId).innerHTML = parseInt(document.getElementById("answer" + answerId).innerHTML) -1;
-                    }
-                },
-            });
+            if(${user==null}){
+                mask.style.display="block";
+                modalDialogcontent.style.display="block";
+            }else{
+                $.ajax({
+                    url: '/aprise',//处理数据的地址
+                    type: 'post',//数据提交形式
+                    data: {'answerId': answerId},//需要提交的数据
+                    dataType: "json",
+                    success: function (d) {//数据返回成功的执行放大
+                        var res = d.res;
+                        var praiseCount = d.answerPraiseCount;
+                        if (res == 'ok') {//成功点赞
+                            document.getElementById("answerZan"+answerId).style.color="#ff5722";
+                            document.getElementById("answer"+answerId).innerHTML=praiseCount;
+                            console.log("成功点赞")
+                        }
+                        if (res == 'no') {//取消点赞
+                            document.getElementById("answerZan"+answerId).style.color="#333";
+                            document.getElementById("answer"+answerId).innerHTML=praiseCount;
+                            console.log("取消点赞")
+                        }
+                    },
+                });
+            }
         }
     </script>
-
 </head>
 <body style="overflow:scroll;overflow-y:hidden">
 <body>
@@ -187,10 +199,19 @@
                                 <p>${answer.answerContent}</p>
                             </div>
                             <div class="jieda-reply">
+                                <%--评论点赞--%>
                                 <span class="jieda-zan zanok" type="zan">
-                                    <a href="javascript:void(0)" onclick="apraise(${answer.answerId})"><i
-                                          class="iconfont icon-zan"></i></a>
-                                <em id="answer${answer.answerId}">${answer.praiseCount}</em>
+                                    <c:choose>
+                                        <c:when test="${ya:judge(answerGreatList,answer.answerId)}">
+                                            <a style="color: #ff5722;" id="answerZan${answer.answerId}" href="javascript:void(0)" onclick="apraise(${answer.answerId})"><i class="iconfont icon-zan"></i></a>
+                                            <em id="answer${answer.answerId}">${answer.praiseCount}</em>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a style="color: #333;" id="answerZan${answer.answerId}" href="javascript:void(0)" onclick="apraise(${answer.answerId})"><i class="iconfont icon-zan"></i></a>
+                                            <em id="answer${answer.answerId}">${answer.praiseCount}</em>
+                                        </c:otherwise>
+                                    </c:choose>
+
                                 </span>
                                 <span type="reply" class="write-reply">
                                     <i class="iconfont icon-svgmoban53"></i>
@@ -262,7 +283,7 @@
                         <div class="write-answer-top">&nbsp;&nbsp;&nbsp;&nbsp;写回答</div>
                     </div>
                     <!--富文本编辑器-->
-                    <form action="/answer?quizId=${quiz.quizId}" method="post">
+                    <form name="fuform" onsubmit="return false" action="/answer?quizId=${quiz.quizId}" method="post">
                         <div class="text">
 
                             <div id="div1" class="toolbar" style="height: 35px"></div>
@@ -272,7 +293,7 @@
                         </div>
                         <div class="write-answer-bottom">
                             <div class="write-answer-bottom-content">
-                                <button type="submit" class="layui-btn layui-btn-fluid">提交回答</button>
+                                <button id="comsub" type="submit" class="layui-btn layui-btn-fluid">提交回答</button>
                             </div>
                         </div>
                     </form>
@@ -376,6 +397,26 @@
 <script>
     /*获取提交按钮*/
     var submitbutton = document.getElementById("submitbutton");
+    /*点击评论提交判断是否是用户，不是用户则弹出框*/
+    var ask=document.getElementById("comsub");
+    /*获取文本框*/
+    var text = document.getElementById("text1");
+    ask.onclick=function(){
+        if(${user==null}){
+            mask.style.display="block";
+            modalDialogcontent.style.display="block";
+        }else{
+            //判断文本框是否为空
+            var str = text.value.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+            if(str == '' || str == undefined || str == null){
+                //文本框为空
+                javascript:$('body').dialog({type:'success'});
+            }else{
+                //满足条件，可以提交
+                document.fuform.submit();
+            }
+        }
+    };
     //判断用户名和密码
     submitbutton.onclick=function(){
         $.ajax({
@@ -449,6 +490,6 @@
         });
     }
 </script>
-
+<script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
 </body>
 </html>

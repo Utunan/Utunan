@@ -6,10 +6,20 @@ package com.utunan.pojo.base.community;
  * @date 2018/12/8 17:02
  */
 public class AnswerGreat {
+    //主键Id
+    private Long answerGreatId;
     //回答评论ID
     private Long answerId;
     //点赞用户ID
     private Long userId;
+
+    public Long getAnswerGreatId() {
+        return answerGreatId;
+    }
+
+    public void setAnswerGreatId(Long answerGreatId) {
+        this.answerGreatId = answerGreatId;
+    }
 
     public Long getAnswerId() {
         return answerId;
@@ -30,7 +40,8 @@ public class AnswerGreat {
     @Override
     public String toString() {
         return "AnswerGreat{" +
-                "answerId=" + answerId +
+                "answerGreatId=" + answerGreatId +
+                ", answerId=" + answerId +
                 ", userId=" + userId +
                 '}';
     }
