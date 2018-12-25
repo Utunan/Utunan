@@ -400,6 +400,36 @@ layui.config({
     }
 
 </script>
+
+<script>
+  /*加入院校收藏夹*/
+  function addCollector(directionId){
+      if(${user==null}){
+          mask.style.display="block";
+          modalDialogcontent.style.display="block";
+      }else{
+          $.ajax({
+              url:'/school/addDController',//处理数据的地址
+              type:'post',//数据提交形式
+              data:{'directionId':directionId},//需要提交的数据
+              dataType: "json",
+              success:function(d){//数据返回成功的执行放大
+                  var res = d.res;
+                  var praiseCount = d.praiseCount;
+                  if(res=='ok'){//成功加入收藏夹
+                      console.log("加入成功！")
+                      javascript:$('body').colector({type:'success'});
+                  }
+                  if(res=='already'){//已经加入了
+                      console.log("已经加了!")
+                      javascript:$('body').alreadycolector({type:'success'});
+                  }
+              },
+          });
+      }
+  }
+</script>
+
 <script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
 <script src="/js/common/login.js"></script>
 <script src="/js/school/index.js"></script>
