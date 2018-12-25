@@ -198,7 +198,7 @@
         <div class="fly-panel">
             <img src="/images/school/rabit.png" width="70px" id="cute"/>
             <div class="count">共&nbsp;<span class="timer count-title" id="count-number" data-to="${viewCount}" data-speed="7000" style="color:darkorange"></span>&nbsp;次浏览</div>
-            <div class="scollect"><a href="#">点此加入院校收藏夹！</a> </div>
+            <div class="scollect"><a href="javascript:void(0);" onclick="addCollector(${publishDirection.directionId})">点此加入院校收藏夹！</a> </div>
         </div>
         <div class="fly-panel">
             <div class="fly-panel-main">
