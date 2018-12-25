@@ -1,0 +1,15 @@
+.detail-about {
+    position: absolute;
+    line-height: 20px;
+    padding: 0px;
+    font-size: 13px;
+    background-color: white;
+    color: #999;
+    padding-left: 80px;
+    padding-top: 15px;
+}
+.fly-avatar {
+    position: absolute;
+    left: 15px;
+    top: 13px;
+}
