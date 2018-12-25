@@ -4,7 +4,7 @@
 <%@ taglib uri="/intel" prefix="ya" %>
 <%@ page import="java.util.List,com.utunan.pojo.*" %>
 
-<!DOCTYPE html>
+<%--<!DOCTYPE html>--%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -24,24 +24,34 @@
     <script> var pagenum = "${PageInfo.pageNum}"</script>
     <script>
         function praise(quizId) {
-            $.ajax({
-                url: '/praise',//处理数据的地址
-                type: 'post',//数据提交形式
-                data: {'quizId': quizId},//需要提交的数据
-                success: function (data) {//数据返回成功的执行放大
-                    if (data == 'ok') {//成功
-                        //alert('点赞成功');
-                        document.getElementById("i5").innerHTML = parseInt(document.getElementById("i5").innerHTML)+1;
+            if(${user==null}){
+                mask.style.display="block";
+                modalDialogcontent.style.display="block";
+            }else{
+                $.ajax({
+                    url: '/praise',//处理数据的地址
+                    type: 'post',//数据提交形式
+                    data: {'quizId': quizId},//需要提交的数据
+                    dataType: "json",
+                    success: function (data) {//数据返回成功的执行放大
+                        var res = data.res;
+                        var praiseCount = data.qPraise;
+                        if (res=='ok') {//成功
+                            document.getElementById("i"+quizId).innerHTML=praiseCount;
+                            document.getElementById("zan"+quizId).style.color="#ff5722";
+                            console.log("成功点赞")
+                        }
+                        if (res=='no') {//失败
+                            document.getElementById("i"+quizId).innerHTML=praiseCount;
+                            document.getElementById("zan"+quizId).style.color="#333";
+                            console.log("取消点赞")
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        bootbox.alert("无法连接服务器:" + textStatus);
                     }
-                    if (data == 'no') {//失败
-                        //alert('取消点赞');
-                        document.getElementById("i5").innerHTML =parseInt(document.getElementById("i5").innerHTML)-1;
-                    }
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    bootbox.alert("无法连接服务器:" + textStatus);
-                }
-            });
+                });
+            }
         }
     </script>
 
@@ -106,10 +116,18 @@
                         <div class="quiztoolbar">
 
                             <div class="jieda-reply" id="good">
-              <span class="jieda-zan zanok" type="zan">
-                  <a href="javascript:void(0)" onclick="praise(${quiz.quizId})"><i class="iconfont icon-zan"></i></a>
-                  <em ><span id="i5">${quiz.praiseCount}</span></em>
-              </span>
+                              <span class="jieda-zan zanok" type="zan">
+                                  <c:choose>
+                                      <c:when test="${not empty quizGreat}">  <%--如果用户已经点赞，显示红赞--%>
+                                          <a style="color: #ff5722;" id="zan${quiz.quizId}" href="javascript:void(0)" onclick="praise(${quiz.quizId})"><i class="iconfont icon-zan"></i></a>
+                                          <em ><span id="i${quiz.quizId}">${quiz.praiseCount}</span></em>
+                                      </c:when>
+                                      <c:otherwise>  <%--没有点赞，显示灰色--%>
+                                          <a style="color: #333;" id="zan${quiz.quizId}" href="javascript:void(0)" onclick="praise(${quiz.quizId})"><i class="iconfont icon-zan"></i></a>
+                                          <em ><span id="i${quiz.quizId}">${quiz.praiseCount}</span></em>
+                                      </c:otherwise>
+                                  </c:choose>
+                              </span>
                             </div>
 
                             <div class="re_num">
@@ -266,30 +284,6 @@
         <%@include file="right.jsp" %>
     </div>
 </div>
-<%--弹窗登录表单--%>
-<div class="modalDialogcontent">
-    <span class="close_modalDialogcontent">×</span>
-    <div class="textcase">
-        <div class="logintext">
-            <a href="">登录</a>
-        </div>
-    </div>
-    <div class="reply" id="reply"></div>
-    <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">
-        <div class="permit inputcase">
-            <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="您的手机/邮箱">
-        </div>
-        <div class="loginpassword inputcase">
-            <input type="password" name="userPassword" id="password" placeholder="请输入密码">
-        </div>
-        <div class="loginbtn">
-            <button id="closeAll">不了</button>
-            <button id="submitbutton" type="submit">登录</button>
-        </div>
-        <span><a id="register" href="/register">立即注册</a> </span>
-        <span><a id="forpasswork" href="/forgetpasswork">忘记密码</a> </span> <%--还未实现该页面--%>
-    </form>
-</div>
 </body>
 <script type="text/javascript">
     /*3D标签云*/
@@ -382,74 +376,36 @@
 <script src="/js/community/tag.js"></script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script>
-    /*弹窗登录功能*/
-    var mask = document.getElementsByClassName("mask")[0];
-    var modalDialogcontent = document.getElementsByClassName("modalDialogcontent")[0];
     /*获取提交按钮*/
-    var submit = document.getElementById("submitbutton");
-    /*获取关闭按钮*/
-    var closeAll = document.getElementById("closeAll");
-
-    /*判断是否是用户，是用户则收藏，不是用户则弹出框*/
-    function collector(quizId) {
-        if (${user==null}) {
-            mask.style.display= "block";
-            modalDialogcontent.style.display = "block";
-        } else {
-            $.ajax({
-                url: '/quizCollector',//处理数据的地址
-                type: 'post',//数据提交形式
-                data: {'quizId': quizId},
-                dataType: "json",
-                success: function (d) {//数据返回成功的执行放大
-                    var res = d.res;
-                    if (res == 'ok') {//添加收藏
-                        console.log("收藏成功！");
-                        document.getElementById("collect" + quizId).src = "/images/school/redheart.svg";
-                    }
-                    if (res == 'no') {//取消收藏
-                        console.log("取消收藏！");
-                        document.getElementById("collect" + quizId).src = "/images/school/whiteheart.svg";
-                    }
-                },
-                error: function () {
-                    console.log("网可能不太好，请您稍等一会~");
-                }
-            });
-        }
-    }
-
+    var submitbutton = document.getElementById("submitbutton");
     //判断用户名和密码
-    submit.onclick = function () {
+    submitbutton.onclick=function(){
         $.ajax({
+            //几个参数需要注意一下
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "/school/popsupLogin",//url
+            url: "/school/popsupLogin" ,//url
             data: $('#loginform').serialize(),
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
-                if (result == true) {
-                    window.location.href = "/quiz/${quiz.quizId}";
-                } else {
-                    document.getElementById("reply").innerHTML = "通行证或密码错误";
+                if(result==true){
+                    console.log("登录成功");
+                    window.location.href="/quiz/${quiz.quizId}";
+                }else{
+                    textpassword.style.display="block";
+                    password.style.display="none";
+                    textpassword.parentNode.style.border = '1px solid red';
+                    textpassword.style.color="red";
+                    textpassword.value="密码错误";
                 }
             },
-            error: function () {
-                document.getElementById("reply").innerHTML = "网可能不太好，请您稍等一会~";
+            error : function() {
+                console.log("网崩了！")
             }
         });
     };
-
-    /*点击小叉号然后关闭*/
-    var close_modalDialogcontent = document.getElementsByClassName("close_modalDialogcontent")[0];
-    close_modalDialogcontent.onclick = function () {
-        mask.style.display = "none";
-        modalDialogcontent.style.display = "none";
-    };
-    closeAll.onclick = function () {
-        mask.style.display = "none";
-        modalDialogcontent.style.display = "none";
-    };
 </script>
+<script src="/js/common/login.js"></script>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 </body>
 </html>

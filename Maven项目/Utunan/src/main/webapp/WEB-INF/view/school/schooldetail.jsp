@@ -417,16 +417,10 @@ layui.config({
                   if(res=='ok'){//成功加入收藏夹
                       console.log("加入成功！")
                       javascript:$('body').colector({type:'success'});
-                      /*document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
-                      document.getElementById("zan"+directionCommentId).style.color="#ff5722";*/
-
                   }
                   if(res=='already'){//已经加入了
                       console.log("已经加了!")
                       javascript:$('body').alreadycolector({type:'success'});
-                      /*document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
-                      document.getElementById("zan"+directionCommentId).style.color="#333";*/
-
                   }
               },
           });
