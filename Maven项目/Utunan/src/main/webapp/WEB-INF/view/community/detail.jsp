@@ -264,7 +264,7 @@
                                         </ul>
                                     </c:if>
                                         <div class="reply" style="display: none;">
-                                            <form action="" method="post" onsubmit="return false" id="commenta${answer.answerId}">
+                                            <form name="smallform" action="" method="post" onsubmit="return false" id="commenta${answer.answerId}">
                                                 <input type="text" name="comment" id="comment${answer.answerId}">
                                                 <button type="submit"  onclick="comments(${answer.answerId})">回复</button>
                                             </form>
@@ -400,20 +400,21 @@
     /*点击评论提交判断是否是用户，不是用户则弹出框*/
     var ask=document.getElementById("comsub");
     /*获取文本框*/
-    var text = document.getElementById("text1");
-    ask.onclick=function(){
+    var text1 = document.getElementById("text1");
+
+    ask.onclick = function (){
         if(${user==null}){
             mask.style.display="block";
             modalDialogcontent.style.display="block";
         }else{
             //判断文本框是否为空
-            var str = text.value.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
-            if(str == '' || str == undefined || str == null){
+            var str1 = text1.value.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+            if(str1 == '' || str1 == undefined || str1 == null){
                 //文本框为空
                 javascript:$('body').dialog({type:'success'});
             }else{
                 //满足条件，可以提交
-                document.fuform.submit();
+                document.smallform.submit();
             }
         }
     };
@@ -451,43 +452,56 @@
 <%--ajax异步提交表单--%>
 <script>
     function comments(answerId) {
-        $.ajax({
-            url: '/answer1/'+answerId,//处理数据的地址
-            dataType: "json",//预期服务器返回的数据类型
-            type: 'post',//数据提交形式
-            data: {"text":$('#comment'+answerId).val()},//需要提交的数据
-            success: function (data) {//数据返回成功的执行放大
-                console.log(data);
-                // 清空文本框内容
-                document.getElementById("commenta"+answerId).reset();
-                // 对json日期对象进行格式化
-                var date=new Date();
-                date.setTime(data['reb']['answerTime']['time']);
-                var y = date.getFullYear();
-                var m = date.getMonth()+1;
-                m = m<10?'0'+m:m;
-                var d = date.getDate();
-                d = d<10?("0"+d):d;
-                var h = date.getHours();
-                h = h<10?("0"+h):h;
-                var M = date.getMinutes();
-                M = M<10?("0"+M):M;
-                var S = date.getSeconds();
-                S = S<10?("0"+S):S;
-                var str = y+"-"+m+"-"+d+" "+h+":"+M+":"+S;
-                if(${commentNum!=0}) {
-                    node = '<li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span></div></li>'
-                    $('#can' + answerId).append(node);
-                }
-                else{
-                    $("#slogen"+answerId).css("display","none");
-                    snode = '<ul class="commentlist" style="background-color:#fafafa" id="can'+answerId+'"><li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span></div></li></ul>';
-                    $('#ddt'+answerId).append(snode);
-                }
+        if(${user==null}){
+            mask.style.display="block";
+            modalDialogcontent.style.display="block";
+        }else{
+            //判断文本框是否为空
+            var str2 = document.getElementById("comment"+answerId).value.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+            if(str2 == '' || str2 == undefined || str2 == null){
+                //文本框为空
+                javascript:$('body').dialog({type:'success'});
+            }else{
+                //满足条件，可以提交
+                $.ajax({
+                    url: '/answer1/'+answerId,//处理数据的地址
+                    dataType: "json",//预期服务器返回的数据类型
+                    type: 'post',//数据提交形式
+                    data: {"text":$('#comment'+answerId).val()},//需要提交的数据
+                    success: function (data) {//数据返回成功的执行放大
+                        console.log(data);
+                        // 清空文本框内容
+                        document.getElementById("commenta"+answerId).reset();
+                        // 对json日期对象进行格式化
+                        var date=new Date();
+                        date.setTime(data['reb']['answerTime']['time']);
+                        var y = date.getFullYear();
+                        var m = date.getMonth()+1;
+                        m = m<10?'0'+m:m;
+                        var d = date.getDate();
+                        d = d<10?("0"+d):d;
+                        var h = date.getHours();
+                        h = h<10?("0"+h):h;
+                        var M = date.getMinutes();
+                        M = M<10?("0"+M):M;
+                        var S = date.getSeconds();
+                        S = S<10?("0"+S):S;
+                        var str = y+"-"+m+"-"+d+" "+h+":"+M+":"+S;
+                        if(${commentNum!=0}) {
+                            node = '<li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span></div></li>'
+                            $('#can' + answerId).append(node);
+                        }
+                        else{
+                            $("#slogen"+answerId).css("display","none");
+                            snode = '<ul class="commentlist" style="background-color:#fafafa" id="can'+answerId+'"><li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span></div></li></ul>';
+                            $('#ddt'+answerId).append(snode);
+                        }
 
-                document.getElementById("f1"+answerId).innerHTML=parseInt(document.getElementById("f1"+answerId).innerHTML)+1;
+                        document.getElementById("f1"+answerId).innerHTML=parseInt(document.getElementById("f1"+answerId).innerHTML)+1;
+                    }
+                });
             }
-        });
+        }
     }
 </script>
 <script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
