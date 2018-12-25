@@ -4,7 +4,6 @@
 <%@ taglib uri="/intel" prefix="ya" %>
 <%@ page import="java.util.List,com.utunan.pojo.*" %>
 
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -18,53 +17,76 @@
     <link rel="stylesheet" href="/css/school/login.css">
     <link rel="stylesheet" href="/css/school/new.css">
     <link rel="stylesheet" href="/css/community/tagCloud.css">
+    <link rel="stylesheet" href="/css/school/animate.css">
+    <link rel="stylesheet" href="/css/school/dialog.css">
     <script type="text/javascript" src="/js/community/tagcloud.js"></script>
     <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
    <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
     <script> var pagenum = "${PageInfo.pageNum}"</script>
     <script>
+        /*问题点赞*/
         function praise(quizId) {
-            $.ajax({
-                url: '/praise',//处理数据的地址
-                type: 'post',//数据提交形式
-                data: {'quizId': quizId},//需要提交的数据
-                success: function (data) {//数据返回成功的执行放大
-                    if (data == 'ok') {//成功
-                        //alert('点赞成功');
-                        document.getElementById("i5").innerHTML = parseInt(document.getElementById("i5").innerHTML)+1;
+            if(${user==null}){
+                mask.style.display="block";
+                modalDialogcontent.style.display="block";
+            }else{
+                $.ajax({
+                    url: '/praise',//处理数据的地址
+                    type: 'post',//数据提交形式
+                    data: {'quizId': quizId},//需要提交的数据
+                    dataType: "json",
+                    success: function (data) {//数据返回成功的执行放大
+                        var res = data.res;
+                        var praiseCount = data.qPraise;
+                        if (res=='ok') {//成功
+                            document.getElementById("i"+quizId).innerHTML=praiseCount;
+                            document.getElementById("zan"+quizId).style.color="#ff5722";
+                            console.log("成功点赞")
+                        }
+                        if (res=='no') {//失败
+                            document.getElementById("i"+quizId).innerHTML=praiseCount;
+                            document.getElementById("zan"+quizId).style.color="#333";
+                            console.log("取消点赞")
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        bootbox.alert("无法连接服务器:" + textStatus);
                     }
-                    if (data == 'no') {//失败
-                        //alert('取消点赞');
-                        document.getElementById("i5").innerHTML =parseInt(document.getElementById("i5").innerHTML)-1;
-                    }
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    bootbox.alert("无法连接服务器:" + textStatus);
-                }
-            });
+                });
+            }
         }
     </script>
 
     <script>
+        /*评论点赞*/
         function apraise(answerId) {
-            $.ajax({
-                url: '/aprise',//处理数据的地址
-                type: 'post',//数据提交形式
-                data: {'answerId': answerId},//需要提交的数据
-                success: function (d) {//数据返回成功的执行放大
-                    if (d == 'ok') {//成功
-                        //alert('点赞成功');
-                        document.getElementById("answer" + answerId).innerHTML = parseInt(document.getElementById("answer" + answerId).innerHTML) + 1;
-                    }
-                    if (d == 'no') {//失败
-                        //alert('取消点赞');
-                        document.getElementById("answer" + answerId).innerHTML = parseInt(document.getElementById("answer" + answerId).innerHTML) -1;
-                    }
-                },
-            });
+            if(${user==null}){
+                mask.style.display="block";
+                modalDialogcontent.style.display="block";
+            }else{
+                $.ajax({
+                    url: '/aprise',//处理数据的地址
+                    type: 'post',//数据提交形式
+                    data: {'answerId': answerId},//需要提交的数据
+                    dataType: "json",
+                    success: function (d) {//数据返回成功的执行放大
+                        var res = d.res;
+                        var praiseCount = d.answerPraiseCount;
+                        if (res == 'ok') {//成功点赞
+                            document.getElementById("answerZan"+answerId).style.color="#ff5722";
+                            document.getElementById("answer"+answerId).innerHTML=praiseCount;
+                            console.log("成功点赞")
+                        }
+                        if (res == 'no') {//取消点赞
+                            document.getElementById("answerZan"+answerId).style.color="#333";
+                            document.getElementById("answer"+answerId).innerHTML=praiseCount;
+                            console.log("取消点赞")
+                        }
+                    },
+                });
+            }
         }
     </script>
-
 </head>
 <body style="overflow:scroll;overflow-y:hidden">
 <body>
@@ -106,12 +128,20 @@
                         <div class="quiztoolbar">
 
                             <div class="jieda-reply" id="good">
-              <span class="jieda-zan zanok" type="zan">
-                  <a href="javascript:void(0)" onclick="praise(${quiz.quizId})"><i class="iconfont icon-zan"></i></a>
-                  <em ><span id="i5">${quiz.praiseCount}</span></em>
-              </span>
+                              <span class="jieda-zan zanok" type="zan">
+                                  <c:choose>
+                                      <c:when test="${not empty quizGreat}">  <%--如果用户已经点赞，显示红赞--%>
+                                          <a style="color: #ff5722;" id="zan${quiz.quizId}" href="javascript:void(0)" onclick="praise(${quiz.quizId})"><i class="iconfont icon-zan"></i></a>
+                                          <em ><span id="i${quiz.quizId}">${quiz.praiseCount}</span></em>
+                                      </c:when>
+                                      <c:otherwise>  <%--没有点赞，显示灰色--%>
+                                          <a style="color: #333;" id="zan${quiz.quizId}" href="javascript:void(0)" onclick="praise(${quiz.quizId})"><i class="iconfont icon-zan"></i></a>
+                                          <em ><span id="i${quiz.quizId}">${quiz.praiseCount}</span></em>
+                                      </c:otherwise>
+                                  </c:choose>
+                              </span>
                             </div>
-
+    
                             <div class="re_num">
                                 <img src="/images/community/zan.svg" width="24px" height="34px">
                                 <span class="write-reply">${answerCountByQuizId}</span>
@@ -142,7 +172,7 @@
                     </div><!--quizcontent-->
                 </div>
             </div>
-
+    
             <div class="fly-panel detail-box" id="flyReply">
                 <fieldset class="layui-elem-field layui-field-title" style="text-align: center;">
                     <legend>回答</legend>
@@ -167,7 +197,7 @@
                                         <fmt:formatDate value="${answer.answerTime}" type="both"/>
                                     </span>
                                 </div>
-
+    
                                 <div class="detail-hits">
                                     <span>所在院校：${answer.user.userSchool}&nbsp;&nbsp;&nbsp;目标院校：${answer.user.dreamSchool}</span>
                                 </div>
@@ -176,10 +206,19 @@
                                 <p>${answer.answerContent}</p>
                             </div>
                             <div class="jieda-reply">
+                                <%--评论点赞--%>
                                 <span class="jieda-zan zanok" type="zan">
-                                    <a href="javascript:void(0)" onclick="apraise(${answer.answerId})"><i
-                                          class="iconfont icon-zan"></i></a>
-                                <em id="answer${answer.answerId}">${answer.praiseCount}</em>
+                                    <c:choose>
+                                        <c:when test="${ya:judge(answerGreatList,answer.answerId)}">
+                                            <a style="color: #ff5722;" id="answerZan${answer.answerId}" href="javascript:void(0)" onclick="apraise(${answer.answerId})"><i class="iconfont icon-zan"></i></a>
+                                            <em id="answer${answer.answerId}">${answer.praiseCount}</em>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a style="color: #333;" id="answerZan${answer.answerId}" href="javascript:void(0)" onclick="apraise(${answer.answerId})"><i class="iconfont icon-zan"></i></a>
+                                            <em id="answer${answer.answerId}">${answer.praiseCount}</em>
+                                        </c:otherwise>
+                                    </c:choose>
+    
                                 </span>
                                 <span type="reply" class="write-reply">
                                     <i class="iconfont icon-svgmoban53"></i>
@@ -210,7 +249,7 @@
                                         <c:if test="${commentNum==0}">
                                             <div class="slogen" id="slogen${answer.answerId}">啊嘞！还没有评论~</div>
                                         </c:if>
-
+    
                                     <c:if test="${commentNum!=0}">
                                         <ul class="commentlist" style="background-color:#fafafa" id="can${answer.answerId}">
                                             <c:forEach items="${map.keySet()}" var="m1">
@@ -246,7 +285,7 @@
                                         </ul>
                                     </c:if>
                                         <div class="reply" style="display: none;">
-                                            <form action="" method="post" onsubmit="return false" id="commenta${answer.answerId}">
+                                            <form name="smallform" action="" method="post" onsubmit="return false" id="commenta${answer.answerId}">
                                                 <input type="text" name="comment" id="comment${answer.answerId}">
                                                 <button type="submit"  onclick="comments(${answer.answerId},${quiz.quizId})">回复</button>
                                             </form>
@@ -258,24 +297,24 @@
                         <!--a answer-->
                     </c:forEach>
                 </ul>
-
+    
                 <div class="write-answer" class="layui-form layui-form-pane">
                     <div class="write-answer-top">
                         <img src="/images/community/write.svg" width="25px" height="25px">
                         <div class="write-answer-top">&nbsp;&nbsp;&nbsp;&nbsp;写回答</div>
                     </div>
                     <!--富文本编辑器-->
-                    <form action="/answer?quizId=${quiz.quizId}" method="post">
+                    <form name="fuform" onsubmit="return false" action="/answer?quizId=${quiz.quizId}" method="post">
                         <div class="text">
-
+    
                             <div id="div1" class="toolbar" style="height: 35px"></div>
                             <div id="div2" style="height: 130px"></div>
                             <textarea id="text1" style="display: none" name="textarea"></textarea>
-
+    
                         </div>
                         <div class="write-answer-bottom">
                             <div class="write-answer-bottom-content">
-                                <button type="submit" class="layui-btn layui-btn-fluid">提交回答</button>
+                                <button id="comsub" type="submit" class="layui-btn layui-btn-fluid">提交回答</button>
                             </div>
                         </div>
                     </form>
@@ -284,30 +323,6 @@
         </div>
         <%@include file="right.jsp" %>
     </div>
-</div>
-<%--弹窗登录表单--%>
-<div class="modalDialogcontent">
-    <span class="close_modalDialogcontent">×</span>
-    <div class="textcase">
-        <div class="logintext">
-            <a href="">登录</a>
-        </div>
-    </div>
-    <div class="reply" id="reply"></div>
-    <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">
-        <div class="permit inputcase">
-            <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="您的手机/邮箱">
-        </div>
-        <div class="loginpassword inputcase">
-            <input type="password" name="userPassword" id="password" placeholder="请输入密码">
-        </div>
-        <div class="loginbtn">
-            <button id="closeAll">不了</button>
-            <button id="submitbutton" type="submit">登录</button>
-        </div>
-        <span><a id="register" href="/register">立即注册</a> </span>
-        <span><a id="forpasswork" href="/forgetpasswork">忘记密码</a> </span> <%--还未实现该页面--%>
-    </form>
 </div>
 </body>
 <script type="text/javascript">
@@ -359,7 +374,7 @@
             comments[j].style.display = "block";
             var replyContent=comments[j].getElementsByClassName("reply")[0];
             replyContent.style.display = "block";
-
+    
         }
     }
 
@@ -401,118 +416,115 @@
 <script src="/js/community/tag.js"></script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script>
-    /*弹窗登录功能*/
-    var mask = document.getElementsByClassName("mask")[0];
-    var modalDialogcontent = document.getElementsByClassName("modalDialogcontent")[0];
     /*获取提交按钮*/
-    var submit = document.getElementById("submitbutton");
-    /*获取关闭按钮*/
-    var closeAll = document.getElementById("closeAll");
+    var submitbutton = document.getElementById("submitbutton");
+    /*点击评论提交判断是否是用户，不是用户则弹出框*/
+    var ask=document.getElementById("comsub");
+    /*获取文本框*/
+    var text1 = document.getElementById("text1");
 
-    /*判断是否是用户，是用户则收藏，不是用户则弹出框*/
-    function collector(quizId) {
-        if (${user==null}) {
-            mask.style.display= "block";
-            modalDialogcontent.style.display = "block";
-        } else {
-            $.ajax({
-                url: '/quizCollector',//处理数据的地址
-                type: 'post',//数据提交形式
-                data: {'quizId': quizId},
-                dataType: "json",
-                success: function (d) {//数据返回成功的执行放大
-                    var res = d.res;
-                    if (res == 'ok') {//添加收藏
-                        console.log("收藏成功！");
-                        document.getElementById("collect" + quizId).src = "/images/school/redheart.svg";
-                    }
-                    if (res == 'no') {//取消收藏
-                        console.log("取消收藏！");
-                        document.getElementById("collect" + quizId).src = "/images/school/whiteheart.svg";
-                    }
-                },
-                error: function () {
-                    console.log("网可能不太好，请您稍等一会~");
-                }
-            });
+    ask.onclick = function (){
+        if(${user==null}){
+            mask.style.display="block";
+            modalDialogcontent.style.display="block";
+        }else{
+            //判断文本框是否为空
+            var str1 = text1.value.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+            if(str1 == '' || str1 == undefined || str1 == null){
+                //文本框为空
+                javascript:$('body').dialog({type:'success'});
+            }else{
+                //满足条件，可以提交
+                document.smallform.submit();
+            }
         }
-    }
-
+    };
     //判断用户名和密码
-    submit.onclick = function () {
+    submitbutton.onclick=function(){
         $.ajax({
+            //几个参数需要注意一下
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "/school/popsupLogin",//url
+            url: "/school/popsupLogin" ,//url
             data: $('#loginform').serialize(),
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
-                if (result == true) {
-                    window.location.href = "/quiz/${quiz.quizId}";
-                } else {
-                    document.getElementById("reply").innerHTML = "通行证或密码错误";
+                if(result==true){
+                    console.log("登录成功");
+                    window.location.href="/quiz/${quiz.quizId}";
+                }else{
+                    textpassword.style.display="block";
+                    password.style.display="none";
+                    textpassword.parentNode.style.border = '1px solid red';
+                    textpassword.style.color="red";
+                    textpassword.value="密码错误";
                 }
             },
-            error: function () {
-                document.getElementById("reply").innerHTML = "网可能不太好，请您稍等一会~";
+            error : function() {
+                console.log("网崩了！")
             }
         });
-    };
-
-    /*点击小叉号然后关闭*/
-    var close_modalDialogcontent = document.getElementsByClassName("close_modalDialogcontent")[0];
-    close_modalDialogcontent.onclick = function () {
-        mask.style.display = "none";
-        modalDialogcontent.style.display = "none";
-    };
-    closeAll.onclick = function () {
-        mask.style.display = "none";
-        modalDialogcontent.style.display = "none";
     };
 </script>
+<script src="/js/common/login.js"></script>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 
+<%--ajax异步提交表单--%>
 <script>
-    <%--ajax异步提交表单--%>
-    function comments(answerId,quizId) {
-        $.ajax({
-            url: '/answer1/'+answerId+'/'+quizId,//处理数据的地址
-            dataType: "json",//预期服务器返回的数据类型
-            type: 'post',//数据提交形式
-            data: {"text":$('#comment'+answerId).val()},//需要提交的数据
-            success: function (data) {//数据返回成功的执行放大
-                console.log(data);
-                // 清空文本框内容
-                document.getElementById("commenta"+answerId).reset();
-                // 对json日期对象进行格式化
-                var date=new Date();
-                date.setTime(data['reb']['answerTime']['time']);
-                var y = date.getFullYear();
-                var m = date.getMonth()+1;
-                m = m<10?'0'+m:m;
-                var d = date.getDate();
-                d = d<10?("0"+d):d;
-                var h = date.getHours();
-                h = h<10?("0"+h):h;
-                var M = date.getMinutes();
-                M = M<10?("0"+M):M;
-                var S = date.getSeconds();
-                S = S<10?("0"+S):S;
-                var str = y+"-"+m+"-"+d+" "+h+":"+M+":"+S;
-                if(${commentNum!=0}) {
-                    node = '<li id="co'+data['reb']['answerId']+'"><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span><span type="reply"><i class="iconfont icon-svgmoban53"></i><a href="javascript:void(0)" onclick="delcomment('+data['reb']['answerId']+','+data['reb']['parentAnswer']+')">删除</a></span></div></li>'
-                    $('#can' + answerId).append(node);
-                }
-                else{
-                    $("#slogen"+answerId).css("display","none");
-                    snode = '<ul class="commentlist" style="background-color:#fafafa" id="can'+answerId+'"><li id="co'+data['reb']['answerId']+'"><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span><span type="reply"><i class="iconfont icon-svgmoban53"></i><a href="javascript:void(0)" onclick="delcomment('+data['reb']['answerId']+','+data['reb']['parentAnswer']+')">删除</a></span></div></li></ul>';
-                    $('#ddt'+answerId).append(snode);
-                }
+    function comments(answerId) {
+        if(${user==null}){
+            mask.style.display="block";
+            modalDialogcontent.style.display="block";
+        }else{
+            //判断文本框是否为空
+            var str2 = document.getElementById("comment"+answerId).value.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+            if(str2 == '' || str2 == undefined || str2 == null){
+                //文本框为空
+                javascript:$('body').dialog({type:'success'});
+            }else{
+                //满足条件，可以提交
+                $.ajax({
+                    url: '/answer1/'+answerId,//处理数据的地址
+                    dataType: "json",//预期服务器返回的数据类型
+                    type: 'post',//数据提交形式
+                    data: {"text":$('#comment'+answerId).val()},//需要提交的数据
+                    success: function (data) {//数据返回成功的执行放大
+                        console.log(data);
+                        // 清空文本框内容
+                        document.getElementById("commenta"+answerId).reset();
+                        // 对json日期对象进行格式化
+                        var date=new Date();
+                        date.setTime(data['reb']['answerTime']['time']);
+                        var y = date.getFullYear();
+                        var m = date.getMonth()+1;
+                        m = m<10?'0'+m:m;
+                        var d = date.getDate();
+                        d = d<10?("0"+d):d;
+                        var h = date.getHours();
+                        h = h<10?("0"+h):h;
+                        var M = date.getMinutes();
+                        M = M<10?("0"+M):M;
+                        var S = date.getSeconds();
+                        S = S<10?("0"+S):S;
+                        var str = y+"-"+m+"-"+d+" "+h+":"+M+":"+S;
+                        if(${commentNum!=0}) {
+                            node = '<li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span></div></li>'
+                            $('#can' + answerId).append(node);
+                        }
+                        else{
+                            $("#slogen"+answerId).css("display","none");
+                            snode = '<ul class="commentlist" style="background-color:#fafafa" id="can'+answerId+'"><li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span></div></li></ul>';
+                            $('#ddt'+answerId).append(snode);
+                        }
 
-                document.getElementById("f1"+answerId).innerHTML=parseInt(document.getElementById("f1"+answerId).innerHTML)+1;
+                        document.getElementById("f1"+answerId).innerHTML=parseInt(document.getElementById("f1"+answerId).innerHTML)+1;
+                    }
+                });
             }
-        });
-    };
-    
+<<<<<<< HEAD
+​        });
+​    };
+​    
     // 登录用户对回答进行删除
     function delanswer(answerId) {
         $.ajax({
@@ -521,7 +533,7 @@
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
                 if (result == "ok") {
-
+    
                     $('#an'+answerId).css("display","none");
                 }
             }
@@ -544,6 +556,11 @@
             }
         });
     };
+=======
+​        }
+​    }
+>>>>>>> master
 </script>
+<script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
 </body>
 </html>
