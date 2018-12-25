@@ -102,7 +102,7 @@ public class AnswerServiceImpl implements AnswerService {
      */
 
     @Override
-    public void saveAnswer1(Long aid,Long answerId,String content,User user){
+    public void saveAnswer1(Long aid,Long quizId,Long answerId,String content,User user){
         Answer answer =new Answer();
         answer.setAnswerId(aid);
         answer.setParentAnswer(answerId);
@@ -110,6 +110,7 @@ public class AnswerServiceImpl implements AnswerService {
         answer.setAnswerContent(content);
         answer.setAnswerTime(new Date());
         answer.setPraiseCount(Long.parseLong("0"));
+        answer.setQuizId(quizId);
         answerMapper.toInsert1(answer);
     }
 
@@ -145,5 +146,17 @@ public class AnswerServiceImpl implements AnswerService {
     @Override
     public Answer getAnswer(Long aid) {
         return this.answerMapper.getAnswer(aid);
+    }
+
+    //根据answerId删除回答及评论
+    @Override
+    public void delAnswer(Long answerId) {
+        this.answerMapper.delAnswer(answerId);
+    }
+
+    //登录用户删除评论
+    @Override
+    public void delComment(Long answerId, Long parentanswerId) {
+        this.answerMapper.delComment(answerId,parentanswerId);
     }
 }

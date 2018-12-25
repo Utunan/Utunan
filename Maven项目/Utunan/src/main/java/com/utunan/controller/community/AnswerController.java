@@ -69,7 +69,7 @@ public class AnswerController {
 
 
     @ResponseBody
-    @RequestMapping(value = "/answer1/{answerId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/answer1/{answerId}/{quizId}", method = RequestMethod.POST)
     /*
      * @author  张正扬
      * @description 向评论表中插入评论
@@ -77,7 +77,7 @@ public class AnswerController {
      * @param  [request, session]
      * @return  java.lang.String
      */
-    public void insertComment1(@PathVariable String answerId, HttpServletRequest request, HttpSession session, HttpServletResponse response) throws
+    public void insertComment1(@PathVariable String quizId,@PathVariable String answerId, HttpServletRequest request, HttpSession session, HttpServletResponse response) throws
             IOException {
         //创建JSON
         JSONObject obj=new JSONObject();
@@ -88,7 +88,7 @@ public class AnswerController {
         aid += 1;
         if (ob != null) {
             User user = (User) ob;
-            this.answerService.saveAnswer1(aid, Long.parseLong(answerId), content, user);
+            this.answerService.saveAnswer1(aid,Long.parseLong(quizId), Long.parseLong(answerId), content, user);
             //查询刚插入的评论信息
             Answer a=this.answerService.getAnswer(aid);
             obj.put("reb",a);

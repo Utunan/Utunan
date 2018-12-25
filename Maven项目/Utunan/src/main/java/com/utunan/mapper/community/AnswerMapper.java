@@ -58,4 +58,10 @@ public interface AnswerMapper {
 
     //查询刚插入的评论信息
     Answer getAnswer(@Param("answerId") Long answerId);
+
+    //根据answerId删除回答及评论
+    void delAnswer(@Param("answerId") Long answerId);
+
+    //登录用户删除评论
+    void delComment(@Param("answerId") Long answerId, @Param("parentanswerId") Long parentanswerId);
 }

@@ -141,7 +141,7 @@
                                   </c:choose>
                               </span>
                             </div>
-
+    
                             <div class="re_num">
                                 <img src="/images/community/zan.svg" width="24px" height="34px">
                                 <span class="write-reply">${answerCountByQuizId}</span>
@@ -160,12 +160,19 @@
                                     </c:otherwise>
                                 </c:choose>
                                 <span class="collection">收藏此问题</span>
+                                <%--判断是否是用户本人--%>
+                                <c:if test="${user.userIdentity==3 && user.userId==quiz.user.userId}">
+                                  <span type="reply">
+                                    <i class="iconfont icon-svgmoban53"></i>
+                                    <a href="/delquiz/${quiz.quizId}">删除</a>
+                                  </span>
+                                </c:if>
                             </div>
                         </div><!--toolbar-->
                     </div><!--quizcontent-->
                 </div>
             </div>
-
+    
             <div class="fly-panel detail-box" id="flyReply">
                 <fieldset class="layui-elem-field layui-field-title" style="text-align: center;">
                     <legend>回答</legend>
@@ -176,7 +183,7 @@
                 </select>
                 <ul class="jieda" id="jieda">
                     <c:forEach items="${answer}" var="answer" varStatus="cou">
-                        <li data-id="111" class="jieda-daan">
+                        <li data-id="111" class="jieda-daan" id="an${answer.answerId }">
                             <a name="item-1111111111"></a>
                             <div class="detail-about detail-about-reply">
                                 <a class="fly-avatar" href="">
@@ -190,7 +197,7 @@
                                         <fmt:formatDate value="${answer.answerTime}" type="both"/>
                                     </span>
                                 </div>
-
+    
                                 <div class="detail-hits">
                                     <span>所在院校：${answer.user.userSchool}&nbsp;&nbsp;&nbsp;目标院校：${answer.user.dreamSchool}</span>
                                 </div>
@@ -214,9 +221,16 @@
 
                                 </span>
                                 <span type="reply" class="write-reply">
-                                    <i class="iconfont icon-svgmoban53"></i>
-                                    回复
+                                    <i class="iconfont icon-vgmoban53</i>
+                                                                回复
                                 </span>
+                                <%--判断是否是用户本人--%>
+                                <c:if test="${user.userIdentity==3 && user.userId==answer.user.userId}">
+                                      <span type="reply">
+                                        <i class="iconfont icon-svgmoban53"></i>
+                                        <a href="javascript:void(0)" onclick="delanswer(${answer.answerId})">删除</a>
+                                      </span>
+                                </c:if>
                                 <div class="jieda-admin">
                                     <c:forEach items="${map0.keySet()}" var="b">
                                         <c:if test="${b.answerId==answer.answerId}">
@@ -241,7 +255,7 @@
                                             <c:forEach items="${map.keySet()}" var="m1">
                                                 <c:if test="${m1.answerId==answer.answerId}">
                                                     <c:forEach items="${map.get(m1)}" var="m2">
-                                                        <li>
+                                                        <li id="co${m2.answerId }">
                                                             <div class="fly-detail-user">
                                                                 <a href="" class="fly-link">
                                                                     <cite>${m2.user.userNickName}</cite>
@@ -256,6 +270,13 @@
                                                               <i class="iconfont icon-zan"></i>
                                                               <em>${m2.praiseCount}</em>
                                                               </span>
+                                                              <%--判断是否是用户本人--%>
+                                                                <c:if test="${user.userIdentity==3 && user.userId==answer.user.userId}">
+                                                                      <span type="reply">
+                                                                        <i class="iconfont icon-svgmoban53"></i>
+                                                                        <a href="javascript:void(0)" onclick="delcomment(${m2.answerId },${answer.answerId})">删除</a>
+                                                                      </span>
+                                                                </c:if>
                                                             </div>
                                                         </li>
                                                     </c:forEach>
@@ -266,7 +287,7 @@
                                         <div class="reply" style="display: none;">
                                             <form name="smallform" action="" method="post" onsubmit="return false" id="commenta${answer.answerId}">
                                                 <input type="text" name="comment" id="comment${answer.answerId}">
-                                                <button type="submit"  onclick="comments(${answer.answerId})">回复</button>
+                                                <button type="submit"  onclick="comments(${answer.answerId},${quiz.quizId})">回复</button>
                                             </form>
                                         </div>
                                   </blockquote>
@@ -276,7 +297,7 @@
                         <!--a answer-->
                     </c:forEach>
                 </ul>
-
+    
                 <div class="write-answer" class="layui-form layui-form-pane">
                     <div class="write-answer-top">
                         <img src="/images/community/write.svg" width="25px" height="25px">
@@ -285,11 +306,11 @@
                     <!--富文本编辑器-->
                     <form name="fuform" onsubmit="return false" action="/answer?quizId=${quiz.quizId}" method="post">
                         <div class="text">
-
+    
                             <div id="div1" class="toolbar" style="height: 35px"></div>
                             <div id="div2" style="height: 130px"></div>
                             <textarea id="text1" style="display: none" name="textarea"></textarea>
-
+    
                         </div>
                         <div class="write-answer-bottom">
                             <div class="write-answer-bottom-content">
@@ -353,7 +374,7 @@
             comments[j].style.display = "block";
             var replyContent=comments[j].getElementsByClassName("reply")[0];
             replyContent.style.display = "block";
-
+    
         }
     }
 
@@ -444,7 +465,6 @@
             }
         });
     };
-</script>
 
 <script src="/js/common/login.js"></script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
@@ -500,9 +520,42 @@
                         document.getElementById("f1"+answerId).innerHTML=parseInt(document.getElementById("f1"+answerId).innerHTML)+1;
                     }
                 });
+
             }
-        }
-    }
+        });
+    };
+    
+    // 登录用户对回答进行删除
+    function delanswer(answerId) {
+        $.ajax({
+            type: "get",//发送方式
+            url: "/delanswer/"+answerId,//url地址
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if (result == "ok") {
+    
+                    $('#an'+answerId).css("display","none");
+                }
+            }
+        });
+    };
+    // 登录用户对评论进行删除
+    function delcomment(answerId,parentanswerId) {
+        $.ajax({
+            type: "get",//发送方式
+            url: "/delcomment/"+answerId+"/"+parentanswerId,//url地址
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if (result == "ok") {
+                    document.getElementById("f1"+answerId).innerHTML=parseInt(document.getElementById("f1"+answerId).innerHTML)-1;
+                    if(parseInt(document.getElementById("f1"+answerId).innerHTML)!=0){
+                        $("#slogen"+answerId).css("display","block");
+                    }
+                    $('#co'+answerId).css("display","none");
+                }
+            }
+        });
+    };
 </script>
 <script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
 </body>
