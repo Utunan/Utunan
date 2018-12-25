@@ -47,12 +47,10 @@
                 </c:forEach>
                 <script>
                     alla=$('#message a')
-                    console.log(alla)
                     alla.click(function(){
-                        id=$(this).parent().attr('id')
-                        $()
                         url=$(this).attr('_href')
-                        window.location.href=url;
+                        var tempwindow=window.open('_blank'); // 先打开页面
+                        tempwindow.location=url; // 后更改页面地址
                     })
                 </script>
             </nav>

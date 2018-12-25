@@ -5,7 +5,7 @@ collection = document.getElementById('collection');
 plate=document.getElementById("currentplate").value;
 
 dict={
-    "myspace":0,"message":1,"message/read":1,"message/noread":1,"follow":2,"statistics":3,"publishquiz":5,
+    "myspace":0,"message":1,"message/read":1,"message/noread":1,"follow":2,"statistics":3,"download":4,"publishquiz":5,
     "publishanswer":6,"directioncollector":8,"quizcollector":9,
     "questioncollector":10,"settings":11
 }

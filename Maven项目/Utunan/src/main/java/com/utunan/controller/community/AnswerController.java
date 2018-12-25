@@ -1,17 +1,23 @@
 package com.utunan.controller.community;
 
+import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.user.User;
 import com.utunan.service.community.AnswerService;
 import com.utunan.service.community.QuizService;
 import com.utunan.service.user.MessageService;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 /**
@@ -62,7 +68,8 @@ public class AnswerController {
     }
 
 
-    @RequestMapping(value = "/answer1", method = RequestMethod.POST)
+    @ResponseBody
+    @RequestMapping(value = "/answer1/{answerId}", method = RequestMethod.POST)
     /*
      * @author  张正扬
      * @description 向评论表中插入评论
@@ -70,23 +77,23 @@ public class AnswerController {
      * @param  [request, session]
      * @return  java.lang.String
      */
-    public String insertComment1(HttpServletRequest request, HttpSession session) throws
-            UnsupportedEncodingException {
+    public void insertComment1(@PathVariable String answerId, HttpServletRequest request, HttpSession session, HttpServletResponse response) throws
+            IOException {
+        //创建JSON
+        JSONObject obj=new JSONObject();
         request.setCharacterEncoding("UTF-8");
-        String answerId = request.getParameter("answerId");
         String content = request.getParameter("text");
         Object ob = session.getAttribute("User");
         Long aid = this.answerService.getMaxAid();
         aid += 1;
         if (ob != null) {
             User user = (User) ob;
-
-
             this.answerService.saveAnswer1(aid, Long.parseLong(answerId), content, user);
-
-
-
+            //查询刚插入的评论信息
+            Answer a=this.answerService.getAnswer(aid);
+            obj.put("reb",a);
+            response.getWriter().append(obj.toString());
         }
-        return "redirect:/displayChildAnswer?answerId=" + answerId;
+
     }
 }

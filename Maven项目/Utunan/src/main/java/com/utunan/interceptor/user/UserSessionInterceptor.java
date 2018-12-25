@@ -18,21 +18,22 @@ public class UserSessionInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        HttpSession session= request.getSession();
-        User user=(User)session.getAttribute("User");
-        if(user==null){
-            response.sendRedirect("/login");
-            return false;
-        }else{
-
-            User checkUser =userService.getUser(user);
-            if (user.getUserPassword().equals(checkUser.getUserPassword())){
-                session.setAttribute("User",checkUser);
-                return true;
-            }else{
-                session.removeAttribute("User");
+        try {
+            HttpSession session = request.getSession();
+            User user = (User) session.getAttribute("User");
+            if (user == null)
                 response.sendRedirect("/login");
+            else {
+                User checkUser = userService.getUser(user);
+                if (user.getUserPassword().equals(checkUser.getUserPassword()))
+                    session.setAttribute("User", checkUser);
+                else {
+                    session.removeAttribute("User");
+                    response.sendRedirect("/login");
+                }
             }
+        }catch(Exception e){
+            return false;
         }
         return  true;
     }

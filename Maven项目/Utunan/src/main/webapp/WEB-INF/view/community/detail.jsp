@@ -199,12 +199,12 @@
                                 <div class="jieda-admin">
                                     <c:forEach items="${map0.keySet()}" var="b">
                                         <c:if test="${b.answerId==answer.answerId}">
-                                            <div class="view-comments">查看评论（${map0.get(b)}）</div>
+                                            <div class="view-comments">查看评论（<span id="f1${answer.answerId }">${map0.get(b)}</span>）</div>
                                             <c:set var="commentNum" value="${map0.get(b)}"/>
                                         </c:if>
                                     </c:forEach>
                                 </div>
-                                <div class="comments" style="display:none">
+                                <div class="comments" style="display:none" id="ddt${answer.answerId}">
                                     <blockquote class="layui-elem-quote" id="haha" style="background-color:#fafafa">
                                         <select class="comments-sequencing-principle" name="" id="sq">
                                             <option value="0">按时间顺序</option>
@@ -212,18 +212,11 @@
                                         </select>
                                         <div class="close">收起评论</div>
                                         <c:if test="${commentNum==0}">
-                                            <div class="slogen">啊嘞！还没有评论~</div>
+                                            <div class="slogen" id="slogen${answer.answerId}">啊嘞！还没有评论~</div>
                                         </c:if>
-                                        <div class="reply" style="display: none;">
-                                            <form action="" method="post">
-                                                <input type="text" name="">
-                                                <button type="submit" name="">回复</button>
-                                            </form>
-                                        </div>
-                                    </blockquote>
 
                                     <c:if test="${commentNum!=0}">
-                                        <ul class="commentlist" style="background-color:#fafafa">
+                                        <ul class="commentlist" style="background-color:#fafafa" id="can${answer.answerId}">
                                             <c:forEach items="${map.keySet()}" var="m1">
                                                 <c:if test="${m1.answerId==answer.answerId}">
                                                     <c:forEach items="${map.get(m1)}" var="m2">
@@ -232,18 +225,16 @@
                                                                 <a href="" class="fly-link">
                                                                     <cite>${m2.user.userNickName}</cite>
                                                                 </a>
-                                                                <span>发表于
-                               <fmt:formatDate value="${m2.getAnswerTime() }" pattern="yyyy-MM-dd "/>
-                           </span>
+                                                                <span>发表于<fmt:formatDate value="${m2.getAnswerTime() }" type="both"/></span>
                                                             </div>
                                                             <div class="detail-body jieda-body photos">
                                                                 <p>${m2.answerContent}</p>
                                                             </div>
                                                             <div class="jieda-reply">
-                          <span class="jieda-zan zanok" type="zan">
-                          <i class="iconfont icon-zan"></i>
-                          <em>${m2.praiseCount}</em>
-                          </span>
+                                                              <span class="jieda-zan zanok" type="zan">
+                                                              <i class="iconfont icon-zan"></i>
+                                                              <em>${m2.praiseCount}</em>
+                                                              </span>
                                                             </div>
                                                         </li>
                                                     </c:forEach>
@@ -251,6 +242,13 @@
                                             </c:forEach><!--评论循环完毕-->
                                         </ul>
                                     </c:if>
+                                        <div class="reply" style="display: none;">
+                                            <form action="" method="post" onsubmit="return false" id="commenta${answer.answerId}">
+                                                <input type="text" name="comment" id="comment${answer.answerId}">
+                                                <button type="submit"  onclick="comments(${answer.answerId})">回复</button>
+                                            </form>
+                                        </div>
+                                  </blockquote>
                                 </div>
                             </div>
                         </li>
@@ -405,7 +403,52 @@
         });
     };
 </script>
+
 <script src="/js/common/login.js"></script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+
+<%--ajax异步提交表单--%>
+<script>
+    function comments(answerId) {
+        $.ajax({
+            url: '/answer1/'+answerId,//处理数据的地址
+            dataType: "json",//预期服务器返回的数据类型
+            type: 'post',//数据提交形式
+            data: {"text":$('#comment'+answerId).val()},//需要提交的数据
+            success: function (data) {//数据返回成功的执行放大
+                console.log(data);
+                // 清空文本框内容
+                document.getElementById("commenta"+answerId).reset();
+                // 对json日期对象进行格式化
+                var date=new Date();
+                date.setTime(data['reb']['answerTime']['time']);
+                var y = date.getFullYear();
+                var m = date.getMonth()+1;
+                m = m<10?'0'+m:m;
+                var d = date.getDate();
+                d = d<10?("0"+d):d;
+                var h = date.getHours();
+                h = h<10?("0"+h):h;
+                var M = date.getMinutes();
+                M = M<10?("0"+M):M;
+                var S = date.getSeconds();
+                S = S<10?("0"+S):S;
+                var str = y+"-"+m+"-"+d+" "+h+":"+M+":"+S;
+                if(${commentNum!=0}) {
+                    node = '<li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span></div></li>'
+                    $('#can' + answerId).append(node);
+                }
+                else{
+                    $("#slogen"+answerId).css("display","none");
+                    snode = '<ul class="commentlist" style="background-color:#fafafa" id="can'+answerId+'"><li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span></div></li></ul>';
+                    $('#ddt'+answerId).append(snode);
+                }
+
+                document.getElementById("f1"+answerId).innerHTML=parseInt(document.getElementById("f1"+answerId).innerHTML)+1;
+            }
+        });
+    }
+</script>
+
 </body>
 </html>

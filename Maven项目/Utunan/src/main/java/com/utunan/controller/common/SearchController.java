@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.base.community.Answer;
 import com.utunan.pojo.base.community.Quiz;
 import com.utunan.pojo.base.community.Tag;
+import com.utunan.pojo.base.share.File;
 import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.inherit.community.BigQuiz;
 import com.utunan.pojo.util.Analyzer;
@@ -62,7 +63,7 @@ public class SearchController {
 		List<User> userList=this.searchService.findUser(keyWords);
 		//返回数据
 		request.setAttribute("object", userList);
-		request.setAttribute("url","searchUser");
+		request.setAttribute("url","/search/user");
 		request.setAttribute("keyWord", keyWord);
 		request.setAttribute("PageInfo",new PageInfo(userList,5));
 		return "common/searchresult";
@@ -129,10 +130,10 @@ public class SearchController {
 		request.setAttribute("quizListTop10",quizListTop10);
 		request.setAttribute("tag",hotTagList);
 		request.setAttribute("object",bigQuiz);
-		request.setAttribute("url","searchQuiz");
+		request.setAttribute("url","/search/quiz");
 		request.setAttribute("keyWord", keyWord);
 		request.setAttribute("PageInfo",new PageInfo(quizList,5));
-		return "common/searchquiz";
+		return "common/searchresult";
 	}
 
 	/**
@@ -144,7 +145,6 @@ public class SearchController {
 	 */
 	@RequestMapping("/search/answer/{pageNum}")
 	public String searchAnswer(HttpServletRequest request, @PathVariable String pageNum){
-//		String pageNum=request.getParameter("p");
 		//判断当前页
 		int num=0;
 		if(pageNum==null || pageNum.equals("")){
@@ -177,9 +177,49 @@ public class SearchController {
 		request.setAttribute("quizListTop10",quizListTop10);
 		request.setAttribute("tag",hotTagList);
 		request.setAttribute("object", answerList);
-		request.setAttribute("url","searchAnswer");
+		request.setAttribute("url","/search/answer");
 		request.setAttribute("keyWord", keyWord);
 		request.setAttribute("PageInfo",new PageInfo(answerList,5));
-		return "common/searchquiz";
+		return "common/searchresult";
+	}
+
+	@RequestMapping("/search/file/{pageNum}")
+	public String searchFile(HttpServletRequest request, @PathVariable String pageNum){
+		//判断当前页
+		int num=0;
+		if(pageNum==null || pageNum.equals("")){
+			num=1;
+		}else{
+			num=Integer.parseInt(pageNum);
+		}
+		String keyWord=request.getParameter("wd");
+		Analyzer analyzer=new Analyzer();
+		//过滤关键词
+		keyWord=analyzer.filter(keyWord);
+		List<String> keyWords= new ArrayList<>();
+		if(keyWord.equals("") || keyWord==null){
+			keyWords.add(".");
+		}else{
+			//对搜索条件进行分词
+			try {
+				keyWords = analyzer.Analyzer(keyWord);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		//文件列表
+		List<File> fileList = this.searchService.findFile(keyWords,num,10);
+		//热门标签
+		Object hotTagList=this.tagService.getTop10Tag();
+		//查询前10个评论数量的问题
+		List<Quiz> quizListTop10=quizService.quizListTop10();
+		//返回数据
+		request.setAttribute("quizListTop10",quizListTop10);
+		request.setAttribute("tag",hotTagList);
+		request.setAttribute("object", fileList);
+		request.setAttribute("url","/search/file");
+		request.setAttribute("keyWord", keyWord);
+		request.setAttribute("PageInfo",new PageInfo(fileList,5));
+		return "common/searchresult";
 	}
 }

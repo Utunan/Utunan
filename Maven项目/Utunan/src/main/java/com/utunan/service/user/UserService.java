@@ -11,6 +11,7 @@ public interface UserService {
     Member getUserById(String userId);
     Integer getUserMessageCount(User user);
     void saveUser(User user);
+    void cancelFollow(Long followedUserId,Long followUserId);
     boolean isExist(User user);
     boolean changeInfo(User user);
     User changeUserPassword(User user);
@@ -24,4 +25,5 @@ public interface UserService {
     List<User> getAllUser(int pageNum,int pageSize);
     List<User> getAllMember(int pageNum,int pageSize);
     List<User> getAllAdmin(int pageNum,int pageSize);
+    List<User> getFollowByUser(User user,int pageNum, int pageSize);
 }

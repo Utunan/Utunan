@@ -84,7 +84,7 @@
                     <span class="fly-mid"></span>
                     <!--<span>TX：这里要加一个靠右的搜索框</span>-->
                     <div class="searchindex">
-                        <form action="/search/quiz/1" method="post">
+                        <form action="/searchquiz/1" method="post">
                             <input type="text" class="" placeholder="请输入搜索条件..." name="wd">
                             <button class="layui-btn" type="submit">Go!</button>
                         </form>

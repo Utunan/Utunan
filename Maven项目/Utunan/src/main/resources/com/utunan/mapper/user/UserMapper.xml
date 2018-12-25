@@ -53,7 +53,7 @@
     </select>
 
     <select id="selectFollowUser" resultType="com.utunan.pojo.base.user.User">
-        select u.userId, u.userHeadImg,u.userNickName
+        select u.userId,u.examTime, u.userHeadImg,u.userNickName,u.userSchool,u.dreamSchool
         from user u left join follow f on u.userId=f.followedUserId
         where followUserId=#{userId}
     </select>
@@ -137,5 +137,9 @@
         set userEmail=#{userEmail}
         where userId=#{userId}
     </update>
-
+    <delete id="deleteFollow">
+        delete
+        from follow
+        where followedUserId=#{followedUserId} and followUserId=#{followUserId}
+    </delete>
 </mapper>

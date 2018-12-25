@@ -27,7 +27,7 @@ public class MemberController {
         Member member=userService.getUserById(userId);
         User user=(User)request.getSession().getAttribute("User");
         System.out.println("member:"+member.getUser());
-        System.out.println(user);
+        System.out.println(member);
         if(member!=null) {
          if(user!=null&&member.getUser().getUserId().equals(user.getUserId())) {
             return "redirect:/user";

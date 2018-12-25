@@ -50,7 +50,7 @@
             <result property="releaseTime" column="releaseTime"/>
             <result property="praiseCount" column="praiseCount"/>
         </association>
-        <association property="user" javaType="com.utunan.pojo.base.user.User">
+        <association property="user" column="userId" javaType="com.utunan.pojo.base.user.User">
             <id property="userId" column="userId"/>
             <result property="userEmail" column="userEmail"/>
             <result property="userTelephone" column="userTelephone"/>
@@ -70,6 +70,51 @@
         select *
         from answer c
         join quiz q on c.quizId=q.quizId
+        join user u on c.userId=u.userId
         where c.answerContent regexp #{keyWord}
+    </select>
+    <resultMap id="fileResultMap" type="com.utunan.pojo.base.share.File">
+        <id property="fileId" column="fileId"/>
+        <result property="quizTitle" column="quizTitle"/>
+        <result property="userId" column="userId"/>
+        <result property="fileTime" column="fileTime"/>
+        <result property="downloadNumber" column="downloadNumber"/>
+        <result property="fileTitle" column="fileTitle"/>
+        <result property="fileUrl" column="fileUrl"/>
+        <result property="fileType" column="fileType"/>
+        <result property="fileSchool" column="fileSchool"/>
+        <result property="fileCredit" column="fileCredit"/>
+        <result property="suffixId" column="suffixId"/>
+        <result property="isExamine" column="isExamine"/>
+        <result property="fileDiscription" column="fileDiscription"/>
+        <result property="upNumber" column="upNumber"/>
+        <result property="downNumber" column="downNumber"/>
+        <association property="user" javaType="com.utunan.pojo.base.user.User">
+            <id property="userId" column="userId"></id>
+            <result property="userEmail" column="userEmail"/>
+            <result property="userTelephone" column="userTelephone"/>
+            <result property="userPassword" column="userPassword"/>
+            <result property="userIdentity" column="userIdentity"/>
+            <result property="examTime" column="examTime"/>
+            <result property="registerTime" column="registerTime"/>
+            <result property="userHeadImg" column="userHeadImg"/>
+            <result property="userNickName" column="userNickName"/>
+            <result property="userSchool" column="userSchool"/>
+            <result property="dreamSchool" column="dreamSchool"/>
+            <result property="userIntegral" column="userIntegral"/>
+        </association>
+        <association property="suffix" javaType="com.utunan.pojo.base.share.Suffix">
+            <id property="suffixId" column="suffixId"></id>
+            <result property="suffixName" column="suffixName"/>
+            <result property="imgUrl" column="imgUrl"/>
+        </association>
+    </resultMap>
+    <!--查找文件-->
+    <select id="findFile" resultMap="fileResultMap">
+        select *
+        from file f
+        join user u on f.userId=u.userId
+        join suffix s on f.suffixId=s.suffixId
+        where f.fileTitle REGEXP #{keyWord}
     </select>
 </mapper>

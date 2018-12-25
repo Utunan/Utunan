@@ -25,4 +25,7 @@ public interface AdminFileService {
 
     //批量删除已审核文件
     void delallfile(Long[] b);
+
+    //获取未审核文件数量
+    Long getpedfilenum();
 }

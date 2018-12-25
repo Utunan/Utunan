@@ -6,7 +6,7 @@
                 <a href="/${url }?fileType=${fileType}&school=${school}&keyWord=${keyWord}">首页</a>
                 <a href="/${url }?fileType=${fileType}&school=${school}&keyWord=${keyWord}&pageNum=${PageInfo.prePage}"><<</a>
                 <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-                    <a name="${i}" href="/${url }?fileType=${fileType}school=${school}&keyWord=${keyWord}&pageNum=${i}">${i}</a>
+                    <a name="${i}" href="/${url }?fileType=${fileType}&school=${school}&keyWord=${keyWord}&pageNum=${i}">${i}</a>
                 </c:forEach>
                 <c:choose>
                     <c:when test="${PageInfo.nextPage==0}">

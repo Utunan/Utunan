@@ -60,4 +60,10 @@ public class AdminFileServiceImpl implements AdminFileService {
     public void delallfile(Long[] b) {
         this.adminFileMapper.delallfile(b);
     }
+
+    //获取未审核文件数量
+    @Override
+    public Long getpedfilenum() {
+        return this.adminFileMapper.getpedfilenum();
+    }
 }

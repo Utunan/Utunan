@@ -117,7 +117,6 @@ public class QuizCommentController {
         request.setAttribute("map",map);
         request.setAttribute("map0",map0);
         request.setAttribute("PageInfo",new PageInfo(answers,5));
-        //request.setAttribute("childAnswerList", childAnswerList);
         request.setAttribute("quizListTop10",quizListTop10);
         request.setAttribute("tag",hotTagList);
         request.setAttribute("quizIds",quizIds);
@@ -232,7 +231,6 @@ public class QuizCommentController {
     @RequestMapping("/aprise")
     public String praiseQuiz(HttpServletRequest request,HttpSession session){
         String answerId=request.getParameter("answerId");
-        //Quiz quiz=(Quiz)session.getAttribute("quiz");
         User user=(User)session.getAttribute("User");
         //到回答评论点赞表进行查询是否有记录
         AnswerGreat answerGreat =answerGreatService.getAnswerGreat(Long.parseLong(answerId),user.getUserId());

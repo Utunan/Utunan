@@ -1,6 +1,7 @@
 package com.utunan.controller.admin;
 
 import com.utunan.service.admin.AdminFileService;
+import net.sf.json.JSONObject;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 public class ResourceController {
@@ -18,8 +21,12 @@ public class ResourceController {
     //删除单个资源待审核文件
     @RequestMapping(value = "/delprefile",method = RequestMethod.GET)
     @ResponseBody
-    public void delprefile(@Param("n") String n, HttpServletRequest request){
+    public void delprefile(@Param("n") String n, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html");
         this.adminFileService.delprefile(Long.parseLong(n));
+        JSONObject obj=new JSONObject();
+        obj.put("res","ok");
+        response.getWriter().append(obj.toString());
     }
 
     //批量删除资源待审核文件
@@ -37,8 +44,11 @@ public class ResourceController {
     //审核文件通过
     @RequestMapping(value = "/editprefile",method = RequestMethod.GET)
     @ResponseBody
-    public void editprefile(@Param("n") String n,HttpServletRequest request){
+    public void editprefile(@Param("n") String n,HttpServletRequest request,HttpServletResponse response) throws IOException {
         this.adminFileService.updateprefile(Long.parseLong(n));
+        JSONObject obj=new JSONObject();
+        obj.put("res","ok");
+        response.getWriter().append(obj.toString());
     }
 
     //删除单个已审核文件

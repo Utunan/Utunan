@@ -64,7 +64,7 @@
           </table>
           </div>
         </fieldset>
-        <blockquote class="layui-elem-quote layui-quote-nm">考试范围</blockquote>
+        <blockquote class="layui-elem-quote layui-quote-nm"><img src="/images/school/note.svg" width="40px"><div class="til">考试范围</div></blockquote>
         <div class="zsml-result">
         <table  cellpadding="10" cellspacing="0" class="scope">
         <colgroup>
@@ -92,7 +92,7 @@
             </tr>
           </tbody>
         </table>
-        <blockquote class="layui-elem-quote layui-quote-nm">官方公告</blockquote>
+          <blockquote class="layui-elem-quote layui-quote-nm"><img src="/images/school/menwei.svg" width="50px"><div class="til">官方公告</div></blockquote>
         <ul class="layui-timeline">
           <li class="layui-timeline-item">
             <i class="layui-icon layui-timeline-axis"></i>
@@ -124,7 +124,7 @@
             </div>
           </li>
         </ul>
-        <blockquote class="layui-elem-quote layui-quote-nm">评论区</blockquote>
+        <blockquote class="layui-elem-quote layui-quote-nm"><img src="/images/school/hua.svg" width="40px"><div class="til">评论区&nbsp;&nbsp;&nbsp;&nbsp;</div></blockquote>
         <ul class="jieda" id="jieda">
           <c:forEach items="${publishDirection.directionComments}" var="dcomment">
           <li data-id="111" class="jieda-daan">
@@ -198,7 +198,7 @@
         <div class="fly-panel">
             <img src="/images/school/rabit.png" width="70px" id="cute"/>
             <div class="count">共&nbsp;<span class="timer count-title" id="count-number" data-to="${viewCount}" data-speed="7000" style="color:darkorange"></span>&nbsp;次浏览</div>
-            <div class="scollect"><a href="javascript:void(0);" onclick="addCollector(${publishDirection.directionId})">点此加入院校收藏夹！</a> </div>
+            <div class="scollect"><a href="#">点此加入院校收藏夹！</a> </div>
         </div>
         <div class="fly-panel">
             <div class="fly-panel-main">
@@ -307,6 +307,7 @@ layui.config({
     var ask=document.getElementById("comsub");
     var mask=document.getElementsByClassName("mask")[0];
     var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
+    /*var nullContent=document.getElementsByClassName("nullContent")[0];*/
     /*获取提交按钮*/
     var submit = document.getElementById("submitbutton");
     /*获取关闭按钮*/
@@ -399,6 +400,7 @@ layui.config({
     }
 
 </script>
+
 <script>
   /*加入院校收藏夹*/
   function addCollector(directionId){
@@ -427,6 +429,7 @@ layui.config({
       }
   }
 </script>
+
 <script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
 <script src="/js/common/login.js"></script>
 <script src="/js/school/index.js"></script>

@@ -55,4 +55,7 @@ public interface AnswerMapper {
 
     //取消回答点赞
     void delPraiseAnswer(Long answerId);
+
+    //查询刚插入的评论信息
+    Answer getAnswer(@Param("answerId") Long answerId);
 }

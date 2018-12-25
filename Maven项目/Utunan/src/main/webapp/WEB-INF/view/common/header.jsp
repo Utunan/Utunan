@@ -6,7 +6,6 @@
             <img src="/images/common/favicon.ico" alt="" srcset="">
         </div>
         <a class="loginname" href="/homepage">优图南</a>
-
         <c:choose>
             <c:when test="${User==null}">
                 <div class="login before">
@@ -21,30 +20,7 @@
                         <div id="messagecount">${messagecount }</div>
                     </a>
                     <a href="/user/message" style="margin-left: 5px;">消息</a>
-                    <script src="/js/jquery-3.3.1.min.js"></script>
-                    <script>
-                        if($('#messagecount').html()==""||$('#messagecount').html()<="0"){
-                            $('#messagecount').css('display',"none");
-                        }
-                        setInterval(function () {
-                            $.ajax({
-                                type: "post",
-                                url: "/user/usermessage",
-                                data:{"request":"messagecount"},
-                                success: function (data) {
-                                    if(data=="0"){
-                                        $('#messagecount').css('display',"none");
-                                        $('#messagecount').html(0);
-                                    }else{
-                                        $('#messagecount').css('display',"block");
-                                        $('#messagecount').html(data)
-                                    }
-                                }
-                            });
-                        }, 500)
-                    </script>
                 </span>
-
                     <span>
                     <a id="userheadimg" href="/user/myspace">
 
@@ -97,7 +73,6 @@
                 </div>
             </c:otherwise>
         </c:choose>
-
         <div class="search">
             <form action="/search/user" method="post" onsubmit="return true">
                 <div class="text">
@@ -107,13 +82,12 @@
 
             </form>
         </div>
-
         <nav class="banner">
             <li>
                 <a href="/school/displaySchool">优院校</a>
             </li>
             <li>
-                <a href="/subjects">优题库</a>
+                <a href="/searchquestion">优题库</a>
             </li>
             <li>
                 <a href="/quizs/rt/1">优问答</a>
@@ -122,6 +96,6 @@
                 <a href="/share">优共享</a>
             </li>
         </nav>
-
+        <script src="/js/jquery-3.3.1.min.js"></script>
     </header>
 </div>

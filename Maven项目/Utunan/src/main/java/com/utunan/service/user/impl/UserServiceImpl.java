@@ -78,6 +78,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void cancelFollow(Long followedUserId, Long followUserId) {
+        userMapper.deleteFollow(followedUserId,followUserId);
+    }
+
+    @Override
     public boolean isExist(User user) {
         User u = userMapper.selectByPorE(user);
         if (u != null) {
@@ -163,5 +168,12 @@ public class UserServiceImpl implements UserService {
         PageHelper.startPage(pageNum, pageSize);
         List<User> admins = userMapper.selectAllAdmin();
         return admins;
+    }
+
+    @Override
+    public List<User> getFollowByUser(User user,int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<User> users=userMapper.selectFollowUser(user);
+        return  users;
     }
 }
