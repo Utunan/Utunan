@@ -130,6 +130,13 @@
                                     </c:otherwise>
                                 </c:choose>
                                 <span class="collection">收藏此问题</span>
+                                <%--判断是否是用户本人--%>
+                                <c:if test="${user.userIdentity==3 && user.userId==quiz.user.userId}">
+                                  <span type="reply">
+                                    <i class="iconfont icon-svgmoban53"></i>
+                                    <a href="/delquiz/${quiz.quizId}">删除</a>
+                                  </span>
+                                </c:if>
                             </div>
                         </div><!--toolbar-->
                     </div><!--quizcontent-->
@@ -146,7 +153,7 @@
                 </select>
                 <ul class="jieda" id="jieda">
                     <c:forEach items="${answer}" var="answer" varStatus="cou">
-                        <li data-id="111" class="jieda-daan">
+                        <li data-id="111" class="jieda-daan" id="an${answer.answerId }">
                             <a name="item-1111111111"></a>
                             <div class="detail-about detail-about-reply">
                                 <a class="fly-avatar" href="">
@@ -178,6 +185,13 @@
                                     <i class="iconfont icon-svgmoban53"></i>
                                     回复
                                 </span>
+                                <%--判断是否是用户本人--%>
+                                <c:if test="${user.userIdentity==3 && user.userId==answer.user.userId}">
+                                      <span type="reply">
+                                        <i class="iconfont icon-svgmoban53"></i>
+                                        <a href="javascript:void(0)" onclick="delanswer(${answer.answerId})">删除</a>
+                                      </span>
+                                </c:if>
                                 <div class="jieda-admin">
                                     <c:forEach items="${map0.keySet()}" var="b">
                                         <c:if test="${b.answerId==answer.answerId}">
@@ -202,7 +216,7 @@
                                             <c:forEach items="${map.keySet()}" var="m1">
                                                 <c:if test="${m1.answerId==answer.answerId}">
                                                     <c:forEach items="${map.get(m1)}" var="m2">
-                                                        <li>
+                                                        <li id="co${m2.answerId }">
                                                             <div class="fly-detail-user">
                                                                 <a href="" class="fly-link">
                                                                     <cite>${m2.user.userNickName}</cite>
@@ -217,6 +231,13 @@
                                                               <i class="iconfont icon-zan"></i>
                                                               <em>${m2.praiseCount}</em>
                                                               </span>
+                                                              <%--判断是否是用户本人--%>
+                                                                <c:if test="${user.userIdentity==3 && user.userId==answer.user.userId}">
+                                                                      <span type="reply">
+                                                                        <i class="iconfont icon-svgmoban53"></i>
+                                                                        <a href="javascript:void(0)" onclick="delcomment(${m2.answerId },${answer.answerId})">删除</a>
+                                                                      </span>
+                                                                </c:if>
                                                             </div>
                                                         </li>
                                                     </c:forEach>
@@ -227,7 +248,7 @@
                                         <div class="reply" style="display: none;">
                                             <form action="" method="post" onsubmit="return false" id="commenta${answer.answerId}">
                                                 <input type="text" name="comment" id="comment${answer.answerId}">
-                                                <button type="submit"  onclick="comments(${answer.answerId})">回复</button>
+                                                <button type="submit"  onclick="comments(${answer.answerId},${quiz.quizId})">回复</button>
                                             </form>
                                         </div>
                                   </blockquote>
@@ -449,11 +470,12 @@
         modalDialogcontent.style.display = "none";
     };
 </script>
-<%--ajax异步提交表单--%>
+
 <script>
-    function comments(answerId) {
+    <%--ajax异步提交表单--%>
+    function comments(answerId,quizId) {
         $.ajax({
-            url: '/answer1/'+answerId,//处理数据的地址
+            url: '/answer1/'+answerId+'/'+quizId,//处理数据的地址
             dataType: "json",//预期服务器返回的数据类型
             type: 'post',//数据提交形式
             data: {"text":$('#comment'+answerId).val()},//需要提交的数据
@@ -477,19 +499,51 @@
                 S = S<10?("0"+S):S;
                 var str = y+"-"+m+"-"+d+" "+h+":"+M+":"+S;
                 if(${commentNum!=0}) {
-                    node = '<li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span></div></li>'
+                    node = '<li id="co'+data['reb']['answerId']+'"><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span><span type="reply"><i class="iconfont icon-svgmoban53"></i><a href="javascript:void(0)" onclick="delcomment('+data['reb']['answerId']+','+data['reb']['parentAnswer']+')">删除</a></span></div></li>'
                     $('#can' + answerId).append(node);
                 }
                 else{
                     $("#slogen"+answerId).css("display","none");
-                    snode = '<ul class="commentlist" style="background-color:#fafafa" id="can'+answerId+'"><li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span></div></li></ul>';
+                    snode = '<ul class="commentlist" style="background-color:#fafafa" id="can'+answerId+'"><li id="co'+data['reb']['answerId']+'"><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span><span type="reply"><i class="iconfont icon-svgmoban53"></i><a href="javascript:void(0)" onclick="delcomment('+data['reb']['answerId']+','+data['reb']['parentAnswer']+')">删除</a></span></div></li></ul>';
                     $('#ddt'+answerId).append(snode);
                 }
 
                 document.getElementById("f1"+answerId).innerHTML=parseInt(document.getElementById("f1"+answerId).innerHTML)+1;
             }
         });
-    }
+    };
+    
+    // 登录用户对回答进行删除
+    function delanswer(answerId) {
+        $.ajax({
+            type: "get",//发送方式
+            url: "/delanswer/"+answerId,//url地址
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if (result == "ok") {
+
+                    $('#an'+answerId).css("display","none");
+                }
+            }
+        });
+    };
+    // 登录用户对评论进行删除
+    function delcomment(answerId,parentanswerId) {
+        $.ajax({
+            type: "get",//发送方式
+            url: "/delcomment/"+answerId+"/"+parentanswerId,//url地址
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if (result == "ok") {
+                    document.getElementById("f1"+answerId).innerHTML=parseInt(document.getElementById("f1"+answerId).innerHTML)-1;
+                    if(parseInt(document.getElementById("f1"+answerId).innerHTML)!=0){
+                        $("#slogen"+answerId).css("display","block");
+                    }
+                    $('#co'+answerId).css("display","none");
+                }
+            }
+        });
+    };
 </script>
 </body>
 </html>

@@ -10,7 +10,7 @@
         <result property="praiseCount" column="praiseCount"/>
         <result property="answerCount" column="answerCount"/>
         <association property="user" javaType="com.utunan.pojo.base.user.User">
-            <id property="userId" column="userId"></id>
+            <id property="userId" column="userId"/>
             <result property="userEmail" column="userEmail"/>
             <result property="userTelephone" column="userTelephone"/>
             <result property="userPassword" column="userPassword"/>
@@ -145,4 +145,11 @@
         from quiz
         where quizId=#{quizId}
     </select>
+    <!--根据quizId删除提问及回答评论-->
+    <delete id="delQuiz" parameterType="Long">
+        delete quiz,quiz_great,message,quiz_collector,quiz_tag from quiz
+        left join quiz_great on quiz_great.quizId=quiz.quizId left join message on message.quizId = quiz.quizId
+        left join quiz_collector on quiz_collector.quizId=quiz.quizId left join quiz_tag on quiz_tag.quizId=quiz.quizId
+        where quiz.quizId=#{quizId}
+    </delete>
 </mapper>

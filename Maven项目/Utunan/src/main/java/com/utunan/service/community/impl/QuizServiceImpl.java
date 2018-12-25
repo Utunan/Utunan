@@ -182,6 +182,14 @@ public class QuizServiceImpl implements QuizService {
 	public Long getCountPrise(Long quizId) {
 		return this.quizMapper.getCountPrise(quizId);
 	}
+
+	//根据quizId删除提问及回答评论
+	@Override
+	public void delQuiz(Long quizId) {
+		this.quizMapper.delQuiz(quizId);
+	}
+
+
 }
 
 

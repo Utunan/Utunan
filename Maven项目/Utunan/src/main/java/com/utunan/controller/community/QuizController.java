@@ -244,7 +244,7 @@ public class QuizController {
 		if (user!=null&&WordLimitUtil.isNull(title)&&WordLimitUtil.getLength(title)>=5&&WordLimitUtil.getLength(title)<=20) {
 			this.quizService.saveQuiz(qid,user, title, content);
 		}
-		return "redirect:/quizs/rt";
+		return "redirect:/quizs/rt/1";
 	}
 
 	/*

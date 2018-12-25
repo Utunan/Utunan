@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
@@ -241,5 +242,43 @@ public class QuizCommentController {
             this.answerService.delPraiseAnswer(Long.parseLong(answerId));
             return "no";
         }
+    }
+
+
+    /**
+     * 登录用户删除提问
+     */
+
+    @RequestMapping("/delquiz/{quizId}")
+    public String delQuiz(@PathVariable String quizId, HttpServletRequest request, HttpServletResponse response){
+        //根据quizId删除提问及回答评论
+        this.quizService.delQuiz(Long.parseLong(quizId));
+        return "redirect:/quizs/rt/1";
+    }
+
+    /**
+     * 登录用户删除回答
+     */
+
+    @RequestMapping(value = "/delanswer/{answerId}",method = RequestMethod.GET)
+    @ResponseBody
+    public String delAnswer(@PathVariable String answerId,HttpServletRequest request,HttpServletResponse response){
+        System.out.print(answerId);
+        //根据answerId删除回答及评论
+        this.answerService.delAnswer(Long.parseLong(answerId));
+        return "ok";
+    }
+
+    /**
+     * 登录用户删除评论
+     */
+    @RequestMapping(value = "/delcomment/{answerId}/{parentanswerId}",method = RequestMethod.GET)
+    @ResponseBody
+    public String delComment(@PathVariable String answerId,@PathVariable String parentanswerId){
+        System.out.print(answerId+"\n");
+        System.out.print(parentanswerId);
+        //登录用户删除评论
+        this.answerService.delComment(Long.parseLong(answerId),Long.parseLong(parentanswerId));
+        return "ok";
     }
 }

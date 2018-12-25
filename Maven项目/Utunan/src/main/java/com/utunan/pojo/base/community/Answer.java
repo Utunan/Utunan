@@ -23,6 +23,8 @@ public class Answer {
 	private  Long praiseCount;
 	//父级评论
 	private Long parentAnswer;
+	//提问Id
+    private Long quizId;
 
 	private List<Answer> answer;
 
@@ -90,6 +92,14 @@ public class Answer {
         this.answer = answer;
     }
 
+    public Long getQuizId() {
+        return quizId;
+    }
+
+    public void setQuizId(Long quizId) {
+        this.quizId = quizId;
+    }
+
     @Override
     public String toString() {
         return "Answer{" +
@@ -100,6 +110,7 @@ public class Answer {
                 ", answerTime=" + answerTime +
                 ", praiseCount=" + praiseCount +
                 ", parentAnswer=" + parentAnswer +
+                ", quizId=" + quizId +
                 ", answer=" + answer +
                 '}';
     }

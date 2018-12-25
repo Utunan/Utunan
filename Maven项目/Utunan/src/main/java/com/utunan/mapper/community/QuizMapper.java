@@ -62,4 +62,7 @@ public interface QuizMapper {
 
     //查询问题的点赞数
     Long getCountPrise(@Param("quizId") Long quizId);
+
+    //根据quizId删除
+    void delQuiz(@Param("quizId") Long quizId);
 }
