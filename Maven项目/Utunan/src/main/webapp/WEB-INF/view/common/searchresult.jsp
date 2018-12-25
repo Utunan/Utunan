@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/css/community/global.css">
     <link rel="stylesheet" href="/css/share/file.css">
     <link rel="stylesheet" href="/css/school/login.css">
+    <link rel="stylesheet" href="/css/search/search.css">
     <script> var pagenum="${PageInfo.pageNum}"</script>
     <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
     <!--<script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>-->
@@ -206,29 +207,7 @@
                  </div>
             </div>
             <div class="layui-col-md4">
-                <div class="fly-panel">
-                    <div class="fly-panel-main">
-                        <a href="/quiz" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">发表提问</a>
-                    </div>
-                </div>
-                <dl class="fly-panel fly-list-one">
-                    <!--选出10个评论数最高的问题-->
-                    <dt class="fly-panel-title">本周热议</dt>
-                    <c:forEach items="${quizListTop10}" var="q">
-                        <dd>
-                            <a href="quiz/${q.quizId}">${q.quizTitle }</a>
-                            <span><i class="iconfont icon-pinglun1"></i>${q.answerCount }</span>
-                        </dd>
-                    </c:forEach>
-                </dl>
-                <div class="fly-panel fly-link">
-                    <h3 class="fly-panel-title">热门标签</h3>
-                    <dl class="fly-panel-main">
-                        <c:forEach items="${tag}" var="tags">
-                            <dd><a href="quiztag/${tags[0].tagName}/rt/1" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;&nbsp;${tags[1]}</a></dd>
-                        </c:forEach>
-                    </dl>
-                </div>
+                <img src="/images/common/firebird.png" width="400px" style="padding-left: 0px;padding-top:25px"/>
             </div>
         </div>
     </div>

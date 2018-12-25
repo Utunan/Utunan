@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" href="/css/school/login.css">
 <%--黑背景--%>
-<div class="mask"></div>
+<%--<div class="mask"></div>--%>
 <div class="layui-col-md4" id="layui-col-md4">
     <div class="fly-panel">
         <div class="fly-panel-main">
@@ -46,7 +46,6 @@
             </div>
         </div>
         <div  class="reply"></div>
-        <%--<div  class="reply" id="reply"></div>--%>
         <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">  <%--onsubmit="return checkForm()"--%>
             <div class="permit inputcase">
                 <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="手机号/邮箱">
@@ -56,7 +55,6 @@
                 <input type="text" id="login_showPwd" style="display: none"/>
             </div>
             <div class="loginbtn">
-                <%--<button id="closeAll">不了</button>--%>
                 <button id="submitbutton" type="submit">登录</button>
             </div>
             <span><a id="register" href="/register">立即注册</a> </span>
@@ -69,8 +67,8 @@
     var ask=document.getElementById("question");
     var mask=document.getElementsByClassName("mask")[0];
     var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
-    /*获取提交按钮*/
-    var submitbutton = document.getElementById("submitbutton");
+    /*/!*获取提交按钮*!/
+    var submitbutton = document.getElementById("submitbutton");*/
     /*获取密码框*/
     password = document.getElementById('password');
     textpassword=document.getElementById("login_showPwd");
@@ -92,7 +90,7 @@
     };
 
     //判断用户名和密码
-    submitbutton.onclick=function(){
+    /*submitbutton.onclick=function(){
         $.ajax({
             //几个参数需要注意一下
             type: "POST",//方法类型
@@ -116,7 +114,7 @@
                 console.log("网崩了！")
             }
         });
-    };
+    };*/
 </script>
 <script src="/js/common/login.js"></script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
