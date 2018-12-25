@@ -84,4 +84,9 @@
             #{tag}
         </foreach>
     </select>
+    <!--查询所有标签-->
+    <select id="listAllTag" resultType="com.utunan.pojo.base.community.Tag">
+        select *
+        from tag
+    </select>
 </mapper>

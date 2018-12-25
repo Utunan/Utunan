@@ -46,4 +46,15 @@ public class TagServiceImpl implements TagService {
 	public List<Long> getTags(List<String> listtag){
 		return this.tagMapper.getTags(listtag);
 	}
+
+	/**
+	 * @author  孙程程
+	 * @description 获取所有标签
+	 * @date  16:22 2018/12/25
+	 * @return  java.util.List<com.utunan.pojo.base.community.Tag>
+	 */
+	@Override
+	public List<Tag> listAllTag(){
+		return this.tagMapper.listAllTag();
+	}
 }

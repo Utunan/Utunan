@@ -286,7 +286,9 @@ public class QuizController {
 	 * @return  java.lang.String
 	 */
 	@RequestMapping(value = "/toAddQuestion")
-	public String toAddQuestion(){
+	public String toAddQuestion(HttpServletRequest request){
+		List<Tag> tagList = this.tagService.listAllTag();
+		request.setAttribute("tagList", tagList);
 		return "/community/addQuestion";
 	}
 
