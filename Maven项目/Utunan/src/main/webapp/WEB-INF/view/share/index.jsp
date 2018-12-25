@@ -54,15 +54,17 @@
               <div class="threeops">
                 <div class="op">
                     <span class="st">资源类型 >></span>
-                    <div class="RadioStyle"><div class="Block PaddingL">
-                        <input type="checkbox" name="fileType" value="全部" id="全部" checked="checked"><label for="全部">全部</label>
-                        <input type="checkbox" name="fileType" value="招生简章" id="招生简章"><label for="招生简章">招生简章</label>
-                        <input type="checkbox" name="fileType" value="招生专业目录" id="招生专业目录"><label for="招生专业目录">招生专业目录</label>
-                        <input type="checkbox" name="fileType" value="考研真题" id="考研真题"><label for="考研真题">考研真题</label>
-                        <input type="checkbox" name="fileType" value="备考习题" id="备考习题"><label for="备考习题">备考习题</label>
-                        <input type="checkbox" name="fileType" value="课件分享" id="课件分享"><label for="课件分享">课件分享</label>
-                        <input type="checkbox" name="fileType" value="参考书目" id="参考书目"><label for="参考书目">参考书目</label>
-                    </div></div>
+                    <div class="RadioStyle">
+                        <div class="Block PaddingL" id="type">
+                            <input class="all" type="checkbox" name="fileType" value="全部" id="全部" checked="checked"><label for="全部">全部</label>
+                            <input class="part" type="checkbox" name="fileType" value="招生简章" id="招生简章"><label for="招生简章">招生简章</label>
+                            <input class="part" type="checkbox" name="fileType" value="招生专业目录" id="招生专业目录"><label for="招生专业目录">招生专业目录</label>
+                            <input class="part" type="checkbox" name="fileType" value="考研真题" id="考研真题"><label for="考研真题">考研真题</label>
+                            <input class="part" type="checkbox" name="fileType" value="备考习题" id="备考习题"><label for="备考习题">备考习题</label>
+                            <input class="part" type="checkbox" name="fileType" value="课件分享" id="课件分享"><label for="课件分享">课件分享</label>
+                            <input class="part" type="checkbox" name="fileType" value="参考书目" id="参考书目"><label for="参考书目">参考书目</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="op">
                     <span class="st">针对院校 >></span>
@@ -191,17 +193,37 @@
         </form>
     </div>
 </div>
-
-<!--<script>
-layui.cache.page = 'jie';
-layui.config({
-  version: "3.0.0"
-  ,base: '../layui/fly/res/mods/'
-}).extend({
-  fly: 'index'
-}).use('fly');
-</script>-->
 </body>
+<script>
+    //刷新分页或搜索后复选框选中状态保持
+    var type=document.getElementById("type");
+    var inputs=type.getElementsByTagName("input");
+
+    if("${fileType}"=="全部"||"${fileType}"==""){
+        inputs[0].checked=true;
+    }else{
+        inputs[0].checked=false;
+        for(var j=1;j<inputs.length;j++){
+            <c:forEach items="${fileType}" varStatus="status" var="fileType">
+            if("${fileType}"==inputs[j].value){
+                inputs[j].checked=true;
+            }
+            </c:forEach>
+        }
+    }
+    //复选框全部与部分选中切换
+    $(".part").click(function(){
+        if($(".all").is(":checked")){//如果点击的时候，当前为选中状态
+            $(".all").attr("checked",false);//那么就改为未选中
+        }else{
+            $(".all").attr("checked",true)//否则就改为选中
+        }
+    })
+    $(".all").click(function(){
+        $(".part").attr("checked",false);
+    })
+
+</script>
 <script>
     /*弹窗登录功能*/
     var ask=document.getElementById("upload");
