@@ -6,6 +6,7 @@ import com.utunan.pojo.base.share.UserDownload;
 import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.util.Analyzer;
 import com.utunan.service.share.ShareIndexService;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -69,6 +70,8 @@ public class ShareDownloadController {
 		Long fileIntegral = file.getFileCredit();
 		//设置操作命令
 		String operate = "";
+//		String fileUp = "no";
+//		String fileDown = "no";
 		if(user==null){
 			operate="notLogin"; //没有登录
 		}else{
@@ -85,9 +88,24 @@ public class ShareDownloadController {
 			}else {
 				operate = "canDownload"; //可以下载
 			}
+//			//判断文件是否赞过和踩过
+//			//查询用户是否赞过
+//			FileGreat fileGreat1 = this.shareIndexService.findFileGreat(user1.getUserId(),file.getFileId(),Long.parseLong("1"));
+//			//查询用户是否踩过
+//			FileGreat fileGreat2 = this.shareIndexService.findFileGreat(user1.getUserId(),file.getFileId(),Long.parseLong("2"));
+//			if (fileGreat1 != null){
+//				fileUp = "yes";
+//				System.out.println(fileUp);
+//			}
+//			if (fileGreat2 != null){
+//				fileDown = "yes";
+//				System.out.println(fileDown);
+//			}
 		}
 		//返回数据
 		request.setAttribute("operate", operate);
+//		request.setAttribute("fileUp",fileUp);
+//		request.setAttribute("fileDown",fileDown);
 		request.setAttribute("hotFileList", hotFileList);
 		request.setAttribute("relatedFileList", relatedFileList);
 		request.setAttribute("file", file);
@@ -166,12 +184,14 @@ public class ShareDownloadController {
 	 * @param  request
 	 * @return  java.lang.String
 	 */
-	@RequestMapping(value = "/fileUp", method = RequestMethod.GET)
-	public String fileUp(HttpServletRequest request){
+	@RequestMapping(value = "/fileUp")
+	public void fileUp(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		String fileId = request.getParameter("fileId");
 		File file = this.shareIndexService.findFileById(Long.parseLong(fileId));
 		//获取用户信息
 		User user = (User)request.getSession().getAttribute("User");
+		//创建JSON
+		JSONObject obj=new JSONObject();
 		if (user != null){
 			//查询用户是否赞过
 			FileGreat fileGreat1 = this.shareIndexService.findFileGreat(user.getUserId(),file.getFileId(),Long.parseLong("1"));
@@ -185,16 +205,23 @@ public class ShareDownloadController {
 					this.shareIndexService.insertFileGreat(user.getUserId(), file.getFileId(), Long.parseLong("1"));
 					//更新点赞数量
 					this.shareIndexService.updateFileUpNumber(file.getFileId(), file.getUpNumber()+1);
+					File file1 = this.shareIndexService.findFileById(Long.parseLong(fileId));
+					obj.put("res", "ok");
+					obj.put("number", file1.getUpNumber());
+					response.getWriter().append(obj.toString());
 				}else {
 					//用户已经赞过，取消赞
 					//删除点赞信息
 					this.shareIndexService.deleteFileGreat(user.getUserId(), file.getFileId(), Long.parseLong("1"));
 					//更新点赞数量
 					this.shareIndexService.updateFileUpNumber(file.getFileId(), file.getUpNumber()-1);
+					File file1 = this.shareIndexService.findFileById(Long.parseLong(fileId));
+					obj.put("res", "no");
+					obj.put("number", file1.getUpNumber());
+					response.getWriter().append(obj.toString());
 				}
 			}
 		}
-		return "redirect:/download?fileId="+fileId;
 	}
 
 	/**
@@ -204,12 +231,14 @@ public class ShareDownloadController {
 	 * @param  request
 	 * @return  java.lang.String
 	 */
-	@RequestMapping(value = "/fileDown", method = RequestMethod.GET)
-	public String fileDown(HttpServletRequest request){
+	@RequestMapping(value = "/fileDown")
+	public void fileDown(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		String fileId = request.getParameter("fileId");
 		File file = this.shareIndexService.findFileById(Long.parseLong(fileId));
 		//获取用户信息
 		User user = (User)request.getSession().getAttribute("User");
+		//创建JSON
+		JSONObject obj=new JSONObject();
 		if (user != null){
 			//查询用户是否赞过
 			FileGreat fileGreat1 = this.shareIndexService.findFileGreat(user.getUserId(),file.getFileId(),Long.parseLong("1"));
@@ -223,16 +252,23 @@ public class ShareDownloadController {
 					this.shareIndexService.insertFileGreat(user.getUserId(), file.getFileId(), Long.parseLong("2"));
 					//更新踩的数量
 					this.shareIndexService.updateFileDownNumber(file.getFileId(), file.getDownNumber()+1);
+					File file1 = this.shareIndexService.findFileById(Long.parseLong(fileId));
+					obj.put("res", "ok");
+					obj.put("number", file1.getDownNumber());
+					response.getWriter().append(obj.toString());
 				}else {
 					//用户已经踩过，取消踩
 					//删除踩的信息
 					this.shareIndexService.deleteFileGreat(user.getUserId(), file.getFileId(), Long.parseLong("2"));
 					//更新踩的数量
 					this.shareIndexService.updateFileDownNumber(file.getFileId(), file.getDownNumber()-1);
+					File file1 = this.shareIndexService.findFileById(Long.parseLong(fileId));
+					obj.put("res", "no");
+					obj.put("number", file1.getDownNumber());
+					response.getWriter().append(obj.toString());
 				}
 			}
 		}
-		return "redirect:/download?fileId="+fileId;
 	}
 
 }
