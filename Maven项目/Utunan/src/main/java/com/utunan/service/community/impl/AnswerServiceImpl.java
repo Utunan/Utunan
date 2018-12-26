@@ -159,4 +159,11 @@ public class AnswerServiceImpl implements AnswerService {
     public void delComment(Long answerId, Long parentanswerId) {
         this.answerMapper.delComment(answerId,parentanswerId);
     }
+
+    //获取当前回答数
+
+    @Override
+    public Long gettal(Long quizId) {
+        return this.answerMapper.gettal(quizId);
+    }
 }

@@ -100,4 +100,7 @@ public interface AnswerService {
 
     //登录用户删除评论
     void delComment(Long answerId, Long parentanswerId);
+
+    //获取当前回答数
+    Long gettal(Long quizId);
 }

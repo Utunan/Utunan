@@ -91,7 +91,11 @@ public class AnswerController {
             this.answerService.saveAnswer1(aid,Long.parseLong(quizId), Long.parseLong(answerId), content, user);
             //查询刚插入的评论信息
             Answer a=this.answerService.getAnswer(aid);
+            //查询当前评论总数
+            Long totalcount=this.answerService.findchildAnswerCount(Long.parseLong(answerId));
             obj.put("reb",a);
+            obj.put("count3",totalcount);
+
             response.getWriter().append(obj.toString());
         }
 

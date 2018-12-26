@@ -143,7 +143,13 @@
         join user on answer.userId=user.userId
         where answerId=#{answerId}
     </select>
-    
+    <!--获取当前回答总数-->
+    <select id="gettal" resultType="java.lang.Long">
+        select count(*)
+        from answer
+        where quizId=#{quizId} and parentAnswer is null
+    </select>
+
     <!--取消点赞功能-->
     <update id="delPraiseAnswer" parameterType="Long">
         update answer set praiseCount=praiseCount-1
