@@ -144,7 +144,7 @@
     
                             <div class="re_num">
                                 <img src="/images/community/zan.svg" width="24px" height="34px">
-                                <span class="write-reply">${answerCountByQuizId}</span>
+                                <span class="write-reply" id="quiz">${answerCountByQuizId}</span>
                             </div>
                             <div class="collect">
                                 <c:choose>
@@ -280,7 +280,7 @@
                                                                   </c:choose>
                                                               </span>
                                                               <%--判断是否是用户本人--%>
-                                                                <c:if test="${user.userIdentity==3 && user.userId==answer.user.userId}">
+                                                                <c:if test="${user.userIdentity==3 && user.userId==m2.user.userId}">
                                                                       <span type="reply">
                                                                         <i class="iconfont icon-svgmoban53"></i>
                                                                         <a href="javascript:void(0)" onclick="delcomment(${m2.answerId },${answer.answerId})">删除</a>
@@ -517,16 +517,16 @@
                         S = S<10?("0"+S):S;
                         var str = y+"-"+m+"-"+d+" "+h+":"+M+":"+S;
                         if(${commentNum!=0}) {
-                            node = '<li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span><span type="reply"><i class="iconfont icon-svgmoban53"></i><a href="javascript:void(0)" onclick="delcomment('+data['reb']['answerId']+','+data['reb']['parentAnswer']+')">删除</a></span></div></li>'
+                            node = '<li id="co'+data['reb']['answerId']+'"><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span><span type="reply"><i class="iconfont icon-svgmoban53"></i><a href="javascript:void(0)" onclick="delcomment('+data['reb']['answerId']+','+data['reb']['parentAnswer']+')">删除</a></span></div></li>'
                             $('#can' + answerId).append(node);
                         }
                         else{
                             $("#slogen"+answerId).css("display","none");
-                            snode = '<ul class="commentlist" style="background-color:#fafafa" id="can'+answerId+'"><li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span><span type="reply"><i class="iconfont icon-svgmoban53"></i><a href="javascript:void(0)" onclick="delcomment('+data['reb']['answerId']+','+data['reb']['parentAnswer']+')">删除</a></span></div></li></ul>';
+                            snode = '<ul class="commentlist" style="background-color:#fafafa" id="can'+answerId+'"><li id="co'+data['reb']['answerId']+'"><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span><span type="reply"><i class="iconfont icon-svgmoban53"></i><a href="javascript:void(0)" onclick="delcomment('+data['reb']['answerId']+','+data['reb']['parentAnswer']+')">删除</a></span></div></li></ul>';
                             $('#ddt'+answerId).append(snode);
                         }
 
-                        document.getElementById("f1"+answerId).innerHTML=parseInt(document.getElementById("f1"+answerId).innerHTML)+1;
+                        document.getElementById("f1"+answerId).innerHTML=data['count3'];
                     }
                 });
 
@@ -537,12 +537,14 @@
     // 登录用户对回答进行删除
     function delanswer(answerId) {
         $.ajax({
+            dataType: "json",
             type: "get",//发送方式
             url: "/delanswer/"+answerId,//url地址
+            data:{"quizId":${quiz.quizId} },
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
-                if (result == "ok") {
-    
+                if (result['res'] == "ok") {
+                    document.getElementById("quiz").innerHTML=result['count1'];
                     $('#an'+answerId).css("display","none");
                 }
             }
@@ -551,16 +553,17 @@
     // 登录用户对评论进行删除
     function delcomment(answerId,parentanswerId) {
         $.ajax({
+            dataType: "json",
             type: "get",//发送方式
             url: "/delcomment/"+answerId+"/"+parentanswerId,//url地址
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
-                if (result == "ok") {
-                    document.getElementById("f1"+answerId).innerHTML=parseInt(document.getElementById("f1"+answerId).innerHTML)-1;
-                    if(parseInt(document.getElementById("f1"+answerId).innerHTML)!=0){
-                        $("#slogen"+answerId).css("display","block");
+                if (result["res"] == "ok") {
+                    document.getElementById("f1"+parentanswerId).innerHTML=result["count2"];
+                    if(parseInt(document.getElementById("f1"+parentanswerId).innerHTML)==0){
+                        $("#slogen"+parentanswerId).css("display","block");
                     }
-                    $('#co'+answerId).css("display","none");
+                    $("#co"+answerId).css("display","none");
                 }
             }
         });

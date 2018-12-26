@@ -64,4 +64,7 @@ public interface AnswerMapper {
 
     //登录用户删除评论
     void delComment(@Param("answerId") Long answerId, @Param("parentanswerId") Long parentanswerId);
+
+    //获取当前回答总数
+    Long gettal(@Param("quizId") Long quizId);
 }
