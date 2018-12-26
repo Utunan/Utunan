@@ -465,7 +465,7 @@
             }
         });
     };
-
+</script>
 <script src="/js/common/login.js"></script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 
@@ -522,7 +522,7 @@
                 });
 
             }
-        });
+        };
     };
     
     // 登录用户对回答进行删除
