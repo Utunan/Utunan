@@ -72,7 +72,7 @@ public class AnswerController {
     @RequestMapping(value = "/answer1/{answerId}/{quizId}", method = RequestMethod.POST)
     /*
      * @author  张正扬
-     * @description 向评论表中插入评论
+     * @description 向answer表中插入评论
      * @date  20:48 2018/11/29
      * @param  [request, session]
      * @return  java.lang.String
@@ -88,9 +88,17 @@ public class AnswerController {
         aid += 1;
         if (ob != null) {
             User user = (User) ob;
+            //根据answerId查询相应回答
+            Answer ans=this.answerService.getAnswer(Long.parseLong(answerId));
             this.answerService.saveAnswer1(aid,Long.parseLong(quizId), Long.parseLong(answerId), content, user);
             //查询刚插入的评论信息
             Answer a=this.answerService.getAnswer(aid);
+            //封装message表中内容
+            String messageContent="<a _href='/quiz/"+quizId+"'>"+a.getUser().getUserNickName()+"</a>回复了你";
+            Long mid=messageService.getMaxMid();
+            mid+=1;
+            this.messageService.saveMessage(mid,ans.getUser(),user,Long.parseLong(quizId),"2",messageContent,"0");
+
             //查询当前评论总数
             Long totalcount=this.answerService.findchildAnswerCount(Long.parseLong(answerId));
             obj.put("reb",a);
