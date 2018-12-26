@@ -266,8 +266,18 @@
                                                             </div>
                                                             <div class="jieda-reply">
                                                               <span class="jieda-zan zanok" type="zan">
-                                                              <i class="iconfont icon-zan"></i>
-                                                              <em>${m2.praiseCount}</em>
+                                                              <%--<i class="iconfont icon-zan"></i>
+                                                              <em>${m2.praiseCount}</em>--%>
+                                                                  <c:choose>
+                                                                      <c:when test="${ya:judge(answerGreatList,m2.answerId)}">
+                                                                          <a style="color: #ff5722;" id="answerZan${m2.answerId}" href="javascript:void(0)" onclick="apraise(${m2.answerId})"><i class="iconfont icon-zan"></i></a>
+                                                                          <em id="answer${m2.answerId}">${m2.praiseCount}</em>
+                                                                      </c:when>
+                                                                      <c:otherwise>
+                                                                          <a style="color: #333;" id="answerZan${m2.answerId}" href="javascript:void(0)" onclick="apraise(${m2.answerId})"><i class="iconfont icon-zan"></i></a>
+                                                                          <em id="answer${m2.answerId}">${m2.praiseCount}</em>
+                                                                      </c:otherwise>
+                                                                  </c:choose>
                                                               </span>
                                                               <%--判断是否是用户本人--%>
                                                                 <c:if test="${user.userIdentity==3 && user.userId==m2.user.userId}">

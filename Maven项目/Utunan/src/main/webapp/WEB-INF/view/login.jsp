@@ -28,7 +28,7 @@
             <div class="loginbtn">
                 <button id="loginsubmit" type="submit">提交</button>
             </div>
-            <span><a href="">忘记密码</a> </span>
+            <span><a href="/forgetpasswd">忘记密码</a> </span>
             <span><a href="/register">立即注册</a> </span>
         </form>
     </div>
@@ -152,8 +152,11 @@
                     }
                 } else {
                     $('#permitreply').html("通行证不存在,请先<a href='/register'>注册</a>")
+                    $('#permit').css('backgroundColor', 'rgba(255,192,203,1)')
+                    $('#permitreply').html(reply)
+                    return false
                 }
-            },error:function(){
+            }, error: function () {
                 $('#permitreply').html("网站可能崩了,请您先等会儿~")
             }
         });

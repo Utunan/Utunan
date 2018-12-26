@@ -120,7 +120,7 @@
     <update id="updateUserPassword" parameterType="com.utunan.pojo.base.user.User">
         update user
         set userPassword=#{userPassword}
-        where userId=#{userId}
+        where userId=#{userId} or userTelephone=#{userTelephone}
     </update>
 
     <update id="updateUserHeadImg" parameterType="com.utunan.pojo.base.user.User">

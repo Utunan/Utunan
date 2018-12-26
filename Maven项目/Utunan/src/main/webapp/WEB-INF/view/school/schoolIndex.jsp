@@ -194,20 +194,20 @@
 </div>
 <%--分页--%>
 <nav id="page" class="page">
-    <li class="home"><a href="/school/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}">首页</a></li>
-    <li class="next"><a href="/school/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.prePage}">上一页</a></li>
+    <li class="home"><a href="/school/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&schoolName=${schoolName}">首页</a></li>
+    <li class="next"><a href="/school/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&schoolName=${schoolName}&pageNum=${PageInfo.prePage}">上一页</a></li>
     <c:forEach var="i" begin="${PageInfo.navigateFirstPage}" end="${PageInfo.navigateLastPage}">
-        <li class="pagenum"><a name="${i}" href="/school/${url }?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${i}">${i}</a></li>
+        <li class="pagenum"><a name="${i}" href="/school/${url }?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&schoolName=${schoolName}&pageNum=${i}">${i}</a></li>
     </c:forEach>
     <c:choose>
         <c:when test="${PageInfo.nextPage==0}">
-            <li class="next"><a href="/school/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pages}">下一页</a></li>
+            <li class="next"><a href="/school/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&schoolName=${schoolName}&pageNum=${PageInfo.pages}">下一页</a></li>
         </c:when>
         <c:otherwise>
-            <li class="next"><a href="/school/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.nextPage}">下一页</a></li>
+            <li class="next"><a href="/school/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&schoolName=${schoolName}&pageNum=${PageInfo.nextPage}">下一页</a></li>
         </c:otherwise>
     </c:choose>
-    <li class="tail"><a href="/school/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pages}">尾页</a></li>
+    <li class="tail"><a href="/school/${url}?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&schoolName=${schoolName}&pageNum=${PageInfo.pages}">尾页</a></li>
 </nav>
 <%@include file="../common/footer.jsp"%>
 </body>
@@ -264,7 +264,7 @@
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
                 if(result==true){
-                    window.location.href="/school/displaySchoolBySearch?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&pageNum=${PageInfo.pageNum}";
+                    window.location.href="/school/displaySchoolBySearch?schoolProvince=${schoolProvince}&schoolType=${schoolType}&degreeType=${degreeType}&math=${math}&english=${english}&directionName=${directionName}&schoolName=${schoolName}&pageNum=${PageInfo.pageNum}";
                 }else{
                     textpassword.style.display="block";
                     password.style.display="none";
@@ -365,10 +365,15 @@
             </c:forEach>
         }
     }
-    //搜索框文字保持
+    //研究方向搜索框文字保持
     var direction=document.getElementById("direction");
     if("${directionName}"!=""){
         direction.value="${directionName}";
+    }
+    //院校名称搜索框文字保持
+    var sname=document.getElementById("sname");
+    if("${schoolName}"!=""){
+        sname.value="${schoolName}";
     }
 </script>
 <script>

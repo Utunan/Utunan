@@ -27,6 +27,6 @@ public interface PublishSchoolService {
      * @param  [schoolProvinceList, schoolType]
      * @return  java.util.List<com.utunan.pojo.base.school.School>
      */
-    List<PublishSchool> findSchoolByAllParam(String[] schoolProvinceList,String[] schoolType,String[] degreeTypeList,String[] mathList,String[] englishList,List<String> directionName,int pageNum, int pageSize);
+    List<PublishSchool> findSchoolByAllParam(String[] schoolProvinceList,String[] schoolType,String[] degreeTypeList,String[] mathList,String[] englishList,List<String> directionName,String schoolName,int pageNum, int pageSize);
 
 }

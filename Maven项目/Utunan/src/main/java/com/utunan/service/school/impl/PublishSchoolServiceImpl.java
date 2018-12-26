@@ -40,7 +40,7 @@ public class PublishSchoolServiceImpl implements PublishSchoolService {
      * @return  java.util.List<com.utunan.pojo.base.school.School>
      */
     @Override
-    public List<PublishSchool> findSchoolByAllParam(String[] schoolProvinceList, String[] schoolType, String[] degreeTypeList, String[] mathList, String[] englishList,List<String> directionNameList, int pageNum, int pageSize) {
+    public List<PublishSchool> findSchoolByAllParam(String[] schoolProvinceList, String[] schoolType, String[] degreeTypeList, String[] mathList, String[] englishList,List<String> directionNameList,String schoolName, int pageNum, int pageSize) {
         SchoolOther so = new SchoolOther();
         schoolProvinceList = so.clickAll(schoolProvinceList);
         schoolType = so.clickAll(schoolType);
@@ -56,10 +56,11 @@ public class PublishSchoolServiceImpl implements PublishSchoolService {
                 directionName += "|";
             }
         }
+
         //分页
         PageHelper.startPage(pageNum, pageSize);
         //搜索，返回列表
-        List<PublishSchool> directionlist = this.publishSchoolMapper.findSchoolByAllParam(schoolProvinceList, schoolType,degreeTypeList,mathList,englishList,directionName);
+        List<PublishSchool> directionlist = this.publishSchoolMapper.findSchoolByAllParam(schoolProvinceList, schoolType,degreeTypeList,mathList,englishList,directionName,schoolName);
         return directionlist;
     }
 
