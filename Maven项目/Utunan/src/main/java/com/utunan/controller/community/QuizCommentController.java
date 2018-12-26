@@ -293,11 +293,18 @@ public class QuizCommentController {
 
     @RequestMapping(value = "/delanswer/{answerId}",method = RequestMethod.GET)
     @ResponseBody
-    public String delAnswer(@PathVariable String answerId,HttpServletRequest request,HttpServletResponse response){
-        System.out.print(answerId);
+    public void delAnswer(@PathVariable String answerId,HttpServletRequest request,HttpServletResponse response) throws IOException {
+
+        Long quizId=Long.parseLong(request.getParameter("quizId"));
+        //创建JSON
+        JSONObject obj=new JSONObject();
         //根据answerId删除回答及评论
         this.answerService.delAnswer(Long.parseLong(answerId));
-        return "ok";
+        //查询当前回答总数
+        Long totalcount=this.answerService.gettal(quizId);
+        obj.put("count1",totalcount);
+        obj.put("res","ok");
+        response.getWriter().append(obj.toString());
     }
 
     /**
@@ -305,11 +312,15 @@ public class QuizCommentController {
      */
     @RequestMapping(value = "/delcomment/{answerId}/{parentanswerId}",method = RequestMethod.GET)
     @ResponseBody
-    public String delComment(@PathVariable String answerId,@PathVariable String parentanswerId){
-        System.out.print(answerId+"\n");
-        System.out.print(parentanswerId);
+    public void delComment(@PathVariable String answerId,@PathVariable String parentanswerId,HttpServletResponse response) throws IOException {
+        //创建JSON
+        JSONObject obj=new JSONObject();
         //登录用户删除评论
         this.answerService.delComment(Long.parseLong(answerId),Long.parseLong(parentanswerId));
-        return "ok";
+        //查询当前评论总数
+        Long totalcount=this.answerService.findchildAnswerCount(Long.parseLong(parentanswerId));
+        obj.put("res","ok");
+        obj.put("count2",totalcount);
+        response.getWriter().append(obj.toString());
     }
 }

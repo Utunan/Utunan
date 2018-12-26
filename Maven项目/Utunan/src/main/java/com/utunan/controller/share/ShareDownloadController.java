@@ -122,14 +122,16 @@ public class ShareDownloadController {
 	@RequestMapping("/downloadfile/{fileId}")
 	public void downloadFile(HttpServletRequest request, HttpServletResponse response, @PathVariable String fileId) {
 		//获取文件信息
-//		String fileId = request.getParameter("fileId");
 		File file=this.shareIndexService.findFileById(Long.parseLong(fileId));
 		//获取用户信息
 		User user = (User)request.getSession().getAttribute("User");
+		//下载文件的用户
 		User user1 = this.shareIndexService.findUserById(user.getUserId());
+		//上传文件的用户
+		User user2 = this.shareIndexService.findUserById(file.getUserId());
 		//获得请求文件名
 		String name = file.getFileTitle();
-		String path = file.getFileUrl();
+		String path = "/usr/local/tomcat/repertory/"+file.getFileUrl();
 		//文件后缀
 		String suffix = "."+path.substring(path.lastIndexOf(".")+1);
 		String fileName = null;
@@ -165,15 +167,22 @@ public class ShareDownloadController {
 				e.printStackTrace();
 			}
 		}
-		//更新文件的下载次数
-		this.shareIndexService.updateFileDownloadNumber(file.getFileId(), file.getDownloadNumber()+1);
-		//判断用户是否下载过该文件
-		UserDownload userDownload=this.shareIndexService.findUserDownload(user.getUserId(), file.getFileId());
-		if(userDownload==null){
-			//向用户下载表插入数据
-			this.shareIndexService.insertUserDownload(user.getUserId(), file.getFileId());
-			//更新用户积分
-			this.shareIndexService.updateUserIntegral(user.getUserId(),user1.getUserIntegral()-file.getFileCredit());
+		if (user1.getUserId().equals(user2.getUserId())){
+			//更新文件的下载次数
+			this.shareIndexService.updateFileDownloadNumber(file.getFileId(), file.getDownloadNumber()+1);
+		}else {
+			//更新文件的下载次数
+			this.shareIndexService.updateFileDownloadNumber(file.getFileId(), file.getDownloadNumber()+1);
+			//判断用户是否下载过该文件
+			UserDownload userDownload=this.shareIndexService.findUserDownload(user.getUserId(), file.getFileId());
+			if(userDownload==null){
+				//向用户下载表插入数据
+				this.shareIndexService.insertUserDownload(user.getUserId(), file.getFileId());
+				//更新用户积分
+				this.shareIndexService.updateUserIntegral(user.getUserId(),user1.getUserIntegral()-file.getFileCredit());
+			}
+			//更新上传文件用户的积分
+			this.shareIndexService.updateUserIntegral(file.getUserId(), user2.getUserIntegral()+file.getFileCredit());
 		}
 	}
 
