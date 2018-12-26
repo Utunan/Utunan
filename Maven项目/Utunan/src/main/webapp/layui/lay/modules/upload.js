@@ -112,9 +112,6 @@ layui.define("layer", function (e) {
                         headers: l.headers || {},
                         success: function (i) {
                             t++, d(e, i), u()
-                        },
-                        error: function () {
-                            n++, o.msg("请求上传接口出现异常"), m(e), u()
                         }
                     })
                 })
