@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="/css/community/layui.css">
     <link rel="stylesheet" href="/css/community/global.css">
     <link rel="stylesheet" href="/css/community/add.css">
+    <link rel="stylesheet" href="/css/school/animate.css">
+    <link rel="stylesheet" href="/css/school/dialog.css">
     <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
 </head>
 <script>
@@ -185,7 +187,7 @@
                             <input type="text" id="L_vercode" class="layui-input" placeholder="请输入验证码" name="userinput"/>
                         </div>
                         <div class="layui-form-mid">
-                            <img src="/getIdentityPic" id="identity" onload="btn.disabled= false;">
+                            <img src="/getIdentityPic" id="identity" onclick="reloadImage()" onload="btn.disabled= false;">
                             <input type="button" value="换个图片" onclick="reloadImage()" id="btn">
                         </div>
                     </div>

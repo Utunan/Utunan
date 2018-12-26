@@ -32,7 +32,7 @@ public class IdentityPicServiceImpl implements IdentityPicService {
         req.getSession().setAttribute("code", code); //放入Session
 
         int width = 100;    //图片宽度
-        int height = 30;    //图片高度
+        int height = 38;    //图片高度
 
         Color color =   randPic.getRandomColor();  //随机色，用于背景色
         Color reverse = randPic.getReverseColor(color);  //反色，用于前景色
@@ -51,7 +51,7 @@ public class IdentityPicServiceImpl implements IdentityPicService {
         g.setColor(reverse);   //设置画笔颜色
         g.drawString(code, 18, 20); //绘制字符
         //设置最多100个噪音点
-        for(int i=0,n = randPic.random.nextInt(100);i<n;i++){
+        for(int i=0,n = randPic.random.nextInt(50);i<n;i++){
             g.drawRect(randPic.random.nextInt(width), randPic.random.nextInt(height), 1, 1);
         }
 
