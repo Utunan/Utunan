@@ -187,30 +187,19 @@
     }
 </script>
 <script>
-    /*弹窗登录功能*/
+    /*/!*弹窗登录功能*!/
     var ask=document.getElementById("upload");
-    var mask=document.getElementsByClassName("mask")[0];
-    var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
-    /*获取提交按钮*/
+    /!*获取提交按钮*!/
     var submitbutton = document.getElementById("submitbutton");
-    /*获取密码框*/
-    password = document.getElementById('password');
-    textpassword=document.getElementById("login_showPwd");
 
-    /*点击评论提交判断是否是用户，不是用户则弹出框*/
+    /!*点击评论提交判断是否是用户，不是用户则弹出框*!/
     ask.onclick=function(){
-        if(${user==null}){
+        if({user==null}){
             mask.style.display="block";
             modalDialogcontent.style.display="block";
         }else{
             window.location.href="/share1";
         }
-    };
-    /*点击小叉号然后关闭*/
-    var close_modalDialogcontent=document.getElementsByClassName("close_modalDialogcontent")[0];
-    close_modalDialogcontent.onclick=function(){
-        mask.style.display="none";
-        modalDialogcontent.style.display="none";
     };
 
     //判断用户名和密码
@@ -238,7 +227,7 @@
                 console.log("网崩了！")
             }
         });
-    };
+    };*/
 </script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="/js/common/common.js"></script>
