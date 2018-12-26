@@ -434,7 +434,7 @@
                 javascript:$('body').dialog({type:'success'});
             }else{
                 //满足条件，可以提交
-                document.smallform.submit();
+                document.fuform.submit();
             }
         }
     };
@@ -507,12 +507,12 @@
                         S = S<10?("0"+S):S;
                         var str = y+"-"+m+"-"+d+" "+h+":"+M+":"+S;
                         if(${commentNum!=0}) {
-                            node = '<li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span></div></li>'
+                            node = '<li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span><span type="reply"><i class="iconfont icon-svgmoban53"></i><a href="javascript:void(0)" onclick="delcomment('+data['reb']['answerId']+','+data['reb']['parentAnswer']+')">删除</a></span></div></li>'
                             $('#can' + answerId).append(node);
                         }
                         else{
                             $("#slogen"+answerId).css("display","none");
-                            snode = '<ul class="commentlist" style="background-color:#fafafa" id="can'+answerId+'"><li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span></div></li></ul>';
+                            snode = '<ul class="commentlist" style="background-color:#fafafa" id="can'+answerId+'"><li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span><span type="reply"><i class="iconfont icon-svgmoban53"></i><a href="javascript:void(0)" onclick="delcomment('+data['reb']['answerId']+','+data['reb']['parentAnswer']+')">删除</a></span></div></li></ul>';
                             $('#ddt'+answerId).append(snode);
                         }
 
