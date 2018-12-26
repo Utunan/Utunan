@@ -79,7 +79,7 @@
                     </select>
                 </div>
                 <div class="op">
-                    <span   class="st">关键词搜索 >></span>
+                    <span  class="st">关键词搜索 ></span>
                     <input name="keyWord" type="text" id="direction" placeholder="（选填）如：一心跟着组长走"  class="layui-input">
                     <input type="submit" value="搜索" id="search" class="layui-btn layui-btn-normal"/>
                 </div>
@@ -223,6 +223,11 @@
         $(".part").attr("checked",false);
     })
 
+    //搜索框文字保持
+    var direction=document.getElementById("direction");
+    if("${keyWord}"!=""){
+        direction.value="${keyWord}";
+    }
 </script>
 <script>
     /*弹窗登录功能*/
