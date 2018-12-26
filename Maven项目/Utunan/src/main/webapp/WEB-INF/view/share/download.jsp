@@ -44,7 +44,7 @@
                         所在院校：<span>${file.user.userSchool}</span>
                         目标院校：<span>${file.user.dreamSchool}</span>
                     </div>
-                    <div class="from"><span>来自<a href="">${file.user.userNickName}</a></span></div>
+                    <div class="from"><span>来自<a href="/member/${file.user.userId}">${file.user.userNickName}</a></span></div>
                 </div>
                 <div class="download">
                     <form class="doenload-form" name="form1" action="/downloadfile/${file.fileId}" method="post" onsubmit="return false" ><%--check(this)--%>
