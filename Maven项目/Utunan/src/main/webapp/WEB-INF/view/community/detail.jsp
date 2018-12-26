@@ -186,11 +186,11 @@
                         <li data-id="111" class="jieda-daan" id="an${answer.answerId }">
                             <a name="item-1111111111"></a>
                             <div class="detail-about detail-about-reply">
-                                <a class="fly-avatar" href="">
+                                <a class="fly-avatar" href="/member/${answer.user.userId}">
                                     <img src="${answer.user.userHeadImg}" width="55px" height="55px">
                                 </a>
                                 <div class="fly-detail-user">
-                                    <a href="" class="fly-link">
+                                    <a href="/member/${answer.user.userId}" class="fly-link">
                                         <cite>${answer.user.userNickName}</cite>
                                     </a>
                                     <span>发表于
@@ -248,15 +248,16 @@
                                         <c:if test="${commentNum==0}">
                                             <div class="slogen" id="slogen${answer.answerId}">啊嘞！还没有评论~</div>
                                         </c:if>
-
+                                    <div id ="cqb${answer.answerId}">
                                     <c:if test="${commentNum!=0}">
+
                                         <ul class="commentlist" style="background-color:#fafafa" id="can${answer.answerId}">
                                             <c:forEach items="${map.keySet()}" var="m1">
                                                 <c:if test="${m1.answerId==answer.answerId}">
                                                     <c:forEach items="${map.get(m1)}" var="m2">
                                                         <li id="co${m2.answerId }">
                                                             <div class="fly-detail-user">
-                                                                <a href="" class="fly-link">
+                                                                <a href="/member/${m2.user.userId}" class="fly-link">
                                                                     <cite>${m2.user.userNickName}</cite>
                                                                 </a>
                                                                 <span>发表于<fmt:formatDate value="${m2.getAnswerTime() }" type="both"/></span>
@@ -293,6 +294,7 @@
                                             </c:forEach><!--评论循环完毕-->
                                         </ul>
                                     </c:if>
+                                    </div>
                                         <div class="reply" style="display: none;">
                                             <form name="smallform" action="" method="post" onsubmit="return false" id="commenta${answer.answerId}">
                                                 <input type="text" name="comment" id="comment${answer.answerId}">
@@ -516,14 +518,14 @@
                         var S = date.getSeconds();
                         S = S<10?("0"+S):S;
                         var str = y+"-"+m+"-"+d+" "+h+":"+M+":"+S;
-                        if(${commentNum!=0}) {
-                            node = '<li id="co'+data['reb']['answerId']+'"><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span><span type="reply"><i class="iconfont icon-svgmoban53"></i><a href="javascript:void(0)" onclick="delcomment('+data['reb']['answerId']+','+data['reb']['parentAnswer']+')">删除</a></span></div></li>'
+                        if((data['count3']-1)!=0){
+                            node = '<li id="co'+data['reb']['answerId']+'"><div class="fly-detail-user"><a href="/member/'+data['reb']['user']['userId']+'" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span><span type="reply"><i class="iconfont icon-svgmoban53"></i><a href="javascript:void(0)" onclick="delcomment('+data['reb']['answerId']+','+data['reb']['parentAnswer']+')">删除</a></span></div></li>'
                             $('#can' + answerId).append(node);
                         }
                         else{
                             $("#slogen"+answerId).css("display","none");
-                            snode = '<ul class="commentlist" style="background-color:#fafafa" id="can'+answerId+'"><li id="co'+data['reb']['answerId']+'"><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span><span type="reply"><i class="iconfont icon-svgmoban53"></i><a href="javascript:void(0)" onclick="delcomment('+data['reb']['answerId']+','+data['reb']['parentAnswer']+')">删除</a></span></div></li></ul>';
-                            $('#ddt'+answerId).append(snode);
+                            snode = '<ul class="commentlist" style="background-color:#fafafa" id="can'+answerId+'"><li id="co'+data['reb']['answerId']+'"><div class="fly-detail-user"><a href="/member/'+data['reb']['user']['userId']+'" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span><span type="reply"><i class="iconfont icon-svgmoban53"></i><a href="javascript:void(0)" onclick="delcomment('+data['reb']['answerId']+','+data['reb']['parentAnswer']+')">删除</a></span></div></li></ul>';
+                            $('#cqb'+answerId).append(snode);
                         }
 
                         document.getElementById("f1"+answerId).innerHTML=data['count3'];
