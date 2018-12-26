@@ -84,7 +84,6 @@
                             <div class="text">
                                 <div id="div1" class="toolbar"></div>
                                 <div id="div2" style="height: 100px">
-                                    <p>输入问题背景、条件等详细信息</p>
                                 </div>
                                 <textarea id="text1" style="display: none" name="textarea"></textarea>
                                 <script type="text/javascript">
