@@ -225,7 +225,8 @@ public class QuizController {
 		request.setCharacterEncoding("UTF-8");
 		//int num=Integer.parseInt(request.getParameter("j1"));
 		String title=request.getParameter("title");
-		String t=request.getParameter("tags");
+		String t=request.getParameter("tagId");
+
 		String content= request.getParameter("textarea");
 
 		User user=(User)session.getAttribute("User");
@@ -233,17 +234,16 @@ public class QuizController {
 		Long qid=this.quizService.getMaxQid();
 		qid+=1;
 		if (t!=null&&!t.equals("")){
-            //以中英文逗号、空格（一个或多个）分割字符串
+			//以中英文逗号、空格（一个或多个）分割字符串
 			String regex = ",|，|\\s+";
 			String[] tags=t.split(regex);
+			Long[] ps=new Long[tags.length];
+			for (int i = 0; i <tags.length; i++) {
+				ps[i]=Long.parseLong(tags[i]);
+			}
 			//将数组转化为list集合
-            List<String> listtag= Arrays.asList(tags);
-
-
-			//获得用户输入的标签的id
-			List<Long> tagss=this.tagService.getTags(listtag);
-
-			this.quizTagService.saveQuizTag(qid,tagss);
+			List<Long> listtag= Arrays.asList(ps);
+			this.quizTagService.saveQuizTag(qid,listtag);
 		}
 		//限定用户登录并且title不为空并且title限定字数为5到20字
 		if (user!=null&&WordLimitUtil.isNull(title)&&WordLimitUtil.getLength(title)>=5&&WordLimitUtil.getLength(title)<=20) {
