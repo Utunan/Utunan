@@ -67,6 +67,10 @@
             </if>
             and
             direction.directionName regexp #{directionName}
+            <if test="schoolName!=null and ''!=schoolName">
+                and
+                direction.schoolName like CONCAT('%','${schoolName}','%' )
+            </if>
         </where>
     </select>
 

@@ -25,6 +25,7 @@ public interface PublishSchoolMapper {
                                                 @Param("degreeTypeList") String[] degreeTypeList,
                                                 @Param("mathList") String[] mathList,
                                                 @Param("englishList") String[] englishList,
-                                                @Param("directionName") String directionName);
+                                                @Param("directionName") String directionName,
+                                                @Param("schoolName") String schoolName);
 
 }
