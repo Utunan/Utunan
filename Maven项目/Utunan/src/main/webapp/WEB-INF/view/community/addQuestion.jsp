@@ -67,7 +67,7 @@
                 <ul class="layui-tab-title">
                     <li class="layui-this">发表提问</li>
                 </ul>
-                <form action="uiz3" method="post">
+                <form id="shangchuanform" name="shangchuan" onsubmit="return false" action="/uiz3" method="post">
                     <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
                         <div class="layui-tab-item layui-show">
                             <div class="layui-col-md9">
@@ -182,15 +182,15 @@
                     <div class="layui-form-item">
                         <label for="L_vercode" class="layui-form-label">人类验证</label>
                         <div class="layui-input-inline">
-                            <input type="text" id="L_vercode" name="vercode" required lay-verify="required"
-                                   placeholder="请回答后面的问题" autocomplete="off" class="layui-input">
+                            <input type="text" id="L_vercode" class="layui-input" placeholder="请输入验证码" name="userinput"/>
                         </div>
                         <div class="layui-form-mid">
-                            <span style="color: #c00;">1+1=?</span>
+                            <img src="/getIdentityPic" id="identity" onload="btn.disabled= false;">
+                            <input type="button" value="换个图片" onclick="reloadImage()" id="btn">
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <button type="submit" class="layui-btn" lay-filter="*" lay-submit>立即发布</button>
+                        <button id="fabu" type="submit" class="layui-btn" lay-filter="*" onclick="judgePic()" lay-submit>立即发布</button>
                     </div>
                 </form>
             </div>
@@ -201,4 +201,45 @@
 
 <%@include file="../common/footer.jsp" %>
 </body>
+<script type="text/javascript">
+    function reloadImage(){
+        document.getElementById('btn').disable=true;
+        document.getElementById('identity').src='/getIdentityPic?time='
+            +new Date().getTime();
+    }
+
+    var userinput = document.getElementById("L_vercode");
+    function judgePic() {
+        var str = userinput.value.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+        if(str == '' || str == undefined || str == null){
+            //文本框为空
+            javascript:$('body').judgenull({type:'success'});
+        }else{
+            $.ajax({
+                //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "/judgePicCode" ,//url
+                /*data: {"userinput":userinput},*/
+                data: $('#shangchuanform').serialize(),
+                success: function (result) {
+                    console.log(result);//打印服务端返回的数据(调试用)
+                    var res = result.res;
+                    if(res=="ok"){
+                        console.log("验证成功！");
+                        document.shangchuan.submit();
+                    }else{
+                        console.log("验证失败！");
+                        reloadImage();
+                        javascript:$('body').judgefalse({type:'success'});
+                    }
+                },
+                error : function() {
+                    console.log("网崩了！")
+                }
+            });
+        }
+    }
+</script>
+<script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
 </html>

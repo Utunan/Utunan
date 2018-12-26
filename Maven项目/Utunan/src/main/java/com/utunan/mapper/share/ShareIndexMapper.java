@@ -30,4 +30,5 @@ public interface ShareIndexMapper {
     void deleteFileGreat(@Param("userId") Long userId, @Param("fileId") Long fileId, @Param("operate") Long operate);
     void updateFileUpNumber(@Param("fileId") Long fileId, @Param("upNumber") Long upNumber);
 	void updateFileDownNumber(@Param("fileId") Long fileId, @Param("downNumber") Long downNumber);
+	String findProvinceBySchool(@Param("school") String school);
 }
