@@ -20,7 +20,7 @@
             </nav>
         </c:when>
         <c:otherwise>
-            <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
+            <span style="text-align: center; line-height: 40px;font-size: 16px;color: #28A47C;">小优没有帮您找到数据，过一会儿再来看看吧</span>
         </c:otherwise>
     </c:choose>
 </div>
