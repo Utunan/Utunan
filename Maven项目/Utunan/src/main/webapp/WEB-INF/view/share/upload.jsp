@@ -130,11 +130,11 @@
                                 <label class="layui-form-label">文件类型</label>
                                 <div class="layui-input-block">
                                     <select lay-verify="required" name="filetype" lay-filter="column">
-                                        <option value="pic">图片</option>
+                                        <option value="tupian">图片</option>
                                         <option value="txt">txt文件</option>
                                         <option value="doc">doc文件</option>
                                         <option value="pdf">pdf文件</option>
-                                        <option value="ziprar">压缩文件</option>
+                                        <option value="yasuo">压缩文件</option>
                                         <option value="ppt">ppt文件</option>
                                         <option value="other">其他</option>
                                     </select>
