@@ -218,15 +218,14 @@
                                             <em id="answer${answer.answerId}">${answer.praiseCount}</em>
                                         </c:otherwise>
                                     </c:choose>
-
                                 </span>
                                 <span type="reply" class="write-reply">
-                                    <i class="iconfont icon-vgmoban53</i>
-                                                                回复
+                                    <i class="iconfont icon-svgmoban53"></i>
+                                    回复
                                 </span>
                                 <%--判断是否是用户本人--%>
                                 <c:if test="${user.userIdentity==3 && user.userId==answer.user.userId}">
-                                      <span type="reply">
+                                      <span>
                                         <i class="iconfont icon-svgmoban53"></i>
                                         <a href="javascript:void(0)" onclick="delanswer(${answer.answerId})">删除</a>
                                       </span>
@@ -471,7 +470,7 @@
 
 <%--ajax异步提交表单--%>
 <script>
-    function comments(answerId) {
+    function comments(answerId,quizId) {
         if(${user==null}){
             mask.style.display="block";
             modalDialogcontent.style.display="block";
@@ -484,7 +483,7 @@
             }else{
                 //满足条件，可以提交
                 $.ajax({
-                    url: '/answer1/'+answerId,//处理数据的地址
+                    url: '/answer1/'+answerId+'/'+quizId,//处理数据的地址
                     dataType: "json",//预期服务器返回的数据类型
                     type: 'post',//数据提交形式
                     data: {"text":$('#comment'+answerId).val()},//需要提交的数据
