@@ -73,7 +73,7 @@
                         </ul>
                         <c:if test="${empty object}">
                             <div style="text-align: center">
-                                <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
+                                <span style="text-align: center; line-height: 40px;font-size: 16px;color: #28A47C;">小优没有帮您找到数据，过一会儿再来看看吧</span>
                             </div>
                         </c:if>
                     </c:if>
@@ -138,8 +138,11 @@
                                                 <fmt:formatDate value="${answer.answerTime}" type="both"/>
                                             </span>
                                             <span title="点赞">点赞量：${answer.praiseCount}</span>
+                                            <span>${answer.parentAnswer}</span>
                                         </div>
-                                        <div class="detail-hits"> <span style="padding-right: 10px; color: #FF7200">${answer.answerContent}</span></div>
+                                        <div class="detail-hits">
+                                            <div style="padding-right: 10px; color: #FF7200">${answer.answerContent}</div>
+                                        </div>
                                     </div>
                                 </li>
 
@@ -204,7 +207,7 @@
                  </div>
             </div>
             <div class="layui-col-md4">
-                <img src="/images/common/firebird.png" width="400px" style="padding-left: 0px;padding-top:25px"/>
+                <img src="/images/common/firebird.png" width="400px" style="padding-left: 0px;padding-top:25px;"/>
             </div>
         </div>
     </div>
