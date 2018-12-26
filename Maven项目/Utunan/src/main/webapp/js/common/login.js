@@ -81,6 +81,7 @@ function checkForm() {
 permit.onfocus=function () {
     if (checkpermit(permit.value)) {
         permit.value=""
+        permit.style.color="#666";
     }
 }
 
@@ -95,7 +96,6 @@ permit.onblur=function () {
         dataType: "json",
         success: function (data) {
             if (data == '200') {
-                /*$('#permitreply').html("")*/
                 var state = true;
                 var reply = ""
 
