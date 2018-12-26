@@ -22,7 +22,7 @@
 </head>
 <script>
     //禁用Enter键表单自动提交
-    document.onkeydown = function(event) {
+    document.onkeydown = function (event) {
         var target, code, tag;
         if (!event) {
             event = window.event; //针对ie浏览器
@@ -30,8 +30,12 @@
             code = event.keyCode;
             if (code == 13) {
                 tag = target.tagName;
-                if (tag == "TEXTAREA") { return true; }
-                else { return false; }
+                if (tag == "TEXTAREA") {
+                    return true;
+                }
+                else {
+                    return false;
+                }
             }
         }
         else {
@@ -39,8 +43,12 @@
             code = event.keyCode;
             if (code == 13) {
                 tag = target.tagName;
-                if (tag == "INPUT") { return false; }
-                else { return true; }
+                if (tag == "INPUT") {
+                    return false;
+                }
+                else {
+                    return true;
+                }
             }
         }
     };
@@ -48,7 +56,7 @@
 </script>
 <body>
 <!--header-->
-<%@include file="../common/header.jsp"%>
+<%@include file="../common/header.jsp" %>
 
 <!--content-->
 <div class="layui-container fly-marginTop">
@@ -60,74 +68,131 @@
                     <li class="layui-this">发表提问</li>
                 </ul>
                 <form action="uiz3" method="post">
-                <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
-                    <div class="layui-tab-item layui-show">
-                        <div class="layui-col-md9">
-                        <label for="L_title" class="layui-form-label">标题</label>
-                        <div class="layui-input-block">
-                            <input type="text" id="L_title" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
-                            <!-- <input type="hidden" name="id" value="{{d.edit.id}}"> -->
-                        </div>
-                    </div>
-                    </div>
-
-                    <div class="layui-form-item layui-form-text">
-                        <div class="text">
-                            <div id="div1" class="toolbar" ></div>
-                            <div id="div2" style="height: 100px">
-                                <p>输入问题背景、条件等详细信息</p>
+                    <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
+                        <div class="layui-tab-item layui-show">
+                            <div class="layui-col-md9">
+                                <label for="L_title" class="layui-form-label">标题</label>
+                                <div class="layui-input-block">
+                                    <input type="text" id="L_title" name="title" required lay-verify="required"
+                                           autocomplete="off" class="layui-input">
+                                    <!-- <input type="hidden" name="id" value="{{d.edit.id}}"> -->
+                                </div>
                             </div>
-                            <textarea id="text1" style="display: none" name="textarea"></textarea>
-                            <script type="text/javascript">
-                                var E = window.wangEditor;
-                                var editor1 = new E('#div1', '#div2');  // 两个参数也可以传入 elem 对象，class 选择器
-                                editor1.customConfig.menus = [
-                                    'list',  // 列表
-                                    'link',     //插入链接
-                                    'image',    //插入图片
-                                    'code'    //插入代码
-                                ];
-                                editor1.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
-                                editor1.customConfig.uploadImgMaxSize = 1 * 1024 * 1024   //每张图片最大上传大小
-                                editor1.customConfig.uploadImgMaxLength = 5              //每次最多上传5张
-                                var $text1 = $('#text1')
-                                editor1.customConfig.onchange = function (html) {
-                                    // 监控变化，同步更新到 textarea
-                                    $text1.val(html)
-                                }
+                        </div>
 
-                                editor1.create();
+                        <div class="layui-form-item layui-form-text">
+                            <div class="text">
+                                <div id="div1" class="toolbar"></div>
+                                <div id="div2" style="height: 100px">
+                                    <p>输入问题背景、条件等详细信息</p>
+                                </div>
+                                <textarea id="text1" style="display: none" name="textarea"></textarea>
+                                <script type="text/javascript">
+                                    var E = window.wangEditor;
+                                    var editor1 = new E('#div1', '#div2');  // 两个参数也可以传入 elem 对象，class 选择器
+                                    editor1.customConfig.menus = [
+                                        'list',  // 列表
+                                        'link',     //插入链接
+                                        'image',    //插入图片
+                                        'code'    //插入代码
+                                    ];
+                                    editor1.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
+                                    editor1.customConfig.uploadImgMaxSize = 1 * 1024 * 1024   //每张图片最大上传大小
+                                    editor1.customConfig.uploadImgMaxLength = 5              //每次最多上传5张
+                                    var $text1 = $('#text1')
+                                    editor1.customConfig.onchange = function (html) {
+                                        // 监控变化，同步更新到 textarea
+                                        $text1.val(html)
+                                    }
+
+                                    editor1.create();
+                                </script>
+                            </div>
+                        </div>
+                        <div class="layui-form-item addtags">
+                            <div style="width: 1000px; float: left;height:60px;">
+                                <div class="addtag-description" style="float: left;width: 1000px;">已添加标签</div>
+                                <div class="addtagItem">
+
+                                </div>
+                                <input id="tagId" type="hidden" name="tagId" value="">
+                                <br>
+                            </div>
+                            <div style="max-width: 100%;float: left;clear: both;">
+                                <div class="tags-description">请选择标签：</div>
+                                <div class="tags">
+                                    <c:forEach items="${tagList}" var="tag">
+                                        <div class="tag" tagid="${tag.tagId }"
+                                             style="cursor: pointer">${tag.tagName}</div>
+                                    </c:forEach>
+                                </div>
+                            </div>
+                            <script>
+
+                                $('.tags').on('click', '.tag', function () {
+                                    if ($('.addtagItem').children().length >= 3) {
+                                        alert("只能选择三个标签呦~")
+                                    } else {
+                                        var activetag = $("<div></div>").text($(this).html());
+                                        var tagId = $(this).attr('tagId')
+                                        var tagIdList
+                                        if ($("#tagId").val() == "") {
+                                            tagIdList = $("#tagId").val().split("")
+                                        } else {
+                                            tagIdList = $("#tagId").val().split(",")
+                                        }
+                                        tagIdList.push(tagId)
+                                        $("#tagId").val(tagIdList.join(','))
+                                        activetag.attr("class", "activetag");
+                                        activetag.attr("tagId", tagId);
+                                        activetag.attr("style", "cursor:pointer");
+                                        $('.addtagItem').append(activetag)
+                                        $(this).remove()
+                                    }
+                                })
+
+
+                                $(".addtagItem").on("click", ".activetag", function () {
+                                    var tag = $("<div></div>").text($(this).html());
+                                    var tagId = $(this).attr('tagId')
+                                    var tagIdList
+                                    if ($("#tagId").val() == "") {
+                                        tagIdList = $("#tagId").val().split("")
+                                    } else {
+                                        tagIdList = $("#tagId").val().split(",")
+                                    }
+                                    for (var i = 0; i < tagIdList.length; i++) {
+                                        if (tagIdList[i] == tagId) {
+                                            tagIdList.splice(i, 1)
+                                            break
+                                        }
+                                    }
+
+                                    $("#tagId").val(tagIdList.join(','))
+                                    tag.attr("class", "tag");
+                                    tag.attr("tagId", tagId);
+                                    tag.attr("style", "cursor:pointer");
+                                    $('.tags').append(tag)
+                                    $(this).remove()
+                                });
+
+
                             </script>
                         </div>
                     </div>
-                    <div class="layui-form-item addtags">
-                        <div style="max-width: 70%;">
-                            <div class="addtag-description" style="float: left;">已添加标签</div>
-                            <div class="addtagItem"></div>
-                            <br>
+                    <div class="layui-form-item">
+                        <label for="L_vercode" class="layui-form-label">人类验证</label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="L_vercode" name="vercode" required lay-verify="required"
+                                   placeholder="请回答后面的问题" autocomplete="off" class="layui-input">
                         </div>
-                        <div style="max-width: 70%;">
-                            <div class="tags-description">请选择标签：</div>
-                            <div class="tags">
-                                <c:forEach items="${tagList}" var="tag">
-                                    <div class="tag" style="display: block;">${tag.tagName}</div>
-                                </c:forEach>
-                            </div>
+                        <div class="layui-form-mid">
+                            <span style="color: #c00;">1+1=?</span>
                         </div>
                     </div>
-                </div>
-                <div class="layui-form-item">
-                    <label for="L_vercode" class="layui-form-label">人类验证</label>
-                    <div class="layui-input-inline">
-                        <input type="text" id="L_vercode" name="vercode" required lay-verify="required" placeholder="请回答后面的问题" autocomplete="off" class="layui-input">
+                    <div class="layui-form-item">
+                        <button type="submit" class="layui-btn" lay-filter="*" lay-submit>立即发布</button>
                     </div>
-                    <div class="layui-form-mid">
-                        <span style="color: #c00;">1+1=?</span>
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <button type="submit" class="layui-btn" lay-filter="*" lay-submit>立即发布</button>
-                </div>
                 </form>
             </div>
         </div>
@@ -135,21 +200,6 @@
 </div>
 <!--//content-->
 
-<%@include file="../common/footer.jsp"%>
+<%@include file="../common/footer.jsp" %>
 </body>
-<script>
-    var tags=document.getElementsByClassName("tag");
-    console.log(tags);
-    var addtag=document.getElementsByClassName("addtagItem")[0];
-    for(var i=0;i<tags.length;i++){
-        tags[i].onclick=function () {
-            this.style.display="none";
-            var add=document.createElement("div");
-            add.innerHTML=this.innerHTML;
-            add.className="addtag";
-            add.style="display:block; width:auto;display: block; background-color: #009688;margin:0px 5px;color: #fff; font-size: 14px;padding: 4px 10px;float: left; border-radius: 18px;text-align: center;";
-            addtag.appendChild(add);
-        }
-    }
-</script>
 </html>
