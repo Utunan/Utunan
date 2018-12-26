@@ -377,7 +377,7 @@ footer>p{
 }
 footer>nav>li>a{
     text-decoration: none;
-    color:#009688;
+    color:rgba(0,188,155,1);
 }
 .page {
     position: relative;

@@ -38,10 +38,16 @@ public class RegisterController {
             request.setAttribute("reply","验证码错误");
             return "register";
         }
+        String repassword=request.getParameter("rpassword");
+        if(!user.getUserPassword().equals(repassword)){
+            request.setAttribute("reply","两次输入的密码不相同,请重新输入.");
+            return "register";
+        }
         userService.saveUser(user);
         User account=userService.getUser(user);
         session.removeAttribute("registertel");
         session.setAttribute("User",account);
+        session.removeAttribute("code");
         return "redirect:/user";
     }
 }
