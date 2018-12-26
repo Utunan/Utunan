@@ -87,7 +87,6 @@
           </form>
       </div>
       <div class="fly-panel" style="margin-bottom: 0; margin-top:20px">
-
           <c:if test="${url=='share'}">
               <div>
                   <ul class="list">
@@ -129,40 +128,13 @@
           </c:if>
         </div>
     </div><!--上边这-->
-  <!--左边这-->
+  <!--右边这-->
   <%@include file="right.jsp"%>
 </div>
-<%--弹窗登录表单--%>
-<div class="modalDialogcontent">
-    <div class="formcontent">
-        <span class="close_modalDialogcontent">×</span>
-        <div class="textcase">
-            <div class="logintext">
-                <img src="/images/common/logo.png" alt="" srcset=""><%--<img src="/images/common/logo.png" alt="" srcset="">--%>
-            </div>
-            <div class="wenhou">
-                <a href="">登录优图南，开启你的考研之旅</a>
-            </div>
-        </div>
-        <div  class="reply"></div>
-        <%--<div  class="reply" id="reply"></div>--%>
-        <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">  <%--onsubmit="return checkForm()"--%>
-            <div class="permit inputcase">
-                <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="手机号/邮箱">
-            </div>
-            <div class="loginpassword inputcase">
-                <input type="password" name="userPassword" id="password" placeholder="密码（8-16位，由数字和字母组成）"/>
-                <input type="text" id="login_showPwd" style="display: none"/>
-            </div>
-            <div class="loginbtn">
-                <%--<button id="closeAll">不了</button>--%>
-                <button id="submitbutton" type="submit">登录</button>
-            </div>
-            <span><a id="register" href="/register">立即注册</a> </span>
-            <span><a id="forpasswork" href="/forgetpasework">忘记密码</a> </span> <%--还未实现该页面--%>
-        </form>
-    </div>
 </div>
+<%--弹窗登录表单--%>
+<%@include file="login.jsp"%>
+<%@include file="../common/footer.jsp"%>
 </body>
 <script>
     //刷新分页或搜索后复选框选中状态保持

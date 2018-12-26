@@ -77,11 +77,11 @@
                             <c:choose>
                                 <c:when test="${f.fileType == '招生简章' || f.fileType == '招生专业目录'}">
                                     <c:if test="${f.isExamine == 1}">
-                                        <%@include file="filelist.jsp"%>
+                                        <%@include file="filelist1.jsp"%>
                                     </c:if>
                                 </c:when>
                                 <c:otherwise>
-                                    <%@include file="filelist.jsp"%>
+                                    <%@include file="filelist1.jsp"%>
                                 </c:otherwise>
                             </c:choose>
 
@@ -97,35 +97,7 @@
     </div>
 </div>
 <%--弹窗登录表单--%>
-<div class="modalDialogcontent">
-    <div class="formcontent">
-        <span class="close_modalDialogcontent">×</span>
-        <div class="textcase">
-            <div class="logintext">
-                <img src="/images/common/logo.png" alt="" srcset=""><%--<img src="/images/common/logo.png" alt="" srcset="">--%>
-            </div>
-            <div class="wenhou">
-                <a href="">登录优图南，开启你的考研之旅</a>
-            </div>
-        </div>
-        <div  class="reply"></div>
-        <%--<div  class="reply" id="reply"></div>--%>
-        <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">  <%--onsubmit="return checkForm()"--%>
-            <div class="permit inputcase">
-                <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="手机号/邮箱">
-            </div>
-            <div class="loginpassword inputcase">
-                <input type="password" name="userPassword" id="password" placeholder="密码（8-16位，由数字和字母组成）"/>
-                <input type="text" id="login_showPwd" style="display: none"/>
-            </div>
-            <div class="loginbtn">
-                <button id="submitbutton" type="submit">登录</button>
-            </div>
-            <span><a id="register" href="/register">立即注册</a> </span>
-            <span><a id="forpasswork" href="/forgetpasework">忘记密码</a> </span> <%--还未实现该页面--%>
-        </form>
-    </div>
-</div>
+<%@include file="login.jsp"%>
 <%@include file="../common/footer.jsp"%>
 </body>
 <script>
@@ -199,6 +171,7 @@
     }
 
     /*弹窗登录功能*/
+    var bsk=document.getElementById("upload");
     var ask=document.getElementById("download")
     var mask=document.getElementsByClassName("mask")[0];
     var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
@@ -209,6 +182,15 @@
     textpassword=document.getElementById("login_showPwd");
 
     /*判断是否是用户*/
+    /*点击评论提交判断是否是用户，不是用户则弹出框*/
+    bsk.onclick=function(){
+        if(form1.operate.value=="notLogin"){
+            mask.style.display="block";
+            modalDialogcontent.style.display="block";
+        }else{
+            window.location.href="/share1";
+        }
+    };
     ask.onclick=function(){
         if (form1.operate.value=="notLogin") {
             //没有登录
