@@ -67,6 +67,8 @@ public class ShareIndexController {
 		}
 		//文件所属学校
 		String fileSchool = request.getParameter("school");
+		//文件所属地区
+		String province = this.shareIndexService.findProvinceBySchool(fileSchool);
 		String fs = "";
 		if(fileSchool==null || fileSchool.equals("")){
 			fs = "%%";
@@ -112,6 +114,7 @@ public class ShareIndexController {
 		request.setAttribute("hotFileList", hotFileList);
 		request.setAttribute("url", "searchfile");
 		request.setAttribute("fileType", String.join(",", fileType));
+		request.setAttribute("province", province);
 		request.setAttribute("school", fileSchool);
 		request.setAttribute("keyWord", keyWord);
 		request.setAttribute("PageInfo",new PageInfo(fileList,5));

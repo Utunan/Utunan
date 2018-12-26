@@ -138,7 +138,6 @@
                                                 <fmt:formatDate value="${answer.answerTime}" type="both"/>
                                             </span>
                                             <span title="点赞">点赞量：${answer.praiseCount}</span>
-                                            <span>${answer.parentAnswer}</span>
                                         </div>
                                         <div class="detail-hits"> <span style="padding-right: 10px; color: #FF7200">${answer.answerContent}</span></div>
                                     </div>

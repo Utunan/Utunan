@@ -68,14 +68,14 @@
                 </div>
                 <div class="op">
                     <span class="st">针对院校 >></span>
-                    <select name="province" onChange="set_school(this, this.form.school);" class="tc">
+                    <select name="province" id="province" onChange="set_school(this, this.form.school);" class="tc">
                         <option value="0">选择省份</option>
                         <c:forEach items="${provinceList}" var="province">
                             <option value="${province}">${province}</option>
                         </c:forEach>
                     </select>
                     <select name="school" id="schools"class="tc">
-                            <option value="%">选择学校</option>
+                            <option value="%" >选择学校</option>
                     </select>
                 </div>
                 <div class="op">
@@ -164,6 +164,21 @@
     $(".all").click(function(){
         $(".part").attr("checked",false);
     })
+
+    //下拉框状态保持
+    var province=document.getElementById("province");
+    var school=document.getElementById("schools");
+    $.each(province .options, function (i, n) {
+        if (n.value === "${province}") {
+            n.selected = true;
+            set_school(this, this.form.school);
+        }
+    });
+    $.each(school .options, function (i, n) {
+        if (n.value === "${school}") {
+            n.selected = true;
+        }
+    });
 
     //搜索框文字保持
     var direction=document.getElementById("direction");
