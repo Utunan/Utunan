@@ -39,14 +39,14 @@
         <span class="close_modalDialogcontent">×</span>
         <div class="textcase">
             <div class="logintext">
-                <img src="/images/common/logo.png" alt="" srcset=""><%--<img src="/images/common/logo.png" alt="" srcset="">--%>
+                <img src="/images/common/logo.png" alt="" srcset="">
             </div>
             <div class="wenhou">
                 <a href="">登录优图南，开启你的考研之旅</a>
             </div>
         </div>
         <div  class="reply"></div>
-        <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">  <%--onsubmit="return checkForm()"--%>
+        <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">
             <div class="permit inputcase">
                 <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="手机号/邮箱">
             </div>
@@ -89,32 +89,6 @@
         modalDialogcontent.style.display="none";
     };
 
-    //判断用户名和密码
-    /*submitbutton.onclick=function(){
-        $.ajax({
-            //几个参数需要注意一下
-            type: "POST",//方法类型
-            dataType: "json",//预期服务器返回的数据类型
-            url: "/school/popsupLogin" ,//url
-            data: $('#loginform').serialize(),
-            success: function (result) {
-                console.log(result);//打印服务端返回的数据(调试用)
-                if(result==true){
-                    console.log("登录成功");
-                    window.location.href="/toAddQuestion";
-                }else{
-                    textpassword.style.display="block";
-                    password.style.display="none";
-                    textpassword.parentNode.style.border = '1px solid red';
-                    textpassword.style.color="red";
-                    textpassword.value="密码错误";
-                }
-            },
-            error : function() {
-                console.log("网崩了！")
-            }
-        });
-    };*/
 </script>
 <script src="/js/common/login.js"></script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
