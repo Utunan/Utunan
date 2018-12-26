@@ -122,32 +122,30 @@
                     <!--搜索提问到此止-->
                     <!--从这里开始是搜索回答结果-->
                     <c:if test="${url=='/search/answer'}">
-                        <div>
-                            <table>
-                                <tr>
-                                    <td>序号</td>
-                                    <td>问题Id</td>
-                                    <td>问题名称</td>
-                                    <td>回答</td>
-                                    <td>时间</td>
-                                    <td>点赞</td>
-                                    <td>上级评论</td>
-                                    <td>用户昵称</td>
-                                </tr>
-                                <c:forEach items="${object}" var="answer">
-                                    <tr>
-                                        <td>${answer.answerId}</td>
-                                        <td>${answer.quiz.quizId}</td>
-                                        <td>回复：<a href="/quiz/${answer.quiz.quizId}" >${answer.quiz.quizTitle}</a></td>
-                                        <td>${answer.answerContent}</td>
-                                        <td>${answer.answerTime}</td>
-                                        <td>${answer.praiseCount}</td>
-                                        <td>${answer.parentAnswer}</td>
-                                        <td>${answer.user.userNickName}</td>
-                                    </tr>
-                                </c:forEach>
-                            <table/>
-                        </div>
+                        <ul class="list">
+                            <c:forEach items="${object}" var="answer">
+                                <li>
+                                    <div class="detail-about">
+                                        <a class="fly-avatar" href="/member/${answer.user.userId}" class="fly-avatar">
+                                            <img src="${answer.user.userHeadImg}" alt="昵称">
+                                        </a>
+                                        <div class="fly-detail-user">
+                                            回复：
+                                            <a href="/quiz/${answer.quiz.quizId}" class="fly-link">
+                                                <cite>${answer.quiz.quizTitle}</cite>
+                                            </a>
+                                            <span>
+                                                <fmt:formatDate value="${answer.answerTime}" type="both"/>
+                                            </span>
+                                            <span title="点赞">点赞量：${answer.praiseCount}</span>
+                                            <span>${answer.parentAnswer}</span>
+                                        </div>
+                                        <div class="detail-hits"> <span style="padding-right: 10px; color: #FF7200">${answer.answerContent}</span></div>
+                                    </div>
+                                </li>
+
+                            </c:forEach>
+                        </ul>
                         <!--分页-->
                         <%@include file="page.jsp"%>
                     </c:if>
@@ -159,11 +157,43 @@
                                 <c:choose>
                                     <c:when test="${file.fileType == '招生简章' || file.fileType == '招生专业目录'}">
                                         <c:if test="${file.isExamine == 1}">
-                                            <%@include file="../share/filelist.jsp"%>
+                                            <li>
+                                                <div>
+                                                    <img src="${file.suffix.imgUrl}" alt="文件类型" class="siffix">
+                                                    <span class="tn"><a href="/file/${file.fileId}" >${file.fileTitle}</a></span>
+                                                    <div class="topdetail">
+                                                        <span class="ft"><a href="/searchfile?fileType=${file.fileType}&school=${file.fileSchool}&keyWord=">${file.fileType}</a></span>
+                                                        <c:if test="${not empty file.fileSchool}">
+                                                            <span class="fs"><a href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a></span>
+                                                        </c:if>
+                                                    </div>
+                                                    <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
+                                                    <div class="rightdetail">
+                                                        <span class="fc"><img src="/images/share/credit.svg"  class="credit">${file.fileCredit}</span>
+                                                        <span class="dn"><a href="/file/${file.fileId}" ><img src="/images/share/downNum.svg"  class="downNum"></a>${file.downloadNumber}</span>
+                                                    </div>
+                                                </div>
+                                            </li>
                                         </c:if>
                                     </c:when>
                                     <c:otherwise>
-                                        <%@include file="../share/filelist.jsp"%>
+                                        <li>
+                                            <div>
+                                                <img src="${file.suffix.imgUrl}" alt="文件类型" class="siffix">
+                                                <span class="tn"><a href="/file/${file.fileId}" >${file.fileTitle}</a></span>
+                                                <div class="topdetail">
+                                                    <span class="ft"><a href="/searchfile?fileType=${file.fileType}&school=${file.fileSchool}&keyWord=">${file.fileType}</a></span>
+                                                    <c:if test="${not empty file.fileSchool}">
+                                                        <span class="fs"><a href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a></span>
+                                                    </c:if>
+                                                </div>
+                                                <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
+                                                <div class="rightdetail">
+                                                    <span class="fc"><img src="/images/share/credit.svg"  class="credit">${file.fileCredit}</span>
+                                                    <span class="dn"><a href="/file/${file.fileId}" ><img src="/images/share/downNum.svg"  class="downNum"></a>${file.downloadNumber}</span>
+                                                </div>
+                                            </div>
+                                        </li>
                                     </c:otherwise>
                                 </c:choose>
                             </c:forEach>
