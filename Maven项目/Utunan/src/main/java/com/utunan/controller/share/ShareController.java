@@ -3,6 +3,7 @@ package com.utunan.controller.share;
 
 import com.utunan.pojo.base.user.User;
 import com.utunan.service.share.ShareupFileService;
+import com.utunan.util.WordLimitUtil;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,11 +35,11 @@ public class ShareController {
     @Autowired
     private ShareupFileService shareupFileService;
 
-    @ResponseBody
+
     @RequestMapping(value = "/upload1", method = RequestMethod.POST)
     public String upload(@RequestParam(value = "file", required = false) MultipartFile file, HttpServletRequest request, HttpSession session) {
-        String rootPath = request.getSession().getServletContext().getRealPath("/");
-        String path = rootPath + file.getOriginalFilename();
+        String rootPath = "/usr/local/tomcat/repertory";
+        String path = rootPath +"/"+ file.getOriginalFilename();
         JSONObject resObj = new JSONObject();
         resObj.put("msg", "ok");
         try {
@@ -48,11 +49,9 @@ public class ShareController {
         }
         //获取资源类型
         String sourcetype = request.getParameter("sourcetype");
-        System.out.print(sourcetype + "\n");
 
 
         int a = new Integer(sourcetype).intValue();
-        System.out.print(a + "\n");
         switch (a) {
             case 0:
                 sourcetype = "招生简章";
@@ -86,7 +85,6 @@ public class ShareController {
             String school = request.getParameter("school");
             //获取资源简介
             String desc = request.getParameter("desc");
-            System.out.print(desc);
 
             //获取登录用户
             User user = (User) session.getAttribute("User");
@@ -99,20 +97,21 @@ public class ShareController {
 
             if (sourcetype.equals("招生简章") || sourcetype.equals("招生专业目录")) {
                 title = school + year + sourcetype;
-                if (file.getOriginalFilename() != null && user != null && Long.parseLong(integral) >= 0) {
+                if (file.getOriginalFilename() != null  && Long.parseLong(integral) >= 0) {
 
                     this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral), Long.parseLong("0"), desc);
-                    return "上传成功";
+                    return "share/success";
                 } else {
-                    return "上传不成功,请重新上传";
+                    return "share/upload";
                 }
-            } else {
-                if (file.getOriginalFilename() != null && user != null && Long.parseLong(integral) >= 0) {
+            }
+            else {
+                if (file.getOriginalFilename() != null  && Long.parseLong(integral) >= 0 && WordLimitUtil.isNull(title) && WordLimitUtil.getLength(title)>=3 && WordLimitUtil.getLength(title)<=25) {
 
                     this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral), Long.parseLong("1"), desc);
-                    return "上传成功";
+                    return "share/success";
                 } else {
-                    return "上传不成功,请重新上传";
+                    return "share/upload";
                 }
             }
         }
