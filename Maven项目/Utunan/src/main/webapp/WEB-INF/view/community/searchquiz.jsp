@@ -24,6 +24,7 @@
     <script src="/js/community/jquery-1.10.2.js"></script>
     <script src="/js/community/tag.js"></script>
 </head>
+
 <body>
 <%@include file="../common/header.jsp"%>
     <!--内容-->
@@ -78,32 +79,32 @@
                             <%@include file="page.jsp"%>
                         </c:if>
                         <c:if test="${url=='/searchanswer'}">
-                            <div>
-                                <table>
-                                    <tr>
-                                        <td>序号</td>
-                                        <td>问题Id</td>
-                                        <td>问题名称</td>
-                                        <td>回答</td>
-                                        <td>时间</td>
-                                        <td>点赞</td>
-                                        <td>上级评论</td>
-                                        <td>用户昵称</td>
-                                    </tr>
-                                    <c:forEach items="${object}" var="answer">
-                                    <tr>
-                                        <td>${answer.answerId}</td>
-                                        <td>${answer.quiz.quizId}</td>
-                                        <td>回复：<a href="/quiz/${answer.quiz.quizId}" >${answer.quiz.quizTitle}</a></td>
-                                        <td>${answer.answerContent}</td>
-                                        <td>${answer.answerTime}</td>
-                                        <td>${answer.praiseCount}</td>
-                                        <td>${answer.parentAnswer}</td>
-                                        <td>${answer.user.userNickName}</td>
-                                    </tr>
-                                    </c:forEach>
-                                <table/>
-                            </div>
+                            <ul class="list">
+                                <c:forEach items="${object}" var="answer">
+                                    <li>
+                                        <div class="detail-about">
+                                            <a class="fly-avatar" href="/member/${answer.user.userId}" class="fly-avatar">
+                                                <img src="${answer.user.userHeadImg}" alt="昵称">
+                                            </a>
+                                            <div class="fly-detail-user">
+                                                回复：
+                                                <a href="/quiz/${answer.quiz.quizId}" class="fly-link">
+                                                    <cite>${answer.quiz.quizTitle}</cite>
+                                                </a>
+                                                <span>
+                                            <fmt:formatDate value="${answer.answerTime}" type="both"/>
+                                        </span>
+                                                <span title="点赞">点赞量：${answer.praiseCount}</span>
+                                                <span>${answer.parentAnswer}</span>
+                                            </div>
+                                            <div class="detail-hits">
+                                                <div style="padding-right: 10px; color: #FF7200">${answer.answerContent}</div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </c:forEach>
+                            </ul>
                             <!--分页-->
                             <%@include file="page.jsp"%>
                         </c:if>
