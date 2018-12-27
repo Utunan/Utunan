@@ -161,7 +161,7 @@
                                 </c:choose>
                                 <span class="collection">收藏此问题</span>
                                 <%--判断是否是用户本人--%>
-                                <c:if test="${user.userIdentity==3 && user.userId==quiz.user.userId}">
+                                <c:if test="${user.userId==quiz.user.userId}">
                                   <span type="reply">
                                     <i class="iconfont icon-svgmoban53"></i>
                                     <a href="/delquiz/${quiz.quizId}">删除</a>
@@ -224,7 +224,7 @@
                                     回复
                                 </span>
                                 <%--判断是否是用户本人--%>
-                                <c:if test="${user.userIdentity==3 && user.userId==answer.user.userId}">
+                                <c:if test="${user.userId==answer.user.userId}">
                                       <span>
                                         <i class="iconfont icon-svgmoban53"></i>
                                         <a href="javascript:void(0)" onclick="delanswer(${answer.answerId})">删除</a>
@@ -281,7 +281,7 @@
                                                                   </c:choose>
                                                               </span>
                                                               <%--判断是否是用户本人--%>
-                                                                <c:if test="${user.userIdentity==3 && user.userId==m2.user.userId}">
+                                                                <c:if test="${user.userId==m2.user.userId}">
                                                                       <span type="reply">
                                                                         <i class="iconfont icon-svgmoban53"></i>
                                                                         <a href="javascript:void(0)" onclick="delcomment(${m2.answerId },${answer.answerId})">删除</a>
