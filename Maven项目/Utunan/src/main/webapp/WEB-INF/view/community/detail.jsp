@@ -427,6 +427,36 @@
 <script src="/js/community/tag.js"></script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script>
+    /*判断是否是用户，是用户则收藏，不是用户则弹出框*/
+    function collector(quizId) {
+        if (${user==null}) {
+            mask.style.display= "block";
+            modalDialogcontent.style.display = "block";
+        } else {
+            $.ajax({
+                url: '/quizCollector',//处理数据的地址
+                type: 'post',//数据提交形式
+                data: {'quizId': quizId},
+                dataType: "json",
+                success: function (d) {//数据返回成功的执行放大
+                    var res = d.res;
+                    if (res == 'ok') {//添加收藏
+                        console.log("收藏成功！");
+                        document.getElementById("collect" + quizId).src = "/images/school/redheart.svg";
+                    }
+                    if (res == 'no') {//取消收藏
+                        console.log("取消收藏！");
+                        document.getElementById("collect" + quizId).src = "/images/school/whiteheart.svg";
+                    }
+                },
+                error: function () {
+                    console.log("网可能不太好，请您稍等一会~");
+                }
+            });
+        }
+    }
+</script>
+<script>
     /*获取提交按钮*/
     var submitbutton = document.getElementById("submitbutton");
     /*点击评论提交判断是否是用户，不是用户则弹出框*/
