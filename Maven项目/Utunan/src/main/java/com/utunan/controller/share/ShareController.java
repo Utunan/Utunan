@@ -3,6 +3,7 @@ package com.utunan.controller.share;
 
 import com.utunan.pojo.base.user.User;
 import com.utunan.service.share.ShareupFileService;
+import com.utunan.util.WordLimitUtil;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -103,8 +104,9 @@ public class ShareController {
                 } else {
                     return "上传不成功,请重新上传";
                 }
-            } else {
-                if (file.getOriginalFilename() != null  && Long.parseLong(integral) >= 0) {
+            }
+            else {
+                if (file.getOriginalFilename() != null  && Long.parseLong(integral) >= 0 && WordLimitUtil.isNull(title) && WordLimitUtil.getLength(title)>=3 && WordLimitUtil.getLength(title)<=25) {
 
                     this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral), Long.parseLong("1"), desc);
                     return "上传成功";
