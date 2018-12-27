@@ -35,7 +35,7 @@ public class ShareController {
     @Autowired
     private ShareupFileService shareupFileService;
 
-    @ResponseBody
+
     @RequestMapping(value = "/upload1", method = RequestMethod.POST)
     public String upload(@RequestParam(value = "file", required = false) MultipartFile file, HttpServletRequest request, HttpSession session) {
         String rootPath = "/usr/local/tomcat/repertory";
@@ -100,18 +100,18 @@ public class ShareController {
                 if (file.getOriginalFilename() != null  && Long.parseLong(integral) >= 0) {
 
                     this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral), Long.parseLong("0"), desc);
-                    return "上传成功";
+                    return "share/filelist";
                 } else {
-                    return "上传不成功,请重新上传";
+                    return "share/upload";
                 }
             }
             else {
                 if (file.getOriginalFilename() != null  && Long.parseLong(integral) >= 0 && WordLimitUtil.isNull(title) && WordLimitUtil.getLength(title)>=3 && WordLimitUtil.getLength(title)<=25) {
 
                     this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral), Long.parseLong("1"), desc);
-                    return "上传成功";
+                    return "share/filelist";
                 } else {
-                    return "上传不成功,请重新上传";
+                    return "share/upload";
                 }
             }
         }
