@@ -1,4 +1,4 @@
-body {
+﻿body {
     min-height: 100%;
     margin: 0;
     background-size: 100%;
@@ -70,8 +70,8 @@ nav {
     /*background: #fff;*/
     height: 60px;
     width: 180px;
-    /*font-size: 30px;
-    font-family: "华文行楷","微软雅黑";*/
+    font-size: 40px;
+    font-family: "华文行楷","微软雅黑";
     margin: 0 auto;
     line-height: 60px;
 }
@@ -196,8 +196,6 @@ footer p {
 .modalDialogcontent{
     display:none;
     background:white;
-   /* background: url("/images/common/loginbg.jpg");*/
-    /*background: url("/images/school/bg.jpg");*/
     background-repeat: no-repeat;
     background-size: cover;
     width:420px;
@@ -222,13 +220,15 @@ footer p {
 }
 #submitbutton{
     color: white;
+    font-size: 15px;
 }
 .close_modalDialogcontent{
     position:absolute;
-    font-size:20px;
+    color: #8cb1cc;
+    font-size:25px;
     right: 0px;
-    width:20px;
-    height:20px;
+    width:30px;
+    height:30px;
     cursor:pointer;
 }
 .nullContent{
