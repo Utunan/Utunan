@@ -131,25 +131,7 @@ public class QuizCommentController {
 
         return "community/detail";
     }
-    
-    /*
-     * @author  王碧云
-     * @description 跳转返回子评论
-     * @date  21:23 2018/11/25/025
-     * @param  [request]
-     * @return  java.lang.String
-     */
-    @RequestMapping("/displayChildAnswer")
-    public String displayChildComment(HttpServletRequest request){
-        String answerId = request.getParameter("answerId");
-        //根据commentId返回子评论
-        List<Answer> childAnswerList = this.answerService.findChildAnswerListByAnswerId(Long.parseLong(answerId));
-    
-        request.setAttribute("childAnswerList", childAnswerList);
-        System.out.println("[childAnswer]"+ childAnswerList);
-    
-        return "community/childcomment";
-    }
+
     
     /*
      * @author  王碧云 
