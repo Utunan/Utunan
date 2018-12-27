@@ -103,7 +103,7 @@ public class ShareController {
                     return "share/success";
 
                 } else {
-                    return "share/upload";
+                    return "share/failed";
                 }
             }
             else {
@@ -113,7 +113,7 @@ public class ShareController {
                     return "share/success";
 
                 } else {
-                    return "share/upload";
+                    return "share/failed";
                 }
             }
         }
