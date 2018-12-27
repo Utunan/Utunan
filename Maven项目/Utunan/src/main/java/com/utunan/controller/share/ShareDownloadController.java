@@ -131,7 +131,7 @@ public class ShareDownloadController {
 		User user2 = this.shareIndexService.findUserById(file.getUserId());
 		//获得请求文件名
 		String name = file.getFileTitle();
-		String path = "/usr/local/tomcat/repertory/"+file.getFileUrl();
+		String path = file.getFileUrl();
 		//文件后缀
 		String suffix = "."+path.substring(path.lastIndexOf(".")+1);
 		String fileName = null;
