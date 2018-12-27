@@ -187,7 +187,7 @@
                             <input type="text" id="L_vercode" class="layui-input" placeholder="请输入验证码" name="userinput"/>
                         </div>
                         <div class="layui-form-mid">
-                            <img src="/getIdentityPic" id="identity" onclick="reloadImage()" onload="btn.disabled= false;">
+                            <img src="/getIdentityPic" id="identity" onclick="reloadImage()" onload="btn.disabled= false;" style="margin-top: -8px;">
                             <input type="button" value="换个图片" onclick="reloadImage()" id="btn">
                         </div>
                     </div>
