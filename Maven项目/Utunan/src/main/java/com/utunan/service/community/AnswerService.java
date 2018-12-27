@@ -26,7 +26,7 @@ public interface AnswerService {
      * @return   null
      */
     
-    void saveAnswer1(Long aid,Long answerId,String content,User user);
+    void saveAnswer1(Long aid,Long quizId,Long answerId,String content,User user);
     
     /*
      * @author  王碧云
@@ -94,4 +94,13 @@ public interface AnswerService {
     void delPraiseAnswer(Long answerId);
     //查询刚插入的评论信息
     Answer getAnswer(Long aid);
+
+    //根据answerId删除回答及评论
+    void delAnswer(Long answerId);
+
+    //登录用户删除评论
+    void delComment(Long answerId, Long parentanswerId);
+
+    //获取当前回答数
+    Long gettal(Long quizId);
 }

@@ -82,6 +82,7 @@
         <if test="fileType==null">
             ('招生简章','考研真题','招生专业目录','备考习题','参考书目','课件分享')
         </if>
+        order by f.fileTime desc
     </select>
     <!--根据Id查文件-->
     <select id="findFileById" resultMap="fileResultMap">
@@ -162,4 +163,10 @@
         set downNumber=#{downNumber}
         where fileId=#{fileId}
     </update>
+    <!--根据学校查地区-->
+    <select id="findProvinceBySchool" resultType="java.lang.String">
+        select schoolProvince
+        from school
+        where schoolName=#{school}
+    </select>
 </mapper>

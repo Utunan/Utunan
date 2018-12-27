@@ -4,7 +4,6 @@
 <%@ taglib uri="/intel" prefix="ya" %>
 <%@ page import="java.util.List,com.utunan.pojo.*" %>
 
-<%--<!DOCTYPE html>--%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -18,11 +17,14 @@
     <link rel="stylesheet" href="/css/school/login.css">
     <link rel="stylesheet" href="/css/school/new.css">
     <link rel="stylesheet" href="/css/community/tagCloud.css">
+    <link rel="stylesheet" href="/css/school/animate.css">
+    <link rel="stylesheet" href="/css/school/dialog.css">
     <script type="text/javascript" src="/js/community/tagcloud.js"></script>
     <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
    <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
     <script> var pagenum = "${PageInfo.pageNum}"</script>
     <script>
+        /*问题点赞*/
         function praise(quizId) {
             if(${user==null}){
                 mask.style.display="block";
@@ -56,25 +58,35 @@
     </script>
 
     <script>
+        /*评论点赞*/
         function apraise(answerId) {
-            $.ajax({
-                url: '/aprise',//处理数据的地址
-                type: 'post',//数据提交形式
-                data: {'answerId': answerId},//需要提交的数据
-                success: function (d) {//数据返回成功的执行放大
-                    if (d == 'ok') {//成功
-                        //alert('点赞成功');
-                        document.getElementById("answer" + answerId).innerHTML = parseInt(document.getElementById("answer" + answerId).innerHTML) + 1;
-                    }
-                    if (d == 'no') {//失败
-                        //alert('取消点赞');
-                        document.getElementById("answer" + answerId).innerHTML = parseInt(document.getElementById("answer" + answerId).innerHTML) -1;
-                    }
-                },
-            });
+            if(${user==null}){
+                mask.style.display="block";
+                modalDialogcontent.style.display="block";
+            }else{
+                $.ajax({
+                    url: '/aprise',//处理数据的地址
+                    type: 'post',//数据提交形式
+                    data: {'answerId': answerId},//需要提交的数据
+                    dataType: "json",
+                    success: function (d) {//数据返回成功的执行放大
+                        var res = d.res;
+                        var praiseCount = d.answerPraiseCount;
+                        if (res == 'ok') {//成功点赞
+                            document.getElementById("answerZan"+answerId).style.color="#ff5722";
+                            document.getElementById("answer"+answerId).innerHTML=praiseCount;
+                            console.log("成功点赞")
+                        }
+                        if (res == 'no') {//取消点赞
+                            document.getElementById("answerZan"+answerId).style.color="#333";
+                            document.getElementById("answer"+answerId).innerHTML=praiseCount;
+                            console.log("取消点赞")
+                        }
+                    },
+                });
+            }
         }
     </script>
-
 </head>
 <body style="overflow:scroll;overflow-y:hidden">
 <body>
@@ -129,10 +141,10 @@
                                   </c:choose>
                               </span>
                             </div>
-
+    
                             <div class="re_num">
                                 <img src="/images/community/zan.svg" width="24px" height="34px">
-                                <span class="write-reply">${answerCountByQuizId}</span>
+                                <span class="write-reply" id="quiz">${answerCountByQuizId}</span>
                             </div>
                             <div class="collect">
                                 <c:choose>
@@ -148,12 +160,19 @@
                                     </c:otherwise>
                                 </c:choose>
                                 <span class="collection">收藏此问题</span>
+                                <%--判断是否是用户本人--%>
+                                <c:if test="${user.userId==quiz.user.userId}">
+                                  <span type="reply">
+                                    <i class="iconfont icon-svgmoban53"></i>
+                                    <a href="/delquiz/${quiz.quizId}">删除</a>
+                                  </span>
+                                </c:if>
                             </div>
                         </div><!--toolbar-->
                     </div><!--quizcontent-->
                 </div>
             </div>
-
+    
             <div class="fly-panel detail-box" id="flyReply">
                 <fieldset class="layui-elem-field layui-field-title" style="text-align: center;">
                     <legend>回答</legend>
@@ -164,21 +183,21 @@
                 </select>
                 <ul class="jieda" id="jieda">
                     <c:forEach items="${answer}" var="answer" varStatus="cou">
-                        <li data-id="111" class="jieda-daan">
+                        <li data-id="111" class="jieda-daan" id="an${answer.answerId }">
                             <a name="item-1111111111"></a>
                             <div class="detail-about detail-about-reply">
-                                <a class="fly-avatar" href="">
+                                <a class="fly-avatar" href="/member/${answer.user.userId}">
                                     <img src="${answer.user.userHeadImg}" width="55px" height="55px">
                                 </a>
                                 <div class="fly-detail-user">
-                                    <a href="" class="fly-link">
+                                    <a href="/member/${answer.user.userId}" class="fly-link">
                                         <cite>${answer.user.userNickName}</cite>
                                     </a>
                                     <span>发表于
                                         <fmt:formatDate value="${answer.answerTime}" type="both"/>
                                     </span>
                                 </div>
-
+    
                                 <div class="detail-hits">
                                     <span>所在院校：${answer.user.userSchool}&nbsp;&nbsp;&nbsp;目标院校：${answer.user.dreamSchool}</span>
                                 </div>
@@ -187,15 +206,30 @@
                                 <p>${answer.answerContent}</p>
                             </div>
                             <div class="jieda-reply">
+                                <%--评论点赞--%>
                                 <span class="jieda-zan zanok" type="zan">
-                                    <a href="javascript:void(0)" onclick="apraise(${answer.answerId})"><i
-                                          class="iconfont icon-zan"></i></a>
-                                <em id="answer${answer.answerId}">${answer.praiseCount}</em>
+                                    <c:choose>
+                                        <c:when test="${ya:judge(answerGreatList,answer.answerId)}">
+                                            <a style="color: #ff5722;" id="answerZan${answer.answerId}" href="javascript:void(0)" onclick="apraise(${answer.answerId})"><i class="iconfont icon-zan"></i></a>
+                                            <em id="answer${answer.answerId}">${answer.praiseCount}</em>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a style="color: #333;" id="answerZan${answer.answerId}" href="javascript:void(0)" onclick="apraise(${answer.answerId})"><i class="iconfont icon-zan"></i></a>
+                                            <em id="answer${answer.answerId}">${answer.praiseCount}</em>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </span>
                                 <span type="reply" class="write-reply">
                                     <i class="iconfont icon-svgmoban53"></i>
                                     回复
                                 </span>
+                                <%--判断是否是用户本人--%>
+                                <c:if test="${user.userId==answer.user.userId}">
+                                      <span>
+                                        <i class="iconfont icon-svgmoban53"></i>
+                                        <a href="javascript:void(0)" onclick="delanswer(${answer.answerId})">删除</a>
+                                      </span>
+                                </c:if>
                                 <div class="jieda-admin">
                                     <c:forEach items="${map0.keySet()}" var="b">
                                         <c:if test="${b.answerId==answer.answerId}">
@@ -214,15 +248,16 @@
                                         <c:if test="${commentNum==0}">
                                             <div class="slogen" id="slogen${answer.answerId}">啊嘞！还没有评论~</div>
                                         </c:if>
-
+                                    <div id ="cqb${answer.answerId}">
                                     <c:if test="${commentNum!=0}">
+
                                         <ul class="commentlist" style="background-color:#fafafa" id="can${answer.answerId}">
                                             <c:forEach items="${map.keySet()}" var="m1">
                                                 <c:if test="${m1.answerId==answer.answerId}">
                                                     <c:forEach items="${map.get(m1)}" var="m2">
-                                                        <li>
+                                                        <li id="co${m2.answerId }">
                                                             <div class="fly-detail-user">
-                                                                <a href="" class="fly-link">
+                                                                <a href="/member/${m2.user.userId}" class="fly-link">
                                                                     <cite>${m2.user.userNickName}</cite>
                                                                 </a>
                                                                 <span>发表于<fmt:formatDate value="${m2.getAnswerTime() }" type="both"/></span>
@@ -232,9 +267,26 @@
                                                             </div>
                                                             <div class="jieda-reply">
                                                               <span class="jieda-zan zanok" type="zan">
-                                                              <i class="iconfont icon-zan"></i>
-                                                              <em>${m2.praiseCount}</em>
+                                                              <%--<i class="iconfont icon-zan"></i>
+                                                              <em>${m2.praiseCount}</em>--%>
+                                                                  <c:choose>
+                                                                      <c:when test="${ya:judge(answerGreatList,m2.answerId)}">
+                                                                          <a style="color: #ff5722;" id="answerZan${m2.answerId}" href="javascript:void(0)" onclick="apraise(${m2.answerId})"><i class="iconfont icon-zan"></i></a>
+                                                                          <em id="answer${m2.answerId}">${m2.praiseCount}</em>
+                                                                      </c:when>
+                                                                      <c:otherwise>
+                                                                          <a style="color: #333;" id="answerZan${m2.answerId}" href="javascript:void(0)" onclick="apraise(${m2.answerId})"><i class="iconfont icon-zan"></i></a>
+                                                                          <em id="answer${m2.answerId}">${m2.praiseCount}</em>
+                                                                      </c:otherwise>
+                                                                  </c:choose>
                                                               </span>
+                                                              <%--判断是否是用户本人--%>
+                                                                <c:if test="${user.userId==m2.user.userId}">
+                                                                      <span type="reply">
+                                                                        <i class="iconfont icon-svgmoban53"></i>
+                                                                        <a href="javascript:void(0)" onclick="delcomment(${m2.answerId },${answer.answerId})">删除</a>
+                                                                      </span>
+                                                                </c:if>
                                                             </div>
                                                         </li>
                                                     </c:forEach>
@@ -242,10 +294,11 @@
                                             </c:forEach><!--评论循环完毕-->
                                         </ul>
                                     </c:if>
+                                    </div>
                                         <div class="reply" style="display: none;">
-                                            <form action="" method="post" onsubmit="return false" id="commenta${answer.answerId}">
+                                            <form name="smallform" action="" method="post" onsubmit="return false" id="commenta${answer.answerId}">
                                                 <input type="text" name="comment" id="comment${answer.answerId}">
-                                                <button type="submit"  onclick="comments(${answer.answerId})">回复</button>
+                                                <button type="submit"  onclick="comments(${answer.answerId},${quiz.quizId})">回复</button>
                                             </form>
                                         </div>
                                   </blockquote>
@@ -255,24 +308,24 @@
                         <!--a answer-->
                     </c:forEach>
                 </ul>
-
+    
                 <div class="write-answer" class="layui-form layui-form-pane">
                     <div class="write-answer-top">
                         <img src="/images/community/write.svg" width="25px" height="25px">
                         <div class="write-answer-top">&nbsp;&nbsp;&nbsp;&nbsp;写回答</div>
                     </div>
                     <!--富文本编辑器-->
-                    <form action="/answer?quizId=${quiz.quizId}" method="post">
+                    <form name="fuform" onsubmit="return false" action="/answer?quizId=${quiz.quizId}" method="post">
                         <div class="text">
-
+    
                             <div id="div1" class="toolbar" style="height: 35px"></div>
                             <div id="div2" style="height: 130px"></div>
                             <textarea id="text1" style="display: none" name="textarea"></textarea>
-
+    
                         </div>
                         <div class="write-answer-bottom">
                             <div class="write-answer-bottom-content">
-                                <button type="submit" class="layui-btn layui-btn-fluid">提交回答</button>
+                                <button id="comsub" type="submit" class="layui-btn layui-btn-fluid">提交回答</button>
                             </div>
                         </div>
                     </form>
@@ -332,7 +385,7 @@
             comments[j].style.display = "block";
             var replyContent=comments[j].getElementsByClassName("reply")[0];
             replyContent.style.display = "block";
-
+    
         }
     }
 
@@ -374,8 +427,59 @@
 <script src="/js/community/tag.js"></script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script>
+    /*判断是否是用户，是用户则收藏，不是用户则弹出框*/
+    function collector(quizId) {
+        if (${user==null}) {
+            mask.style.display= "block";
+            modalDialogcontent.style.display = "block";
+        } else {
+            $.ajax({
+                url: '/quizCollector',//处理数据的地址
+                type: 'post',//数据提交形式
+                data: {'quizId': quizId},
+                dataType: "json",
+                success: function (d) {//数据返回成功的执行放大
+                    var res = d.res;
+                    if (res == 'ok') {//添加收藏
+                        console.log("收藏成功！");
+                        document.getElementById("collect" + quizId).src = "/images/school/redheart.svg";
+                    }
+                    if (res == 'no') {//取消收藏
+                        console.log("取消收藏！");
+                        document.getElementById("collect" + quizId).src = "/images/school/whiteheart.svg";
+                    }
+                },
+                error: function () {
+                    console.log("网可能不太好，请您稍等一会~");
+                }
+            });
+        }
+    }
+</script>
+<script>
     /*获取提交按钮*/
     var submitbutton = document.getElementById("submitbutton");
+    /*点击评论提交判断是否是用户，不是用户则弹出框*/
+    var ask=document.getElementById("comsub");
+    /*获取文本框*/
+    var text1 = document.getElementById("text1");
+
+    ask.onclick = function (){
+        if(${user==null}){
+            mask.style.display="block";
+            modalDialogcontent.style.display="block";
+        }else{
+            //判断文本框是否为空
+            var str1 = text1.value.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+            if(str1 == '' || str1 == undefined || str1 == null){
+                //文本框为空
+                javascript:$('body').dialog({type:'success'});
+            }else{
+                //满足条件，可以提交
+                document.fuform.submit();
+            }
+        }
+    };
     //判断用户名和密码
     submitbutton.onclick=function(){
         $.ajax({
@@ -403,52 +507,100 @@
         });
     };
 </script>
-
 <script src="/js/common/login.js"></script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 
 <%--ajax异步提交表单--%>
 <script>
-    function comments(answerId) {
-        $.ajax({
-            url: '/answer1/'+answerId,//处理数据的地址
-            dataType: "json",//预期服务器返回的数据类型
-            type: 'post',//数据提交形式
-            data: {"text":$('#comment'+answerId).val()},//需要提交的数据
-            success: function (data) {//数据返回成功的执行放大
-                console.log(data);
-                // 清空文本框内容
-                document.getElementById("commenta"+answerId).reset();
-                // 对json日期对象进行格式化
-                var date=new Date();
-                date.setTime(data['reb']['answerTime']['time']);
-                var y = date.getFullYear();
-                var m = date.getMonth()+1;
-                m = m<10?'0'+m:m;
-                var d = date.getDate();
-                d = d<10?("0"+d):d;
-                var h = date.getHours();
-                h = h<10?("0"+h):h;
-                var M = date.getMinutes();
-                M = M<10?("0"+M):M;
-                var S = date.getSeconds();
-                S = S<10?("0"+S):S;
-                var str = y+"-"+m+"-"+d+" "+h+":"+M+":"+S;
-                if(${commentNum!=0}) {
-                    node = '<li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span></div></li>'
-                    $('#can' + answerId).append(node);
-                }
-                else{
-                    $("#slogen"+answerId).css("display","none");
-                    snode = '<ul class="commentlist" style="background-color:#fafafa" id="can'+answerId+'"><li><div class="fly-detail-user"><a href="" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span></div></li></ul>';
-                    $('#ddt'+answerId).append(snode);
-                }
+    function comments(answerId,quizId) {
+        if(${user==null}){
+            mask.style.display="block";
+            modalDialogcontent.style.display="block";
+        }else{
+            //判断文本框是否为空
+            var str2 = document.getElementById("comment"+answerId).value.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+            if(str2 == '' || str2 == undefined || str2 == null){
+                //文本框为空
+                javascript:$('body').dialog({type:'success'});
+            }else{
+                //满足条件，可以提交
+                $.ajax({
+                    url: '/answer1/'+answerId+'/'+quizId,//处理数据的地址
+                    dataType: "json",//预期服务器返回的数据类型
+                    type: 'post',//数据提交形式
+                    data: {"text":$('#comment'+answerId).val()},//需要提交的数据
+                    success: function (data) {//数据返回成功的执行放大
+                        console.log(data);
+                        // 清空文本框内容
+                        document.getElementById("commenta"+answerId).reset();
+                        // 对json日期对象进行格式化
+                        var date=new Date();
+                        date.setTime(data['reb']['answerTime']['time']);
+                        var y = date.getFullYear();
+                        var m = date.getMonth()+1;
+                        m = m<10?'0'+m:m;
+                        var d = date.getDate();
+                        d = d<10?("0"+d):d;
+                        var h = date.getHours();
+                        h = h<10?("0"+h):h;
+                        var M = date.getMinutes();
+                        M = M<10?("0"+M):M;
+                        var S = date.getSeconds();
+                        S = S<10?("0"+S):S;
+                        var str = y+"-"+m+"-"+d+" "+h+":"+M+":"+S;
+                        if((data['count3']-1)!=0){
+                            node = '<li id="co'+data['reb']['answerId']+'"><div class="fly-detail-user"><a href="/member/'+data['reb']['user']['userId']+'" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span><span type="reply"><i class="iconfont icon-svgmoban53"></i><a href="javascript:void(0)" onclick="delcomment('+data['reb']['answerId']+','+data['reb']['parentAnswer']+')">删除</a></span></div></li>'
+                            $('#can' + answerId).append(node);
+                        }
+                        else{
+                            $("#slogen"+answerId).css("display","none");
+                            snode = '<ul class="commentlist" style="background-color:#fafafa" id="can'+answerId+'"><li id="co'+data['reb']['answerId']+'"><div class="fly-detail-user"><a href="/member/'+data['reb']['user']['userId']+'" class="fly-link"><cite>' + data['reb']['user']['userNickName'] + '</cite></a><span>发表于' + str + '</span></div><div class="detail-body jieda-body photos"><p>'+data['reb']['answerContent']+'</p></div><div class="jieda-reply"><span class="jieda-zan zanok" type="zan"><i class="iconfont icon-zan"></i><em>'+data['reb']['praiseCount']+'</em></span><span type="reply"><i class="iconfont icon-svgmoban53"></i><a href="javascript:void(0)" onclick="delcomment('+data['reb']['answerId']+','+data['reb']['parentAnswer']+')">删除</a></span></div></li></ul>';
+                            $('#cqb'+answerId).append(snode);
+                        }
 
-                document.getElementById("f1"+answerId).innerHTML=parseInt(document.getElementById("f1"+answerId).innerHTML)+1;
+                        document.getElementById("f1"+answerId).innerHTML=data['count3'];
+                    }
+                });
+
+            }
+        };
+    };
+    
+    // 登录用户对回答进行删除
+    function delanswer(answerId) {
+        $.ajax({
+            dataType: "json",
+            type: "get",//发送方式
+            url: "/delanswer/"+answerId,//url地址
+            data:{"quizId":${quiz.quizId} },
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if (result['res'] == "ok") {
+                    document.getElementById("quiz").innerHTML=result['count1'];
+                    $('#an'+answerId).css("display","none");
+                }
             }
         });
-    }
+    };
+    // 登录用户对评论进行删除
+    function delcomment(answerId,parentanswerId) {
+        $.ajax({
+            dataType: "json",
+            type: "get",//发送方式
+            url: "/delcomment/"+answerId+"/"+parentanswerId,//url地址
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if (result["res"] == "ok") {
+                    document.getElementById("f1"+parentanswerId).innerHTML=result["count2"];
+                    if(parseInt(document.getElementById("f1"+parentanswerId).innerHTML)==0){
+                        $("#slogen"+parentanswerId).css("display","block");
+                    }
+                    $("#co"+answerId).css("display","none");
+                }
+            }
+        });
+    };
 </script>
-
+<script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
 </body>
 </html>

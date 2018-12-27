@@ -50,7 +50,27 @@ public class UserVerificationController {
         }
         return "success";
     }
+    @RequestMapping("/forgetcode")
+    @ResponseBody
+    public String forgetCode(HttpServletRequest request, HttpServletResponse response){
+        String userTelephone=request.getParameter("userTelephone");
+        response.setCharacterEncoding("UTF-8");
+        //获取验证码
+        RandUtil random=new RandUtil();
+        String code=random.getRandNum();
 
+        //将验证码保存在session中
+        request.getSession().setAttribute("forgetCode",code);
+
+        SmsDemo smsDemo=new SmsDemo();
+        try {
+            smsDemo.sendSms(userTelephone,code);
+        } catch (ClientException e) {
+            e.printStackTrace();
+            return "unsuccess";
+        }
+        return "success";
+    }
     @RequestMapping("/telecode")
     @ResponseBody
     public void telecode(HttpServletRequest request,HttpServletResponse response){

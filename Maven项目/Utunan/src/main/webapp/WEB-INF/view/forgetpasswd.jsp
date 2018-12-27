@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>快来加入我们吧~</title>
+    <title>找回密码~</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/forgetpasswd.css">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 </head>
@@ -15,8 +15,8 @@
 <%@ include file="common/header.jsp" %>
 <div class="container background">
     <div class="center">
-        <div class="platename">注册</div>
-        <form id="registerform" class="registerform" action="/register" method="post" onsubmit="return checkForm()">
+        <div class="platename">找回密码</div>
+        <form id="registerform" class="registerform" action="/forgetpasswd" method="post" onsubmit="return checkForm()">
             <div class="reply" id="telereply">${reply}</div>
             <!--    手机号  -->
             <div class="permit inputcase">
@@ -43,8 +43,8 @@
             <div class="registerbtn">
                 <button type="submit">提交</button>
             </div>
-            <span><a href="/forgetpasswd">忘记密码</a> </span>
-            <span><a href="/login">立即登陆</a> </span>
+            <span><a href="/login">登陆</a> </span>
+            <span><a href="/register">注册</a> </span>
         </form>
     </div>
 </div>
@@ -122,8 +122,8 @@
                 async: false,
                 dataType: "json",
                 success: function (data) {
-                    if (data == '200') {
-                        reply = "手机号已存在,请<a href='/login'>登陆</a>"
+                    if (data != '200') {
+                        reply = "手机号不存在,请<a href='/register'>注册</a>"
                         $('#userTelephone').css('backgroundColor', 'rgba(255,192,203,1)');
                         state = false
                     } else {
@@ -223,8 +223,8 @@
                     },
                     async: false,
                     success: function (data) {
-                        if (data == '200') {
-                            $('#telereply').html("手机号已存在,请<a href='/login'>登陆</a>")
+                        if (data != '200') {
+                            $('#telereply').html("手机号不存在,请<a href='/login'>注册</a>")
                         } else {
                             isgetcode = true;
                             have_code = true
@@ -234,7 +234,7 @@
                                 $.ajax(
                                     {
                                         type: "post",
-                                        url: "/code",
+                                        url: "/forgetcode",
                                         data: {
                                             userTelephone: $("#userTelephone").val()
                                         },

@@ -1,38 +1,35 @@
-<%--
-此为quiz、detail里引用的右侧边栏
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" href="/css/school/login.css">
-<%--黑背景--%>
-<%--<div class="mask"></div>--%>
-<div class="layui-col-md4" id="layui-col-md4">
+<div class="layui-col-md4">
     <div class="fly-panel">
         <div class="fly-panel-main">
-            <a href="javascript:void(0);" id="question" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">发表提问</a>
+            <%-- <a href="/share1" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">我要上传</a>--%>
+            <a href="javascript:void(0);" id="upload" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">我要上传</a>
         </div>
     </div>
-
     <dl class="fly-panel fly-list-one">
-        <!--选出10个评论数最高的问题-->
-        <dt class="fly-panel-title">本周热议</dt>
-        <c:forEach items="${quizListTop10}" var="q">
-            <dd>
-                <a href="/quiz/${q.quizId}">${q.quizTitle }</a>
-                <span><i class="iconfont icon-pinglun1"></i>${q.answerCount }</span>
-            </dd>
+        <dt class="fly-panel-title">热门资源</dt>
+        <c:forEach items="${hotFileList}" var="hotFile">
+            <c:choose>
+                <c:when test="${hotFile.fileType == '招生简章' || hotFile.fileType == '招生专业目录'}">
+                    <c:if test="${hotFile.isExamine == 1}">
+                        <dd>
+                            <a href="/file/${hotFile.fileId}">${hotFile.fileTitle}</a>
+                            <span> <img src="/images/share/downNum2.svg" class="downNum">${hotFile.downloadNumber}</span>
+                        </dd>
+                    </c:if>
+                </c:when>
+                <c:otherwise>
+                    <dd>
+                        <a href="/file/${hotFile.fileId}" >${hotFile.fileTitle}</a>
+                        <span><img src="/images/share/downNum2.svg" class="downNum" > ${hotFile.downloadNumber}</span>
+                    </dd>
+                </c:otherwise>
+            </c:choose>
         </c:forEach>
     </dl>
-    <div class="fly-panel fly-link">
-        <h3 class="fly-panel-title">热门标签</h3>
-        <div class="wrapper1">
-            <div class="tagcloud fl">
-                <c:forEach items="${tag}" var="tags">
-                    <a href="/quiztag/${tags[0].tagName}/rt/1" target="_blank" class="tag">${tags[0].tagName}&nbsp;&nbsp;${tags[1]}</a>
-                </c:forEach>
-            </div>
-        </div><!--wrapper-->
-    </div>
 </div>
+
 <%--弹窗登录表单--%>
 <div class="modalDialogcontent">
     <div class="formcontent">
@@ -64,11 +61,11 @@
 </div>
 <script>
     /*弹窗登录功能*/
-    var ask=document.getElementById("question");
+    var ask=document.getElementById("upload");
     var mask=document.getElementsByClassName("mask")[0];
     var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
-    /*/!*获取提交按钮*!/
-    var submitbutton = document.getElementById("submitbutton");*/
+    /*获取提交按钮*/
+    var submitbutton = document.getElementById("submitbutton");
     /*获取密码框*/
     password = document.getElementById('password');
     textpassword=document.getElementById("login_showPwd");
@@ -79,7 +76,7 @@
             mask.style.display="block";
             modalDialogcontent.style.display="block";
         }else{
-            window.location.href="/toAddQuestion";
+            window.location.href="/share1";
         }
     };
     /*点击小叉号然后关闭*/
@@ -87,6 +84,33 @@
     close_modalDialogcontent.onclick=function(){
         mask.style.display="none";
         modalDialogcontent.style.display="none";
+    };
+
+    //判断用户名和密码
+    submitbutton.onclick=function(){
+        $.ajax({
+            //几个参数需要注意一下
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "/school/popsupLogin" ,//url
+            data: $('#loginform').serialize(),
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if(result==true){
+                    console.log("登录成功");
+                    window.location.href="/share1";
+                }else{
+                    textpassword.style.display="block";
+                    password.style.display="none";
+                    textpassword.parentNode.style.border = '1px solid red';
+                    textpassword.style.color="red";
+                    textpassword.value="密码错误";
+                }
+            },
+            error : function() {
+                console.log("网崩了！")
+            }
+        });
     };
 
 </script>

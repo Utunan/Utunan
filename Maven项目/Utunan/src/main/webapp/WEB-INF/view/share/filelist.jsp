@@ -9,7 +9,7 @@
                 <span class="fs"><a href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a></span>
             </c:if>
         </div>
-        <span class="un">${file.user.userNickName}&nbsp;于${file.fileTime}上传</span>
+        <span class="un"><a href="/member/${file.user.userId}" style="color: darkgray">${file.user.userNickName}</a>&nbsp;于${file.fileTime}上传</span>
         <div class="rightdetail">
             <span class="fc"><img src="/images/share/credit.svg"  class="credit">${file.fileCredit}</span>
             <span class="dn"><a href="/file/${file.fileId}" ><img src="/images/share/downNum.svg"  class="downNum"></a>${file.downloadNumber}</span>

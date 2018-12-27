@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @author 张正扬
  * @description: TODO
@@ -21,4 +23,7 @@ public interface AnswerGreatMapper {
 
     //删除AnswerGreat表中信息
     void delAnswerGreat(@Param("answerId") Long answerId, @Param("userId") Long userId);
+
+    //获取用户在评论的点赞列表
+    List<Long> getAGList(@Param("userId") Long userId);
 }

@@ -73,10 +73,9 @@
 
     <!-- 插入评论 -->
     <insert id="toInsert1" parameterType="com.utunan.pojo.base.community.Answer">
-        insert into answer(answerId,userId,answerContent,answerTime,praiseCount,parentAnswer) values(#{answerId},#{user.userId},#{answerContent},#{answerTime},#{praiseCount},#{parentAnswer})
+        insert into answer(answerId,quizId,userId,answerContent,answerTime,praiseCount,parentAnswer) values(#{answerId},#{quizId},#{user.userId},#{answerContent},#{answerTime},#{praiseCount},#{parentAnswer})
     </insert>
-
-
+    
     <!--王碧云 根据quizId查询评论列表（子评论除外）(默认：根据时间排序)-->
     <select id="findAnswerListByQuizId" resultMap="answerResultMap">
         select *
@@ -97,7 +96,7 @@
         quizId = #{quizId} and parentAnswer is null
         order by praiseCount desc
     </select>
-
+    
     <!--王碧云 根据answerId查询子评论（按时间查询）-->
     <select id="findChildAnswerListByAnswerId" resultMap="answerResultMap">
         select *
@@ -113,13 +112,13 @@
     <update id="updatePraiseCount" parameterType="java.lang.Long">
         update answer set praiseCount=praiseCount+1 where answerId=#{answerId}
     </update>
-
+    
     <!--张正扬获取最大commentId-->
     <select id="getMaxAid" resultType="java.lang.Long">
         select max(answerId)
         from answer
     </select>
-
+    
     <!--根据answerId查询子评论数量-->
     <select id="findchildAnswerCount" resultType="java.lang.Long">
         select count(*)
@@ -144,6 +143,12 @@
         join user on answer.userId=user.userId
         where answerId=#{answerId}
     </select>
+    <!--获取当前回答总数-->
+    <select id="gettal" resultType="java.lang.Long">
+        select count(*)
+        from answer
+        where quizId=#{quizId} and parentAnswer is null
+    </select>
 
     <!--取消点赞功能-->
     <update id="delPraiseAnswer" parameterType="Long">
@@ -151,5 +156,17 @@
         where answerId=#{answerId}
     </update>
 
+
+    <!--根据answerId删除回答及评论-->
+    <delete id="delAnswer" parameterType="Long">
+        delete from answer
+        where answerId=#{answerId} or parentAnswer=#{answerId}
+    </delete>
+
+    <!--登录用户删除评论-->
+    <delete id="delComment" parameterType="Long">
+        delete from answer
+        where answerId=#{answerId} and parentAnswer=#{parentanswerId}
+    </delete>
 
 </mapper>

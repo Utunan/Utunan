@@ -10,6 +10,7 @@ import com.utunan.pojo.inherit.community.BigQuiz;
 
 import com.utunan.pojo.util.Page;
 import com.utunan.service.community.*;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -105,6 +108,8 @@ public class QuizCommentController {
         }
         //判断用户是否点赞过该问题
         QuizGreat qg = this.quizGreatService.getQuizGreat(Long.parseLong(quizId), userId);
+        //获取用户在该问题的点赞评论列表
+        List<Long> answerGreatList = this.answerGreatService.getAGList(userId);
 
         //查询收藏的quiz
         List<Long> quizIds=this.quizCollectService.getAllQuizId(userId);
@@ -122,27 +127,11 @@ public class QuizCommentController {
         request.setAttribute("quizIds",quizIds);
         request.setAttribute("user", user);
         request.setAttribute("quizGreat", qg);
+        request.setAttribute("answerGreatList", answerGreatList);
+
         return "community/detail";
     }
-    
-    /*
-     * @author  王碧云
-     * @description 跳转返回子评论
-     * @date  21:23 2018/11/25/025
-     * @param  [request]
-     * @return  java.lang.String
-     */
-    @RequestMapping("/displayChildAnswer")
-    public String displayChildComment(HttpServletRequest request){
-        String answerId = request.getParameter("answerId");
-        //根据commentId返回子评论
-        List<Answer> childAnswerList = this.answerService.findChildAnswerListByAnswerId(Long.parseLong(answerId));
-    
-        request.setAttribute("childAnswerList", childAnswerList);
-        System.out.println("[childAnswer]"+ childAnswerList);
-    
-        return "community/childcomment";
-    }
+
     
     /*
      * @author  王碧云 
@@ -202,6 +191,10 @@ public class QuizCommentController {
 
         //查询收藏的quiz
         List<Long> quizIds=this.quizCollectService.getAllQuizId(userId);
+        //判断用户是否点赞过该问题
+        QuizGreat qg = this.quizGreatService.getQuizGreat(Long.parseLong(quizId), userId);
+        //获取用户在该问题的点赞评论列表
+        List<Long> answerGreatList = this.answerGreatService.getAGList(userId);
     
         request.setAttribute("quizTagList", quizTagList);
         session.setAttribute("quiz", quiz);
@@ -215,6 +208,8 @@ public class QuizCommentController {
         request.setAttribute("tag",hotTagList);
         request.setAttribute("quizIds",quizIds);
         request.setAttribute("user", user);
+        request.setAttribute("quizGreat", qg);
+        request.setAttribute("answerGreatList", answerGreatList);
     
         return "community/detail";
     }
@@ -229,22 +224,85 @@ public class QuizCommentController {
      */
     @ResponseBody
     @RequestMapping("/aprise")
-    public String praiseQuiz(HttpServletRequest request,HttpSession session){
+    public void praiseQuiz(HttpServletRequest request, HttpSession session, HttpServletResponse response) throws IOException {
         String answerId=request.getParameter("answerId");
         User user=(User)session.getAttribute("User");
+        //创建JSON
+        JSONObject obj=new JSONObject();
         //到回答评论点赞表进行查询是否有记录
         AnswerGreat answerGreat =answerGreatService.getAnswerGreat(Long.parseLong(answerId),user.getUserId());
         if(answerGreat==null){
             //可以点赞
             answerGreatService.addAnswerGreat(Long.parseLong(answerId),user.getUserId());
             this.answerService.praiseAnswer(Long.parseLong(answerId));
-            return "ok";
+            //查找当前点赞数
+            Long answerPraiseCount = this.answerService.getAnswer(Long.parseLong(answerId)).getPraiseCount();
+            //加入json
+            obj.put("res", "ok");
+            obj.put("answerPraiseCount", answerPraiseCount);
+            //返回数据
+            response.getWriter().append(obj.toString());
         }
         else {
             //取消点赞
             answerGreatService.delAnswerGreat(Long.parseLong(answerId),user.getUserId());
             this.answerService.delPraiseAnswer(Long.parseLong(answerId));
-            return "no";
+            //查找当前点赞数
+            Long answerPraiseCount = this.answerService.getAnswer(Long.parseLong(answerId)).getPraiseCount();
+            //加入json
+            obj.put("res", "no");
+            obj.put("answerPraiseCount", answerPraiseCount);
+            //返回数据
+            response.getWriter().append(obj.toString());
         }
+    }
+
+
+    /**
+     * 登录用户删除提问
+     */
+
+    @RequestMapping("/delquiz/{quizId}")
+    public String delQuiz(@PathVariable String quizId, HttpServletRequest request, HttpServletResponse response){
+        //根据quizId删除提问及回答评论
+        this.quizService.delQuiz(Long.parseLong(quizId));
+        return "redirect:/quizs/rt/1";
+    }
+
+    /**
+     * 登录用户删除回答
+     */
+
+    @RequestMapping(value = "/delanswer/{answerId}",method = RequestMethod.GET)
+    @ResponseBody
+    public void delAnswer(@PathVariable String answerId,HttpServletRequest request,HttpServletResponse response) throws IOException {
+
+        Long quizId=Long.parseLong(request.getParameter("quizId"));
+        //创建JSON
+        JSONObject obj=new JSONObject();
+        //根据answerId删除回答及评论
+        this.answerService.delAnswer(Long.parseLong(answerId));
+        //查询当前回答总数
+        Long totalcount=this.answerService.gettal(quizId);
+        obj.put("count1",totalcount);
+        obj.put("res","ok");
+        response.getWriter().append(obj.toString());
+    }
+
+    /**
+     * 登录用户删除评论
+     */
+    @RequestMapping(value = "/delcomment/{answerId}/{parentanswerId}",method = RequestMethod.GET)
+    @ResponseBody
+    public void delComment(@PathVariable String answerId,@PathVariable String parentanswerId,HttpServletResponse response) throws IOException {
+        //创建JSON
+        JSONObject obj=new JSONObject();
+        //登录用户删除评论
+        this.answerService.delComment(Long.parseLong(answerId),Long.parseLong(parentanswerId));
+        //查询当前评论总数
+        Long totalcount=this.answerService.findchildAnswerCount(Long.parseLong(parentanswerId));
+        obj.put("res","ok");
+        obj.put("count2",totalcount);
+        response.getWriter().append(obj.toString());
     }
 }

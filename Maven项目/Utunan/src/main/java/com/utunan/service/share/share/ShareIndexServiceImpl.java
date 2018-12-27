@@ -257,4 +257,16 @@ public class ShareIndexServiceImpl implements ShareIndexService {
 	public void updateFileDownNumber(Long fileId, Long downNumber){
 		this.shareIndexMapper.updateFileDownNumber(fileId, downNumber);
 	}
+
+	/**
+	 * @author  孙程程
+	 * @description 根据学校名称查学校地区
+	 * @date  16:37 2018/12/26
+	 * @param  school
+	 * @return  java.lang.String
+	 */
+	@Override
+	public String findProvinceBySchool(String school){
+		return this.shareIndexMapper.findProvinceBySchool(school);
+	}
 }

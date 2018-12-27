@@ -1,6 +1,7 @@
 package com.utunan.controller.community;
 
 import com.utunan.service.community.IdentityPicService;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,16 +53,22 @@ public class IdentityPicController {
      * @return  java.lang.String
      */
     @RequestMapping("/judgePicCode")
-    public String judgePicCode(HttpServletRequest request){
+    public void judgePicCode(HttpServletRequest request,HttpServletResponse response) throws IOException {
         String userinput = request.getParameter("userinput");
         String code = (String) request.getSession().getAttribute("code");
         System.out.println("code:"+code);
+        //创建JSON
+        JSONObject obj=new JSONObject();
         if(userinput.equals(code)){
-            System.out.println("验证成功！");
-            return "community/quiz";
+            //加入json
+            obj.put("res", "ok");
+            //返回数据
+            response.getWriter().append(obj.toString());
         }else{
-            System.out.println("验证失败！");
-            return "community/identitypic";
+            //加入json
+            obj.put("res", "no");
+            //返回数据
+            response.getWriter().append(obj.toString());
         }
     }
 

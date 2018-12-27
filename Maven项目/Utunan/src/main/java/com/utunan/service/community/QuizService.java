@@ -125,4 +125,8 @@ public interface QuizService {
 
     //获取点赞数
 	Long getCountPrise(Long quizId);
+
+	//根据quizId删除提问及回答评论
+    void delQuiz(Long quizId);
+
 }

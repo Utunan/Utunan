@@ -159,4 +159,13 @@ public interface ShareIndexService {
 	 */
 	void updateFileDownNumber(Long fileId, Long downNumber);
 
+	/**
+	 * @author  孙程程
+	 * @description 根据学校名称查学校地区
+	 * @date  16:37 2018/12/26
+	 * @param  school
+	 * @return  java.lang.String
+	 */
+	String findProvinceBySchool(String school);
+
 }

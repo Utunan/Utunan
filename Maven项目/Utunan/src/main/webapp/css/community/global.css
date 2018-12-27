@@ -349,7 +349,7 @@ body .layui-edit-face  .layui-layer-content{padding:0; background-color:#fff; co
 .detail-body{margin: 20px 0 0; position: relative;min-height: 150px; line-height: 26px; font-size: 16px; color: #333; word-wrap: break-word;}
 .detail-body p{margin-bottom:15px;}
 .detail-body a{color:#4f99cf;}
-.detail-body img{max-width: 100%; cursor: default;}
+.detail-body img{max-width: 100%; cursor: default;float: left;}
 .detail-body table{margin: 10px 0 15px;}
 .detail-body table thead{background-color:#f2f2f2;}
 .detail-body table th, 
@@ -387,7 +387,7 @@ body .layui-edit-face  .layui-layer-content{padding:0; background-color:#fff; co
 .jieda-reply span em{font-style: normal;}
 .jieda-reply span .icon-zan{font-size: 22px;}
 .jieda-reply .zanok,
-.jieda-reply .jieda-zan:hover{color:#c00}
+.jieda-reply .jieda-zan:hover{color:#333}
 .jieda-reply span .icon-svgmoban53{position: relative; top: 1px;}
 
 

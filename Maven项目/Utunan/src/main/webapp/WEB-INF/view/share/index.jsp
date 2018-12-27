@@ -68,14 +68,14 @@
                 </div>
                 <div class="op">
                     <span class="st">针对院校 >></span>
-                    <select name="province" onChange="set_school(this, this.form.school);" class="tc">
+                    <select name="province" id="province" onChange="set_school(this, this.form.school);" class="tc">
                         <option value="0">选择省份</option>
                         <c:forEach items="${provinceList}" var="province">
                             <option value="${province}">${province}</option>
                         </c:forEach>
                     </select>
                     <select name="school" id="schools"class="tc">
-                            <option value="%">选择学校</option>
+                            <option value="%" >选择学校</option>
                     </select>
                 </div>
                 <div class="op">
@@ -87,7 +87,6 @@
           </form>
       </div>
       <div class="fly-panel" style="margin-bottom: 0; margin-top:20px">
-
           <c:if test="${url=='share'}">
               <div>
                   <ul class="list">
@@ -129,70 +128,13 @@
           </c:if>
         </div>
     </div><!--上边这-->
-  <!--左边这-->
-  <div class="layui-col-md4">
-    <div class="fly-panel">
-        <div class="fly-panel-main">
-         <%-- <a href="/share1" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">我要上传</a>--%>
-             <a href="javascript:void(0);" id="upload" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">我要上传</a>
-        </div>
-    </div>
-
-      <dl class="fly-panel fly-list-one">
-        <dt class="fly-panel-title">热门资源</dt>
-          <c:forEach items="${hotFileList}" var="hotFile">
-              <c:choose>
-                  <c:when test="${hotFile.fileType == '招生简章' || hotFile.fileType == '招生专业目录'}">
-                      <c:if test="${hotFile.isExamine == 1}">
-                          <dd>
-                              <a href="/file/${hotFile.fileId}">${hotFile.fileTitle}</a>
-                              <span> <img src="/images/share/downNum2.svg" class="downNum">${hotFile.downloadNumber}</span>
-                          </dd>
-                      </c:if>
-                  </c:when>
-                  <c:otherwise>
-                      <dd>
-                          <a href="/file/${hotFile.fileId}" >${hotFile.fileTitle}</a>
-                          <span><img src="/images/share/downNum2.svg" class="downNum" > ${hotFile.downloadNumber}</span>
-                      </dd>
-                  </c:otherwise>
-              </c:choose>
-          </c:forEach>
-      </dl>
-    </div>
-  </div>
+  <!--右边这-->
+  <%@include file="right.jsp"%>
+</div>
 </div>
 <%--弹窗登录表单--%>
-<div class="modalDialogcontent">
-    <div class="formcontent">
-        <span class="close_modalDialogcontent">×</span>
-        <div class="textcase">
-            <div class="logintext">
-                <img src="/images/common/logo.png" alt="" srcset=""><%--<img src="/images/common/logo.png" alt="" srcset="">--%>
-            </div>
-            <div class="wenhou">
-                <a href="">登录优图南，开启你的考研之旅</a>
-            </div>
-        </div>
-        <div  class="reply"></div>
-        <%--<div  class="reply" id="reply"></div>--%>
-        <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">  <%--onsubmit="return checkForm()"--%>
-            <div class="permit inputcase">
-                <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="手机号/邮箱">
-            </div>
-            <div class="loginpassword inputcase">
-                <input type="password" name="userPassword" id="password" placeholder="密码（8-16位，由数字和字母组成）"/>
-                <input type="text" id="login_showPwd" style="display: none"/>
-            </div>
-            <div class="loginbtn">
-                <%--<button id="closeAll">不了</button>--%>
-                <button id="submitbutton" type="submit">登录</button>
-            </div>
-            <span><a id="register" href="/register">立即注册</a> </span>
-            <span><a id="forpasswork" href="/forgetpasework">忘记密码</a> </span> <%--还未实现该页面--%>
-        </form>
-    </div>
-</div>
+<%@include file="login.jsp"%>
+<%@include file="../common/footer.jsp"%>
 </body>
 <script>
     //刷新分页或搜索后复选框选中状态保持
@@ -223,6 +165,21 @@
         $(".part").attr("checked",false);
     })
 
+    //下拉框状态保持
+    var province=document.getElementById("province");
+    var school=document.getElementById("schools");
+    $.each(province .options, function (i, n) {
+        if (n.value === "${province}") {
+            n.selected = true;
+            set_school(this, this.form.school);
+        }
+    });
+    $.each(school .options, function (i, n) {
+        if (n.value === "${school}") {
+            n.selected = true;
+        }
+    });
+
     //搜索框文字保持
     var direction=document.getElementById("direction");
     if("${keyWord}"!=""){
@@ -230,30 +187,19 @@
     }
 </script>
 <script>
-    /*弹窗登录功能*/
+    /*/!*弹窗登录功能*!/
     var ask=document.getElementById("upload");
-    var mask=document.getElementsByClassName("mask")[0];
-    var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
-    /*获取提交按钮*/
+    /!*获取提交按钮*!/
     var submitbutton = document.getElementById("submitbutton");
-    /*获取密码框*/
-    password = document.getElementById('password');
-    textpassword=document.getElementById("login_showPwd");
 
-    /*点击评论提交判断是否是用户，不是用户则弹出框*/
+    /!*点击评论提交判断是否是用户，不是用户则弹出框*!/
     ask.onclick=function(){
-        if(${user==null}){
+        if({user==null}){
             mask.style.display="block";
             modalDialogcontent.style.display="block";
         }else{
             window.location.href="/share1";
         }
-    };
-    /*点击小叉号然后关闭*/
-    var close_modalDialogcontent=document.getElementsByClassName("close_modalDialogcontent")[0];
-    close_modalDialogcontent.onclick=function(){
-        mask.style.display="none";
-        modalDialogcontent.style.display="none";
     };
 
     //判断用户名和密码
@@ -281,7 +227,7 @@
                 console.log("网崩了！")
             }
         });
-    };
+    };*/
 </script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="/js/common/common.js"></script>

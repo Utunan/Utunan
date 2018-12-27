@@ -1,6 +1,9 @@
 package com.utunan.service.community;
 
 import com.utunan.pojo.base.community.AnswerGreat;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @author 张正扬
@@ -17,4 +20,7 @@ public interface AnswerGreatService {
 
     //删除AnswerGreat表中信息
     void delAnswerGreat(Long answerId, Long userId);
+
+    //获取用户在评论的点赞列表
+    List<Long> getAGList(Long userId);
 }

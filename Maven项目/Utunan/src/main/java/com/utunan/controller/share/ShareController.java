@@ -101,6 +101,7 @@ public class ShareController {
 
                     this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral), Long.parseLong("0"), desc);
                     return "share/success";
+
                 } else {
                     return "share/upload";
                 }
@@ -110,6 +111,7 @@ public class ShareController {
 
                     this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral), Long.parseLong("1"), desc);
                     return "share/success";
+
                 } else {
                     return "share/upload";
                 }

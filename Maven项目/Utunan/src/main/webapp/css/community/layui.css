@@ -27,7 +27,18 @@ a:active, a:hover {
 }
 
 img {
-    border: none
+    border: none;
+    margin-top: -8px;
+}
+
+#btn{
+    /*background-color: #009688;*/
+    background: -webkit-linear-gradient(top, #78ccc4 0%,#009688 100%);
+    height: 25px;
+    /* border: solid 1px #555; */
+    width: 70px;
+    color: #e9e9e9;
+    margin-left: 10px;
 }
 
 li {

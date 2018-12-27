@@ -73,7 +73,7 @@
                         </ul>
                         <c:if test="${empty object}">
                             <div style="text-align: center">
-                                <span style="text-align: center">小优没有帮您找到数据，过一会儿再来看看吧</span>
+                                <span style="text-align: center; line-height: 40px;font-size: 16px;color: #28A47C;">小优没有帮您找到数据，过一会儿再来看看吧</span>
                             </div>
                         </c:if>
                     </c:if>
@@ -122,32 +122,32 @@
                     <!--搜索提问到此止-->
                     <!--从这里开始是搜索回答结果-->
                     <c:if test="${url=='/search/answer'}">
-                        <div>
-                            <table>
-                                <tr>
-                                    <td>序号</td>
-                                    <td>问题Id</td>
-                                    <td>问题名称</td>
-                                    <td>回答</td>
-                                    <td>时间</td>
-                                    <td>点赞</td>
-                                    <td>上级评论</td>
-                                    <td>用户昵称</td>
-                                </tr>
-                                <c:forEach items="${object}" var="answer">
-                                    <tr>
-                                        <td>${answer.answerId}</td>
-                                        <td>${answer.quiz.quizId}</td>
-                                        <td>回复：<a href="/quiz/${answer.quiz.quizId}" >${answer.quiz.quizTitle}</a></td>
-                                        <td>${answer.answerContent}</td>
-                                        <td>${answer.answerTime}</td>
-                                        <td>${answer.praiseCount}</td>
-                                        <td>${answer.parentAnswer}</td>
-                                        <td>${answer.user.userNickName}</td>
-                                    </tr>
-                                </c:forEach>
-                            <table/>
-                        </div>
+                        <ul class="list">
+                            <c:forEach items="${object}" var="answer">
+                                <li>
+                                    <div class="detail-about">
+                                        <a class="fly-avatar" href="/member/${answer.user.userId}" class="fly-avatar">
+                                            <img src="${answer.user.userHeadImg}" alt="昵称">
+                                        </a>
+                                        <div class="fly-detail-user">
+                                            回复：
+                                            <a href="/quiz/${answer.quiz.quizId}" class="fly-link">
+                                                <cite>${answer.quiz.quizTitle}</cite>
+                                            </a>
+                                            <span>
+                                                <fmt:formatDate value="${answer.answerTime}" type="both"/>
+                                            </span>
+                                            <span title="点赞">点赞量：${answer.praiseCount}</span>
+                                            <span>${answer.parentAnswer}</span>
+                                        </div>
+                                        <div class="detail-hits">
+                                            <div style="padding-right: 10px; color: #FF7200">${answer.answerContent}</div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </c:forEach>
+                        </ul>
                         <!--分页-->
                         <%@include file="page.jsp"%>
                     </c:if>
@@ -207,7 +207,7 @@
                  </div>
             </div>
             <div class="layui-col-md4">
-                <img src="/images/common/firebird.png" width="400px" style="padding-left: 0px;padding-top:25px"/>
+                <img src="/images/common/firebird.png" width="400px" style="padding-left: 0px;padding-top:25px;"/>
             </div>
         </div>
     </div>

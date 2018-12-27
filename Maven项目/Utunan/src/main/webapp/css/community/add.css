@@ -38,3 +38,14 @@
     resize: none;
     padding: 6px 10px;
 }
+
+.activetag{
+	background-color: #009688;
+	color: #fff;
+	margin: 5px 5px;
+	font-size: 14px;
+	padding: 4px 10px;
+	float: left;
+	border-radius: 18px;
+	text-align: center;
+}

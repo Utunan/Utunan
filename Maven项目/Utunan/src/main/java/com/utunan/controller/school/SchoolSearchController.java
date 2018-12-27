@@ -88,11 +88,14 @@ public class SchoolSearchController {
                                         @RequestParam(value = "math",required = false) String[] mathList,
                                         @RequestParam(value = "english",required = false) String[] englishList,
                                         @RequestParam(value = "directionName",required = false) String directionName,
+                                        @RequestParam(value = "schoolName",required = false) String schoolName,
                                         @RequestParam(value = "pageNum",required = false) String pageNum,
                                         HttpSession session){
         //对搜索框内容进行分词
         Analyzer analyzer = new Analyzer();
         directionName = analyzer.filter(directionName);
+        schoolName = analyzer.filter(schoolName);
+        //研究方向分词
         List<String> directionNameList = new ArrayList<>();
         if(directionName.equals("") || directionName==null){
             directionNameList.add(".");
@@ -125,10 +128,11 @@ public class SchoolSearchController {
         //搜索学校列表并分页
         List<PublishSchool> schoolList =null;
         if(pageNum == null ||pageNum == ""|| Integer.parseInt(pageNum) <= 0){
-            schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionNameList,1,15);
+            schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionNameList,schoolName,1,15);
         }else{
-            schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionNameList,Integer.parseInt(pageNum),15);
+            schoolList = this.publishSchoolService.findSchoolByAllParam(schoolProvinceList, schoolTypeList,degreeTypeList,mathList,englishList,directionNameList,schoolName,Integer.parseInt(pageNum),15);
         }
+
         //将String[]转为String
         String schoolProvince=so.listToString(schoolProvinceList);
         String schoolType=so.listToString(schoolTypeList);
@@ -144,6 +148,7 @@ public class SchoolSearchController {
         request.setAttribute("math", math);
         request.setAttribute("english", english);
         request.setAttribute("directionName", directionName);
+        request.setAttribute("schoolName", schoolName);
         request.setAttribute("PageInfo",new PageInfo(schoolList,8));
         request.setAttribute("directionIds",directionIdList);
         request.setAttribute("user", user);

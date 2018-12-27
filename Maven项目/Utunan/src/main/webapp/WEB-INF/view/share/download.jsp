@@ -35,14 +35,16 @@
                     </div>
                     <div class="detail-top">
                         ${file.fileTitle}
-                        <span><a class="fileType" href="/searchfile?fileType=${file.fileType}&school=${file.fileSchool}&keyWord=">${file.fileType}</a></span>
-                        <span><a class="fileSchool" href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a></span>
+                        <span class="ft"><a href="/searchfile?fileType=${file.fileType}&school=${file.fileSchool}&keyWord=">${file.fileType}</a></span>
+                        <c:if test="${not empty file.fileSchool}">
+                            <span class="fs"><a href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a></span>
+                        </c:if>
                     </div>
                     <div class="detail">
                         所在院校：<span>${file.user.userSchool}</span>
                         目标院校：<span>${file.user.dreamSchool}</span>
                     </div>
-                    <div class="from"><span>来自<a href="">${file.user.userNickName}</a></span></div>
+                    <div class="from"><span>来自<a href="/member/${file.user.userId}">${file.user.userNickName}</a></span></div>
                 </div>
                 <div class="download">
                     <form class="doenload-form" name="form1" action="/downloadfile/${file.fileId}" method="post" onsubmit="return false" ><%--check(this)--%>
@@ -75,43 +77,11 @@
                             <c:choose>
                                 <c:when test="${f.fileType == '招生简章' || f.fileType == '招生专业目录'}">
                                     <c:if test="${f.isExamine == 1}">
-                                        <li>
-                                            <div>
-                                                <img src="${f.suffix.imgUrl}" alt="文件类型" class="siffix">
-                                                <span class="tn"><a href="/file/${f.fileId}" style="color: black">${f.fileTitle}</a></span>
-                                                <div class="topdetail">
-                                                    <span class="ft"><a href="/searchfile?fileType=${f.fileType}&school=${f.fileSchool}&keyWord=">${f.fileType}</a></span>
-                                                    <c:if test="${not empty f.fileSchool}">
-                                                        <span class="fs"><a href="/searchfile?fileType=全部&school=${f.fileSchool}&keyWord=">${f.fileSchool}</a></span>
-                                                    </c:if>
-                                                </div>
-                                                <span class="un">${f.user.userNickName}&nbsp;于${f.fileTime}上传</span>
-                                                <div class="rightdetail">
-                                                    <span class="fc"><img src="/images/share/credit.svg"  class="credit">${f.fileCredit}</span>
-                                                    <span class="dn"><a href="/file/${f.fileId}" style="color: black"><img src="/images/share/downNum.svg"  class="downNum"></a>${f.downloadNumber}</span>
-                                                </div>
-                                            </div>
-                                        </li>
+                                        <%@include file="filelist1.jsp"%>
                                     </c:if>
                                 </c:when>
                                 <c:otherwise>
-                                    <li>
-                                        <div>
-                                            <img src="${f.suffix.imgUrl}" alt="文件类型" class="siffix">
-                                            <span class="tn"><a href="/file/${f.fileId}" style="color: black">${f.fileTitle}</a></span>
-                                            <div class="topdetail">
-                                                <span class="ft"><a href="/searchfile?fileType=${f.fileType}&school=${f.fileSchool}&keyWord=">${f.fileType}</a></span>
-                                                <c:if test="${not empty f.fileSchool}">
-                                                    <span class="fs"><a href="/searchfile?fileType=全部&school=${f.fileSchool}&keyWord=">${f.fileSchool}</a></span>
-                                                </c:if>
-                                            </div>
-                                            <span class="un">${f.user.userNickName}&nbsp;于${f.fileTime}上传</span>
-                                            <div class="rightdetail">
-                                                <span class="fc"><img src="/images/share/credit.svg"  class="credit">${f.fileCredit}</span>
-                                                <span class="dn"><a href="/file/${f.fileId}" style="color: black"><img src="/images/share/downNum.svg"  class="downNum"></a>${f.downloadNumber}</span>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    <%@include file="filelist1.jsp"%>
                                 </c:otherwise>
                             </c:choose>
 
@@ -123,66 +93,11 @@
                 </div>
             </div>
         </div>
-        <div class="layui-col-md4">
-            <div class="fly-panel">
-                <div class="fly-panel-main">
-                    <a href="/share1" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">我要上传</a>
-                </div>
-            </div>
-            <dl class="fly-panel fly-list-one">
-                <dt class="fly-panel-title">热门资源</dt>
-                <c:forEach items="${hotFileList}" var="hotFile">
-                    <c:choose>
-                        <c:when test="${hotFile.fileType == '招生简章' || hotFile.fileType == '招生专业目录'}">
-                            <c:if test="${hotFile.isExamine == 1}">
-                                <dd>
-                                    <a href="/file/${hotFile.fileId}" style="color: red">${hotFile.fileTitle}</a>
-                                    <span><i class="iconfont icon-pinglun1"></i> ${hotFile.downloadNumber}</span>
-                                </dd>
-                            </c:if>
-                        </c:when>
-                        <c:otherwise>
-                            <dd>
-                                <a href="/file/${hotFile.fileId}" style="color: red">${hotFile.fileTitle}</a>
-                                <span><i class="iconfont icon-pinglun1"></i> ${hotFile.downloadNumber}</span>
-                            </dd>
-                        </c:otherwise>
-                    </c:choose>
-                </c:forEach>
-            </dl>
-        </div>
+        <%@include file="right.jsp"%>
     </div>
 </div>
 <%--弹窗登录表单--%>
-<div class="modalDialogcontent">
-    <div class="formcontent">
-        <span class="close_modalDialogcontent">×</span>
-        <div class="textcase">
-            <div class="logintext">
-                <img src="/images/common/logo.png" alt="" srcset=""><%--<img src="/images/common/logo.png" alt="" srcset="">--%>
-            </div>
-            <div class="wenhou">
-                <a href="">登录优图南，开启你的考研之旅</a>
-            </div>
-        </div>
-        <div  class="reply"></div>
-        <%--<div  class="reply" id="reply"></div>--%>
-        <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">  <%--onsubmit="return checkForm()"--%>
-            <div class="permit inputcase">
-                <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="手机号/邮箱">
-            </div>
-            <div class="loginpassword inputcase">
-                <input type="password" name="userPassword" id="password" placeholder="密码（8-16位，由数字和字母组成）"/>
-                <input type="text" id="login_showPwd" style="display: none"/>
-            </div>
-            <div class="loginbtn">
-                <button id="submitbutton" type="submit">登录</button>
-            </div>
-            <span><a id="register" href="/register">立即注册</a> </span>
-            <span><a id="forpasswork" href="/forgetpasework">忘记密码</a> </span> <%--还未实现该页面--%>
-        </form>
-    </div>
-</div>
+<%@include file="login.jsp"%>
 <%@include file="../common/footer.jsp"%>
 </body>
 <script>
@@ -256,6 +171,7 @@
     }
 
     /*弹窗登录功能*/
+    var bsk=document.getElementById("upload");
     var ask=document.getElementById("download")
     var mask=document.getElementsByClassName("mask")[0];
     var modalDialogcontent=document.getElementsByClassName("modalDialogcontent")[0];
@@ -266,6 +182,15 @@
     textpassword=document.getElementById("login_showPwd");
 
     /*判断是否是用户*/
+    /*点击评论提交判断是否是用户，不是用户则弹出框*/
+    bsk.onclick=function(){
+        if(form1.operate.value=="notLogin"){
+            mask.style.display="block";
+            modalDialogcontent.style.display="block";
+        }else{
+            window.location.href="/share1";
+        }
+    };
     ask.onclick=function(){
         if (form1.operate.value=="notLogin") {
             //没有登录
