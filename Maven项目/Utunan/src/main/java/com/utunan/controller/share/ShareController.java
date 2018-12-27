@@ -100,7 +100,8 @@ public class ShareController {
                 if (file.getOriginalFilename() != null  && Long.parseLong(integral) >= 0) {
 
                     this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral), Long.parseLong("0"), desc);
-                    return "share/filelist";
+                    return "share/success";
+
                 } else {
                     return "share/upload";
                 }
@@ -109,7 +110,8 @@ public class ShareController {
                 if (file.getOriginalFilename() != null  && Long.parseLong(integral) >= 0 && WordLimitUtil.isNull(title) && WordLimitUtil.getLength(title)>=3 && WordLimitUtil.getLength(title)<=25) {
 
                     this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral), Long.parseLong("1"), desc);
-                    return "share/filelist";
+                    return "share/success";
+
                 } else {
                     return "share/upload";
                 }
