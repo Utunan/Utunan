@@ -10,6 +10,7 @@
 <head>
     <title>上传成功</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="8;url='/share'" />
     <link rel="stylesheet" href="/css/share/index.css">
     <link rel="stylesheet" href="/css/share/animate.min.css">
 
@@ -63,13 +64,23 @@
         window.addEventListener('load', init, false);
     </script>
     <style>
-
+        .content{
+            padding-top: 250px;
+            height: 60px;
+            font-size: 30px;
+            color: #ffffff;
+            text-align: center;
+        }
 
     </style>
 </head>
 
 <body>
 <div class="moneybox" id="leafContainer"></div>
+<div class="content">
+    您已上传成功，您将获得大把的奖励！！！！<br>
+    <span style="color: #fed71a">8 S</span>后将自动返回优共享主页。
+</div>
 
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 
