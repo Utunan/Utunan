@@ -79,11 +79,25 @@
 <div class="moneybox" id="leafContainer"></div>
 <div class="content">
     您的上传失败了，请重新上传！！！！<br>
-    <span style="color: #fed71a">8 S</span>后将自动返回优共享主页。
+    <span id="time" style="color: #fed71a">8</span>S后将自动返回优共享主页。
 </div>
 
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-
+<script>
+    window.onload=function() {
+        function run() {
+            var time = document.getElementById("time");
+            var i = 7;
+            setInterval(function () {
+                if (i > 0) {
+                    time.innerText = i;
+                    i--;
+                }
+            }, 1000);
+        }
+        run();
+    }
+</script>
 </body>
 
 </html>
