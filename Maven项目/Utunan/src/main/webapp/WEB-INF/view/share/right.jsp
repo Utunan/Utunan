@@ -52,12 +52,6 @@
             window.location.href="/share1";
         }
     };
-    /*点击小叉号然后关闭*/
-    var close_modalDialogcontent=document.getElementsByClassName("close_modalDialogcontent")[0];
-    close_modalDialogcontent.onclick=function(){
-        mask.style.display="none";
-        modalDialogcontent.style.display="none";
-    };
 
     //判断用户名和密码
     submitbutton.onclick=function(){

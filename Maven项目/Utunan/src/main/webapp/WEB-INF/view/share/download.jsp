@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="/css/community/global.css">
     <link rel="stylesheet" href="/css/share/download.css">
     <link rel="stylesheet" href="/css/share/file.css">
-    <link rel="stylesheet" href="/css/school/login.css">
     <link rel="stylesheet" href="/css/school/animate.css">
     <link rel="stylesheet" href="/css/school/dialog.css">
 </head>
@@ -96,8 +95,6 @@
         <%@include file="right.jsp"%>
     </div>
 </div>
-<%--弹窗登录表单--%>
-<%--<%@include file="login.jsp"%>--%>
 <%@include file="../common/footer.jsp"%>
 </body>
 <script>
@@ -210,12 +207,6 @@
         }
 
     }
-    /*点击小叉号然后关闭*/
-    var close_modalDialogcontent=document.getElementsByClassName("close_modalDialogcontent")[0];
-    close_modalDialogcontent.onclick=function(){
-        mask.style.display="none";
-        modalDialogcontent.style.display="none";
-    };
     //判断用户名和密码
     submit.onclick=function(){
         $.ajax({
@@ -242,6 +233,5 @@
 
 </script>
 <script charset="UTF-8" type="text/javascript"  src="/js/share/dialog.js"></script>
-<script src="/js/common/login.js"></script>
 <script src="/js/common/common.js"></script>
 </html>
