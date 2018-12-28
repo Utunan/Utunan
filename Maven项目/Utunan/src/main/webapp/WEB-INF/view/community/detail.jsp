@@ -35,6 +35,7 @@
                     type: 'post',//数据提交形式
                     data: {'quizId': quizId},//需要提交的数据
                     dataType: "json",
+                    async:false,
                     success: function (data) {//数据返回成功的执行放大
                         var res = data.res;
                         var praiseCount = data.qPraise;
@@ -68,7 +69,8 @@
                     url: '/aprise',//处理数据的地址
                     type: 'post',//数据提交形式
                     data: {'answerId': answerId},//需要提交的数据
-                    dataType: "json",
+                    dataType: "json",    //返回数据类型
+                    async:false,          //ajax同步方式
                     success: function (d) {//数据返回成功的执行放大
                         var res = d.res;
                         var praiseCount = d.answerPraiseCount;
@@ -438,6 +440,7 @@
                 type: 'post',//数据提交形式
                 data: {'quizId': quizId},
                 dataType: "json",
+                async:false,          //ajax同步方式
                 success: function (d) {//数据返回成功的执行放大
                     var res = d.res;
                     if (res == 'ok') {//添加收藏
@@ -573,6 +576,7 @@
             type: "get",//发送方式
             url: "/delanswer/"+answerId,//url地址
             data:{"quizId":${quiz.quizId} },
+            async:false,          //ajax同步方式
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
                 if (result['res'] == "ok") {
@@ -588,6 +592,7 @@
             dataType: "json",
             type: "get",//发送方式
             url: "/delcomment/"+answerId+"/"+parentanswerId,//url地址
+            async:false,          //ajax同步方式
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
                 if (result["res"] == "ok") {
