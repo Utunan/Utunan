@@ -218,12 +218,13 @@
 </div>
 
 <%--弹窗登录表单--%>
-<div class="modalDialogcontent">
+<%@include file="../common/login.jsp"%>
+<%--<div class="modalDialogcontent">
   <div class="formcontent">
     <span class="close_modalDialogcontent">×</span>
     <div class="textcase">
       <div class="logintext">
-        <%--<img src="/images/common/logo.png" alt="" srcset="">--%>
+        &lt;%&ndash;<img src="/images/common/logo.png" alt="" srcset="">&ndash;%&gt;
         优图南
       </div>
       <div class="wenhou">
@@ -231,7 +232,7 @@
       </div>
     </div>
     <div class="reply"></div>
-    <%--<div  class="reply" id="reply"></div>--%>
+    &lt;%&ndash;<div  class="reply" id="reply"></div>&ndash;%&gt;
     <form class="loginform" id="loginform" onsubmit="return false" action="##" method="post">
       <div class="permit inputcase">
         <input type="text" name="permit" id="permit" value="${temppermit}" placeholder="手机号/邮箱">
@@ -244,10 +245,10 @@
         <button id="submitbutton" type="submit">登&nbsp;&nbsp;录</button>
       </div>
       <span><a id="register" href="/register">立即注册</a> </span>
-      <span><a id="forpasswork" href="/forgetpasework">忘记密码</a> </span> <%--还未实现该页面--%>
+      <span><a id="forpasswork" href="/forgetpasework">忘记密码</a> </span> &lt;%&ndash;还未实现该页面&ndash;%&gt;
     </form>
   </div>
-</div>
+</div>--%>
 <script src="/layui/layui.js"></script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="/js/community/tag.js"></script>
