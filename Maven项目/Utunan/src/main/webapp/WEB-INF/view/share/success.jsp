@@ -79,22 +79,25 @@
 <div class="moneybox" id="leafContainer"></div>
 <div class="content">
     您已上传成功，您将获得大把的奖励！！！！<br>
-    <span id="time" style="color: #fed71a">8 S</span>后将自动返回优共享主页。
+    <span id="time" style="color: #fed71a">8 </span>S后将自动返回优共享主页。
 </div>
 
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 
 </body>
-<%--<script>
-    function run() {
-        var time = document.getElementById("time");
-        if(time.innerText!=0){
-            time.innerText=time.innerText*1-1;
-           /* return false;*/
+<script>
+    window.onload=function() {
+        function run() {
+            var time = document.getElementById("time");
+            var i = 7;
+            setInterval(function () {
+                if (i > 0) {
+                    time.innerText = i;
+                    i--;
+                }
+            }, 1000);
         }
+        run();
     }
-    window.setInterval(run(), 1000);
-
-</script>--%>
-
+</script>
 </html>
