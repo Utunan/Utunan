@@ -76,7 +76,7 @@
                                 <label for="L_title" class="layui-form-label">标题</label>
                                 <div class="layui-input-block">
                                     <input type="text" id="L_title" name="title" required lay-verify="required"
-                                           autocomplete="off" class="layui-input">
+                                           autocomplete="off" class="layui-input" placeholder="请输入五到二十个字并添加问号">
                                     <!-- <input type="hidden" name="id" value="{{d.edit.id}}"> -->
                                 </div>
                             </div>
