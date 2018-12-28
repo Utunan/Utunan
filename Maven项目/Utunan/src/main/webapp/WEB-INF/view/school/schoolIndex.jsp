@@ -204,7 +204,6 @@
             $.ajax({
                 url:'/school/updateDCollector',//处理数据的地址
                 type:'post',//数据提交形式
-                //data:{'directionId':directionId,'schoolProvince':schoolProvince,'schoolType':schoolType,'degreeType':degreeType,'math':math,'english':english,'directionName':directionName,'pageNum':pageNum},//需要提交的数据
                 data:{'directionId':directionId},
                 dataType: "json",
                 success:function(d){//数据返回成功的执行放大
@@ -225,13 +224,12 @@
         }
     }
 
-
     //判断用户名和密码
     submit.onclick=function(){
         $.ajax({
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "/school/popsupLogin" ,//url
+            url: "/popsupLogin" ,//url
             data: $('#loginform').serialize(),
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
