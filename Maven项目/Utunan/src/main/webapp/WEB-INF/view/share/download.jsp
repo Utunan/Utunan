@@ -97,7 +97,7 @@
     </div>
 </div>
 <%--弹窗登录表单--%>
-<%@include file="login.jsp"%>
+<%--<%@include file="login.jsp"%>--%>
 <%@include file="../common/footer.jsp"%>
 </body>
 <script>
