@@ -1,6 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--黑背景--%>
-<%--<div class="mask"></div>--%>
 <%--弹窗登录表单--%>
 <div class="modalDialogcontent">
     <div class="formcontent">
@@ -32,3 +30,11 @@
         </form>
     </div>
 </div>
+<script>
+    /*点击小叉号然后关闭*/
+    var close_modalDialogcontent=document.getElementsByClassName("close_modalDialogcontent")[0];
+    close_modalDialogcontent.onclick=function(){
+        mask.style.display="none";
+        modalDialogcontent.style.display="none";
+    };
+</script>

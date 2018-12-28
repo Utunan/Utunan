@@ -194,6 +194,7 @@ footer p {
     z-index: 10001;
 }
 .modalDialogcontent{
+    padding: 0px;
     display:none;
     background:white;
     background-repeat: no-repeat;

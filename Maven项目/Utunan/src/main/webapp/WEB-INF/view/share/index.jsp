@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/css/community/layui.css">
     <link rel="stylesheet" href="/css/community/global.css">
     <link rel="stylesheet" href="/css/share/file.css">
-    <link rel="stylesheet" href="/css/school/login.css">
     <script>
         schools = new Object();
         <c:forEach items="${provinceList}" var="province">
@@ -132,8 +131,6 @@
   <%@include file="right.jsp"%>
 </div>
 </div>
-<%--弹窗登录表单--%>
-<%--<%@include file="login.jsp"%>--%>
 <%@include file="../common/footer.jsp"%>
 </body>
 <script>
@@ -186,52 +183,8 @@
         direction.value="${keyWord}";
     }
 </script>
-<script>
-    /*/!*弹窗登录功能*!/
-    var ask=document.getElementById("upload");
-    /!*获取提交按钮*!/
-    var submitbutton = document.getElementById("submitbutton");
-
-    /!*点击评论提交判断是否是用户，不是用户则弹出框*!/
-    ask.onclick=function(){
-        if({user==null}){
-            mask.style.display="block";
-            modalDialogcontent.style.display="block";
-        }else{
-            window.location.href="/share1";
-        }
-    };
-
-    //判断用户名和密码
-    submitbutton.onclick=function(){
-        $.ajax({
-            //几个参数需要注意一下
-            type: "POST",//方法类型
-            dataType: "json",//预期服务器返回的数据类型
-            url: "/school/popsupLogin" ,//url
-            data: $('#loginform').serialize(),
-            success: function (result) {
-                console.log(result);//打印服务端返回的数据(调试用)
-                if(result==true){
-                    console.log("登录成功");
-                    window.location.href="/share1";
-                }else{
-                    textpassword.style.display="block";
-                    password.style.display="none";
-                    textpassword.parentNode.style.border = '1px solid red';
-                    textpassword.style.color="red";
-                    textpassword.value="密码错误";
-                }
-            },
-            error : function() {
-                console.log("网崩了！")
-            }
-        });
-    };*/
-</script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="/js/common/common.js"></script>
-<script src="/js/common/login.js"></script>
 <script>
     //分页页码选中刷新后样式
     var page=document.getElementById("page");
