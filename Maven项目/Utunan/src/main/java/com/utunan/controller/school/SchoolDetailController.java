@@ -42,8 +42,8 @@ public class SchoolDetailController {
     private DirectionService directionService;
     @Autowired
     private SchoolDetailFileService schoolDetailFileService;
-    @Autowired
-    private UserService userService;
+    /*@Autowired
+    private UserService userService;*/
     @Autowired
     private DirectionCommentGreatService directionCommentGreatService;
     @Autowired
@@ -52,8 +52,8 @@ public class SchoolDetailController {
     /*
      * @author  王碧云
      * @description 显示页面详情页
-     * @date  16:26 2018/12/16/016
-     * @param  [request, directionId, sort, schoolName, session]
+     * @date  17:08 2018/12/28/028
+     * @param  [request, directionId, sort, session]
      * @return  java.lang.String
      */
     @RequestMapping("/schooldetail/{directionId}")
@@ -107,8 +107,8 @@ public class SchoolDetailController {
     /*
      * @author  王碧云
      * @description 插入评论
-     * @date  8:28 2018/12/13/013
-     * @param  [directionId, directionCommentContent, schoolName, session, attr]
+     * @date  17:08 2018/12/28/028
+     * @param  [directionId, directionCommentContent, session]
      * @return  java.lang.String
      */
     @RequestMapping("/insertDirectionComment")
@@ -131,8 +131,8 @@ public class SchoolDetailController {
     /*
      * @author  王碧云
      * @description 删除评论（管理员或用户本人）
-     * @date  16:27 2018/12/16/016
-     * @param  [request, directionCommentId, directionId, schoolName, attr]
+     * @date  17:09 2018/12/28/028
+     * @param  [request, directionCommentId, directionId]
      * @return  java.lang.String
      */
     @RequestMapping("/deleteDirectionComment")
@@ -145,31 +145,7 @@ public class SchoolDetailController {
         //转去显示页面详情页
         return "redirect:/school/schooldetail/"+directionId;
     }
-
-    /*
-     * @author  王碧云
-     * @description 弹窗的登录（判断用户名密码）
-     * @date  15:42 2018/12/17/017
-     * @param  [request, account, session]
-     * @return  java.lang.String
-     */
-    @RequestMapping(value = "/popsupLogin", method = RequestMethod.POST)
-    public void popsupLogin(HttpServletRequest request, User account, HttpSession session, HttpServletResponse response) throws IOException {
-        String permit = request.getParameter("permit");
-        account.setUserEmail(permit);
-        account.setUserTelephone(permit);
-        User user = userService.getUser(account);
-        if (user != null) {
-            request.removeAttribute("reply");
-            session.setAttribute("User", user);
-
-           response.getWriter().print("true");
-        } else {
-            response.getWriter().print("false");
-        }
-    }
-
-
+    
     /*
      * @author  王碧云
      * @description 修改点赞数

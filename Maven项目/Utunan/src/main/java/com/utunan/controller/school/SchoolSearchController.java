@@ -75,9 +75,9 @@ public class SchoolSearchController {
 
     /*
      * @author  王碧云
-     * @description 根据搜索返回结果页面
-     * @date  15:52 2018/12/16/016
-     * @param  [request, schoolProvinceList, schoolTypeList, degreeTypeList, mathList, englishList, directionName, pageNum, session]
+     * @description 根据搜索返回页面
+     * @date  17:14 2018/12/28/028
+     * @param  [request, schoolProvinceList, schoolTypeList, degreeTypeList, mathList, englishList, directionName, schoolName, pageNum, session]
      * @return  java.lang.String
      */
     @RequestMapping(value="/displaySchoolBySearch")
