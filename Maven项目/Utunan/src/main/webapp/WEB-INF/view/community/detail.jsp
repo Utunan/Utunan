@@ -337,6 +337,7 @@
         <%@include file="right.jsp" %>
     </div>
 </div>
+<%@include file="../common/footer.jsp"%>
 </body>
 <script type="text/javascript">
     /*3D标签云*/

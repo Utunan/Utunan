@@ -14,7 +14,7 @@ body {
     margin-top:100px;
 }
 .center a{
-    color:#fff;
+    color: black;
 }
 
 .reply {
@@ -33,9 +33,10 @@ body {
 .platename{
     text-align: center;
     font-size: 25px;
-    color:#fff;
+    color:cornflowerblue;
     letter-spacing:10px;
     padding-left: 10px;
+    font-weight: bold;
 }
 
 .loginform {

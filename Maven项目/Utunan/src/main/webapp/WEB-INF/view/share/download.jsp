@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/css/community/global.css">
     <link rel="stylesheet" href="/css/share/download.css">
     <link rel="stylesheet" href="/css/share/file.css">
+    <link rel="stylesheet" href="/css/school/login.css">
     <link rel="stylesheet" href="/css/school/animate.css">
     <link rel="stylesheet" href="/css/school/dialog.css">
 </head>
@@ -39,10 +40,7 @@
                             <span class="fs"><a href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a></span>
                         </c:if>
                     </div>
-                    <div class="detail">
-                        所在院校：<span>${file.user.userSchool}</span>
-                        目标院校：<span>${file.user.dreamSchool}</span>
-                    </div>
+                    ${file.fileDiscription}
                     <div class="from"><span>来自<a href="/member/${file.user.userId}">${file.user.userNickName}</a></span></div>
                 </div>
                 <div class="download">
@@ -76,11 +74,43 @@
                             <c:choose>
                                 <c:when test="${f.fileType == '招生简章' || f.fileType == '招生专业目录'}">
                                     <c:if test="${f.isExamine == 1}">
-                                        <%@include file="filelist1.jsp"%>
+                                        <li>
+                                            <div>
+                                                <img src="${f.suffix.imgUrl}" alt="文件类型" class="siffix">
+                                                <span class="tn"><a href="/file/${f.fileId}" style="color: black">${f.fileTitle}</a></span>
+                                                <div class="topdetail">
+                                                    <span class="ft"><a href="/searchfile?fileType=${f.fileType}&school=${f.fileSchool}&keyWord=">${f.fileType}</a></span>
+                                                    <c:if test="${not empty f.fileSchool}">
+                                                        <span class="fs"><a href="/searchfile?fileType=全部&school=${f.fileSchool}&keyWord=">${f.fileSchool}</a></span>
+                                                    </c:if>
+                                                </div>
+                                                <span class="un">${f.user.userNickName}&nbsp;于${f.fileTime}上传</span>
+                                                <div class="rightdetail">
+                                                    <span class="fc"><img src="/images/share/credit.svg"  class="credit">${f.fileCredit}</span>
+                                                    <span class="dn"><a href="/file/${f.fileId}" style="color: black"><img src="/images/share/downNum.svg"  class="downNum"></a>${f.downloadNumber}</span>
+                                                </div>
+                                            </div>
+                                        </li>
                                     </c:if>
                                 </c:when>
                                 <c:otherwise>
-                                    <%@include file="filelist1.jsp"%>
+                                    <li>
+                                        <div>
+                                            <img src="${f.suffix.imgUrl}" alt="文件类型" class="siffix">
+                                            <span class="tn"><a href="/file/${f.fileId}" style="color: black">${f.fileTitle}</a></span>
+                                            <div class="topdetail">
+                                                <span class="ft"><a href="/searchfile?fileType=${f.fileType}&school=${f.fileSchool}&keyWord=">${f.fileType}</a></span>
+                                                <c:if test="${not empty f.fileSchool}">
+                                                    <span class="fs"><a href="/searchfile?fileType=全部&school=${f.fileSchool}&keyWord=">${f.fileSchool}</a></span>
+                                                </c:if>
+                                            </div>
+                                            <span class="un">${f.user.userNickName}&nbsp;于${f.fileTime}上传</span>
+                                            <div class="rightdetail">
+                                                <span class="fc"><img src="/images/share/credit.svg"  class="credit">${f.fileCredit}</span>
+                                                <span class="dn"><a href="/file/${f.fileId}" style="color: black"><img src="/images/share/downNum.svg"  class="downNum"></a>${f.downloadNumber}</span>
+                                            </div>
+                                        </div>
+                                    </li>
                                 </c:otherwise>
                             </c:choose>
 
@@ -95,6 +125,8 @@
         <%@include file="right.jsp"%>
     </div>
 </div>
+<%--弹窗登录表单--%>
+<%@include file="login.jsp"%>
 <%@include file="../common/footer.jsp"%>
 </body>
 <script>
@@ -207,12 +239,18 @@
         }
 
     }
+    /*点击小叉号然后关闭*/
+    var close_modalDialogcontent=document.getElementsByClassName("close_modalDialogcontent")[0];
+    close_modalDialogcontent.onclick=function(){
+        mask.style.display="none";
+        modalDialogcontent.style.display="none";
+    };
     //判断用户名和密码
     submit.onclick=function(){
         $.ajax({
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "/popsupLogin" ,//url
+            url: "/school/popsupLogin" ,//url
             data: $('#loginform').serialize(),
             success: function (result) {
                if (result==true){
@@ -233,5 +271,6 @@
 
 </script>
 <script charset="UTF-8" type="text/javascript"  src="/js/share/dialog.js"></script>
+<script src="/js/common/login.js"></script>
 <script src="/js/common/common.js"></script>
 </html>

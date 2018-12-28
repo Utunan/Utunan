@@ -101,15 +101,19 @@
 }
 .fs a {
     color: darkgray;
+    font-weight: normal;
 }
 .ft a {
     color: darkgray;
+    font-weight: normal;
 }
 .fs a:hover {
     color: RGB(255,87,34);
+    font-weight: normal;
 }
 .ft a:hover {
     color: RGB(255,87,34);
+    font-weight: normal;
 }
 .RadioStyle input {
     display: none
@@ -165,4 +169,12 @@ threeops{
 }
 .layui-btn-normal {
     margin-left: 150px;
+}
+.RadioStyle input:checked + label {
+    border: 1px solid #009E94;
+    background-size: 21px 21px;
+    color: #009E94;
+}
+.layui-btn-normal {
+    background-color: #009E94;
 }

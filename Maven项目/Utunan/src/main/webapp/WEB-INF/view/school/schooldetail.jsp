@@ -216,7 +216,7 @@
     </div>
   </div>
 </div>
-
+<%@include file="../common/footer.jsp"%>
 <%--弹窗登录表单--%>
 <%@include file="../common/login.jsp"%>
 
