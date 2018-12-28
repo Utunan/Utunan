@@ -269,6 +269,7 @@ public class QuizController {
 
 		//到问题点赞表进行查询是否有记录
 		QuizGreat quizGreat=quizGreatService.getQuizGreat(Long.parseLong(quizId),user.getUserId());
+
 		if(quizGreat==null){
 			//未进行点赞
             quizGreatService.addQuizGreat(Long.parseLong(quizId),user.getUserId());

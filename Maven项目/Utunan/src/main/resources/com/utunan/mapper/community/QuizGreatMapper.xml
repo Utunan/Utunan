@@ -8,7 +8,7 @@
         where quizId=#{quizId} and userId=#{userId}
     </select>
     <insert id="addQuizGreat" parameterType="java.lang.Long">
-        insert into quiz_great
+        insert into quiz_great(quizId, userId)
         values (#{quizId},#{userId})
     </insert>
     <delete id="delQuizGreat" parameterType="java.lang.Long">
