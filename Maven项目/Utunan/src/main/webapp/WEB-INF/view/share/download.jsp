@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="/css/community/global.css">
     <link rel="stylesheet" href="/css/share/download.css">
     <link rel="stylesheet" href="/css/share/file.css">
-    <link rel="stylesheet" href="/css/school/login.css">
     <link rel="stylesheet" href="/css/school/animate.css">
     <link rel="stylesheet" href="/css/school/dialog.css">
 </head>
@@ -31,7 +30,7 @@
             <div class="fly-panel" style="margin-bottom: 0;">
                 <div class="download-file-detail">
                     <div class="fly-avatar">
-                        <img src="${file.suffix.imgUrl}" alt="文件类型" >
+                        <img src="${file.suffix.imgUrl}" alt="文件类型"  id="tubiao">
                     </div>
                     <div class="detail-top">
                         ${file.fileTitle}
@@ -39,24 +38,26 @@
                         <c:if test="${not empty file.fileSchool}">
                             <span class="fs"><a href="/searchfile?fileType=全部&school=${file.fileSchool}&keyWord=">${file.fileSchool}</a></span>
                         </c:if>
+                            <div class="vote">
+                                &nbsp;
+                                <a href="javascript:void(0);" onclick="fileup(${file.fileId})">
+                                    <img id="fileup${file.fileId}" src="/images/share/zan.png"  width="20px" height="20px" alt="" srcset="">
+                                </a><em id="upnumber${file.fileId}" style="font-style: normal">${file.upNumber}</em>
+                                &nbsp;
+                                <a href="javascript:void(0);" onclick="filedown(${file.fileId})">
+                                    <img id="filedown${file.fileId}" src="/images/share/cai.png"  width="20px" height="20px" alt="" srcset="">
+                                </a><em id="downnumber${file.fileId}" style="font-style: normal">${file.downNumber}</em>
+                            </div>
                     </div>
-                    ${file.fileDiscription}
-                    <div class="from"><span>来自<a href="/member/${file.user.userId}">${file.user.userNickName}</a></span></div>
+                    <div class="discrip"><span>${file.fileDiscription}</span></div>
                 </div>
                 <div class="download">
                     <form class="doenload-form" name="form1" action="/downloadfile/${file.fileId}" method="post" onsubmit="return false" ><%--check(this)--%>
                         <input type="hidden" name="operate" value="${operate}">
                         <input id="download" class="input" type="submit" value="点击下载"/>
                     </form>
-                    <div>
-                        &nbsp;
-                        <a href="javascript:void(0);" onclick="fileup(${file.fileId})">
-                            <img id="fileup${file.fileId}" src="/images/share/zan.png"  width="20px" height="20px" alt="" srcset="">
-                        </a><em id="upnumber${file.fileId}">${file.upNumber}</em>
-                        &nbsp;
-                        <a href="javascript:void(0);" onclick="filedown(${file.fileId})">
-                            <img id="filedown${file.fileId}" src="/images/share/cai.png"  width="20px" height="20px" alt="" srcset="">
-                        </a><em id="downnumber${file.fileId}">${file.downNumber}</em>
+                    <div class="tools">
+                    <div class="from"><span><a href="/member/${file.user.userId}" style="color: #009E94">${file.user.userNickName}</a>于${file.fileTime}上传</span></div>
                     </div>
                     <div class="rightdetail" style="margin-right: 15px">
                         <span ><img src="/images/share/credit.svg"  class="credit" width="20px" height="20px">${file.fileCredit}</span>
@@ -125,8 +126,6 @@
         <%@include file="right.jsp"%>
     </div>
 </div>
-<%--弹窗登录表单--%>
-<%@include file="login.jsp"%>
 <%@include file="../common/footer.jsp"%>
 </body>
 <script>
@@ -239,18 +238,12 @@
         }
 
     }
-    /*点击小叉号然后关闭*/
-    var close_modalDialogcontent=document.getElementsByClassName("close_modalDialogcontent")[0];
-    close_modalDialogcontent.onclick=function(){
-        mask.style.display="none";
-        modalDialogcontent.style.display="none";
-    };
     //判断用户名和密码
     submit.onclick=function(){
         $.ajax({
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "/school/popsupLogin" ,//url
+            url: "/popsupLogin" ,//url
             data: $('#loginform').serialize(),
             success: function (result) {
                if (result==true){
@@ -271,6 +264,5 @@
 
 </script>
 <script charset="UTF-8" type="text/javascript"  src="/js/share/dialog.js"></script>
-<script src="/js/common/login.js"></script>
 <script src="/js/common/common.js"></script>
 </html>

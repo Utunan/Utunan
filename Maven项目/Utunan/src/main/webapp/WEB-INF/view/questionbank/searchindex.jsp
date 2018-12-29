@@ -35,4 +35,5 @@
         })
     })
 </script>
+<script src="/js/common/common.js"></script>
 </html>
