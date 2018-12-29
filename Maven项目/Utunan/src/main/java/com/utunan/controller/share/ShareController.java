@@ -38,41 +38,45 @@ public class ShareController {
 
     @RequestMapping(value = "/upload1", method = RequestMethod.POST)
     public String upload(@RequestParam(value = "file", required = false) MultipartFile file, HttpServletRequest request, HttpSession session) {
-        String rootPath = "/usr/local/tomcat/repertory";
-        String path = rootPath +"/"+ file.getOriginalFilename();
-        JSONObject resObj = new JSONObject();
-        resObj.put("msg", "ok");
-        try {
-            FileCopyUtils.copy(file.getBytes(), new File(rootPath, file.getOriginalFilename()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        //获取资源类型
-        String sourcetype = request.getParameter("sourcetype");
+        if (file.isEmpty()) {
+            return "share/failed";
+        } else {
+            String rootPath = "/usr/local/tomcat/repertory";
+            String path = rootPath + "/" + file.getOriginalFilename();
+
+            JSONObject resObj = new JSONObject();
+            resObj.put("msg", "ok");
+            try {
+                FileCopyUtils.copy(file.getBytes(), new File(rootPath, file.getOriginalFilename()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            //获取资源类型
+            String sourcetype = request.getParameter("sourcetype");
 
 
-        int a = new Integer(sourcetype).intValue();
-        switch (a) {
-            case 0:
-                sourcetype = "招生简章";
-                break;
-            case 1:
-                sourcetype = "招生专业目录";
-                break;
-            case 11:
-                sourcetype = "考研真题";
-                break;
-            case 12:
-                sourcetype = "备考习题";
-                break;
-            case 13:
-                sourcetype = "课件分享";
-                break;
-            default:
-                sourcetype = "参考书目";
-                break;
+            int a = new Integer(sourcetype).intValue();
+            switch (a) {
+                case 0:
+                    sourcetype = "招生简章";
+                    break;
+                case 1:
+                    sourcetype = "招生专业目录";
+                    break;
+                case 11:
+                    sourcetype = "考研真题";
+                    break;
+                case 12:
+                    sourcetype = "备考习题";
+                    break;
+                case 13:
+                    sourcetype = "课件分享";
+                    break;
+                default:
+                    sourcetype = "参考书目";
+                    break;
 
-        }
+            }
             //获取标题
             String title = request.getParameter("title");
             //获取年份
@@ -83,6 +87,9 @@ public class ShareController {
             String filetype = request.getParameter("filetype");
             //获取学校
             String school = request.getParameter("school");
+            if ("0".equals(school)) {
+                school = null;
+            }
             //获取资源简介
             String desc = request.getParameter("desc");
 
@@ -97,7 +104,7 @@ public class ShareController {
 
             if (sourcetype.equals("招生简章") || sourcetype.equals("招生专业目录")) {
                 title = school + year + sourcetype;
-                if (file.getOriginalFilename() != null  && Long.parseLong(integral) >= 0) {
+                if (Long.parseLong(integral) >= 0 && desc!=null) {
 
                     this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral), Long.parseLong("0"), desc);
                     return "share/success";
@@ -105,9 +112,8 @@ public class ShareController {
                 } else {
                     return "share/failed";
                 }
-            }
-            else {
-                if (file.getOriginalFilename() != null  && Long.parseLong(integral) >= 0 && WordLimitUtil.isNull(title) && WordLimitUtil.getLength(title)>=3 && WordLimitUtil.getLength(title)<=25) {
+            } else {
+                if (Long.parseLong(integral) >= 0 && WordLimitUtil.isNull(title) && WordLimitUtil.getLength(title) >= 3 && WordLimitUtil.getLength(title) <= 25 && desc!=null) {
 
                     this.shareupFileService.insertfile(fileId, sourcetype, title, school, user.getUserId(), path, suffixId, Long.parseLong(integral), Long.parseLong("1"), desc);
                     return "share/success";
@@ -117,5 +123,6 @@ public class ShareController {
                 }
             }
         }
-
     }
+
+}
