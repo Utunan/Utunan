@@ -175,7 +175,7 @@
                     </li>
                 </ul>
             </li>
-            <li>
+            <!-- <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>
                     <cite>系统通知</cite>
@@ -196,7 +196,7 @@
                     </li>
 
                 </ul>
-            </li>
+            </li> -->
         </ul>
     </div>
 </div>
