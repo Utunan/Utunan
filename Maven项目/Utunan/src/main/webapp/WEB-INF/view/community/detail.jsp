@@ -235,7 +235,7 @@
                                 <div class="jieda-admin">
                                     <c:forEach items="${map0.keySet()}" var="b">
                                         <c:if test="${b.answerId==answer.answerId}">
-                                            <div class="view-comments">查看评论（<span id="f1${answer.answerId }">${map0.get(b)}</span>）</div>
+                                            <div class="view-comments">查看评论（<span id="f1${answer.answerId }" style="padding-right:0">${map0.get(b)}</span>）</div>
                                             <c:set var="commentNum" value="${map0.get(b)}"/>
                                         </c:if>
                                     </c:forEach>
