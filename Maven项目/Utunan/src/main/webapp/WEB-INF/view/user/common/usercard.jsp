@@ -14,15 +14,16 @@
                 year = date.getFullYear();
                 month = date.getMonth() + 1;
                 newdate = date.getDate()
-
+                var nextExamYear=new Date('2019-12-21');
+                console.log(nextExamYear)
+                var difference=(nextExamYear-date)/(60*60*24)/1000
                 if (parseInt(month) < 10)
                     month = "0" + month;
 
                 if (parseInt(newdate) < 10)
                     newdate = "0" + newdate;
-                // $('#examyear').html(year);
-                // $('#surplus').html(newdate-20);
                 $('#date').html(year + "年" + month + "月" + newdate + "日")
+                $('#surplus').html(parseInt(difference))
             </script>
             <div class="userinfo">
                 <div class="nickname">${User.userNickName}</div>

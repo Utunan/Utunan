@@ -99,38 +99,68 @@
             <nav>
                 <li>
                     <div class="mintitle">TA的问答</div>
-                    <ul class="userquiz">
+                    <ul id="userquiz" class="userquiz">
                         <c:forEach items="${Member.quizzes}" var="quiz">
                             <li class="quiz">
-                                <a href="">${quiz.quizTitle}</a>
+                                <a href="/quiz/${quiz.quizId}">${quiz.quizTitle}</a>
                             </li>
                         </c:forEach>
+                        <li id="uqz" class="usernotice">
+
+                        </li>
                     </ul>
+                    <script>
+                        if($('#userquiz .quiz').length==0) {
+                            $('#uqz').html("该用户还没有关注别人呦~")
+                        }
+                        if($('#userquiz .quiz').length==5) {
+                            $('#uqz').html("仅能查看五个呦~")
+                        }
+                    </script>
                 </li>
                 <li>
                     <div class="mintitle" style="color: rgb(255, 155, 38);">TA的关注</div>
-                    <ul class="userlist">
+                    <ul id="userlist" class="userlist">
                         <c:forEach items="${Member.users}" var="user">
                             <li class="user">
                                 <a href=""><img src="${user.userHeadImg}"></a>
                                 <a href=""><span>${user.userNickName}</span></a>
                             </li>
                         </c:forEach>
-                        <li class="usernotice">
-                            仅能查看五个呦~
+                        <li id="usernotice" class="usernotice">
+
                         </li>
                     </ul>
+                    <script>
+                        if($('#userlist .user').length==0) {
+                            $('#usernotice').html("该用户还没有关注别人呦~")
+                        }
+                        if($('#userlist .user').length==5) {
+                            $('#usernotice').html("仅能查看五个呦~")
+                        }
+                    </script>
                 </li>
                 <li>
                     <div class="mintitle">TA的题目</div>
-                    <ul class="userquestion">
+                    <ul id="userquestion" class="userquestion">
                         <c:forEach items="${Member.questions }" var="question">
                             <li class="question">
                                 <a href="">${question.questionContent}</a>
                             </li>
                         </c:forEach>
+                        <li id="uq" class="userquestion">
+
+                        </li>
                     </ul>
                 </li>
+                <script>
+                    if($('#userquestion .question').length==0) {
+                        $('#uq').html("该用户还没有关注别人呦~")
+                    }
+                    if($('#userquestion .question').length==5) {
+                        $('#uq').html("仅能查看五个呦~")
+                    }
+                </script>
             </nav>
         </div>
     </div>
