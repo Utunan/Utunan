@@ -244,4 +244,5 @@
     }
 </script>
 <script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
+<script src="/js/common/common.js"></script>
 </html>

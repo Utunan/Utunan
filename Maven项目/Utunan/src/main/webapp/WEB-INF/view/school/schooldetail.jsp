@@ -391,5 +391,6 @@ layui.config({
 
 <script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
 <script src="/js/common/login.js"></script>
+<script src="/js/common/common.js"></script>
 <script src="/js/school/index.js"></script>
 </html>

@@ -5,7 +5,7 @@
     padding: 15px 15px 15px 85px;
     line-height: 22px;
 }
-.download-file-detail img{
+.tubiao{
     display: block;
     width: 55px;
     height: 55px;
@@ -79,4 +79,22 @@
 }
 .from a{
     color: darkgray;
+}
+.discrip{
+    padding:5px;
+}
+.from{
+    padding: 5px;
+    float: left;
+    padding-left: 20px;
+}
+.vote {
+    float: right;
+    font-weight: normal;
+    font-style: normal;
+    color: darkgoldenrod;
+    padding-right: 10px;
+}
+.tools{
+    float:left;
 }

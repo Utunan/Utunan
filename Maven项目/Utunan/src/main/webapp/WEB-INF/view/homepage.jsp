@@ -19,8 +19,8 @@
 
     <div class="homepageimg">
         <div id="imgsign" class="imgsign">
-            又回到最初的起点<br/>
-            记忆中你青涩的脸<br>
+            计算机考研<br/>
+            优图南助您启航<br/>
         </div>
     </div>
 </div>
@@ -34,22 +34,28 @@
                 </div>
             </div>
             <div>
-                <a href="/school">
+                <a href="/school/displaySchool">
                     <img src="images/homepage/school.png" alt="" srcset="">
                 </a>
-                <a hREF="/school">院校库</a>
+                <a hREF="/school/displaySchool">优院校</a>
             </div>
             <div>
-                <a href="/questionbank">
+                <a href="/searchquestion">
                     <img src="images/homepage/code.png" alt="" srcset="">
                 </a>
-                <a hREF="/questionbank">题库</a>
+                <a hREF="/searchquestion">优题库</a>
             </div>
             <div>
-                <a href="/community">
+                <a href="/quizs/rt/1">
                     <img src="images/homepage/tablk.png" alt="" srcset="">
                 </a>
-                <a hREF="/community">优问答</a>
+                <a hREF="/quizs/rt/1">优问答</a>
+            </div>
+            <div>
+                <a href="/share">
+                    <img src="images/homepage/ziliao.svg" alt="" srcset="">
+                </a>
+                <a hREF="/share">优共享</a>
             </div>
         </div>
     </div>
@@ -65,14 +71,14 @@
             </div>
             <div class="qbmiddle">
                 <img src="images/homepage/barchart.png">
-                <h4>[题库]</h4>
+                <h4>[优题库]</h4>
                 <p>”纸上得来终觉浅，绝知此事要躬行“。
                     精心搜录CS、MSE专业考研各门专业课试题。
                     从专项练习到智能组卷，
                     满足您的题目练习需要。
                 </p>
                 <img class="gotoqbimg" src="images/homepage/circledouble.png" alt="">
-                <a class="gotoqba" href="/questionbank">开始练习</a>
+                <a class="gotoqba" href="/searchquestion">开始练习</a>
             </div>
             <div class="qbright">
                 <nav>
@@ -86,7 +92,7 @@
     </div>
     <div class="schoolsearch">
         <div class="wrapper">
-            <h2>[院校库]</h2>
+            <h2>[优院校]</h2>
             <form method="GET" action="">
                     <span>院校地区:
                         <select name="schoolProvince">
@@ -171,17 +177,16 @@
                     </span>
                 <span>院校名称: <input name="schoolName" type="text"> </span>
                 <span>研究方向: <input name="schoolName" type="text"> </span>
-                <input type="submit" class="searchschoolinfo" value="查询">
                 <p style="color:#fff;font-weight:900;font-size: 18px;">112所高校研招信息全部收入囊中，提供多种检索方式。时光宝贵，我们帮助您更快、更精确的找到您理想高校。</p>
             </form>
-            <a href="/school"class="allschoolinfo" >查看更多</a>
+            <a href="/school/displaySchool"class="allschoolinfo" >更详细搜索 GO！</a>
         </div>
     </div>
     <div class="community">
         <div class="wrapper">
             <div class="commtop">
                 <img src="/images/homepage/community.png">
-                <h4>[社区]</h4>
+                <h4>[优问答]</h4>
             </div>
             <p>漫漫考研路，这里有和你一样的志同道合者！考研经验交流、题目解惑、院校答疑，尽在此处。来这里与大家畅快交流！</p>
             <div class="commoncon">
@@ -204,10 +209,19 @@
                         <h5 style="margin-top:15px;">标签化提问</h5>
                     </div>
                 </div>
-
                 <img class="commimg" src="images/homepage/circledouble.png" alt="" srcset="">
-                <a class="comma" href="">参与问答Go!</a>
+                <a class="comma" href="/quizs/rt/1">参与问答Go!</a>
             </div>
+        </div>
+    </div>
+    <div class="file">
+        <div class="wrapper">
+            <h2>[优共享]</h2>
+            <form method="GET" action="">
+                <p style="color:#fff;font-weight:900;font-size: 18px;">是否还在为目标院校资料太少而烦恼？来优共享寻找相关资源！上传你手中的资源，在分享互助中打赢考研这场信息战！</p>
+            </form>
+            <a href="/school/displaySchool"class="allschoolinfo" >分享或下载 GO！</a>
+
         </div>
     </div>
 </div>
