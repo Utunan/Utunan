@@ -41,10 +41,10 @@ public class ShareController {
         if (file.isEmpty()) {
             return "share/failed";
         } else {
-           /* String rootPath = "/usr/local/tomcat/repertory";
-            String path = rootPath + "/" + file.getOriginalFilename();*/
-           String rootPath=request.getSession().getServletContext().getRealPath("/");
-           String path=rootPath+file.getOriginalFilename();
+            String rootPath = "/usr/local/tomcat/repertory";
+            String path = rootPath + "/" + file.getOriginalFilename();
+           /*String rootPath=request.getSession().getServletContext().getRealPath("/");
+           String path=rootPath+file.getOriginalFilename();*/
 
             JSONObject resObj = new JSONObject();
             resObj.put("msg", "ok");

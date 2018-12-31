@@ -19,7 +19,6 @@
   <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
 </head>
 <body>
-<!--提醒tx加上 1.加入院校收藏夹 2.浏览次数3.评论总数4.评论点赞5.写评论-->
 <%@include file="../common/header.jsp"%>
 <%--黑背景--%>
 <div class="mask"></div>
@@ -196,7 +195,7 @@
     <div class="layui-col-md4">
         <div class="fly-panel">
             <img src="/images/school/rabit.png" width="70px" id="cute"/>
-            <div class="count">共&nbsp;<span class="timer count-title" id="count-number" data-to="${viewCount}" data-speed="7000" style="color:darkorange"></span>&nbsp;次浏览</div>
+            <div class="count">共&nbsp;<span class="timer count-title" id="count-number" data-to="${viewCount}" data-speed="3000" style="color:darkorange"></span>&nbsp;次浏览</div>
             <div class="scollect"><a href="javascript:void(0);" onclick="addCollector(${publishDirection.directionId})">点此加入院校收藏夹！</a> </div>
         </div>
         <div class="fly-panel">

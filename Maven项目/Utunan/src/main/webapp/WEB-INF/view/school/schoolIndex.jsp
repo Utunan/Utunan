@@ -143,7 +143,7 @@
                             <td class="type">&nbsp;&nbsp;${direction.degreeType}</td>
                             <td>${direction.majorlName}</td>
                             <td>${direction.directionName}</td>
-                            <td><a href="/school/schooldetail/${direction.directionId}">详情</a></td>
+                            <td><a href="/school/schooldetail/1" style="color:#FC6111">查看更多</a></td>
                             <%--判断是否是用户所收藏的院校--%>
                             <td>
                             <c:choose>
