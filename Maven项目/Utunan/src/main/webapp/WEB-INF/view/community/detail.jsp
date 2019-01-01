@@ -153,12 +153,12 @@
                                     <c:when test="${ya:judge(quizIds,quiz.quizId)}">
                                         <a href="javascript:void(0);" onclick="collector(${quiz.quizId})"><img
                                                 id="collect${quiz.quizId}" src="/images/school/redheart.svg"
-                                                width="20px" height="20px" alt="" srcset=""></a>
+                                                width="25px" height="25px" alt="" srcset=""></a>
                                     </c:when>
                                     <c:otherwise>
                                         <a href="javascript:void(0);" onclick="collector(${quiz.quizId})"><img
                                                 id="collect${quiz.quizId}" src="/images/school/whiteheart.svg"
-                                                width="20px" height="20px" alt="" srcset=""></a>
+                                                width="25px" height="25px" alt="" srcset=""></a>
                                     </c:otherwise>
                                 </c:choose>
                                 <span class="collection">收藏此问题</span>

@@ -25,6 +25,8 @@
 .collect{
     float:left;
     padding-left: 17px;
+    margin-left: 10px;
+    margin-top: 3px;
 }
 #good{
     float:left;
