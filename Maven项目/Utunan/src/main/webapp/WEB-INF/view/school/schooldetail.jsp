@@ -207,7 +207,7 @@
         <dt class="fly-panel-title">[${publishDirection.schoolName}]热门资料</dt>
         <c:forEach items="${top9file}" var="file">
         <dd>
-          <a href="">${file.fileTitle}</a>
+          <a href="/file/${file.fileId}">${file.fileTitle}</a>
           <span><i class="iconfont icon-pinglun1"></i>${file.downloadNumber}</span>
         </dd>
         </c:forEach>
