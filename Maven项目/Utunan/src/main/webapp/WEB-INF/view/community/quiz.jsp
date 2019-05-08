@@ -54,8 +54,8 @@
                     <span class="fly-mid"></span>
                     <a href="/quizs/pc/1" class="${stateList[1]}">热门问题</a>
                     <span class="fly-mid"></span>
-                    <a href="">智能推荐</a>
-                    <span class="fly-mid"></span>
+                    <%--<a href="">智能推荐</a>--%>
+                    <%--<span class="fly-mid"></span>--%>
                     <!--<span>TX：这里要加一个靠右的搜索框</span>-->
                     <div class="searchindex">
                         <form action="/searchquiz/1" method="post">

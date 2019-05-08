@@ -122,8 +122,15 @@
             </div>
           </li>
         </ul>
+        <blockquote class="layui-elem-quote layui-quote-nm"><img src="/images/school/line.png" width="50px"><div class="til">院线走势</div></blockquote>
+        <div style="height: 300px;width: 600px;margin-left: 30px;margin-top: 25px;">
+           折线图
+        </div>
         <blockquote class="layui-elem-quote layui-quote-nm"><img src="/images/school/hua.svg" width="40px"><div class="til">评论区&nbsp;&nbsp;&nbsp;&nbsp;</div></blockquote>
-        <ul class="jieda" id="jieda">
+        <a href="javascript:void(0)" id="show" style="display:block;font-size: 16px;font-family: 微软雅黑;text-align:center;margin-top: 15px;" onclick="document.getElementById('test').style.height='auto';document.getElementById('hidden').style.display='block';document.getElementById('show').style.display='none';">展开</a>
+
+        <div  id="test" style="width:600px;height:0px;overflow-y:hidden;" >
+          <ul class="jieda" id="jieda">
           <c:forEach items="${publishDirection.directionComments}" var="dcomment">
           <li data-id="111" class="jieda-daan">
             <a name="item-1111111111"></a>
@@ -167,7 +174,9 @@
           </c:forEach>
           <!-- 无数据时 -->
           <!-- <li class="fly-none">消灭零回复</li> -->
-        </ul>
+          </ul>
+        </div>
+          <a href="javascript:void(0)" id="hidden" style="display:none;font-size: 16px;font-family: 微软雅黑;text-align:center" onclick="document.getElementById('test').style.height='15px';document.getElementById('hidden').style.display='none';document.getElementById('show').style.display='block';">关闭</a>
           <div class="write-answer" class="layui-form layui-form-pane">
              <div class="write-answer-top">
                <img src="/images/community/write.svg" width="25px" height="25px">
@@ -204,12 +213,21 @@
             </div>
         </div>
       <dl class="fly-panel fly-list-one">
-        <dt class="fly-panel-title">[${publishDirection.schoolName}]热门资料</dt>
-        <c:forEach items="${top9file}" var="file">
+      <dt class="fly-panel-title">[${publishDirection.schoolName}]热门资料</dt>
+      <c:forEach items="${top9file}" var="file">
         <dd>
           <a href="/file/${file.fileId}">${file.fileTitle}</a>
           <span><i class="iconfont icon-pinglun1"></i>${file.downloadNumber}</span>
         </dd>
+      </c:forEach>
+      </dl>
+      <dl class="fly-panel fly-list-one">
+        <dt class="fly-panel-title">相似院校推荐</dt>
+        <c:forEach items="${top9file}" var="file">
+          <dd>
+            <a href="/file/${file.fileId}">西门子大学——软件工程</a>
+            <%--<span><i class="iconfont icon-pinglun1"></i>${file.downloadNumber}</span>--%>
+          </dd>
         </c:forEach>
       </dl>
     </div>
