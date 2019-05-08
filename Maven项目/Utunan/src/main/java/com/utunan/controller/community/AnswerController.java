@@ -22,7 +22,7 @@ import java.io.UnsupportedEncodingException;
 
 /**
  * @author 张正扬
- * @description: 回答控制
+ * @description: 写回答、写评论
  * @date 2018/11/22 15:53
  */
 @Controller

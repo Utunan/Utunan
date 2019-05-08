@@ -12,7 +12,7 @@ import java.io.IOException;
 
 /**
  * @author 王碧云
- * @description: TODO
+ * @description: 验证码
  * @date 2018/11/26/026 20:21
  */
 @Controller

@@ -32,7 +32,7 @@ import java.util.Map;
  * @date 2018/11/24 16:44
  */
 @Controller
-public class QuizCommentController {
+public class QuizDetailController {
 
     @Autowired
     private QuizService quizService;

@@ -31,6 +31,12 @@ import java.util.List;
 import net.sf.json.*;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * @author 孙程程
+ * @description: 优问答-首页问题列表读取
+ * @date 2018/11/24 16:44
+ */
+
 @Controller
 public class QuizController {
 

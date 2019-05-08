@@ -33,6 +33,7 @@ public class MessageServiceImpl implements MessageService {
         message.setMessageContent(messageContent);
         message.setMessageTime(new Date());
         message.setQuizId(quizId);
+        message.setMessageTitle("咚咚，您有新的消息！");
         messageMapper.saveMessage(message);
     }
 }
