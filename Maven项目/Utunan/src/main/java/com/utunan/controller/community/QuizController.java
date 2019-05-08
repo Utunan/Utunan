@@ -273,7 +273,9 @@ public class QuizController {
 		if(quizGreat==null){
 			//未进行点赞
             quizGreatService.addQuizGreat(Long.parseLong(quizId),user.getUserId());
+			System.out.println("成功加入");
             this.quizService.praiseQuiz(Long.parseLong(quizId));
+			System.out.println("点赞数增加");
             //查找当前的点赞数
 			Long qPraise = this.quizService.getCountPrise(Long.parseLong(quizId));
 			//加入json
