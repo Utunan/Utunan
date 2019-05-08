@@ -18,8 +18,9 @@ color:RGB(0,150,146);
     background-color: RGB(0,150,146);
 }
 .layui-table{
-    width:100%;
+    width:95%;
     margin-top: 30px;
+    margin-left: 2.5%;
 }
 *{
     font-size:14px;
@@ -94,9 +95,10 @@ label{
 }
 .bigwrapper{
     border: 1px solid RGB(229,229,229);
-    width:100%;
+    width:95%;
     overflow: hidden;
     background-color: white;
+    margin-left: 2.5%;
     margin-top: 20px;
     margin-bottom: 20px;
     border-top: 2px solid #2a82e4;
