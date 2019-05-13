@@ -154,7 +154,7 @@ public class SchoolDetailController {
      * @return  void
      */
     @ResponseBody
-    @RequestMapping("/updateDCPraiseCount")
+    @RequestMapping(value = "/updateDCPraiseCount",method = RequestMethod.POST)
     public void updateDirectionCommentPraiseCount(HttpSession session,HttpServletRequest request,HttpServletResponse response) throws IOException {
         String directionCommentId = request.getParameter("directionCommentId");
         User user = (User) session.getAttribute("User");
@@ -165,7 +165,7 @@ public class SchoolDetailController {
         //判断是否有记录
         if(directionCommentGreat==null){
             //可以点赞
-            this.directionCommentGreatService.insertDCGreat(Long.parseLong(directionCommentId),user.getUserId());
+            directionCommentGreatService.insertDCGreat(Long.parseLong(directionCommentId),user.getUserId());
             this.publishDirectionCommentService.addDCPraiseCount(Long.parseLong(directionCommentId));
             //查找当前点赞数
             Long praiseCount = this.publishDirectionCommentService.findPDC(Long.parseLong(directionCommentId)).getDirectionCommentPraiseCount();

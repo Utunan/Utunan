@@ -151,8 +151,18 @@
             <div class="jieda-reply">
               <%--点赞--%>
               <span class="jieda-zan zanok" type="zan">
+                <%--<c:choose>--%>
+                  <%--<c:when test="${not empty directionCommentGreatList}">  &lt;%&ndash;如果用户已经点赞，显示红赞&ndash;%&gt;--%>
+                    <%--<a style="color: #ff5722;" id="zan${dcomment.directionCommentId}" href="javascript:void(0)" onclick="apraise(${dcomment.directionCommentId})"><i class="iconfont icon-zan"></i></a>--%>
+                    <%--<em ><span id="directionComment$${dcomment.directionCommentId}">${dcomment.directionCommentPraiseCount}</span></em>--%>
+                  <%--</c:when>--%>
+                  <%--<c:otherwise>  &lt;%&ndash;没有点赞，显示灰色&ndash;%&gt;--%>
+                    <%--<a style="color: #333;" id="zan${dcomment.directionCommentId}" href="javascript:void(0)" onclick="apraise(${dcomment.directionCommentId})"><i class="iconfont icon-zan"></i></a>--%>
+                    <%--<em ><span id="directionComment${dcomment.directionCommentId}">${dcomment.directionCommentPraiseCount}</span></em>--%>
+                  <%--</c:otherwise>--%>
+                <%--</c:choose>--%>
                 <c:choose>
-                  <c:when test="${ya:judge(directionCommentGreatList,dcomment.directionCommentId)}">
+                  <c:when test="${not empty directionCommentGreat}">
                     <a style="color: #ff5722;" id="zan${dcomment.directionCommentId}" href="javascript:void(0)" onclick="apraise(${dcomment.directionCommentId})"><i class="iconfont icon-zan"></i></a>
                     <em id="directionComment${dcomment.directionCommentId}">${dcomment.directionCommentPraiseCount}</em>
                   </c:when>
@@ -359,16 +369,19 @@ layui.config({
                 type:'post',//数据提交形式
                 data:{'directionCommentId':directionCommentId},//需要提交的数据
                 dataType: "json",
+                async:false,
                 success:function(d){//数据返回成功的执行放大
                     var res = d.res;
                     var praiseCount = d.praiseCount;
-                    if(res=='ok'){//成功
+                    if(res == 'ok'){//成功
                         document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
                         document.getElementById("zan"+directionCommentId).style.color="#ff5722";
+                        console.log("成功点赞")
                     }
-                    if(res=='no'){//失败
+                    if(res == 'no'){//失败
                         document.getElementById("directionComment"+directionCommentId).innerHTML=praiseCount;
                         document.getElementById("zan"+directionCommentId).style.color="#333";
+                        console.log("取消点赞")
                     }
                 },
             });
