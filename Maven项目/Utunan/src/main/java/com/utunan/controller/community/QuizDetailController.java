@@ -4,11 +4,8 @@ import com.github.pagehelper.PageInfo;
 import com.utunan.pojo.base.community.*;
 
 import com.utunan.pojo.base.user.User;
-import com.utunan.pojo.inherit.community.PublishQuiz;
 
-import com.utunan.pojo.inherit.community.BigQuiz;
-
-import com.utunan.pojo.util.Page;
+import com.utunan.pojo.util.QuizLog;
 import com.utunan.service.community.*;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +24,6 @@ import java.util.List;
 import java.util.Map;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import com.utunan.pojo.base.questionbank.QuestionLog;
 
 /**
  * @author 王碧云
@@ -55,6 +51,8 @@ public class QuizDetailController {
 
     @Autowired
     private QuizCollectService quizCollectService;
+    @Autowired
+    private QuizLogService quizLogService;
     /*
      * @author  王碧云
      * @description 返回对应QuizId对应的问题页面的值(默认按照时间排序)(分页)
@@ -63,7 +61,7 @@ public class QuizDetailController {
      * @return  java.lang.String
      */
     @RequestMapping("/quiz/{quizId}")
-    public String displayQuizByQuizId(@PathVariable String quizId, HttpServletRequest request, HttpSession session){
+    public String displayQuizByQuizId(@PathVariable Long quizId, HttpServletRequest request, HttpSession session){
         String url = "quiz/{quizId}";
         //获取页数
         String pageNum=request.getParameter("pageNum");
@@ -75,13 +73,13 @@ public class QuizDetailController {
             num=Integer.parseInt(pageNum);
         }
         //根据quizId返回quiz
-        Quiz quiz = this.quizService.findQuizById(Long.parseLong(quizId));
+        Quiz quiz = this.quizService.findQuizById(quizId);
         //根据quizId返回标签
-        List<QuizTag> quizTagList =this.quizTagService.findQuizTagByQuizId(Long.parseLong(quizId));
+        List<QuizTag> quizTagList =this.quizTagService.findQuizTagByQuizId(quizId);
         //根据quizId返回评论数量
-        Long answerCountByQuizId = this.publishQuizService.countAnswerByQuizId(Long.parseLong(quizId));
+        Long answerCountByQuizId = this.publishQuizService.countAnswerByQuizId(quizId);
         //根据quizId返回评论列表(根据时间排序)
-        List<Answer> answers=answerService.findAnswerListByQuizId(num,6,Long.parseLong(quizId));
+        List<Answer> answers=answerService.findAnswerListByQuizId(num,6,quizId);
         Map<Answer,List<Answer>> map=new HashMap<>();
         Map<Answer,Long>map0=new HashMap<>();
 
@@ -110,7 +108,7 @@ public class QuizDetailController {
             userId = user.getUserId();
         }
         //判断用户是否点赞过该问题
-        QuizGreat qg = this.quizGreatService.getQuizGreat(Long.parseLong(quizId), userId);
+        QuizGreat qg = this.quizGreatService.getQuizGreat(quizId, userId);
         //获取用户在该问题的点赞评论列表
         List<Long> answerGreatList = this.answerGreatService.getAGList(userId);
 
@@ -133,13 +131,7 @@ public class QuizDetailController {
         request.setAttribute("answerGreatList", answerGreatList);
         System.out.println("1");
         //添加 日志
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String time =df.format(new Date());
-        QuestionLog log1=new QuestionLog();
-        log1.setQuizId(Long.parseLong(quizId));
-        log1.setUserId(userId);
-        log1.setTime(time);
-        log1.logsth();
+        quizLogService.printLog(quizId,userId);
         return "community/detail";
     }
 
