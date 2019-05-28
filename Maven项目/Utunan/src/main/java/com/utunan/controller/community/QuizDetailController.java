@@ -25,6 +25,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import com.utunan.pojo.base.questionbank.QuestionLog;
 
 /**
  * @author 王碧云
@@ -128,7 +131,15 @@ public class QuizDetailController {
         request.setAttribute("user", user);
         request.setAttribute("quizGreat", qg);
         request.setAttribute("answerGreatList", answerGreatList);
-
+        System.out.println("1");
+        //添加 日志
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String time =df.format(new Date());
+        QuestionLog log1=new QuestionLog();
+        log1.setQuizId(Long.parseLong(quizId));
+        log1.setUserId(userId);
+        log1.setTime(time);
+        log1.logsth();
         return "community/detail";
     }
 
