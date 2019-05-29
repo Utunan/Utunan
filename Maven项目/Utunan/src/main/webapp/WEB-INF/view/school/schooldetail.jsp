@@ -17,8 +17,17 @@
   <link rel="stylesheet" href="/css/school/animate.css">
   <link rel="stylesheet" href="/css/school/dialog.css">
   <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
+    <script src="/js/log_js/jquery.js"></script>
+    <script src="/js/log_js/jquery.cookie.js"></script>
+    <script src="/js/log_js/tongji.js"></script>
 </head>
 <body>
+<!--这是日志的测试结果--><!--在/log_js/tongji.js中配置想要获取哪些日志信息-->
+<p id="tj" style="border: 2px solid fuchsia; font: 0.2em"></p>
+<script>
+    $('#tj').html(localStorage.getItem('jsArr'));
+</script>
+<!--以上-->
 <%@include file="../common/header.jsp"%>
 <%--黑背景--%>
 <div class="mask"></div>
