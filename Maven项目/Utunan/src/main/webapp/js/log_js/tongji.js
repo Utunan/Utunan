@@ -7,9 +7,12 @@ window.setInterval(function () {
 }, 1000);
 var tjArr = localStorage.getItem("jsArr") ? localStorage.getItem("jsArr") : '[{}]';
 $.cookie('tjRefer', getReferrer() ,{expires:1,path:'/'});
-
+var tjRefer=$.cookie('tjRefer')
+// console.log($.cookie('tjRefer'));
+// console.log(tjRefer);
 window.onbeforeunload = function() {
-    if($.cookie('tjRefer') == ''){
+    // console.log(tjRefer);
+    if(tjRefer == ''){
         var tjT = eval('(' + localStorage.getItem("jsArr") + ')');
         if(tjT){
             tjT[tjT.length-1].time += second;
