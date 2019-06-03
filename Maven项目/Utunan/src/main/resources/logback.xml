@@ -26,8 +26,9 @@
         <encoder
                 class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} -
-                %msg%n</pattern>
+            <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} -
+                %msg%n</pattern>-->
+            <pattern>%msg%n</pattern>
         </encoder>
         <!--日志文件最大的大小 -->
         <triggeringPolicy
@@ -38,6 +39,7 @@
     <logger name="com.utunan.pojo.base.questionbank.QuestionLog" level="DEBUG"
             additivity="false">
         <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
     </logger>
     <!-- 日志输出级别 -->
     <root level="INFO">

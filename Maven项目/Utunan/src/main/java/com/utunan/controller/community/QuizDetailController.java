@@ -21,14 +21,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import com.utunan.pojo.base.questionbank.QuestionLog;
-
+import java.util.ArrayList;
 /**
  * @author 王碧云
  * @description: 问题页面控制
@@ -64,6 +66,7 @@ public class QuizDetailController {
      */
     @RequestMapping("/quiz/{quizId}")
     public String displayQuizByQuizId(@PathVariable String quizId, HttpServletRequest request, HttpSession session){
+
         String url = "quiz/{quizId}";
         //获取页数
         String pageNum=request.getParameter("pageNum");
@@ -84,10 +87,51 @@ public class QuizDetailController {
         List<Answer> answers=answerService.findAnswerListByQuizId(num,6,Long.parseLong(quizId));
         Map<Answer,List<Answer>> map=new HashMap<>();
         Map<Answer,Long>map0=new HashMap<>();
-
-
-        //查询前10个评论数量的问题
+        //获取用户
+        User user = (User) session.getAttribute("User");
+        Long userId = null;
+        if(user != null){
+            //用户已登录
+            userId = user.getUserId();
+        }
+        //添加 日志
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String time =df.format(new Date());
+        QuestionLog log1=new QuestionLog();
+        log1.setQuizId(Long.parseLong(quizId));
+        log1.setUserId(userId);
+        log1.setTime(time);
+        log1.logsth();
+        //查询前10个评论数量最高的问题
         List<Quiz> quizListTop10=quizService.quizListTop10();
+        String s ="D:\\Python\\test.txt";
+        List quizListTop= new ArrayList();
+        List itemList = new ArrayList();
+        try {
+            String[] args1 = new String[] { "python", "D:\\Python\\test.py", String.valueOf(s),String.valueOf(userId)};
+            Process proc = Runtime.getRuntime().exec(args1);// 执行py文件
+            //用输入输出流来截取结果
+            BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+            String  line = null;
+            while ((line =in.readLine()) != null) {
+                System.out.println(line);
+                itemList.add(line);
+            }
+
+            in.close();
+            proc.waitFor();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(itemList.get(0));
+        for(int i=0;i<itemList.size();i++){
+            Quiz quizRecomm =this.quizService.findQuizById(Long.parseLong(itemList.get(i).toString()));
+            System.out.println(quizRecomm );
+            quizListTop.add(quizRecomm);
+        }
+
         //热门标签
         Object hotTagList=this.tagService.getTop10Tag();
 
@@ -102,13 +146,7 @@ public class QuizDetailController {
             map0.put(a[i],childAnswerCount);
         }
 
-        //获取用户
-        User user = (User) session.getAttribute("User");
-        Long userId = null;
-        if(user != null){
-            //用户已登录
-            userId = user.getUserId();
-        }
+
         //判断用户是否点赞过该问题
         QuizGreat qg = this.quizGreatService.getQuizGreat(Long.parseLong(quizId), userId);
         //获取用户在该问题的点赞评论列表
@@ -125,21 +163,15 @@ public class QuizDetailController {
         request.setAttribute("map",map);
         request.setAttribute("map0",map0);
         request.setAttribute("PageInfo",new PageInfo(answers,5));
-        request.setAttribute("quizListTop10",quizListTop10);
+//        request.setAttribute("quizListTop10",quizListTop10);
+        request.setAttribute("quizListTop10",quizListTop);
         request.setAttribute("tag",hotTagList);
         request.setAttribute("quizIds",quizIds);
         request.setAttribute("user", user);
         request.setAttribute("quizGreat", qg);
         request.setAttribute("answerGreatList", answerGreatList);
-        System.out.println("1");
-        //添加 日志
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String time =df.format(new Date());
-        QuestionLog log1=new QuestionLog();
-        log1.setQuizId(Long.parseLong(quizId));
-        log1.setUserId(userId);
-        log1.setTime(time);
-        log1.logsth();
+
+
         return "community/detail";
     }
 
