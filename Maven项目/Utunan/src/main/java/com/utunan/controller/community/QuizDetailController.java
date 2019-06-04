@@ -7,6 +7,7 @@ import com.utunan.pojo.base.user.User;
 
 import com.utunan.pojo.util.QuizLog;
 import com.utunan.service.community.*;
+import com.utunan.util.PythonCaller;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -85,40 +87,22 @@ public class QuizDetailController {
         List<Answer> answers=answerService.findAnswerListByQuizId(num,6,quizId);
         Map<Answer,List<Answer>> map=new HashMap<>();
         Map<Answer,Long>map0=new HashMap<>();
-
         //获取用户
         User user = (User) session.getAttribute("User");
         Long userId = null;
+        //问题推荐
+        List quizListRecommand= new ArrayList();
         if(user != null){
             //用户已登录
             userId = user.getUserId();
-        }
-        String s ="D:\\Python\\test.txt";
-        List quizListTop= new ArrayList();
-        List itemList = new ArrayList();
-        try {
-            String[] args1 = new String[] { "python", "D:\\Python\\test.py", String.valueOf(s),String.valueOf(userId)};
-            Process proc = Runtime.getRuntime().exec(args1);// 执行py文件
-            //用输入输出流来截取结果
-            BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream()));
-            String  line = null;
-            while ((line =in.readLine()) != null) {
-                System.out.println(line);
-                itemList.add(line);
+            //产生推荐列表
+            String path = request.getSession().getServletContext().getRealPath("/");
+            String subPath=path.substring(0,path.indexOf("Utunan")+6)+"\\";
+            List itemList= PythonCaller.quizRecommend(subPath+"src/main/data/quiz.txt",subPath+"src\\main\\python\\QuizRecommond.py",userId);
+            for(int i=0;i<itemList.size();i++){
+                Quiz quizRecomm =this.quizService.findQuizById(Long.parseLong(itemList.get(i).toString()));
+                quizListRecommand.add(quizRecomm);
             }
-
-            in.close();
-            proc.waitFor();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println(itemList.get(0));
-        for(int i=0;i<itemList.size();i++){
-            Quiz quizRecomm =this.quizService.findQuizById(Long.parseLong(itemList.get(i).toString()));
-            System.out.println(quizRecomm );
-            quizListTop.add(quizRecomm);
         }
         //查询前10个评论数量的问题
         List<Quiz> quizListTop10=quizService.quizListTop10();
@@ -153,7 +137,8 @@ public class QuizDetailController {
         request.setAttribute("map",map);
         request.setAttribute("map0",map0);
         request.setAttribute("PageInfo",new PageInfo(answers,5));
-        request.setAttribute("quizListTop10",quizListTop);
+        request.setAttribute("quizListRecommand",quizListRecommand);
+        request.setAttribute("quizListTop10",quizListTop10);
         request.setAttribute("tag",hotTagList);
         request.setAttribute("quizIds",quizIds);
         request.setAttribute("user", user);

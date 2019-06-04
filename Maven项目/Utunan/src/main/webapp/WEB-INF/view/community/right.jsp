@@ -13,6 +13,17 @@
     </div>
 
     <dl class="fly-panel fly-list-one">
+        <!--选出4个相似度最高的问题-->
+        <dt class="fly-panel-title">相似问答推荐</dt>
+        <c:forEach items="${quizListRecommand}" var="q">
+            <dd>
+                <a href="/quiz/${q.quizId}">${q.quizTitle }</a>
+                <span><i class="iconfont icon-pinglun1"></i>${q.answerCount }</span>
+            </dd>
+        </c:forEach>
+    </dl>
+
+    <dl class="fly-panel fly-list-one">
         <!--选出10个评论数最高的问题-->
         <dt class="fly-panel-title">本周热议</dt>
         <c:forEach items="${quizListTop10}" var="q">
@@ -22,6 +33,7 @@
             </dd>
         </c:forEach>
     </dl>
+
     <div class="fly-panel fly-link">
         <h3 class="fly-panel-title">热门标签</h3>
         <div class="wrapper1">
