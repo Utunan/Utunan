@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.utunan.mapper.school.SchoolLogMapper">
+    <!--查找是否点赞-->
+    <select id="findGreatByUserAndDirection" resultType="com.utunan.pojo.base.user.DirectionCollector">
+        select *
+        from direction_collector
+        where userId=#{userId} and directionId=#{directionId}
+    </select>
+    <!--查找是否评论-->
+    <select id="findCommentByUserAndDirection" resultType="com.utunan.pojo.base.school.DirectionComment">
+        select *
+        from direction_comment
+        where userId=#{userId} and directionId=#{directionId}
+    </select>
+</mapper>

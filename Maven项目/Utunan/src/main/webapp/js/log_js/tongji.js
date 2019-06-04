@@ -25,14 +25,25 @@ window.onbeforeunload = function() {
             'url' : location.href,
             'time' : second,
             'refer' : getReferrer(),
-            'timeIn' : Date.parse(new Date()),
-            'timeOut' : Date.parse(new Date()) + (second * 1000)
+            'search' : location.hash
+            // 'timeIn' : Date.parse(new Date()),
+            // 'timeOut' : Date.parse(new Date()) + (second * 1000)
         };
         tjArr = eval('(' + tjArr + ')');
-        tjArr.push(dataArr);
+        tjArr = dataArr;
         tjArr= JSON.stringify(tjArr);
         localStorage.setItem("jsArr", tjArr);
     }
+
+    $.ajax({
+        url:'/schoolLog',//处理数据的地址
+        type:'post',//数据提交形式
+        data:{
+            'pathname' :location.pathname,
+            'time' : second
+        },
+        dataType: "json",
+    });
 };
 function getReferrer() {
     var referrer = '';
