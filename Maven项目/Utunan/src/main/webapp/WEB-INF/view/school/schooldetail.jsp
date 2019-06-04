@@ -17,9 +17,9 @@
   <link rel="stylesheet" href="/css/school/animate.css">
   <link rel="stylesheet" href="/css/school/dialog.css">
   <script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
-    <script src="/js/log_js/jquery.js"></script>
-    <script src="/js/log_js/jquery.cookie.js"></script>
-    <script src="/js/log_js/tongji.js"></script>
+  <script src="/js/log_js/jquery.js"></script>
+  <script src="/js/log_js/jquery.cookie.js"></script>
+  <script src="/js/log_js/tongji.js"></script>
 </head>
 <body>
 <!--这是日志的测试结果--><!--在/log_js/tongji.js中配置想要获取哪些日志信息-->
@@ -42,124 +42,124 @@
           <div class="layui-field-box">
             <table>
               <tr>
-                  <td class="zsml-title">招生单位：</td>
-                  <td class="zsml-summary" >${publishDirection.schoolName}</td>
-                  <td class="ssss"></td>
-                  <td class="zsml-title">学位类型：</td>
-                  <td class="zsml-summary">${publishDirection.degreeType}</td>
+                <td class="zsml-title">招生单位：</td>
+                <td class="zsml-summary" >${publishDirection.schoolName}</td>
+                <td class="ssss"></td>
+                <td class="zsml-title">学位类型：</td>
+                <td class="zsml-summary">${publishDirection.degreeType}</td>
               </tr>
               <tr>
-                  <td class="zsml-title">所在地：</td>
-                  <td class="zsml-summary" >${publishDirection.school.schoolProvince}</td>
-                  <td class="ssss"></td>
-                  <td class="zsml-title">院系名称：</td>
-                  <td class="zsml-summary">${publishDirection.collegeName}</td>
+                <td class="zsml-title">所在地：</td>
+                <td class="zsml-summary" >${publishDirection.school.schoolProvince}</td>
+                <td class="ssss"></td>
+                <td class="zsml-title">院系名称：</td>
+                <td class="zsml-summary">${publishDirection.collegeName}</td>
               </tr>
               <tr>
-                  <td class="zsml-title">院校特性：</td>
-                  <td class="zsml-summary">${publishDirection.school.schoolType}</td>
-                  <td class="ssss"></td>
-                  <td class="zsml-title">专业名称：</td>
-                  <td class="zsml-summary">${publishDirection.degreeType}</td>
+                <td class="zsml-title">院校特性：</td>
+                <td class="zsml-summary">${publishDirection.school.schoolType}</td>
+                <td class="ssss"></td>
+                <td class="zsml-title">专业名称：</td>
+                <td class="zsml-summary">${publishDirection.degreeType}</td>
               </tr>
               <tr>
-                  <td class="zsml-title">院校隶属：</td>
-                  <td class="zsml-summary">${publishDirection.school.schoolSubjection}</td>
-                  <td class="ssss"></td>
-                  <td class="zsml-title">研究方向：</td>
-                  <td class="zsml-summary">${publishDirection.directionName}</td>
+                <td class="zsml-title">院校隶属：</td>
+                <td class="zsml-summary">${publishDirection.school.schoolSubjection}</td>
+                <td class="ssss"></td>
+                <td class="zsml-title">研究方向：</td>
+                <td class="zsml-summary">${publishDirection.directionName}</td>
               </tr>
-          </table>
+            </table>
           </div>
         </fieldset>
         <blockquote class="layui-elem-quote layui-quote-nm"><img src="/images/school/note.svg" width="40px"><div class="til">考试范围</div></blockquote>
         <div class="zsml-result">
-        <table  cellpadding="10" cellspacing="0" class="scope">
-        <colgroup>
-          <col width="25%">
-          <col width="25%">
-          <col width="25%">
-          <col width="25%">
-        </colgroup>
-          <thead>
+          <table  cellpadding="10" cellspacing="0" class="scope">
+            <colgroup>
+              <col width="25%">
+              <col width="25%">
+              <col width="25%">
+              <col width="25%">
+            </colgroup>
+            <thead>
             <tr>
               <th>政治</th>
               <th>外语</th>
               <th>业务课一</th>
               <th>业务课二</th>
-             </tr>    
-          </thead>
-          <tbody class="zsml-res-items">
+            </tr>
+            </thead>
+            <tbody class="zsml-res-items">
             <tr>
               <td>
-                  ${publishDirection.politics}
+                ${publishDirection.politics}
               </td>
               <td>${publishDirection.english}</td>
               <td>${publishDirection.math}</td>
               <td>${publishDirection.majorBasics}</td>
             </tr>
-          </tbody>
-        </table>
+            </tbody>
+          </table>
           <blockquote class="layui-elem-quote layui-quote-nm"><img src="/images/school/menwei.svg" width="50px"><div class="til">官方公告</div></blockquote>
-        <ul class="layui-timeline">
-          <li class="layui-timeline-item">
-            <i class="layui-icon layui-timeline-axis"></i>
-            <div class="layui-timeline-content layui-text">
-              <%--判断是否有今年的招生简章--%>
-              <c:choose>
-                <c:when test="${not empty EGfile}">
-                  <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/file/${EGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>
-                </c:when>
-                <c:otherwise>
-                  <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生简章》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/share1">我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/searchfile?school=${publishDirection.schoolName}&fileType=招生简章&keyWord=">查看往年招生简章</a></div>
-                </c:otherwise>
-              </c:choose>
-            </div>
-          </li>
-          <li class="layui-timeline-item">
-            <i class="layui-icon layui-timeline-axis"></i>
-            <div class="layui-timeline-content layui-text">
-              <%--判断是否有今年的招生目录--%>
-              <c:choose>
-                <c:when test="${not empty AGfile}">
-                  <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/file/${AGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生目录》</a></div>
-                </c:when>
-                <c:otherwise>
-                  <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生目录》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/share1">我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/searchfile?school=${publishDirection.schoolName}&fileType=招生专业目录&keyWord=">查看往年招生目录</a></div>
-                </c:otherwise>
-              </c:choose>
-            </div>
-          </li>
-        </ul>
-        <blockquote class="layui-elem-quote layui-quote-nm"><img src="/images/school/line.png" width="50px"><div class="til">院线走势</div></blockquote>
-        <div style="height: 300px;width: 600px;margin-left: 30px;margin-top: 25px;">
-           折线图
-        </div>
-        <blockquote class="layui-elem-quote layui-quote-nm"><img src="/images/school/hua.svg" width="40px"><div class="til">评论区&nbsp;&nbsp;&nbsp;&nbsp;</div></blockquote>
-        <a href="javascript:void(0)" id="show" style="display:block;font-size: 16px;font-family: 微软雅黑;text-align:center;margin-top: 15px;" onclick="document.getElementById('test').style.height='auto';document.getElementById('hidden').style.display='block';document.getElementById('show').style.display='none';">展开</a>
-
-        <div  id="test" style="width:600px;height:0px;overflow-y:hidden;" >
-          <ul class="jieda" id="jieda">
-          <c:forEach items="${publishDirection.directionComments}" var="dcomment">
-          <li data-id="111" class="jieda-daan">
-            <a name="item-1111111111"></a>
-            <div class="detail-about detail-about-reply">
-              
-              <div class="fly-detail-user">
-                <a href="" class="fly-link">
-                  <cite>${dcomment.user.userNickName}</cite>
-                </a>
-                
-                <span> 发表于<fmt:formatDate value='${dcomment.directionCommentTime}' type='date' pattern='yyyy-MM-dd HH:mm:ss'/></span>
+          <ul class="layui-timeline">
+            <li class="layui-timeline-item">
+              <i class="layui-icon layui-timeline-axis"></i>
+              <div class="layui-timeline-content layui-text">
+                <%--判断是否有今年的招生简章--%>
+                <c:choose>
+                  <c:when test="${not empty EGfile}">
+                    <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/file/${EGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生简章》</a></div>
+                  </c:when>
+                  <c:otherwise>
+                    <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生简章》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/share1">我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/searchfile?school=${publishDirection.schoolName}&fileType=招生简章&keyWord=">查看往年招生简章</a></div>
+                  </c:otherwise>
+                </c:choose>
               </div>
+            </li>
+            <li class="layui-timeline-item">
+              <i class="layui-icon layui-timeline-axis"></i>
+              <div class="layui-timeline-content layui-text">
+                <%--判断是否有今年的招生目录--%>
+                <c:choose>
+                  <c:when test="${not empty AGfile}">
+                    <div class="layui-timeline-title">&nbsp;&nbsp;<a href="/file/${AGfile.fileId}">查看《${year}年${publishDirection.schoolName}硕士研究生招生目录》</a></div>
+                  </c:when>
+                  <c:otherwise>
+                    <div class="layui-timeline-title">《${year}年${publishDirection.schoolName}硕士研究生招生目录》暂缺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/share1">我要上传</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/searchfile?school=${publishDirection.schoolName}&fileType=招生专业目录&keyWord=">查看往年招生目录</a></div>
+                  </c:otherwise>
+                </c:choose>
+              </div>
+            </li>
+          </ul>
+          <blockquote class="layui-elem-quote layui-quote-nm"><img src="/images/school/line.png" width="50px"><div class="til">院线走势</div></blockquote>
+          <div style="height: 300px;width: 600px;margin-left: 30px;margin-top: 25px;">
+            折线图
+          </div>
+          <blockquote class="layui-elem-quote layui-quote-nm"><img src="/images/school/hua.svg" width="40px"><div class="til">评论区&nbsp;&nbsp;&nbsp;&nbsp;</div></blockquote>
+          <a href="javascript:void(0)" id="show" style="display:block;font-size: 16px;font-family: 微软雅黑;text-align:center;margin-top: 15px;" onclick="document.getElementById('test').style.height='auto';document.getElementById('hidden').style.display='block';document.getElementById('show').style.display='none';">展开</a>
 
-            </div>
-            <div class="detail-body jieda-body photos">
-              <p>${dcomment.directionCommentContent}</p>
-            </div>
-            <div class="jieda-reply">
-              <%--点赞--%>
-              <span class="jieda-zan zanok" type="zan">
+          <div  id="test" style="width:600px;height:0px;overflow-y:hidden;" >
+            <ul class="jieda" id="jieda">
+              <c:forEach items="${publishDirection.directionComments}" var="dcomment">
+                <li data-id="111" class="jieda-daan">
+                  <a name="item-1111111111"></a>
+                  <div class="detail-about detail-about-reply">
+
+                    <div class="fly-detail-user">
+                      <a href="" class="fly-link">
+                        <cite>${dcomment.user.userNickName}</cite>
+                      </a>
+
+                      <span> 发表于<fmt:formatDate value='${dcomment.directionCommentTime}' type='date' pattern='yyyy-MM-dd HH:mm:ss'/></span>
+                    </div>
+
+                  </div>
+                  <div class="detail-body jieda-body photos">
+                    <p>${dcomment.directionCommentContent}</p>
+                  </div>
+                  <div class="jieda-reply">
+                      <%--点赞--%>
+                    <span class="jieda-zan zanok" type="zan">
                 <%--<c:choose>--%>
                   <%--<c:when test="${not empty directionCommentGreatList}">  &lt;%&ndash;如果用户已经点赞，显示红赞&ndash;%&gt;--%>
                     <%--<a style="color: #ff5722;" id="zan${dcomment.directionCommentId}" href="javascript:void(0)" onclick="apraise(${dcomment.directionCommentId})"><i class="iconfont icon-zan"></i></a>--%>
@@ -181,74 +181,83 @@
                   </c:otherwise>
                 </c:choose>
               </span>
-              <%--判断是否是管理员或者是用户本人--%>
-              <c:if test="${user.userIdentity==1 || (user.userIdentity==3 && user.userId==dcomment.user.userId)}">
+                      <%--判断是否是管理员或者是用户本人--%>
+                    <c:if test="${user.userIdentity==1 || (user.userIdentity==3 && user.userId==dcomment.user.userId)}">
               <span type="reply">
                 <i class="iconfont icon-svgmoban53"></i>
                 <a href="/school/deleteDirectionComment?directionCommentId=${dcomment.directionCommentId}&directionId=${publishDirection.directionId}">删除</a>
               </span>
-              </c:if>
-            </div>
-          </li>
-          </c:forEach>
-          <!-- 无数据时 -->
-          <!-- <li class="fly-none">消灭零回复</li> -->
-          </ul>
-        </div>
+                    </c:if>
+                  </div>
+                </li>
+              </c:forEach>
+              <!-- 无数据时 -->
+              <!-- <li class="fly-none">消灭零回复</li> -->
+            </ul>
+          </div>
           <a href="javascript:void(0)" id="hidden" style="display:none;font-size: 16px;font-family: 微软雅黑;text-align:center" onclick="document.getElementById('test').style.height='15px';document.getElementById('hidden').style.display='none';document.getElementById('show').style.display='block';">关闭</a>
           <div class="write-answer" class="layui-form layui-form-pane">
-             <div class="write-answer-top">
-               <img src="/images/community/write.svg" width="25px" height="25px">
-               <div class="write-answer-top">&nbsp;&nbsp;&nbsp;&nbsp;写回答</div>
-             </div>
-             <!--富文本编辑器-->
-             <form name="fuform" onsubmit="return false" action="/school/insertDirectionComment?directionId=${publishDirection.directionId}" method="post">
-               <div class="text">
-                 <div id="div1" class="toolbar" style="height: 35px"></div>
-                 <div id="div2" style="height: 130px"></div>
-                 <textarea id="text1" style="display: none" name="content"></textarea>
-               </div>
-               <div class="write-answer-bottom">
-                 <div class="write-answer-bottom-content">
-                   <button  type="submit" class="layui-btn layui-btn-fluid" id="comsub" width="50px">提交回答</button>
-                 </div>
-               </div>
-             </form>
-        </div>
-      </div><!--zsml-result-->
-        
+            <div class="write-answer-top">
+              <img src="/images/community/write.svg" width="25px" height="25px">
+              <div class="write-answer-top">&nbsp;&nbsp;&nbsp;&nbsp;写回答</div>
+            </div>
+            <!--富文本编辑器-->
+            <form name="fuform" onsubmit="return false" action="/school/insertDirectionComment?directionId=${publishDirection.directionId}" method="post">
+              <div class="text">
+                <div id="div1" class="toolbar" style="height: 35px"></div>
+                <div id="div2" style="height: 130px"></div>
+                <textarea id="text1" style="display: none" name="content"></textarea>
+              </div>
+              <div class="write-answer-bottom">
+                <div class="write-answer-bottom-content">
+                  <button  type="submit" class="layui-btn layui-btn-fluid" id="comsub" width="50px">提交回答</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div><!--zsml-result-->
+
 
       </div>
     </div>
     <div class="layui-col-md4">
-        <div class="fly-panel">
-            <img src="/images/school/rabit.png" width="70px" id="cute"/>
-            <div class="count">共&nbsp;<span class="timer count-title" id="count-number" data-to="${viewCount}" data-speed="3000" style="color:darkorange"></span>&nbsp;次浏览</div>
-            <div class="scollect"><a href="javascript:void(0);" onclick="addCollector(${publishDirection.directionId})">点此加入院校收藏夹！</a> </div>
+      <div class="fly-panel">
+        <img src="/images/school/rabit.png" width="70px" id="cute"/>
+        <div class="count">共&nbsp;<span class="timer count-title" id="count-number" data-to="${viewCount}" data-speed="3000" style="color:darkorange"></span>&nbsp;次浏览</div>
+        <div class="scollect"><a href="javascript:void(0);" onclick="addCollector(${publishDirection.directionId})">点此加入院校收藏夹！</a> </div>
+      </div>
+      <div class="fly-panel">
+        <div class="fly-panel-main">
+          <a href="/searchfile?school=${publishDirection.schoolName}&fileType=全部&keyWord=" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">搜索 [${publishDirection.schoolName}] 考研资料</a>
         </div>
-        <div class="fly-panel">
-            <div class="fly-panel-main">
-              <a href="/searchfile?school=${publishDirection.schoolName}&fileType=全部&keyWord=" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">搜索 [${publishDirection.schoolName}] 考研资料</a>
-            </div>
-        </div>
+      </div>
       <dl class="fly-panel fly-list-one">
-      <dt class="fly-panel-title">[${publishDirection.schoolName}]热门资料</dt>
-      <c:forEach items="${top9file}" var="file">
-        <dd>
-          <a href="/file/${file.fileId}">${file.fileTitle}</a>
-          <span><i class="iconfont icon-pinglun1"></i>${file.downloadNumber}</span>
-        </dd>
-      </c:forEach>
-      </dl>
-      <dl class="fly-panel fly-list-one">
-        <dt class="fly-panel-title">相似院校推荐</dt>
+        <dt class="fly-panel-title">[${publishDirection.schoolName}]热门资料</dt>
         <c:forEach items="${top9file}" var="file">
           <dd>
-            <a href="/file/${file.fileId}">西门子大学——软件工程</a>
-            <%--<span><i class="iconfont icon-pinglun1"></i>${file.downloadNumber}</span>--%>
+            <a href="/file/${file.fileId}">${file.fileTitle}</a>
+            <span><i class="iconfont icon-pinglun1"></i>${file.downloadNumber}</span>
           </dd>
         </c:forEach>
       </dl>
+      <c:choose>
+        <c:when test="${not empty user}">
+          <dl class="fly-panel fly-list-one" id="schoolcommend" style="display: block">
+            <dt class="fly-panel-title">相似院校推荐</dt>
+            <c:forEach items="${top9file}" var="file">
+              <dd>
+                <a href="/file/${file.fileId}">西门子大学——软件工程</a>
+                  <%--<span><i class="iconfont icon-pinglun1"></i>${file.downloadNumber}</span>--%>
+              </dd>
+            </c:forEach>
+          </dl>
+        </c:when>
+        <c:otherwise>
+          <dl class="fly-panel fly-list-one" id="schoolcommend" style="display: none">
+            <dt class="fly-panel-title">相似院校推荐2</dt>
+          </dl>
+        </c:otherwise>
+      </c:choose>
     </div>
   </div>
 </div>
@@ -260,20 +269,20 @@
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="/js/community/tag.js"></script>
 <script>
-layui.cache.page = 'jie';
-layui.cache.user = {
-  username: '游客'
-  ,uid: -1
-  ,avatar: '../../res/images/avatar/00.jpg'
-  ,experience: 83
-  ,sex: '男'
-};
-layui.config({
-  version: "3.0.0"
-  ,base: '../../res/mods/'
-}).extend({
-  fly: 'index'
-}).use('fly');
+    layui.cache.page = 'jie';
+    layui.cache.user = {
+        username: '游客'
+        ,uid: -1
+        ,avatar: '../../res/images/avatar/00.jpg'
+        ,experience: 83
+        ,sex: '男'
+    };
+    layui.config({
+        version: "3.0.0"
+        ,base: '../../res/mods/'
+    }).extend({
+        fly: 'index'
+    }).use('fly');
 </script>
 </body>
 <script type="text/javascript">
@@ -321,7 +330,6 @@ layui.config({
     /*获取密码框*/
     password = document.getElementById('password');
     textpassword=document.getElementById("login_showPwd");
-
     /*点击评论提交判断是否是用户，不是用户则弹出框*/
     ask.onclick=function(){
         if(${user==null}){
@@ -339,7 +347,6 @@ layui.config({
             }
         }
     };
-
     //判断用户名和密码
     submit.onclick=function(){
         $.ajax({
@@ -396,36 +403,35 @@ layui.config({
             });
         }
     }
-
 </script>
 
 <script>
-  /*加入院校收藏夹*/
-  function addCollector(directionId){
-      if(${user==null}){
-          mask.style.display="block";
-          modalDialogcontent.style.display="block";
-      }else{
-          $.ajax({
-              url:'/school/addDController',//处理数据的地址
-              type:'post',//数据提交形式
-              data:{'directionId':directionId},//需要提交的数据
-              dataType: "json",
-              success:function(d){//数据返回成功的执行放大
-                  var res = d.res;
-                  var praiseCount = d.praiseCount;
-                  if(res=='ok'){//成功加入收藏夹
-                      console.log("加入成功！")
-                      javascript:$('body').colector({type:'success'});
-                  }
-                  if(res=='already'){//已经加入了
-                      console.log("已经加了!")
-                      javascript:$('body').alreadycolector({type:'success'});
-                  }
-              },
-          });
-      }
-  }
+    /*加入院校收藏夹*/
+    function addCollector(directionId){
+        if(${user==null}){
+            mask.style.display="block";
+            modalDialogcontent.style.display="block";
+        }else{
+            $.ajax({
+                url:'/school/addDController',//处理数据的地址
+                type:'post',//数据提交形式
+                data:{'directionId':directionId},//需要提交的数据
+                dataType: "json",
+                success:function(d){//数据返回成功的执行放大
+                    var res = d.res;
+                    var praiseCount = d.praiseCount;
+                    if(res=='ok'){//成功加入收藏夹
+                        console.log("加入成功！")
+                        javascript:$('body').colector({type:'success'});
+                    }
+                    if(res=='already'){//已经加入了
+                        console.log("已经加了!")
+                        javascript:$('body').alreadycolector({type:'success'});
+                    }
+                },
+            });
+        }
+    }
 </script>
 
 <script charset="UTF-8" type="text/javascript"  src="/js/school/dialog.js"></script>
