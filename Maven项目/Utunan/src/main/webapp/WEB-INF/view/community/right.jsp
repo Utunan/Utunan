@@ -11,8 +11,14 @@
             <a href="javascript:void(0);" id="question" target="_blank" class="fly-zanzhu" style="background-color: #393D49;">发表提问</a>
         </div>
     </div>
-
-    <dl class="fly-panel fly-list-one">
+    <c:choose>
+        <c:when test="${not empty user}">
+            <dl class="fly-panel fly-list-one" style="display: block">
+        </c:when>
+        <c:otherwise>
+            <dl class="fly-panel fly-list-one" style="display: none">
+        </c:otherwise>
+    </c:choose>
         <!--选出4个相似度最高的问题-->
         <dt class="fly-panel-title">相似问答推荐</dt>
         <c:forEach items="${quizListRecommand}" var="q">
