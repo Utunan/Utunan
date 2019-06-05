@@ -38,25 +38,26 @@ public class SchoolLogController {
 		String pathname = request.getParameter("pathname");
 
 		String u = new StringBuffer(pathname).reverse().toString();
-		String directionId = u.substring(0, u.indexOf("/"));
+		String d = u.substring(0, u.indexOf("/"));
+		String directionId = new StringBuffer(d).reverse().toString();
 
-		DirectionCollector directionCollector = schoolLogService.findGreatByUserAndDirection(Long.parseLong(userId), Long.parseLong(directionId));
-		String isGreat;
-		if (directionCollector == null){
-			isGreat = "0";
-		}else {
-			isGreat = "1";
-		}
+//		DirectionCollector directionCollector = schoolLogService.findGreatByUserAndDirection(Long.parseLong(userId), Long.parseLong(directionId));
+//		String isGreat;
+//		if (directionCollector == null){
+//			isGreat = "0";
+//		}else {
+//			isGreat = "1";
+//		}
+//
+//		DirectionComment directionComment = schoolLogService.findCommentByUserAndDirection(Long.parseLong(userId), Long.parseLong(directionId));
+//		String isComment;
+//		if (directionComment == null){
+//			isComment = "0";
+//		}else {
+//			isComment = "1";
+//		}
 
-		DirectionComment directionComment = schoolLogService.findCommentByUserAndDirection(Long.parseLong(userId), Long.parseLong(directionId));
-		String isComment;
-		if (directionComment == null){
-			isComment = "0";
-		}else {
-			isComment = "1";
-		}
-
-		System.out.println("userId:"+ userId + ' ' + "directionId:"+ directionId + ' '+ "time:" + time + ' ' + "isGreat:" + isGreat + ' ' + "isComment:" + isComment);
+		System.out.println("userId:"+ userId + ' ' + "directionId:"+ directionId + ' '+ "time:" + time);
 
 		FileWriter fw = null;
 		try {
@@ -67,7 +68,7 @@ public class SchoolLogController {
 			e.printStackTrace();
 		}
 		PrintWriter pw = new PrintWriter(fw);
-		pw.println(userId + ' ' + directionId + ' '+ time + ' ' + isGreat + ' ' + isComment);
+		pw.println(userId + ' ' + directionId + ' '+ time);
 		pw.flush();
 		try {
 			fw.flush();
