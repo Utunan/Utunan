@@ -87,101 +87,9 @@
             </div>
         </div>
     </div>
-    <%--<div class="schoolsearch">--%>
-        <%--<div class="wrapper">--%>
-            <%--<h2>[优院校]</h2>--%>
-            <%--<form method="GET" action="">--%>
-                    <%--<span>院校地区:--%>
-                        <%--<select name="schoolProvince">--%>
-                            <%--<option value="None">请选择省份</option>--%>
-                            <%--<option value="北京">--%>
-                                <%--北京</option>--%>
-                            <%--<option value="天津">--%>
-                                <%--天津</option>--%>
-                            <%--<option value="上海">--%>
-                                <%--上海</option>--%>
-                            <%--<option value="重庆">--%>
-                                <%--重庆 </option>--%>
-                            <%--<option value="河北">--%>
-                                <%--河北 </option>--%>
-                            <%--<option value="山西">--%>
-                                <%--山西 </option>--%>
-                            <%--<option value="辽宁">--%>
-                                <%--辽宁 </option>--%>
-                            <%--<option value="吉林">--%>
-                                <%--吉林 </option>--%>
-                            <%--<option value="黑龙江">--%>
-                                <%--黑龙江</option>--%>
-                            <%--<option value="江苏">--%>
-                                <%--江苏 </option>--%>
-                            <%--<option value="浙江">--%>
-                                <%--浙江 </option>--%>
-                            <%--<option value="安徽">--%>
-                                <%--安徽 </option>--%>
-                            <%--<option value="福建">--%>
-                                <%--福建 </option>--%>
-                            <%--<option value="江西">--%>
-                                <%--江西 </option>--%>
-                            <%--<option value="山东">--%>
-                                <%--山东 </option>--%>
-                            <%--<option value="河南">--%>
-                                <%--河南 </option>--%>
-                            <%--<option value="湖北">--%>
-                                <%--湖北 </option>--%>
-                            <%--<option value="湖南">--%>
-                                <%--湖南 </option>--%>
-                            <%--<option value="广东">--%>
-                                <%--广东 </option>--%>
-                            <%--<option value="海南">--%>
-                                <%--海南 </option>--%>
-                            <%--<option value="四川">--%>
-                                <%--四川 </option>--%>
-                            <%--<option value="贵州">--%>
-                                <%--贵州 </option>--%>
-                            <%--<option value="云南">--%>
-                                <%--云南 </option>--%>
-                            <%--<option value="陕西">--%>
-                                <%--陕西 </option>--%>
-                            <%--<option value="甘肃">--%>
-                                <%--甘肃 </option>--%>
-                            <%--<option value="青海">--%>
-                                <%--青海 </option>--%>
-                            <%--<option value="台湾">--%>
-                                <%--台湾 </option>--%>
-                            <%--<option value="广西">--%>
-                                <%--广西</option>--%>
-                            <%--<option value="内蒙古">--%>
-                                <%--内蒙古</option>--%>
-                            <%--<option value="西藏">--%>
-                                <%--西藏</option>--%>
-                            <%--<option value="宁夏">--%>
-                                <%--宁夏 </option>--%>
-                            <%--<option value="新疆">--%>
-                                <%--新疆</option>--%>
-                            <%--<option value="香港">--%>
-                                <%--香港</option>--%>
-                            <%--<option value="澳门">--%>
-                                <%--澳门</option>--%>
-                        <%--</select>--%>
-                    <%--</span>--%>
-                <%--<span>院校类别:--%>
-                        <%--<select name="schoolType">--%>
-                            <%--<option value="None">院校类型</option>--%>
-                            <%--<option value="985">985院校</option>--%>
-                            <%--<option value="211">211院校</option>--%>
-                            <%--<option value="zizhuhuaxian">自主划线院校</option>--%>
-                        <%--</select>--%>
-                    <%--</span>--%>
-                <%--<span>院校名称: <input name="schoolName" type="text"> </span>--%>
-                <%--<span>研究方向: <input name="schoolName" type="text"> </span>--%>
-                <%--<p style="color:#fff;font-weight:900;font-size: 18px;">112所高校研招信息全部收入囊中，提供多种检索方式。时光宝贵，我们帮助您更快、更精确的找到您理想高校。</p>--%>
-            <%--</form>--%>
-            <%--<a href="/school/displaySchool"class="allschoolinfo" >更详细搜索 GO！</a>--%>
-        <%--</div>--%>
-    <%--</div>--%>
     <div class="community">
         <div class="wrapper">
-            <div class="commtop">
+            <div class="commtop" style="margin-top: 100px">
                 <img src="/images/homepage/community.png">
                 <h4>[优问答]</h4>
             </div>
@@ -212,7 +120,7 @@
         </div>
     </div>
     <div class="file">
-        <div class="wrapper">
+        <div class="wrapper" style="margin-top: 50px">
             <h2>[优共享]</h2>
             <form method="GET" action="">
                 <p style="color:#fff;font-weight:900;font-size: 18px;">是否还在为目标院校资料太少而烦恼？来优共享寻找相关资源！上传你手中的资源，在分享互助中打赢考研这场信息战！</p>

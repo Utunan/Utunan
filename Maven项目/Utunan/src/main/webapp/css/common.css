@@ -22,7 +22,9 @@ a{
     min-width: 960px;
     margin: 0 auto;
 }
-
+.commtop{
+    margin-top: 70px;
+}
 .header {
     width: 100%;
     float: left;

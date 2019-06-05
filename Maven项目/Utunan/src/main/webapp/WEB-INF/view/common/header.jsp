@@ -85,10 +85,10 @@
         </div>
         <nav class="banner">
             <li>
-                <a href="/school/displaySchool">优院校</a>
+                <a href="/homepage">首 页</a>
             </li>
             <li>
-                <a href="/searchquestion">优题库</a>
+                <a href="/school/displaySchool">优院校</a>
             </li>
             <li>
                 <a href="/quizs/rt/1">优问答</a>
