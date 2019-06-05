@@ -98,7 +98,8 @@ public class QuizDetailController {
             //产生推荐列表
             String path = request.getSession().getServletContext().getRealPath("/");
             String subPath=path.substring(0,path.indexOf("Utunan")+6)+"\\";
-            List itemList= PythonCaller.quizRecommend(subPath+"src/main/data/quiz.txt",subPath+"src\\main\\python\\QuizRecommond.py",userId);
+            List itemList= PythonCaller.quizRecommend(subPath+"Maven项目\\Utunan\\src\\main\\data\\quiz.txt",subPath+"Maven项目\\Utunan\\src\\main\\python\\QuizRecommond.py",userId);
+            System.out.println(subPath+"Maven项目\\Utunan\\src\\main\\data\\quiz.txt");
             for(int i=0;i<itemList.size();i++){
                 Quiz quizRecomm =this.quizService.findQuizById(Long.parseLong(itemList.get(i).toString()));
                 quizListRecommand.add(quizRecomm);

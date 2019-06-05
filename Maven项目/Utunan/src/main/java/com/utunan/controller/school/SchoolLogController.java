@@ -57,7 +57,7 @@ public class SchoolLogController {
 //			isComment = "1";
 //		}
 
-		System.out.println("userId:"+ userId + ' ' + "directionId:"+ directionId + ' '+ "time:" + time);
+//		System.out.println("userId:"+ userId + ' ' + "directionId:"+ directionId + ' '+ "time:" + time);
 
 		FileWriter fw = null;
 		try {

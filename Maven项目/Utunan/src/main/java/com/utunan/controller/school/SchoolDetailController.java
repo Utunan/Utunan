@@ -1,5 +1,6 @@
 package com.utunan.controller.school;
 
+import com.utunan.pojo.base.school.Direction;
 import com.utunan.pojo.base.school.DirectionCommentGreat;
 import com.utunan.pojo.base.share.File;
 import com.utunan.pojo.base.user.User;
@@ -12,6 +13,7 @@ import com.utunan.service.school.PublishDirectionService;
 import com.utunan.service.school.SchoolDetailFileService;
 import com.utunan.service.user.PublishDirectionCollectorService;
 import com.utunan.service.user.UserService;
+import com.utunan.util.PythonCaller;
 import com.utunan.util.SchoolOther;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -84,10 +87,23 @@ public class SchoolDetailController {
         //查找该学校下载量最多的前九的文件
         List<File> top9file = this.schoolDetailFileService.findTop9SchoolFile(schoolName);
 
+        //问题推荐
+        List schoolListRecommand= new ArrayList();
+
         //获取用户的点赞评论列表
         Long userId = null;
         if(user!=null){
             userId=user.getUserId();
+            //产生推荐列表
+            String path = request.getSession().getServletContext().getRealPath("/");
+            String subPath=path.substring(0,path.indexOf("Utunan")+6)+"\\";
+            List itemList= PythonCaller.quizRecommend(subPath+"Maven项目\\Utunan\\src\\main\\data\\school.txt",subPath+"Maven项目\\Utunan\\src\\main\\python\\schoolRecommend.py",userId);
+
+            for(int i=0;i<itemList.size();i++){
+                Direction directionRecom = this.directionService.findDirectionByDirectionId(Long.parseLong(itemList.get(i).toString()));
+                schoolListRecommand.add(directionRecom);
+            }
+
         }
         List<Long> directionCommentGreatList = this.directionCommentGreatService.findfindDCGreatList(userId);
     
@@ -99,6 +115,7 @@ public class SchoolDetailController {
         request.setAttribute("AGfile", AGfile);
         request.setAttribute("year", year);
         request.setAttribute("top9file", top9file);
+        request.setAttribute("schoolListRecommand",schoolListRecommand);
         request.setAttribute("user", user);
         request.setAttribute("directionCommentGreatList", directionCommentGreatList);
 

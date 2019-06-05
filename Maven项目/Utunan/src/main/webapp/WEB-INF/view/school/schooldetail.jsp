@@ -238,10 +238,9 @@
         <c:when test="${not empty user}">
           <dl class="fly-panel fly-list-one" id="schoolcommend" style="display: block">
             <dt class="fly-panel-title">相似院校推荐</dt>
-            <c:forEach items="${top9file}" var="file">
+            <c:forEach items="${schoolListRecommand}" var="direction" end="9">
               <dd>
-                <a href="/file/${file.fileId}">西门子大学——软件工程</a>
-                  <%--<span><i class="iconfont icon-pinglun1"></i>${file.downloadNumber}</span>--%>
+                <a href="/school/schooldetail/${direction.directionId}">${direction.schoolName}-${direction.directionName}</a>
               </dd>
             </c:forEach>
           </dl>
