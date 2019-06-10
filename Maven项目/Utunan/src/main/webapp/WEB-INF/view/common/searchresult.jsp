@@ -41,8 +41,6 @@
                         <span class="fly-mid"></span>
                         <a href="/search/file/1?wd=${keyWord}"class="${statelist[1]}">搜索文件</a>
                         <span class="fly-mid"></span>
-                        <a href="/searchquestion"class="${statelist[1]}">搜索题库</a>
-                        <span class="fly-mid"></span>
                         <a href="/school/displaySchool"class="${statelist[1]}">搜索院校</a>
                     </div>
                     <!--从这里开始是搜索用户结果-->

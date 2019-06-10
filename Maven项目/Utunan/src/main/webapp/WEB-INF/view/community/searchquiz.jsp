@@ -76,7 +76,7 @@
                                 </c:forEach>
                             </ul>
                             <!--分页-->
-                            <%@include file="page.jsp"%>
+                            <%@include file="../common/page.jsp"%>
                         </c:if>
                         <c:if test="${url=='/searchanswer'}">
                             <ul class="list">
@@ -106,7 +106,7 @@
                                 </c:forEach>
                             </ul>
                             <!--分页-->
-                            <%@include file="page.jsp"%>
+                            <%@include file="../common/page.jsp"%>
                         </c:if>
 
                  </div>
