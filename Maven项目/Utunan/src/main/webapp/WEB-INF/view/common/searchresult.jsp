@@ -33,13 +33,13 @@
             <div class="layui-col-md8">
                 <div class="fly-panel" style="margin-bottom: 0;">
                     <div class="fly-panel-title fly-filter">
-                        <a href="/search/user?wd=${keyWord}"class="${statelist[0]}">搜索用户</a>
-                        <span class="fly-mid"></span>
                         <a href="/search/quiz/1?wd=${keyWord}"class="${statelist[1]}">搜索提问</a>
                         <span class="fly-mid"></span>
                         <a href="/search/answer/1?wd=${keyWord}"class="${statelist[1]}">搜索回答</a>
                         <span class="fly-mid"></span>
                         <a href="/search/file/1?wd=${keyWord}"class="${statelist[1]}">搜索文件</a>
+                        <span class="fly-mid"></span>
+                        <a href="/search/user?wd=${keyWord}"class="${statelist[0]}">搜索用户</a>
                         <span class="fly-mid"></span>
                         <a href="/school/displaySchool"class="${statelist[1]}">搜索院校</a>
                     </div>
