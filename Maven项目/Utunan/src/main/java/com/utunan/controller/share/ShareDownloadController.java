@@ -141,7 +141,9 @@ public class ShareDownloadController {
 			e.printStackTrace();
 		}
 
-		java.io.File file1 = new java.io.File(path);
+		String p = request.getSession().getServletContext().getRealPath("/");
+		String subPath=p.substring(0,p.indexOf("target\\Utunan"))+path;
+		java.io.File file1 = new java.io.File(subPath);
 		response.reset();
 		response.setContentType("application/octet-stream");
 		response.setCharacterEncoding("utf-8");
