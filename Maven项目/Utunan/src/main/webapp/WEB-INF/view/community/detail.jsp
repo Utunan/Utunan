@@ -177,7 +177,7 @@
     
             <div class="fly-panel detail-box" id="flyReply">
                 <fieldset class="layui-elem-field layui-field-title" style="text-align: center;">
-                    <legend>回答</legend>
+                    <legend>评论</legend>
                 </fieldset>
                 <select class="sequencing-principle" name="" onchange="self.location.href=options[selectedIndex].value">
                     <option value="/quiz/${quiz.quizId}" ${timeselect}>按时间顺序</option>
@@ -314,7 +314,7 @@
                 <div class="write-answer" class="layui-form layui-form-pane">
                     <div class="write-answer-top">
                         <img src="/images/community/write.svg" width="25px" height="25px">
-                        <div class="write-answer-top">&nbsp;&nbsp;&nbsp;&nbsp;写回答</div>
+                        <div class="write-answer-top">&nbsp;&nbsp;&nbsp;&nbsp;写评论</div>
                     </div>
                     <!--富文本编辑器-->
                     <form name="fuform" onsubmit="return false" action="/answer?quizId=${quiz.quizId}" method="post">
