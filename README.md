@@ -30,17 +30,17 @@
 
 <p>
 <img src="./image/首页.png" width=715 height=1200 />
-<img src="./image/注册.jpg" width=850 height=383 />
+<img src="./image/注册.png" width=850 height=383 />
 <img src="./image/个人中心主页.png" width=900 height=640 />
 <img src="./image/搜索.png" width=900 height=543 />
 </p>
 <p>
 <img src="./image/优共享.png" width=808 height=900 />
-<img src="./image/优共享下载.png" width=1000 height=434 />
+<img src="./image/优共享下载.png" width=800 height=394 />
 </p>
 <p>
 <img src="./image/院校库.png" width=826 height=850 />
-<img src="./image/院校库详情.png" width=808 height=900 />
+<img src="./image/院校详情.png" width=808 height=900 />
 </p>
 <p>
 <img src="./image/优问答.png" width=826 height=850 />
