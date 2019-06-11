@@ -40,6 +40,6 @@ public class QuizLog {
     }
 
     public void logsth() {
-        log.info(userId+"  "+quizId+"  "+time);
+        log.info(userId+","+quizId+","+1);
     }
 }

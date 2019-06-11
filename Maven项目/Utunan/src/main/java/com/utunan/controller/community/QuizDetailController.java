@@ -101,6 +101,7 @@ public class QuizDetailController {
             List itemList= PythonCaller.quizRecommend(subPath+"src\\main\\data\\quiz.txt",subPath+"src\\main\\python\\QuizRecommond.py",userId);
             System.out.println(subPath);
             for(int i=0;i<itemList.size();i++){
+                System.out.println(itemList.get(i).toString());
                 Quiz quizRecomm =this.quizService.findQuizById(Long.parseLong(itemList.get(i).toString()));
                 quizListRecommand.add(quizRecomm);
             }
@@ -145,7 +146,6 @@ public class QuizDetailController {
         request.setAttribute("user", user);
         request.setAttribute("quizGreat", qg);
         request.setAttribute("answerGreatList", answerGreatList);
-        System.out.println("1");
         //添加 日志
         quizLogService.printLog(quizId,userId);
         return "community/detail";
