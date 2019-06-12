@@ -20,6 +20,7 @@
   <script src="/js/log_js/jquery.js"></script>
   <script src="/js/log_js/jquery.cookie.js"></script>
   <script src="/js/log_js/tongji.js"></script>
+  <script src="/dist/echarts.min.js"></script>
 </head>
 <body>
 <%@include file="../common/header.jsp"%>
@@ -126,8 +127,8 @@
             </li>
           </ul>
           <blockquote class="layui-elem-quote layui-quote-nm"><img src="/images/school/line.png" width="50px"><div class="til">院线走势</div></blockquote>
-          <div style="height: 300px;width: 600px;margin-left: 30px;margin-top: 25px;">
-            折线图
+          <div style="height: 300px;width: 600px;margin-left: 30px;margin-top: 25px;" id="main">
+
           </div>
           <blockquote class="layui-elem-quote layui-quote-nm"><img src="/images/school/hua.svg" width="40px"><div class="til">评论区&nbsp;&nbsp;&nbsp;&nbsp;</div></blockquote>
           <a href="javascript:void(0)" id="show" style="display:block;font-size: 16px;font-family: 微软雅黑;text-align:center;margin-top: 15px;" onclick="document.getElementById('test').style.height='auto';document.getElementById('hidden').style.display='block';document.getElementById('show').style.display='none';">展开</a>
@@ -261,6 +262,44 @@
 <script src="/layui/layui.js"></script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="/js/community/tag.js"></script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+        },
+        tooltip: {},
+        legend: {
+            data:['分数线']
+        },
+        xAxis: {
+            data: ["2011","2012","2013","2014","2015","2016","2017","2018","2019"]
+        },
+        yAxis: {
+            max: '350',
+            min: '250', // 最小值
+        },
+        series: [{
+            name: '分数线',
+            type: 'line',
+            itemStyle : {
+                normal : {
+                    color:'#8cd5c2', //改变折线点的颜色
+                    lineStyle:{
+                        color:'#8cd5c2' //改变折线颜色
+                    }
+                }
+            },
+            data: [325,325,320,320,320,310,320,310,310]
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
 <script>
     layui.cache.page = 'jie';
     layui.cache.user = {

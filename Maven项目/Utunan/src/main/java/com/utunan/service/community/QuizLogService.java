@@ -13,7 +13,6 @@ import java.util.Date;
  * @description: TODO
  * @date 2019/5/28 11:38
  */
-@Service("QuizLogService")
 public interface QuizLogService {
 
     void printLog(Long quizId, Long userId);

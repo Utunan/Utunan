@@ -6,20 +6,15 @@ import com.utunan.pojo.base.share.File;
 import com.utunan.pojo.base.user.User;
 import com.utunan.pojo.inherit.school.PublishDirection;
 import com.utunan.pojo.inherit.user.PublishDirectionCollector;
-import com.utunan.service.school.DirectionCommentGreatService;
-import com.utunan.service.school.PublishDirectionCommentService;
-import com.utunan.service.school.DirectionService;
-import com.utunan.service.school.PublishDirectionService;
-import com.utunan.service.school.SchoolDetailFileService;
+import com.utunan.service.school.*;
+import com.utunan.service.school.impl.ExcelOperateServiceImpl;
 import com.utunan.service.user.PublishDirectionCollectorService;
-import com.utunan.service.user.UserService;
 import com.utunan.util.PythonCaller;
 import com.utunan.util.SchoolOther;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +22,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.utunan.util.ExcelOperate.getData;
 
 /**
  * @author 王碧云
@@ -51,6 +48,8 @@ public class SchoolDetailController {
     private DirectionCommentGreatService directionCommentGreatService;
     @Autowired
     private PublishDirectionCollectorService publishDirectionCollectorService;
+    @Autowired
+    private ExcelOperateServiceImpl excelOperateService;
 
     /*
      * @author  王碧云
@@ -105,6 +104,30 @@ public class SchoolDetailController {
             }
 
         }
+
+//        //读取Excel数据
+//        String path = request.getSession().getServletContext().getRealPath("/");
+//        String subPath=path.substring(0,path.indexOf("target\\Utunan"));
+//        java.io.File file = new java.io.File(subPath+"src\\main\\data\\分数线.xlsx");
+//        String[][] result;
+//        result = excelOperateService.getData(file, 1);
+//
+//        int rowLength = result.length;
+//
+//        for(int i=0;i<rowLength;i++) {
+//
+//            for(int j=0;j<result[i].length;j++) {
+//
+//                System.out.print(result[i][j]+"\t\t");
+//
+//            }
+//
+//            System.out.println();
+//
+//        }
+
+
+
         List<Long> directionCommentGreatList = this.directionCommentGreatService.findfindDCGreatList(userId);
     
         //返回数据
