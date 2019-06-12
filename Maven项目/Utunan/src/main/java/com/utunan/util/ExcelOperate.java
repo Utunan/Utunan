@@ -35,6 +35,10 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  * @author 王云弟
@@ -44,7 +48,7 @@ import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 public class ExcelOperate {
     public static void main(String[] args) throws Exception {
 
-        File file = new File("/data/分数线.xls");
+        File file = new File("src\\main\\data\\分数线.xlsx");
 
         String[][] result = getData(file, 1);
 
@@ -95,21 +99,21 @@ public class ExcelOperate {
                 file));
         // 打开HSSFWorkbook
 
-        POIFSFileSystem fs = new POIFSFileSystem(in);
+        //POIFSFileSystem fs = new POIFSFileSystem(in);
 
-        HSSFWorkbook wb = new HSSFWorkbook(fs);
+        XSSFWorkbook wb = new XSSFWorkbook(in);
 
-        HSSFCell cell = null;
+        XSSFCell cell = null;
 
         for (int sheetIndex = 0; sheetIndex < wb.getNumberOfSheets(); sheetIndex++) {
 
-            HSSFSheet st = wb.getSheetAt(sheetIndex);
+            XSSFSheet st = wb.getSheetAt(sheetIndex);
 
             // 第一行为标题，不取
 
             for (int rowIndex = ignoreRows; rowIndex <= st.getLastRowNum(); rowIndex++) {
 
-                HSSFRow row = st.getRow(rowIndex);
+                XSSFRow row = st.getRow(rowIndex);
 
                 if (row == null) {
 

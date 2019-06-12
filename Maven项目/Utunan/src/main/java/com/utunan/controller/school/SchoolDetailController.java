@@ -105,27 +105,25 @@ public class SchoolDetailController {
 
         }
 
-//        //读取Excel数据
-//        String path = request.getSession().getServletContext().getRealPath("/");
-//        String subPath=path.substring(0,path.indexOf("target\\Utunan"));
-//        java.io.File file = new java.io.File(subPath+"src\\main\\data\\分数线.xlsx");
-//        String[][] result;
-//        result = excelOperateService.getData(file, 1);
-//
-//        int rowLength = result.length;
-//
-//        for(int i=0;i<rowLength;i++) {
-//
-//            for(int j=0;j<result[i].length;j++) {
-//
-//                System.out.print(result[i][j]+"\t\t");
-//
-//            }
-//
-//            System.out.println();
-//
-//        }
+        //读取Excel数据
+        String path = request.getSession().getServletContext().getRealPath("/");
+        String subPath=path.substring(0,path.indexOf("target\\Utunan"));
+        java.io.File file = new java.io.File(subPath+"src\\main\\data\\分数线.xlsx");
+        String[][] result;
+        result = excelOperateService.getData(file, 1);
 
+        int rowLength = result.length;
+        JSONObject js=new JSONObject();
+
+        for(int i=0;i<rowLength;i++) {
+
+            List<String> list=new ArrayList<>();
+            for(int j=1;j<result[i].length;j++) {
+                list.add(result[i][j]);
+            }
+            js.put(result[i][0],list);
+
+        }
 
 
         List<Long> directionCommentGreatList = this.directionCommentGreatService.findfindDCGreatList(userId);
@@ -141,6 +139,10 @@ public class SchoolDetailController {
         request.setAttribute("schoolListRecommand",schoolListRecommand);
         request.setAttribute("user", user);
         request.setAttribute("directionCommentGreatList", directionCommentGreatList);
+
+
+        //将分数线转化为json传送
+        request.setAttribute("schoolscore",js);
 
         return "/school/schooldetail";
     }
