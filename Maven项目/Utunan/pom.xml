@@ -27,7 +27,7 @@
         <servlet-api.version>3.0-alpha-1</servlet-api.version>
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         <mybatis-spring.version>1.3.2</mybatis-spring.version>
-        <log4j.version>2.11.1</log4j.version>
+        <log4j.version>2.15.0</log4j.version>
     </properties>
 
     <dependencies>
